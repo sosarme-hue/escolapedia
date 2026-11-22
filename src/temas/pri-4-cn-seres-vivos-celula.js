@@ -136,3 +136,89 @@ module.exports = {
   fuentes: [RD, wiki("Célula", "Célula"), wiki("Ser vivo", "Ser_vivo"), wiki("Robert Hooke", "Robert_Hooke")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer a los científicos que descubrieron la célula", "Hacerse una idea del tamaño de las células", "Reconocer microorganismos útiles y perjudiciales", "Descubrir seres vivos que viven en lugares extremos"],
+  lectura: { titulo: "El mundo en una gota", html: `<p>Era el primer día que la clase de Martín usaba el microscopio. La maestra, Rocío, había traído un bote con agua de la charca del parque.</p><p>—Pero si es agua normal —dijo Martín—. Un poco verde, nada más.</p><p>Rocío puso una gota en un cristal, la tapó con otro más fino y la colocó bajo el microscopio. Martín acercó el ojo y giró la ruedecita despacio.</p><p>De pronto, dio un salto hacia atrás.</p><p>—¡Hay bichos! ¡Se mueven!</p><p>Todos quisieron mirar. En la gota nadaban seres transparentes con forma de zapatilla, cosas verdes con forma de estrella y bolitas que giraban sin parar.</p><p>—Son seres vivos unicelulares —explicó Rocío—. Están formados por una sola célula, pero se alimentan, se mueven y se reproducen. Y hay miles en cada gota.</p><p>—¿Y yo también tengo células? —preguntó Lola.</p><p>—Millones de millones. Ahora mismo, mientras hablamos.</p><p>Esa tarde, Martín no quiso beber agua del grifo hasta que su madre le explicó que el agua de casa se limpia y se controla antes de llegar.</p><p>—Vale —dijo—. Pero la de la charca no me la bebo ni loco.</p>` },
+  tras: {
+    "La célula, el ladrillo de la vida": [
+      ["Los descubridores de la célula", `<p>Las células son tan pequeñas que nadie supo que existían hasta que se inventó el <b>microscopio</b>, hace unos 400 años.</p><ul><li>En <b>1665</b>, el científico inglés <b>Robert Hooke</b> observó una lámina finísima de <b>corcho</b> con un microscopio fabricado por él. Vio muchas cajitas vacías, como las celdas de un panal, y las llamó <mark>células</mark>, que significa «celdillas».</li><li>Pocos años después, el comerciante holandés <b>Anton van Leeuwenhoek</b>, que pulía lentes como afición, fabricó microscopios muy potentes. Miró una gota de agua de lluvia y descubrió que estaba llena de diminutos seres que se movían. Los llamó «animálculos». ¡Fue la primera persona en ver bacterias y otros microorganismos!</li><li>En el siglo XIX, los científicos comprendieron que <b>todos los seres vivos están formados por células</b> y que toda célula nace de otra célula.</li><li>El español <b>Santiago Ramón y Cajal</b> estudió las células del cerebro, las <b>neuronas</b>, y las dibujó con enorme detalle. Recibió el <b>Premio Nobel</b> de Medicina en 1906.</li></ul><p>Hoy existen microscopios electrónicos capaces de aumentar las imágenes cientos de miles de veces.</p>`,
+        H6.flujo("Descubrir", ["1665|Hooke", "1670s|Leeuwenhoek", "s. XIX|teoría", "1906|Cajal"], cAZ)],
+    ],
+    "Los cinco reinos": [
+      ["Los microorganismos", `<p>Los <b>microorganismos</b> o <b>microbios</b> son seres vivos tan pequeños que solo se ven con microscopio. Muchos son unicelulares: bacterias, algunos hongos como las levaduras, y protozoos.</p><p>Tienen mala fama, pero <mark>la mayoría son inofensivos o incluso muy útiles</mark>:</p><ul><li>Las <b>bacterias</b> del yogur convierten la leche en yogur; otras ayudan a hacer el queso.</li><li>La <b>levadura</b> hace que suba la masa del pan y del bizcocho.</li><li>En nuestro intestino viven millones de bacterias que nos ayudan a digerir los alimentos.</li><li>En el suelo, los microbios descomponen hojas y restos de seres vivos y los convierten en abono.</li><li>Algunos hongos sirven para fabricar medicinas, como la <b>penicilina</b>, descubierta por Alexander Fleming en 1928.</li></ul><p>Pero algunos microbios causan <b>enfermedades</b>, como ciertas infecciones de garganta, de oído o de estómago. Para protegernos:</p><ul><li>Lavarse las manos con agua y jabón.</li><li>Cubrirse la boca al toser o estornudar.</li><li>Vacunarse.</li><li>Lavar bien la fruta y conservar los alimentos en la nevera.</li></ul>`,
+        H6.dos("Microbios", ["ÚTILES", ["yogur", "pan", "intestino"], cVE], ["PERJUDICIALES", ["infecciones", "lavarse", "vacunas"], cRO]), ["P5hKe5P6d54", "Los microorganismos: virus, bacterias y hongos - Explicación para niños", "Smile and Learn - Español", 3843915]],
+    ],
+  },
+  final: [
+    ["¿Cómo de pequeña es una célula?", `<p>Las células son pequeñísimas. La mayoría mide entre una centésima y una décima de milímetro. Para medirlas se usa una unidad especial, la <b>micra</b>: la milésima parte de un milímetro.</p><p>Algunas comparaciones para imaginarlo:</p><ul><li>En el punto final de esta frase cabrían decenas de células humanas.</li><li>Una <b>bacteria</b> es todavía mucho más pequeña que una célula humana.</li><li>Nuestro cuerpo tiene unos <mark>30 billones de células</mark>. Si las contaras una por segundo, tardarías ¡casi un millón de años!</li></ul><p>Pero también hay células sorprendentemente grandes:</p><ul><li>La <b>yema de un huevo</b> de gallina sin fecundar es, en realidad, una sola célula muy grande, llena de alimento de reserva.</li><li>Algunas <b>neuronas</b> tienen prolongaciones que miden casi un metro, desde la espalda hasta los dedos de los pies.</li><li>Las fibras de algunas plantas, como el algodón, son células alargadas.</li></ul><p>Las células no paran de renovarse: cada día perdemos millones de células de la piel, que se sustituyen por otras nuevas. ¡Gran parte del polvo de una casa son restos de piel!</p>`,
+      L6.filas("Tamaños", [["micra", "milésima de mm", cAZ], ["tu cuerpo", "30 billones", cVE], ["yema", "una célula", cNA], ["neurona", "hasta 1 m", cRO]])],
+    ["Seres vivos extremos", `<p>Los seres vivos están en casi todas partes, incluso en lugares donde parecería imposible vivir. A los que viven en condiciones extremas se les llama <b>extremófilos</b>.</p><ul><li>En las <b>fuentes termales</b>, con agua casi hirviendo, viven bacterias que soportan más de 80 °C.</li><li>En los <b>hielos</b> de la Antártida hay algas y microbios que resisten el frío.</li><li>En las <b>profundidades del océano</b>, sin luz, viven seres junto a chimeneas volcánicas.</li><li>En España, el <b>río Tinto</b> (Huelva) tiene un agua rojiza y muy ácida, que quemaría la piel. Aun así, en él viven muchos microorganismos. Los científicos lo estudian porque se parece a las condiciones que podría haber en <b>Marte</b>.</li></ul><p>El campeón de la resistencia es el <mark>tardígrado</mark> u «osito de agua»: un animalillo de menos de un milímetro, con ocho patas, que vive en el musgo. Puede secarse por completo y volver a la vida años después al mojarse. Ha sobrevivido incluso a un viaje al espacio exterior.</p><p>Estos seres nos enseñan que la vida es muy resistente y nos ayudan a imaginar cómo podría ser la vida en otros planetas.</p>`,
+      H6.rueda("Extremófilos", "VIDA", [["calor", cRO], ["hielo", cAZ], ["ácido", cNA], ["tardígrado", cVE]])],
+    ["Somos un equipo de células", `<p>Cada una de tus células está viva y trabaja sin descanso, pero ninguna podría sobrevivir sola. Todas forman un <b>gran equipo</b>: unas consiguen el oxígeno, otras transportan el alimento, otras te defienden de los microbios y otras envían mensajes.</p><p>Para que este equipo funcione bien, las células necesitan:</p><ul><li><b>Alimentos variados</b>, que aportan la energía y los materiales para crecer y repararse.</li><li><b>Agua</b>: más de la mitad de tu cuerpo es agua.</li><li><b>Oxígeno</b>, que llega gracias a la respiración.</li><li><b>Descanso</b>: mientras dormimos, muchas células se reparan.</li><li><b>Ejercicio</b>, que fortalece los músculos y el corazón.</li></ul><p>Algunas cosas, en cambio, <mark>dañan las células</mark>: el humo del tabaco, el exceso de sol sin protección o el alcohol.</p><p>Cuidar tu cuerpo es, en realidad, cuidar a los billones de células que trabajan para ti cada segundo.</p>`,
+      H6.flujo("Las células necesitan", ["comida|variada", "agua|y oxígeno", "descanso|dormir", "ejercicio|moverse"], cVE)],
+  ],
+  ejemplos: [
+    ["¿Por qué Hooke llamó «células» a lo que vio en el corcho?", ["Vio cajitas vacías.", "Se parecían a las celdas de un panal."], "Porque «célula» significa «celdilla»."],
+    ["El pan sube cuando se añade levadura. ¿Qué es la levadura?", ["Es un hongo.", "Es unicelular y microscópica."], "Un microorganismo útil."],
+  ],
+  errores: ["Pensar que todos los microbios son malos.", "Creer que todas las células son microscópicas y del mismo tamaño."],
+  ejercicios: [
+    ["b", "¿Quién dio nombre a las células?", "Robert Hooke, en 1665."],
+    ["b", "¿Qué científico español estudió las neuronas?", "Santiago Ramón y Cajal."],
+    ["b", "Escribe dos microorganismos útiles.", "Las bacterias del yogur y la levadura."],
+    ["b", "¿Cuántas células tiene más o menos el cuerpo humano?", "Unos 30 billones."],
+    ["b", "¿Qué es un tardígrado?", "Un animal diminuto muy resistente."],
+    ["m", "¿Qué descubrió Leeuwenhoek?", "Microorganismos en una gota de agua."],
+    ["m", "Escribe tres formas de protegerte de los microbios que causan enfermedades.", "Lavarse las manos, taparse al toser, vacunarse."],
+    ["m", "¿Por qué los científicos estudian el río Tinto?", "Porque sus condiciones se parecen a las de Marte."],
+    ["m", "¿Qué es una micra?", "La milésima parte de un milímetro."],
+    ["m", "¿Qué necesitan tus células para funcionar bien?", "Alimento, agua, oxígeno, descanso y ejercicio."],
+    ["a", "Observa con lupa o microscopio una gota de agua de un charco y dibuja lo que veas.", "Respuesta abierta."],
+    ["a", "Haz un experimento: masa con y sin levadura. ¿Qué observas?", "La masa con levadura sube."],
+    ["a", "Investiga quién fue Alexander Fleming y qué descubrió.", "La penicilina, en 1928."],
+    ["a", "Escribe un cuento sobre la vida de una célula de tu cuerpo.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Robert Hooke observó…", ["corcho", "agua de charca", "sangre"], "Historia."],
+    ["Ramón y Cajal estudió las…", ["neuronas", "bacterias", "plantas"], "Historia."],
+    ["La levadura es un…", ["hongo", "animal", "virus"], "Microorganismos."],
+    ["La yema de huevo sin fecundar es…", ["una sola célula", "un tejido", "un órgano"], "Tamaño."],
+    ["El tardígrado puede…", ["revivir después de secarse", "volar", "vivir solo un día"], "Extremófilos."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué vio Martín en la gota de agua?", ["seres unicelulares que se movían", "nada", "peces"], "Lectura."],
+    ["La penicilina se obtiene de un…", ["hongo", "árbol", "pez"], "Microorganismos."],
+  ],
+  tarjetas: [
+    ["Descubridores", "Hooke 1665 (corcho), Leeuwenhoek (animálculos), Cajal (neuronas, Nobel 1906)."],
+    ["Microorganismos", "Yogur, pan, intestino, suelo, penicilina; algunos causan enfermedades."],
+    ["Tamaños", "Micra; 30 billones de células; yema y neuronas largas."],
+    ["Extremos y cuidados", "Río Tinto, tardígrado; comer, beber, dormir, moverse."],
+  ],
+  glosario: [
+    ["Célula", "Unidad más pequeña de un ser vivo."],
+    ["Microscopio", "Aparato con lentes que aumenta las imágenes."],
+    ["Microorganismo", "Ser vivo que solo se ve con microscopio."],
+    ["Bacteria", "Ser unicelular muy simple, sin núcleo."],
+    ["Levadura", "Hongo unicelular que hace subir el pan."],
+    ["Neurona", "Célula del sistema nervioso."],
+    ["Micra", "Milésima parte de un milímetro."],
+    ["Unicelular", "Formado por una sola célula."],
+    ["Pluricelular", "Formado por muchas células."],
+    ["Penicilina", "Medicina que se obtiene de un hongo."],
+    ["Extremófilo", "Ser vivo que vive en condiciones extremas."],
+    ["Tardígrado", "Animal diminuto y muy resistente."],
+  ],
+  situacion: {
+    titulo: "Laboratorio de microbios",
+    reto: "La clase investiga los microorganismos útiles con experimentos sencillos y seguros.",
+    pasos: ["Preparad dos masas de pan, una con levadura y otra sin ella, y comparadlas.", "Observad con lupa el moho de un trozo de pan en un bote cerrado (sin abrirlo).", "Buscad en casa alimentos hechos con microorganismos.", "Presentad un póster con fotos, dibujos y conclusiones."],
+    producto: "Un póster científico sobre microorganismos útiles.",
+    evaluacion: ["Explica qué son las células y los microorganismos.", "Sigue normas de seguridad e higiene.", "Observa y anota con precisión.", "Comunica conclusiones."],
+  },
+});

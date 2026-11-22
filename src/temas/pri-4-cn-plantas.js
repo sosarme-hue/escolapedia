@@ -139,3 +139,91 @@ module.exports = {
   fuentes: [RD, wiki("Fotosíntesis", "Fotosíntesis"), wiki("Flor", "Flor"), wiki("Germinación", "Germinación")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Valorar la importancia de las plantas para el oxígeno del planeta", "Conocer plantas que se mueven y plantas carnívoras", "Explicar cómo se dispersan las semillas", "Reconocer las partes de las plantas que comemos y algunos árboles singulares"],
+  lectura: { titulo: "La judía de Aitana", html: `<p>Un lunes, la maestra repartió a cada alumno un vaso de plástico, un poco de algodón y una <b>judía</b> seca.</p><p>—Vamos a ver nacer una planta —dijo.</p><p>Aitana mojó el algodón, colocó la judía pegada a la pared del vaso para poder verla y lo dejó junto a la ventana. Cada día anotaba en su cuaderno lo que veía.</p><p><i>Martes: no pasa nada.</i></p><p><i>Jueves: la judía se ha hinchado y la piel se ha arrugado.</i></p><p><i>Sábado: ¡ha salido una raicilla blanca que va hacia abajo!</i></p><p><i>Lunes: ha salido un tallito que va hacia arriba, hacia la luz. Tiene dos hojitas dobladas.</i></p><p>Su compañero Bruno había dejado su vaso dentro del armario, a oscuras. Su planta también había nacido, pero estaba pálida, amarillenta y muy larga, estirándose como si buscara algo.</p><p>—Busca la luz —explicó la maestra—. Sin luz no puede hacer la fotosíntesis y no fabrica alimento.</p><p>Bruno sacó su vaso del armario y lo puso al lado del de Aitana. A los pocos días, sus hojas empezaron a ponerse verdes.</p><p>—¡Se ha curado! —gritó.</p><p>—Solo necesitaba sol —sonrió Aitana—. Como nosotros en invierno.</p>` },
+  tras: {
+    "La fotosíntesis": [
+      ["Las plantas nos dan el oxígeno", `<p>Durante la fotosíntesis, las plantas toman <b>dióxido de carbono</b> del aire y expulsan <mark>oxígeno</mark>, el gas que necesitamos para respirar. Sin plantas, los animales y las personas no podríamos vivir.</p><p>¿Quién produce más oxígeno?</p><ul><li>Los <b>bosques</b> y las selvas, como la del Amazonas, con millones de árboles.</li><li>Las <b>algas</b> y el <b>fitoplancton</b>: seres diminutos que flotan en el mar y hacen la fotosíntesis. Producen aproximadamente la <b>mitad</b> del oxígeno del planeta.</li></ul><p>Además, las plantas:</p><ul><li><b>Limpian el aire</b>: retienen polvo y absorben dióxido de carbono, uno de los gases que provocan el cambio climático.</li><li><b>Sujetan el suelo</b> con sus raíces y evitan que la lluvia se lo lleve (la erosión).</li><li><b>Dan sombra y frescor</b>: en verano, una calle con árboles puede estar varios grados más fresca que una sin ellos.</li><li>Sirven de <b>refugio y alimento</b> a muchos animales.</li></ul><p>Por eso es tan grave la <b>deforestación</b>, la tala o quema de bosques, y tan importante plantar árboles y apagar bien las hogueras en el campo.</p>`,
+        H6.dos("Fotosíntesis", ["ENTRA", ["dióxido de carbono", "agua", "luz"], cAZ], ["SALE", ["oxígeno", "alimento", "para todos"], cVE])],
+    ],
+    "La relación de las plantas": [
+      ["Plantas que se mueven y cazan", `<p>Algunas plantas tienen movimientos tan rápidos o tan curiosos que parecen animales:</p><ul><li>La <b>mimosa púdica</b> o «sensitiva» cierra sus hojas en pocos segundos cuando la tocas. Así se protege de los animales que quieren comérsela.</li><li>Las plantas jóvenes de <b>girasol</b> giran su flor siguiendo al Sol de este a oeste durante el día.</li><li>Las <b>enredaderas</b>, como la hiedra o la parra, enrollan sus zarcillos alrededor de lo que tocan para trepar.</li></ul><p>Las más sorprendentes son las <mark>plantas carnívoras</mark>. Viven en suelos pobres, como pantanos y turberas, y completan su alimentación atrapando insectos:</p><ul><li>La <b>atrapamoscas</b> o dionea tiene hojas como mandíbulas con pelitos. Si un insecto los toca dos veces, la hoja se cierra en menos de un segundo.</li><li>La <b>drosera</b> o «rocío del sol» tiene pelos con gotitas pegajosas. En España crece en zonas húmedas de montaña.</li><li>La <b>grasilla</b>, también presente en España, tiene hojas pegajosas como papel atrapamoscas.</li></ul><p>Ojo: aunque cacen insectos, las plantas carnívoras también hacen la fotosíntesis. Los insectos les aportan sustancias que no encuentran en el suelo.</p>`,
+        H6.rueda("Plantas curiosas", "MOVIMIENTO", [["mimosa", cVE], ["girasol", cNA], ["dionea", cRO], ["drosera", cMO]])],
+    ],
+    "Semillas, frutos y germinación": [
+      ["Cómo viajan las semillas", `<p>Si todas las semillas cayeran justo debajo de la planta madre, las nuevas plantas no tendrían espacio ni luz. Por eso las plantas tienen trucos para que sus semillas <b>viajen lejos</b>. Es la <mark>dispersión</mark> de las semillas.</p><ul><li><b>Por el viento</b>: las semillas del <b>diente de león</b> tienen pelitos como un paracaídas; las del <b>arce</b> tienen alas y bajan girando como un helicóptero.</li><li><b>Por los animales</b>: los pájaros comen frutos carnosos, como las cerezas o las moras, y expulsan las semillas lejos con sus excrementos. Las ardillas y los arrendajos entierran bellotas y olvidan algunas, que germinan.</li><li><b>Enganchadas</b>: los frutos del <b>cardo</b> y la <b>bardana</b> tienen ganchitos que se pegan al pelo de los animales o a los calcetines. Un ingeniero suizo se fijó en ellos para inventar el <b>velcro</b>.</li><li><b>Por el agua</b>: el <b>coco</b> flota y puede cruzar el mar hasta otra isla.</li><li><b>Por explosión</b>: el <b>pepinillo del diablo</b>, una planta común en los campos de España, dispara sus semillas con un chorro cuando su fruto está maduro.</li></ul>`,
+        L6.filas("Viajes", [["viento", "diente de león", cAZ], ["animales", "cerezas, bellotas", cNA], ["agua", "coco", cVE], ["explosión", "pepinillo", cRO]])],
+    ],
+  },
+  final: [
+    ["Plantas que comemos", `<p>Cada día comemos distintas <b>partes de las plantas</b>, aunque a veces no nos demos cuenta:</p><ul><li><b>Raíces</b>: la zanahoria, el rábano, la remolacha y el nabo.</li><li><b>Tallos</b>: el espárrago y el apio. La <b>patata</b> es un tallo subterráneo engordado, un tubérculo, y la <b>cebolla</b> y el ajo son bulbos.</li><li><b>Hojas</b>: la lechuga, las espinacas, la acelga y la col.</li><li><b>Flores</b>: la coliflor, el brócoli y la alcachofa son flores que todavía no se han abierto.</li><li><b>Frutos</b>: la manzana, la naranja, el tomate, el pimiento, el calabacín o el pepino. ¡Sí, el tomate es un fruto, porque tiene semillas dentro!</li><li><b>Semillas</b>: las lentejas, los garbanzos, las judías, el arroz, el trigo con el que se hace el pan y el maíz.</li></ul><p>Los alimentos de origen vegetal aportan <b>vitaminas</b>, <b>fibra</b> y <b>energía</b>. Los expertos en nutrición recomiendan comer al menos <mark>cinco raciones de frutas y verduras al día</mark>.</p><p>Una curiosidad: el <b>chocolate</b> viene de las semillas del cacao, y el azúcar, del tallo de la caña de azúcar o de la raíz de la remolacha azucarera.</p>`,
+      L6.filas("¿Qué parte comemos?", [["raíz", "zanahoria", cNA], ["tallo", "espárrago, patata", cVE], ["flor", "alcachofa", cMO], ["semilla", "lenteja", cAZ]])],
+    ["Árboles singulares", `<p>Algunos árboles son tan viejos, grandes o raros que se protegen como monumentos naturales:</p><ul><li>El <b>Drago Milenario</b> de Icod de los Vinos, en Tenerife, es un árbol con forma de paraguas gigante. Es el drago más famoso del mundo y tiene varios siglos de vida. Su savia se vuelve roja al secarse y se llamaba «sangre de drago».</li><li>En las tierras del Maestrazgo, entre Castellón, Tarragona y Teruel, hay <b>olivos milenarios</b> con troncos retorcidos que fueron plantados hace muchísimos siglos.</li><li>El <b>pinsapo</b> es un abeto que solo crece de forma natural en unas pocas sierras de Andalucía y del norte de Marruecos. Es una especie protegida.</li><li>El <b>tejo</b> es un árbol de montaña que puede vivir más de mil años.</li></ul><p>En el mundo, las <b>secuoyas</b> de California son los árboles más altos, con más de 100 metros, y algunos <b>pinos</b> de las montañas de Estados Unidos tienen más de <mark>4 500 años</mark>: ya existían cuando se construyeron las pirámides de Egipto.</p><p>¿Sabes cómo se calcula la edad de un árbol cortado? Contando los <b>anillos</b> de su tronco: cada anillo corresponde a un año de crecimiento.</p>`,
+      L6.filas("Árboles", [["drago", "Tenerife", cVE], ["olivos", "milenarios", cNA], ["pinsapo", "Andalucía", cAZ], ["secuoya", "más de 100 m", cRO]])],
+  ],
+  ejemplos: [
+    ["Una planta crece dentro de un armario y está pálida y alargada. ¿Por qué?", ["Sin luz no hay fotosíntesis.", "Se estira buscando la luz."], "Le falta luz para fabricar alimento y clorofila."],
+    ["¿Qué parte de la planta es la patata?", ["Crece bajo tierra pero tiene yemas.", "Guarda alimento."], "Un tallo subterráneo, un tubérculo."],
+  ],
+  errores: ["Pensar que la patata es una raíz.", "Creer que las plantas carnívoras no hacen la fotosíntesis."],
+  ejercicios: [
+    ["b", "¿Qué gas expulsan las plantas al hacer la fotosíntesis?", "Oxígeno."],
+    ["b", "Nombra una planta carnívora.", "La dionea o la drosera."],
+    ["b", "¿Cómo viajan las semillas del diente de león?", "Con el viento."],
+    ["b", "¿Qué parte de la planta es la lechuga?", "Las hojas."],
+    ["b", "¿Dónde está el Drago Milenario?", "En Icod de los Vinos, Tenerife."],
+    ["m", "¿Quién produce la mitad del oxígeno del planeta?", "Las algas y el fitoplancton del mar."],
+    ["m", "¿Por qué se cierra la mimosa púdica al tocarla?", "Para protegerse de los animales."],
+    ["m", "Explica cómo ayudan los pájaros a dispersar las semillas.", "Comen frutos y expulsan las semillas lejos."],
+    ["m", "Clasifica: zanahoria, alcachofa, garbanzo, tomate.", "Raíz, flor, semilla, fruto."],
+    ["m", "¿Cómo se sabe la edad de un árbol cortado?", "Contando los anillos del tronco."],
+    ["a", "Germina una judía en un vaso y anota lo que pasa cada día.", "Respuesta abierta."],
+    ["a", "Recoge semillas en el parque y clasifícalas según cómo viajan.", "Respuesta abierta."],
+    ["a", "Investiga un árbol singular de tu comunidad autónoma.", "Respuesta abierta."],
+    ["a", "Diseña un menú de un día con alimentos de todas las partes de la planta.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El fitoplancton vive en…", ["el mar", "el desierto", "las cuevas"], "Oxígeno."],
+    ["La dionea atrapa…", ["insectos", "piedras", "agua"], "Carnívoras."],
+    ["El velcro se inspiró en…", ["los frutos con ganchitos", "las alas del arce", "el coco"], "Semillas."],
+    ["El brócoli es…", ["una flor", "una raíz", "un fruto"], "Plantas que comemos."],
+    ["El pinsapo crece en…", ["Andalucía", "Canarias", "Galicia"], "Árboles."],
+  ],
+  examen: [
+    ["En la lectura, ¿por qué la planta de Bruno estaba pálida?", ["porque estaba a oscuras", "porque no tenía agua", "porque era vieja"], "Lectura."],
+    ["El tomate es un…", ["fruto", "tallo", "hoja"], "Plantas que comemos."],
+  ],
+  tarjetas: [
+    ["Oxígeno", "La fotosíntesis da oxígeno; bosques y fitoplancton; sujetan el suelo."],
+    ["Movimiento", "Mimosa, girasol, enredaderas; carnívoras: dionea, drosera, grasilla."],
+    ["Dispersión", "Viento, animales, ganchitos (velcro), agua, explosión."],
+    ["Comemos y admiramos", "Raíz, tallo, hoja, flor, fruto y semilla; drago, olivos, pinsapo."],
+  ],
+  glosario: [
+    ["Fotosíntesis", "Proceso con el que las plantas fabrican su alimento usando la luz."],
+    ["Oxígeno", "Gas del aire que necesitamos para respirar."],
+    ["Fitoplancton", "Seres diminutos del mar que hacen la fotosíntesis."],
+    ["Deforestación", "Destrucción de los bosques."],
+    ["Erosión", "Desgaste del suelo por el agua o el viento."],
+    ["Planta carnívora", "Planta que atrapa insectos para completar su alimentación."],
+    ["Zarcillo", "Hilo con el que una planta trepadora se agarra."],
+    ["Dispersión", "Forma en que las semillas se alejan de la planta madre."],
+    ["Tubérculo", "Tallo subterráneo engordado, como la patata."],
+    ["Bulbo", "Tallo subterráneo con hojas carnosas, como la cebolla."],
+    ["Especie protegida", "Ser vivo que la ley protege porque está amenazado."],
+    ["Anillo de crecimiento", "Círculo del tronco que corresponde a un año."],
+  ],
+  situacion: {
+    titulo: "Nuestro huerto en un vaso",
+    reto: "La clase cultiva diferentes semillas y estudia cómo influyen la luz y el agua.",
+    pasos: ["Plantad judías, lentejas y garbanzos en vasos con algodón.", "Colocad unos vasos a la luz y otros a oscuras; unos con agua y otros sin ella.", "Anotad y fotografiad los cambios cada día durante dos semanas.", "Explicad los resultados en un informe científico."],
+    producto: "Un diario de observación con fotos y conclusiones.",
+    evaluacion: ["Explica la germinación y la fotosíntesis.", "Diseña un experimento con una sola diferencia entre vasos.", "Observa y registra con constancia.", "Comunica las conclusiones."],
+  },
+});

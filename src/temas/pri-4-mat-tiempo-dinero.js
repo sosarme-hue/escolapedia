@@ -102,3 +102,91 @@ module.exports = P.tema({
   saberes: "Sentido de la medida: el tiempo (horas, minutos, segundos, calendario), lectura de relojes analógicos y digitales en formato de 12 y 24 horas, cálculo de duraciones; el sistema monetario del euro, equivalencias, precios y vueltas",
   ideas: ["Reloj de cartulina con agujas para practicar por parejas.", "Tienda o mercadillo en el aula con monedas y billetes de juguete.", "Planificar el horario de una excursión con horas de salida y llegada."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Entender por qué la hora cambia en distintos lugares del mundo", "Usar lustros, décadas, siglos y milenios", "Conocer formas de pago sin billetes y la historia del dinero", "Distinguir necesidades y deseos para consumir con responsabilidad"],
+  lectura: { titulo: "La videollamada de las seis", html: `<p>La tía de Noa vivía en <b>Nueva York</b> desde hacía dos años. Cada domingo hablaban por videollamada.</p><p>Aquel domingo, Noa se levantó temprano, se vistió y a las <b>nueve de la mañana</b> ya estaba delante del ordenador, muy emocionada.</p><p>—Mamá, ¿por qué no contesta la tía Sara?</p><p>—Porque en Nueva York son las <b>tres de la madrugada</b>. ¡Está durmiendo!</p><p>Noa abrió mucho los ojos.</p><p>—¿Cómo puede ser de noche allí si aquí ya es de día?</p><p>Su madre cogió una naranja y una linterna.</p><p>—Mira. La naranja es la Tierra, y la linterna, el Sol. La Tierra gira. Cuando la luz da en España, Nueva York todavía está en el lado oscuro. Por eso allí van seis horas por detrás de nosotros.</p><p>Noa giró la naranja despacio.</p><p>—Entonces, si quiero hablar con ella cuando se despierte, a las nueve de su mañana…</p><p>—Aquí serán las…</p><p>—¡Las tres de la tarde! Nueve más seis, quince.</p><p>A las tres en punto, la tía Sara apareció en la pantalla con una taza de café y el pelo revuelto.</p><p>—¡Buenos días, Noa!</p><p>—¡Buenas tardes, tía! —rio Noa.</p>` },
+  tras: {
+    "El reloj digital y las 24 horas": [
+      ["La hora en el mundo", `<p>Como la Tierra gira, el Sol no ilumina todos los lugares a la vez. Cuando en España es mediodía, en otros países es de noche. Por eso el mundo está dividido en <mark>husos horarios</mark>: 24 franjas, como los gajos de una naranja, y en cada una hay una hora distinta.</p><p>Algunos ejemplos cuando en <b>Madrid</b> son las 12:00 del mediodía (en invierno):</p><ul><li>En las <b>islas Canarias</b>: las 11:00. ¡Una hora menos!</li><li>En <b>Londres</b>: las 11:00.</li><li>En <b>Nueva York</b>: las 6:00 de la mañana.</li><li>En <b>Tokio</b> (Japón): las 20:00 de la tarde.</li></ul><p>Cuando viajamos hacia el <b>este</b>, los relojes se adelantan; hacia el <b>oeste</b>, se atrasan.</p><p>Además, en España cambiamos la hora dos veces al año: el último domingo de <b>marzo</b> adelantamos el reloj una hora (horario de verano) y el último domingo de <b>octubre</b> lo atrasamos (horario de invierno). Así aprovechamos más la luz del sol por la tarde.</p><p>Para calcular la hora en otro lugar, suma o resta las horas de diferencia, como en cualquier problema de tiempo.</p>`,
+        L6.filas("12:00 en Madrid", [["Canarias", "11:00", cAZ], ["Londres", "11:00", cVE], ["Nueva York", "6:00", cNA], ["Tokio", "20:00", cRO]])],
+    ],
+    "Días, semanas, meses y años": [
+      ["Lustros, décadas, siglos y milenios", `<p>Para medir periodos muy largos, como los de la Historia, usamos unidades más grandes que el año:</p><ul><li><b>Lustro</b>: 5 años.</li><li><b>Década</b>: 10 años.</li><li><b>Siglo</b>: 100 años.</li><li><b>Milenio</b>: 1 000 años.</li></ul><p>Los siglos se escriben con <b>números romanos</b>: siglo XX, siglo XXI. ¿En qué siglo estamos? El siglo XXI empezó el <b>1 de enero de 2001</b> y terminará el 31 de diciembre de 2100.</p><p>Un truco para saber el siglo de un año: <mark>quita las dos últimas cifras y suma 1</mark> (si el año no acaba en 00).</p><ul><li>1492 → 14 + 1 = siglo <b>XV</b>. Colón llegó a América en el siglo XV.</li><li>1969 → 19 + 1 = siglo <b>XX</b>. La llegada a la Luna fue en el siglo XX.</li><li>2026 → 20 + 1 = siglo <b>XXI</b>.</li></ul><p>Si el año acaba en 00, es el último de su siglo: el año 1900 pertenece al siglo XIX.</p><p>Con estas unidades podemos hacer cuentas: 3 siglos son 300 años; 2 décadas, 20 años; y medio siglo, 50 años.</p>`,
+        L6.filas("Periodos largos", [["lustro", "5 años", cAZ], ["década", "10 años", cVE], ["siglo", "100 años", cNA], ["milenio", "1 000 años", cRO]]), ["kXvimwd0uC0", "La Eduteca - La medida del tiempo: siglos y orden cronológico", "La Eduteca", 613348]],
+    ],
+    "Pagar y calcular las vueltas": [
+      ["El dinero que no se ve", `<p>Hoy muchas compras se pagan <b>sin billetes ni monedas</b>. El dinero sigue existiendo, pero está guardado en el <b>banco</b>, en una <b>cuenta</b>.</p><ul><li><b>Tarjeta de débito</b>: al pagar, el dinero sale al momento de la cuenta del titular. Si no hay dinero suficiente, no se puede pagar.</li><li><b>Tarjeta de crédito</b>: el banco adelanta el dinero y después hay que devolverlo. Es como un préstamo.</li><li><b>Pago con el móvil</b> o con un reloj inteligente: funciona como una tarjeta.</li><li><b>Transferencias</b>: enviar dinero de una cuenta a otra, por ejemplo con una aplicación del banco.</li></ul><p>Aunque no veamos el dinero, <mark>se gasta igual</mark>. Y a veces, como no lo tocamos, nos damos menos cuenta de cuánto gastamos. Por eso es importante revisar lo que se paga y no comprar por impulso.</p><p>Consejos de seguridad:</p><ul><li>Nunca compartas los números de una tarjeta ni su clave secreta (el PIN).</li><li>No compres en internet ni en juegos sin permiso de un adulto.</li><li>Desconfía de mensajes que piden datos del banco: pueden ser estafas.</li></ul>`,
+        H6.rueda("Pagar sin efectivo", "CUENTA", [["débito", cAZ], ["crédito", cRO], ["móvil", cVE], ["transfer.", cNA]])],
+    ],
+  },
+  final: [
+    ["La historia del dinero", `<p>Hace miles de años no existía el dinero. Las personas hacían <b>trueque</b>: cambiaban unas cosas por otras. Un pastor cambiaba una oveja por sacos de trigo. Pero ¿y si el que tenía trigo no quería ovejas?</p><p>Para solucionarlo, empezaron a usar objetos que todo el mundo aceptaba: conchas, granos de cacao, metales… y también <b>sal</b>, muy valiosa para conservar los alimentos. Se cuenta que de ahí viene la palabra «<b>salario</b>».</p><p>Las primeras <b>monedas</b> de metal se fabricaron hace unos 2 700 años en Lidia, un reino de la actual Turquía. Más tarde, en <b>China</b>, se inventaron los primeros <b>billetes</b> de papel, porque eran más fáciles de llevar que muchas monedas pesadas.</p><p>En España, durante más de cien años, la moneda fue la <b>peseta</b> (desde 1868). El <b>1 de enero de 2002</b> llegaron las monedas y los billetes de <mark>euro</mark>. Un euro valía 166,386 pesetas. Muchos abuelos todavía hacen la cuenta «en pesetas» para comparar precios.</p><p>Hoy el euro se usa en una veintena de países de la Unión Europea. Las monedas tienen una cara común y otra propia de cada país: las españolas muestran, por ejemplo, al rey, la catedral de Santiago o a Cervantes.</p>`,
+      H6.flujo("Dinero", ["trueque|cambiar", "monedas|Lidia", "1868|peseta", "2002|euro"], cNA), ["JOdc1az2aJ8", "¿Quién inventó el dinero?", "CuriosaMente", 1425387]],
+    ["Necesidades, deseos y ofertas", `<p>Antes de gastar, conviene hacerse una pregunta: <b>¿lo necesito o solo lo quiero?</b></p><ul><li>Las <b>necesidades</b> son cosas imprescindibles para vivir: comida, ropa, casa, medicinas, el material del colegio.</li><li>Los <b>deseos</b> son cosas que nos gustaría tener, pero podemos vivir sin ellas: un videojuego nuevo, unas zapatillas de moda, otro peluche.</li></ul><p>No pasa nada por darse caprichos, pero primero hay que cubrir las necesidades. Y si algo cuesta mucho, se puede <mark>ahorrar</mark> poco a poco para conseguirlo.</p><p>En las tiendas, las ofertas intentan convencernos de comprar más. Hay que hacer cuentas:</p><ul><li><b>3 × 2</b>: te llevas 3 y pagas 2. Solo es buena oferta si de verdad vas a usar los 3.</li><li><b>Segunda unidad a mitad de precio</b>: si cada unidad cuesta 4 €, dos cuestan 4 + 2 = 6 €.</li><li><b>Rebaja de 10 €</b>: comprueba el precio final, no solo el descuento.</li><li>Precios como <b>9,99 €</b> parecen mucho más baratos que 10 €, ¡pero solo hay un céntimo de diferencia!</li></ul><p>Comprar con cabeza es una forma de cuidar el dinero de la familia y también el planeta.</p>`,
+      H6.dos("Antes de comprar", ["NECESIDAD", ["comida", "ropa", "material"], cVE], ["DESEO", ["juego nuevo", "moda", "capricho"], cMO])],
+  ],
+  ejemplos: [
+    ["¿En qué siglo fue el año 1808?", ["Quito las dos últimas cifras: 18.", "Sumo 1."], "Siglo XIX."],
+    ["Un yogur cuesta 0,80 €. Con la oferta 3 × 2, ¿cuánto pagas por 6 yogures?", ["Con 6 te llevas dos grupos de 3: pagas 4.", "4 × 0,80."], "3,20 €."],
+  ],
+  errores: ["Pensar que el siglo XXI empezó en el año 2100 o que 1492 es el siglo XIV.", "Creer que pagar con tarjeta o con el móvil no es gastar dinero de verdad."],
+  ejercicios: [
+    ["b", "¿Cuántos años son 3 décadas?", "30 años."],
+    ["b", "¿En qué siglo estamos?", "En el XXI."],
+    ["b", "Si en Madrid son las 10:00, ¿qué hora es en Canarias?", "Las 9:00."],
+    ["b", "¿En qué año llegaron los billetes de euro?", "En 2002."],
+    ["b", "¿Es una necesidad o un deseo un balón de marca?", "Un deseo."],
+    ["m", "¿En qué siglo fue el año 1605? Escríbelo en romanos.", "Siglo XVII."],
+    ["m", "Si en Madrid son las 15:00, ¿qué hora es en Nueva York?", "Las 9:00."],
+    ["m", "¿Cuántos lustros hay en un siglo?", "20."],
+    ["m", "Un cuaderno cuesta 2 € y el segundo, a mitad de precio. ¿Cuánto pagas por dos?", "3 €."],
+    ["m", "¿Qué diferencia hay entre tarjeta de débito y de crédito?", "Débito: sale de la cuenta al momento; crédito: el banco lo adelanta."],
+    ["a", "Pregunta a un abuelo cuánto costaban cosas en pesetas y pásalo a euros.", "Respuesta abierta (dividir entre 166,386)."],
+    ["a", "Haz una lista de 10 cosas y clasifícalas en necesidades y deseos.", "Respuesta abierta."],
+    ["a", "Un vuelo sale de Madrid a las 12:00, dura 8 horas y llega a Nueva York. ¿Qué hora es allí?", "20:00 en Madrid → 14:00 en Nueva York."],
+    ["a", "Ordena en una línea del tiempo: tu nacimiento, la llegada del euro y la llegada a la Luna.", "1969, 2002, tu año."],
+  ],
+  quiz: [
+    ["Un siglo son…", ["100 años", "10 años", "1 000 años"], "Periodos."],
+    ["El año 1492 es del siglo…", ["XV", "XIV", "XVI"], "Siglos."],
+    ["Viajando hacia el este, el reloj…", ["se adelanta", "se atrasa", "no cambia"], "Husos horarios."],
+    ["Antes del euro, en España se usaba…", ["la peseta", "el dólar", "la libra"], "Dinero."],
+    ["Cambiar cosas por cosas se llama…", ["trueque", "salario", "transferencia"], "Historia."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué hora era en Nueva York cuando Noa llamó a las 9:00?", ["las 3 de la madrugada", "las 3 de la tarde", "las 9"], "Lectura."],
+    ["Una década tiene…", ["10 años", "5 años", "100 años"], "Periodos."],
+  ],
+  tarjetas: [
+    ["Husos horarios", "24 franjas; Canarias una hora menos; hacia el este se adelanta."],
+    ["Siglos", "Lustro 5, década 10, siglo 100, milenio 1 000; quitar dos cifras y sumar 1."],
+    ["Dinero invisible", "Débito, crédito, móvil, transferencias; nunca compartir el PIN."],
+    ["Historia y consumo", "Trueque, Lidia, peseta 1868, euro 2002; necesidades y deseos."],
+  ],
+  glosario: [
+    ["Huso horario", "Franja de la Tierra con la misma hora."],
+    ["Lustro", "Periodo de 5 años."],
+    ["Década", "Periodo de 10 años."],
+    ["Siglo", "Periodo de 100 años."],
+    ["Milenio", "Periodo de 1 000 años."],
+    ["Cuenta bancaria", "Lugar del banco donde se guarda el dinero."],
+    ["PIN", "Clave secreta de una tarjeta."],
+    ["Trueque", "Cambiar unas cosas por otras sin dinero."],
+    ["Peseta", "Moneda de España antes del euro."],
+    ["Euro", "Moneda de España y de otros países europeos."],
+    ["Necesidad", "Lo imprescindible para vivir."],
+    ["Deseo", "Lo que nos gustaría tener, pero no es imprescindible."],
+  ],
+  situacion: {
+    titulo: "Viaje por el mundo",
+    reto: "La clase planifica un viaje imaginario por varias ciudades del mundo con horarios y presupuesto.",
+    pasos: ["Elegid tres ciudades y averiguad su diferencia horaria con España.", "Calculad a qué hora local llegáis según la duración de cada vuelo.", "Haced un presupuesto separando necesidades y deseos.", "Presentad el itinerario con horarios y cuentas."],
+    producto: "Un itinerario de viaje con horarios y presupuesto.",
+    evaluacion: ["Calcula horas y duraciones.", "Usa diferencias horarias.", "Hace cuentas con euros y céntimos.", "Distingue necesidades y deseos."],
+  },
+});
