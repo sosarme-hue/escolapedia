@@ -135,3 +135,91 @@ module.exports = {
   fuentes: [RD, wiki("Ciclo hidrológico", "Ciclo hidrológico"), wiki("Río", "Río"), wiki("Ríos de España", "Anexo:Ríos de España")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer el agua subterránea", "Localizar grandes ríos del mundo", "Explicar sequías e inundaciones", "Relacionar ríos, ciudades e inventos para usar el agua"],
+  lectura: { titulo: "El acueducto que no necesita cemento", html: `<p>En verano, la familia de Rocío visitó Segovia. Nada más llegar a la plaza del Azoguejo, Rocío se quedó quieta mirando hacia arriba.</p><p>Delante de ella se levantaba un puente gigantesco de piedra, con dos pisos de arcos, uno encima de otro. Era tan alto como un edificio de diez plantas.</p><p>—Es el acueducto romano —explicó su madre—. Tiene casi dos mil años.</p><p>—¿Y para qué servía? —preguntó Rocío.</p><p>—Para traer agua a la ciudad desde un río de la sierra, a muchos kilómetros. Por arriba, en un canal, corría el agua.</p><p>Rocío se acercó a las piedras. Eran grandes bloques de granito, puestos unos encima de otros.</p><p>—¡No tienen cemento! —se sorprendió.</p><p>—Exacto. Los romanos los colocaron tan bien que se sostienen solo por su peso y el equilibrio de los arcos.</p><p>Esa tarde, mientras se tomaban un helado a la sombra, Rocío pensó en la gente de hace dos mil años bebiendo el agua que llegaba por allí arriba. Y pensó también en lo fácil que era para ella abrir un grifo en casa.</p>` },
+  tras: {
+    "El ciclo del agua": [
+      ["El agua bajo tierra", `<p>Cuando llueve, parte del agua se <mark>filtra</mark> en el suelo y baja poco a poco entre la tierra y las rocas. Allí se acumula formando <mark>acuíferos</mark>, como grandes esponjas de roca empapadas de agua.</p><ul><li>A veces el agua subterránea sale sola a la superficie por un <b>manantial</b> o una <b>fuente</b>.</li><li>Las personas excavan <b>pozos</b> para sacarla.</li><li>En las rocas calizas, el agua va disolviendo la piedra durante miles de años y forma <b>cuevas</b> con estalactitas y estalagmitas.</li></ul><p>En España, mucha agua para beber y regar sale de los acuíferos. Algunos humedales, como las Tablas de Daimiel, dependen de ellos.</p><p>Hay que cuidarlos: si sacamos más agua de la que entra con la lluvia, se secan. Y si echamos basura o productos químicos al suelo, el agua de debajo se contamina.</p>`,
+        H6.flujo("Subterránea", ["lluvia|se filtra", "acuífero|se guarda", "pozo|la sacamos", "fuente|sale sola"], cAZ), ["VNIn7G_2M4Q", "¿Qué es el agua subterránea?", "Recurso Hidrico AMVA", 190866]],
+    ],
+    "Los ríos de España": [
+      ["Grandes ríos del mundo", `<p>Los ríos de España son pequeños comparados con los <mark>grandes ríos</mark> de otros continentes:</p><ul><li>El <b>Nilo</b>, en África, es uno de los más largos del mundo. Atraviesa el desierto y, gracias a él, nació la civilización de los antiguos egipcios.</li><li>El <b>Amazonas</b>, en América del Sur, es el que lleva más agua. Atraviesa la selva más grande del planeta.</li><li>El <b>Yangtsé</b>, en China, es el río más largo de Asia.</li><li>El <b>Misisipi</b> es el gran río de América del Norte.</li><li>El <b>Danubio</b> atraviesa muchos países de Europa y varias capitales.</li></ul><p>El río más largo de la península ibérica es el <b>Tajo</b>, que nace en España y desemboca en Lisboa, en Portugal. Pero el Amazonas es casi seis veces más largo.</p><p>Los grandes ríos han sido siempre caminos para viajar y comerciar, y sus orillas, lugares buenos para cultivar.</p>`,
+        L6.filas("Ríos", [["Nilo", "África", cNA], ["Amazonas", "América del Sur", cVE], ["Yangtsé", "Asia", cRO], ["Danubio", "Europa", cAZ]]), ["zvXObXtnlhw", "Los 10 Ríos más largos del mundo", "Academia Play", 579035]],
+    ],
+    "Cuidamos el agua": [
+      ["Sequías e inundaciones", `<p>A veces el agua falta y otras veces sobra.</p><p>Una <mark>sequía</mark> ocurre cuando pasa mucho tiempo sin llover:</p><ul><li>Los embalses y los ríos bajan de nivel.</li><li>Los campos se secan y los agricultores pierden las cosechas.</li><li>Puede haber restricciones de agua en las ciudades.</li></ul><p>Una <mark>inundación</mark> ocurre cuando llueve muchísimo en poco tiempo o se deshace mucha nieve:</p><ul><li>Los ríos se desbordan y el agua cubre calles, casas y campos.</li><li>En el este de España, en otoño, a veces hay lluvias torrenciales muy fuertes.</li></ul><p><b>Qué hacer si hay aviso de lluvias fuertes</b>: seguir las indicaciones de los adultos y de Protección Civil, no acercarse a ríos ni barrancos, no cruzar calles inundadas y subir a pisos altos si el agua entra.</p><p>Los embalses ayudan en los dos casos: guardan agua para la sequía y controlan las crecidas.</p>`,
+        H6.dos("Extremos", ["SEQUÍA", ["no llueve", "embalses bajos", "campos secos"], cNA], ["INUNDACIÓN", ["mucha lluvia", "ríos desbordados", "calles con agua"], cAZ]), ["so2K5EOSzuw", "DESASTRES NATURALES para niños 🏜️ SEQUÍA ☀️ OLA DE CALOR ❄ ALUD ⛰ CORRIMIENTO DE TIERRA ⛈️ TORMENTA", "Smile and Learn - Español", 1265118]],
+    ],
+  },
+  final: [
+    ["Ríos y ciudades", `<p>Muchas ciudades nacieron junto a un <mark>río</mark>, porque daba agua para beber y regar, pesca, y un camino para viajar.</p><ul><li><b>Sevilla</b> está junto al Guadalquivir, que es navegable hasta su puerto.</li><li><b>Zaragoza</b>, junto al Ebro, con la basílica del Pilar en su orilla.</li><li><b>Valladolid</b>, junto al Pisuerga.</li><li><b>Toledo</b> está rodeada por un meandro del Tajo.</li><li><b>Madrid</b> tiene un río pequeño, el Manzanares.</li></ul><p>Para cruzar los ríos se construyeron <b>puentes</b>: algunos romanos, como el de Alcántara o el de Mérida, siguen en pie.</p><p>Hoy muchas ciudades cuidan las orillas de sus ríos con paseos, parques y carriles bici. Antes se tiraban residuos al río; ahora se depura el agua para que vuelva a tener peces y aves.</p>`,
+      L6.filas("Ciudades", [["Sevilla", "Guadalquivir", cAZ], ["Zaragoza", "Ebro", cVE], ["Toledo", "Tajo", cNA], ["Valladolid", "Pisuerga", cRO]])],
+    ["Inventos para llevar el agua", `<p>Desde hace miles de años, las personas han inventado formas de <mark>llevar el agua</mark> donde la necesitan:</p><ul><li>Los <b>acueductos</b> romanos, como el de Segovia o Los Milagros de Mérida, transportaban agua desde la sierra hasta las ciudades.</li><li>Las <b>norias</b> son grandes ruedas con cangilones que suben el agua del río para regar. En Murcia todavía se conservan algunas.</li><li>Las <b>acequias</b> son canales que reparten el agua por los campos. En Valencia, el Tribunal de las Aguas, que se reúne cada jueves desde hace siglos, decide cómo repartirla.</li><li>Los <b>aljibes</b> son depósitos bajo tierra que guardan el agua de lluvia.</li></ul><p>Hoy usamos tuberías, bombas, embalses y depuradoras. Pero la idea es la misma: el agua es tan valiosa que vale la pena todo ese esfuerzo.</p>`,
+      H6.rueda("Agua", "LLEVARLA", [["acueducto", cAZ], ["noria", cNA], ["acequia", cVE], ["aljibe", cMO]])],
+  ],
+  ejemplos: [
+    ["¿Por qué se seca un pozo si sacamos demasiada agua?", ["El agua del acuífero viene de la lluvia.", "Si sale más de la que entra, se acaba."], "Porque se vacía el acuífero."],
+    ["¿Qué río pasa por Zaragoza?", ["Zaragoza está en Aragón.", "El gran río de Aragón es el Ebro."], "El Ebro."],
+  ],
+  errores: ["Pensar que bajo tierra hay ríos y lagos como los de fuera: casi siempre el agua empapa las rocas.", "Acercarse a un río crecido para mirar: es muy peligroso."],
+  ejercicios: [
+    ["b", "¿Qué es un acuífero?", "Agua guardada bajo tierra entre las rocas."],
+    ["b", "¿Cuál es el río que lleva más agua del mundo?", "El Amazonas."],
+    ["b", "¿Qué es una sequía?", "Mucho tiempo sin llover."],
+    ["b", "¿Qué río pasa por Sevilla?", "El Guadalquivir."],
+    ["b", "¿En qué ciudad hay un acueducto romano famoso?", "En Segovia."],
+    ["m", "Di dos formas de sacar el agua subterránea.", "Pozos y manantiales."],
+    ["m", "¿Dónde desemboca el Tajo?", "En Lisboa, Portugal."],
+    ["m", "¿Qué no debes hacer si hay inundación?", "Acercarte a ríos o cruzar calles inundadas."],
+    ["m", "¿Para qué sirve una noria?", "Para subir el agua del río y regar."],
+    ["m", "¿Por qué muchas ciudades están junto a ríos?", "Por el agua, la pesca y el transporte."],
+    ["a", "Localiza en un mapa cinco grandes ríos del mundo.", "Respuesta abierta."],
+    ["a", "Investiga qué río pasa por tu ciudad o la más cercana.", "Respuesta abierta."],
+    ["a", "Haz un cartel de qué hacer ante lluvias fuertes.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿qué tiene de especial el acueducto?", "Sus piedras no tienen cemento."],
+  ],
+  quiz: [
+    ["El agua que sale sola de la tierra forma un…", ["manantial", "embalse", "mar"], "Subterránea."],
+    ["El Nilo está en…", ["África", "Europa", "Asia"], "Ríos del mundo."],
+    ["Una inundación ocurre cuando…", ["llueve muchísimo", "no llueve", "hace frío"], "Extremos."],
+    ["Toledo está rodeada por el…", ["Tajo", "Ebro", "Duero"], "Ciudades."],
+    ["El Tribunal de las Aguas está en…", ["Valencia", "Bilbao", "León"], "Inventos."],
+  ],
+  examen: [
+    ["En la lectura, ¿de qué piedra es el acueducto?", ["granito", "mármol", "ladrillo"], "Lectura."],
+    ["Las cuevas con estalactitas se forman en rocas…", ["calizas", "de hielo", "de arena"], "Subterránea."],
+  ],
+  tarjetas: [
+    ["Agua subterránea", "Acuíferos, manantiales, pozos y cuevas."],
+    ["Ríos del mundo", "Nilo, Amazonas, Yangtsé, Misisipi y Danubio."],
+    ["Sequías e inundaciones", "Falta o sobra de agua; seguridad ante lluvias fuertes."],
+    ["Ríos e inventos", "Ciudades junto a ríos; acueductos, norias, acequias, aljibes."],
+  ],
+  glosario: [
+    ["Acuífero", "Agua guardada entre las rocas bajo tierra."],
+    ["Manantial", "Lugar donde el agua subterránea sale sola."],
+    ["Pozo", "Agujero para sacar agua de debajo de la tierra."],
+    ["Estalactita", "Columna de piedra que cuelga del techo de una cueva."],
+    ["Sequía", "Largo tiempo sin lluvia."],
+    ["Inundación", "Agua que cubre zonas normalmente secas."],
+    ["Desbordarse", "Salirse el agua del cauce."],
+    ["Meandro", "Curva que forma un río."],
+    ["Acueducto", "Construcción para llevar agua."],
+    ["Noria", "Rueda que sube el agua."],
+    ["Acequia", "Canal para regar."],
+    ["Aljibe", "Depósito para guardar agua de lluvia."],
+  ],
+  situacion: {
+    titulo: "Guardianes del agua",
+    reto: "La clase prepara una exposición sobre el viaje del agua, desde la lluvia hasta nuestras casas.",
+    pasos: ["Construir una maqueta de acuífero con grava y arena en un vaso.", "Marcar en un mapamundi grandes ríos.", "Preparar un cartel de seguridad ante lluvias fuertes.", "Investigar un invento antiguo para llevar el agua."],
+    producto: "Una exposición con maqueta, mapa y carteles.",
+    evaluacion: ["Explica el agua subterránea.", "Localiza grandes ríos.", "Conoce sequías e inundaciones.", "Relaciona ríos, ciudades e inventos."],
+  },
+});

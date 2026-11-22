@@ -144,3 +144,91 @@ module.exports = {
   fuentes: [RD, wiki("Vertebrata", "Vertebrados"), wiki("Mammalia", "Mamíferos"), wiki("Amphibia", "Anfibios")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer mamíferos sorprendentes", "Explicar la migración de las aves", "Descubrir los dinosaurios y los fósiles", "Reconocer huellas y cuidar una mascota"],
+  lectura: { titulo: "Las huellas del barro", html: `<p>Durante una excursión al campo, el grupo de Álex llegó a la orilla de un arroyo. El suelo estaba blando y lleno de barro.</p><p>—¡Mirad! —gritó Lucía—. ¡Aquí hay huellas!</p><p>Todos se agacharon. Había unas huellas pequeñas con cuatro dedos y la marca de las uñas. Otras tenían forma de corazón partido en dos. Y había unas larguísimas, con tres dedos finos hacia delante.</p><p>El monitor sacó una guía de huellas de su mochila.</p><p>—Las de cuatro dedos con uñas son de zorro. Las de corazón partido son de jabalí, que tiene pezuñas. Y las de tres dedos largos… son de garza. Seguramente vino a pescar.</p><p>—¿Y cómo sabemos que no son de hace mucho? —preguntó Álex.</p><p>—Porque están nítidas y el barro aún está húmedo dentro. Pasaron esta mañana.</p><p>Álex se imaginó al zorro bebiendo en el arroyo mientras ellos aún dormían. Decidieron hacer un molde de la huella de jabalí con escayola. Al día siguiente, en clase, el molde ocupó un lugar especial en la estantería de ciencias.</p><p>—Los animales no siempre se dejan ver —dijo la maestra—, pero casi siempre dejan pistas.</p>` },
+  tras: {
+    "Los mamíferos": [
+      ["Mamíferos sorprendentes", `<p>Casi todos los mamíferos nacen del vientre de su madre, tienen pelo y viven en tierra. Pero hay algunos muy <mark>sorprendentes</mark>:</p><ul><li>El <b>ornitorrinco</b>, de Australia, tiene pico de pato, cola de castor y ¡pone huevos! Aun así, es un mamífero, porque tiene pelo y las crías toman leche.</li><li>El <b>canguro</b> es un <b>marsupial</b>: la cría nace muy pequeña y termina de crecer dentro de una bolsa en la barriga de la madre.</li><li>El <b>murciélago</b> es el único mamífero que vuela de verdad.</li><li>La <b>ballena azul</b> es el animal más grande que ha existido, más que cualquier dinosaurio. Vive en el mar, pero respira aire por los pulmones.</li><li>El <b>delfín</b> y la <b>foca</b> también son mamíferos marinos.</li></ul><p>Lo que une a todos los mamíferos es que las madres alimentan a sus crías con <b>leche</b>.</p>`,
+        H6.rueda("Raros", "MAMÍFEROS", [["ornitorrinco", cNA], ["canguro", cRO], ["murciélago", cMO], ["ballena", cAZ]]), ["m1ZKSr1dEts", "¿Qué tipo de animal es el ornitorrinco? | El mundo de Luna | Discovery Kids", "Discovery Kids", 1190615]],
+    ],
+    "Las aves": [
+      ["Las aves migratorias", `<p>Muchas aves hacen largos viajes cada año: son las <mark>aves migratorias</mark>.</p><ul><li>Las <b>golondrinas</b> y los <b>vencejos</b> llegan a España en primavera desde África, crían en nuestros tejados y vuelven a África en otoño.</li><li>Muchas <b>cigüeñas</b> también viajan a África, aunque hoy bastantes se quedan todo el año porque encuentran comida en los vertederos.</li><li>Las <b>grullas</b> llegan del norte de Europa en otoño para pasar el invierno en España. En la laguna de Gallocanta, en Aragón, se juntan miles.</li></ul><p><b>¿Cómo encuentran el camino?</b> Se orientan con el Sol, las estrellas, los ríos y las montañas. Algunas notan el magnetismo de la Tierra, como si llevaran una brújula.</p><p>El viaje es muy peligroso: las aves se cansan, pasan hambre y chocan con cables y edificios. Por eso es importante proteger los humedales donde descansan.</p>`,
+        L6.filas("Viajeras", [["golondrina", "de África", cAZ], ["vencejo", "de África", cMO], ["cigüeña", "a África", cNA], ["grulla", "del norte", cVE]]), ["EN3w1MRI9gg", "La migración de aves, un viaje peligroso- Alyssa Klavans", "Sé Curioso — TED-Ed", 176614]],
+    ],
+    "Los reptiles": [
+      ["Los dinosaurios", `<p>Hace muchos millones de años, la Tierra estuvo dominada por unos reptiles enormes: los <mark>dinosaurios</mark>.</p><ul><li>Había dinosaurios <b>herbívoros</b>, como el diplodocus, de cuello larguísimo, o el triceratops, con tres cuernos.</li><li>Y <b>carnívoros</b>, como el tiranosaurio, con dientes como cuchillos.</li><li>Algunos eran del tamaño de una gallina, y otros, más largos que tres autobuses.</li></ul><p>Hace unos 66 millones de años, un gran meteorito chocó contra la Tierra y la mayoría de los dinosaurios desaparecieron. Pero no todos: los científicos han descubierto que las <b>aves</b> descienden de pequeños dinosaurios con plumas. ¡Cada gorrión es un pariente de los dinosaurios!</p><p>Los conocemos gracias a los <mark>fósiles</mark>: huesos, dientes, huevos y huellas que se convirtieron en piedra. En España hay muchos yacimientos, como los de La Rioja, con cientos de huellas, o el de Lo Hueco, en Cuenca.</p>`,
+        H6.dos("Dinosaurios", ["HERBÍVOROS", ["diplodocus", "triceratops", "estegosaurio"], cVE], ["CARNÍVOROS", ["tiranosaurio", "velocirraptor", "alosaurio"], cRO]), ["dTgofE8nrk0", "Dinosaurios | Videos Educativos para Niños  I Happy Learning", "Happy Learning Español", 30134515]],
+    ],
+  },
+  final: [
+    ["Huellas y rastros", `<p>Muchos animales salvajes son tímidos y se esconden, pero dejan <mark>rastros</mark> que nos dicen que han pasado por allí:</p><ul><li><b>Huellas</b> en el barro, la arena o la nieve. Las del <b>zorro</b> y el perro tienen cuatro dedos con uñas; las del <b>gato montés</b> no marcan las uñas; las del <b>jabalí</b> y el <b>ciervo</b> son pezuñas partidas en dos.</li><li><b>Excrementos</b>: cada animal deja los suyos con una forma distinta.</li><li><b>Restos de comida</b>: piñas roídas por las ardillas o nueces agujereadas por los ratones.</li><li><b>Plumas, pelos</b> enganchados en las alambradas y <b>egagrópilas</b>, unas bolitas que vomitan las lechuzas con los huesos y pelos que no digieren.</li><li><b>Madrigueras</b> y nidos.</li></ul><p>Los científicos usan estos rastros para saber qué animales viven en un lugar sin molestarlos.</p><p><b>Actividad</b>: con escayola puedes hacer un molde de una huella y llevártelo a clase.</p>`,
+      L6.filas("Rastros", [["zorro", "4 dedos y uñas", cNA], ["gato", "sin uñas", cMO], ["jabalí", "pezuña partida", cRO], ["lechuza", "egagrópilas", cAZ]]), ["qUqaDm_8jow", "Huellas de animales para niños | video interactivo en español", "Happy Happy", 48071]],
+    ["Cuidar una mascota", `<p>Muchos niños tienen en casa un vertebrado como <mark>mascota</mark>: un perro, un gato, un pez, un pájaro o una tortuga. Tener una mascota es divertido, pero también es una <b>gran responsabilidad</b>.</p><ul><li><b>Comida y agua</b> limpia todos los días, la adecuada para cada animal.</li><li><b>Limpieza</b>: de su cama, su jaula, su pecera o su arenero.</li><li><b>Ejercicio y juego</b>: los perros necesitan pasear varias veces al día.</li><li><b>Veterinario</b>: vacunas, revisiones y un microchip para identificarlos.</li><li><b>Cariño y respeto</b>: no molestarlos cuando comen o duermen.</li></ul><p>Una mascota vive muchos años, así que antes de tenerla toda la familia debe estar de acuerdo.</p><p>Nunca hay que <b>abandonar</b> una mascota ni soltarla en el campo o en un río: además de sufrir, puede convertirse en una especie invasora, como ha pasado con algunas tortugas de Florida en España.</p>`,
+      H6.rueda("Mascota", "CUIDAR", [["comida y agua", cAZ], ["limpieza", cVE], ["veterinario", cRO], ["cariño", cNA]])],
+  ],
+  ejemplos: [
+    ["¿Por qué el ornitorrinco es un mamífero si pone huevos?", ["Tiene pelo.", "Sus crías toman leche."], "Porque tiene pelo y amamanta."],
+    ["Encuentras una huella con forma de corazón partido. ¿De quién es?", ["Es una pezuña partida en dos.", "La tienen el jabalí y el ciervo."], "De jabalí o de ciervo."],
+  ],
+  errores: ["Pensar que la ballena es un pez: es un mamífero que respira aire.", "Creer que todos los dinosaurios desaparecieron: las aves descienden de ellos."],
+  ejercicios: [
+    ["b", "¿Qué mamífero pone huevos?", "El ornitorrinco."],
+    ["b", "¿Cuál es el único mamífero que vuela?", "El murciélago."],
+    ["b", "¿De dónde llegan las golondrinas en primavera?", "De África."],
+    ["b", "Di un dinosaurio herbívoro.", "Diplodocus o triceratops."],
+    ["b", "¿Cómo son las huellas del zorro?", "Cuatro dedos con uñas."],
+    ["m", "¿Qué es un marsupial?", "Mamífero cuya cría crece en una bolsa."],
+    ["m", "¿Cómo se orientan las aves migratorias?", "Con el Sol, las estrellas, el relieve y el magnetismo."],
+    ["m", "¿Qué es un fósil?", "Restos de un ser vivo convertidos en piedra."],
+    ["m", "¿Qué son las egagrópilas?", "Bolitas con huesos y pelos que vomitan las lechuzas."],
+    ["m", "¿Por qué no se debe soltar una mascota en un río?", "Sufre y puede volverse especie invasora."],
+    ["a", "Dibuja el mapa del viaje de una golondrina.", "Respuesta abierta."],
+    ["a", "Haz un molde de escayola de una huella.", "Respuesta abierta."],
+    ["a", "Escribe una lista de cuidados para una mascota.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿de quién era la huella de tres dedos largos?", "De una garza."],
+  ],
+  quiz: [
+    ["El canguro es un…", ["marsupial", "reptil", "ave"], "Mamíferos."],
+    ["Las grullas pasan el invierno en…", ["España", "el Polo Norte", "Australia"], "Aves."],
+    ["Las aves descienden de…", ["dinosaurios", "peces", "ballenas"], "Dinosaurios."],
+    ["La huella del gato montés…", ["no marca las uñas", "es una pezuña", "tiene tres dedos"], "Huellas."],
+    ["Las mascotas necesitan…", ["veterinario", "vivir solas", "comer chucherías"], "Mascota."],
+  ],
+  examen: [
+    ["En la lectura, ¿de qué hicieron el molde?", ["de escayola", "de plastilina", "de barro"], "Lectura."],
+    ["El animal más grande que ha existido es…", ["la ballena azul", "el tiranosaurio", "el elefante"], "Mamíferos."],
+  ],
+  tarjetas: [
+    ["Mamíferos raros", "Ornitorrinco, canguro, murciélago y ballena azul."],
+    ["Aves migratorias", "Golondrinas y vencejos de África; grullas del norte."],
+    ["Dinosaurios", "Herbívoros y carnívoros; fósiles; las aves son sus parientes."],
+    ["Rastros y mascotas", "Huellas, egagrópilas; cuidar sin abandonar."],
+  ],
+  glosario: [
+    ["Ornitorrinco", "Mamífero australiano que pone huevos."],
+    ["Marsupial", "Mamífero con bolsa para la cría."],
+    ["Migratoria", "Ave que viaja según la estación."],
+    ["Humedal", "Zona con agua donde descansan aves."],
+    ["Dinosaurio", "Reptil que vivió hace millones de años."],
+    ["Fósil", "Resto de un ser vivo convertido en piedra."],
+    ["Yacimiento", "Lugar donde se encuentran fósiles o restos."],
+    ["Huella", "Marca que deja la pisada."],
+    ["Pezuña", "Uña dura que cubre el dedo de algunos animales."],
+    ["Egagrópila", "Bolita de restos que vomitan algunas aves."],
+    ["Mascota", "Animal que vive con las personas."],
+    ["Microchip", "Chip que identifica a una mascota."],
+  ],
+  situacion: {
+    titulo: "Detectives de animales",
+    reto: "La clase investiga vertebrados sorprendentes y aprende a seguir su pista.",
+    pasos: ["Preparar fichas de mamíferos sorprendentes.", "Seguir en un mapa el viaje de las aves migratorias.", "Crear una línea del tiempo con los dinosaurios.", "Hacer moldes de huellas y una guía de cuidado de mascotas."],
+    producto: "Un museo de clase con fichas, mapas y moldes.",
+    evaluacion: ["Describe mamíferos sorprendentes.", "Explica la migración.", "Conoce dinosaurios y fósiles.", "Reconoce rastros y cuida mascotas."],
+  },
+});

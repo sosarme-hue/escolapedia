@@ -140,3 +140,87 @@ module.exports = {
   fuentes: [RD, wiki("Ser vivo", "Ser vivo"), wiki("Célula", "Célula"), wiki("Reino (biología)", "Reino (biología)")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Explicar la hibernación y la migración", "Distinguir microbios útiles y dañinos", "Comparar cuánto viven distintos seres vivos", "Conocer cómo nombran los científicos a los seres vivos"],
+  lectura: { titulo: "El pan con pelusa", html: `<p>Un lunes, Sara abrió su mochila y encontró un trozo de bocadillo olvidado desde el jueves. Tenía unas manchas verdes y blancas, como de pelusa.</p><p>—¡Qué asco! —dijo, y fue a tirarlo.</p><p>—¡Espera! —la detuvo el profesor Andrés—. Eso que ves es un ser vivo.</p><p>Toda la clase se acercó. El profesor colocó el pan bajo el microscopio, y en la pantalla apareció un bosque de hilos finísimos con bolitas en las puntas.</p><p>—Es moho, un hongo. Esas bolitas son sus esporas, que vuelan por el aire. Cuando caen en un sitio húmedo y con comida, crecen.</p><p>—Entonces, ¿el moho come pan? —preguntó Daniel.</p><p>—Exacto. Se nutre, crece y se reproduce, como todos los seres vivos.</p><p>El profesor les contó que, hace casi cien años, un científico llamado Alexander Fleming se fijó en un moho que había crecido por casualidad en uno de sus platos de laboratorio. Ese moho mataba bacterias. Gracias a él se descubrió la penicilina, un medicamento que ha salvado millones de vidas.</p><p>Sara miró su bocadillo con otros ojos. Al final lo tiró, eso sí, bien envuelto. Pero desde ese día revisa su mochila todos los viernes.</p>` },
+  tras: {
+    "La relación": [
+      ["Hibernar o migrar", `<p>Cuando llega el invierno, hace frío y hay poca comida. Los animales tienen distintas formas de <mark>sobrevivir</mark>:</p><p><b>Hibernar</b>: algunos animales pasan el invierno en un sueño muy profundo.</p><ul><li>El <b>lirón</b>, el <b>erizo</b> y algunos <b>murciélagos</b> se esconden en un refugio. Su corazón late muy despacio y su cuerpo se enfría para gastar muy poca energía.</li><li>Antes de hibernar comen mucho para acumular grasa.</li><li>El <b>oso pardo</b> pasa el invierno en su osera, en un sueño menos profundo.</li></ul><p><b>Migrar</b>: otros animales viajan a lugares más cálidos o con más comida.</p><ul><li>Las <b>cigüeñas</b> y las <b>golondrinas</b> vuelan a África en otoño y vuelven en primavera.</li><li>Las <b>ballenas</b> nadan miles de kilómetros entre mares fríos y cálidos.</li></ul><p>Las plantas también se preparan: muchos árboles pierden las hojas y algunas plantas pasan el invierno como semillas o bulbos bajo tierra.</p>`,
+        H6.dos("Invierno", ["HIBERNAN", ["lirón", "erizo", "murciélago"], cAZ], ["MIGRAN", ["cigüeña", "golondrina", "ballena"], cNA]), ["UI5WMLgDlXw", "¿Qué es la HIBERNACIÓN y qué ANIMALES HIBERNAN? 🐻🐸", "EcologíaVerde", 207602]],
+    ],
+    "Las células": [
+      ["Microbios: amigos y enemigos", `<p>Los <mark>microbios</mark> son seres vivos tan pequeños que solo se ven con un <b>microscopio</b>. Están por todas partes: en el aire, en el agua, en el suelo y dentro de nuestro cuerpo.</p><p><b>Microbios útiles</b>:</p><ul><li>Las <b>bacterias</b> que convierten la leche en <b>yogur</b> y en queso.</li><li>La <b>levadura</b>, un hongo diminuto que hace que la masa del pan suba y quede esponjosa.</li><li>Las bacterias del intestino que nos ayudan a digerir la comida.</li><li>Los microbios del suelo que descomponen los restos y forman abono.</li></ul><p><b>Microbios dañinos</b>: algunas bacterias y los <b>virus</b> causan enfermedades, como el resfriado o la gripe. Los virus son aún más pequeños que las bacterias.</p><p><b>Cómo protegernos</b>: lavarnos las manos con agua y jabón, taparnos la boca al toser con el codo, guardar los alimentos en la nevera y ponernos las vacunas.</p>`,
+        L6.filas("Microbios", [["yogur", "bacterias útiles", cVE], ["pan", "levadura", cNA], ["resfriado", "virus", cRO], ["jabón", "nos protege", cAZ]]), ["lszI_0o-_uM", "Microbios del más pequeño al más grande", "GENIAL", 2947199]],
+    ],
+  },
+  final: [
+    ["¿Cuánto vive cada ser vivo?", `<p>Todos los seres vivos nacen, crecen y mueren, pero la duración de su <mark>vida</mark> es muy distinta:</p><ul><li>Algunas <b>bacterias</b> viven solo unos minutos u horas antes de dividirse.</li><li>Las <b>efímeras</b>, unos insectos voladores, viven de adultas apenas un día.</li><li>Un <b>ratón</b> vive unos dos o tres años.</li><li>Un <b>perro</b> o un <b>gato</b>, entre diez y veinte años.</li><li>Las <b>personas</b> pueden vivir más de ochenta años.</li><li>Las <b>tortugas gigantes</b> pueden superar los cien años.</li><li>El <b>tiburón de Groenlandia</b> puede vivir varios siglos.</li><li>Algunos <b>árboles</b>, como los olivos o los tejos, viven más de mil años.</li></ul><p>En general, los animales pequeños que crecen deprisa viven poco, y los grandes que crecen despacio viven más, aunque hay excepciones sorprendentes.</p>`,
+      L6.filas("Vida", [["efímera", "un día", cRO], ["ratón", "2 o 3 años", cNA], ["tortuga gigante", "más de 100", cVE], ["olivo", "más de 1.000", cAZ]])],
+    ["Los nombres científicos", `<p>Un mismo animal puede tener muchos nombres: en castellano decimos <i>gorrión</i>, en catalán <i>pardal</i> y en inglés <i>sparrow</i>. Para entenderse en todo el mundo, los científicos usan un <mark>nombre científico</mark> para cada especie.</p><ul><li>Este sistema lo inventó el sueco <b>Carlos Linneo</b> hace casi trescientos años.</li><li>El nombre científico tiene <b>dos palabras en latín</b> y se escribe en cursiva.</li><li>El ser humano es <i>Homo sapiens</i>, que significa «hombre sabio».</li><li>El lince ibérico es <i>Lynx pardinus</i>.</li><li>El perro es <i>Canis familiaris</i>, y el lobo, <i>Canis lupus</i>: la primera palabra es igual porque son parientes cercanos.</li></ul><p>Linneo también ordenó los seres vivos en grupos cada vez más pequeños, como si fueran cajones dentro de cajones: reino, clase, familia, especie… Gracias a él, hoy se han descrito más de un millón y medio de especies, ¡y quedan muchas por descubrir!</p>`,
+      H6.flujo("Linneo", ["reino|animal", "clase|mamífero", "familia|cánidos", "especie|lobo"], cMO)],
+  ],
+  ejemplos: [
+    ["¿Por qué come mucho el erizo antes del invierno?", ["Va a hibernar y no comerá en meses.", "Acumula grasa como reserva de energía."], "Para acumular grasa."],
+    ["¿El perro y el lobo son parientes?", ["Sus nombres científicos empiezan por Canis.", "Comparten el mismo grupo."], "Sí, son parientes cercanos."],
+  ],
+  errores: ["Pensar que todos los microbios son malos: muchos son útiles.", "Creer que los animales que hibernan solo duermen: su cuerpo funciona mucho más despacio."],
+  ejercicios: [
+    ["b", "Di un animal que hiberna.", "Lirón, erizo o murciélago."],
+    ["b", "¿Adónde migran las cigüeñas?", "A África."],
+    ["b", "¿Con qué se ven los microbios?", "Con un microscopio."],
+    ["b", "¿Qué microbio hace subir el pan?", "La levadura."],
+    ["b", "¿Cuál es el nombre científico del ser humano?", "Homo sapiens."],
+    ["m", "¿Qué le pasa al corazón de un animal que hiberna?", "Late muy despacio."],
+    ["m", "Di dos formas de protegerte de los microbios dañinos.", "Lavarte las manos y taparte al toser."],
+    ["m", "¿Qué descubrió Fleming gracias a un moho?", "La penicilina."],
+    ["m", "¿Qué vive más, un ratón o una tortuga gigante?", "La tortuga gigante."],
+    ["m", "¿En qué idioma están los nombres científicos?", "En latín."],
+    ["a", "Haz una tabla de animales que hibernan y que migran.", "Respuesta abierta."],
+    ["a", "Observa cómo crece el moho en un pan húmedo dentro de una bolsa cerrada.", "Respuesta abierta."],
+    ["a", "Busca el nombre científico de tu animal favorito.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿qué eran las bolitas del moho?", "Sus esporas."],
+  ],
+  quiz: [
+    ["Migrar es…", ["viajar a otro lugar", "dormir todo el invierno", "cambiar de color"], "Migración."],
+    ["Los virus son…", ["más pequeños que las bacterias", "más grandes que un ratón", "plantas"], "Microbios."],
+    ["El yogur se hace con…", ["bacterias", "virus", "arena"], "Microbios."],
+    ["Las efímeras adultas viven…", ["un día", "cien años", "diez años"], "Vida."],
+    ["El sistema de nombres científicos lo creó…", ["Linneo", "Fleming", "Newton"], "Linneo."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué tipo de ser vivo es el moho?", ["un hongo", "una planta", "un animal"], "Lectura."],
+    ["El tiburón de Groenlandia puede vivir…", ["varios siglos", "un año", "un mes"], "Vida."],
+  ],
+  tarjetas: [
+    ["Hibernar o migrar", "Lirón y erizo duermen; cigüeña y golondrina viajan."],
+    ["Microbios", "Útiles (yogur, levadura) y dañinos (virus); lavarse las manos."],
+    ["Duración de la vida", "De un día (efímera) a más de mil años (olivo)."],
+    ["Nombres científicos", "Linneo: dos palabras en latín, como Homo sapiens."],
+  ],
+  glosario: [
+    ["Hibernar", "Pasar el invierno en un sueño profundo."],
+    ["Migrar", "Viajar a otro lugar según la estación."],
+    ["Reserva", "Algo que se guarda para después."],
+    ["Microbio", "Ser vivo que solo se ve con microscopio."],
+    ["Bacteria", "Microbio formado por una sola célula."],
+    ["Virus", "Microbio diminuto que causa enfermedades."],
+    ["Levadura", "Hongo microscópico que hace subir el pan."],
+    ["Moho", "Hongo que crece sobre los alimentos."],
+    ["Espora", "Pequeña parte de un hongo que da lugar a otro."],
+    ["Vacuna", "Medicamento que nos protege de una enfermedad."],
+    ["Especie", "Grupo de seres vivos iguales que tienen crías juntos."],
+    ["Nombre científico", "Nombre en latín de una especie."],
+  ],
+  situacion: {
+    titulo: "Científicos de la vida",
+    reto: "La clase investiga cómo sobreviven, cuánto viven y cómo se llaman los seres vivos.",
+    pasos: ["Preparar un calendario de animales que hibernan y migran.", "Hacer el experimento del moho y el del pan con levadura.", "Ordenar seres vivos en una línea según cuánto viven.", "Crear fichas con el nombre científico de diez especies."],
+    producto: "Un mural con fichas de seres vivos.",
+    evaluacion: ["Explica hibernación y migración.", "Distingue microbios útiles y dañinos.", "Compara la duración de la vida.", "Usa nombres científicos."],
+  },
+});
