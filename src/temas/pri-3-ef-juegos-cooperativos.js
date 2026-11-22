@@ -144,3 +144,89 @@ module.exports = {
   fuentes: [RD, wiki("Juego cooperativo", "Juego cooperativo"), wiki("Cooperación", "Cooperación"), wiki("Inclusión educativa", "Educación inclusiva")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Distinguir juegos competitivos y cooperativos", "Participar en juegos de confianza con responsabilidad", "Repartir y rotar roles dentro de un equipo", "Reconocer la cooperación en la naturaleza y en la vida diaria"],
+  lectura: { titulo: "El río de lava", html: `<p>El maestro de Educación Física ha puesto en el suelo del gimnasio dos cuerdas separadas por varios metros. —Entre las cuerdas hay un río de lava —anuncia—. Tenéis que cruzarlo todos, pero solo podéis pisar estas piedras mágicas.</p><p>Las «piedras» son cinco aros. Y en el grupo hay doce niños.</p><p>Leo coge un aro y salta dentro. —¡Yo primero! —grita, y avanza solo. Pero cuando llega a la mitad, se da cuenta de que no puede seguir: no le quedan más aros.</p><p>—Así no funciona —dice Carla—. Tenemos que pasarnos los aros de uno a otro.</p><p>El grupo se reúne. Ahmed propone ponerse en fila. Lucía dice que los últimos pasen los aros hacia delante. Leo vuelve atrás y escucha.</p><p>Lo intentan. Se tambalean, se agarran de las manos y se ríen cuando alguien está a punto de caerse. Lucas se queda atrás porque le cuesta saltar, y Leo le da la mano para ayudarle.</p><p>Por fin, el último niño llega a la otra orilla. Todos gritan de alegría.</p><p>—¿Quién ha ganado? —pregunta el maestro.</p><p>—¡Todos! —responden a la vez.</p>` },
+  tras: {
+    "Características de los juegos cooperativos": [
+      ["Competir o cooperar", `<p>Hay juegos en los que <mark>competimos</mark> y juegos en los que <mark>cooperamos</mark>. Los dos tipos son valiosos, pero son diferentes:</p><ul><li>En un juego <b>competitivo</b>, unos ganan y otros pierden. Por ejemplo, una carrera o un partido de fútbol.</li><li>En un juego <b>cooperativo</b>, todos trabajan por el mismo objetivo y ganan o pierden juntos. Por ejemplo, el paracaídas o cruzar el río de lava.</li></ul><p>Hay también juegos <b>mixtos</b>: dentro de un equipo cooperamos y contra el otro equipo competimos, como en el baloncesto.</p><p>¿Qué aprendemos en cada uno?</p><ul><li>Compitiendo: esforzarnos, aceptar la derrota, felicitar al que gana.</li><li>Cooperando: escuchar, ponernos de acuerdo, ayudar al que le cuesta más.</li></ul><p>Lo importante es que, en los dos casos, juguemos con <b>respeto</b> y que nadie se quede fuera. Una competición sana no consiste en humillar al otro, sino en dar lo mejor de uno mismo.</p><p><b>Actividad</b>: clasifica estos juegos: el pañuelo, el paracaídas, la carrera de sacos, mantener un globo en el aire entre todos.</p>`,
+        H6.dos("Juegos", ["COMPETIR", ["unos ganan", "otros pierden", "carrera"], cRO], ["COOPERAR", ["todos juntos", "un objetivo", "paracaídas"], cVE])],
+    ],
+    "Juegos con material": [
+      ["Juegos de confianza", `<p>En los <mark>juegos de confianza</mark> ponemos nuestra seguridad en manos de los compañeros. Por eso hay que jugarlos con mucho cuidado y seriedad.</p><p>Algunos juegos:</p><ul><li><b>El lazarillo</b>: uno lleva los ojos tapados y su pareja lo guía con la voz por un recorrido.</li><li><b>El péndulo</b>: en grupos de tres, el del medio se deja caer suavemente hacia delante y hacia atrás, con el cuerpo recto como una tabla, y los otros dos lo sujetan por los hombros. ¡Solo unos centímetros!</li><li><b>El robot</b>: uno es un robot con los ojos cerrados y su compañero lo dirige tocándole el hombro derecho, el izquierdo o la espalda.</li><li><b>La alfombra mágica</b>: todo el grupo está encima de una colchoneta o una tela y tiene que darle la vuelta sin bajarse.</li></ul><p>Normas para jugar seguros:</p><ul><li>Nada de bromas que asusten al compañero.</li><li>Ir despacio y avisar de los obstáculos.</li><li>Si alguien no quiere, no se le obliga: puede empezar observando.</li><li>Después, hablamos: ¿cómo te has sentido?, ¿te has fiado de tu compañero?</li></ul><p><b>Actividad</b>: juega al robot y después cambia el papel con tu pareja.</p>`,
+        L6.filas("Confianza", [["lazarillo", "guiar con la voz", cAZ], ["péndulo", "en grupos de tres", cNA], ["robot", "tocar el hombro", cMO], ["alfombra", "todos encima", cVE]])],
+    ],
+    "Todos cabemos en el juego": [
+      ["Los papeles en el equipo", `<p>Un equipo funciona mejor si cada miembro tiene una <mark>tarea</mark>. Estos son algunos papeles que podemos repartir:</p><ul><li><b>Portavoz</b>: explica al resto de la clase lo que ha decidido el equipo.</li><li><b>Guardián del tiempo</b>: vigila el reloj y avisa cuando queda poco.</li><li><b>Guardián del material</b>: recoge y cuida el material.</li><li><b>Animador</b>: anima a todos y se asegura de que nadie se quede sin participar.</li><li><b>Moderador</b>: da la palabra para que todos puedan opinar por turnos.</li></ul><p>Lo más importante es <b>rotar</b> los papeles: cada día o cada juego, cambiamos. Así todos aprendemos a hacer de todo y nadie manda siempre.</p><p>Para tomar decisiones en equipo:</p><ul><li>Escuchar todas las ideas antes de elegir.</li><li>Probar una idea y, si no funciona, probar otra.</li><li>Si no hay acuerdo, votar o hacer un sorteo.</li></ul><p>Un equipo no es mejor por tener al más rápido o al más fuerte, sino por saber trabajar juntos.</p><p><b>Actividad</b>: en tu grupo, repartid los cinco papeles para el próximo juego y apuntadlo en una tarjeta.</p>`,
+        H6.rueda("Equipo", "EQUIPO", [["portavoz", cAZ], ["tiempo", cNA], ["material", cVE], ["animador", cRO]])],
+    ],
+  },
+  final: [
+    ["Cooperar fuera del gimnasio", `<p>La <mark>cooperación</mark> no es solo cosa de juegos. Está en todas partes.</p><p><b>En la naturaleza</b>:</p><ul><li>Las <b>hormigas</b> trabajan juntas para llevar comida al hormiguero; a veces forman cadenas o puentes con sus cuerpos.</li><li>Las <b>abejas</b> se reparten las tareas de la colmena: unas buscan néctar, otras cuidan a las larvas.</li><li>Los <b>lobos</b> cazan en manada y cuidan juntos a las crías.</li><li>Las <b>aves</b> que migran vuelan en forma de V y se turnan para ir delante, que es el sitio más cansado.</li></ul><p><b>En los deportes</b>: en el remo, todos tienen que remar al mismo ritmo; en una cordada de montaña, los alpinistas van atados y se protegen entre ellos.</p><p><b>En la vida diaria</b>:</p><ul><li>En casa, cuando ayudamos a poner la mesa o a recoger.</li><li>En clase, cuando hacemos trabajos en grupo.</li><li>En el barrio, cuando hay voluntarios que ayudan a otras personas.</li></ul><p>Cooperar nos hace más fuertes: juntos llegamos más lejos que solos.</p><p><b>Actividad</b>: busca otro ejemplo de animales que cooperan y explícalo a la clase.</p>`,
+      L6.filas("Cooperan", [["hormigas", "cadenas y puentes", cNA], ["abejas", "se reparten tareas", cAZ], ["aves", "vuelo en V", cVE], ["remo", "mismo ritmo", cRO]])],
+  ],
+  ejemplos: [
+    ["¿El paracaídas es un juego competitivo o cooperativo?", ["Todos trabajan por el mismo objetivo.", "Nadie gana a nadie."], "Cooperativo."],
+    ["En el grupo siempre manda el mismo niño. ¿Qué podemos hacer?", ["Todos deben aprender todas las tareas.", "Los papeles se pueden cambiar."], "Rotar los papeles para que cada día haga una tarea distinta."],
+  ],
+  errores: ["Hacer bromas o soltar al compañero en los juegos de confianza.", "Pensar que un equipo es mejor solo por tener al más rápido o al más fuerte."],
+  ejercicios: [
+    ["b", "¿Qué pasa en un juego cooperativo?", "Todos trabajan por el mismo objetivo y ganan o pierden juntos."],
+    ["b", "¿Qué hace el portavoz del equipo?", "Explica a la clase lo que ha decidido el equipo."],
+    ["b", "Nombra un juego de confianza.", "El lazarillo, el péndulo, el robot o la alfombra mágica."],
+    ["b", "¿En qué forma vuelan algunas aves que migran?", "En forma de V."],
+    ["b", "En la lectura, ¿cuántos aros hay para cruzar el río?", "Cinco."],
+    ["m", "Explica qué es un juego mixto y pon un ejemplo.", "Se coopera dentro del equipo y se compite contra otro; por ejemplo, el baloncesto."],
+    ["m", "Di dos normas para jugar seguros a los juegos de confianza.", "No hacer bromas, ir despacio, avisar de los obstáculos, no obligar."],
+    ["m", "¿Por qué es bueno rotar los papeles en el equipo?", "Para que todos aprendan todas las tareas y nadie mande siempre."],
+    ["m", "¿Cómo cooperan las abejas?", "Se reparten las tareas de la colmena."],
+    ["m", "¿Qué hacemos si en el equipo no hay acuerdo?", "Escuchar todas las ideas, probarlas, votar o sortear."],
+    ["a", "¿Qué error comete Leo al principio y qué aprende?", "Intenta cruzar solo; aprende que hay que cooperar y ayudar a los demás."],
+    ["a", "Inventa un juego cooperativo con un aro por cada dos niños.", "Respuesta abierta."],
+    ["a", "Compara lo que aprendemos compitiendo y cooperando.", "Compitiendo, esfuerzo y aceptar la derrota; cooperando, escuchar, acordar y ayudar."],
+    ["a", "Escribe tres ejemplos de cooperación en tu casa o tu barrio.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["En un juego competitivo…", ["unos ganan y otros pierden", "todos ganan siempre", "nadie se esfuerza"], "Competir."],
+    ["En el péndulo, el compañero del medio se deja caer…", ["solo unos centímetros", "desde muy alto", "corriendo"], "Confianza."],
+    ["El guardián del tiempo…", ["vigila el reloj", "recoge el material", "explica las decisiones"], "Papeles."],
+    ["Las hormigas cooperan…", ["formando cadenas para llevar comida", "compitiendo entre ellas", "volando en V"], "Naturaleza."],
+    ["Rotar los papeles significa…", ["cambiarlos cada vez", "que siempre haga lo mismo", "quitarlos"], "Equipo."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué responde la clase cuando el maestro pregunta quién ha ganado?", ["¡Todos!", "Leo", "Carla"], "Lectura."],
+    ["¿Cuál de estos es un juego cooperativo?", ["mantener un globo en el aire entre todos", "una carrera de velocidad", "el pañuelo"], "Juegos."],
+  ],
+  tarjetas: [
+    ["Competir y cooperar", "Competir: unos ganan. Cooperar: todos juntos. Mixto: las dos cosas."],
+    ["Confianza", "Lazarillo, péndulo, robot; despacio, sin bromas, sin obligar."],
+    ["Papeles", "Portavoz, tiempo, material, animador, moderador; rotarlos."],
+    ["Cooperación", "Hormigas, abejas, lobos, aves en V; remo y cordada."],
+  ],
+  glosario: [
+    ["Cooperar", "Trabajar juntos por un mismo objetivo."],
+    ["Competir", "Intentar ganar a otros."],
+    ["Juego mixto", "Juego en el que se coopera y se compite."],
+    ["Confianza", "Seguridad en que los demás nos cuidarán."],
+    ["Péndulo", "Juego de confianza de dejarse caer y ser sujetado."],
+    ["Portavoz", "Persona que habla en nombre del grupo."],
+    ["Moderador", "Persona que da la palabra por turnos."],
+    ["Rotar", "Ir cambiando por turnos."],
+    ["Consenso", "Acuerdo al que llega todo el grupo."],
+    ["Manada", "Grupo de animales que viven juntos."],
+    ["Cordada", "Grupo de alpinistas atados con una cuerda."],
+    ["Voluntario", "Persona que ayuda a otros sin cobrar."],
+  ],
+  situacion: {
+    titulo: "La gran misión de la clase",
+    reto: "La clase supera una serie de retos cooperativos en los que solo se gana si todos los grupos lo consiguen.",
+    pasos: ["Formar equipos y repartir los papeles de portavoz, tiempo, material y animador.", "Superar tres retos: el río de lava, la alfombra mágica y el globo que no cae.", "Jugar al lazarillo y al robot cuidando a la pareja.", "Hacer una asamblea final: qué funcionó, qué cambiaríamos y cómo nos hemos sentido."],
+    producto: "Un diploma de la clase por superar la misión juntos.",
+    evaluacion: ["Coopera y ayuda a los compañeros.", "Cumple su papel en el equipo.", "Juega con responsabilidad en los juegos de confianza.", "Expresa cómo se ha sentido y escucha a los demás."],
+  },
+});

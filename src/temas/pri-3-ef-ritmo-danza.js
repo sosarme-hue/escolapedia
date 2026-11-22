@@ -139,3 +139,89 @@ module.exports = {
   fuentes: [RD, wiki("Ritmo", "Ritmo"), wiki("Danza", "Danza"), wiki("Percusión corporal", "Percusión corporal")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Distinguir el pulso, el acento y el compás", "Comunicar con el mimo sin palabras", "Bailar en distintas formaciones: corro, filas y parejas", "Valorar el baile como actividad saludable"],
+  lectura: { titulo: "Las zapatillas de Lucía", html: `<p>A Lucía le encanta bailar, pero solo en su habitación, con la puerta cerrada. Allí baila delante del espejo con sus canciones favoritas y se siente feliz.</p><p>En el colegio es diferente. Cuando el maestro de Educación Física anuncia que van a preparar una coreografía para el festival de fin de curso, a Lucía se le hace un nudo en la tripa. «¿Y si me equivoco? ¿Y si se ríen de mí?», piensa.</p><p>El maestro los pone en grupos de cuatro. En el grupo de Lucía está Martín, que tampoco sabe bailar, y que tropieza en el primer giro. Todos se ríen… incluido Martín. Y entonces Lucía también se ríe, y se le quita el miedo.</p><p>—Tú bailas muy bien —le dice Ana—. ¿Nos enseñas un paso?</p><p>Lucía duda, pero se levanta y les enseña un paso lateral con palmada que practica en casa. Al grupo le encanta y lo ponen al principio de la coreografía.</p><p>El día del festival, Lucía lleva sus zapatillas de colores. Cuando empieza la música, mira a sus compañeros, sonríe y baila sin pensar en nada más. Al terminar, el público aplaude con ganas.</p><p>Lucía ha descubierto que bailar con otros es todavía más divertido.</p>` },
+  tras: {
+    "Percusión corporal": [
+      ["Pulso, acento y compás", `<p>Para bailar bien hay que entender cómo está organizada la música. Tres ideas clave:</p><ul><li>El <mark>pulso</mark> es el latido regular de la música, siempre igual, como el tic-tac de un reloj. Es lo que seguimos cuando damos palmas o pasos sin pensar.</li><li>El <mark>acento</mark> es un pulso que suena más fuerte que los demás. Es como si la música dijera: «¡ahora!».</li><li>El <mark>compás</mark> es un grupo de pulsos que empieza con un acento. Se repite una y otra vez.</li></ul><p>Los compases más frecuentes:</p><ul><li>Compás de <b>2</b>: UN-dos, UN-dos. Como una marcha o un pasodoble.</li><li>Compás de <b>3</b>: UN-dos-tres, UN-dos-tres. Como un vals, que se baila girando.</li><li>Compás de <b>4</b>: UN-dos-tres-cuatro. Es el más común en la música pop.</li></ul><p>En la danza, el acento suele marcar el <b>primer paso</b> o un movimiento especial: un salto, una palmada o un cambio de dirección. Por eso los bailarines cuentan: «cinco, seis, siete, ocho… ¡y empezamos!».</p><p><b>Actividad</b>: camina por el espacio al pulso y da una palmada fuerte en cada acento con una música de compás de 3 y otra de 4.</p>`,
+        L6.filas("Compás", [["2", "UN-dos", cAZ], ["3", "UN-dos-tres", cVE], ["4", "UN-dos-tres-cuatro", cNA], ["acento", "el más fuerte", cRO]])],
+    ],
+    "La expresión corporal": [
+      ["El mimo: hablar sin palabras", `<p>El <mark>mimo</mark> es un arte en el que se cuenta una historia solo con el cuerpo y la cara, sin hablar y casi siempre sin objetos. El mimo más famoso fue el francés <b>Marcel Marceau</b>, que creó un personaje llamado Bip, con la cara pintada de blanco.</p><p>Trucos de los mimos:</p><ul><li><b>La pared invisible</b>: se apoyan las manos abiertas en el aire como si hubiera un cristal, y se mueven sin atravesarlo.</li><li><b>La cuerda</b>: se tira de una cuerda imaginaria, primero con una mano y luego con la otra, echando el cuerpo hacia atrás.</li><li><b>Los objetos imaginarios</b>: abrir una puerta, coger una taza, subir una escalera… hay que recordar el tamaño y el peso del objeto.</li><li><b>Exagerar</b> los gestos de la cara: sorpresa, miedo, alegría, enfado.</li></ul><p>El mimo nos ayuda a <b>observar</b> cómo nos movemos en la vida diaria y a expresar sin palabras. También mejora la concentración y la imaginación.</p><p>Juego: <b>¿Qué estoy haciendo?</b> Un alumno hace una acción con mimo (lavarse los dientes, pescar, inflar un globo) y los demás adivinan.</p><p><b>Actividad</b>: en parejas, preparad una pequeña escena de mimo de un minuto con un principio, un problema y un final.</p>`,
+        H6.rueda("Mimo", "MIMO", [["pared invisible", cAZ], ["cuerda", cNA], ["objetos", cVE], ["exagerar", cRO]])],
+    ],
+    "Pasos básicos": [
+      ["Corro, filas y parejas", `<p>Los bailes se pueden hacer en distintas <mark>formaciones</mark>, es decir, maneras de colocarse en el espacio:</p><ul><li><b>En corro</b>: todos en círculo, a menudo cogidos de la mano. Es la formación de muchos bailes tradicionales, como la sardana catalana. Todos se ven las caras.</li><li><b>En filas</b>: unos al lado de otros o unos detrás de otros, mirando al frente. Es típica de las coreografías actuales y de los bailes en línea.</li><li><b>En parejas</b>: dos personas que bailan juntas, una frente a la otra o cogidas de las manos. Hay que coordinarse con el compañero.</li><li><b>En cadena o serpiente</b>: en fila, cogidos de los hombros o de la mano, el primero guía por el espacio.</li></ul><p>Juegos para bailar con otros:</p><ul><li><b>El espejo</b>: en parejas, uno hace movimientos lentos y el otro los copia como si fuera su reflejo.</li><li><b>La sombra</b>: uno camina y baila por el espacio y el otro lo sigue por detrás haciendo lo mismo.</li><li><b>Cambio de pareja</b>: al sonar una palmada, todos buscan una pareja nueva.</li></ul><p><b>Actividad</b>: con tu grupo, bailad la misma música en corro, en filas y en parejas. ¿Cuál os gusta más?</p>`,
+        L6.filas("Formaciones", [["corro", "en círculo", cMO], ["filas", "mirando al frente", cAZ], ["parejas", "dos juntos", cRO], ["cadena", "el primero guía", cVE]])],
+    ],
+  },
+  final: [
+    ["Bailar nos hace bien", `<p>Bailar no es solo divertido: también es muy <mark>bueno para la salud</mark>.</p><ul><li>Para el <b>cuerpo</b>: fortalece el corazón y los músculos, mejora la flexibilidad, el equilibrio y la coordinación.</li><li>Para la <b>mente</b>: entrena la memoria (recordar los pasos), la atención y la creatividad.</li><li>Para las <b>emociones</b>: nos pone contentos, nos ayuda a liberar los nervios y a expresar lo que sentimos.</li><li>Para <b>relacionarnos</b>: bailar con otros nos une, nos hace reír y nos enseña a coordinarnos y a respetar a los demás.</li></ul><p>Hay estilos de baile para todos los gustos:</p><ul><li><b>Ballet</b> o danza clásica, con movimientos elegantes y de puntillas.</li><li><b>Flamenco</b>, con zapateado, palmas y braceo.</li><li><b>Hip-hop</b> y <b>break dance</b>, con movimientos de la calle y acrobacias. El breaking fue deporte olímpico en París 2024.</li><li><b>Danza contemporánea</b>, muy libre y expresiva.</li><li><b>Bailes de salón</b>, en pareja, como el vals o el chachachá.</li></ul><p>No importa si bailas bien o mal: lo importante es moverse y disfrutar.</p><p><b>Actividad</b>: busca con tu familia un vídeo de un estilo de baile que no conozcas y aprende un paso.</p>`,
+      H6.dos("Bailar", ["CUERPO", ["corazón", "flexibilidad", "equilibrio"], cRO], ["MENTE", ["memoria", "alegría", "amigos"], cAZ])],
+  ],
+  ejemplos: [
+    ["Escuchas UN-dos-tres, UN-dos-tres. ¿De cuántos tiempos es el compás?", ["Se repite un grupo de tres pulsos.", "El acento está en el primero."], "Compás de 3, como un vals."],
+    ["¿Cómo se hace la pared invisible del mimo?", ["Las manos imaginan un cristal.", "No hay que atravesarlo."], "Apoyando las manos abiertas en el aire y moviéndolas sin atravesar el cristal."],
+  ],
+  errores: ["Ir más rápido o más lento que el pulso de la música.", "Hablar o hacer ruidos durante un ejercicio de mimo."],
+  ejercicios: [
+    ["b", "¿Qué es el pulso de la música?", "El latido regular, siempre igual."],
+    ["b", "¿Qué es el acento?", "Un pulso que suena más fuerte."],
+    ["b", "¿Quién fue Marcel Marceau?", "Un mimo francés muy famoso."],
+    ["b", "Nombra dos formaciones para bailar.", "En corro, en filas, en parejas o en cadena."],
+    ["b", "En la lectura, ¿dónde bailaba Lucía al principio?", "En su habitación, con la puerta cerrada."],
+    ["m", "¿De cuántos tiempos es el compás del vals?", "De 3."],
+    ["m", "Explica el juego del espejo.", "En parejas, uno hace movimientos lentos y el otro los copia como un reflejo."],
+    ["m", "Di dos trucos del mimo.", "La pared invisible, la cuerda, los objetos imaginarios o exagerar los gestos."],
+    ["m", "¿Qué beneficios tiene bailar para la mente?", "Entrena la memoria, la atención y la creatividad."],
+    ["m", "¿Qué estilo de baile tiene zapateado, palmas y braceo?", "El flamenco."],
+    ["a", "¿Qué le ayuda a Lucía a perder el miedo y qué descubre?", "Ver que todos se ríen cuando Martín tropieza; descubre que bailar con otros es más divertido."],
+    ["a", "Prepara una escena de mimo de un minuto con principio, problema y final.", "Respuesta abierta."],
+    ["a", "Crea una secuencia de 8 tiempos que empiece con un salto en el acento.", "Respuesta abierta."],
+    ["a", "Compara bailar en corro y en filas.", "En corro todos se ven las caras y van juntos; en filas miran al frente, como en las coreografías."],
+  ],
+  quiz: [
+    ["El compás de un vals es de…", ["3 tiempos", "2 tiempos", "4 tiempos"], "Compás."],
+    ["El acento es…", ["el pulso más fuerte", "el silencio", "el final de la canción"], "Ritmo."],
+    ["El mimo cuenta historias…", ["sin palabras", "cantando", "con un micrófono"], "Mimo."],
+    ["La sardana se baila…", ["en corro", "en parejas separadas", "en solitario"], "Formaciones."],
+    ["El breaking fue deporte olímpico en…", ["París 2024", "Barcelona 1992", "nunca"], "Estilos."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué paso enseña Lucía a su grupo?", ["un paso lateral con palmada", "una voltereta", "un paso de ballet"], "Lectura."],
+    ["En el juego de la sombra…", ["uno sigue por detrás a otro haciendo lo mismo", "se baila en corro", "se baila sin música"], "Formaciones."],
+  ],
+  tarjetas: [
+    ["Ritmo", "Pulso regular; acento más fuerte; compás de 2, 3 o 4."],
+    ["Mimo", "Sin palabras: pared invisible, cuerda, objetos, exagerar."],
+    ["Formaciones", "Corro, filas, parejas, cadena; espejo y sombra."],
+    ["Bailar", "Bueno para cuerpo, mente, emociones y amigos."],
+  ],
+  glosario: [
+    ["Pulso", "Latido regular de la música."],
+    ["Acento", "Pulso que suena más fuerte."],
+    ["Compás", "Grupo de pulsos que empieza con un acento."],
+    ["Vals", "Baile en compás de 3, con giros."],
+    ["Mimo", "Arte de contar sin palabras con el cuerpo."],
+    ["Formación", "Forma de colocarse para bailar."],
+    ["Corro", "Círculo de personas."],
+    ["Coreografía", "Serie de pasos organizados para una música."],
+    ["Zapateado", "Golpes rítmicos con los pies del flamenco."],
+    ["Braceo", "Movimiento de los brazos al bailar."],
+    ["Breaking", "Baile urbano con acrobacias."],
+    ["Expresión corporal", "Comunicar con el cuerpo."],
+  ],
+  situacion: {
+    titulo: "El festival de las emociones",
+    reto: "La clase prepara un festival con escenas de mimo y coreografías en distintas formaciones para presentarlo a las familias.",
+    pasos: ["Escuchar varias canciones y descubrir su compás dando palmas en el acento.", "Preparar en parejas una escena de mimo sobre una emoción.", "Crear en grupos una coreografía que use al menos dos formaciones.", "Presentar el festival y comentar después cómo nos hemos sentido."],
+    producto: "Un festival de mimo y danza para las familias.",
+    evaluacion: ["Sigue el pulso y marca el acento.", "Se expresa sin palabras con gestos claros.", "Baila en distintas formaciones coordinándose con los demás.", "Participa con respeto y sin miedo al error."],
+  },
+});

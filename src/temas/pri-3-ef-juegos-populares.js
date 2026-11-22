@@ -142,3 +142,89 @@ module.exports = {
   fuentes: [RD, wiki("Juego tradicional", "Juego tradicional"), wiki("Rayuela", "Rayuela (juego)"), wiki("Peonza", "Peonza")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Jugar al escondite, al bote y al pañuelo respetando sus reglas", "Practicar juegos de puntería como los bolos y la rana", "Echar a suertes de forma justa con retahílas", "Conocer juegos de mesa tradicionales para jugar en familia"],
+  lectura: { titulo: "El baúl del abuelo", html: `<p>Este verano, Irene pasa unos días en el pueblo de su abuelo Tomás. El primer día llueve y no pueden salir. Irene se aburre: en casa del abuelo no hay tableta ni videoconsola.</p><p>—Ven —le dice el abuelo, y sube con ella al desván. Allí hay un baúl viejo de madera.</p><p>Al abrirlo, Irene encuentra tesoros: una bolsa de tela llena de canicas de colores, una peonza de madera con su cuerda, unas chapas pintadas con nombres de ciclistas y un tablero de la oca un poco roto.</p><p>—Con esto jugaba yo cuando tenía tu edad —dice el abuelo, con los ojos brillantes—. Y no nos aburríamos nunca.</p><p>Esa tarde, el abuelo le enseña a lanzar la peonza. A Irene le cuesta mucho: la peonza cae de lado una y otra vez. Pero al quinto intento… ¡baila!</p><p>Al día siguiente sale el sol. Irene baja a la plaza con las canicas y enseña a jugar a los niños del pueblo. Al final de la semana, todos juegan juntos al bote, al pañuelo y a la rayuela.</p><p>Cuando se despide, Irene abraza al abuelo: —El año que viene te enseño yo un juego nuevo.</p>` },
+  tras: {
+    "Juegos de persecución": [
+      ["Escondite, bote y pañuelo", `<p>Tres juegos tradicionales muy conocidos en toda España:</p><p><b>El escondite</b>: uno «se la queda», se tapa los ojos contra una pared y cuenta hasta un número (por ejemplo, 20) mientras los demás se esconden. Después busca. Cuando ve a alguien, corre a la pared y dice «¡Por Ana, que está detrás del árbol!». Si alguien llega antes a la pared sin ser visto, dice «¡Por mí!» y se salva.</p><p><b>El bote</b> (o la lata): parecido al escondite, pero con un bote en el centro. Quien se la queda tiene que tocar el bote para «pillar» a los demás. Si alguien consigue darle una patada al bote, ¡salva a todos los pillados!</p><p><b>El pañuelo</b>: se hacen dos equipos con los mismos números. Una persona en medio sostiene un pañuelo y dice un número. Los dos jugadores con ese número corren a coger el pañuelo y volver a su campo sin que el otro los toque.</p><p>Estos juegos entrenan la <mark>velocidad de reacción</mark>, la atención y la estrategia. Y se pueden jugar casi en cualquier sitio, sin apenas material.</p><p><b>Actividad</b>: juega al pañuelo y después explica qué estrategia te ayudó a ganar.</p>`,
+        L6.filas("Juegos", [["escondite", "contar y buscar", cAZ], ["bote", "patada salva a todos", cRO], ["pañuelo", "número y correr", cVE], ["entrenan", "reacción y atención", cNA]])],
+    ],
+    "Juegos de habilidad con objetos": [
+      ["Bolos, rana y petanca: juegos de puntería", `<p>Muchos juegos tradicionales consisten en <mark>lanzar con puntería</mark> para derribar o acercarse a algo.</p><ul><li><b>Los bolos</b>: se lanzan bolas para derribar unos palos de madera llamados bolos. En España hay muchas modalidades: el <b>bolo palma</b> en Cantabria, el <b>bolo leonés</b> en León o los <b>bolos serranos</b>. Es uno de los juegos más antiguos que se conocen.</li><li><b>La rana</b>: es una mesa o caja con agujeros y, en medio, una rana de metal con la boca abierta. Desde unos metros, se lanzan fichas o discos de metal. Cada agujero da puntos, ¡y meterla en la boca de la rana da los máximos!</li><li><b>La petanca</b>: se lanza primero una bolita pequeña, el <b>boliche</b>. Después, cada jugador lanza sus bolas de metal intentando dejarlas lo más cerca posible del boliche. Muchos abuelos juegan en parques y plazas.</li></ul><p>Para lanzar con puntería:</p><ul><li>Mira al objetivo antes de lanzar.</li><li>Mueve el brazo de atrás hacia delante, sin brusquedad.</li><li>Prueba con más o menos fuerza hasta acertar.</li></ul><p><b>Actividad</b>: fabrica unos bolos con botellas de plástico con un poco de arena y juega con una pelota.</p>`,
+        H6.rueda("Puntería", "LANZAR", [["bolos", cNA], ["rana", cVE], ["petanca", cAZ], ["chapas", cRO]])],
+    ],
+    "Las reglas del juego": [
+      ["Echar a suertes: pito, pito, gorgorito", `<p>Antes de empezar un juego, muchas veces hay que decidir quién <mark>se la queda</mark> o qué equipo empieza. Para que sea justo, echamos a suertes. Hay muchas formas tradicionales:</p><ul><li><b>Retahílas</b>: todos se ponen en corro y uno va señalando a cada jugador con cada sílaba de una canción. Al que le toca la última sílaba, se salva o se la queda. Por ejemplo: «Pito, pito, gorgorito, ¿dónde vas tú tan bonito? A la acera verdadera, pim, pam, pum, fuera».</li><li><b>Piedra, papel o tijera</b>: la piedra rompe la tijera, la tijera corta el papel y el papel envuelve la piedra.</li><li><b>Pares o nones</b>: dos jugadores sacan a la vez los dedos de una mano. Uno elige pares y el otro nones. Se suman los dedos.</li><li><b>Echar una moneda al aire</b>: cara o cruz.</li><li><b>Los pies</b>: para elegir equipos, dos capitanes avanzan poniendo un pie delante del otro hasta encontrarse. El que pisa al otro elige primero.</li></ul><p>Echar a suertes evita discusiones: nadie puede decir que no es justo. Y si alguien se la queda muchas veces, podemos cambiar las normas para que todos participen.</p><p><b>Actividad</b>: pregunta en casa qué retahílas usaban tus padres o abuelos para echar a suertes.</p>`,
+        L6.filas("A suertes", [["retahíla", "pito, pito…", cMO], ["piedra, papel, tijera", "mano", cAZ], ["pares o nones", "sumar dedos", cVE], ["cara o cruz", "moneda", cNA]])],
+    ],
+  },
+  final: [
+    ["Juegos de mesa tradicionales", `<p>No todos los juegos tradicionales se juegan corriendo. Hay <mark>juegos de mesa</mark> que se han jugado durante siglos en familia, con los amigos o en las plazas:</p><ul><li><b>El parchís</b>: cuatro jugadores con fichas de colores tienen que llevarlas desde su casa hasta la meta, tirando un dado. ¡Si caes en la casilla de otro, te come!</li><li><b>La oca</b>: un camino de 63 casillas en espiral. Si caes en una oca, saltas a la siguiente: «De oca a oca y tiro porque me toca». Pero cuidado con el pozo, la cárcel y la calavera.</li><li><b>El dominó</b>: fichas con puntos que hay que unir por el mismo número.</li><li><b>Las damas</b>: un tablero de cuadros blancos y negros donde las fichas saltan unas sobre otras.</li><li><b>Las tres en raya</b>: se puede dibujar en un papel o en la arena; gana quien pone tres fichas en línea.</li></ul><p>Estos juegos entrenan la <b>memoria</b>, el <b>cálculo</b>, la <b>estrategia</b> y la paciencia. Y nos enseñan a respetar los turnos y a saber perder.</p><p>Son perfectos para los días de lluvia o para jugar con los abuelos, como Irene en la lectura.</p><p><b>Actividad</b>: dibuja un tablero de tres en raya en el patio con tiza y juega con piedras y hojas.</p>`,
+      H6.dos("Mesa", ["CON DADO", ["parchís", "la oca"], cRO], ["SIN DADO", ["dominó", "damas", "tres en raya"], cAZ])],
+  ],
+  ejemplos: [
+    ["En el bote, ¿qué pasa si alguien da una patada al bote?", ["El bote está en el centro.", "Quien lo golpea ayuda a los pillados."], "Se salvan todos los que estaban pillados."],
+    ["Juegas a piedra, papel o tijera: tú sacas papel y tu amigo, piedra. ¿Quién gana?", ["El papel envuelve la piedra.", "Gana el papel."], "Ganas tú."],
+  ],
+  errores: ["Mirar mientras se cuenta en el escondite.", "Cambiar las reglas en mitad del juego sin ponerse de acuerdo todos."],
+  ejercicios: [
+    ["b", "¿Qué se dice en el escondite cuando llegas a la pared sin que te vean?", "«¡Por mí!»"],
+    ["b", "¿Qué es el boliche en la petanca?", "La bola pequeña a la que hay que acercarse."],
+    ["b", "¿Qué gana: tijera o papel?", "La tijera, porque corta el papel."],
+    ["b", "¿Cuántas casillas tiene el juego de la oca?", "63."],
+    ["b", "En la lectura, ¿qué juguete aprende a lanzar Irene?", "La peonza."],
+    ["m", "Explica cómo se juega al pañuelo.", "Dos equipos con números; se dice un número y esos jugadores corren a coger el pañuelo y volver sin ser tocados."],
+    ["m", "¿Dónde se juega el bolo palma?", "En Cantabria."],
+    ["m", "¿Para qué sirve echar a suertes?", "Para decidir de forma justa quién empieza o quién se la queda."],
+    ["m", "¿Qué entrenan los juegos de mesa?", "La memoria, el cálculo, la estrategia y la paciencia."],
+    ["m", "Da dos consejos para lanzar con puntería.", "Mirar al objetivo y mover el brazo sin brusquedad."],
+    ["a", "¿Qué encuentra Irene en el baúl y qué hace después con ello?", "Canicas, peonza, chapas y la oca; enseña a jugar a los niños del pueblo."],
+    ["a", "Inventa una retahíla nueva para echar a suertes.", "Respuesta abierta."],
+    ["a", "Pregunta a un adulto mayor por un juego de su infancia y explica sus reglas.", "Respuesta abierta."],
+    ["a", "Compara el escondite y el bote: en qué se parecen y en qué se diferencian.", "En los dos se busca a los escondidos; en el bote hay que tocar el bote y una patada salva a todos."],
+  ],
+  quiz: [
+    ["En el bote, una patada al bote…", ["salva a todos los pillados", "termina el juego", "elimina al que la da"], "Bote."],
+    ["En la rana, los puntos máximos se consiguen…", ["metiendo la ficha en la boca de la rana", "tirando fuera", "rompiendo la rana"], "Rana."],
+    ["«Pito, pito, gorgorito» es una…", ["retahíla para echar a suertes", "canción de cuna", "regla del parchís"], "Suertes."],
+    ["En la oca, si caes en una oca…", ["saltas a la siguiente y vuelves a tirar", "vas a la cárcel", "pierdes"], "Oca."],
+    ["El pañuelo entrena sobre todo…", ["la velocidad de reacción", "la flexibilidad", "la fuerza de brazos"], "Pañuelo."],
+  ],
+  examen: [
+    ["En la lectura, ¿por qué Irene se aburre al principio?", ["llueve y no hay tableta ni consola", "está enferma", "no tiene amigos"], "Lectura."],
+    ["En la petanca, gana la bola que queda…", ["más cerca del boliche", "más lejos", "en el aire"], "Petanca."],
+  ],
+  tarjetas: [
+    ["Escondite y bote", "Contar sin mirar; «¡Por mí!»; patada al bote salva a todos."],
+    ["Puntería", "Bolos, rana, petanca; mirar al objetivo y lanzar suave."],
+    ["A suertes", "Retahílas, piedra-papel-tijera, pares o nones, cara o cruz."],
+    ["Mesa", "Parchís, oca, dominó, damas, tres en raya."],
+  ],
+  glosario: [
+    ["Quedársela", "Ser el que persigue o busca en un juego."],
+    ["Bote", "Lata que hay que tocar o golpear en el juego del bote."],
+    ["Pañuelo", "Juego de correr a coger un pañuelo por números."],
+    ["Bolo", "Palo de madera que hay que derribar."],
+    ["Petanca", "Juego de lanzar bolas cerca de una bolita."],
+    ["Boliche", "Bola pequeña de la petanca."],
+    ["Retahíla", "Serie de palabras que se dicen para echar a suertes."],
+    ["Echar a suertes", "Decidir algo al azar de forma justa."],
+    ["Pares o nones", "Forma de sortear sumando dedos."],
+    ["Peonza", "Juguete que gira sobre una punta."],
+    ["Desván", "Parte más alta de una casa, bajo el tejado."],
+    ["Estrategia", "Plan para conseguir un objetivo en un juego."],
+  ],
+  situacion: {
+    titulo: "La feria de los juegos de siempre",
+    reto: "La clase organiza una feria de juegos tradicionales para el recreo e invita a familiares mayores a enseñar y jugar.",
+    pasos: ["Preguntar en casa por juegos de la infancia de padres y abuelos.", "Preparar estaciones: bolos con botellas, rana de cartón, rayuela, tres en raya y pañuelo.", "Escribir una tarjeta de reglas para cada estación y la retahíla para echar a suertes.", "Celebrar la feria y jugar con los invitados."],
+    producto: "Una feria de juegos tradicionales con tarjetas de reglas.",
+    evaluacion: ["Conoce y explica las reglas de varios juegos tradicionales.", "Respeta las reglas y los turnos.", "Lanza con puntería en los juegos de precisión.", "Valora los juegos de otras generaciones."],
+  },
+});

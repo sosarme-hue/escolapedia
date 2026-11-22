@@ -139,3 +139,89 @@ module.exports = {
   fuentes: [RD, wiki("Balón", "Balón"), wiki("Coordinación motriz", "Coordinación motriz"), wiki("Pase", "Pase (deporte)")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Pasar en movimiento y desmarcarse para recibir", "Golpear con raquetas, palas y sticks", "Clasificar los deportes de balón", "Fabricar pelotas con materiales reciclados"],
+  lectura: { titulo: "El balón de Fátima", html: `<p>Fátima ha llegado nueva al colegio a mitad de curso. En el recreo, los chicos de su clase juegan al fútbol y nunca le pasan el balón.</p><p>—Es que no sabes —le dice Daniel.</p><p>Fátima no dice nada. Al día siguiente, en Educación Física, la maestra propone el juego de los diez pases. Fátima se mueve sin parar: cuando su equipo tiene el balón, busca un hueco libre, levanta la mano y grita: «¡Aquí!».</p><p>Lucía le pasa el balón. Fátima lo para con el pie, mira y pasa rápido a Marcos. Vuelve a moverse, recibe otra vez y pasa con la mano. ¡Diez pases! Su equipo gana el punto.</p><p>—¿Dónde has aprendido eso? —pregunta Daniel, sorprendido.</p><p>—En mi antiguo colegio jugaba a balonmano —responde Fátima—. Lo importante no es correr con el balón, sino moverse cuando no lo tienes.</p><p>Ese día, en el recreo, Daniel se acerca a Fátima. —¿Quieres jugar con nosotros?</p><p>Fátima sonríe. —Vale. Pero con una condición: el balón lo tocamos todos.</p><p>Y desde entonces, en el patio, juegan chicos y chicas juntos.</p>` },
+  tras: {
+    "El pase": [
+      ["Pasar en movimiento y desmarcarse", `<p>En los juegos de equipo, el balón no se queda quieto, y nosotros tampoco. Hay dos ideas muy importantes:</p><p><b>1. El desmarque</b>: cuando mi equipo tiene el balón y yo no, me muevo a un <mark>espacio libre</mark>, lejos de los contrarios, para que me puedan pasar. ¡Quedarse quieto detrás de un rival no sirve!</p><p><b>2. Pedir el balón</b>: cuando estoy libre, aviso a mi compañero levantando la mano, diciendo su nombre o «¡aquí!».</p><p>Y cuando tengo el balón:</p><ul><li><b>Levanto la cabeza</b> para ver dónde están mis compañeros.</li><li>Paso al compañero que está <b>libre</b>, no al que está rodeado de rivales.</li><li>Si mi compañero está corriendo, paso un poco <b>por delante</b> de él, al hueco, para que no tenga que pararse.</li><li>Después de pasar, <b>me vuelvo a mover</b>: es el «pasa y va».</li></ul><p>Así el balón corre más que nadie, y el equipo funciona mejor. Un buen jugador no es el que lleva siempre el balón, sino el que ayuda a que el equipo lo mueva bien.</p><p><b>Actividad</b>: en grupos de tres, pasaos el balón caminando y, después de cada pase, moveos a un sitio nuevo.</p>`,
+        H6.flujo("Pasa y va", ["veo|libre", "paso|al hueco", "me muevo|otra vez", "pido|¡aquí!"], cAZ)],
+    ],
+    "Conducir y golpear con el pie": [
+      ["Golpear con raquetas, palas y sticks", `<p>A veces no golpeamos la pelota con el cuerpo, sino con un <mark>implemento</mark>: un objeto que sujetamos con la mano. Así funcionan muchos deportes:</p><ul><li><b>Raqueta</b>: tenis, bádminton (con un volante de plumas) y tenis de mesa.</li><li><b>Pala</b>: pádel y las palas de playa.</li><li><b>Stick</b>: el hockey, un palo con la punta curvada.</li><li><b>Bate</b>: el béisbol.</li></ul><p>Consejos para golpear bien:</p><ul><li><b>Agarre</b>: sujeta el mango como si dieras la mano, sin apretar demasiado.</li><li><b>No pierdas de vista la pelota</b> hasta el momento del golpe.</li><li>Colócate <b>de lado</b>, no de frente, para tener más fuerza y control.</li><li>Lleva la raqueta hacia atrás antes de golpear y acompaña el golpe hacia delante.</li></ul><p>Para empezar, lo mejor es usar pelotas grandes y blandas o <b>globos</b>, que van más despacio. Primero, toques hacia arriba con la pala; después, pases con un compañero.</p><p>Seguridad: deja espacio alrededor para no golpear a nadie, y nunca levantes el stick por encima de la cintura en el hockey.</p><p><b>Actividad</b>: da toques a un globo con una pala sin que caiga. ¿Cuántos consigues?</p>`,
+        L6.filas("Implementos", [["raqueta", "tenis, bádminton", cVE], ["pala", "pádel, playa", cNA], ["stick", "hockey", cAZ], ["bate", "béisbol", cRO]])],
+    ],
+    "Juegos con balón": [
+      ["Los deportes de balón", `<p>Hay muchísimos deportes con pelota. Podemos clasificarlos según cómo se juegan:</p><ul><li><b>Deportes de invasión</b>: dos equipos comparten el campo y cada uno intenta llevar el balón a la portería o canasta del otro. Por ejemplo, <b>fútbol</b>, <b>baloncesto</b>, <b>balonmano</b>, <b>rugby</b> y <b>hockey</b>.</li><li><b>Deportes de red</b>: los equipos o jugadores están separados por una <b>red</b> y no se tocan. Hay que enviar la pelota al campo contrario. Por ejemplo, <b>voleibol</b>, <b>tenis</b>, <b>bádminton</b> y <b>pádel</b>.</li><li><b>Deportes de bateo</b>: un equipo lanza y el otro golpea con un bate y corre. Por ejemplo, el <b>béisbol</b>.</li><li><b>Deportes de precisión</b>: hay que acercar una bola a un objetivo. Por ejemplo, la <b>petanca</b>, los <b>bolos</b> o el <b>golf</b>.</li></ul><p>Los balones también son diferentes: el de rugby es <b>ovalado</b>; el de baloncesto es grande y rugoso para botar bien; el de voleibol es ligero y blando para golpearlo con las manos; el de balonmano es pequeño para cogerlo con una mano.</p><p><b>Actividad</b>: dibuja cuatro balones distintos y escribe a qué deporte pertenecen.</p>`,
+        L6.filas("Deportes", [["invasión", "fútbol, baloncesto", cRO], ["red", "voleibol, tenis", cAZ], ["bateo", "béisbol", cNA], ["precisión", "petanca, golf", cVE]])],
+    ],
+  },
+  final: [
+    ["Fabricamos nuestras pelotas", `<p>No hace falta comprar una pelota para jugar. Podemos <mark>fabricarlas</mark> con materiales reciclados, como hacían muchos niños hace años.</p><p><b>Pelota de papel</b>:</p><ul><li>Haz una bola apretada con hojas de periódico.</li><li>Rodéala con cinta adhesiva hasta que quede redonda y firme.</li><li>Es perfecta para lanzar y atrapar, y no hace daño.</li></ul><p><b>Pelota de calcetín</b>:</p><ul><li>Mete varios calcetines viejos dentro de otro calcetín.</li><li>Haz un nudo o cóselo.</li><li>Sirve para jugar en casa sin romper nada.</li></ul><p><b>Pelota de malabares</b>:</p><ul><li>Llena un globo pequeño con arroz o harina usando un embudo.</li><li>Corta la boquilla y pon otro globo encima, por el otro lado.</li><li>Se queda blandita y no rebota: ¡ideal para empezar con los malabares!</li></ul><p>Fabricar nuestro material tiene muchas ventajas: <b>reciclamos</b>, ahorramos dinero, cada pelota es única y, además, aprendemos que se puede jugar con muy poco.</p><p>En muchos lugares del mundo, los niños juegan al fútbol con pelotas hechas de bolsas de plástico atadas con cuerdas.</p><p><b>Actividad</b>: fabrica una pelota de malabares y aprende a lanzarla de una mano a otra.</p>`,
+      H6.rueda("Pelotas", "RECICLO", [["papel", cAZ], ["calcetín", cRO], ["globo y arroz", cNA], ["bolsas", cVE]])],
+  ],
+  ejemplos: [
+    ["Tu equipo tiene el balón y estás detrás de un rival. ¿Qué haces?", ["Así no te pueden pasar.", "Hay que buscar un espacio libre."], "Moverte a un hueco libre y pedir el balón."],
+    ["¿A qué tipo de deporte pertenece el voleibol?", ["Los equipos están separados.", "Hay una red en medio."], "Es un deporte de red."],
+  ],
+  errores: ["Quedarse quieto cuando el equipo tiene el balón en lugar de desmarcarse.", "Golpear con la raqueta sin mirar la pelota."],
+  ejercicios: [
+    ["b", "¿Qué es desmarcarse?", "Moverse a un espacio libre para recibir el balón."],
+    ["b", "¿Qué implemento se usa en el hockey?", "El stick."],
+    ["b", "¿Qué forma tiene el balón de rugby?", "Ovalada."],
+    ["b", "Nombra un deporte de red.", "Voleibol, tenis, bádminton o pádel."],
+    ["b", "En la lectura, ¿a qué jugaba Fátima en su antiguo colegio?", "A balonmano."],
+    ["m", "Explica qué es el «pasa y va».", "Después de pasar, volver a moverse para recibir otra vez."],
+    ["m", "¿Por qué es mejor empezar a usar raquetas con globos?", "Porque van más despacio y es más fácil golpearlos."],
+    ["m", "¿Qué es un deporte de invasión? Pon dos ejemplos.", "Los equipos comparten campo e intentan llegar a la portería del otro: fútbol y baloncesto."],
+    ["m", "¿Cómo se fabrica una pelota de papel?", "Haciendo una bola de periódico y rodeándola con cinta adhesiva."],
+    ["m", "Da dos consejos para golpear bien con una raqueta.", "Mirar la pelota y colocarse de lado."],
+    ["a", "¿Qué enseña Fátima a sus compañeros sobre el juego?", "Que lo importante es moverse sin balón y que todos toquen el balón."],
+    ["a", "Clasifica: tenis, rugby, golf, béisbol, balonmano, pádel.", "Red: tenis, pádel. Invasión: rugby, balonmano. Precisión: golf. Bateo: béisbol."],
+    ["a", "Inventa un juego con pelotas recicladas para el recreo.", "Respuesta abierta."],
+    ["a", "Explica por qué un buen jugador no es el que lleva siempre el balón.", "Porque el equipo funciona mejor si el balón se mueve entre todos."],
+  ],
+  quiz: [
+    ["Para recibir un pase debo…", ["moverme a un espacio libre", "esconderme detrás de un rival", "sentarme"], "Desmarque."],
+    ["El bádminton se juega con…", ["raqueta y volante", "pala y pelota", "stick y bola"], "Implementos."],
+    ["El baloncesto es un deporte de…", ["invasión", "red", "precisión"], "Clasificación."],
+    ["Al golpear con raqueta conviene colocarse…", ["de lado", "de espaldas", "de rodillas"], "Golpeo."],
+    ["La pelota de malabares se rellena de…", ["arroz o harina", "agua", "aire"], "Reciclar."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué condición pone Fátima para jugar en el recreo?", ["que todos toquen el balón", "ser la capitana", "jugar con su balón"], "Lectura."],
+    ["¿En qué deporte el balón es ovalado?", ["rugby", "voleibol", "baloncesto"], "Balones."],
+  ],
+  tarjetas: [
+    ["Desmarque", "Me muevo al hueco, pido el balón, paso y vuelvo a moverme."],
+    ["Implementos", "Raqueta, pala, stick, bate; mirar la pelota, de lado."],
+    ["Deportes", "Invasión, red, bateo y precisión."],
+    ["Pelotas recicladas", "Papel con cinta, calcetín, globo con arroz."],
+  ],
+  glosario: [
+    ["Desmarque", "Moverse a un espacio libre para recibir."],
+    ["Hueco", "Espacio libre en el campo."],
+    ["Pasa y va", "Pasar y volver a moverse enseguida."],
+    ["Implemento", "Objeto con el que se golpea la pelota."],
+    ["Raqueta", "Implemento con cuerdas para golpear."],
+    ["Stick", "Palo curvado del hockey."],
+    ["Volante", "Objeto con plumas que se usa en bádminton."],
+    ["Deporte de invasión", "Deporte en el que se comparte el campo con el rival."],
+    ["Deporte de red", "Deporte con una red que separa a los rivales."],
+    ["Ovalado", "Con forma de huevo alargado."],
+    ["Reciclar", "Volver a usar un material para otra cosa."],
+    ["Malabares", "Lanzar y atrapar objetos seguidos."],
+  ],
+  situacion: {
+    titulo: "La liga de los pases",
+    reto: "La clase organiza una liga de juegos de pases y golpeos con pelotas fabricadas por los propios alumnos.",
+    pasos: ["Fabricar pelotas de papel, calcetín y malabares en clase.", "Practicar el desmarque y el «pasa y va» en grupos de tres.", "Jugar a los diez pases, donde cada jugador debe tocar el balón al menos una vez.", "Terminar con una estación de golpeos con palas y globos y un diploma al mejor compañero."],
+    producto: "Una liga de juegos de pases con material reciclado.",
+    evaluacion: ["Se desmarca y pide el balón.", "Pasa al compañero libre.", "Golpea con implementos con control.", "Hace que todos participen."],
+  },
+});
