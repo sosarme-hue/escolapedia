@@ -89,3 +89,91 @@ module.exports = P.tema({
   saberes: "Los patriarcas (Gn 12–50): Abraham, Isaac, Jacob y José; la promesa y la alianza de Dios; la fe como confianza; la reconciliación y el perdón en la historia de la familia de Jacob",
   ideas: ["Teatro de la historia de José en cuatro escenas.", "Mapa del viaje de Abraham con plastilina.", "Cielo de estrellas con el nombre de cada alumno."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer la ciudad de Ur y el mundo de Abraham", "Comprender el relato de la prueba de Abraham", "Saber por qué Jacob se llamó Israel", "Reconocer a Abraham como padre de tres religiones"],
+  lectura: { titulo: "Las estrellas de Abraham", html: `<p>Una noche de verano, en el pueblo, Samuel y su abuela salieron al patio a tomar el fresco. No había luna y el cielo estaba lleno de estrellas.</p><p>—Abuela, ¿cuántas estrellas hay?</p><p>—Muchísimas. Más de las que podrías contar en toda tu vida.</p><p>Samuel empezó a contar: «Una, dos, tres…». Al llegar a cuarenta se le cruzaron todas y tuvo que empezar otra vez.</p><p>La abuela se rio.</p><p>—Eso mismo le pasó a Abraham. ¿Te lo cuento?</p><p>Y le contó que Abraham era ya muy mayor y no tenía hijos. Una noche, Dios lo sacó fuera de su tienda y le dijo: «Mira al cielo y cuenta las estrellas, si puedes. Así de numerosa será tu familia».</p><p>—¡Pero si no tenía ni un hijo! —protestó Samuel.</p><p>—Por eso es tan importante la historia. Abraham no lo entendía, pero se fio. Y tuvo un hijo, Isaac, y después nietos, y bisnietos… Hoy, millones de judíos, cristianos y musulmanes lo llaman «nuestro padre Abraham».</p><p>Samuel se quedó callado, mirando el cielo.</p><p>—Entonces yo también soy una de esas estrellas.</p><p>—Eso dicen —sonrió la abuela, tapándolo con una manta.</p>` },
+  tras: {
+    "Abraham se pone en camino": [
+      ["Ur, la ciudad de Abraham", `<p>La Biblia dice que Abraham venía de <mark>Ur de los caldeos</mark>. Tradicionalmente, se identifica con Ur, una de las ciudades más importantes de los <b>sumerios</b>, en el sur de Mesopotamia (en el actual <b>Irak</b>), junto al río Éufrates.</p><p>Hace unos cien años, el arqueólogo británico <b>Leonard Woolley</b> excavó sus ruinas y encontró tesoros asombrosos:</p><ul><li>El <b>zigurat de Ur</b>: un gran templo con forma de pirámide escalonada, hecho de ladrillos de barro, dedicado al dios de la luna. Hoy se puede visitar y está parcialmente reconstruido.</li><li>El <b>cementerio real</b>, con tumbas llenas de joyas de oro, cascos, arpas decoradas con cabezas de toro y juegos de mesa.</li><li>El <b>estandarte de Ur</b>, una caja decorada con escenas de guerra y de paz hechas con conchas y piedras azules. Está en el Museo Británico de Londres.</li></ul><p>Los habitantes de Ur escribían en <b>tablillas de barro</b> con escritura <b>cuneiforme</b> (con forma de cuña), una de las primeras escrituras del mundo.</p><p>Imagina lo que significó para Abraham dejar una ciudad así, con sus templos y sus casas de ladrillo, para vivir en tiendas como un nómada, solo porque Dios se lo pedía. Por eso su viaje es un ejemplo de <b>confianza</b>.</p>`,
+        L6.filas("Ur", [["dónde", "Mesopotamia, Irak", cNA], ["templo", "zigurat", cMO], ["escritura", "cuneiforme", cAZ], ["tesoro", "estandarte", cRO]]), ["7zxwlHotjhg", "Zigurat de Ur - ArteHistoria", "ArteHistoria", 361044]],
+    ],
+    "Isaac, el hijo de la risa": [
+      ["La prueba de Abraham", `<p>El Génesis cuenta un relato difícil y misterioso (Gn 22), con nuestras palabras:</p><ul><li>Cuando Isaac ya era un muchacho, Dios puso a prueba a Abraham: le pidió que subiera a un monte y le ofreciera a su hijo en sacrificio.</li><li>Abraham, con el corazón encogido, se puso en camino con Isaac. Isaac llevaba la leña y preguntó: «Padre, tenemos el fuego y la leña, pero ¿dónde está el cordero?». Abraham contestó: «Dios proveerá».</li><li>Cuando llegaron arriba, un <b>ángel</b> lo detuvo: «¡Abraham, no hagas daño al muchacho! Ya sé que confías en Dios».</li><li>Abraham vio un <b>carnero</b> enredado por los cuernos en un matorral y lo ofreció en lugar de su hijo. Llamó a aquel lugar «Dios proveerá».</li></ul><p>Este relato nos resulta duro. ¿Cómo entenderlo?</p><ul><li>En aquella época, algunos pueblos vecinos ofrecían niños a sus dioses. El relato enseña que el Dios de Abraham <mark>no quiere sacrificios humanos</mark>: detiene la mano de Abraham.</li><li>También muestra la enorme <b>confianza</b> de Abraham, que se fía incluso cuando no entiende nada.</li><li>Los cristianos ven en Isaac, que carga la leña monte arriba, un anuncio de <b>Jesús</b>, que cargó la cruz.</li></ul><p>Muchos artistas, como Caravaggio y Rembrandt, pintaron el momento en que el ángel sujeta la mano de Abraham.</p>`,
+        H6.flujo("Gn 22", ["subir|al monte", "«Dios|proveerá»", "el ángel|lo detiene", "un|carnero"], cAZ), ["9xcFfA8XFcE", "Biblia para Niños - Abraham e Isaac - Genesis 15", "Ana Upia", 262410]],
+    ],
+    "La escalera de Jacob": [
+      ["Jacob lucha y se llama Israel", `<p>Después de muchos años lejos, Jacob decidió volver a su tierra. Pero tenía miedo: iba a encontrarse con su hermano <b>Esaú</b>, al que había engañado. ¿Seguiría enfadado?</p><p>La noche antes del encuentro pasó algo muy extraño (Gn 32), con nuestras palabras:</p><ul><li>Jacob se quedó solo junto al río Yaboc, y un desconocido <b>luchó con él</b> toda la noche, hasta el amanecer.</li><li>Ninguno de los dos vencía. El desconocido le tocó la cadera y Jacob quedó <b>cojo</b>, pero no lo soltaba: «No te dejaré ir hasta que me bendigas».</li><li>Entonces el desconocido le dijo: «Ya no te llamarás Jacob, sino <mark>Israel</mark>, porque has luchado con Dios y con los hombres, y has vencido». Israel significa algo así como «el que lucha con Dios».</li></ul><p>Al día siguiente, Esaú corrió a su encuentro, lo abrazó y los dos <b>lloraron</b>. ¡Se habían reconciliado!</p><p>Jacob tuvo <b>doce hijos</b>. De ellos salieron las <b>doce tribus de Israel</b>, y todo el pueblo tomó el nombre de su padre: los <b>israelitas</b>. Algunos de sus hijos fueron Rubén, Leví, Judá (de cuyo nombre viene la palabra «judío»), José y Benjamín, el pequeño.</p><p>En la Biblia, cambiar de nombre significa empezar una <b>vida nueva</b>: Jacob, el que engañaba, se convierte en Israel.</p>`,
+        H6.dos("Cambio", ["JACOB", ["engaña", "huye", "teme"], cRO], ["ISRAEL", ["lucha", "se reconcilia", "12 tribus"], cVE]), ["HKC7mAR_pEY", "Jacob lucha con Dios en Peniel - Historias Biblicas", "El Logos de Dios", 643195]],
+    ],
+  },
+  final: [
+    ["Vacas gordas y vacas flacas", `<p>La historia de José en Egipto tiene un momento clave: los <b>sueños del faraón</b> (Gn 41), con nuestras palabras:</p><ul><li>El faraón soñó que del río Nilo salían <b>siete vacas gordas</b> y hermosas, y detrás <b>siete vacas flacas</b> y feas que se comían a las gordas. Después soñó con siete espigas llenas de grano y siete espigas secas que se las tragaban.</li><li>Ninguno de sus sabios supo explicarlo. Entonces le hablaron de José, que estaba en la cárcel.</li><li>José dijo: «No soy yo, es Dios quien da la respuesta». Y explicó: vendrán <b>siete años de abundancia</b> y después <b>siete años de hambre</b>.</li><li>Aconsejó guardar una parte de la cosecha de los años buenos en grandes <b>graneros</b> para los años malos.</li></ul><p>El faraón quedó tan impresionado que nombró a José su <b>ministro</b>. Le dio su anillo y un collar de oro. Gracias a sus graneros, Egipto pudo alimentar a su gente y a los pueblos vecinos, incluida la familia de Jacob.</p><p>De esta historia viene una expresión que usamos todavía: decimos que estamos en «<mark>años de vacas flacas</mark>» cuando hay poco dinero, y «de vacas gordas» cuando todo va bien.</p><p>La enseñanza es útil también hoy: <b>ahorrar</b> cuando se tiene para poder compartir cuando falta.</p>`,
+      H6.dos("Sueños", ["7 GORDAS", ["abundancia", "buena cosecha", "guardar"], cVE], ["7 FLACAS", ["hambre", "sin cosecha", "repartir"], cRO]), ["bxKuw9v8sT4", "El sueño del Faraón | Historia de la Biblia | Mi Primera Biblia | 18", "Mi Primera Biblia", 4064562]],
+    ["Abraham, padre de tres religiones", `<p>Abraham es muy importante para tres grandes religiones, que por eso se llaman <mark>religiones abrahámicas</mark>:</p><ul><li>Para los <b>judíos</b>, Abraham es el primer padre del pueblo de Israel, a través de su hijo Isaac y de su nieto Jacob.</li><li>Para los <b>cristianos</b>, es el «<b>padre de la fe</b>», porque se fio de Dios. Jesús era descendiente de Abraham, y san Pablo dice que todos los que creen son hijos de Abraham.</li><li>Para los <b>musulmanes</b>, Abraham se llama <b>Ibrahim</b> y es uno de los grandes profetas. Creen que su hijo <b>Ismael</b>, hijo de Agar, es el antepasado de los árabes, y que Ibrahim e Ismael construyeron la <b>Kaaba</b>, en La Meca.</li></ul><p>Las tres religiones creen en un <b>único Dios</b> y consideran a Abraham un modelo de fe y de hospitalidad.</p><p>En la ciudad de <b>Hebrón</b> hay un edificio construido sobre la <b>cueva de Macpelá</b>, donde, según la tradición, están enterrados Abraham, Sara, Isaac, Rebeca, Jacob y Lía. Es un lugar sagrado tanto para judíos como para musulmanes.</p><p>Que tres religiones compartan un mismo «padre» es una invitación a conocerse, respetarse y vivir en paz, como una gran familia.</p>`,
+      H6.rueda("Abraham", "ABRAHAM", [["judíos", cAZ], ["cristianos", cMO], ["musulmanes", cVE], ["un Dios", cNA]])],
+  ],
+  ejemplos: [
+    ["¿Por qué Jacob pasa a llamarse Israel?", ["Lucha toda la noche con un desconocido.", "Le dice: has luchado con Dios y has vencido."], "Porque luchó con Dios; su nombre nuevo significa el que lucha con Dios."],
+    ["¿Qué significan las siete vacas flacas?", ["Las gordas son años de abundancia.", "Las flacas se comen a las gordas."], "Siete años de hambre después de los buenos."],
+  ],
+  errores: ["Pensar que en el relato de Gn 22 Dios quiere sacrificios humanos: el ángel detiene a Abraham.", "Creer que Abraham solo es importante para los cristianos: también para judíos y musulmanes."],
+  ejercicios: [
+    ["b", "¿En qué país actual estaba Ur?", "En Irak."],
+    ["b", "¿Qué animal ofreció Abraham en lugar de Isaac?", "Un carnero."],
+    ["b", "¿Qué nombre nuevo recibió Jacob?", "Israel."],
+    ["b", "¿Cuántas vacas gordas soñó el faraón?", "Siete."],
+    ["b", "¿Cómo llaman los musulmanes a Abraham?", "Ibrahim."],
+    ["m", "¿Qué era un zigurat?", "Un templo con forma de pirámide escalonada."],
+    ["m", "¿Qué enseña el relato de la prueba de Abraham?", "Que Dios no quiere sacrificios humanos y la confianza de Abraham."],
+    ["m", "¿De dónde vienen las doce tribus de Israel?", "De los doce hijos de Jacob."],
+    ["m", "¿Qué aconsejó José al faraón?", "Guardar grano en los años buenos para los malos."],
+    ["m", "¿Qué son las religiones abrahámicas?", "Judaísmo, cristianismo e islam."],
+    ["a", "Explica qué significa hoy «años de vacas flacas».", "Tiempos de escasez o de poco dinero."],
+    ["a", "Compara a Jacob antes y después de luchar.", "Antes engaña y huye; después se reconcilia."],
+    ["a", "Haz un árbol de familia de Abraham hasta los doce hijos de Jacob.", "Respuesta abierta."],
+    ["a", "Escribe qué tienen en común las tres religiones abrahámicas.", "Un único Dios y Abraham como modelo de fe."],
+  ],
+  quiz: [
+    ["Ur era una ciudad de los…", ["sumerios", "romanos", "aztecas"], "Ur."],
+    ["En Gn 22, ¿quién detiene a Abraham?", ["un ángel", "Isaac", "Sara"], "Prueba."],
+    ["Israel significa…", ["el que lucha con Dios", "el pequeño", "el pastor"], "Israel."],
+    ["Las vacas flacas anunciaban…", ["hambre", "lluvia", "una boda"], "Sueños."],
+    ["Ismael es hijo de Abraham y…", ["Agar", "Sara", "Rebeca"], "Tres religiones."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué intentaba contar Samuel?", ["las estrellas", "las ovejas", "los granos de arena"], "Lectura."],
+    ["¿Dónde está la cueva de Macpelá?", ["en Hebrón", "en Roma", "en Ur"], "Tres religiones."],
+  ],
+  tarjetas: [
+    ["Ur", "Ciudad sumeria; zigurat, cuneiforme, tesoros de Woolley."],
+    ["Prueba de Abraham", "Gn 22: Dios proveerá; el ángel lo detiene."],
+    ["Israel", "Jacob lucha, se reconcilia con Esaú; doce tribus."],
+    ["Vacas y tres religiones", "Sueños del faraón; judíos, cristianos y musulmanes."],
+  ],
+  glosario: [
+    ["Sumerios", "Pueblo antiguo del sur de Mesopotamia."],
+    ["Zigurat", "Templo en forma de pirámide escalonada."],
+    ["Cuneiforme", "Escritura con forma de cuña."],
+    ["Arqueólogo", "Persona que estudia restos del pasado."],
+    ["Carnero", "Macho de la oveja."],
+    ["Proveer", "Dar lo que hace falta."],
+    ["Reconciliarse", "Volver a ser amigos tras una pelea."],
+    ["Tribu", "Grupo de familias con un antepasado común."],
+    ["Granero", "Lugar donde se guarda el grano."],
+    ["Abundancia", "Gran cantidad de algo."],
+    ["Abrahámico", "Que tiene a Abraham como padre en la fe."],
+    ["Kaaba", "Edificio sagrado del islam en La Meca."],
+  ],
+  situacion: {
+    titulo: "El viaje de una familia",
+    reto: "La clase prepara una exposición sobre la gran familia de Abraham, desde Ur hasta Egipto, y su importancia hoy.",
+    pasos: ["Dibujar un mapa del viaje de Abraham desde Ur hasta Canaán.", "Construir un pequeño zigurat de cartón y escribir en tablillas de plastilina.", "Dramatizar el reencuentro de Jacob y Esaú y los sueños del faraón.", "Hacer un mural sobre las tres religiones abrahámicas."],
+    producto: "Exposición con mapa, maqueta, teatro y mural.",
+    evaluacion: ["Conoce la ciudad de Ur.", "Comprende el relato de Gn 22.", "Explica el nombre de Israel.", "Respeta las tres religiones abrahámicas."],
+  },
+});

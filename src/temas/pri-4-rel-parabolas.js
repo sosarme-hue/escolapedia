@@ -91,3 +91,91 @@ module.exports = P.tema({
   saberes: "Las parábolas como forma de enseñanza de Jesús; el sembrador, la oveja perdida, el padre misericordioso, el buen samaritano y los talentos; el amor de Dios que busca y perdona; el amor al prójimo",
   ideas: ["Representar el buen samaritano en versión de hoy, en el colegio.", "Inventar una parábola nueva con objetos del aula.", "Sembrar semillas en cuatro vasos con distintos «terrenos»."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer las parábolas del grano de mostaza, la moneda perdida y la casa sobre roca", "Descubrir las parábolas en el arte", "Distinguir entre parábola y fábula", "Inventar una parábola propia"],
+  lectura: { titulo: "La semilla más pequeña", html: `<p>El primer día de primavera, el maestro Julián repartió a cada alumno un vasito de yogur con tierra y una semilla diminuta, tan pequeña que Alba casi no la veía en la palma de la mano.</p><p>—¿Esto qué es? ¿Una mota de polvo? —preguntó Hugo.</p><p>—Es una semilla de mostaza —dijo Julián—. Plantadla, regadla un poco cada día y ya veremos.</p><p>Al principio no pasaba nada. Hugo se aburrió y dejó de regar. Alba, en cambio, apuntaba en un cuaderno todos los días: «lunes, nada; martes, nada; miércoles, nada…».</p><p>Al quinto día, de la tierra de Alba salió un hilo verde, finísimo, con dos hojitas. Ella dio un grito que se oyó en todo el pasillo.</p><p>Pocas semanas después, las plantas que habían cuidado ya eran demasiado grandes para el vaso, y tuvieron que trasplantarlas al huerto del colegio. En verano, la de Alba era más alta que ella.</p><p>Entonces Julián les leyó una parábola de Jesús: el Reino de Dios se parece a un grano de mostaza, la semilla más pequeña, que crece hasta ser un arbusto donde anidan los pájaros.</p><p>—Las cosas buenas empiezan así —dijo—. Muy pequeñas. Una palabra amable, un favor, una sonrisa. Parece que no pasa nada, pero crecen.</p><p>Hugo miró su vaso seco y vacío.</p><p>—¿Me das otra semilla? —preguntó.</p>` },
+  tras: {
+    "El sembrador": [
+      ["El grano de mostaza y la levadura", `<p>Jesús contó dos parábolas muy cortas, una detrás de otra, sobre cómo crece el Reino de Dios (Mt 13,31-33), con nuestras palabras:</p><ul><li><b>El grano de mostaza</b>: «El Reino de los cielos se parece a un grano de mostaza que un hombre siembra en su campo. Es la más pequeña de las semillas, pero cuando crece se hace más grande que las demás hortalizas y se convierte en un arbusto, y los pájaros vienen a hacer sus nidos en sus ramas».</li><li><b>La levadura</b>: «El Reino de los cielos se parece a la levadura que una mujer mezcla con tres medidas de harina, hasta que toda la masa fermenta».</li></ul><p>¿Qué quieren decir?</p><ul><li>La <mark>semilla de mostaza</mark> mide apenas un par de milímetros, pero la planta puede llegar a ser más alta que una persona. El Reino de Dios empieza con algo muy pequeño (Jesús y unos pocos pescadores) y se hace enorme.</li><li>La <mark>levadura</mark> es muy poquita, no se ve en la masa, pero la hace crecer toda. Así actúa el amor: en silencio, desde dentro, va cambiando las cosas.</li></ul><p>Las dos parábolas enseñan a no despreciar lo pequeño. Un gesto de bondad puede parecer insignificante, pero hace crecer algo grande.</p><p><b>Experimento</b>: mezcla un poco de levadura con harina y agua tibia, deja la masa tapada una hora y observa qué pasa.</p>`,
+        H6.dos("Lo pequeño", ["MOSTAZA", ["semilla mínima", "gran arbusto", "nidos"], cVE], ["LEVADURA", ["muy poquita", "no se ve", "fermenta todo"], cNA])],
+    ],
+    "La oveja perdida": [
+      ["La moneda perdida", `<p>Justo después de la oveja perdida, el Evangelio de Lucas cuenta otra parábola parecida (Lc 15,8-10), con nuestras palabras:</p><p>«Si una mujer tiene <b>diez monedas</b> de plata y pierde una, ¿no enciende una lámpara, barre la casa y busca con cuidado hasta encontrarla? Y cuando la encuentra, reúne a sus amigas y vecinas y les dice: “¡Alegraos conmigo, he encontrado la moneda que había perdido!”. Os digo que así hay alegría entre los ángeles de Dios por una sola persona que cambia de vida».</p><ul><li>En aquella época, las casas eran oscuras, con ventanas pequeñas y suelo de tierra. Encontrar una moneda era muy difícil: hacía falta luz y barrer a fondo.</li><li>Diez monedas era mucho dinero para una familia pobre. Algunas mujeres las llevaban cosidas en un adorno de la cabeza, como un regalo de boda.</li></ul><p>En Lucas 15 hay <b>tres parábolas</b> seguidas que se parecen mucho: una <b>oveja</b>, una <b>moneda</b> y un <b>hijo</b> perdidos. En las tres alguien busca, encuentra y hace una <mark>fiesta</mark>. Por eso se llaman las parábolas de la <b>misericordia</b>.</p><p>Fíjate en que la protagonista es una <b>mujer</b>: Jesús ponía como ejemplo a personas de todo tipo.</p>`,
+        L6.filas("Lucas 15", [["pastor", "una oveja", cVE], ["mujer", "una moneda", cNA], ["padre", "un hijo", cAZ], ["final", "¡fiesta!", cRO]]), ["SABulc1mIuM", "Historias de la Biblia - La parábola de la moneda perdida", "Saddleback Kids", 59673]],
+    ],
+    "Los talentos": [
+      ["La casa sobre roca", `<p>Al final del <b>Sermón de la Montaña</b>, Jesús contó esta parábola (Mt 7,24-27), con nuestras palabras:</p><ul><li>«El que escucha mis palabras y las pone en práctica se parece a un hombre <b>prudente</b> que edificó su casa sobre <mark>roca</mark>. Cayó la lluvia, crecieron los ríos, soplaron los vientos contra la casa, pero no se hundió, porque estaba cimentada sobre roca».</li><li>«El que escucha mis palabras y no las pone en práctica se parece a un hombre <b>necio</b> que edificó su casa sobre <mark>arena</mark>. Cayó la lluvia, crecieron los ríos, soplaron los vientos, y la casa se derrumbó. ¡Y qué ruina tan grande!».</li></ul><p>Las dos casas podían ser iguales por fuera. La diferencia estaba en lo que no se ve: los <b>cimientos</b>.</p><p>Jesús compara nuestra vida con una casa. Las tormentas son los problemas que todos tenemos: una pelea, un mal día, una enfermedad, una tristeza. Para los cristianos, quien construye su vida sobre las enseñanzas de Jesús (el amor, el perdón, la verdad) tiene un cimiento firme que aguanta.</p><p>Fíjate en una palabra importante: no basta con <b>escuchar</b>; hay que <b>poner en práctica</b>. Es como saber mucho de fútbol y no jugar nunca.</p><p><b>Experimento</b>: construye dos torres iguales de piezas, una sobre una bandeja con arena y otra sobre una tabla. Echa agua con una regadera y observa qué pasa.</p>`,
+        H6.dos("Cimientos", ["ROCA", ["escucha", "y practica", "aguanta"], cAZ], ["ARENA", ["escucha", "y no practica", "se hunde"], cRO])],
+    ],
+  },
+  final: [
+    ["Las parábolas en el arte", `<p>Las parábolas de Jesús han inspirado a muchos pintores:</p><ul><li><b>Rembrandt</b> pintó, al final de su vida, <i>El regreso del hijo pródigo</i> (hacia 1668). Hoy está en el Museo del Hermitage de San Petersburgo (Rusia). El hijo, con la ropa rota y la cabeza rapada, está de rodillas abrazado a su padre. El padre, ciego y anciano, apoya sus dos manos en la espalda del hijo. Si te fijas, las dos manos son <b>distintas</b>: una es más fuerte y la otra más fina y delicada. Muchos piensan que Rembrandt quiso mostrar que el amor de Dios es como el de un padre y una madre a la vez. A la derecha, de pie, está el hermano mayor, serio.</li><li><b>Vincent van Gogh</b> pintó en 1890 <i>El buen samaritano</i>, copiando a su manera un cuadro de otro pintor, Delacroix. Lo pintó con sus pinceladas de colores vivos, en un momento en que estaba enfermo y necesitaba cuidados.</li><li><b>Murillo</b>, pintor sevillano, hizo una serie de seis cuadros contando paso a paso la historia del hijo pródigo, como si fuera un cómic.</li><li>La parábola del <b>sembrador</b> también fascinó a Van Gogh y a Millet, que pintaron a campesinos sembrando al atardecer.</li></ul><p>Elige una parábola y piensa: ¿qué momento pintarías tú? ¿Qué colores usarías?</p>`,
+      L6.filas("Arte", [["Rembrandt", "hijo pródigo", cMO], ["Van Gogh", "samaritano", cNA], ["Murillo", "seis cuadros", cRO], ["Millet", "el sembrador", cVE]]), ["WH61VnCe9yU", "El regreso del Hijo Pródigo | Rembrandt", "ContemplArte", 18638]],
+    ["Parábolas, fábulas y refranes", `<p>Las parábolas se parecen a otros relatos cortos que enseñan algo. ¿En qué se diferencian?</p><ul><li><b>Fábula</b>: es un relato en el que los protagonistas suelen ser <b>animales que hablan</b>, y termina con una <b>moraleja</b>. El más famoso autor de fábulas fue <b>Esopo</b>, en la antigua Grecia (<i>La liebre y la tortuga</i>, <i>La cigarra y la hormiga</i>). En España, <b>Samaniego</b> escribió fábulas en verso como <i>La lechera</i>.</li><li><b>Parábola</b>: los personajes son <b>personas</b> en situaciones de la vida real (un pastor, una mujer, un padre, un campesino). No tiene una moraleja escrita al final: hace <b>pensar</b> al que escucha y muchas veces termina con una pregunta. Las de Jesús hablan del <b>Reino de Dios</b>.</li><li><b>Refrán</b>: es una frase corta y popular que resume una enseñanza, como «Más vale prevenir que curar».</li></ul><p><b>Inventa tu parábola</b>:</p><ul><li><b>1.</b> Elige una enseñanza: compartir, perdonar, no rendirse…</li><li><b>2.</b> Busca una situación de tu vida diaria: el patio, un partido, la cocina de casa, un videojuego.</li><li><b>3.</b> Empieza así: «El Reino de Dios se parece a…».</li><li><b>4.</b> Termina con una pregunta para quien te escucha.</li></ul>`,
+      H6.rueda("Relatos", "ENSEÑAR", [["parábola", cAZ], ["fábula", cVE], ["refrán", cNA], ["cuento", cMO]])],
+  ],
+  ejemplos: [
+    ["¿Qué tienen en común las tres parábolas de Lucas 15?", ["En las tres algo o alguien se pierde.", "En las tres se busca, se encuentra y hay fiesta."], "Que Dios busca a quien se pierde y se alegra cuando vuelve."],
+    ["La liebre y la tortuga, ¿es una parábola o una fábula?", ["Los protagonistas son animales que hablan.", "Termina con una moraleja."], "Es una fábula."],
+  ],
+  errores: ["Pensar que en la parábola de la casa basta con escuchar: hay que poner en práctica.", "Confundir parábola y fábula: en la fábula hablan los animales y hay moraleja."],
+  ejercicios: [
+    ["b", "¿A qué se parece el Reino de Dios en la parábola más pequeña?", "A un grano de mostaza."],
+    ["b", "¿Cuántas monedas tenía la mujer?", "Diez."],
+    ["b", "¿Sobre qué construyó su casa el hombre prudente?", "Sobre roca."],
+    ["b", "¿Quién pintó El regreso del hijo pródigo?", "Rembrandt."],
+    ["b", "¿Quién escribió La liebre y la tortuga?", "Esopo."],
+    ["m", "¿Qué enseña la parábola de la levadura?", "Que el amor actúa en silencio y lo cambia todo desde dentro."],
+    ["m", "¿Por qué la mujer encendió una lámpara y barrió?", "Porque las casas eran oscuras y la moneda era difícil de encontrar."],
+    ["m", "¿Qué representan las tormentas en la parábola de la casa?", "Los problemas de la vida."],
+    ["m", "¿Qué tienen de especial las manos del padre en el cuadro de Rembrandt?", "Son distintas: una fuerte y otra delicada."],
+    ["m", "¿Qué diferencia hay entre una parábola y un refrán?", "La parábola es un relato; el refrán, una frase corta."],
+    ["a", "Haz el experimento de las dos torres y explica el resultado.", "Respuesta abierta."],
+    ["a", "Inventa una parábola sobre algo de tu vida diaria.", "Respuesta abierta."],
+    ["a", "Dibuja la parábola de la moneda perdida en cuatro viñetas.", "Respuesta abierta."],
+    ["a", "Compara El regreso del hijo pródigo con el relato del Evangelio.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["La semilla de mostaza es…", ["muy pequeña", "muy grande", "de colores"], "Mostaza."],
+    ["Las parábolas de Lucas 15 se llaman de la…", ["misericordia", "guerra", "riqueza"], "Lucas 15."],
+    ["El hombre necio construyó sobre…", ["arena", "roca", "madera"], "Casa."],
+    ["El cuadro de Rembrandt está en…", ["el Hermitage", "el Prado", "el Louvre"], "Arte."],
+    ["En las fábulas suelen hablar…", ["los animales", "los reyes", "los ángeles"], "Fábulas."],
+  ],
+  examen: [
+    ["En la lectura, ¿por qué no creció la planta de Hugo?", ["porque dejó de regarla", "porque era mala semilla", "porque hacía frío"], "Lectura."],
+    ["¿Qué hace la mujer al encontrar la moneda?", ["llama a sus vecinas para celebrarlo", "la esconde", "se la gasta"], "Moneda."],
+  ],
+  tarjetas: [
+    ["Mostaza y levadura", "Lo pequeño crece y lo transforma todo."],
+    ["Moneda perdida", "Lc 15: buscar, encontrar y celebrar."],
+    ["Casa sobre roca", "Escuchar y poner en práctica: cimientos firmes."],
+    ["Arte y fábulas", "Rembrandt, Van Gogh, Murillo; Esopo, Samaniego."],
+  ],
+  glosario: [
+    ["Mostaza", "Planta de semilla diminuta."],
+    ["Levadura", "Sustancia que hace crecer la masa."],
+    ["Fermentar", "Transformarse una masa por la levadura."],
+    ["Misericordia", "Compasión que perdona y ayuda."],
+    ["Dracma", "Moneda de plata antigua."],
+    ["Prudente", "Que piensa antes de actuar."],
+    ["Necio", "Que actúa sin pensar."],
+    ["Cimientos", "Base que sostiene un edificio."],
+    ["Sermón de la Montaña", "Gran discurso de Jesús en el Evangelio de Mateo."],
+    ["Fábula", "Relato con animales y moraleja."],
+    ["Moraleja", "Enseñanza al final de una fábula."],
+    ["Refrán", "Frase popular que enseña algo."],
+  ],
+  situacion: {
+    titulo: "Festival de parábolas",
+    reto: "La clase prepara un festival en el que se cuentan, se dibujan y se inventan parábolas.",
+    pasos: ["Plantar semillas de mostaza y llevar un diario de crecimiento.", "Hacer el experimento de las torres sobre roca y arena.", "Pintar en grupos una parábola al estilo de un artista.", "Inventar y representar parábolas nuevas."],
+    producto: "Un festival con diarios, pinturas y parábolas inventadas.",
+    evaluacion: ["Conoce nuevas parábolas.", "Explica su enseñanza.", "Reconoce parábolas en el arte.", "Distingue parábola y fábula."],
+  },
+});
