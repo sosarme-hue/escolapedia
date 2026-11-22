@@ -87,3 +87,100 @@ module.exports = P.tema({
   saberes: "Coneixement de la llengua: la síl·laba; separació sil·làbica (ny, ll, rr, ss, l·l); classificació de les paraules pel nombre de síl·labes; síl·laba tònica i síl·labes àtones; agudes, planes i esdrúixoles (iniciació)",
   ideas: ["Targetes de síl·labes per formar paraules per parelles.", "Dictat de picades: l'alumnat escriu quantes síl·labes sent.", "Mural de paraules amb la síl·laba tònica pintada."],
 });
+
+// ---------- Nivell llibre (3r de Primària) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  videos: {
+    "Trucs per trobar la tònica": ["wJ-nKIKNJGE", "Las Sílabas: La Sílaba Tónica y las Sílabas Átonas", "La Profe Noemí", 430159],
+  },
+  dibujos: {
+    "Repàs: analitzem paraules": H6.flujo("Analitzar", ["separa|síl·labes", "compta|i anomena", "busca|la tònica", "aguda,|plana…"], cMO),
+  },
+  objetivos: ["Separar bé les paraules amb rr, ss, l·l, ny i ll", "Reconèixer els diftongs del català", "Distingir l'accent obert i el tancat", "Partir paraules al final de línia"],
+  lectura: { titulo: "El robot que parlava a cops", html: `<p>A l'aula de 3r B hi ha un robot que es diu Pip. El van construir els alumnes de sisè amb peces de reciclatge, i parla d'una manera molt estranya: diu les paraules a cops.</p><p>—Bon-dia-a-tot-hom —saluda cada matí—. A-vui-fa-sol.</p><p>Al principi, els nens i les nenes es reien molt. Però la mestra, la Núria, va tenir una idea.</p><p>—Escolteu bé en Pip —va dir—. Cada cop de veu és una síl·laba. Ell ens pot ajudar a separar paraules!</p><p>Des d'aquell dia, el Pip és l'ajudant de la classe. Quan algú dubta, li pregunta:</p><p>—Pip, com se separa «papallona»?</p><p>—Pa-pa-llo-na. Qua-tre-sí-l·la-bes.</p><p>—I «cadira»?</p><p>—Ca-DI-ra —diu, i el «DI» el diu més fort, perquè és la síl·laba tònica.</p><p>Un dia, però, el Pip es va equivocar i va dir «pa-ra-i-gua». Tota la classe va cridar alhora:</p><p>—No, Pip! Pa-rai-gua: tres síl·labes!</p><p>El robot va fer pampallugues amb els llums dels ulls i va respondre:</p><p>—Gràcies. A-ra-ho-sé.</p>` },
+  tras: {
+    "Com se separen les síl·labes": [
+      ["Lletres dobles: juntes o separades?", `<p>En català hi ha unes quantes <mark>parelles de lletres</mark> que fan dubtar a l'hora de separar síl·labes. Aquí tens la regla de cadascuna.</p><p><b>Es queden juntes</b>, perquè fan un sol so:</p><ul><li><b>ll</b>: <i>ca-<b>ll</b>ar, po-<b>ll</b>as-tre, ce-<b>ll</b>es</i>.</li><li><b>ny</b>: <i>ca-<b>ny</b>a, mun-ta-<b>ny</b>a, bo-<b>ny</b>ic</i>.</li><li><b>qu</b> i <b>gu</b> davant de <i>e</i> i <i>i</i>: <i><b>qu</b>e-ra, for-<b>qu</b>i-lla, <b>gu</b>er-ra</i>.</li></ul><p><b>Se separen</b>, i cada lletra va en una síl·laba diferent:</p><ul><li><b>rr</b>: <i>ter-ra, car-rer, gui-tar-ra</i>.</li><li><b>ss</b>: <i>pas-sar, gros-sa, tas-sa</i>.</li><li><b>l·l</b> (ela geminada): <i>col-le-gi, cel-la, pel-lí-cu-la</i>. Quan la separem, el punt volat desapareix.</li></ul><p>Com ho podem recordar? Digues la paraula picant de mans. A <i>terra</i> notaràs que la r forta es reparteix entre els dos cops: <i>ter</i>-<i>ra</i>. En canvi, a <i>canya</i>, la <i>ny</i> sona tota junta al segon cop: <i>ca</i>-<i>nya</i>.</p><p>Aquestes regles són molt importants quan hem de <b>partir una paraula</b> al final d'una línia. Mai no escriurem <i>te-rra</i> ni <i>can-ya</i>.</p><p><b>Activitat</b>: separa en síl·labes <i>carretera, passadís, cel·la, castanya</i> i <i>poquet</i>.</p>`,
+        L6.filas("Lletres", [["ll, ny", "juntes: ca-nya", cVE], ["rr", "separades: ter-ra", cRO], ["ss", "separades: tas-sa", cNA], ["l·l", "separades: col-le-gi", cAZ]])],
+    ],
+    "Paraules segons les síl·labes": [
+      ["Els diftongs", `<p>De vegades, dues vocals que van juntes es pronuncien en <mark>un sol cop de veu</mark>. Aleshores formen un <b>diftong</b> i van a la mateixa síl·laba.</p><p>En català, els diftongs més freqüents són els que acaben en <b>i</b> o en <b>u</b>, darrere d'una altra vocal:</p><ul><li><b>ai, ei, oi, ui</b>: <i>mai, rei, noi, cui-na, ai-gua</i>.</li><li><b>au, eu, iu, ou, uu</b>: <i>cau, peu, riu, nou, duu</i>.</li></ul><p>També hi ha diftong quan una <b>u</b> sona darrere de <b>g</b> o de <b>q</b>: <i>ai-<b>gua</b>, <b>qua</b>-dre, pin-<b>güí</b>, ve-<b>güe</b>-ta</i>. Fixa't en la dièresi (¨) de <i>pingüí</i>: ens avisa que la u sona.</p><p>Compte amb una diferència important amb el castellà! En català, les vocals <b>ia, ie, io, ua, ue…</b> al final de paraula normalment <b>no</b> fan diftong i es <b>separen</b>:</p><ul><li><i>his-tò-ri-a</i> (en castellà, <i>his-to-ria</i>).</li><li><i>gà-bi-a, pi-a-no, Ma-ri-a, as-sig-na-tu-ra</i>.</li></ul><p>Per això <i>història</i> té quatre síl·labes en català i tres en castellà.</p><p>Quan dues vocals van juntes però es pronuncien en <b>dos cops</b>, diem que hi ha un <b>hiat</b>: <i>pa-ís, ve-í, ri-ure</i>.</p><p><b>Activitat</b>: separa en síl·labes <i>boira, ceba, Andreu, sèrie, cuina</i> i <i>quadern</i>.</p>`,
+        H6.dos("Vocals", ["DIFTONG", ["mai, rei", "riu, nou", "ai-gua"], cAZ], ["SEPARADES", ["his-tò-ri-a", "pi-a-no", "pa-ís"], cNA])],
+    ],
+    "La síl·laba tònica": [
+      ["Accent obert i accent tancat", `<p>En català, quan la síl·laba tònica porta un accent gràfic, aquest accent pot ser de <mark>dues menes</mark>:</p><ul><li>L'<b>accent obert</b> o greu, una ratlleta que baixa cap a l'esquerra: <b>à, è, ò</b>.</li><li>L'<b>accent tancat</b> o agut, una ratlleta que baixa cap a la dreta: <b>é, í, ó, ú</b>.</li></ul><p>Cada vocal té la seva norma:</p><ul><li>La <b>a</b> sempre porta accent obert: <i>sofà, pàgina, màquina, demà</i>.</li><li>La <b>i</b> i la <b>u</b> sempre porten accent tancat: <i>camí, música, ningú, múscul</i>.</li><li>La <b>e</b> i la <b>o</b> poden portar els dos, segons com sonen. Si sonen <b>obertes</b>, amb la boca ben oberta, porten accent obert: <i>cafè, cèntim, mòbil, història</i>. Si sonen <b>tancades</b>, porten accent tancat: <i>també, només, cançó, botó, avió</i>.</li></ul><p>En algunes zones de parla catalana, la e i la o es pronuncien de manera diferent, i per això a vegades costa saber quin accent porten. El millor és fixar-se molt en les paraules quan llegim i consultar el diccionari quan dubtem.</p><p>Recorda que l'accent sempre va a sobre de la <b>vocal de la síl·laba tònica</b>, mai en una síl·laba àtona.</p><p><b>Activitat</b>: copia aquestes paraules i encercla de blau els accents oberts i de vermell els tancats: <i>cançó, sofà, cafè, camí, mòbil, també</i>.</p>`,
+        L6.filas("Accents", [["à", "sofà, pàgina", cAZ], ["è / é", "cafè, també", cVE], ["ò / ó", "mòbil, cançó", cNA], ["í, ú", "camí, ningú", cRO]])],
+    ],
+  },
+  final: [
+    ["Les esdrúixoles, sempre amb accent", `<p>Les paraules <mark>esdrúixoles</mark> són les que tenen la síl·laba tònica a l'<b>antepenúltima</b> síl·laba, és a dir, la tercera comptant des del final.</p><p>Tenen una regla molt fàcil de recordar: <b>totes les esdrúixoles porten accent gràfic</b>. Sense excepció!</p><ul><li><i><b>mú</b>-si-ca, <b>pà</b>-gi-na, <b>mà</b>-qui-na, <b>cà</b>-me-ra</i>.</li><li><i><b>nú</b>-me-ro, <b>À</b>-fri-ca, <b>síl</b>-la-ba</i>.</li><li><i>ma-te-<b>mà</b>-ti-ques</i>: té cinc síl·labes, i la tònica és la tercera des del final.</li></ul><p>Recordes que en català les vocals <i>ia, ie, io</i> del final se separen? Per això paraules com <i>his-<b>tò</b>-ri-a</i>, <i><b>gà</b>-bi-a</i> o <i><b>sè</b>-ri-e</i> també són esdrúixoles, i per això porten accent.</p><p>Com saber si una paraula és esdrúixola:</p><ul><li><b>1.</b> Separa-la en síl·labes.</li><li><b>2.</b> Busca la síl·laba tònica.</li><li><b>3.</b> Compta des del final: si la tònica és la tercera, és esdrúixola.</li><li><b>4.</b> Posa-hi l'accent a la vocal de la tònica.</li></ul><p>Les regles per saber quan porten accent les agudes i les planes són una mica més llargues: les aprendràs l'any vinent.</p><p><b>Activitat</b>: busca en un llibre cinc paraules esdrúixoles i comprova que totes porten accent.</p>`,
+      H6.flujo("Esdrúixola", ["separa|síl·labes", "busca|la tònica", "compta|des del final", "tercera?|accent"], cNA),
+      ["xAawlcvQesE", "Classificació de paraules: agudes, planes i esdrúixoles", "EVA Educació Primària", 7513]],
+    ["Partir paraules al final de línia", `<p>Quan escrivim i se'ns acaba la línia a mig d'una paraula, la podem <mark>partir</mark>. Però no es pot partir de qualsevol manera: sempre s'ha de fer entre <b>síl·labes</b>, i amb un <b>guionet</b> (-) al final de la primera línia.</p><p><i>Ahir vam anar a la mun-</i><br><i>tanya amb els meus cosins.</i></p><p>Normes que cal seguir:</p><ul><li>Es parteix per on se separen les síl·labes: <i>mun-tanya</i> o <i>munta-nya</i>, però mai <i>munt-anya</i>.</li><li>No deixis mai <b>una vocal sola</b> a final o a principi de línia: <i>a-mic</i> no es pot partir; és millor passar tota la paraula a la línia següent.</li><li>Amb <b>rr</b>, <b>ss</b> i <b>l·l</b>, cada lletra va a una línia: <i>ter-ra, pas-sar, col-legi</i>.</li><li>No separis les lletres que van juntes: <i>ca-nya</i>, <i>ca-lla</i>, mai <i>can-ya</i>.</li><li>No deixem mai un <b>apòstrof</b> sol a final de línia: <i>l'</i> / <i>arbre</i> està malament.</li><li>Si la paraula és molt curta, com <i>sol</i> o <i>casa</i>, val més no partir-la.</li></ul><p>Quan escrivim a l'ordinador, el programa passa les paraules a la línia següent automàticament. Però quan escrivim a mà, al quadern o en una postal, és important saber fer-ho bé.</p><p><b>Activitat</b>: escriu de quantes maneres es pot partir la paraula <i>papallona</i>.</p>`,
+      L6.filas("Partir", [["sí", "mun-tanya", cVE], ["sí", "ter-ra", cAZ], ["no", "a-mic", cRO], ["no", "can-ya", cNA]])],
+    ["Jocs amb síl·labes", `<p>Les síl·labes són perfectes per <mark>jugar</mark>! Aquí tens uns quants jocs per fer a classe o a casa.</p><p><b>Paraules encadenades</b>. Cada jugador diu una paraula que comenci amb l'última síl·laba de l'anterior: <i>ca-<b>sa</b> → <b>sa</b>-ba-<b>ta</b> → <b>ta</b>-ron-<b>ja</b> → <b>ja</b>-que-ta</i>… Qui s'encalla, perd.</p><p><b>La síl·laba amagada</b>. Un jugador diu una paraula traient-ne una síl·laba i els altres han d'endevinar quina falta: <i>«pa-pa-…-na»</i> (papallona).</p><p><b>Paraules dins de paraules</b>. Busca paraules que en tinguin una altra a dins: <i>sol</i> a <i>soldat</i>, <i>mar</i> a <i>marbre</i>, <i>pa</i> a <i>paper</i>.</p><p><b>El robot</b>. Com el Pip de la lectura, un jugador fa de robot i diu una frase separant totes les síl·labes. Els altres l'han d'escriure ben escrita.</p><p><b>Paraules de mida</b>. Busqueu tots els noms d'animals que tingueu una, dues, tres i quatre síl·labes: <i>peix</i> (una), <i>ca-vall</i> (dues), <i>e-le-fant</i> (tres) i <i>hi-po-pò-tam</i> (quatre)!</p><p>Aquests jocs ajuden a sentir millor els cops de veu i a llegir i escriure amb més seguretat.</p><p><b>Activitat</b>: inventa una cadena de cinc paraules encadenades.</p>`,
+      H6.rueda("Jocs", "JUGAR", [["encadenades", cAZ], ["amagada", cVE], ["dins", cNA], ["robot", cRO]])],
+  ],
+  ejemplos: [
+    ["Separa en síl·labes «carretera».", ["La rr se separa.", "Car-re-te-ra."], "Car-re-te-ra (4 síl·labes)."],
+    ["Quantes síl·labes té «història» en català?", ["En català, la i i la a del final se separen.", "His-tò-ri-a."], "Quatre síl·labes."],
+  ],
+  errores: ["Separar «te-rra» o «ca-ny-a»: la rr es parteix (ter-ra) i la ny va junta (ca-nya).", "Comptar les síl·labes de «història» com en castellà: en català en té quatre."],
+  ejercicios: [
+    ["b", "Separa en síl·labes «canya».", "Ca-nya."],
+    ["b", "Separa en síl·labes «tassa».", "Tas-sa."],
+    ["b", "Quina vocal porta sempre accent obert?", "La a."],
+    ["b", "Porten sempre accent les paraules esdrúixoles?", "Sí."],
+    ["b", "A la lectura, com es diu el robot?", "Pip."],
+    ["m", "Separa en síl·labes «col·legi».", "Col-le-gi."],
+    ["m", "Hi ha diftong a «riu»? Quantes síl·labes té?", "Sí, iu; té una síl·laba."],
+    ["m", "Quin accent porta «cançó»?", "Accent tancat."],
+    ["m", "Escriu tres paraules esdrúixoles.", "Per exemple: música, pàgina, màquina."],
+    ["m", "Com es pot partir «muntanya» al final de línia?", "Mun-tanya o munta-nya."],
+    ["a", "Per què el robot s'equivoca amb «paraigua»?", "Perquè separa ra-i, i ai és un diftong: pa-rai-gua."],
+    ["a", "Explica per què «gàbia» porta accent.", "Perquè és esdrúixola: gà-bi-a, la tònica és la tercera des del final."],
+    ["a", "Inventa una cadena de cinc paraules encadenades.", "Resposta oberta."],
+    ["a", "Classifica: cafè, també, mòbil, camí (accent obert o tancat).", "Obert: cafè, mòbil. Tancat: també, camí."],
+  ],
+  quiz: [
+    ["«Terra» se separa…", ["ter-ra", "te-rra", "terr-a"], "Lletres."],
+    ["«Muntanya» se separa…", ["mun-ta-nya", "mun-tan-ya", "munt-a-nya"], "Lletres."],
+    ["Té un diftong…", ["noi", "piano", "país"], "Diftongs."],
+    ["Porta accent tancat…", ["botó", "sofà", "mòbil"], "Accents."],
+    ["Totes les esdrúixoles…", ["porten accent", "no porten accent", "són monosíl·labes"], "Esdrúixoles."],
+  ],
+  examen: [
+    ["A la lectura, què fa el Pip quan diu «ca-DI-ra»?", ["diu més fort la síl·laba tònica", "s'equivoca", "s'apaga"], "Lectura."],
+    ["Per partir una paraula al final de línia fem servir…", ["un guionet", "un punt", "un apòstrof"], "Partir."],
+  ],
+  tarjetas: [
+    ["Lletres dobles", "Juntes: ll, ny, qu, gu. Separades: rr, ss, l·l."],
+    ["Diftongs", "ai, ei, oi, ui, au, eu, iu, ou; gua, qua. ia, io al final se separen."],
+    ["Accents", "à obert sempre; í, ú tancats; è/é i ò/ó segons el so."],
+    ["Esdrúixoles i partir", "Esdrúixoles sempre amb accent; partir per síl·labes amb guionet."],
+  ],
+  glosario: [
+    ["Síl·laba", "Cada cop de veu d'una paraula."],
+    ["Síl·laba tònica", "La que sona més forta."],
+    ["Síl·laba àtona", "La que sona més fluixa."],
+    ["Diftong", "Dues vocals en una sola síl·laba."],
+    ["Hiat", "Dues vocals juntes en síl·labes diferents."],
+    ["Ela geminada", "Les dues eles amb un punt volat: l·l."],
+    ["Accent obert", "Accent que baixa cap a l'esquerra: à, è, ò."],
+    ["Accent tancat", "Accent que baixa cap a la dreta: é, í, ó, ú."],
+    ["Aguda", "Paraula amb la tònica a l'última síl·laba."],
+    ["Plana", "Paraula amb la tònica a la penúltima síl·laba."],
+    ["Esdrúixola", "Paraula amb la tònica a l'antepenúltima síl·laba."],
+    ["Guionet", "Signe (-) per partir paraules al final de línia."],
+  ],
+  situacion: {
+    titulo: "El robot de les síl·labes",
+    reto: "La classe construeix un robot de cartró que «parla a cops» i prepara amb ell un joc de síl·labes per als més petits.",
+    pasos: ["Construir el robot i triar-ne el nom.", "Preparar targetes amb paraules difícils de separar (rr, ny, l·l, diftongs).", "Marcar la síl·laba tònica i els accents de cada targeta.", "Jugar amb els petits a les paraules encadenades i a la síl·laba amagada."],
+    producto: "Un robot de cartró i un joc de targetes de síl·labes.",
+    evaluacion: ["Separa bé les lletres dobles.", "Reconeix els diftongs.", "Distingeix l'accent obert i el tancat.", "Parteix bé les paraules al final de línia."],
+  },
+});

@@ -83,3 +83,104 @@ module.exports = P.tema({
   saberes: "Coneixement de la llengua: el verb; infinitiu; conjugacions; arrel i terminació; persona i nombre; temps present, passat perifràstic i futur dels verbs regulars",
   ideas: ["Línia del temps a terra per col·locar frases en passat, present i futur.", "Dau de persones i dau de verbs per conjugar en veu alta.", "Diari de la setmana: escriure cada dia una frase en passat."],
 });
+
+// ---------- Nivell llibre (3r de Primària) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  dibujos: {
+    "El verb canvia amb la persona": L6.filas("Saltar", [["jo", "salto", cAZ], ["tu", "saltes", cVE], ["nosaltres", "saltem", cNA], ["ells", "salten", cRO]]),
+    "El present": H6.rueda("Present", "ARA", [["avui", cAZ], ["ara", cVE], ["sempre", cNA], ["cada dia", cRO]]),
+    "El passat": H6.rueda("Passat", "ABANS", [["ahir", cAZ], ["abans", cVE], ["fa anys", cNA], ["ahir a la nit", cRO]]),
+    "El futur": H6.rueda("Futur", "DESPRÉS", [["demà", cAZ], ["després", cVE], ["aviat", cNA], ["l'any vinent", cRO]]),
+    "Repàs: el detectiu de verbs": H6.flujo("Detectiu", ["quin és|l'infinitiu?", "quina|conjugació?", "quina|persona?", "quin|temps?"], cMO),
+  },
+  objetivos: ["Fer concordar el verb amb el subjecte", "Fer servir bé ser i estar", "Conjugar verbs com servir i verbs irregulars freqüents", "Fer servir el passat en -ava / -ia i l'imperatiu per donar instruccions"],
+  lectura: { titulo: "La capsa del temps", html: `<p>Aquest matí, a classe, hem obert una capsa molt especial. La va enterrar al pati, fa deu anys, un grup d'alumnes de tercer. A dins hi havia cartes, dibuixos i fotos.</p><p>La mestra n'ha llegit una en veu alta:</p><p><i>«Hola, nens i nenes del futur! Em dic Arnau i tinc vuit anys. Cada dia vinc a l'escola amb bicicleta. M'agrada molt jugar a futbol i llegir còmics. Ahir vam fer una excursió al bosc i vam veure un esquirol. Quan era petit, tenia por de la foscor, però ara ja no. Quan sigui gran, seré astronauta i viatjaré a la Lluna. Com és l'escola ara? Encara hi ha el gronxador vermell?»</i></p><p>Tots ens hem mirat. El gronxador vermell encara hi és!</p><p>Després, la mestra ens ha proposat de fer una capsa nova. Cadascú escriurà una carta per als alumnes que la trobaran d'aquí a deu anys. Jo explicaré què m'agrada, què vaig fer l'estiu passat i què vull ser de gran.</p><p>Qui sap si algun dia l'Arnau tornarà a l'escola i llegirà les nostres cartes?</p>` },
+  tras: {
+    "Què és un verb": [
+      ["El verb i el subjecte", `<p>En una oració, el verb té un company molt important: el <mark>subjecte</mark>. El subjecte és <b>qui</b> fa l'acció o de qui es diu alguna cosa.</p><p><i><b>Els nens</b> juguen al pati.</i> Qui juga? <i>Els nens</i>: és el subjecte.</p><p><i><b>La meva àvia</b> cuina molt bé.</i> Qui cuina? <i>La meva àvia</i>.</p><p>El verb i el subjecte han d'anar d'acord. D'això en diem <b>concordança</b>:</p><ul><li>Si el subjecte és <b>singular</b>, el verb va en singular: <i>El gos borda.</i></li><li>Si el subjecte és <b>plural</b>, el verb va en plural: <i>Els gossos borden.</i></li><li>Si el subjecte són dues persones, una de les quals és <i>jo</i>, el verb va amb <i>nosaltres</i>: <i>La Júlia i jo <b>anem</b> al cine.</i></li></ul><p>Errors que hem d'evitar: <i>Els nens juga</i> ❌ → <i>Els nens juguen</i> ✅.</p><p>Moltes vegades el subjecte <b>no apareix</b>, perquè el verb ja ens diu qui és: <i>Mengem a les dues</i> (nosaltres). És el <b>subjecte el·líptic</b>, i en català és molt freqüent.</p><p><b>Activitat</b>: escriu tres oracions i subratlla el subjecte de blau i el verb de vermell.</p>`,
+        H6.dos("Concordar", ["SINGULAR", ["el gos", "borda", "la tia canta"], cAZ], ["PLURAL", ["els gossos", "borden", "les ties canten"], cNA])],
+      ["Ser i estar", `<p>Els verbs <mark>ser</mark> i <mark>estar</mark> s'assemblen molt i de vegades ens fan dubtar.</p><ul><li><b>Ser</b> serveix per dir <b>com és</b> algú o alguna cosa, què és o d'on és: <i>La Marta és alta. El meu gat és negre. Som de Lleida. Avui és dimarts.</i></li><li><b>Estar</b> serveix per dir <b>com està</b> algú en un moment, una cosa que pot canviar: <i>La Marta està cansada. La sopa està calenta. Estic content.</i></li></ul><p>Compara: <i>En Pau <b>és</b> alegre</i> (és la seva manera de ser, sempre) i <i>En Pau <b>està</b> alegre</i> (avui, perquè li ha passat una cosa bona).</p><p>Per dir <b>on</b> és una cosa o una persona, en català fem servir sovint el verb <b>ser</b>: <i>On és el llapis? El llapis és a la taula. La mare és a la feina.</i></p><p>També fem servir <b>estar</b> per dir quant de temps passem en un lloc: <i>Hem estat tres dies a la platja.</i></p><p>Conjugació en present:</p><ul><li><b>ser</b>: <i>jo soc, tu ets, ell és, nosaltres som, vosaltres sou, ells són</i>.</li><li><b>estar</b>: <i>jo estic, tu estàs, ell està, nosaltres estem, vosaltres esteu, ells estan</i>.</li></ul><p><b>Activitat</b>: escriu dues oracions sobre un amic: una amb <i>és</i> i una altra amb <i>està</i>.</p>`,
+        H6.dos("Verbs", ["SER", ["és alt", "és negre", "és a casa"], cAZ], ["ESTAR", ["està cansat", "està calent", "estic content"], cVE]),
+        ["lfOONd_EjZ4", "\"Ser” o “estar”? No t’equivoquis més! | OK CATALÀ", "OK CATALÀ", 29254]],
+    ],
+    "Les tres conjugacions": [
+      ["Dormo o serveixo?", `<p>Els verbs de la <mark>tercera conjugació</mark> (acabats en <b>-ir</b>) tenen una sorpresa: n'hi ha de dues menes.</p><p>Uns quants es conjuguen com <b>dormir</b>, sense afegir res:</p><ul><li><i>jo dormo, tu dorms, ell dorm, nosaltres dormim, vosaltres dormiu, ells dormen</i>.</li><li>Com <i>dormir</i> van <i>obrir, sentir</i> i <i>bullir</i>.</li></ul><p>Però la majoria es conjuguen com <b>servir</b>, i al present afegeixen el trosset <b>-eix-</b>:</p><ul><li><i>jo serv<b>eix</b>o, tu serv<b>eix</b>es, ell serv<b>eix</b>, nosaltres servim, vosaltres serviu, ells serv<b>eix</b>en</i>.</li><li>Com <i>servir</i> van <i>llegir</i> (llegeixo), <i>afegir</i> (afegeixo), <i>patir</i> (pateixo), <i>construir</i> (construeixo), <i>avorrir</i> (avorreixo).</li></ul><p>Fixa't que el trosset <b>-eix-</b> només apareix a <i>jo, tu, ell</i> i <i>ells</i>. A <i>nosaltres</i> i <i>vosaltres</i> no hi és: <i>servim, serviu, llegim, llegiu</i>.</p><p>Com sabem de quina mena és un verb? No hi ha cap truc infal·lible: l'hem de sentir i llegir moltes vegades. Però una bona pista és que els verbs com <i>dormir</i> són pocs, i els com <i>servir</i>, moltíssims. Si dubtes, consulta un llibre de conjugació o el diccionari.</p><p><b>Activitat</b>: conjuga en present els verbs <i>llegir</i> i <i>obrir</i>.</p>`,
+        L6.filas("Tercera", [["dormir", "dormo, dorms", cAZ], ["servir", "serveixo", cVE], ["llegir", "llegeixo", cNA], ["patir", "pateixo", cRO]]),
+        ["3XFlFS9SFpI", "Aprende a CONJUGAR Verbos  3️⃣ 🤟 grupos de conjugación 3/3 #catalanfacil", "Catalán Fácil", 54988]],
+    ],
+    "El passat": [
+      ["Un altre passat: cantava, perdia", `<p>A més del passat que ja coneixes (<i>vaig cantar</i>), en català n'hi ha un altre que fem servir per explicar el que passava <b>sovint</b> o per <b>descriure</b> com eren les coses abans. Es diu <mark>imperfet</mark>.</p><p><i>Quan era petit, <b>tenia</b> por de la foscor.</i></p><p><i>A l'hivern <b>nevava</b> molt.</i></p><p>Es forma així:</p><ul><li>Verbs en <b>-ar</b>: acaben en <b>-ava</b>: <i>jo cantava, tu cantaves, ell cantava, nosaltres cantàvem, vosaltres cantàveu, ells cantaven</i>.</li><li>Verbs en <b>-re</b>, <b>-er</b> i <b>-ir</b>: acaben en <b>-ia</b>: <i>jo perdia, tu perdies, ell perdia, nosaltres perdíem, vosaltres perdíeu, ells perdien</i>; <i>jo dormia, ell dormia</i>.</li></ul><p>Quina diferència hi ha entre els dos passats?</p><ul><li><i>Ahir <b>vaig jugar</b> a futbol</i>: una vegada, i ja s'ha acabat.</li><li><i>De petit <b>jugava</b> a futbol cada dia</i>: un costum que es repetia.</li></ul><p>Els contes fan servir molt aquest passat al principi, per descriure: <i>Una vegada hi havia una nena que <b>vivia</b> al bosc i <b>portava</b> una caputxa vermella…</i></p><p>Fixa't que <i>cantàvem, cantàveu, perdíem, perdíeu</i> porten <b>accent</b>.</p><p><b>Activitat</b>: busca a la lectura els verbs que l'Arnau fa servir en imperfet.</p>`,
+        L6.filas("Abans", [["cantar", "cantava", cAZ], ["perdre", "perdia", cVE], ["dormir", "dormia", cNA], ["ser", "era", cRO]])],
+    ],
+    "Passat, present i futur junts": [
+      ["Verbs que van a la seva", `<p>La majoria de verbs segueixen el model de <i>cantar, perdre</i> o <i>dormir</i>: són <b>regulars</b>. Però n'hi ha alguns que canvien molt i van a la seva: són els <mark>verbs irregulars</mark>. Molts són els que fem servir més cada dia.</p><ul><li><b>ser</b>: <i>jo soc</i> (present), <i>jo vaig ser</i> (passat), <i>jo seré</i> (futur).</li><li><b>anar</b>: <i>jo vaig, tu vas, ell va, nosaltres anem, vosaltres aneu, ells van</i>; futur: <i>jo aniré</i>.</li><li><b>fer</b>: <i>jo faig, tu fas, ell fa, nosaltres fem, vosaltres feu, ells fan</i>; futur: <i>jo faré</i>.</li><li><b>tenir</b>: <i>jo tinc, tu tens, ell té, nosaltres tenim, vosaltres teniu, ells tenen</i>; futur: <i>jo tindré</i>.</li><li><b>venir</b>: <i>jo vinc</i>; futur: <i>jo vindré</i>.</li></ul><p>Fixa't en una cosa curiosa: el verb <b>anar</b> en present (<i>vaig, vas, va…</i>) és el mateix que fem servir per fer el passat dels altres verbs: <i>vaig cantar, vas menjar</i>. Per això <i>Vaig al parc</i> (present d'<i>anar</i>) i <i>Vaig anar al parc</i> (passat) volen dir coses diferents!</p><p>Els nens petits de vegades diuen <i>«jo tenc»</i> o <i>«jo fago»</i>, perquè apliquen la regla de sempre. Però es diu <i>jo tinc</i> i <i>jo faig</i>.</p><p><b>Activitat</b>: escriu una oració en futur amb <i>fer</i> i una altra amb <i>tenir</i>.</p>`,
+        L6.filas("Irregulars", [["ser", "soc, seré", cAZ], ["anar", "vaig, aniré", cVE], ["fer", "faig, faré", cNA], ["tenir", "tinc, tindré", cRO]])],
+    ],
+  },
+  final: [
+    ["Verbs per donar instruccions", `<p>A les <b>receptes</b>, les normes d'un joc o les instruccions per muntar una joguina, els verbs són els <mark>protagonistes</mark>. Les instruccions es poden escriure de dues maneres:</p><ul><li>Amb <b>infinitiu</b>: <i>Rentar les maduixes. Tallar-les a trossos. Afegir el iogurt.</i> És molt habitual a les receptes i als cartells: <i>No trepitjar la gespa.</i></li><li>Donant una <b>ordre</b> a qui llegeix, amb l'<b>imperatiu</b>: <i>Renta les maduixes. Talla-les a trossos. Afegeix el iogurt.</i></li></ul><p>El més important és no barrejar les dues maneres en un mateix text.</p><p>Mira aquesta recepta de batut de maduixa:</p><ul><li><b>1.</b> <b>Renta</b> deu maduixes i <b>treu-los</b> les fulles.</li><li><b>2.</b> <b>Talla</b> les maduixes per la meitat.</li><li><b>3.</b> <b>Posa</b> les maduixes, un got de llet i una cullerada de mel a la batedora.</li><li><b>4.</b> <b>Demana</b> a un adult que ho bati tot fins que quedi cremós.</li><li><b>5.</b> <b>Serveix</b> el batut en un got i <b>gaudeix-ne</b>.</li></ul><p>Fixa't que cada pas comença amb un verb, i que els passos van <b>numerats</b> i en <b>ordre</b>. Així, qui ho llegeix sap exactament què ha de fer.</p><p><b>Activitat</b>: escriu les instruccions del teu joc de pati preferit començant cada pas amb un verb.</p>`,
+      H6.dos("Instrucció", ["INFINITIU", ["rentar", "tallar", "afegir"], cAZ], ["IMPERATIU", ["renta", "talla", "afegeix"], cNA])],
+  ],
+  ejemplos: [
+    ["Corregeix: «Els ocells canta a l'arbre».", ["El subjecte «els ocells» és plural.", "El verb ha d'anar en plural."], "Els ocells canten a l'arbre."],
+    ["Conjuga «llegir» amb jo i amb nosaltres.", ["Llegir va com servir: afegeix -eix- amb jo.", "Amb nosaltres no hi ha -eix-."], "Jo llegeixo; nosaltres llegim."],
+  ],
+  errores: ["No fer concordar el verb amb el subjecte: «Els nens juga».", "Regularitzar els verbs irregulars: «jo tenc», «jo fago»."],
+  ejercicios: [
+    ["b", "Subratlla el subjecte: «El meu gos menja pinso».", "El meu gos."],
+    ["b", "Escriu el present de «ser» amb jo.", "Jo soc."],
+    ["b", "Completa: «La sopa ___ calenta» (estar).", "Està."],
+    ["b", "Escriu l'imperfet de «cantar» amb jo.", "Cantava."],
+    ["b", "A la lectura, què volia ser l'Arnau de gran?", "Astronauta."],
+    ["m", "Corregeix: «Les meves cosines arriba demà».", "Les meves cosines arriben demà."],
+    ["m", "Conjuga «servir» amb tu i amb vosaltres.", "Tu serveixes; vosaltres serviu."],
+    ["m", "Quina diferència hi ha entre «vaig jugar» i «jugava»?", "Vaig jugar és una vegada que ja s'ha acabat; jugava és un costum o una descripció."],
+    ["m", "Què vol dir «Vaig al parc»? I «Vaig anar al parc»?", "La primera és present (ara hi vaig); la segona és passat."],
+    ["m", "Escriu dos passos d'una recepta amb imperatiu.", "Per exemple: Pela la poma. Talla-la a trossos."],
+    ["a", "Copia de la lectura dos verbs en imperfet i dos en futur.", "Imperfet: era, tenia. Futur: seré, viatjaré."],
+    ["a", "Escriu dues oracions sobre el teu germà o amic: una amb «és» i una amb «està».", "Resposta oberta."],
+    ["a", "Conjuga «fer» en present, passat i futur amb jo.", "Faig, vaig fer, faré."],
+    ["a", "Escriu les instruccions d'un joc amb cinc passos.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["A «Els gats dormen», el subjecte és…", ["els gats", "dormen", "no n'hi ha"], "Subjecte."],
+    ["«La Marta ___ cansada»:", ["està", "és", "som"], "Ser i estar."],
+    ["El present de «llegir» amb jo és…", ["llegeixo", "llego", "llegio"], "Tercera."],
+    ["«De petit jugava al parc» està en…", ["passat", "present", "futur"], "Imperfet."],
+    ["El present de «tenir» amb jo és…", ["tinc", "tenc", "teno"], "Irregulars."],
+  ],
+  examen: [
+    ["A la lectura, què encara hi ha al pati?", ["el gronxador vermell", "l'esquirol", "la bicicleta de l'Arnau"], "Lectura."],
+    ["«Renta, talla, afegeix» són formes…", ["d'imperatiu", "d'infinitiu", "de futur"], "Instruccions."],
+  ],
+  tarjetas: [
+    ["Subjecte", "Qui fa l'acció; el verb concorda amb ell en nombre i persona."],
+    ["Ser i estar", "Ser: com és, on és. Estar: com està ara."],
+    ["Servir i dormir", "Serveixo, llegeixo (-eix-); dormo, obro."],
+    ["Imperfet i irregulars", "Cantava, perdia; soc, vaig, faig, tinc."],
+  ],
+  glosario: [
+    ["Verb", "Paraula que diu el que algú fa, li passa o com està."],
+    ["Infinitiu", "Nom del verb, acabat en -ar, -re, -er o -ir."],
+    ["Conjugació", "Grup de verbs segons com acaba l'infinitiu."],
+    ["Subjecte", "Qui fa l'acció en una oració."],
+    ["Concordança", "Acord en nombre i persona entre el subjecte i el verb."],
+    ["Subjecte el·líptic", "Subjecte que no apareix perquè el verb ja l'indica."],
+    ["Imperfet", "Passat per a costums i descripcions: cantava."],
+    ["Passat perifràstic", "Passat fet amb anar + infinitiu: vaig cantar."],
+    ["Verb irregular", "Verb que no segueix el model regular."],
+    ["Imperatiu", "Forma del verb per donar ordres: renta, talla."],
+    ["Instruccions", "Text que explica pas a pas com fer una cosa."],
+    ["Capsa del temps", "Capsa amb records que s'obre al cap de molts anys."],
+  ],
+  situacion: {
+    titulo: "La nostra capsa del temps",
+    reto: "Cada alumne escriu una carta per als alumnes que obriran la capsa d'aquí a deu anys, fent servir el passat, el present i el futur.",
+    pasos: ["Escriure com era de petit, amb l'imperfet.", "Explicar com és ara i què fa cada dia, amb el present.", "Explicar què farà de gran, amb el futur.", "Revisar la concordança i els verbs irregulars i guardar les cartes a la capsa."],
+    producto: "Una capsa del temps amb les cartes de la classe.",
+    evaluacion: ["Fa concordar subjecte i verb.", "Fa servir bé ser i estar.", "Conjuga verbs com servir i verbs irregulars.", "Fa servir els temps verbals adequats."],
+  },
+});

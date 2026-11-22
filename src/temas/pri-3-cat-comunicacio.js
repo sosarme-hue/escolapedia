@@ -88,3 +88,99 @@ module.exports = P.tema({
   saberes: "Comunicació i interacció oral: elements de la comunicació (emissor, receptor, missatge, canal, codi); comunicació oral, escrita i no verbal; normes de la conversa; parlar en públic",
   ideas: ["Telèfon de gots i corda per treballar canal, emissor i receptor.", "Joc de mímica: missatges sense paraules en petits grups.", "Assemblea amb un «objecte de la paraula» per practicar el torn."],
 });
+
+// ---------- Nivell llibre (3r de Primària) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conèixer altres codis: el braille i la llengua de signes", "Escriure una carta i una postal amb les seves parts", "Escoltar activament i participar en un debat", "Comunicar-se per internet amb respecte i seguretat"],
+  lectura: { titulo: "La carta de l'Ona", html: `<p>L'Ona fa tercer i té una amiga, la Laia, que s'ha mudat a viure a un poble de muntanya. Fa dies que no es veuen i l'Ona l'enyora molt.</p><p>—Per què no li escrius una carta? —li proposa el seu avi.</p><p>—Una carta? Però si ara tothom envia missatges amb el mòbil!</p><p>—Doncs per això mateix. Una carta de veritat és una sorpresa. La pots decorar, hi pots enganxar una foto i la Laia la podrà guardar tota la vida.</p><p>L'Ona s'asseu a la taula de la cuina. Escriu la data, saluda la Laia i li explica que al pati han fet un hort i que el gat de l'escola ha tingut tres gatets. Al final s'acomiada amb «Una abraçada molt forta» i signa amb el seu nom. Hi dibuixa un sol i un gatet.</p><p>Amb l'avi van a correus, compren un segell i tiren la carta a la bústia groga.</p><p>Una setmana després, el carter porta un sobre amb una lletra coneguda. És la resposta de la Laia! A dins hi ha una carta, una fulla seca d'un arbre del bosc i un dibuix d'una muntanya nevada.</p>` },
+  tras: {
+    "El canal i el codi": [
+      ["Molts codis per comunicar-se", `<p>La llengua és el codi més important, però no és l'únic. Les persones han inventat <mark>molts codis</mark> diferents per poder-se comunicar.</p><ul><li>Les <b>llengües</b>: al món se'n parlen més de sis mil! A Catalunya convivim amb el català, el castellà i, a l'Aran, l'aranès. A l'escola també aprenem l'anglès. Cada llengua és una manera diferent de dir les coses.</li><li>El <b>braille</b>: és un codi de punts en relleu que les persones cegues llegeixen amb la punta dels dits. Cada lletra és una combinació de fins a sis punts. El va inventar Louis Braille, un noi francès que s'havia quedat cec de petit.</li><li>La <b>llengua de signes</b>: les persones sordes es comuniquen amb les mans, la cara i el cos. No és un joc de gestos: és una llengua completa, amb paraules i gramàtica pròpies. A Catalunya hi ha la llengua de signes catalana.</li><li>El <b>codi morse</b>: fa servir punts i ratlles, o sons curts i llargs. Abans s'usava per enviar missatges pel telègraf i des dels vaixells.</li></ul><p>Perquè la comunicació funcioni, l'emissor i el receptor han de conèixer <b>el mateix codi</b>. Si algú et parla en japonès i no el saps, el missatge no t'arriba.</p><p><b>Activitat</b>: aprèn a dir «hola» i «gràcies» en la llengua de signes catalana.</p>`,
+        H6.rueda("Codis", "CODI", [["llengua", cAZ], ["braille", cVE], ["signes", cNA], ["morse", cRO]])],
+    ],
+    "Comunicació oral i escrita": [
+      ["La carta i la postal", `<p>La <mark>carta</mark> és una de les formes més antigues de comunicació escrita. Encara que ara fem servir molt el mòbil, rebre una carta continua sent una gran alegria.</p><p>Una carta té aquestes <b>parts</b>:</p><ul><li><b>1. Lloc i data</b>, a dalt a la dreta: <i>Girona, 12 de març de 2026</i>.</li><li><b>2. Salutació</b>, seguida de dos punts: <i>Estimada Laia:</i></li><li><b>3. Cos</b>: és el missatge. Expliquem el que volem dir, en paràgrafs.</li><li><b>4. Comiat</b>: <i>Una abraçada, Fins aviat, Petons</i>.</li><li><b>5. Signatura</b>: el nostre nom.</li><li>Si ens hem descuidat alguna cosa, podem afegir una <b>postdata</b> (P. S.) sota la signatura.</li></ul><p>Al <b>sobre</b> hi escrivim el nom i l'adreça de qui la rep (el destinatari) i, al darrere, les nostres dades (el remitent). A la cantonada de dalt hi enganxem el <b>segell</b>.</p><p>La <b>postal</b> és més curta. Té una foto o un dibuix a una cara, i a l'altra cara hi escrivim un missatge breu i l'adreça. S'envia sobretot des dels llocs on anem de vacances.</p><p><b>Activitat</b>: escriu una carta a un familiar que viu lluny i explica-li una cosa que t'hagi passat aquesta setmana.</p>`,
+        L6.filas("Carta", [["1", "lloc i data", cAZ], ["2", "salutació:", cVE], ["3", "cos", cNA], ["4", "comiat i nom", cRO]]),
+        ["CivQCpCMkOY", "La carta y sus partes. Información para niños de preescolar y primaria. ✏️📄✉️📫", "Preescolar Maestra Lucy", 492662]],
+    ],
+    "Comunicar-se sense paraules": [
+      ["Senyals, icones i emoticones", `<p>Pel carrer, a l'escola i a les pantalles trobem molts <mark>dibuixos que comuniquen</mark> sense necessitat de paraules. Els entén gent que parla llengües diferents!</p><ul><li><b>Senyals de trànsit</b>: tenen formes i colors amb un significat. Els <b>triangles</b> vermells avisen d'un perill; els <b>cercles</b> vermells prohibeixen; els <b>cercles blaus</b> obliguen; els <b>quadrats</b> o rectangles blaus informen.</li><li><b>Icones</b>: són dibuixos senzills que ens indiquen on hi ha alguna cosa. El lavabo, la sortida d'emergència (un ninot verd que corre), l'ascensor, la farmàcia (una creu verda) o un lloc on no es pot fumar.</li><li><b>Colors</b>: el semàfor és un codi de tres colors. Vermell vol dir «atura't»; verd, «pots passar»; i l'ambre (taronja), «compte, que canviarà».</li><li><b>Emoticones</b> (o <i>emojis</i>): són les caretes que fem servir als missatges. Ens ajuden a mostrar com ens sentim, perquè en un missatge escrit no se'ns veu la cara. 😀 vol dir alegria; 😢, tristesa.</li></ul><p>Però compte: una emoticona pot voler dir coses diferents per a persones diferents. Si el missatge és important, val més escriure'l amb paraules clares.</p><p><b>Activitat</b>: fes una ruta per l'escola i dibuixa totes les icones i senyals que trobis. Explica què volen dir.</p>`,
+        L6.filas("Senyals", [["triangle", "perill", cRO], ["cercle vermell", "prohibit", cNA], ["cercle blau", "obligatori", cAZ], ["verd", "pots passar", cVE]])],
+    ],
+    "La conversa": [
+      ["Saber escoltar", `<p>Comunicar-se no és només parlar: també és <mark>escoltar</mark>. I escoltar bé és més difícil del que sembla! No n'hi ha prou de sentir els sons: cal entendre el que l'altre ens vol dir.</p><p>Escoltar <b>activament</b> vol dir:</p><ul><li><b>Mirar</b> la persona que parla, per demostrar-li que li fem cas.</li><li><b>Estar en silenci</b> i no pensar en una altra cosa mentre parla.</li><li><b>No interrompre</b>: esperar que acabi abans de parlar nosaltres.</li><li><b>Fer que sí</b> amb el cap o dir «ah, sí?», «i què va passar?», perquè vegi que el seguim.</li><li><b>Fer preguntes</b> si no hem entès alguna cosa: «Què vols dir amb això?»</li><li><b>Recordar</b> el que ens ha dit i fer-ne un petit resum: «O sigui, que el teu gos s'ha perdut i encara no l'heu trobat».</li></ul><p>Quan algú ens escolta així, ens sentim importants i respectats. Per això escoltar bé és una manera de ser <b>bon amic</b> i bon company.</p><p>Hi ha un joc que serveix per practicar-ho: el <b>telèfon espatllat</b>. Un alumne diu una frase a cau d'orella al següent, i així successivament. Quan arriba a l'últim, la diu en veu alta. Gairebé mai no és igual que la primera! Això ens demostra com és de fàcil que un missatge canviï si no escoltem bé.</p>`,
+        H6.flujo("Escoltar", ["mira|qui parla", "no|interrompis", "pregunta|el dubte", "resumeix|el que diu"], cVE)],
+    ],
+    "Parlar en públic": [
+      ["El debat a classe", `<p>Un <mark>debat</mark> és una conversa organitzada en què diverses persones donen la seva <b>opinió</b> sobre un tema i expliquen per què pensen així.</p><p>Per exemple: <i>«Hauríem de tenir deures el cap de setmana?»</i> o <i>«És millor tenir un gat o un gos?»</i>.</p><p>En un debat hi ha:</p><ul><li>Un <b>tema</b> o una pregunta.</li><li>Un <b>moderador</b> o moderadora: dona el torn de paraula, controla el temps i fa que tothom respecti les normes. Sovint és el mestre, però també pot ser un alumne.</li><li>Els <b>participants</b>: donen la seva opinió i l'acompanyen de <b>raons</b> o arguments.</li><li>El <b>públic</b>, que escolta.</li></ul><p>Per opinar podem fer servir expressions com aquestes: <i>Jo crec que…, Em sembla que…, Estic d'acord amb en Pau perquè…, No hi estic d'acord perquè…</i></p><p>La norma més important és el <b>respecte</b>. Podem estar en desacord amb una idea, però mai no hem de riure'ns de la persona que la diu. I és bo saber canviar d'opinió si algú ens dona una raó que ens convenç.</p><p>Al final, el moderador fa un <b>resum</b> de les idees principals que s'han dit.</p><p><b>Activitat</b>: organitzeu un debat sobre si a l'escola hi hauria d'haver animals de companyia.</p>`,
+        H6.dos("Debat", ["A FAVOR", ["jo crec que…", "perquè…", "per exemple…"], cVE], ["EN CONTRA", ["no hi estic", "d'acord", "perquè…"], cRO]),
+        ["oF82oqwh-fA", "El debate para niños de primaria", "123 aprende más", 104292]],
+    ],
+  },
+  final: [
+    ["Comunicar-se per internet", `<p>Avui dia ens comuniquem molt a través de <mark>pantalles</mark>: missatges, videotrucades, correus electrònics… És molt pràctic, perquè podem parlar amb persones que són lluny. Però també cal anar amb compte i seguir unes normes.</p><p><b>Normes de respecte</b>:</p><ul><li>Escriu de manera <b>amable</b>, com si tinguessis la persona al davant.</li><li>No escriguis TOT EN MAJÚSCULES: a internet sembla que cridis.</li><li>No enviïs fotos d'altres persones sense el seu <b>permís</b>.</li><li>Si un missatge et fa enfadar, espera una estona abans de respondre.</li></ul><p><b>Normes de seguretat</b>:</p><ul><li>No donis mai dades personals (la teva adreça, el teu telèfon, la teva escola) a algú que no coneixes.</li><li>No obris missatges ni enllaços de desconeguts.</li><li>Si alguna cosa et fa sentir malament o tens por, <b>explica-ho de seguida</b> a un adult de confiança.</li><li>Fes servir els aparells amb permís i amb un adult a prop.</li></ul><p>A més, tot el que s'envia per internet pot quedar <b>guardat</b> molt de temps i arribar a moltes persones. Abans d'enviar alguna cosa, pregunta't: «M'agradaria que tothom ho veiés?»</p><p><b>Activitat</b>: feu entre tots un cartell amb les cinc normes més importants per comunicar-se per internet.</p>`,
+      H6.dos("A internet", ["SÍ", ["amabilitat", "permís", "avisar un adult"], cVE], ["NO", ["majúscules", "dades personals", "desconeguts"], cRO])],
+  ],
+  ejemplos: [
+    ["Identifica l'emissor i el receptor de la lectura quan l'Ona envia la carta.", ["Qui escriu la carta és l'Ona.", "Qui la rep és la Laia."], "Emissora: l'Ona. Receptora: la Laia."],
+    ["Què vol dir un senyal amb forma de triangle vermell?", ["Els triangles vermells avisen.", "Indiquen que hi ha un perill."], "Que hi ha un perill."],
+  ],
+  errores: ["Pensar que la llengua de signes és només un joc de gestos: és una llengua completa.", "Oblidar la data o la signatura quan s'escriu una carta."],
+  ejercicios: [
+    ["b", "Quines són les parts d'una carta?", "Lloc i data, salutació, cos, comiat i signatura."],
+    ["b", "Quin codi llegeixen les persones cegues amb els dits?", "El braille."],
+    ["b", "Què vol dir el color verd del semàfor?", "Que pots passar."],
+    ["b", "Qui dona el torn de paraula en un debat?", "El moderador o la moderadora."],
+    ["b", "A la lectura, què envia la Laia dins del sobre?", "Una carta, una fulla seca i un dibuix d'una muntanya."],
+    ["m", "Escriu una salutació i un comiat per a una carta a la teva àvia.", "Per exemple: Estimada àvia: … Una abraçada molt forta."],
+    ["m", "Per què és important que l'emissor i el receptor coneguin el mateix codi?", "Perquè, si no, el missatge no s'entén."],
+    ["m", "Digues dues coses que fa una persona que escolta activament.", "Per exemple: mira qui parla i no interromp."],
+    ["m", "Per què no s'ha d'escriure tot en majúscules a internet?", "Perquè sembla que cridis."],
+    ["m", "Escriu una frase per opinar en un debat.", "Per exemple: Jo crec que… perquè…"],
+    ["a", "Escriu una postal des d'un lloc on t'agradaria anar de vacances.", "Resposta oberta."],
+    ["a", "Per què l'avi diu que una carta és una sorpresa?", "Perquè és poc habitual, es pot decorar i guardar tota la vida."],
+    ["a", "Explica què demostra el joc del telèfon espatllat.", "Que un missatge canvia fàcilment si no escoltem bé."],
+    ["a", "Fes un cartell amb tres normes de seguretat a internet.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["La llengua de signes la fan servir sobretot…", ["les persones sordes", "els carters", "els pilots"], "Codis."],
+    ["A la carta, després de la salutació posem…", ["dos punts", "un interrogant", "una coma i ja està"], "Carta."],
+    ["Un cercle vermell en un senyal vol dir…", ["prohibit", "informació", "perill"], "Senyals."],
+    ["Escoltar activament vol dir…", ["mirar i no interrompre", "pensar en una altra cosa", "parlar alhora"], "Escoltar."],
+    ["A internet, a un desconegut…", ["no li donem dades personals", "li diem on vivim", "li enviem fotos"], "Internet."],
+  ],
+  examen: [
+    ["A la lectura, on viu ara la Laia?", ["en un poble de muntanya", "a la platja", "a una altra escola de la ciutat"], "Lectura."],
+    ["La persona que dona el torn en un debat és…", ["el moderador", "el públic", "el remitent"], "Debat."],
+  ],
+  tarjetas: [
+    ["Codis", "Llengües, braille, llengua de signes, morse."],
+    ["Carta", "Lloc i data, salutació:, cos, comiat, signatura; sobre i segell."],
+    ["Escoltar", "Mirar, callar, no interrompre, preguntar, resumir."],
+    ["Debat i internet", "Opinió amb raons i respecte; amabilitat i seguretat a la xarxa."],
+  ],
+  glosario: [
+    ["Emissor", "Qui envia el missatge."],
+    ["Receptor", "Qui rep el missatge."],
+    ["Codi", "Conjunt de signes que fem servir per comunicar-nos."],
+    ["Braille", "Codi de punts en relleu per a persones cegues."],
+    ["Llengua de signes", "Llengua que es fa amb les mans, la cara i el cos."],
+    ["Destinatari", "Persona a qui va adreçada una carta."],
+    ["Remitent", "Persona que envia una carta."],
+    ["Postdata", "Text breu que s'afegeix sota la signatura."],
+    ["Icona", "Dibuix senzill que indica alguna cosa."],
+    ["Debat", "Conversa organitzada per donar opinions."],
+    ["Moderador", "Persona que dirigeix un debat."],
+    ["Argument", "Raó que fem servir per defensar una opinió."],
+  ],
+  situacion: {
+    titulo: "Cartes amb una altra escola",
+    reto: "La classe s'escriu cartes amb una escola d'un altre lloc i prepara un debat sobre com ens comuniquem avui.",
+    pasos: ["Escriure una carta de presentació amb totes les parts.", "Preparar el sobre i enviar les cartes per correu.", "Llegir les respostes en veu alta escoltant activament.", "Fer un debat: és millor una carta o un missatge de mòbil?"],
+    producto: "Un racó de correspondència i el resum d'un debat.",
+    evaluacion: ["Escriu una carta amb les seves parts.", "Coneix codis diferents de la llengua.", "Escolta activament.", "Opina amb raons i respecte."],
+  },
+});
