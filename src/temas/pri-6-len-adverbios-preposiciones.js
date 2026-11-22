@@ -13,7 +13,8 @@ module.exports = P.tema({
       H.dos("Dos grupos de palabras", ["Variables", ["sustantivo", "adjetivo", "determinante", "pronombre, verbo"], AZ], ["Invariables", ["adverbio", "preposición", "conjunción", "interjección"], RO])],
     ["El adverbio", `<p>El <b>adverbio</b> es una palabra invariable que indica <mark>circunstancias</mark>: dónde, cuándo, cómo o cuánto ocurre algo. Normalmente acompaña al verbo: «Ana corre <b>rápido</b>», «Llegaremos <b>pronto</b>».</p><p>También puede acompañar a un adjetivo («una película <b>muy</b> divertida») o a otro adverbio («bastante <b>lejos</b>»). Un truco para encontrarlo: pregúntale al verbo <i>¿dónde?</i>, <i>¿cuándo?</i>, <i>¿cómo?</i> o <i>¿cuánto?</i>. Si la respuesta es una sola palabra que no cambia, probablemente es un adverbio. «Mañana iremos allí»: ¿cuándo? <i>mañana</i>; ¿dónde? <i>allí</i>.</p>`,
       L.frase("Adverbios en una frase", [["Mañana", "¿cuándo?", AZ], ["iremos", "verbo", RO], ["allí", "¿dónde?", VE], ["tranquilamente", "¿cómo?", NA]], "el adverbio dice dónde, cuándo y cómo")],
-    ["Clases de adverbios", `<p>Según lo que expresan, los adverbios se clasifican en:</p>${P.tb(["Clase", "Responde a", "Ejemplos"], [["lugar", "¿dónde?", "aquí, allí, cerca, lejos, arriba, dentro"], ["tiempo", "¿cuándo?", "hoy, ayer, mañana, pronto, tarde, siempre"], ["modo", "¿cómo?", "bien, mal, así, despacio, rápidamente"], ["cantidad", "¿cuánto?", "mucho, poco, bastante, muy, demasiado"], ["afirmación", "", "sí, también, claro"], ["negación", "", "no, nunca, jamás, tampoco"], ["duda", "", "quizá, tal vez, acaso"]])}<p>Fíjate en que algunas palabras pueden ser adverbio o determinante según la frase: en «Come <b>mucho</b>» es adverbio (acompaña al verbo), pero en «Come <b>mucha</b> fruta» es determinante (acompaña al sustantivo y cambia de forma).</p>`],
+    ["Clases de adverbios", `<p>Según lo que expresan, los adverbios se clasifican en:</p>${P.tb(["Clase", "Responde a", "Ejemplos"], [["lugar", "¿dónde?", "aquí, allí, cerca, lejos, arriba, dentro"], ["tiempo", "¿cuándo?", "hoy, ayer, mañana, pronto, tarde, siempre"], ["modo", "¿cómo?", "bien, mal, así, despacio, rápidamente"], ["cantidad", "¿cuánto?", "mucho, poco, bastante, muy, demasiado"], ["afirmación", "", "sí, también, claro"], ["negación", "", "no, nunca, jamás, tampoco"], ["duda", "", "quizá, tal vez, acaso"]])}<p>Fíjate en que algunas palabras pueden ser adverbio o determinante según la frase: en «Come <b>mucho</b>» es adverbio (acompaña al verbo), pero en «Come <b>mucha</b> fruta» es determinante (acompaña al sustantivo y cambia de forma).</p>`,
+      L.filas("Clases de adverbios", [["Lugar", "aquí, cerca, lejos", AZ], ["Tiempo", "hoy, ya, pronto", VE], ["Modo", "bien, así, deprisa", NA], ["Cantidad", "mucho, poco, muy", MO]])],
     ["Adverbios en -mente y locuciones", `<p>Muchos adverbios de modo se forman añadiendo <mark>-mente</mark> a la forma femenina de un adjetivo: <i>rápida → rápidamente</i>, <i>tranquila → tranquilamente</i>, <i>feliz → felizmente</i>. Si el adjetivo lleva tilde, el adverbio la conserva: <i>fácil → fácilmente</i>, <i>cortés → cortésmente</i>.</p><p>También hay <b>locuciones adverbiales</b>: grupos de dos o más palabras que funcionan como un adverbio. Por ejemplo: <i>a menudo</i> (con frecuencia), <i>de repente</i>, <i>a ciegas</i>, <i>de vez en cuando</i>, <i>por supuesto</i>, <i>sin duda</i>. «<b>De repente</b>, se fue la luz».</p>`,
       L.filas("Adverbios en -mente", [["rápida", "→ rápidamente", AZ], ["fácil", "→ fácilmente (con tilde)", VE], ["feliz", "→ felizmente", NA]])],
     ["Las preposiciones", `<p>Las <b>preposiciones</b> son palabras invariables que sirven para <mark>enlazar</mark> una palabra con otra y mostrar la relación que hay entre ellas: «vaso <b>de</b> agua», «voy <b>a</b> casa», «salgo <b>con</b> mis amigos», «la mesa <b>sin</b> mantel».</p><p>Cambiar una preposición puede cambiar todo el sentido: no es lo mismo «café <b>con</b> leche» que «café <b>sin</b> leche», ni «hablar <b>con</b> Marta» que «hablar <b>de</b> Marta». Por eso es útil aprenderlas de memoria. Las preposiciones del castellano son: <i>a, ante, bajo, cabe, con, contra, de, desde, durante, en, entre, hacia, hasta, mediante, para, por, según, sin, so, sobre, tras, versus, vía</i>. Hoy casi no se usan <i>cabe</i> y <i>so</i>.</p>`,
@@ -86,4 +87,92 @@ module.exports = P.tema({
   familias: ["Cantad o recitad juntos la lista de preposiciones mientras vais en el coche.", "Jugad a describir cómo hace las cosas un familiar solo con adverbios en -mente.", "Al leer un cuento, buscad los conectores que ordenan la historia (primero, después, al final)."],
   saberes: "Reflexión sobre la lengua: palabras variables e invariables; el adverbio y sus clases; la preposición; la conjunción; conectores textuales",
   ideas: ["Canción o rap de las preposiciones para memorizarlas.", "Juego de mímica de adverbios de modo: los demás adivinan cómo se hace la acción.", "Unir oraciones sueltas con conjunciones y conectores para mejorar un texto."],
+});
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Usar correctamente los grados del adverbio y evitar «detrás mío»", "Evitar el dequeísmo y el queísmo", "Reconocer y escribir interjecciones", "Valorar el origen de algunas palabras invariables"],
+  lectura: { titulo: "Ojalá y otras palabras viajeras", html: `<p>Durante casi ochocientos años, entre el año 711 y el 1492, gran parte de la península ibérica se llamó <b>al-Ándalus</b>. Allí convivieron personas que hablaban árabe, romance y hebreo. Se mezclaban en los mercados, en los huertos y en las calles de ciudades como Córdoba, Toledo o Granada.</p><p>Las lenguas también se mezclaron. El castellano tomó del árabe miles de palabras: <i>aceite, azúcar, almohada, alfombra, albañil, arroz, ajedrez, naranja</i>… Muchas empiezan por <i>al-</i> o <i>a-</i>, que en árabe era el artículo.</p><p>Pero no solo llegaron sustantivos. La preposición <b>hasta</b> viene del árabe <i>ḥattà</i>. Y la interjección <b>ojalá</b> procede de una expresión árabe que significaba «si Dios quiere». Hoy la decimos sin pensar en su origen cuando deseamos algo con fuerza: <i>¡Ojalá apruebe!</i>, <i>¡Ojalá no llueva el sábado!</i></p><p>Cada vez que dices <i>ojalá</i> o <i>hasta luego</i>, estás usando palabras que viajaron por el tiempo durante más de mil años. Las palabras invariables son pequeñas, pero guardan mucha historia.</p>` },
+  tras: {
+    "Clases de adverbios": [
+      ["Los grados del adverbio y «detrás de mí»", `<p>Igual que los adjetivos, muchos adverbios de lugar, tiempo y modo admiten <b>grados</b>:</p><ul><li><b>Comparativo</b>: <i>más cerca, menos tarde, tan bien como</i>.</li><li><b>Superlativo</b>: <i>muy cerca, cerquísima; muy pronto, prontísimo; muy lejos, lejísimos</i>.</li><li>Formas especiales: <i>bien → mejor</i>, <i>mal → peor</i>. Igual que con los adjetivos, no se dice «más mejor».</li></ul><p>En la lengua coloquial también se usan diminutivos: <i>cerquita, prontito, despacito, ahorita</i>.</p><p>Un error muy extendido aparece con los adverbios de lugar <i>detrás, delante, encima, debajo, cerca, lejos, enfrente, alrededor</i>. Estos adverbios se construyen con la preposición <b>de</b> y un pronombre personal, no con un posesivo:</p><ul><li><i>Detrás de mí</i>, no «detrás mío».</li><li><i>Delante de ti</i>, no «delante tuyo».</li><li><i>Encima de él</i>, no «encima suyo».</li><li><i>Cerca de nosotros</i>, no «cerca nuestro».</li></ul><p>El truco es sencillo: el posesivo (<i>mío, tuyo, suyo</i>) acompaña a sustantivos (<i>el libro mío</i>), y <i>detrás</i> no es un sustantivo. Nadie diría «la detrás mía».</p>`,
+        H6.dos("Con adverbios de lugar", ["Correcto", ["detrás de mí", "delante de ti", "cerca de él"], cVE], ["Evita", ["detrás mío", "delante tuyo", "cerca suyo"], cRO])],
+    ],
+    "Usar bien las preposiciones": [
+      ["Dequeísmo y queísmo", `<p>Dos errores muy frecuentes con la preposición <b>de</b> delante de <b>que</b> son:</p><ul><li>El <b>dequeísmo</b>: poner <i>de</i> cuando no hace falta. <i>«Pienso de que es tarde»</i> es incorrecto; se dice <i>Pienso que es tarde</i>. Otros ejemplos incorrectos: «Me dijo de que viniera», «Creo de que tienes razón».</li><li>El <b>queísmo</b>: quitar <i>de</i> cuando es necesaria. <i>«Me acuerdo que fuimos al río»</i> es incorrecto; se dice <i>Me acuerdo de que fuimos al río</i>. Otros: «Estoy seguro que…» (lo correcto es <i>seguro de que</i>), «Me alegro que…» (<i>me alegro de que</i>).</li></ul><p>Hay un <b>truco</b> muy útil: convierte la frase en pregunta o sustituye todo lo que va detrás de <i>que</i> por <b>eso</b>.</p><ul><li><i>Pienso eso</i> (no «pienso de eso») → <i>Pienso que…</i></li><li><i>Me acuerdo de eso</i> (no «me acuerdo eso») → <i>Me acuerdo de que…</i></li><li><i>¿De qué estás seguro?</i> → <i>Estoy seguro de que…</i></li><li><i>¿Qué te dijo?</i> → <i>Me dijo que…</i></li></ul><p>Si con <i>eso</i> necesitas la preposición <i>de</i>, también la necesitas con <i>que</i>. Si no, no la pongas.</p>`,
+        H6.flujo("Truco del «eso»", ["cambia|que… por eso", "¿suena|con de?", "sí|de que", "no|que"], cAZ), ["lFxYhgRjVeI", "Truco para evitar el dequeísmo y el queísmo", "Blog de Lengua", 199543]],
+    ],
+    "Las conjunciones": [
+      ["Las interjecciones", `<p>Las <b>interjecciones</b> son palabras invariables que expresan de golpe una <b>emoción</b>, una llamada o una reacción. Equivalen a una oración entera: <i>¡Ay!</i> puede significar «me he hecho daño». Por eso se escriben casi siempre entre <b>signos de exclamación</b> y van separadas del resto de la oración por comas: <i>¡Uf!, qué calor hace.</i></p><p>Pueden expresar muchas cosas:</p><ul><li><b>Dolor</b>: <i>¡ay!, ¡uy!</i></li><li><b>Sorpresa</b>: <i>¡oh!, ¡anda!, ¡caramba!, ¡vaya!</i></li><li><b>Alegría o ánimo</b>: <i>¡bravo!, ¡olé!, ¡hurra!, ¡viva!</i></li><li><b>Asco o rechazo</b>: <i>¡puaj!, ¡bah!</i></li><li><b>Cansancio o alivio</b>: <i>¡uf!, ¡buf!</i></li><li><b>Deseo</b>: <i>¡ojalá!</i></li><li><b>Llamada o saludo</b>: <i>¡eh!, ¡hola!, ¡ey!, ¡chis!</i></li></ul><p>Algunas solo funcionan como interjecciones (<i>¡ay!, ¡uf!, ¡olé!</i>): son <b>propias</b>. Otras son palabras de otras clases que se usan como interjecciones (<i>¡anda!, ¡cuidado!, ¡vaya!, ¡socorro!</i>): son <b>impropias</b>.</p><p>No hay que confundirlas con las <b>onomatopeyas</b>, que imitan sonidos (<i>¡pum!, ¡miau!, ¡tic, tac!</i>). En los cómics aparecen las dos constantemente.</p>`,
+        L6.filas("Interjecciones", [["dolor", "¡ay!", cRO], ["sorpresa", "¡anda!, ¡vaya!", cAZ], ["alegría", "¡bravo!, ¡olé!", cVE], ["deseo", "¡ojalá!", cNA]]), ["rrNLSH37UaE", "🥱 Las INTERJECCIONES", "Clases Particulares en Ávila", 94582]],
+    ],
+  },
+  final: [
+    ["Adverbios que dan una opinión", `<p>Algunos adverbios no modifican solo al verbo, sino a <b>toda la oración</b>, y sirven para expresar la <b>opinión</b> o la actitud de quien habla. Suelen ir al principio, separados por una coma:</p><ul><li>Para mostrar <b>seguridad</b>: <i>evidentemente, claramente, sin duda, desde luego, por supuesto</i>. <i>Evidentemente, el equipo jugó mejor.</i></li><li>Para mostrar <b>duda</b> o posibilidad: <i>quizá, tal vez, probablemente, posiblemente, seguramente</i>. <i>Probablemente, mañana llueva.</i></li><li>Para valorar si algo es bueno o malo: <i>afortunadamente, por suerte, desgraciadamente, por desgracia, lamentablemente</i>. <i>Afortunadamente, nadie se hizo daño.</i></li><li>Para hablar con <b>sinceridad</b>: <i>sinceramente, francamente, la verdad</i>. <i>Sinceramente, no me gustó la película.</i></li></ul><p>Fíjate en la diferencia: en <i>Habló sinceramente</i>, el adverbio dice <b>cómo</b> habló. En <i>Sinceramente, no me gustó</i>, el adverbio muestra la actitud del que habla ante lo que dice.</p><p>Estos adverbios son muy útiles en los <b>textos de opinión</b> y en los debates: ayudan a mostrar cuándo estamos seguros de algo y cuándo solo lo creemos posible. Un buen argumentador no dice que todo es «evidente»: distingue lo seguro de lo probable.</p>`,
+      L6.filas("Adverbios de opinión", [["seguridad", "evidentemente", cAZ], ["duda", "quizá, probablemente", cNA], ["valoración", "afortunadamente", cVE], ["sinceridad", "francamente", cMO]])],
+    ["Las locuciones prepositivas", `<p>Además de las preposiciones simples (<i>a, ante, bajo, con, contra, de, desde, en, entre, hacia, hasta, para, por, según, sin, sobre, tras</i>…), existen grupos de palabras que funcionan juntos como si fueran una sola preposición. Se llaman <b>locuciones prepositivas</b> y casi siempre terminan en una preposición simple:</p><ul><li>Para expresar <b>causa</b>: <i>a causa de, debido a, gracias a, por culpa de</i>. <i>Se suspendió el partido a causa de la lluvia.</i></li><li>Para expresar <b>lugar</b>: <i>delante de, detrás de, junto a, alrededor de, en medio de, a través de</i>. <i>Pasamos a través del bosque.</i></li><li>Para expresar <b>oposición</b>: <i>a pesar de, en contra de</i>. <i>Salimos a pesar del frío.</i></li><li>Para expresar <b>sustitución</b>: <i>en lugar de, en vez de</i>. <i>Tomé agua en vez de zumo.</i></li><li>Para expresar el <b>tema</b>: <i>acerca de, en cuanto a, con respecto a</i>. <i>Hablamos acerca de los volcanes.</i></li><li>Para expresar <b>conformidad</b>: <i>de acuerdo con, conforme a</i>. <i>Lo hicimos de acuerdo con las normas.</i></li></ul><p>Fíjate en que <i>gracias a</i> se usa para algo positivo y <i>por culpa de</i> para algo negativo: no se dice «gracias a la tormenta se cayó el árbol». Elegir bien la locución hace que tus textos sean más precisos y variados.</p>`,
+      L6.filas("Locuciones prepositivas", [["causa", "gracias a, debido a", cAZ], ["lugar", "a través de", cVE], ["oposición", "a pesar de", cRO], ["tema", "acerca de", cNA]])],
+  ],
+  ejemplos: [
+    ["Corrige: «Siéntate delante mío».", ["«Delante» es un adverbio, no un sustantivo.", "Se construye con de + pronombre."], "Siéntate delante de mí."],
+    ["¿Es correcto «Me di cuenta que había llovido»?", ["Truco: me di cuenta de eso.", "Necesita «de»: es queísmo."], "No. Lo correcto es «Me di cuenta de que había llovido»."],
+  ],
+  errores: ["Decir «detrás mío» o «encima suyo».", "Poner «de que» donde solo va «que» (dequeísmo)."],
+  ejercicios: [
+    ["b", "Escribe el superlativo de «lejos» y de «cerca».", "Lejísimos y cerquísima."],
+    ["b", "Corrige: «Está detrás tuyo».", "Está detrás de ti."],
+    ["b", "¿Qué es el dequeísmo?", "Poner «de» delante de «que» cuando no hace falta."],
+    ["b", "Escribe tres interjecciones de alegría.", "¡Bravo!, ¡olé!, ¡hurra!"],
+    ["b", "¿De qué lengua viene «ojalá»?", "Del árabe."],
+    ["m", "Corrige: «Creo de que va a llover».", "Creo que va a llover."],
+    ["m", "Corrige: «Estoy seguro que ganaremos».", "Estoy seguro de que ganaremos."],
+    ["m", "Clasifica en propias o impropias: ¡uf!, ¡cuidado!, ¡olé!, ¡socorro!", "Propias: ¡uf!, ¡olé!. Impropias: ¡cuidado!, ¡socorro!"],
+    ["m", "¿Qué expresa «Probablemente, vendrá»?", "Duda o posibilidad."],
+    ["m", "Escribe tres palabras que el castellano tomó del árabe.", "Aceite, azúcar, almohada."],
+    ["a", "Explica la diferencia entre «Habló francamente» y «Francamente, no lo sé».", "En la primera dice cómo habló; en la segunda muestra la actitud del hablante."],
+    ["a", "Explica el truco para saber si va «que» o «de que».", "Sustituir lo que sigue por «eso» y ver si necesita «de»."],
+    ["a", "Escribe un diálogo de cómic con cuatro interjecciones distintas.", "Respuesta abierta."],
+    ["a", "Escribe una opinión sobre el recreo usando tres adverbios de opinión.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["La forma correcta es…", ["encima de él", "encima suyo", "encima de suyo"], "Adverbios."],
+    ["«Me acuerdo que…» es un caso de…", ["queísmo", "dequeísmo", "laísmo"], "Preposiciones."],
+    ["«¡Puaj!» expresa…", ["asco", "alegría", "deseo"], "Interjecciones."],
+    ["«¡Pum!» es una…", ["onomatopeya", "conjunción", "preposición"], "Interjecciones."],
+    ["«Afortunadamente» expresa…", ["una valoración positiva", "lugar", "cantidad"], "Opinión."],
+  ],
+  examen: [
+    ["Al-Ándalus existió aproximadamente entre…", ["711 y 1492", "1492 y 1700", "100 y 500"], "Lectura."],
+    ["«Lejísimos» es un adverbio en grado…", ["superlativo", "comparativo", "positivo"], "Grados."],
+  ],
+  tarjetas: [
+    ["Grados del adverbio", "más cerca, cerquísima, mejor; nunca «más mejor»."],
+    ["Detrás de mí", "Adverbio de lugar + de + pronombre; no «detrás mío»."],
+    ["Dequeísmo y queísmo", "Truco: cambia por «eso». Pienso que / me acuerdo de que."],
+    ["Interjecciones", "Expresan emociones; propias (¡ay!) e impropias (¡vaya!)."],
+  ],
+  glosario: [
+    ["Superlativo", "Grado máximo de un adjetivo o adverbio."],
+    ["Posesivo", "Palabra que indica a quién pertenece algo."],
+    ["Dequeísmo", "Uso incorrecto de «de que» por «que»."],
+    ["Queísmo", "Uso incorrecto de «que» por «de que»."],
+    ["Interjección", "Palabra que expresa una emoción de golpe."],
+    ["Interjección propia", "La que solo funciona como interjección."],
+    ["Interjección impropia", "Palabra de otra clase usada como interjección."],
+    ["Onomatopeya", "Palabra que imita un sonido."],
+    ["Arabismo", "Palabra que procede del árabe."],
+    ["Al-Ándalus", "Territorio de la península bajo dominio musulmán."],
+    ["Adverbio de opinión", "Adverbio que expresa la actitud del hablante."],
+    ["Invariable", "Palabra que no cambia de forma."],
+  ],
+  situacion: {
+    titulo: "Cazadores de errores en la radio",
+    reto: "La clase escucha programas, vídeos y conversaciones para detectar errores frecuentes y graba una cuña de radio para corregirlos.",
+    pasos: ["Escuchad y anotad frases con «detrás mío», «pienso de que» o «me acuerdo que».", "Corregid cada frase aplicando los trucos aprendidos.", "Escribid un guion de radio de un minuto con interjecciones y adverbios de opinión.", "Grabad la cuña y compartidla con el colegio."],
+    producto: "Una cuña de radio que enseña a evitar errores frecuentes.",
+    evaluacion: ["Detecta errores con adverbios y preposiciones.", "Aplica trucos para corregirlos.", "Usa interjecciones con la puntuación adecuada.", "Habla con claridad y expresividad."],
+  },
 });

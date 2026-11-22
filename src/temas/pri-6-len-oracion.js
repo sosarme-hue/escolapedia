@@ -23,7 +23,7 @@ module.exports = P.tema({
       L.filas("Dos tipos de predicado", [["Nominal", "Mi perro es muy listo.", NA], ["Verbal", "Mi perro corre por el jardín.", RO]])],
     ["Los complementos del verbo", `<p>Algunos complementos del predicado son muy frecuentes y los estudiarás más a fondo en la ESO. Ya puedes reconocerlos con preguntas:</p><ul><li><b>Complemento directo</b>: dice <mark>qué</mark> se hace. «Ana come <b>una manzana</b>» (¿qué come?). Se puede cambiar por <i>lo, la, los, las</i>: «Ana <b>la</b> come».</li><li><b>Complemento indirecto</b>: dice <mark>a quién o para quién</mark>. «Ana da agua <b>a su perro</b>». Se cambia por <i>le, les</i>: «Ana <b>le</b> da agua».</li><li><b>Complementos circunstanciales</b>: dicen <mark>dónde, cuándo, cómo</mark>... «Ana corre <b>por el parque</b> <b>cada mañana</b>».</li></ul>`,
       L.frase("Complementos del verbo", [["Ana", "sujeto", AZ], ["da", "verbo", RO], ["agua", "CD", VE], ["a su perro", "CI", NA], ["en el patio", "CC lugar", MO]], "preguntas: ¿qué?, ¿a quién?, ¿dónde?")],
-    ["Clases de oraciones según la intención", `<p>Según lo que quiere expresar quien habla, las oraciones pueden ser:</p>${P.tb(["Clase", "Sirve para", "Ejemplo"], [["enunciativa afirmativa", "informar de algo", "El museo abre a las diez."], ["enunciativa negativa", "negar algo", "El museo no abre los lunes."], ["interrogativa", "preguntar", "¿A qué hora abre el museo?"], ["exclamativa", "expresar emoción", "¡Qué museo tan bonito!"], ["imperativa", "ordenar o pedir", "Entrad en silencio."], ["desiderativa", "expresar un deseo", "Ojalá volvamos pronto."], ["dubitativa", "expresar duda", "Quizá cierre antes hoy."]])}<p>Recuerda que en castellano las interrogativas y las exclamativas llevan signo de apertura (¿ ¡) y de cierre (? !).</p>`, null, "le6b"],
+    ["Clases de oraciones según la intención", `<p>Según lo que quiere expresar quien habla, las oraciones pueden ser:</p>${P.tb(["Clase", "Sirve para", "Ejemplo"], [["enunciativa afirmativa", "informar de algo", "El museo abre a las diez."], ["enunciativa negativa", "negar algo", "El museo no abre los lunes."], ["interrogativa", "preguntar", "¿A qué hora abre el museo?"], ["exclamativa", "expresar emoción", "¡Qué museo tan bonito!"], ["imperativa", "ordenar o pedir", "Entrad en silencio."], ["desiderativa", "expresar un deseo", "Ojalá volvamos pronto."], ["dubitativa", "expresar duda", "Quizá cierre antes hoy."]])}<p>Recuerda que en castellano las interrogativas y las exclamativas llevan signo de apertura (¿ ¡) y de cierre (? !).</p>`, L.filas("Según la intención", [["Enunciativa", "Hoy llueve.", AZ], ["Interrogativa", "¿Llueve hoy?", VE], ["Exclamativa", "¡Cómo llueve!", RO], ["Desiderativa", "Ojalá llueva.", NA]]), "le6b"],
     ["Escribir oraciones claras", `<p>Para que tus textos se entiendan bien, conviene escribir oraciones ordenadas. Un orden muy claro es: <mark>sujeto + verbo + complementos</mark>. «Los alumnos de sexto visitaron el castillo el jueves».</p><p>Evita las oraciones demasiado largas, en las que se mezclan muchas ideas unidas con <i>y</i>. Si una oración ocupa más de tres líneas, probablemente puedes partirla en dos. Comprueba también la <b>concordancia</b> entre el sujeto y el verbo: «La mayoría de los niños <b>prefiere</b>…» o «Mis primos y yo <b>fuimos</b>…» (si en el sujeto estás tú, el verbo va en 1.ª persona del plural).</p>`,
       L.filas("Orden claro", [["Sujeto", "Los alumnos de sexto", AZ], ["Verbo", "visitaron", RO], ["Complementos", "el castillo el jueves", VE]])],
   ],
@@ -86,4 +86,92 @@ module.exports = P.tema({
   familias: ["Jugad a «¿quién lo hace?»: uno dice una oración y el otro encuentra el sujeto cambiando el número.", "Buscad en un periódico titulares que sean frases (sin verbo) y otros que sean oraciones.", "Inventad oraciones con «gustar» y comprobad juntos cuál es el sujeto."],
   saberes: "Reflexión sobre la lengua: enunciado, oración y frase; sujeto y predicado; núcleos; concordancia; sujeto omitido; predicado nominal y verbal; clases de oraciones según la actitud del hablante",
   ideas: ["Oraciones recortadas en dos tiras (sujeto y predicado) para combinarlas y crear oraciones divertidas.", "Detectives del sujeto: cambiar el número para comprobar la concordancia.", "Cambiar la modalidad de una misma oración (enunciativa, interrogativa, exclamativa…)."],
+});
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Reconocer los complementos del nombre en el sujeto", "Distinguir el sujeto omitido de las oraciones impersonales", "Diferenciar oraciones simples y compuestas", "Analizar oraciones paso a paso y evitar ambigüedades"],
+  lectura: { titulo: "El libro que ordenó una lengua", html: `<p>En agosto de 1492, mientras Cristóbal Colón preparaba sus barcos para cruzar el océano, en Salamanca se publicaba un libro muy especial. Su autor era un profesor llamado <b>Antonio de Nebrija</b>, y el libro, la <b>Gramática castellana</b>.</p><p>Hasta entonces, en Europa solo se escribían gramáticas del latín y del griego, las lenguas de los sabios. Las lenguas que hablaba la gente en la calle se consideraban demasiado vulgares para estudiarlas. Nebrija pensaba lo contrario: el castellano merecía tener reglas escritas, igual que el latín, para que se pudiera enseñar y para que no cambiara sin control.</p><p>En su libro explicó cómo se escriben las letras, cómo se forman las palabras y cómo se ordenan para construir oraciones. Fue una de las primeras gramáticas de una lengua moderna de Europa.</p><p>Se cuenta que, cuando presentó el libro a la reina Isabel, ella le preguntó para qué servía. Más de cinco siglos después, seguimos estudiando cómo funcionan las oraciones, y la respuesta parece clara: para entender mejor la lengua que usamos cada día.</p>` },
+  tras: {
+    "El núcleo del sujeto": [
+      ["Los complementos del nombre", `<p>El núcleo del sujeto es un sustantivo o un pronombre, pero casi nunca va solo. Lo acompañan otras palabras que lo presentan o lo completan. Fíjate en este sujeto: <i>Los dos perros grandes de mi vecina ladraron toda la noche</i>. El núcleo es <i>perros</i>, y a su alrededor hay:</p><ul><li><b>Determinantes</b>: van delante y presentan al núcleo. <i><b>Los dos</b> perros</i>.</li><li><b>Adyacentes</b>: adjetivos que dicen cómo es el núcleo. <i>perros <b>grandes</b></i>.</li><li><b>Complemento del nombre</b>: un grupo de palabras que empieza por una <b>preposición</b>, casi siempre <i>de</i>, y completa el significado del núcleo. <i>perros <b>de mi vecina</b></i>; <i>tarta <b>de chocolate</b></i>; <i>casa <b>con jardín</b></i>.</li><li><b>Aposición</b>: un sustantivo que va junto al núcleo, a veces entre comas, y lo explica. <i>Madrid, <b>la capital</b>, es enorme; mi tío <b>Luis</b></i>.</li></ul><p>Todo este conjunto forma el <b>grupo nominal</b> sujeto. Estos complementos no solo aparecen en el sujeto: cualquier sustantivo de la oración puede llevarlos. <i>Compré un libro <b>de aventuras</b></i>: aquí <i>de aventuras</i> complementa a <i>libro</i>, que está en el predicado.</p>`,
+        L6.filas("Alrededor del núcleo", [["determinante", "los dos", cAZ], ["núcleo", "perros", cRO], ["adyacente", "grandes", cVE], ["compl. del nombre", "de mi vecina", cNA]])],
+    ],
+    "El sujeto omitido": [
+      ["Oraciones sin sujeto", `<p>No hay que confundir el <b>sujeto omitido</b> con la <b>ausencia de sujeto</b>:</p><ul><li>En una oración con sujeto <b>omitido</b>, el sujeto existe, aunque no se diga, y lo descubrimos por la terminación del verbo: <i>Llegamos tarde</i> (sujeto: <i>nosotros</i>). Podríamos añadirlo sin problema: <i>Nosotros llegamos tarde</i>.</li><li>En una oración <b>impersonal</b>, en cambio, <b>no hay sujeto</b> ni se puede añadir. Nadie realiza la acción. <i>Llueve</i>: ¿quién llueve? Nadie.</li></ul><p>Son oraciones impersonales:</p><ul><li>Las que hablan de <b>fenómenos de la naturaleza</b>: <i>Nieva en la sierra; Amaneció muy temprano; Ayer tronó toda la tarde</i>.</li><li>Las construidas con <b>haber</b> para indicar que algo existe: <i>Hay pan en la cocina; Hubo un accidente</i>. Fíjate en que <i>pan</i> y <i>un accidente</i> no son el sujeto: por eso el verbo no concuerda con ellos.</li><li>Las construidas con <b>hacer</b> o <b>ser</b> referidos al tiempo: <i>Hace calor; Es tarde; Es de noche</i>.</li><li>Algunas con <b>se</b> en las que no se sabe quién hace la acción: <i>Se vive bien aquí; Se trabaja mucho en esta empresa</i>.</li></ul><p>Para comprobarlo, intenta poner un sujeto: si la oración suena absurda (<i>«Yo nievo»</i>), es impersonal.</p>`,
+        H6.dos("¿Hay sujeto?", ["Omitido", ["llegamos", "→ nosotros", "se puede decir"], cAZ], ["Impersonal", ["llueve", "hay pan", "hace frío"], cMO]), ["5ddPLGH1qoE", "Las oraciones impersonales", "tuespacioJoven", 249744]],
+    ],
+    "Los complementos del verbo": [
+      ["El orden y las oraciones ambiguas", `<p>En castellano, el orden más habitual de la oración es <b>sujeto + verbo + complementos</b>: <i>Mi hermana prepara la cena todas las noches</i>. Pero podemos cambiar el orden para <b>destacar</b> algo: <i>Todas las noches prepara mi hermana la cena</i>. La información es la misma, pero ahora lo importante es <i>cuándo</i>.</p><p>Esta libertad tiene un peligro: si colocamos mal los complementos, la oración puede volverse <b>ambigua</b>, es decir, puede entenderse de dos maneras. Fíjate en estos ejemplos, algunos auténticos de anuncios por palabras:</p><ul><li><i>«Vendo cuna para bebé de madera»</i>. ¿El bebé es de madera? Mejor: <i>Vendo cuna de madera para bebé</i>.</li><li><i>«Se alquila habitación para estudiante con balcón»</i>. ¿El estudiante tiene balcón? Mejor: <i>Se alquila habitación con balcón para estudiante</i>.</li><li><i>«Vi a Marta paseando»</i>. ¿Quién paseaba, yo o Marta? Mejor: <i>Vi a Marta mientras paseaba</i> o <i>Mientras yo paseaba, vi a Marta</i>.</li><li><i>«Luis habló con Pedro de su perro»</i>. ¿El perro de quién?</li></ul><p>La regla de oro es sencilla: coloca cada complemento <b>junto a la palabra que complementa</b>. Y cuando revises un texto, léelo pensando en todas las interpretaciones posibles: si una frase puede entenderse mal, alguien la entenderá mal.</p>`,
+        L6.filas("Ambigua o clara", [["para bebé de madera", "ambigua", cRO], ["de madera para bebé", "clara", cVE], ["Vi a Marta paseando", "ambigua", cRO], ["regla", "complemento junto a su palabra", cAZ]])],
+    ],
+  },
+  final: [
+    ["Oraciones simples y compuestas", `<p>Una oración <b>simple</b> tiene un solo verbo conjugado (o una sola perífrasis): <i>Mi gato duerme en el sofá; Voy a estudiar inglés</i>.</p><p>Una oración <b>compuesta</b> tiene <b>dos o más verbos</b> conjugados, y por tanto contiene dos o más oraciones unidas. Pueden unirse de varias maneras:</p><ul><li><b>Yuxtapuestas</b>: se unen solo con un signo de puntuación, sin palabra de enlace. <i>Llegué, vi el desastre, me fui.</i></li><li><b>Coordinadas</b>: se unen con una conjunción y tienen la misma importancia. Con <i>y, e, ni</i> se suman ideas (<i>Lucía canta y Pablo baila</i>); con <i>o, u</i> se elige (<i>¿Vienes o te quedas?</i>); con <i>pero, sino, aunque</i> se oponen (<i>Quería ir, pero estaba cansado</i>).</li><li><b>Subordinadas</b>: una oración depende de otra. <i>Me dijo <u>que vendría</u>; Cuando llegues, avísame; El libro <u>que me prestaste</u> es genial</i>. Las estudiarás con más detalle en Secundaria.</li></ul><p>Para saber si una oración es compuesta, cuenta los <b>verbos conjugados</b>. Ojo: las perífrasis (<i>voy a estudiar</i>) cuentan como un solo verbo, y los infinitivos, gerundios y participios sueltos no son verbos conjugados.</p><p>Un texto con solo oraciones simples resulta entrecortado; uno con oraciones compuestas larguísimas cansa. Lo ideal es combinarlas.</p>`,
+      H6.rueda("Compuestas", "2+ VERBOS", [["yuxtapuestas", cAZ], ["con y", cVE], ["con o", cNA], ["con pero", cRO]]), ["tIWUdn-pXEE", "ORACIONES SIMPLES Y COMPUESTAS", "Aula Polivalente", 247820]],
+    ["Analizar una oración paso a paso", `<p>Analizar una oración es como desmontar un aparato para ver cómo funciona. Sigue siempre el mismo orden y no te perderás:</p><ul><li><b>1. Busca el verbo conjugado.</b> Es el núcleo del predicado. Si hay más de uno, es una oración compuesta.</li><li><b>2. Busca el sujeto.</b> Pregunta al verbo «¿quién?» y comprueba la <b>concordancia</b>: si cambias el verbo a plural, el sujeto también debe cambiar. Si no aparece, mira si está omitido o si la oración es impersonal.</li><li><b>3. Analiza el sujeto.</b> Señala su núcleo, los determinantes, los adyacentes y los complementos del nombre.</li><li><b>4. Separa el predicado.</b> Todo lo que no es sujeto es predicado.</li><li><b>5. Busca los complementos del verbo.</b> El directo (¿qué?, se sustituye por <i>lo, la, los, las</i>), el indirecto (¿a quién?, se sustituye por <i>le, les</i>) y los circunstanciales (¿dónde?, ¿cuándo?, ¿cómo?).</li><li><b>6. Di la clase de oración</b> según la intención: enunciativa, interrogativa, exclamativa, exhortativa, desiderativa o dubitativa.</li></ul><p>Ejemplo: <i>Mi abuela regaló un libro a mi prima en su cumpleaños.</i> Verbo: <i>regaló</i>. Sujeto: <i>mi abuela</i> (núcleo: <i>abuela</i>). CD: <i>un libro</i> (<i>lo</i> regaló). CI: <i>a mi prima</i> (<i>le</i> regaló). CC de tiempo: <i>en su cumpleaños</i>. Enunciativa.</p>`,
+      H6.flujo("Analizar", ["verbo|núcleo", "sujeto|¿quién?", "predicado|el resto", "CD, CI, CC|otros"], cVE)],
+  ],
+  ejemplos: [
+    ["Señala el complemento del nombre: «El reloj de la torre se paró».", ["Núcleo del sujeto: reloj.", "«de la torre» empieza por preposición y completa a «reloj»."], "Complemento del nombre: de la torre."],
+    ["¿Simple o compuesta? «Llovía, pero salimos al parque».", ["Verbos conjugados: llovía, salimos.", "Están unidas por «pero»."], "Compuesta coordinada adversativa."],
+  ],
+  errores: ["Confundir el sujeto omitido con una oración impersonal.", "Contar las perífrasis como dos verbos y creer que la oración es compuesta."],
+  ejercicios: [
+    ["b", "Señala el núcleo del sujeto: «Las flores amarillas del jardín crecieron».", "Flores."],
+    ["b", "¿Es impersonal «Nieva en Soria»?", "Sí, no tiene sujeto."],
+    ["b", "Escribe una oración simple y otra compuesta.", "Respuesta abierta. Ej.: Leo un libro. / Leo y mi hermano juega."],
+    ["b", "¿Qué conjunción une ideas opuestas: y, o, pero?", "Pero."],
+    ["b", "¿Quién escribió la primera gramática castellana?", "Antonio de Nebrija."],
+    ["m", "Señala la aposición: «Mi perra, Lula, duerme mucho».", "Lula."],
+    ["m", "¿Sujeto omitido o impersonal? «Hace frío» / «Hacemos deporte».", "Impersonal / sujeto omitido (nosotros)."],
+    ["m", "Corrige la ambigüedad: «Vendo bicicleta para niño con frenos nuevos».", "Vendo bicicleta con frenos nuevos para niño."],
+    ["m", "Une con una conjunción: «Estudié mucho. Aprobé el examen».", "Estudié mucho y aprobé el examen."],
+    ["m", "Cuenta los verbos conjugados: «Cuando llegué, todos estaban cenando».", "Dos: llegué y estaban (cenando es perífrasis)."],
+    ["a", "Analiza: «Mis amigos compraron flores a la profesora».", "Sujeto: mis amigos. Verbo: compraron. CD: flores. CI: a la profesora."],
+    ["a", "Explica por qué «Hubo muchos problemas» no tiene sujeto.", "Porque haber es impersonal: «muchos problemas» es complemento directo."],
+    ["a", "Escribe un anuncio por palabras ambiguo y su versión clara.", "Respuesta abierta."],
+    ["a", "Transforma tres oraciones simples en una compuesta.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["En «casa con jardín», «con jardín» es…", ["complemento del nombre", "sujeto", "complemento directo"], "Complementos."],
+    ["«Amaneció pronto» es una oración…", ["impersonal", "con sujeto omitido", "compuesta"], "Impersonales."],
+    ["Las oraciones yuxtapuestas se unen…", ["con signos de puntuación", "con «y»", "con «pero»"], "Compuestas."],
+    ["Para evitar ambigüedades, el complemento va…", ["junto a la palabra que complementa", "siempre al final", "siempre al principio"], "Orden."],
+    ["El primer paso para analizar una oración es buscar…", ["el verbo", "el complemento directo", "la clase de oración"], "Analizar."],
+  ],
+  examen: [
+    ["La Gramática de Nebrija se publicó en…", ["1492", "1605", "1978"], "Lectura."],
+    ["Una oración compuesta tiene…", ["dos o más verbos conjugados", "solo un verbo", "ningún verbo"], "Compuestas."],
+  ],
+  tarjetas: [
+    ["Grupo nominal", "Determinante + núcleo + adyacente + complemento del nombre."],
+    ["Impersonales", "Sin sujeto: llueve, hay, hace frío, es tarde."],
+    ["Compuestas", "Yuxtapuestas (,), coordinadas (y, o, pero), subordinadas."],
+    ["Analizar", "Verbo → sujeto → predicado → complementos → clase."],
+  ],
+  glosario: [
+    ["Grupo nominal", "Conjunto de palabras cuyo núcleo es un sustantivo."],
+    ["Adyacente", "Adjetivo que acompaña al núcleo."],
+    ["Complemento del nombre", "Grupo con preposición que completa a un sustantivo."],
+    ["Aposición", "Sustantivo que explica a otro."],
+    ["Impersonal", "Oración sin sujeto."],
+    ["Ambigua", "Que se puede entender de dos maneras."],
+    ["Oración simple", "Oración con un solo verbo conjugado."],
+    ["Oración compuesta", "Oración con dos o más verbos conjugados."],
+    ["Yuxtapuesta", "Oración unida a otra solo con puntuación."],
+    ["Coordinada", "Oración unida a otra con una conjunción."],
+    ["Subordinada", "Oración que depende de otra."],
+    ["Gramática", "Estudio de las reglas de una lengua."],
+  ],
+  situacion: {
+    titulo: "El taller de los anuncios imposibles",
+    reto: "La clase recoge y crea anuncios y titulares ambiguos, los analiza y los corrige.",
+    pasos: ["Buscad en periódicos y webs titulares o anuncios que puedan entenderse de dos maneras.", "Analizad las oraciones paso a paso para descubrir dónde está el problema.", "Dibujad la interpretación graciosa y escribid la versión correcta.", "Exponed el «museo de los anuncios imposibles» en el pasillo."],
+    producto: "Un mural de anuncios ambiguos ilustrados con su corrección.",
+    evaluacion: ["Analiza sintácticamente oraciones.", "Reconoce y corrige ambigüedades.", "Distingue oraciones simples y compuestas.", "Explica sus correcciones."],
+  },
 });
