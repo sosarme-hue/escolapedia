@@ -87,3 +87,100 @@ module.exports = P.tema({
   saberes: "Educación literaria y comunicación escrita: la narración; el cuento popular y de autor; narrador; personajes, lugar y tiempo; estructura (planteamiento, nudo, desenlace); conectores temporales; planificación y escritura de un cuento",
   ideas: ["Caja de cuentos: sacar un personaje, un lugar y un problema al azar y escribir.", "Tira de tres viñetas para dibujar planteamiento, nudo y desenlace.", "Lectura en voz alta de cuentos populares de distintas comunidades."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  dibujos: {
+    "Repaso: un cuento corto": H6.flujo("Buscar", ["lee|el cuento", "¿quién|y dónde?", "¿qué|problema?", "¿cómo|acaba?"], cMO),
+  },
+  objetivos: ["Distinguir el cuento, la fábula y la leyenda", "Describir a un personaje por fuera y por dentro", "Reconocer el problema que mueve la historia", "Revisar, mejorar y contar en voz alta un cuento propio"],
+  lectura: { titulo: "La nube que no quería llover", html: `<p>Había una vez, en lo alto de un cielo azul, una nube pequeña y blanca llamada Algodón. Algodón era muy presumida: le encantaba mirarse en los lagos y pensar que era la nube más bonita del mundo.</p><p>Un verano, el pueblo de abajo se quedó sin agua. Los campos estaban secos, las flores se doblaban y los niños ya no podían bañarse en el río. Las demás nubes se juntaron y empezaron a llover, pero Algodón no quería. «Si llueve, me haré pequeñita y desapareceré», pensaba.</p><p>Entonces vio a una niña que regaba con un vaso una planta de tomates casi muerta. La niña miró al cielo y dijo: «Por favor, nube, solo un poquito».</p><p>Algodón sintió algo nuevo dentro de ella. Cerró los ojos y dejó caer sus gotas, una a una, sobre el huerto de la niña. Se hizo pequeña, muy pequeña, pero los tomates se pusieron verdes y rojos.</p><p>Al día siguiente, el sol calentó el río y una nube nueva subió al cielo. Era blanca, pequeña… y se parecía muchísimo a Algodón.</p>` },
+  tras: {
+    "Qué es un cuento": [
+      ["Fábulas, leyendas y cuentos", `<p>El cuento no es la única narración breve. Hay otras <mark>familias de historias</mark> que se parecen mucho, pero tienen algo especial:</p><ul><li>La <b>fábula</b> es una narración corta cuyos protagonistas suelen ser <b>animales que hablan</b> y se comportan como personas. Al final tiene una <b>moraleja</b>: una enseñanza. En <i>La cigarra y la hormiga</i>, la cigarra canta todo el verano y la hormiga trabaja; cuando llega el invierno, la cigarra no tiene comida. Moraleja: hay que pensar en el futuro. Muchas fábulas son muy antiguas; algunas se atribuyen a Esopo, un narrador de la antigua Grecia.</li><li>La <b>leyenda</b> cuenta algo que pasó, según dicen, en un <b>lugar real</b> y hace mucho tiempo. Mezcla hechos verdaderos con hechos fantásticos, y suele explicar el origen de algo: un nombre, una montaña, una fiesta. Casi todos los pueblos tienen alguna leyenda que pasa de abuelos a nietos.</li><li>El <b>cuento</b> es más libre: puede pasar en cualquier sitio, real o inventado, y no necesita moraleja, aunque a veces la tenga.</li></ul><p>Las tres tienen narrador, personajes, lugar, tiempo y tres partes. Por eso todo lo que aprendes en este tema te sirve para leerlas y escribirlas.</p><p><b>Actividad</b>: pregunta en casa si conocen alguna leyenda de tu pueblo o ciudad, y cuéntala en clase.</p>`,
+        H6.rueda("Narrar", "HISTORIAS", [["cuento", cAZ], ["fábula", cVE], ["leyenda", cNA], ["moraleja", cRO]])],
+    ],
+    "Los personajes": [
+      ["Describir a un personaje", `<p>Para que el lector se imagine bien a un personaje, el escritor lo <mark>describe</mark>. Una buena descripción tiene dos partes:</p><ul><li>Cómo es <b>por fuera</b> (su aspecto): si es alto o bajito, cómo tiene el pelo, los ojos, qué ropa lleva, si tiene algo especial, como unas gafas o una cicatriz. <i>«Pincho era un erizo pequeño, de nariz húmeda y ojos negros como botones.»</i></li><li>Cómo es <b>por dentro</b> (su carácter): si es valiente o miedoso, generoso o egoísta, alegre, tímido, curioso… <i>«Era tan curioso que metía la nariz en todas las madrigueras.»</i></li></ul><p>Un truco de los buenos escritores es <b>mostrar</b> el carácter con lo que hace el personaje, en lugar de decirlo. No escribas solo «Lola era generosa»; escribe: <i>«Lola partió su bocadillo en dos y le dio la mitad a su compañero.»</i> Así el lector lo descubre solo.</p><p>Para describir usamos muchos <b>adjetivos</b> y también <b>comparaciones</b>: <i>rápido como un rayo, alto como una jirafa, dulce como la miel</i>.</p><p>Recuerda que los personajes también <b>cambian</b> a lo largo de la historia: el miedoso se vuelve valiente, el egoísta aprende a compartir. Ese cambio es una de las cosas que más nos gustan de los cuentos.</p><p><b>Actividad</b>: describe al protagonista de tu cuento favorito por fuera y por dentro.</p>`,
+        H6.dos("Describir", ["POR FUERA", ["alto", "pelo rizado", "gafas"], cAZ], ["POR DENTRO", ["valiente", "curioso", "generoso"], cVE]),
+        ["ZsyWjrx0Qd8", "Tipos de personajes: ¿Cómo se clasifican?", "Profe Teatro", 204432]],
+    ],
+    "Las tres partes del cuento": [
+      ["El problema del cuento", `<p>Todo buen cuento tiene un <mark>problema</mark> o <b>conflicto</b>: algo que el protagonista quiere conseguir y que no es fácil. Sin problema, no hay historia. Imagina: «Una niña fue al bosque, volvió a casa y merendó». ¡Qué aburrido! Pero si en el bosque se encuentra con un lobo, ya tenemos cuento.</p><p>El problema aparece al final del <b>planteamiento</b> o al principio del <b>nudo</b>. Suele empezar con palabras como <i>un día, de repente, pero entonces</i>.</p><p>Hay muchos tipos de problemas:</p><ul><li>Algo se <b>pierde</b>: un tesoro, una mascota, un camino.</li><li>Alguien <b>quiere</b> algo difícil: volar, ganar una carrera, hacer un amigo.</li><li>Aparece un <b>enemigo</b>: un dragón, una bruja, un lobo.</li><li>Hay un <b>peligro</b>: una tormenta, un incendio, un río que se desborda.</li></ul><p>En el <b>nudo</b>, el protagonista intenta resolver el problema. A veces lo intenta varias veces y fracasa antes de conseguirlo, y eso crea emoción. En <i>Los tres cerditos</i>, el lobo sopla la casa de paja, luego la de madera… y por fin no puede con la de ladrillo.</p><p>En el <b>desenlace</b>, el problema se resuelve, bien o mal, y la historia termina.</p><p><b>Actividad</b>: piensa en tres cuentos que conozcas y di cuál es el problema de cada uno.</p>`,
+        L6.filas("Problema", [["se pierde", "un tesoro", cAZ], ["quiere", "volar", cVE], ["enemigo", "un dragón", cNA], ["peligro", "tormenta", cRO]])],
+    ],
+    "Escribir un cuento paso a paso": [
+      ["Revisar y mejorar el cuento", `<p>Los escritores de verdad nunca dejan su cuento como sale la primera vez. Lo <mark>revisan</mark> y lo mejoran. Tú también puedes hacerlo con esta lista de preguntas:</p><ul><li>¿Tiene un <b>título</b> que da ganas de leerlo?</li><li>¿Se entiende <b>quién</b> es el protagonista, <b>dónde</b> y <b>cuándo</b> pasa?</li><li>¿Hay un <b>problema</b> claro?</li><li>¿Tiene las <b>tres partes</b>: planteamiento, nudo y desenlace?</li><li>¿He usado palabras para <b>ordenar</b>: <i>primero, después, de repente, al final</i>?</li><li>¿He <b>repetido</b> mucho alguna palabra? Si pone «y entonces» cinco veces, cambia algunas por <i>luego, más tarde, en ese momento</i>.</li><li>¿Están bien las <b>mayúsculas</b>, los <b>puntos</b> y la <b>ortografía</b>?</li></ul><p>Un buen sistema es leer el cuento <b>en voz alta</b>: así se notan las frases demasiado largas o las que no se entienden.</p><p>También ayuda que lo lea un <b>compañero</b>. Él puede decirte dos cosas que le han gustado y una que mejorarías. Esto se llama <b>dos estrellas y un deseo</b>.</p><p>Por último, pasa el cuento a limpio, con buena letra, y añade un dibujo en la portada.</p>`,
+        H6.flujo("Revisar", ["leo|en voz alta", "busco|errores", "cambio|repetidas", "paso|a limpio"], cVE),
+        ["uFzwLEa_MOQ", "¿Cómo escribir un cuento? Tutorial para niños", "Maestra Blanca", 302207]],
+    ],
+  },
+  final: [
+    ["Contar un cuento en voz alta", `<p>Los cuentos nacieron para ser <mark>contados</mark>. Mucho antes de que existieran los libros, las personas se reunían alrededor del fuego y alguien contaba historias. Así pasaron los cuentos populares de abuelos a nietos durante cientos de años.</p><p>Para contar un cuento bien hay que preparar varias cosas:</p><ul><li><b>Conocer bien la historia</b>: no hace falta aprenderla de memoria palabra por palabra, pero sí saber qué pasa y en qué orden.</li><li><b>La voz</b>: habla alto y despacio. Cambia la voz para cada personaje: grave para el ogro, aguda para el ratón, temblorosa para el que tiene miedo.</li><li><b>Las pausas</b>: antes de un momento importante, calla un segundo. ¡El público se queda con la boca abierta!</li><li><b>La cara y las manos</b>: pon cara de sorpresa, de miedo o de alegría, y usa las manos para mostrar lo grande o lo pequeño.</li><li><b>Mirar al público</b>: no mires al suelo, mira a los ojos de quien te escucha.</li></ul><p>Las fórmulas tradicionales ayudan mucho a empezar y a terminar: <i>«Érase una vez…»</i>, <i>«Hace mucho, mucho tiempo…»</i> y, al final, <i>«Y colorín colorado, este cuento se ha acabado»</i>.</p><p><b>Actividad</b>: prepara un cuento corto y cuéntalo a un niño más pequeño o a tu familia.</p>`,
+      L6.filas("Contar", [["voz", "alta y clara", cAZ], ["pausas", "antes de lo bueno", cVE], ["cara", "con emoción", cNA], ["mirada", "al público", cRO]])],
+    ["Dados para inventar cuentos", `<p>A veces cuesta encontrar una idea para escribir. Un juego muy divertido son los <mark>dados de cuentos</mark>. Puedes fabricarlos con cartulina o, si no, escribir listas numeradas del 1 al 6 y tirar un dado normal.</p><p>Necesitas tres listas:</p><ul><li><b>Personaje</b>: 1 un pirata, 2 una bruja despistada, 3 un robot, 4 una tortuga, 5 una princesa inventora, 6 un niño muy pequeño.</li><li><b>Lugar</b>: 1 un barco, 2 una cueva, 3 la Luna, 4 un colegio, 5 un castillo, 6 el fondo del mar.</li><li><b>Problema</b>: 1 ha perdido algo, 2 tiene miedo, 3 quiere un amigo, 4 se ha quedado atrapado, 5 debe ganar un concurso, 6 ha recibido una carta misteriosa.</li></ul><p>Tira el dado tres veces. Si sale 3, 6 y 2, tu cuento será sobre <i>un robot en el fondo del mar que tiene miedo</i>. ¿Por qué tiene miedo? ¿Quién lo ayudará? ¿Cómo termina?</p><p>Con tres tiradas salen más de doscientas combinaciones distintas: ¡nunca te quedarás sin ideas! Después, organiza la historia en las tres partes y escríbela siguiendo los pasos que has aprendido.</p><p><b>Actividad</b>: haced en grupo vuestras propias listas y escribid entre todos un cuento con los dados.</p>`,
+      H6.rueda("Dados", "TIRA", [["personaje", cAZ], ["lugar", cVE], ["problema", cNA], ["final", cRO]])],
+  ],
+  ejemplos: [
+    ["¿Es fábula o leyenda? «Una zorra y un cuervo hablan, y al final aprendemos a no fiarnos de los halagos».", ["Los protagonistas son animales que hablan.", "Tiene una enseñanza al final: moraleja."], "Es una fábula."],
+    ["Muestra, sin decirlo, que Pablo es valiente.", ["No escribimos «Pablo era valiente».", "Contamos algo que hace: se acerca al perro que ladra para ayudar a su hermana."], "«Pablo se puso delante de su hermana y miró al perro sin moverse.»"],
+  ],
+  errores: ["Escribir un cuento sin problema: solo pasan cosas, pero no ocurre nada importante.", "Repetir «y entonces» en todas las frases en lugar de usar otras palabras para ordenar."],
+  ejercicios: [
+    ["b", "¿Qué es la moraleja?", "La enseñanza que aparece al final de una fábula."],
+    ["b", "¿Qué dos partes tiene la descripción de un personaje?", "Cómo es por fuera y cómo es por dentro."],
+    ["b", "¿Con qué fórmula terminan muchos cuentos?", "Y colorín colorado, este cuento se ha acabado."],
+    ["b", "¿Qué necesita todo buen cuento para que haya historia?", "Un problema o conflicto."],
+    ["b", "En la lectura, ¿cómo se llama la nube?", "Algodón."],
+    ["m", "¿Qué diferencia hay entre una leyenda y un cuento?", "La leyenda ocurre en un lugar real, hace mucho tiempo, y suele explicar el origen de algo."],
+    ["m", "Escribe una comparación para describir a alguien muy rápido.", "Por ejemplo: rápido como un rayo."],
+    ["m", "Cambia «y entonces» por otras dos expresiones.", "Por ejemplo: luego, más tarde, en ese momento."],
+    ["m", "¿Cuál es el problema en la lectura?", "El pueblo no tiene agua y Algodón no quiere llover."],
+    ["m", "¿Qué es «dos estrellas y un deseo»?", "Decir dos cosas buenas de un texto y una que se podría mejorar."],
+    ["a", "¿Cómo cambia Algodón a lo largo del cuento?", "Al principio es presumida y no quiere ayudar; al final llueve aunque se haga pequeña."],
+    ["a", "Tira el dado tres veces e inventa un cuento con el resultado.", "Respuesta abierta."],
+    ["a", "Describe a un personaje mostrando su carácter con una acción.", "Respuesta abierta."],
+    ["a", "¿Por qué crees que el final de la lectura habla de una nube nueva?", "Porque el agua vuelve a subir al cielo y Algodón se forma otra vez: es el ciclo del agua."],
+  ],
+  quiz: [
+    ["Una narración con animales que hablan y moraleja es…", ["una fábula", "una leyenda", "una noticia"], "Fábulas."],
+    ["«Era tan curioso que lo miraba todo» describe al personaje…", ["por dentro", "por fuera", "por el lugar"], "Describir."],
+    ["El problema del cuento suele aparecer…", ["al final del planteamiento", "en el título", "después del desenlace"], "Problema."],
+    ["Al contar un cuento en voz alta conviene…", ["hacer pausas en lo importante", "hablar muy deprisa", "mirar al suelo"], "Contar."],
+    ["Para revisar un cuento es útil…", ["leerlo en voz alta", "no volver a leerlo", "borrar el título"], "Revisar."],
+  ],
+  examen: [
+    ["En la lectura, ¿quién pide a la nube que llueva?", ["una niña", "el sol", "otra nube"], "Lectura."],
+    ["La leyenda suele explicar…", ["el origen de algo", "cómo se hace una receta", "las reglas de un juego"], "Leyendas."],
+  ],
+  tarjetas: [
+    ["Fábula y leyenda", "Fábula: animales y moraleja. Leyenda: lugar real y origen de algo."],
+    ["Describir", "Por fuera (aspecto) y por dentro (carácter)."],
+    ["Problema", "Lo que el protagonista quiere y no es fácil: sin él no hay historia."],
+    ["Revisar y contar", "Leer en voz alta, cambiar repeticiones; voz, pausas y mirada."],
+  ],
+  glosario: [
+    ["Narración", "Texto que cuenta hechos ocurridos a unos personajes."],
+    ["Fábula", "Narración breve con animales que hablan y una enseñanza."],
+    ["Moraleja", "Enseñanza que se saca de una fábula."],
+    ["Leyenda", "Historia antigua, situada en un lugar real, que mezcla hechos y fantasía."],
+    ["Protagonista", "Personaje principal de la historia."],
+    ["Carácter", "Forma de ser de una persona o personaje."],
+    ["Conflicto", "Problema que mueve la historia."],
+    ["Planteamiento", "Parte inicial del cuento."],
+    ["Nudo", "Parte en la que aparece y crece el problema."],
+    ["Desenlace", "Parte final en la que se resuelve el problema."],
+    ["Revisar", "Volver a leer un texto para mejorarlo."],
+    ["Fórmula", "Expresión fija para empezar o terminar un cuento."],
+  ],
+  situacion: {
+    titulo: "La feria de los cuentos",
+    reto: "Cada alumno inventa un cuento con los dados, lo mejora con ayuda de un compañero y lo cuenta en voz alta en una feria para los cursos pequeños.",
+    pasos: ["Tirar los dados de cuentos y planificar las tres partes.", "Escribir el borrador describiendo bien al protagonista.", "Revisar con «dos estrellas y un deseo» y pasar a limpio.", "Ensayar y contar el cuento en la feria."],
+    producto: "Un libro de cuentos de la clase y una sesión de cuentacuentos.",
+    evaluacion: ["El cuento tiene un problema claro.", "Tiene planteamiento, nudo y desenlace.", "Describe al protagonista por fuera y por dentro.", "Cuenta con buena voz, pausas y mirada."],
+  },
+});

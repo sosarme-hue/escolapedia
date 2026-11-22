@@ -86,3 +86,101 @@ module.exports = P.tema({
   saberes: "Conocimiento de la lengua: palabras primitivas y derivadas; raíz o lexema; sufijos (oficios, tiendas, diminutivos, aumentativos) y prefijos (des-, in-, re-, pre-); familias de palabras",
   ideas: ["Árbol de familias de palabras en el mural de clase.", "Piezas de construcción con raíces, prefijos y sufijos.", "Detectives de familias falsas: mar y marrón, pan y pantalón."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  dibujos: {
+    "Sufijos: trozos que van detrás": L6.filas("Sufijos", [["-ero", "zapatero", cAZ], ["-ería", "panadería", cVE], ["-al", "fresal", cNA], ["-oso", "miedoso", cRO]]),
+    "Repaso: construimos palabras": H6.flujo("Construir", ["elige|la raíz", "añade|sufijo", "añade|prefijo", "¿existe?|diccionario"], cMO),
+  },
+  objetivos: ["Formar derivadas aunque cambie una letra de la raíz", "Reconocer sufijos de oficios, tiendas y lugares", "Usar los prefijos re-, in-, pre- y sub-", "Distinguir las palabras derivadas de las compuestas"],
+  lectura: { titulo: "La calle de los oficios", html: `<p>En la calle donde vive Marta hay muchas tiendas, y a ella le encanta pasear por allí con su abuelo.</p><p>Primero pasan por la panadería, donde el panadero saca del horno unas barras calentitas y unos panecillos redondos. Al lado está la frutería: la frutera coloca en el frutero del escaparate manzanas, peras y unas fresas que vienen del fresal de su pueblo.</p><p>Más adelante está la zapatería. El zapatero arregla unas zapatillas viejas: les pone suelas nuevas y las deja como recién compradas. «Es mejor reparar que tirar», dice siempre.</p><p>Al final de la calle está la librería. La librera es la mejor amiga del abuelo. Siempre le guarda un librito de poemas o una novela de aventuras.</p><p>Un día, Marta le preguntó a su abuelo:</p><p>—Abuelo, ¿te has dado cuenta de que casi todos los nombres se parecen? Pan, panadero, panadería… Libro, librero, librería…</p><p>El abuelo sonrió.</p><p>—Claro, Marta. Las palabras también tienen familia, como nosotros.</p>` },
+  tras: {
+    "Palabras derivadas": [
+      ["Cuando la raíz cambia un poco", `<p>Al formar una palabra derivada, a veces la raíz <mark>cambia una letra</mark>. No te asustes: sigue siendo la misma familia. Los cambios más frecuentes son estos:</p><ul><li><b>z → c</b> delante de <i>e</i> o <i>i</i>: <i>lápiz → lapicero</i>, <i>pez → pecera</i>, <i>luz → lucecita</i>, <i>cruz → cruces</i>. Recuerda que en castellano casi nunca se escribe <i>ze</i> ni <i>zi</i>.</li><li><b>Se pierde la vocal final</b> de la primitiva: de <i>libro</i> sale <i>libr-ero</i>, y de <i>casa</i> sale <i>cas-ita</i>: la última vocal desaparece y entra el sufijo.</li><li><b>ue → o</b> y <b>ie → e</b>: <i>puerta → portero</i>, <i>nuevo → novedad</i>, <i>hierro → herrero</i>, <i>diente → dentista</i>, <i>tierra → terreno</i>. Estas palabras cambiaron hace muchos siglos y por eso hoy suenan un poco distintas.</li><li><b>Se añade una letra</b> para unir: <i>pan → pan<b>ad</b>ero</i>, <i>café → cafe<b>t</b>era</i>, <i>té → te<b>t</b>era</i>.</li></ul><p>Por eso, para saber si dos palabras son de la misma familia, no basta con mirar las letras: hay que pensar en el <b>significado</b>. <i>Portero</i> es el que cuida la puerta; <i>dentista</i> cuida los dientes; <i>herrero</i> trabaja el hierro.</p><p><b>Actividad</b>: escribe derivadas de <i>nariz</i>, <i>fuego</i> y <i>cielo</i>. Pista: <i>narigudo, fogata, celeste</i>.</p>`,
+        L6.filas("Cambios", [["z → c", "lápiz, lapicero", cAZ], ["ue → o", "puerta, portero", cVE], ["ie → e", "diente, dentista", cNA], ["+ t", "café, cafetera", cRO]])],
+    ],
+    "Sufijos: trozos que van detrás": [
+      ["Oficios, tiendas y lugares", `<p>Muchos sufijos nos ayudan a nombrar <mark>trabajos y sitios</mark>. Si los conoces, adivinarás muchas palabras nuevas.</p><p><b>Para oficios</b> (la persona que hace algo):</p><ul><li><b>-ero, -era</b>: <i>panadero, cartero, jardinera, peluquera</i>.</li><li><b>-ista</b>: <i>dentista, taxista, periodista, futbolista</i>. Sirve igual para hombre y mujer: <i>el taxista, la taxista</i>.</li><li><b>-dor, -dora</b>: <i>pescador, trabajadora, nadador, ganadora</i>.</li></ul><p><b>Para tiendas</b> (donde se vende o se hace algo):</p><ul><li><b>-ería</b>: <i>panadería, frutería, librería, zapatería, juguetería</i>.</li></ul><p><b>Para lugares con muchas plantas o cosas iguales</b>:</p><ul><li><b>-al, -ar</b>: <i>fresal, manzanal, pinar, olivar</i>.</li><li><b>-eda, -edo</b>: <i>arboleda, robledo, viñedo</i>.</li></ul><p><b>Para objetos que contienen algo</b>:</p><ul><li><b>-ero, -era</b>: <i>salero, azucarero, cartera, pecera</i>.</li></ul><p>Fíjate en que <b>-ero</b> sirve para personas (<i>zapatero</i>) y para objetos (<i>salero</i>). El resto de la frase te dirá cuál es: «el zapatero arregla botas» y «el salero está vacío».</p><p><b>Actividad</b>: da un paseo por tu barrio y apunta los nombres de las tiendas acabados en <i>-ería</i>.</p>`,
+        H6.rueda("Sufijos", "-ERO", [["oficio", cAZ], ["tienda", cVE], ["lugar", cNA], ["objeto", cRO]])],
+    ],
+    "Prefijos: trozos que van delante": [
+      ["Más prefijos: re-, in-, pre-, sub-", `<p>Ya conoces <i>des-</i>. Ahora vamos a aprender otros <mark>prefijos</mark> muy frecuentes:</p><ul><li><b>re-</b> significa <b>volver a hacer</b>: <i>releer</i> (leer otra vez), <i>rehacer, recalentar, reaparecer, reciclar</i>.</li><li><b>in-</b> (o <b>im-</b> delante de <i>p</i> y <i>b</i>) significa <b>no</b>: <i>inútil</i> (que no es útil), <i>incómodo, invisible, imposible, imperfecto</i>. ¿Ves la regla de ortografía? Antes de <i>p</i> y <i>b</i> se escribe <i>m</i>.</li><li><b>pre-</b> significa <b>antes</b>: <i>prehistoria</i> (antes de la historia escrita), <i>prever, precalentar</i>.</li><li><b>sub-</b> significa <b>debajo</b>: <i>submarino</i> (debajo del mar), <i>subterráneo</i> (debajo de la tierra), <i>subrayar</i> (hacer una raya debajo).</li></ul><p>Un mismo prefijo puede unirse a muchas palabras. Y una palabra puede llevar <b>prefijo y sufijo a la vez</b>: <i>des-orden-ado</i>, <i>re-calent-ado</i>.</p><p>Ojo: no todas las palabras que empiezan por esas letras llevan prefijo. En <i>rey</i>, <i>red</i> o <i>río</i>, la <i>r-</i> no significa «otra vez». Para saberlo, quita el supuesto prefijo y mira si queda una palabra: <i>re-leer → leer</i> sí; <i>re-y → y</i> no.</p><p><b>Actividad</b>: forma palabras con <i>re-</i> a partir de <i>contar, pintar</i> y <i>abrir</i>.</p>`,
+        L6.filas("Prefijos", [["re-", "otra vez", cAZ], ["in-, im-", "no", cVE], ["pre-", "antes", cNA], ["sub-", "debajo", cRO]]),
+        ["Mv3Is_N9bw4", "Prefijos | ¿Qué son? y ejemplos | Aula chachi - Vídeos educativos para niños", "Aula chachi", 231107]],
+    ],
+    "Familias de palabras": [
+      ["Familias falsas", `<p>Algunas palabras <mark>se parecen</mark> mucho, pero no son de la misma familia. Son como dos personas que se llaman igual pero no son parientes.</p><p>Fíjate en estos ejemplos:</p><ul><li><i>Sol</i> y <i>soldado</i>: un soldado no tiene nada que ver con el sol.</li><li><i>Pan</i> y <i>pantalón</i>: el pantalón no se hace con pan.</li><li><i>Mar</i> y <i>marcar</i>: marcar no tiene relación con el mar.</li><li><i>Cama</i> y <i>camarero</i>: el camarero no fabrica camas.</li><li><i>Pato</i> y <i>patata</i>: la patata no es un pato pequeño.</li></ul><p>Para saber si una palabra es de verdad de la familia, hazte la <b>pregunta del significado</b>: ¿la palabra nueva tiene algo que ver con la primera? <i>Panadero</i> → el que hace pan: sí. <i>Pantalón</i> → ¿el que hace pan? No.</p><p>También pasa lo contrario: palabras que no se parecen tanto y sí son familia, porque la raíz cambió con los siglos, como <i>leche</i> y <i>lácteo</i>, o <i>ojo</i> y <i>oculista</i>.</p><p>El <b>diccionario</b> puede ayudarte. Muchas veces, junto a una palabra, aparecen otras de su familia, y así puedes comprobar si tenías razón.</p><p><b>Actividad</b>: busca en esta lista la intrusa de cada familia: <i>flor, florero, florista, flotar</i> / <i>casa, casita, caserío, casco</i>.</p>`,
+        H6.dos("Familia", ["SÍ", ["pan", "panadero", "panecillo"], cVE], ["NO", ["pan", "pantalón", "pantera"], cRO]),
+        ["7RcQxZfPjYI", "La Familia de Palabras", "La Profe Noemí", 248840]],
+    ],
+  },
+  final: [
+    ["Palabras compuestas", `<p>Hay otra forma de crear palabras nuevas: <mark>unir dos palabras</mark> que ya existen. Así se forman las <b>palabras compuestas</b>.</p><ul><li><i>saca + puntas</i> → <b>sacapuntas</b></li><li><i>gira + sol</i> → <b>girasol</b> (la flor que gira buscando el sol)</li><li><i>para + aguas</i> → <b>paraguas</b> (lo que para el agua)</li><li><i>abre + latas</i> → <b>abrelatas</b></li><li><i>medio + día</i> → <b>mediodía</b></li><li><i>agua + nieve</i> → <b>aguanieve</b></li><li><i>pasa + tiempo</i> → <b>pasatiempo</b></li></ul><p>Las compuestas se escriben <b>juntas</b>, como una sola palabra. Y su significado sale de la unión de las dos: un <i>lavaplatos</i> lava platos, un <i>rascacielos</i> es tan alto que parece rascar el cielo.</p><p>¿En qué se diferencian de las <b>derivadas</b>?</p><ul><li>La <b>derivada</b> lleva una palabra y un trozo que no es palabra solo: <i>pan + -adero</i>. El sufijo <i>-adero</i> no existe suelto.</li><li>La <b>compuesta</b> lleva <b>dos palabras</b> que existen por separado: <i>saca</i> y <i>puntas</i>.</li></ul><p>A veces, al unirse, una letra cambia: <i>pelo + rojo</i> → <i>pelirrojo</i>. Fíjate en que la <i>o</i> se convierte en <i>i</i> y la <i>r</i> se duplica para que siga sonando fuerte.</p><p><b>Actividad</b>: busca en tu casa cinco objetos cuyo nombre sea una palabra compuesta.</p>`,
+      H6.dos("Formar", ["DERIVADA", ["pan + ero", "flor + ista", "des + hacer"], cAZ], ["COMPUESTA", ["gira + sol", "saca + puntas", "para + aguas"], cNA])],
+    ["Inventores de palabras", `<p>Las lenguas están vivas y cada año aparecen <mark>palabras nuevas</mark>. Muchas se forman con las mismas piezas que has aprendido.</p><p>Por ejemplo, cuando llegaron los ordenadores y los teléfonos móviles, se empezaron a decir palabras como <i>internauta</i>, <i>videojuego</i> o <i>teletrabajo</i>. Y del inglés <i>chat</i> salió en castellano <i>chatear</i>, con nuestra terminación de verbo <i>-ear</i>.</p><p>Tú también puedes jugar a ser inventor de palabras. Las reglas son sencillas:</p><ul><li><b>1.</b> Elige una palabra primitiva: <i>nube</i>.</li><li><b>2.</b> Añádele un sufijo que conozcas: <i>nub-ero</i> (persona que cuida las nubes), <i>nub-ería</i> (tienda de nubes), <i>nub-oso</i> (que tiene nubes; ¡esta ya existe y se escribe <i>nuboso</i>!).</li><li><b>3.</b> Prueba con prefijos: <i>des-nub-ar</i> (quitar las nubes del cielo).</li><li><b>4.</b> Explica el significado de tu palabra inventada y úsala en una frase.</li></ul><p>Algunas palabras que inventes ya existirán, y otras no. Para comprobarlo, búscalas en el <b>diccionario</b>. Si no aparecen, son palabras inventadas: puedes usarlas en un poema o un cuento divertido, pero no en un examen.</p><p>Este juego demuestra algo importante: si conoces las raíces, los prefijos y los sufijos, puedes <b>entender</b> muchísimas palabras que nunca habías oído.</p>`,
+      H6.flujo("Inventar", ["primitiva|nube", "sufijo|-ería", "prefijo|des-", "¿existe?|busca"], cVE)],
+  ],
+  ejemplos: [
+    ["Forma una derivada de «pez» que nombre el recipiente donde viven los peces.", ["La z cambia a c delante de e.", "Añadimos el sufijo -era."], "Pecera."],
+    ["¿Es derivada o compuesta «girasol»?", ["Se separa en gira y sol.", "Las dos existen como palabras sueltas."], "Es compuesta."],
+  ],
+  errores: ["Escribir «lapizero» o «pezera»: delante de e se escribe c (lapicero, pecera).", "Creer que «pantalón» es de la familia de «pan» solo porque empieza igual."],
+  ejercicios: [
+    ["b", "¿Qué significa el prefijo re-?", "Volver a hacer, otra vez."],
+    ["b", "Escribe el nombre de la tienda donde se vende fruta.", "Frutería."],
+    ["b", "¿Qué sufijo usamos en «dentista»?", "-ista."],
+    ["b", "Une las dos palabras: saca + puntas.", "Sacapuntas."],
+    ["b", "En la lectura, ¿quién arregla las zapatillas?", "El zapatero."],
+    ["m", "Forma una derivada de «luz» con el sufijo -ecita.", "Lucecita."],
+    ["m", "¿Por qué se escribe «imposible» con m?", "Porque antes de p se escribe m."],
+    ["m", "¿Qué significa «submarino»?", "Que va debajo del mar."],
+    ["m", "Busca la intrusa: flor, florero, florista, flotar.", "Flotar."],
+    ["m", "Escribe dos lugares formados con el sufijo -al o -ar.", "Por ejemplo: fresal, pinar."],
+    ["a", "Escribe una familia de palabras de la lectura con tres palabras.", "Libro, librero, librería (o pan, panadero, panadería)."],
+    ["a", "¿Por qué «portero» es de la familia de «puerta» si no se escribe igual?", "Porque la raíz cambió ue por o, pero el significado está relacionado: el portero cuida la puerta."],
+    ["a", "Inventa una palabra con prefijo y sufijo y explica qué significa.", "Respuesta abierta."],
+    ["a", "Explica la diferencia entre «panadero» y «sacapuntas».", "Panadero es derivada (pan + -adero); sacapuntas es compuesta (dos palabras)."],
+  ],
+  quiz: [
+    ["La derivada de «lápiz» es…", ["lapicero", "lapizero", "lapisero"], "Cambios."],
+    ["La tienda donde se venden zapatos es la…", ["zapatería", "zapatera", "zapatal"], "Tiendas."],
+    ["«Releer» significa…", ["leer otra vez", "no leer", "leer antes"], "Prefijos."],
+    ["Es una palabra compuesta…", ["paraguas", "panadero", "florista"], "Compuestas."],
+    ["No es de la familia de «sol»…", ["soldado", "solar", "soleado"], "Falsas."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué le guarda la librera al abuelo?", ["un libro", "una barra de pan", "unas fresas"], "Lectura."],
+    ["De «diente» sale…", ["dentista", "dientista", "dentero"], "Cambios."],
+  ],
+  tarjetas: [
+    ["Raíz que cambia", "z → c (pecera), ue → o (portero), ie → e (dentista)."],
+    ["Oficios y tiendas", "-ero, -ista, -dor para personas; -ería para tiendas; -al, -ar para lugares."],
+    ["Prefijos", "re- otra vez, in- no, pre- antes, sub- debajo."],
+    ["Compuestas", "Dos palabras unidas: girasol, sacapuntas, paraguas."],
+  ],
+  glosario: [
+    ["Primitiva", "Palabra que no viene de otra."],
+    ["Derivada", "Palabra formada a partir de una primitiva."],
+    ["Raíz", "Parte de la palabra que lleva el significado principal."],
+    ["Sufijo", "Trozo que se añade detrás de la raíz."],
+    ["Prefijo", "Trozo que se añade delante de la palabra."],
+    ["Familia de palabras", "Grupo de palabras con la misma raíz."],
+    ["Compuesta", "Palabra formada al unir dos palabras."],
+    ["Diminutivo", "Palabra que hace más pequeño o expresa cariño."],
+    ["Aumentativo", "Palabra que hace más grande."],
+    ["Oficio", "Trabajo de una persona."],
+    ["Subterráneo", "Que está debajo de la tierra."],
+    ["Diccionario", "Libro que explica el significado de las palabras."],
+  ],
+  situacion: {
+    titulo: "El mapa de los oficios del barrio",
+    reto: "La clase hace un mapa del barrio con las tiendas y los oficios, y estudia cómo se forman sus nombres.",
+    pasos: ["Pasear por el barrio y anotar tiendas y oficios.", "Separar raíz y sufijo de cada nombre.", "Agrupar las palabras en familias y buscar las intrusas.", "Inventar una tienda imaginaria con una palabra compuesta o derivada."],
+    producto: "Un mapa ilustrado del barrio con familias de palabras.",
+    evaluacion: ["Separa raíz, prefijo y sufijo.", "Forma derivadas aunque cambie la raíz.", "Distingue familias falsas.", "Diferencia derivadas y compuestas."],
+  },
+});

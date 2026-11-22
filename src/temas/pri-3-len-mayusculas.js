@@ -87,3 +87,100 @@ module.exports = P.tema({
   saberes: "Ortografía: uso de la mayúscula (inicio de texto, tras punto, nombres propios); el punto (seguido, aparte, final); la coma en enumeraciones y vocativos; signos de interrogación y exclamación; los dos puntos",
   ideas: ["Semáforo de la puntuación: verde (coma), ámbar (punto y seguido), rojo (punto final).", "Lectura dramatizada con la misma palabra en tres entonaciones.", "Corrección colectiva de una nota sin signos en la pizarra."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  dibujos: {
+    "Repaso: corregimos una nota": H6.flujo("Corregir", ["lee|despacio", "pon|mayúsculas", "pon|los signos", "lee en|voz alta"], cMO),
+  },
+  objetivos: ["Escribir con minúscula días, meses, estaciones e idiomas", "Leer y escribir abreviaturas sencillas", "Escribir diálogos con raya", "Usar puntos suspensivos y comillas"],
+  lectura: { titulo: "El mensaje misterioso", html: `<p>Un lunes de octubre, Hugo encontró una nota en su pupitre. Estaba escrita así:</p><p><i>«ven al patio no te quedes en clase»</i></p><p>Hugo se quedó pensando. ¿Quería decir «Ven al patio, no te quedes en clase» o «Ven al patio. ¿No te quedes en clase?». No entendía nada.</p><p>En el recreo le enseñó la nota a su amiga Inés.</p><p>—¡Qué desastre de nota! —dijo ella—. No tiene ni un signo.</p><p>—Ni una mayúscula —añadió Hugo—. Y tampoco tiene firma…</p><p>Entonces vieron a Martín, el nuevo de la clase, que los saludaba desde la portería con un balón.</p><p>—¡La escribió él! —gritó Inés—. Quiere que juguemos al fútbol.</p><p>Al día siguiente, Martín les dejó otra nota. Esta vez la había escrito con mucho cuidado:</p><p><i>«Hola, Hugo e Inés: ¿jugamos hoy en el recreo? Traigo el balón. ¡Os espero! Martín.»</i></p><p>Hugo sonrió. Ahora sí que se entendía todo.</p>` },
+  tras: {
+    "Cuándo se usa mayúscula": [
+      ["Cuándo NO se usa mayúscula", `<p>Hay palabras que mucha gente escribe con mayúscula por error. En castellano, estas palabras se escriben con <mark>minúscula</mark> (si no van al principio de una oración):</p><ul><li>Los <b>días de la semana</b>: <i>lunes, martes, miércoles, jueves, viernes, sábado, domingo</i>. <i>Nos vemos el sábado.</i></li><li>Los <b>meses</b>: <i>enero, febrero, marzo… diciembre</i>. <i>Mi cumpleaños es en mayo.</i></li><li>Las <b>estaciones</b>: <i>primavera, verano, otoño, invierno</i>.</li><li>Los <b>idiomas</b>: <i>español, inglés, francés, catalán</i>. <i>Estudio inglés.</i></li><li>Los nombres que dicen de dónde es alguien: <i>Es <b>español</b>, son <b>italianos</b>, una niña <b>japonesa</b>.</i> En cambio, el nombre del país sí lleva mayúscula: <i>España, Italia, Japón.</i></li><li>Las palabras <b>señor, señora, doctor, tía, abuelo</b>: <i>la señora García, el doctor Ruiz, mi tía Elena</i>. La mayúscula la lleva solo el nombre.</li></ul><p>Este es uno de los errores más frecuentes porque en <b>inglés</b> los días, los meses y los idiomas sí se escriben con mayúscula: <i>Monday, May, English</i>. ¡No los confundas!</p><p>Recuerda: la fecha de una carta se escribe así: <i>Sevilla, 15 de marzo de 2026</i>. Mayúscula en la ciudad, minúscula en el mes.</p><p><b>Actividad</b>: escribe la fecha de hoy y la de tu cumpleaños con las mayúsculas correctas.</p>`,
+        H6.dos("Mayúscula", ["SÍ", ["España", "Lucía", "Toledo"], cVE], ["NO", ["lunes", "mayo", "inglés"], cRO]),
+        ["dwl6kpKB-l4", "🤓 Reglas para el USO de las MAYÚSCULAS 👩🏻‍🏫", "MissStephy", 242277]],
+    ],
+    "El punto": [
+      ["Las abreviaturas", `<p>Una <mark>abreviatura</mark> es una forma <b>corta</b> de escribir una palabra. Se usa para ahorrar espacio y casi siempre termina con un <b>punto</b>.</p><p>Algunas abreviaturas que verás a menudo:</p><ul><li><b>Sr.</b> = señor. <b>Sra.</b> = señora. <i>Sr. López, Sra. Martín.</i></li><li><b>Dr.</b> = doctor. <b>Dra.</b> = doctora.</li><li><b>pág.</b> = página. <i>Abrid el libro por la pág. 20.</i></li><li><b>etc.</b> = etcétera, «y otras cosas». <i>Compramos fruta, pan, leche, etc.</i></li><li><b>n.º</b> = número. <i>Vivo en el n.º 7.</i></li><li><b>1.º, 2.º, 3.º</b> = primero, segundo, tercero. Por eso escribimos <i>3.º de Primaria</i>.</li><li><b>c/</b> = calle. <i>c/ Mayor, 5.</i> Esta usa una barra en lugar de punto.</li></ul><p>Ojo: las <b>medidas</b> no son abreviaturas, son <b>símbolos</b>, y se escriben <b>sin punto</b>: <i>5 km, 2 kg, 30 cm, 10 min</i>.</p><p>Las abreviaturas sirven sobre todo en direcciones, sobres, notas y listas. Cuando escribas un cuento o una redacción, es mejor escribir la palabra completa.</p><p>Al <b>leer en voz alta</b>, hay que decir la palabra entera: donde pone <i>Sra.</i>, leemos «señora».</p><p><b>Actividad</b>: escribe tu dirección como lo harías en un sobre, usando abreviaturas.</p>`,
+        L6.filas("Abreviar", [["Sr.", "señor", cAZ], ["pág.", "página", cVE], ["etc.", "etcétera", cNA], ["n.º", "número", cRO]])],
+    ],
+    "La coma": [
+      ["Una coma lo cambia todo", `<p>Una coma parece pequeña, pero puede <mark>cambiar el significado</mark> de una frase por completo. Mira estos ejemplos:</p><ul><li><i>Vamos a comer, niños.</i> → Hablamos con los niños y les decimos que vamos a comer.</li><li><i>Vamos a comer niños.</i> → ¡Parece que los niños son la comida!</li></ul><ul><li><i>No, quiero ir.</i> → La persona sí quiere ir.</li><li><i>No quiero ir.</i> → La persona no quiere ir.</li></ul><ul><li><i>Marta, dice mi hermano, es muy lista.</i> → El hermano dice que Marta es lista.</li><li><i>Marta dice: «Mi hermano es muy listo».</i> → Marta dice que su hermano es listo.</li></ul><p>Ya sabes que usamos la coma para separar las palabras de una <b>enumeración</b> y para separar el <b>nombre</b> de la persona a quien hablamos. También se pone coma detrás de algunas palabras al principio de la frase, como <i>sí</i>, <i>no</i>, <i>bueno</i> o <i>además</i>: <i>Sí, me gusta. Bueno, vamos.</i></p><p>Al leer en voz alta, la coma es una <b>pausa corta</b>: un respiro pequeño. Si te la saltas, la frase puede sonar rara o decir otra cosa.</p><p>Hay una regla que no debes olvidar: en una enumeración, <b>no se pone coma delante de la última <i>y</i></b>: <i>peras, uvas y fresas</i>.</p><p><b>Actividad</b>: inventa una frase que cambie de significado según pongas o quites una coma.</p>`,
+        H6.dos("Coma", ["CON", ["Comer,", "niños.", "(les hablo)"], cVE], ["SIN", ["Comer", "niños.", "(¡horror!)"], cRO]),
+        ["TnTc659Kfwc", "EL PUNTO y LA COMA - ¿Cuál es la diferencia? - Recopilación - Signos de puntuación - Lengua", "Smile and Learn - Español", 468583]],
+    ],
+    "Los dos puntos": [
+      ["La raya del diálogo", `<p>Cuando en un cuento hablan los personajes, usamos un signo especial: la <mark>raya</mark> (—). Es más larga que el guion (-).</p><p>Así se escribe un <b>diálogo</b>:</p><p><i>—¿Vienes al parque? —preguntó Lucas.<br>—Ahora no, estoy haciendo los deberes —contestó Ana.<br>—Pues te espero.</i></p><p>Las reglas son estas:</p><ul><li>Cada vez que habla un personaje, empezamos una <b>línea nueva</b> con una raya.</li><li>La raya va <b>pegada</b> a la primera palabra: <i>—Hola</i>, no <i>— Hola</i>.</li><li>Cuando el narrador explica quién habla (<i>preguntó Lucas</i>), lo separamos con otra raya, y esa parte empieza con <b>minúscula</b>.</li><li>Los verbos que nos dicen cómo se habla son muy útiles: <i>dijo, preguntó, contestó, gritó, susurró, exclamó</i>. ¡Usa varios para no repetir siempre <i>dijo</i>!</li></ul><p>Los diálogos dan vida a un cuento: el lector escucha a los personajes como si estuviera allí. Fíjate en la lectura del tema: cuando hablan Hugo e Inés, cada intervención empieza con una raya.</p><p>En el ordenador, la raya se puede escribir con un atajo de teclado. En el cuaderno, simplemente dibuja un trazo horizontal un poco más largo que el del guion.</p><p><b>Actividad</b>: escribe un diálogo de cuatro líneas entre un gato y un ratón.</p>`,
+        L6.filas("Diálogo", [["raya", "—Hola", cAZ], ["narrador", "—dijo Ana", cVE], ["minúscula", "—preguntó", cNA], ["línea", "nueva cada vez", cRO]])],
+    ],
+  },
+  final: [
+    ["Puntos suspensivos y comillas", `<p>Vamos a conocer dos signos más que aparecen mucho en los libros.</p><p>Los <mark>puntos suspensivos</mark> (…) son <b>tres puntos</b> seguidos, ni dos ni cuatro. Sirven para:</p><ul><li>Dejar algo <b>sin terminar</b>, creando intriga o duda: <i>Abrió la puerta despacio y entonces…</i></li><li>Indicar que una lista <b>sigue</b>: <i>Había perros, gatos, conejos…</i> (como <i>etc.</i>).</li><li>Mostrar que alguien <b>duda</b> o tiene miedo: <i>Yo… no sé… creo que sí.</i></li></ul><p>Al leer en voz alta, los puntos suspensivos se leen con una <b>pausa larga</b> y la voz quedándose en el aire.</p><p>Las <mark>comillas</mark> («  ») se ponen al principio y al final de unas palabras. Sirven para:</p><ul><li>Copiar las <b>palabras exactas</b> que dijo alguien: <i>Mi abuela siempre dice: «Más vale tarde que nunca».</i></li><li>Escribir el <b>título</b> de un cuento o una canción: <i>He leído «El patito feo».</i></li><li>Señalar una palabra <b>especial</b>, inventada o de otra lengua: <i>Mi hermano dice «gufo» en vez de «búho».</i></li></ul><p>En castellano se prefieren las <b>comillas angulares</b> o latinas (« »), aunque también se ven las inglesas (" ").</p><p>Fíjate en que, cuando copiamos palabras exactas, delante de las comillas suelen ir los <b>dos puntos</b>.</p><p><b>Actividad</b>: escribe un refrán que diga alguien de tu familia, entre comillas.</p>`,
+      H6.dos("Signos", ["… TRES", ["intriga", "lista que sigue", "duda"], cAZ], ["« » COMILLAS", ["palabras exactas", "títulos", "palabras raras"], cNA])],
+    ["Los signos en otras lenguas", `<p>¿Sabías que el castellano es casi la <mark>única lengua</mark> del mundo que abre las preguntas y las exclamaciones con un signo al revés (¿ ¡)? En la mayoría de las lenguas solo se pone el signo del <b>final</b>.</p><ul><li>En <b>inglés</b>: <i>What is your name?</i> <i>How nice!</i> Solo al final.</li><li>En <b>francés</b>: <i>Comment tu t'appelles ?</i> También solo al final, y con un espacio antes del signo.</li><li>En <b>catalán</b> normalmente se escribe solo el final: <i>Com et dius?</i> Aunque a veces se ponen los dos en preguntas largas.</li><li>En <b>castellano</b>: <i>¿Cómo te llamas?</i> Siempre los dos.</li></ul><p>¿Por qué los dos? Porque en castellano una pregunta y una afirmación pueden tener <b>exactamente las mismas palabras</b>: <i>Vienes mañana</i> / <i>¿Vienes mañana?</i> El signo de apertura avisa al lector desde el principio para que ponga voz de pregunta.</p><p>Las <b>mayúsculas</b> también cambian de una lengua a otra. Ya sabes que en inglés los días y los meses llevan mayúscula. ¡Y en alemán todos los sustantivos se escriben con mayúscula!</p><p>Por eso, cuando aprendas otra lengua, fíjate bien en sus reglas y no las mezcles con las del castellano. Escribir <i>¿What?</i> en inglés o <i>Monday</i> en castellano son errores típicos.</p><p><b>Actividad</b>: escribe la misma pregunta en castellano y en inglés, y compara los signos.</p>`,
+      L6.filas("Lenguas", [["castellano", "¿Cómo?", cAZ], ["inglés", "How?", cVE], ["francés", "Comment ?", cNA], ["catalán", "Com?", cRO]])],
+  ],
+  ejemplos: [
+    ["Corrige: «El Lunes empieza Septiembre».", ["Los días y los meses van con minúscula.", "El es la primera palabra: mayúscula."], "El lunes empieza septiembre."],
+    ["Escribe como diálogo: Ana pregunta a Luis si quiere pan.", ["Línea nueva con raya pegada.", "El narrador, entre rayas y en minúscula."], "—¿Quieres pan? —preguntó Ana."],
+  ],
+  errores: ["Escribir con mayúscula los días, los meses o los idiomas, como en inglés.", "Poner el punto en los símbolos de medida: «5 km.» en vez de «5 km»."],
+  ejercicios: [
+    ["b", "¿Se escribe «Martes» o «martes» en medio de una frase?", "Martes, con minúscula: martes."],
+    ["b", "¿Qué significa la abreviatura «pág.»?", "Página."],
+    ["b", "¿Cuántos puntos tienen los puntos suspensivos?", "Tres."],
+    ["b", "¿Con qué signo empieza cada intervención de un diálogo?", "Con una raya (—)."],
+    ["b", "En la lectura, ¿quién escribió la nota misteriosa?", "Martín."],
+    ["m", "Corrige: «Mi tía habla Francés y nació en Junio».", "Mi tía habla francés y nació en junio."],
+    ["m", "¿Qué cambia entre «No, quiero ir» y «No quiero ir»?", "La primera dice que sí quiere ir; la segunda, que no quiere."],
+    ["m", "Escribe abreviados: señora, número, doctor.", "Sra., n.º, Dr."],
+    ["m", "Pon comillas: Mi abuelo dice siempre: Quien madruga, Dios le ayuda.", "Mi abuelo dice siempre: «Quien madruga, Dios le ayuda»."],
+    ["m", "¿Cómo se escribe una pregunta en inglés?", "Solo con el signo final: What is it?"],
+    ["a", "Puntúa la primera nota de la lectura para que diga que vayas al patio.", "Ven al patio, no te quedes en clase."],
+    ["a", "Escribe un diálogo de cuatro líneas usando tres verbos distintos de «dijo».", "Respuesta abierta."],
+    ["a", "Escribe un comienzo de cuento que acabe con puntos suspensivos.", "Respuesta abierta."],
+    ["a", "¿Por qué el castellano necesita el signo de apertura (¿)?", "Porque una pregunta puede tener las mismas palabras que una afirmación, y así se sabe desde el principio que es pregunta."],
+  ],
+  quiz: [
+    ["Se escribe con minúscula…", ["octubre", "Valencia", "Pedro"], "Minúscula."],
+    ["La abreviatura de «etcétera» es…", ["etc.", "etc", "et."], "Abreviaturas."],
+    ["En un diálogo, cada personaje empieza con…", ["una raya en línea nueva", "dos puntos", "comillas"], "Diálogo."],
+    ["«Vamos a comer, niños» significa que…", ["hablamos a los niños", "comemos niños", "los niños cocinan"], "Coma."],
+    ["Las comillas sirven para…", ["copiar palabras exactas", "terminar una pregunta", "separar una lista"], "Comillas."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué quería Martín?", ["jugar al fútbol", "quedarse en clase", "hacer los deberes"], "Lectura."],
+    ["En inglés, las preguntas llevan signo…", ["solo al final", "solo al principio", "al principio y al final"], "Lenguas."],
+  ],
+  tarjetas: [
+    ["Sin mayúscula", "Días, meses, estaciones, idiomas y gentilicios."],
+    ["Abreviaturas", "Sr., Sra., Dr., pág., etc., n.º; símbolos sin punto: km, kg."],
+    ["Raya", "Diálogo: línea nueva, raya pegada; narrador en minúscula."],
+    ["Suspensivos y comillas", "… intriga o lista; « » palabras exactas y títulos."],
+  ],
+  glosario: [
+    ["Mayúscula", "Letra grande que se usa al empezar y en nombres propios."],
+    ["Minúscula", "Letra pequeña, la que usamos normalmente."],
+    ["Nombre propio", "Nombre de una persona, lugar o animal concreto."],
+    ["Abreviatura", "Forma corta de escribir una palabra."],
+    ["Símbolo", "Signo de una medida que se escribe sin punto, como km."],
+    ["Enumeración", "Lista de palabras separadas por comas."],
+    ["Diálogo", "Conversación entre personajes."],
+    ["Raya", "Signo largo (—) que introduce lo que dice un personaje."],
+    ["Puntos suspensivos", "Tres puntos que dejan algo sin terminar."],
+    ["Comillas", "Signos « » para palabras exactas o títulos."],
+    ["Entonación", "Forma de subir y bajar la voz al leer."],
+    ["Gentilicio", "Palabra que dice de dónde es alguien: español, italiano."],
+  ],
+  situacion: {
+    titulo: "El buzón de la clase",
+    reto: "La clase crea un buzón de mensajes. Cada alumno escribe notas y cartas a sus compañeros, y un equipo de correctores revisa que estén bien puntuadas.",
+    pasos: ["Escribir una nota a un compañero con fecha, saludo y firma.", "Revisar mayúsculas, días y meses en minúscula y abreviaturas.", "Escribir un pequeño diálogo con raya para el periódico de clase.", "Leer en voz alta algunas notas respetando los signos."],
+    producto: "Un buzón de clase con notas bien escritas y un diálogo publicado.",
+    evaluacion: ["Usa mayúscula y minúscula correctamente.", "Escribe bien las abreviaturas.", "Escribe diálogos con raya.", "Lee con la entonación que marcan los signos."],
+  },
+});
