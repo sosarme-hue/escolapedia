@@ -91,3 +91,97 @@ module.exports = tema({
   ideas: ["Soplo suave con un papelito delante.", "Eco de flauta por parejas.", "Inventar melodías de tres notas."],
   fuentes: [["Orquesta y Coro Nacionales de España: educación", "https://ocne.mcu.es/"], ["Museo de la Música de Barcelona", "https://www.museumusica.bcn.cat/"]],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Respirar bien para tocar la flauta", "Tocar las notas do agudo y re agudo", "Conocer la familia de las flautas dulces", "Tocar en grupo escuchando a los demás"],
+  lectura: { titulo: "El primer concierto de Daniela", html: `<p>Daniela lleva tres semanas aprendiendo a tocar la flauta dulce. Al principio, todo le salía mal: la flauta pitaba, los dedos no tapaban bien los agujeros y se quedaba sin aire enseguida.</p><p>—Es que soplas demasiado fuerte —le explicó su maestra—. La flauta necesita un soplo suave, como si empañaras un cristal.</p><p>Daniela practicó cada tarde un ratito: primero el si, luego el la, después el sol. Su perro Coco se tapaba las orejas con las patas, y toda la familia se reía.</p><p>Poco a poco, los pitidos desaparecieron. Un día, Daniela consiguió tocar entera su primera canción, con solo tres notas. Su hermano mayor aplaudió desde el sofá.</p><p>Al final del trimestre llegó el concierto del colegio. Daniela estaba nerviosa. Se colocó con su clase en el escenario, respiró hondo, como le habían enseñado, y miró a la maestra. Ella levantó la mano, y todos empezaron a la vez.</p><p>La canción sonó limpia y bonita. Daniela vio a sus padres en la tercera fila, grabando con el móvil.</p><p>Esa noche, Coco ya no se tapó las orejas. Se tumbó a sus pies mientras ella tocaba.</p>` },
+  tras: {
+    "El soplo y la lengua": [
+      ["La respiración del flautista", `<p>Para tocar bien la flauta, el <mark>aire</mark> es tan importante como los dedos. Un buen flautista sabe respirar.</p><p>Cómo respirar al tocar:</p><ul><li><b>Coge el aire por la boca</b>, rápido y en silencio, por un lado de la boquilla, sin quitar la flauta de los labios.</li><li>Llena la parte de abajo de los pulmones: notarás que se mueve la <b>tripa</b>, no los hombros. Esa respiración se llama <b>abdominal</b> o diafragmática.</li><li><b>Suelta el aire despacio</b> y de forma constante, para que el sonido no tiemble.</li></ul><p>¿Dónde respirar? En las partituras, a veces aparece una pequeña <b>coma</b> (’) encima del pentagrama: indica el lugar para coger aire. Si no hay, respiramos al final de una frase o en un silencio, nunca en medio de una palabra musical.</p><p>Ejercicios para entrenar el soplo:</p><ul><li>Soplar una <b>vela</b> encendida sin apagarla, solo haciendo que la llama se incline. (¡Siempre con un adulto!)</li><li>Mantener un papelito pegado a la pared soplando suave.</li><li>Soplar un sonido largo con la nota si mientras alguien cuenta hasta ocho.</li></ul><p><b>Actividad</b>: pon la mano en la tripa y respira. ¿Se mueve hacia fuera al coger aire?</p>`,
+        H6.flujo("Respirar", ["aire|por la boca", "se mueve|la tripa", "soltar|despacio", "respirar|en la coma"], cAZ)],
+    ],
+    "La nota sol": [
+      ["La nota do agudo", `<p>Ya sabemos tocar si, la y sol. Ahora vamos a aprender una nota <b>más aguda</b> que el si: el <mark>do agudo</mark>. En el pentagrama se escribe en el <b>tercer espacio</b>.</p><p>Posición (contando el pulgar como 0 y los dedos de la mano izquierda como 1, 2 y 3):</p><ul><li>Tapa el agujero de atrás con el <b>pulgar</b> (0).</li><li>Tapa el <b>segundo</b> agujero con el dedo <b>corazón</b> (2).</li><li>El primer agujero (dedo índice) queda <b>destapado</b>.</li></ul><p>Es una posición un poco rara, porque hay un agujero abierto entre dos tapados. Fíjate bien en no apoyar el dedo índice por costumbre.</p><p>Para que suene bien, el soplo debe ser <b>suave</b>, igual que para el si. Si soplas demasiado fuerte, pitará.</p><p>Ejercicios para practicar:</p><ul><li>Pasar de <b>si a do</b> y de do a si, despacio: el pulgar se queda quieto, solo cambian el índice y el corazón.</li><li>Tocar la escala que sube: sol, la, si, do.</li><li>Tocar la escala que baja: do, si, la, sol.</li></ul><p>Con cuatro notas ya podemos tocar muchas melodías nuevas.</p><p><b>Actividad</b>: toca este ejercicio en negras: sol, la, si, do | do, si, la, sol.</p>`,
+        L6.filas("Posiciones", [["si", "0 · 1", cAZ], ["la", "0 · 1 · 2", cVE], ["sol", "0 · 1 · 2 · 3", cNA], ["do agudo", "0 · 2", cRO]])],
+    ],
+    "Mis primeras melodías": [
+      ["La nota re agudo", `<p>Subimos un poco más: el <mark>re agudo</mark>. En el pentagrama se escribe en la <b>cuarta línea</b>.</p><p>Posición:</p><ul><li>El <b>pulgar</b> se <b>destapa</b>: el agujero de atrás queda abierto.</li><li>Solo se tapa el <b>segundo</b> agujero, con el dedo <b>corazón</b> (2).</li></ul><p>Es la primera nota en la que el pulgar no tapa nada. Por eso hay que sujetar bien la flauta con el resto de los dedos y con los labios, para que no se caiga.</p><p>Fíjate en la relación entre do y re agudos: los dos tienen el dedo corazón tapando el segundo agujero. Para pasar del do al re, <b>solo hay que levantar el pulgar</b>. ¡Es muy fácil!</p><p>El soplo debe ser un poquito más firme que para el do, pero sin exagerar.</p><p>Con cinco notas, <b>sol, la, si, do, re</b>, ya podemos tocar canciones conocidas, como el «Himno de la alegría» de Beethoven (en algunas versiones sencillas) o muchas canciones populares.</p><p>Consejo: practica cada nota nueva con un sonido largo antes de usarla en canciones, para que suene limpia y sin pitidos.</p><p><b>Actividad</b>: toca do, re, do, re… solo moviendo el pulgar. Después, toca la escala sol, la, si, do, re subiendo y bajando.</p>`,
+        L6.filas("Notas agudas", [["do agudo", "pulgar + 2", cRO], ["re agudo", "solo 2", cNA], ["truco", "do → re: quita el pulgar", cVE], ["5 notas", "sol la si do re", cAZ]])],
+    ],
+    "Cuidar la flauta": [
+      ["La familia de las flautas dulces", `<p>La flauta dulce que tocamos en clase se llama <b>flauta soprano</b>. Pero tiene toda una <mark>familia</mark> de hermanas de distintos tamaños:</p><ul><li><b>Sopranino</b>: la más pequeña y la más aguda.</li><li><b>Soprano</b>: la del colegio. Mide unos 30 centímetros.</li><li><b>Contralto</b>: un poco más grande y más grave.</li><li><b>Tenor</b>: más grande todavía. Tiene llaves para alcanzar los agujeros de abajo.</li><li><b>Bajo</b>: muy grande y grave. Se sopla por un tubo curvado.</li></ul><p>Recuerda la regla de los instrumentos de viento: cuanto más <b>largo</b> es el tubo, más <b>grave</b> suena.</p><p>La flauta dulce es un instrumento muy antiguo. Se tocaba mucho hace más de 400 años, en el <b>Renacimiento</b> y el <b>Barroco</b>, cuando se hacían conjuntos de flautas de todos los tamaños que sonaban como un coro. Compositores como Vivaldi o Bach escribieron música para ella.</p><p>Antes se hacían de <b>madera</b>. Hoy, las de los colegios suelen ser de <b>plástico</b>, más baratas y fáciles de lavar, aunque los profesionales siguen tocando flautas de madera.</p><p><b>Actividad</b>: busca un vídeo de un conjunto de flautas dulces y fíjate en los distintos tamaños.</p>`,
+        H6.rueda("Familia", "FLAUTAS", [["sopranino", cRO], ["soprano", cAZ], ["contralto", cVE], ["tenor y bajo", cNA]])],
+    ],
+    "Juego: el eco de la flauta": [
+      ["Tocar en grupo", `<p>Tocar la flauta <mark>en grupo</mark> es más difícil que tocar solo, pero también mucho más bonito. Para que suene bien, hay que tener en cuenta varias cosas:</p><ul><li><b>Empezar juntos</b>: todos miran al director o a la maestra. Ella levanta la mano para que cojan aire y, con un gesto, todos empiezan a la vez.</li><li><b>Escuchar a los demás</b>: no basta con tocar tu parte; tienes que oír a tus compañeros para ir al mismo tempo.</li><li><b>El mismo volumen</b>: si alguien sopla mucho más fuerte, se oye por encima de los demás y además pita.</li><li><b>Respirar en el mismo sitio</b>: así no hay huecos raros en la melodía.</li><li><b>Terminar juntos</b>: la última nota se corta cuando el director cierra la mano.</li></ul><p>Si te equivocas, <b>no te pares</b>: sigue contando y vuelve a entrar en cuanto puedas. En un grupo, la música no se detiene por un error.</p><p>Cuando la clase ya toca bien una melodía, se puede hacer un <b>canon</b>: un grupo empieza y, al rato, otro grupo empieza la misma melodía desde el principio.</p><p><b>Actividad</b>: tocad en clase una canción con un director y practicad empezar y terminar exactamente a la vez.</p>`,
+        L6.filas("En grupo", [["empezar", "mirar al director", cAZ], ["escuchar", "mismo tempo", cVE], ["volumen", "nadie destaca", cNA], ["error", "no parar", cRO]])],
+    ],
+  },
+  final: [
+    ["Flautas del mundo", `<p>La flauta es uno de los <mark>instrumentos más antiguos</mark> de la humanidad. Se han encontrado flautas hechas con huesos de pájaro de hace más de 35.000 años. Hoy hay flautas en casi todas las culturas:</p><ul><li>La <b>quena</b> (los Andes, en Perú y Bolivia): una flauta de caña con un sonido dulce y algo melancólico.</li><li>La <b>zampoña</b> o flauta de pan (los Andes): varios tubos de distinta longitud unidos en fila.</li><li>El <b>shakuhachi</b> (Japón): una flauta vertical de bambú, usada por monjes para meditar.</li><li>La <b>flauta travesera</b> (Europa): se toca de lado y forma parte de la orquesta.</li><li>El <b>txistu</b> (País Vasco): de tres agujeros, se toca con una sola mano.</li><li>El <b>bansuri</b> (India): una flauta travesera de bambú que aparece en muchas pinturas del dios Krishna.</li><li>La <b>ocarina</b>: con forma de huevo o de pájaro, de barro.</li></ul><p>Todas funcionan igual: el aire choca con un borde afilado y vibra dentro de un tubo. Pero cada cultura les ha dado su forma, su material y su manera de tocar.</p><p><b>Actividad</b>: elige una flauta del mundo, busca su sonido y señala en un mapa de dónde es.</p>`,
+      H6.dos("Flautas", ["AMÉRICA", ["quena", "zampoña"], cNA], ["ASIA", ["shakuhachi", "bansuri"], cAZ])],
+  ],
+  ejemplos: [
+    ["¿Qué cambia entre el do agudo y el re agudo?", ["Los dos tapan el agujero 2.", "El do tapa también el pulgar."], "Solo hay que levantar el pulgar."],
+    ["¿Dónde respiramos si hay una coma (’) encima del pentagrama?", ["La coma indica un sitio para coger aire.", "Respiramos justo ahí."], "En el lugar de la coma."],
+  ],
+  errores: ["Tapar también el primer agujero al tocar el do agudo.", "Pararse cuando uno se equivoca tocando en grupo."],
+  ejercicios: [
+    ["b", "¿Por dónde cogemos el aire al tocar?", "Por la boca, por un lado de la boquilla."],
+    ["b", "¿Dónde se escribe el do agudo?", "En el tercer espacio."],
+    ["b", "¿Qué agujero se tapa para el re agudo?", "Solo el segundo, con el dedo corazón."],
+    ["b", "¿Cómo se llama la flauta del colegio?", "Flauta soprano."],
+    ["b", "En la lectura, ¿qué hacía Coco al principio?", "Se tapaba las orejas."],
+    ["m", "Describe la posición del do agudo.", "Pulgar y segundo agujero tapados; el primero abierto."],
+    ["m", "¿Qué se mueve en la respiración abdominal?", "La tripa, no los hombros."],
+    ["m", "Ordena de aguda a grave: tenor, sopranino, soprano, bajo, contralto.", "Sopranino, soprano, contralto, tenor, bajo."],
+    ["m", "Da dos consejos para tocar en grupo.", "Mirar al director para empezar, escuchar a los demás, no soplar fuerte, no pararse."],
+    ["m", "Nombra dos flautas de los Andes.", "La quena y la zampoña."],
+    ["a", "¿Qué consejo ayuda a Daniela a mejorar y qué hace antes del concierto?", "Soplar suave; antes del concierto respira hondo y mira a la maestra."],
+    ["a", "Escribe y toca una melodía con sol, la, si, do y re.", "Respuesta abierta."],
+    ["a", "¿Por qué la flauta bajo suena más grave que la soprano?", "Porque su tubo es más largo."],
+    ["a", "Elige una flauta del mundo y explica de dónde es y cómo es.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El do agudo se toca tapando…", ["el pulgar y el agujero 2", "todos los agujeros", "solo el agujero 1"], "Do agudo."],
+    ["Para el re agudo, el pulgar…", ["queda destapado", "tapa su agujero", "tapa dos agujeros"], "Re agudo."],
+    ["La flauta más pequeña y aguda es la…", ["sopranino", "soprano", "bajo"], "Familia."],
+    ["La coma (’) en la partitura indica…", ["dónde respirar", "tocar fuerte", "repetir"], "Respiración."],
+    ["El shakuhachi es una flauta de…", ["Japón", "Perú", "Escocia"], "Mundo."],
+  ],
+  examen: [
+    ["En la lectura, ¿cómo debía ser el soplo según la maestra?", ["suave, como para empañar un cristal", "muy fuerte", "a golpes"], "Lectura."],
+    ["Las primeras flautas conocidas se hicieron con…", ["huesos de pájaro", "plástico", "metal"], "Historia."],
+  ],
+  tarjetas: [
+    ["Respirar", "Aire por la boca; respiración abdominal; soltar despacio; respirar en la coma."],
+    ["Do y re agudos", "Do: 0 y 2. Re: solo 2 (pulgar abierto)."],
+    ["Familia", "Sopranino, soprano, contralto, tenor, bajo."],
+    ["Flautas del mundo", "Quena, zampoña, shakuhachi, txistu, bansuri, ocarina."],
+  ],
+  glosario: [
+    ["Respiración abdominal", "Respirar moviendo la tripa, no los hombros."],
+    ["Coma de respiración", "Signo que indica dónde coger aire."],
+    ["Do agudo", "Nota en el tercer espacio del pentagrama."],
+    ["Re agudo", "Nota en la cuarta línea del pentagrama."],
+    ["Posición", "Forma de colocar los dedos para una nota."],
+    ["Flauta soprano", "Flauta dulce que se usa en el colegio."],
+    ["Renacimiento", "Época de la historia hace unos 500 años."],
+    ["Canon", "Varios grupos tocan la misma melodía empezando en momentos distintos."],
+    ["Quena", "Flauta andina de caña."],
+    ["Zampoña", "Flauta de pan de los Andes."],
+    ["Shakuhachi", "Flauta japonesa de bambú."],
+    ["Ocarina", "Flauta de barro con forma de huevo o de pájaro."],
+  ],
+  situacion: {
+    titulo: "El concierto de flautas",
+    reto: "La clase prepara un concierto de flauta dulce con canciones de cinco notas y una presentación sobre flautas del mundo.",
+    pasos: ["Practicar la respiración y el soplo suave con ejercicios.", "Aprender las posiciones de do y re agudos y tocar escalas.", "Ensayar dos canciones en grupo con un director, empezando y terminando juntos.", "Presentar el concierto con una pequeña exposición sobre flautas del mundo."],
+    producto: "Un concierto de flautas y un mural de flautas del mundo.",
+    evaluacion: ["Respira y sopla de forma adecuada.", "Toca sol, la, si, do y re con buen sonido.", "Toca en grupo siguiendo al director.", "Conoce la familia de la flauta dulce y flautas de otras culturas."],
+  },
+});

@@ -91,3 +91,98 @@ module.exports = tema({
   ideas: ["Adivinar instrumentos con los ojos cerrados.", "Construir instrumentos reciclados.", "Plano de la orquesta en la pizarra."],
   fuentes: [["Orquesta y Coro Nacionales de España: educación", "https://ocne.mcu.es/"], ["Museo de la Música de Barcelona", "https://www.museumusica.bcn.cat/"]],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Clasificar la cuerda en frotada, pulsada y percutida", "Distinguir viento madera y viento metal", "Conocer instrumentos electrónicos y tradicionales de España", "Construir instrumentos con materiales reciclados"],
+  lectura: { titulo: "El elefante que bailaba", html: `<p>La clase de 3.º A ha ido al auditorio de la ciudad a escuchar un concierto para escolares. El escenario está lleno de músicos con instrumentos brillantes.</p><p>Una presentadora sale al escenario: —Hoy vamos a escuchar «El carnaval de los animales», de un compositor francés llamado Camille Saint-Saëns. Cada instrumento será un animal. ¡A ver si los adivináis!</p><p>Primero entra el león: los pianos y la cuerda rugen con fuerza. Luego aparecen unas gallinas que cacarean con los violines: «co-co-co-co».</p><p>De pronto suena algo muy, muy grave y pesado: <i>pom… pom… pom…</i></p><p>—¡Un elefante! —grita Martina.</p><p>—¡Muy bien! —dice la presentadora—. Es el contrabajo, el instrumento más grave de la cuerda. Y fijaos: el elefante está bailando un vals, muy despacito.</p><p>Todos se ríen imaginando un elefante bailando.</p><p>Al final suena una melodía tranquila y preciosa: el violonchelo hace de cisne deslizándose por el lago, mientras dos pianos imitan el agua.</p><p>Al volver al colegio, Martina le dice a su maestra: —Cuando sea mayor, quiero tocar el violonchelo. Quiero ser un cisne.</p>` },
+  tras: {
+    "Cuerda: cuerdas que vibran": [
+      ["Frotada, pulsada y percutida", `<p>Todos los instrumentos de cuerda suenan porque una cuerda <b>vibra</b>. Pero hay tres formas distintas de hacerla vibrar:</p><ul><li><mark>Cuerda frotada</mark>: se frota la cuerda con un <b>arco</b>, una vara de madera con crines de caballo. Son el <b>violín</b>, la <b>viola</b>, el <b>violonchelo</b> y el <b>contrabajo</b>. Cuanto más grande es el instrumento, más grave suena.</li><li><mark>Cuerda pulsada</mark>: se pellizca la cuerda con los dedos o con una púa. Son la <b>guitarra</b>, el <b>arpa</b>, la <b>bandurria</b>, el <b>laúd</b> y el <b>ukelele</b>.</li><li><mark>Cuerda percutida</mark>: la cuerda se golpea con unos <b>martillos</b> pequeños. El ejemplo más conocido es el <b>piano</b>: al pulsar una tecla, un martillo forrado de fieltro golpea las cuerdas que hay dentro.</li></ul><p>Los violines también se pueden tocar pellizcando las cuerdas con los dedos, sin arco. Esa técnica se llama <b>pizzicato</b> y suena corta, como gotas de lluvia.</p><p>El tamaño de la cuerda también cambia el sonido: una cuerda <b>larga y gruesa</b> suena más grave, y una <b>corta y fina</b>, más aguda.</p><p><b>Actividad</b>: tensa una goma elástica entre tus dedos y pellízcala. ¿Qué tipo de cuerda es? ¿Cómo cambia el sonido si la estiras más?</p>`,
+        L6.filas("Cuerda", [["frotada", "violín, violonchelo", cRO], ["pulsada", "guitarra, arpa", cNA], ["percutida", "piano", cAZ], ["pizzicato", "pellizcar el violín", cVE]])],
+    ],
+    "Viento: aire que vibra": [
+      ["Viento madera y viento metal", `<p>Los instrumentos de viento se dividen en dos grupos. Lo curioso es que no se distinguen tanto por el material como por la <mark>forma de producir el sonido</mark>.</p><p><b>Viento madera</b>: el aire vibra al chocar con un <b>bisel</b> (un borde afilado) o al hacer vibrar una <b>lengüeta</b> (una lámina fina de caña).</p><ul><li>Con bisel: la <b>flauta travesera</b> y la <b>flauta dulce</b>.</li><li>Con lengüeta: el <b>clarinete</b>, el <b>oboe</b>, el <b>fagot</b> y el <b>saxofón</b>.</li></ul><p>¡Ojo! La flauta travesera y el saxofón son de metal, pero pertenecen al viento madera por cómo suenan.</p><p><b>Viento metal</b>: el músico hace vibrar los <b>labios</b> dentro de una <b>boquilla</b> con forma de copa, como si hiciera una pedorreta.</p><ul><li>La <b>trompeta</b>: la más aguda y brillante.</li><li>La <b>trompa</b>: con el tubo enrollado en círculo.</li><li>El <b>trombón</b>: con una vara que se alarga y se acorta.</li><li>La <b>tuba</b>: la más grande y grave.</li></ul><p>En los instrumentos de viento, el tubo más <b>largo</b> suena más <b>grave</b>. La tuba tiene más de cinco metros de tubo enrollado.</p><p><b>Actividad</b>: haz vibrar los labios como un trompetista y después sopla sobre el borde de una botella. ¿Qué familia imita cada sonido?</p>`,
+        H6.dos("Viento", ["MADERA", ["flauta", "clarinete", "saxofón"], cNA], ["METAL", ["trompeta", "trombón", "tuba"], cMO])],
+    ],
+    "Percusión: golpear, sacudir y raspar": [
+      ["Instrumentos electrónicos", `<p>Además de las tres familias tradicionales, hoy existen muchos instrumentos que producen o transforman el sonido con <mark>electricidad</mark>.</p><ul><li><b>Instrumentos eléctricos</b>: la <b>guitarra eléctrica</b> y el <b>bajo eléctrico</b> tienen cuerdas, pero su sonido es muy débil. Unos imanes, llamados pastillas, recogen la vibración y la envían a un <b>amplificador</b>, que la hace sonar fuerte.</li><li><b>Instrumentos electrónicos</b>: el <b>teclado</b> y el <b>sintetizador</b> no tienen cuerdas ni tubos. Fabrican el sonido con circuitos electrónicos, y pueden imitar un piano, un violín, una batería… ¡o crear sonidos nuevos que no existen en la naturaleza!</li><li>La <b>batería electrónica</b>: tiene placas de goma que, al golpearlas, activan sonidos grabados.</li><li>El <b>ordenador</b> y las <b>tabletas</b>: con programas y apps de música se puede componer, grabar y mezclar sin ningún instrumento físico.</li></ul><p>Los instrumentos electrónicos se usan mucho en la música pop, la música de las películas y los videojuegos.</p><p>Muchos músicos combinan instrumentos acústicos y electrónicos para crear sonidos nuevos.</p><p><b>Actividad</b>: con una app de música, crea un ritmo de batería de ocho tiempos.</p>`,
+        L6.filas("Electricidad", [["guitarra eléctrica", "amplificador", cRO], ["sintetizador", "crea sonidos", cMO], ["batería electrónica", "placas", cAZ], ["ordenador", "apps de música", cVE]])],
+    ],
+    "Los instrumentos del aula": [
+      ["Instrumentos tradicionales de España", `<p>Cada región de España tiene <mark>instrumentos tradicionales</mark> que acompañan sus fiestas, danzas y canciones:</p><ul><li><b>La gaita</b> (Galicia y Asturias): un instrumento de viento con un saco de piel o tela que se llena de aire. Suena en romerías y fiestas.</li><li><b>Las castañuelas</b> (en muchas regiones, sobre todo en Andalucía): dos piezas de madera que se hacen chocar con los dedos para acompañar el baile.</li><li><b>La dulzaina</b> (Castilla, Aragón, Valencia): una especie de oboe popular, de sonido muy potente, que suele ir acompañada del tamboril.</li><li><b>El txistu</b> (País Vasco): una flauta de tres agujeros que se toca con una mano mientras la otra toca un pequeño tambor.</li><li><b>La txalaparta</b> (País Vasco): tablones de madera que dos personas golpean con palos, como en un diálogo.</li><li><b>La bandurria</b> y el <b>laúd</b>: de cuerda pulsada, típicos de las rondallas y tunas.</li><li><b>El timple</b> (Canarias): una pequeña guitarra de cinco cuerdas.</li><li><b>La guitarra española</b>: conocida en todo el mundo gracias al flamenco y a la música clásica.</li></ul><p><b>Actividad</b>: busca qué instrumento tradicional se toca en tu comunidad y clasifícalo en su familia.</p>`,
+        H6.rueda("España", "TRADICIÓN", [["gaita", cAZ], ["castañuelas", cRO], ["txistu", cVE], ["timple", cNA]])],
+    ],
+    "La orquesta": [
+      ["El carnaval de los animales", `<p>Una forma muy divertida de conocer los instrumentos es escuchar <mark>«El carnaval de los animales»</mark>, una obra del compositor francés <b>Camille Saint-Saëns</b>, escrita en 1886. Tiene catorce partes cortas, y en cada una los instrumentos imitan a un animal:</p><ul><li><b>El león</b>: dos pianos y la cuerda rugen con fuerza. Es una marcha real.</li><li><b>Las gallinas y los gallos</b>: los violines y el piano cacarean con notas cortas y repetidas.</li><li><b>Las tortugas</b>: la famosa música del cancán, rapidísima, ¡pero tocada muy, muy despacio!</li><li><b>El elefante</b>: el <b>contrabajo</b>, el más grave de la cuerda, baila pesadamente un vals.</li><li><b>Los canguros</b>: los pianos saltan con notas rápidas y paradas.</li><li><b>El acuario</b>: suenan notas brillantes que imitan el agua y los peces.</li><li><b>El cisne</b>: el <b>violonchelo</b> toca una melodía lenta y preciosa sobre el agua de los pianos. Es la parte más famosa.</li></ul><p>Saint-Saëns la escribió como una broma musical para sus amigos y no quiso que se publicara mientras vivía, excepto «El cisne».</p><p><b>Actividad</b>: escucha «El elefante» y muévete como un elefante bailando un vals.</p>`,
+        L6.filas("Carnaval", [["león", "pianos y cuerda", cNA], ["elefante", "contrabajo", cAZ], ["cisne", "violonchelo", cMO], ["gallinas", "violines", cRO]]),
+        ["KCcf7GeBq-M", "Saint-Saëns: Elephant from The Carnival of the Animals", "Chicago Symphony", 246242]],
+    ],
+  },
+  final: [
+    ["Construimos instrumentos", `<p>Con materiales reciclados podemos <mark>construir instrumentos</mark> de las tres familias. ¡Y suenan de verdad!</p><p><b>Percusión</b>:</p><ul><li><b>Maracas</b>: una botella pequeña o un huevo de plástico con arroz, lentejas o arena dentro. Cada relleno suena distinto.</li><li><b>Tambor</b>: una lata o un bote de cacao con un globo cortado y bien tenso en la boca, sujeto con una goma.</li><li><b>Palo de lluvia</b>: un tubo de cartón con clavos o palillos atravesados y arroz dentro. Al girarlo suena como la lluvia.</li></ul><p><b>Cuerda</b>:</p><ul><li><b>Guitarra de caja</b>: una caja de zapatos con un agujero en la tapa y varias gomas de distinto grosor estiradas por encima. Las gomas gruesas suenan más graves.</li></ul><p><b>Viento</b>:</p><ul><li><b>Flauta de pan</b>: varias pajitas cortadas a distintas longitudes y pegadas en fila. Se sopla sobre el borde. Las pajitas largas suenan más graves.</li><li><b>Botellófono</b>: botellas de cristal con distintas cantidades de agua. Se sopla por encima o se golpean suavemente con una cuchara.</li></ul><p>Después de construirlos, podemos formar una <b>orquesta de reciclaje</b> y acompañar una canción.</p><p><b>Actividad</b>: construye un instrumento y explica a qué familia pertenece y cómo cambias su sonido.</p>`,
+      H6.dos("Reciclo", ["PERCUSIÓN", ["maracas", "tambor de lata", "palo de lluvia"], cRO], ["OTROS", ["guitarra de caja", "flauta de pan", "botellófono"], cAZ])],
+  ],
+  ejemplos: [
+    ["¿A qué tipo de cuerda pertenece el piano?", ["Las cuerdas del piano no se frotan ni se pellizcan.", "Unos martillos golpean las cuerdas."], "Cuerda percutida."],
+    ["¿Por qué el saxofón es de viento madera si está hecho de metal?", ["El grupo depende de cómo se produce el sonido.", "El saxofón tiene una lengüeta de caña."], "Porque suena con una lengüeta, como el clarinete."],
+  ],
+  errores: ["Clasificar la flauta travesera o el saxofón como viento metal por su material.", "Pensar que el piano es un instrumento de percusión sin cuerdas."],
+  ejercicios: [
+    ["b", "¿Con qué se toca el violín?", "Con un arco."],
+    ["b", "Nombra un instrumento de cuerda pulsada.", "Guitarra, arpa, bandurria, laúd o ukelele."],
+    ["b", "¿Cuál es el instrumento más grave del viento metal?", "La tuba."],
+    ["b", "¿De dónde es típica la gaita?", "De Galicia y Asturias."],
+    ["b", "En la lectura, ¿qué instrumento hace de elefante?", "El contrabajo."],
+    ["m", "¿Cómo suena un instrumento de viento metal?", "Vibrando los labios dentro de una boquilla."],
+    ["m", "¿Qué hace el amplificador de la guitarra eléctrica?", "Hace que el sonido débil de las cuerdas suene fuerte."],
+    ["m", "¿Qué es el pizzicato?", "Tocar el violín pellizcando las cuerdas con los dedos."],
+    ["m", "Clasifica: clarinete, trompeta, oboe, trombón.", "Madera: clarinete, oboe. Metal: trompeta, trombón."],
+    ["m", "¿Quién compuso «El carnaval de los animales»?", "Camille Saint-Saëns."],
+    ["a", "¿Por qué quiere Martina tocar el violonchelo?", "Porque le encanta «El cisne», que toca el violonchelo."],
+    ["a", "Explica cómo construir un tambor y una flauta de pan.", "Tambor: lata con un globo tenso. Flauta de pan: pajitas de distintas longitudes pegadas."],
+    ["a", "Compara un piano y un teclado electrónico.", "El piano tiene cuerdas y martillos; el teclado produce el sonido con circuitos y puede imitar otros instrumentos."],
+    ["a", "Busca un instrumento tradicional de tu comunidad y descríbelo.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El arpa es de cuerda…", ["pulsada", "frotada", "percutida"], "Cuerda."],
+    ["El clarinete pertenece al…", ["viento madera", "viento metal", "percusión"], "Viento."],
+    ["El sintetizador es un instrumento…", ["electrónico", "de cuerda frotada", "de viento"], "Electrónicos."],
+    ["El txistu es una flauta de…", ["tres agujeros", "ocho agujeros", "dos tubos"], "Tradicionales."],
+    ["En «El carnaval de los animales», el cisne lo toca…", ["el violonchelo", "la tuba", "el triángulo"], "Carnaval."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué baila el elefante?", ["un vals", "una jota", "un rock"], "Lectura."],
+    ["En una guitarra de caja, las gomas gruesas suenan…", ["más graves", "más agudas", "igual"], "Construir."],
+  ],
+  tarjetas: [
+    ["Cuerda", "Frotada (violín), pulsada (guitarra), percutida (piano)."],
+    ["Viento", "Madera: bisel o lengüeta. Metal: labios en la boquilla."],
+    ["Electrónicos y tradicionales", "Guitarra eléctrica, sintetizador; gaita, castañuelas, txistu, timple."],
+    ["Carnaval de los animales", "Saint-Saëns: león, elefante (contrabajo), cisne (violonchelo)."],
+  ],
+  glosario: [
+    ["Arco", "Vara con crines que frota las cuerdas."],
+    ["Cuerda pulsada", "Cuerda que se pellizca."],
+    ["Cuerda percutida", "Cuerda que se golpea con martillos."],
+    ["Pizzicato", "Pellizcar las cuerdas de un instrumento de arco."],
+    ["Lengüeta", "Lámina fina que vibra en algunos instrumentos de viento."],
+    ["Boquilla", "Pieza donde se apoyan los labios en el viento metal."],
+    ["Amplificador", "Aparato que hace más fuerte el sonido."],
+    ["Sintetizador", "Instrumento electrónico que crea sonidos."],
+    ["Gaita", "Instrumento de viento con un saco de aire."],
+    ["Txalaparta", "Instrumento vasco de tablones golpeados."],
+    ["Timple", "Pequeña guitarra canaria."],
+    ["Palo de lluvia", "Instrumento que imita el sonido de la lluvia."],
+  ],
+  situacion: {
+    titulo: "Nuestra orquesta de reciclaje",
+    reto: "La clase construye instrumentos de las tres familias con materiales reciclados y da un concierto inspirado en «El carnaval de los animales».",
+    pasos: ["Escuchar partes de «El carnaval de los animales» e identificar los instrumentos.", "Construir en grupos instrumentos de percusión, cuerda y viento.", "Elegir un animal para cada grupo e inventar una música que lo imite.", "Presentar el concierto explicando la familia de cada instrumento."],
+    producto: "Una orquesta de instrumentos reciclados y un concierto de animales.",
+    evaluacion: ["Clasifica los instrumentos en familias y subgrupos.", "Construye un instrumento y explica cómo cambia su sonido.", "Reconoce instrumentos en una audición.", "Coopera en la interpretación del grupo."],
+  },
+});

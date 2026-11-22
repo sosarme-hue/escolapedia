@@ -91,3 +91,97 @@ module.exports = tema({
   ideas: ["Paseo sonoro por el colegio con ficha de cualidades.", "Orquesta de objetos dirigida con gestos.", "Musicograma inventado de una pieza corta."],
   fuentes: [["Fundación Juan March: conciertos didácticos", "https://www.march.es/es/madrid/conciertos"], ["Orquesta y Coro Nacionales de España: educación", "https://ocne.mcu.es/"]],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Explicar cómo viaja el sonido", "Cuidar los oídos frente al ruido", "Usar los matices y el tempo en la música", "Reconocer los tipos de voz"],
+  lectura: { titulo: "La tormenta de Pablo", html: `<p>Era una tarde de verano en el pueblo. Pablo jugaba en el porche con su abuela cuando el cielo se puso oscuro de repente.</p><p>De pronto, un relámpago iluminó las montañas. Pablo se asustó y se tapó los oídos, esperando el trueno. Pero el trueno no llegó enseguida.</p><p>—Cuenta conmigo —le dijo su abuela—. Uno, dos, tres, cuatro, cinco, seis…</p><p>¡BRRRUM! El trueno retumbó en todo el valle.</p><p>—¿Por qué el trueno llega después? —preguntó Pablo.</p><p>—Porque la luz viaja muchísimo más rápido que el sonido —explicó la abuela—. Vemos el rayo casi al momento, pero el sonido tarda en llegar. Si cuentas los segundos y los divides entre tres, sabes a cuántos kilómetros está la tormenta.</p><p>Pablo hizo la cuenta: —¡Seis entre tres son dos! Está a dos kilómetros.</p><p>Con el siguiente relámpago contaron nueve segundos. —¡Tres kilómetros! ¡Se está alejando!</p><p>Pablo ya no tenía miedo. Ahora la tormenta era un juego de matemáticas y de sonidos. Escucharon juntos cómo la lluvia sonaba fuerte, luego más suave, hasta que solo quedó el goteo del tejado.</p>` },
+  tras: {
+    "¿Qué es el sonido?": [
+      ["¿Cómo viaja el sonido?", `<p>Cuando algo <b>vibra</b>, mueve el aire que lo rodea. Esas vibraciones se transmiten de unas partículas de aire a otras, como las <mark>ondas</mark> que se forman en un estanque cuando tiramos una piedra. Cuando llegan a nuestro oído, las oímos.</p><p>El sonido necesita un <b>medio</b> para viajar: aire, agua o un material sólido.</p><ul><li>En el <b>aire</b>, viaja a unos <b>340 metros por segundo</b>. ¡Muy rápido, pero mucho menos que la luz!</li><li>En el <b>agua</b>, viaja unas cuatro veces más rápido. Por eso las ballenas se comunican a grandes distancias.</li><li>En los <b>sólidos</b>, como la madera o el metal, todavía más rápido. Si pegas la oreja a una mesa y alguien da un golpecito en el otro extremo, lo oyes muy claro.</li><li>En el <b>espacio</b> no hay aire, así que <b>no hay sonido</b>. ¡Allí las explosiones serían silenciosas!</li></ul><p>Cuando el sonido choca con una pared lejana y vuelve, oímos el <b>eco</b>. Pasa en las montañas, en las cuevas o en un polideportivo vacío.</p><p><b>Actividad</b>: haz un teléfono con dos vasos de yogur y un hilo bien tenso. ¿Por qué se oye?</p>`,
+        H6.flujo("El sonido", ["algo|vibra", "el aire|vibra", "ondas|viajan", "el oído|lo recibe"], cAZ)],
+    ],
+    "Sonido, silencio y ruido": [
+      ["Cuidamos los oídos: el ruido", `<p>Cuando hay demasiado ruido en un lugar, hablamos de <mark>contaminación acústica</mark>. El tráfico, las obras, la música muy alta o los gritos en el comedor son ejemplos.</p><p>La intensidad del sonido se mide en <b>decibelios</b> (dB):</p><ul><li>Un susurro: unos 30 dB.</li><li>Una conversación normal: unos 60 dB.</li><li>Una calle con mucho tráfico: unos 80 dB.</li><li>Una moto sin silenciador o un concierto muy fuerte: más de 100 dB.</li></ul><p>Escuchar sonidos muy fuertes durante mucho tiempo puede <b>dañar el oído</b> para siempre. Además, el ruido nos pone nerviosos, nos cansa y no nos deja concentrarnos ni descansar.</p><p>Cómo cuidar los oídos:</p><ul><li>Con <b>auriculares</b>, no pongas el volumen a más de la mitad y haz descansos.</li><li>Aléjate de los altavoces en fiestas y conciertos.</li><li>En clase y en el comedor, habla sin gritar: si todos bajamos la voz, todos nos oímos mejor.</li><li>No metas objetos en las orejas.</li></ul><p>El <b>silencio</b> también es un regalo: nos permite escuchar, pensar y descansar.</p><p><b>Actividad</b>: con un medidor de sonido (hay apps gratuitas), mide el ruido de tu clase en distintos momentos del día.</p>`,
+        L6.filas("Decibelios", [["susurro", "30 dB", cVE], ["conversación", "60 dB", cAZ], ["tráfico", "80 dB", cNA], ["concierto fuerte", "+100 dB", cRO]])],
+    ],
+    "La intensidad: fuerte y suave": [
+      ["Los matices: piano, forte y crescendo", `<p>En las partituras, la intensidad se indica con unas palabras en <b>italiano</b> llamadas <mark>matices</mark>. Se escriben debajo del pentagrama, abreviadas:</p><ul><li><b>pp</b> — <i>pianissimo</i>: muy suave.</li><li><b>p</b> — <i>piano</i>: suave.</li><li><b>mf</b> — <i>mezzoforte</i>: medio fuerte.</li><li><b>f</b> — <i>forte</i>: fuerte.</li><li><b>ff</b> — <i>fortissimo</i>: muy fuerte.</li></ul><p>Cuando la intensidad cambia poco a poco, se usan dos signos con forma de ángulo:</p><ul><li><b>Crescendo</b> (&lt;): de suave a fuerte, poco a poco, como un tren que se acerca.</li><li><b>Diminuendo</b> (&gt;): de fuerte a suave, poco a poco, como un tren que se aleja.</li></ul><p>¿Sabías que el instrumento <b>piano</b> se llamaba al principio <i>pianoforte</i>? Se le puso ese nombre porque, a diferencia de los instrumentos de teclado anteriores, podía tocar suave y fuerte según la fuerza con la que se pulsaban las teclas.</p><p>Los matices dan emoción a la música: una canción de cuna se canta <i>piano</i>, y un himno de victoria, <i>forte</i>.</p><p><b>Actividad</b>: canta una canción haciendo un crescendo y después un diminuendo.</p>`,
+        L6.filas("Matices", [["pp", "muy suave", cAZ], ["p", "suave", cVE], ["f", "fuerte", cNA], ["ff", "muy fuerte", cRO]])],
+    ],
+    "El timbre: la voz de cada sonido": [
+      ["El timbre de la voz: tipos de voz", `<p>Cada persona tiene una <mark>voz única</mark>, con su propio timbre. Por eso reconocemos a nuestros amigos por teléfono sin verlos.</p><p>En el canto, las voces se clasifican según lo agudas o graves que son:</p><ul><li>Voces de <b>mujer</b>, de más aguda a más grave: <b>soprano</b>, <b>mezzosoprano</b> y <b>contralto</b>.</li><li>Voces de <b>hombre</b>, de más aguda a más grave: <b>tenor</b>, <b>barítono</b> y <b>bajo</b>.</li></ul><p>Los niños y las niñas tienen una <b>voz blanca</b>: aguda y clara, parecida a la de soprano. En la adolescencia, la voz de los chicos cambia y se vuelve más grave: es la <b>muda de la voz</b>.</p><p>La voz se produce en la <b>laringe</b>, en el cuello, donde están las <b>cuerdas vocales</b>. Cuando hablamos o cantamos, el aire de los pulmones las hace vibrar. ¡Pon la mano en tu cuello y canta: notarás la vibración!</p><p>Para cuidar la voz:</p><ul><li>No grites.</li><li>Bebe agua.</li><li>Calienta la voz antes de cantar.</li><li>Descansa la voz cuando estés afónico.</li></ul><p><b>Actividad</b>: con los ojos cerrados, reconoce a tres compañeros solo por su voz.</p>`,
+        H6.dos("Voces", ["MUJER", ["soprano", "mezzosoprano", "contralto"], cRO], ["HOMBRE", ["tenor", "barítono", "bajo"], cAZ])],
+    ],
+    "Escuchar con atención": [
+      ["El paisaje sonoro", `<p>Cada lugar tiene sus sonidos característicos. El conjunto de sonidos de un lugar se llama <mark>paisaje sonoro</mark>.</p><ul><li>En un <b>bosque</b>: pájaros, viento en las hojas, un arroyo, crujir de ramas.</li><li>En la <b>playa</b>: olas, gaviotas, gente riendo, el viento.</li><li>En la <b>ciudad</b>: coches, bocinas, pasos, una sirena, conversaciones.</li><li>En el <b>colegio</b>: el timbre, el recreo, una puerta, una flauta lejana.</li></ul><p>Para escuchar un paisaje sonoro:</p><ul><li><b>1.</b> Cierra los ojos y quédate en silencio un minuto.</li><li><b>2.</b> Intenta distinguir cada sonido y de dónde viene: cerca o lejos, derecha o izquierda.</li><li><b>3.</b> Piensa en sus cualidades: ¿es agudo o grave?, ¿largo o corto?, ¿fuerte o suave?</li></ul><p>Podemos <b>grabar</b> un paisaje sonoro con una tableta y después adivinar de qué lugar se trata. También podemos hacer un <b>mapa sonoro</b>: un dibujo del lugar con símbolos de los sonidos que hay en cada parte.</p><p>Muchos compositores se han inspirado en paisajes sonoros: Vivaldi imitó pájaros y tormentas en «Las cuatro estaciones».</p><p><b>Actividad</b>: haz un mapa sonoro del patio del colegio durante el recreo.</p>`,
+        H6.rueda("Paisaje", "ESCUCHAR", [["bosque", cVE], ["playa", cAZ], ["ciudad", cRO], ["colegio", cNA]])],
+    ],
+  },
+  final: [
+    ["El tempo: rápido y lento", `<p>Además de las cualidades del sonido, hay otro elemento muy importante en la música: la <mark>velocidad</mark> a la que se toca, que se llama <b>tempo</b>.</p><p>También se indica con palabras en <b>italiano</b>, al principio de la partitura:</p><ul><li><b>Adagio</b>: lento, tranquilo.</li><li><b>Andante</b>: al paso, como caminando.</li><li><b>Allegro</b>: rápido y alegre.</li><li><b>Presto</b>: muy rápido.</li></ul><p>Y cuando la velocidad cambia poco a poco:</p><ul><li><b>Accelerando</b>: cada vez más rápido, como un tren que arranca.</li><li><b>Ritardando</b>: cada vez más lento, como al final de muchas canciones.</li></ul><p>Para medir el tempo exacto, los músicos usan el <b>metrónomo</b>, un aparato que marca el pulso con un «tic, tic» a la velocidad que elijamos.</p><p>El tempo cambia mucho el carácter de una música: la misma melodía tocada <i>adagio</i> puede sonar triste, y tocada <i>allegro</i>, alegre.</p><p>Fíjate que tempo e intensidad son cosas distintas: una música puede ser rápida y suave a la vez, o lenta y fuerte.</p><p><b>Actividad</b>: canta una canción conocida en <i>adagio</i>, en <i>allegro</i> y en <i>presto</i>. ¿Cuál te gusta más?</p>`,
+      L6.filas("Tempo", [["adagio", "lento", cAZ], ["andante", "al paso", cVE], ["allegro", "rápido", cNA], ["presto", "muy rápido", cRO]])],
+  ],
+  ejemplos: [
+    ["Ves un rayo y cuentas 12 segundos hasta el trueno. ¿A cuántos kilómetros está la tormenta?", ["El sonido recorre un kilómetro en unos 3 segundos.", "Dividimos 12 entre 3."], "A unos 4 kilómetros."],
+    ["En la partitura pone «pp». ¿Cómo tocamos?", ["pp es pianissimo.", "Significa muy suave."], "Muy suave."],
+  ],
+  errores: ["Confundir el tempo (rápido o lento) con la intensidad (fuerte o suave).", "Pensar que el «piano» de los matices significa tocar el instrumento piano."],
+  ejercicios: [
+    ["b", "¿Qué necesita el sonido para viajar?", "Un medio: aire, agua o un sólido."],
+    ["b", "¿En qué unidad se mide la intensidad del sonido?", "En decibelios."],
+    ["b", "¿Qué significa «forte»?", "Fuerte."],
+    ["b", "¿Cómo se llama la voz de los niños?", "Voz blanca."],
+    ["b", "En la lectura, ¿por qué el trueno llega después del rayo?", "Porque la luz viaja más rápido que el sonido."],
+    ["m", "¿Por qué no hay sonido en el espacio?", "Porque no hay aire que vibre."],
+    ["m", "Da dos consejos para cuidar los oídos.", "Volumen bajo en los auriculares, alejarse de los altavoces, no gritar."],
+    ["m", "Explica qué es un crescendo.", "Ir de suave a fuerte poco a poco."],
+    ["m", "Ordena las voces de hombre de aguda a grave.", "Tenor, barítono, bajo."],
+    ["m", "¿Qué significa «allegro»?", "Rápido y alegre."],
+    ["a", "¿Cómo pierde Pablo el miedo a la tormenta?", "Contando los segundos y calculando la distancia; la tormenta se convierte en un juego."],
+    ["a", "Haz un mapa sonoro de un lugar de tu casa o tu barrio.", "Respuesta abierta."],
+    ["a", "Explica la diferencia entre tempo e intensidad con un ejemplo.", "El tempo es la velocidad y la intensidad la fuerza; una música puede ser rápida y suave."],
+    ["a", "¿Por qué el piano se llamaba pianoforte?", "Porque podía tocar suave y fuerte según la fuerza con que se pulsaban las teclas."],
+  ],
+  quiz: [
+    ["El sonido en el aire viaja a unos…", ["340 metros por segundo", "3 metros por segundo", "300.000 km por segundo"], "Sonido."],
+    ["Una conversación normal tiene unos…", ["60 dB", "120 dB", "5 dB"], "Ruido."],
+    ["El signo de diminuendo indica…", ["de fuerte a suave poco a poco", "de suave a fuerte", "más rápido"], "Matices."],
+    ["La voz femenina más aguda es…", ["soprano", "contralto", "tenor"], "Voces."],
+    ["«Adagio» significa…", ["lento", "muy rápido", "fuerte"], "Tempo."],
+  ],
+  examen: [
+    ["En la lectura, si cuentan 9 segundos, ¿a qué distancia está la tormenta?", ["a 3 kilómetros", "a 9 kilómetros", "a 1 kilómetro"], "Lectura."],
+    ["¿Dónde están las cuerdas vocales?", ["en la laringe", "en los pulmones", "en la boca"], "Voz."],
+  ],
+  tarjetas: [
+    ["Sonido", "Vibración que viaja en ondas por un medio; 340 m/s en el aire; eco."],
+    ["Ruido", "Contaminación acústica; decibelios; cuidar los oídos."],
+    ["Matices", "pp, p, mf, f, ff; crescendo y diminuendo."],
+    ["Voz y tempo", "Soprano, contralto, tenor, bajo; adagio, andante, allegro, presto."],
+  ],
+  glosario: [
+    ["Onda sonora", "Vibración que se transmite por el aire."],
+    ["Medio", "Material por el que viaja el sonido."],
+    ["Eco", "Sonido que rebota y vuelve."],
+    ["Decibelio", "Unidad para medir la intensidad del sonido."],
+    ["Contaminación acústica", "Exceso de ruido en un lugar."],
+    ["Matiz", "Indicación de la intensidad en la partitura."],
+    ["Crescendo", "Aumentar la intensidad poco a poco."],
+    ["Cuerdas vocales", "Pliegues de la laringe que vibran al hablar."],
+    ["Voz blanca", "Voz aguda de los niños."],
+    ["Paisaje sonoro", "Conjunto de sonidos de un lugar."],
+    ["Tempo", "Velocidad de la música."],
+    ["Metrónomo", "Aparato que marca el pulso."],
+  ],
+  situacion: {
+    titulo: "Detectives del sonido",
+    reto: "La clase investiga los sonidos del colegio: mide el ruido, graba paisajes sonoros y propone mejoras para un colegio más tranquilo.",
+    pasos: ["Medir con una app los decibelios en clase, en el pasillo, en el comedor y en el patio.", "Grabar un paisaje sonoro de cada lugar y hacer un mapa sonoro.", "Interpretar una canción con matices y tempos diferentes.", "Hacer un cartel con propuestas para reducir el ruido en el comedor."],
+    producto: "Un informe con mediciones, mapas sonoros y un cartel de propuestas.",
+    evaluacion: ["Explica cómo viaja el sonido.", "Mide y compara intensidades y propone cómo cuidar los oídos.", "Interpreta matices y tempos.", "Reconoce tipos de voz y timbres."],
+  },
+});
