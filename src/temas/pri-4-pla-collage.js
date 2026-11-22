@@ -94,3 +94,91 @@ module.exports = tema({
   ideas: ["Zoo fantástico de collage expuesto en el pasillo.", "Collage táctil por parejas con distintas texturas.", "Papeles recortados al estilo de Matisse con témpera y tijeras."],
   fuentes: [["Museo Nacional Centro de Arte Reina Sofía: educación", "https://www.museoreinasofia.es/educacion"], ["Fundació Joan Miró: educación", "https://www.fmirobcn.org/es/educacion/"]],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer artistas que usaron el collage y el fotomontaje", "Crear un mosaico de papel y conocer el trencadís", "Descubrir cómo ilustra Eric Carle con papeles pintados", "Componer retratos con objetos al estilo de Arcimboldo"],
+  lectura: { titulo: "La oruga de papel", html: `<p>La biblioteca del colegio tenía un rincón de cuentos para los pequeños. Allí, Iker encontró un libro que había leído mil veces cuando tenía tres años: <b>«La pequeña oruga glotona»</b>.</p><p>Esta vez lo miró de otra manera. Las hojas verdes, el sol rojo, el cuerpo de la oruga… Todo parecía hecho con <b>trozos de papel</b>. Y los papeles no eran lisos: tenían pinceladas, manchas, rayas y salpicaduras.</p><p>Se lo enseñó a su profesora de Plástica, Noelia.</p><p>—¡Qué buen ojo! —dijo ella—. El autor, <b>Eric Carle</b>, primero pintaba hojas de papel fino con colores y texturas. Luego las guardaba en cajones, ordenadas por colores. Cuando necesitaba una oruga, buscaba los papeles verdes, recortaba círculos y los pegaba. Era como pintar con tijeras.</p><p>—¿Y nosotros podemos hacerlo?</p><p>Al día siguiente, la clase se convirtió en un taller. Pintaron papeles de seda y folios con témpera usando peines, esponjas, cepillos de dientes y tenedores. Los dejaron secar en una cuerda como si fuera ropa tendida.</p><p>Una semana después, cada alumno tenía su propio «cajón de papeles». Iker recortó un caracol con una concha de espiral naranja y amarilla. Su compañera Aina hizo un pez con escamas de todos los azules del mar.</p><p>Con todos los animales hicieron un libro gigante. Lo llevaron a la biblioteca, justo al lado del libro de la oruga.</p>` },
+  tras: {
+    "Un poco de historia": [
+      ["Grandes artistas del collage", `<p>Después de Picasso y Braque, muchos <mark>artistas</mark> convirtieron el collage en su forma principal de crear:</p><ul><li><b>Hannah Höch</b> (Alemania) fue una de las inventoras del <b>fotomontaje</b>, hace unos cien años. Recortaba fotos de revistas y periódicos y las combinaba para crear personajes y escenas sorprendentes, muchas veces con humor y crítica.</li><li><b>Kurt Schwitters</b> (Alemania) recogía de la calle billetes de tranvía, envoltorios, botones, etiquetas y trozos de madera y los pegaba en sus obras. Llamaba a su arte <b>«Merz»</b>, una palabra sacada de un recorte de periódico. ¡Incluso convirtió su casa entera en una obra de collage!</li><li><b>Henri Matisse</b> (Francia), como ya sabes, pintaba con tijeras con sus papeles recortados.</li><li><b>Romare Bearden</b> (Estados Unidos) contaba la vida de su barrio con collages llenos de color y de música de jazz.</li><li><b>Eric Carle</b>, ilustrador de libros infantiles, hizo todas sus ilustraciones con collage de papeles pintados.</li></ul><p>Cada uno usó el collage a su manera: para hacer reír, para protestar, para recordar o para contar historias. Eso demuestra que el collage es una técnica con infinitas posibilidades.</p>`,
+        L6.filas("Artistas", [["Hannah Höch", "fotomontaje", cRO], ["Kurt Schwitters", "Merz, objetos", cAZ], ["Matisse", "tijeras", cNA], ["Eric Carle", "papel pintado", cVE]])],
+    ],
+    "Recortar y rasgar": [
+      ["El mosaico de papel", `<p>Un <mark>mosaico</mark> es una imagen formada con muchas piezas pequeñas colocadas una junto a otra. Cada pieza se llama <b>tesela</b>. Es una técnica muy antigua: los <b>romanos</b> decoraban los suelos de sus casas con mosaicos de piedrecitas de colores, y en España se conservan muchos, como los de Mérida o Itálica.</p><p>Podemos hacer un mosaico con <b>papel</b>:</p><ul><li><b>1.</b> Dibuja con lápiz un contorno sencillo: un pez, una flor, un sol, una letra.</li><li><b>2.</b> Corta tiras de papel de colores (cartulina, revistas, papel charol) y luego córtalas en <b>cuadraditos</b> de más o menos un centímetro. O rásgalos para un efecto más suelto.</li><li><b>3.</b> Separa las teselas por colores en vasitos o platos.</li><li><b>4.</b> Pon cola en una zona pequeña y ve colocando las teselas una a una, dejando un <b>hueco</b> fino entre ellas, como las juntas de un azulejo.</li><li><b>5.</b> Rellena primero el contorno de la figura y luego el interior. Al final, el fondo con otro color.</li></ul><p>Un tipo especial de mosaico es el <b>trencadís</b>, que usaba <b>Gaudí</b>: en lugar de teselas cuadradas, usaba trozos rotos de azulejos, platos y botellas. ¡Es reciclaje convertido en arte! Lo puedes ver en el banco ondulado del Parque Güell de Barcelona.</p>`,
+        H6.flujo("Mosaico", ["dibujar|contorno", "cortar|teselas", "separar|por colores", "pegar|con juntas"], cNA), ["umfTPyE0R8Y", "Mosaico de papel para niños", "Maribel Gonzales Rios", 295734]],
+    ],
+    "Fotomontaje y collage de revistas": [
+      ["El collage digital", `<p>Hoy también se puede hacer collage con el <mark>ordenador</mark> o la tableta. Se llama <b>collage digital</b>. En lugar de tijeras y pegamento, usamos programas o aplicaciones de dibujo y edición de imágenes.</p><p>Las herramientas básicas son:</p><ul><li><b>Recortar</b>: seleccionar una parte de una imagen y separarla del fondo.</li><li><b>Capas</b>: como hojas transparentes colocadas una encima de otra. Lo que está en la capa de arriba tapa lo de abajo, igual que al superponer papeles.</li><li><b>Mover, girar y cambiar el tamaño</b> de cada pieza.</li><li><b>Cambiar los colores</b> o la transparencia.</li><li><b>Deshacer</b>: ¡una gran ventaja frente al pegamento!</li></ul><p>Con el collage digital se pueden hacer carteles, portadas de libros, postales o tarjetas de felicitación.</p><p>Muy importante: cuando uses imágenes de internet, debes respetar los <b>derechos de autor</b>. Usa fotos que hayas hecho tú, dibujos propios o bancos de imágenes libres. Y nunca uses fotos de otras personas sin su permiso.</p><p>Aunque el ordenador es muy útil, el collage con papel tiene algo que el digital no tiene: se puede <b>tocar</b>, tiene texturas reales y cada pieza es única.</p>`,
+        H6.dos("Collage", ["PAPEL", ["tijeras y cola", "texturas reales", "pieza única"], cNA], ["DIGITAL", ["capas", "deshacer", "derechos de autor"], cAZ])],
+    ],
+  },
+  final: [
+    ["Eric Carle: ilustrar con papeles pintados", `<p><mark>Eric Carle</mark> (1929-2021) fue un ilustrador y escritor estadounidense. Su libro más famoso, <b>«La pequeña oruga glotona»</b> (1969), se ha traducido a más de sesenta idiomas y lo han leído millones de niños en todo el mundo.</p><p>Su técnica tenía dos fases:</p><ul><li><b>1. Pintar los papeles</b>: usaba papel de seda fino y lo pintaba con pintura acrílica. No lo pintaba liso: hacía rayas, manchas, puntos, salpicaduras y remolinos con pinceles anchos, esponjas, peines o incluso con los dedos. Así conseguía papeles con mucha <b>textura</b> y variedad.</li><li><b>2. Recortar y pegar</b>: guardaba los papeles ordenados por colores en cajones. Cuando ilustraba, elegía los papeles, recortaba las formas y las pegaba sobre una cartulina blanca. A veces añadía detalles con lápices de colores.</li></ul><p>Sus animales parecen simples, pero están llenos de vida gracias a las texturas. Además, muchos de sus libros tienen <b>agujeros</b>, solapas o páginas de distintos tamaños para que los niños jueguen con ellos.</p><p>Puedes probar su técnica: pinta varios folios con témpera usando objetos de casa, déjalos secar y recorta un animal.</p>`,
+      L6.filas("Técnica de Carle", [["papel de seda", "pintado", cVE], ["texturas", "peines, esponjas", cNA], ["cajones", "por colores", cAZ], ["recortar", "y pegar", cRO]]), ["zqqtq1UaTiE", "Eric Carle en su estudio", "Gerstenberg Verlag", 272401]],
+    ["Arcimboldo: retratos con frutas", `<p><mark>Giuseppe Arcimboldo</mark> fue un pintor italiano del siglo XVI que trabajó para los emperadores de la familia Habsburgo en Viena y en Praga. Es famoso por unos <b>retratos</b> muy originales: las caras no están pintadas como caras, sino formadas por <b>objetos</b>.</p><ul><li>En la serie <b>«Las cuatro estaciones»</b>, cada estación es una cabeza hecha con lo típico de esa época: la primavera, con flores; el verano, con frutas y espigas; el otoño, con uvas y calabazas; y el invierno, con un tronco viejo y raíces.</li><li>En <b>«Vertumno»</b>, retrató al emperador Rodolfo II como el dios romano de las estaciones, con la cara hecha de frutas, verduras y flores: una pera por nariz, guisantes por dientes…</li><li>También pintó «El bibliotecario», hecho con libros, y «El cocinero», que, si se gira, es una fuente con carne asada.</li></ul><p>Aunque son pinturas, la idea es muy parecida al collage: <b>combinar elementos</b> para que juntos formen una imagen nueva. De lejos vemos una cara; de cerca, vemos los objetos.</p><p>Muchos siglos después, los surrealistas, como Dalí, admiraron mucho a Arcimboldo.</p>`,
+      H6.rueda("Arcimboldo", "RETRATO", [["flores", cMO], ["frutas", cRO], ["libros", cAZ], ["raíces", cNA]]), ["dLqwBf_tzWk", "El pintor Arcimboldo y su singular estilo de retrato", "Smithsonian Magazine", 133350]],
+  ],
+  ejemplos: [
+    ["Quieres hacer un mosaico de un sol. ¿Por dónde empiezas a pegar?", ["Primero se marca bien la forma.", "Luego se rellena el interior y al final el fondo."], "Por el contorno del sol."],
+    ["En un collage digital, quieres que una nube tape el sol. ¿Dónde pones la nube?", ["Lo de arriba tapa lo de abajo.", "La nube va en una capa superior."], "En una capa por encima del sol."],
+  ],
+  errores: ["Pegar las teselas del mosaico sin dejar juntas: se pierde el efecto de mosaico.", "Usar fotos de internet o de otras personas sin permiso en un collage digital."],
+  ejercicios: [
+    ["b", "¿Qué es una tesela?", "Cada pieza pequeña de un mosaico."],
+    ["b", "¿Quién inventó el fotomontaje?", "Hannah Höch, entre otros."],
+    ["b", "¿Qué es el trencadís?", "Un mosaico con trozos rotos de azulejos, que usaba Gaudí."],
+    ["b", "¿Cuál es el libro más famoso de Eric Carle?", "«La pequeña oruga glotona»."],
+    ["b", "¿Con qué formaba Arcimboldo sus retratos?", "Con frutas, flores, libros y otros objetos."],
+    ["m", "¿Qué son las capas en un collage digital?", "Hojas transparentes superpuestas."],
+    ["m", "¿Cómo llamaba Kurt Schwitters a su arte?", "Merz."],
+    ["m", "Explica las dos fases de la técnica de Eric Carle.", "Pintar papeles con texturas y luego recortarlos y pegarlos."],
+    ["m", "¿En qué se parece la obra de Arcimboldo al collage?", "En que combina elementos para formar una imagen nueva."],
+    ["m", "¿Dónde puedes ver mosaicos romanos en España?", "En Mérida o Itálica, por ejemplo."],
+    ["a", "Crea un mosaico de papel con una figura sencilla.", "Respuesta abierta."],
+    ["a", "Pinta papeles con texturas y haz un animal como Eric Carle.", "Respuesta abierta."],
+    ["a", "Compón un retrato con recortes de frutas y verduras.", "Respuesta abierta."],
+    ["a", "Haz un collage digital con fotos propias.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Gaudí usaba el…", ["trencadís", "fotomontaje", "grabado"], "Mosaico."],
+    ["Eric Carle pintaba primero…", ["papel de seda", "paredes", "lienzos enormes"], "Carle."],
+    ["Kurt Schwitters pegaba…", ["objetos de la calle", "solo fotos", "hojas de árboles"], "Artistas."],
+    ["En el collage digital, lo de arriba…", ["tapa lo de abajo", "desaparece", "se borra"], "Digital."],
+    ["«Vertumno» es un retrato de…", ["Rodolfo II", "Felipe IV", "Napoleón"], "Arcimboldo."],
+  ],
+  examen: [
+    ["En la lectura, ¿con qué pintaron los papeles?", ["con peines, esponjas y cepillos", "solo con lápices", "con rotuladores"], "Lectura."],
+    ["¿Qué serie de Arcimboldo representa el año?", ["Las cuatro estaciones", "Los girasoles", "Las Meninas"], "Arcimboldo."],
+  ],
+  tarjetas: [
+    ["Artistas del collage", "Hannah Höch, Schwitters, Matisse, Bearden, Carle."],
+    ["Mosaico", "Teselas con juntas; romanos; trencadís de Gaudí."],
+    ["Collage digital", "Capas, recortar, deshacer; derechos de autor."],
+    ["Carle y Arcimboldo", "Papeles pintados; retratos con frutas y objetos."],
+  ],
+  glosario: [
+    ["Fotomontaje", "Collage hecho con fotografías."],
+    ["Merz", "Nombre que daba Schwitters a su arte."],
+    ["Mosaico", "Imagen formada con piezas pequeñas."],
+    ["Tesela", "Cada pieza de un mosaico."],
+    ["Junta", "Espacio entre las teselas."],
+    ["Trencadís", "Mosaico con trozos rotos de cerámica."],
+    ["Collage digital", "Collage hecho con el ordenador."],
+    ["Capa", "Lámina transparente en un programa de imagen."],
+    ["Derechos de autor", "Derechos de quien crea una obra."],
+    ["Papel de seda", "Papel muy fino y translúcido."],
+    ["Ilustrador", "Artista que hace dibujos para libros."],
+    ["Arcimboldo", "Pintor de retratos formados con objetos."],
+  ],
+  situacion: {
+    titulo: "Nuestro libro ilustrado",
+    reto: "La clase crea un libro ilustrado con distintas técnicas de collage para la biblioteca.",
+    pasos: ["Inventar entre todos una historia sencilla con animales.", "Pintar papeles con texturas al estilo de Eric Carle.", "Ilustrar cada página con una técnica: collage de papeles, mosaico o retrato tipo Arcimboldo.", "Encuadernar el libro y presentarlo en la biblioteca."],
+    producto: "Un libro ilustrado con collage.",
+    evaluacion: ["Conoce artistas del collage.", "Hace un mosaico con cuidado.", "Crea papeles con texturas.", "Compone imágenes combinando elementos."],
+  },
+});

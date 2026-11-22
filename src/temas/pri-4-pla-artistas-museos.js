@@ -93,3 +93,91 @@ module.exports = tema({
   ideas: ["Museo del aula con obras inspiradas en artistas y alumnos guía.", "Visita virtual a la web del Museo del Prado con las preguntas guía.", "Juego de clasificar reproducciones por géneros."],
   fuentes: [["Museo Nacional del Prado", "https://www.museodelprado.es/"], ["Museo Nacional Centro de Arte Reina Sofía", "https://www.museoreinasofia.es/"]],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer grandes museos del mundo", "Analizar «Las Meninas» con detalle", "Descubrir mujeres artistas de distintas épocas", "Conocer las profesiones del museo y el arte en la calle"],
+  lectura: { titulo: "Una noche en el Prado", html: `<p>La clase de 4.º C había ganado un concurso de dibujo. El premio era increíble: una visita guiada al Museo del Prado… ¡cuando ya estuviera cerrado al público!</p><p>A las ocho de la tarde, la guía, Beatriz, les abrió una puerta lateral. Las salas estaban vacías y silenciosas. Solo se oían sus pasos sobre el suelo de madera.</p><p>Se pararon ante un cuadro enorme. Era <b>«Las Meninas»</b>, de Velázquez.</p><p>—Fijaos bien —susurró Beatriz—. ¿Quién mira a quién en este cuadro?</p><p>Los niños se acercaron. La infanta Margarita miraba hacia fuera. El pintor, con su pincel en la mano, también. Y Mari Bárbola, a la derecha. Y hasta el perro parecía que estaba a punto de girarse.</p><p>—¡Nos miran a nosotros! —dijo Samuel.</p><p>—Casi —sonrió la guía—. Mirad ese espejo del fondo.</p><p>En la pared del fondo, en un pequeño espejo, se veían dos figuras borrosas: un hombre y una mujer.</p><p>—Son el <b>rey Felipe IV</b> y la <b>reina Mariana</b> —explicó Beatriz—. Todos los personajes los están mirando a ellos. Y nosotros estamos justo donde estarían los reyes.</p><p>Hubo un largo silencio. Lola sintió un escalofrío: era como si, durante un momento, ella fuera la reina.</p><p>—Por eso este cuadro es tan famoso —dijo la guía—. Velázquez consiguió que, después de casi cuatrocientos años, quien lo mira forme parte de él.</p>` },
+  tras: {
+    "Museos de España": [
+      ["Grandes museos del mundo", `<p>Algunos <mark>museos</mark> son tan famosos que millones de personas viajan cada año para visitarlos:</p><ul><li>El <b>Museo del Louvre</b> (París, Francia) es el museo más visitado del mundo. Fue un palacio real y hoy tiene una gran <b>pirámide de cristal</b> en la entrada. Allí está la <b>Gioconda</b> de Leonardo da Vinci, protegida tras un cristal especial.</li><li>El <b>Museo Británico</b> (Londres, Reino Unido) guarda tesoros de todas las civilizaciones, como la <b>piedra de Rosetta</b>, que ayudó a descifrar los jeroglíficos egipcios.</li><li>La <b>Galería Uffizi</b> (Florencia, Italia) reúne obras del Renacimiento, como «El nacimiento de Venus» de Botticelli.</li><li>El <b>Rijksmuseum</b> (Ámsterdam, Países Bajos) tiene «La ronda de noche» de Rembrandt.</li><li>El <b>MoMA</b> (Nueva York, Estados Unidos) es un museo de arte moderno donde está «La noche estrellada» de Van Gogh.</li></ul><p>Hoy muchos museos ofrecen <b>visitas virtuales</b> por internet: puedes recorrer sus salas y ver los cuadros muy de cerca desde casa o desde clase.</p><p>Algunos museos curiosos: el Museo del Chocolate, el Museo del Juguete, museos de ciencia interactivos donde sí se puede tocar… ¡Hay museos para todos los gustos!</p>`,
+        L6.filas("Museos", [["Louvre", "París · Gioconda", cAZ], ["Británico", "Londres · Rosetta", cRO], ["Uffizi", "Florencia · Venus", cNA], ["MoMA", "Nueva York", cVE]])],
+    ],
+    "Velázquez y Goya": [
+      ["«Las Meninas» de cerca", `<p><mark>«Las Meninas»</mark> es una de las pinturas más estudiadas de la historia. Velázquez la pintó en <b>1656</b> y está en el Museo del Prado. Mide más de tres metros de alto: los personajes son casi de tamaño real.</p><p>¿Quién aparece?</p><ul><li>En el centro, la <b>infanta Margarita</b>, de unos cinco años, hija del rey.</li><li>A su lado, dos <b>meninas</b>: las jóvenes damas que la cuidaban. Una le ofrece agua en un pequeño jarro rojo.</li><li>A la derecha, dos personas de la corte de baja estatura, <b>Mari Bárbola</b> y <b>Nicolasito Pertusato</b>, que pone el pie sobre un <b>perro</b> tumbado.</li><li>A la izquierda, el propio <b>Velázquez</b> pintando un gran lienzo del que solo vemos la parte de atrás. Es un <b>autorretrato</b>.</li><li>Al fondo, en una puerta iluminada, un caballero de la corte.</li><li>En el <b>espejo</b> del fondo se reflejan el <b>rey Felipe IV</b> y la <b>reina Mariana</b>.</li></ul><p>Lo genial es el juego de <b>miradas</b> y la sensación de <b>espacio</b>: Velázquez pintó hasta el aire de la habitación, con la luz que entra por las ventanas de la derecha. Picasso admiraba tanto este cuadro que pintó ¡58 versiones! Están en el Museo Picasso de Barcelona.</p>`,
+        H6.rueda("Las Meninas", "INFANTA", [["meninas", cRO], ["Velázquez", cAZ], ["espejo", cNA], ["perro", cVE]]), ["u-FcMnW2LdA", "El misterio de las Meninas de Velázquez", "Gema Vadillo Live", 451202]],
+    ],
+    "Artistas del mundo": [
+      ["Mujeres artistas", `<p>Durante siglos, a las mujeres les fue muy difícil ser artistas: no podían estudiar en las academias ni trabajar en los talleres. Aun así, muchas lo consiguieron y crearon obras maravillosas. Conócelas:</p><ul><li><b>Sofonisba Anguissola</b> (Italia, siglo XVI) fue pintora de la corte del rey <b>Felipe II</b> en España. Sus retratos son tan buenos que algunos se atribuyeron durante siglos a pintores hombres.</li><li><b>Clara Peeters</b> (Flandes, siglo XVII) pintaba <b>bodegones</b> llenos de detalles. A veces se pintaba reflejada en las copas y jarras. En 2016 fue la primera mujer con una exposición propia en el Museo del Prado.</li><li><b>Artemisia Gentileschi</b> (Italia, siglo XVII) pintó escenas llenas de fuerza y dramatismo.</li><li><b>Maruja Mallo</b> (Galicia, siglo XX) fue una pintora surrealista, amiga de Dalí y Lorca.</li><li><b>Georgia O'Keeffe</b> (Estados Unidos) pintó flores gigantes y paisajes del desierto.</li><li><b>Yayoi Kusama</b> (Japón), que todavía crea, llena todo de <b>lunares</b> de colores, incluso habitaciones enteras con espejos.</li></ul><p>Hoy los museos están recuperando las obras de muchas mujeres artistas que habían sido olvidadas.</p>`,
+        L6.filas("Artistas", [["Sofonisba", "corte de Felipe II", cMO], ["Clara Peeters", "bodegones", cNA], ["Maruja Mallo", "surrealismo", cAZ], ["Yayoi Kusama", "lunares", cRO]]), ["pGXYOSKthJo", "Sofonisba Anguissola, la pintora más famosa del Renacimiento", "vivieuvi", 22322]],
+    ],
+  },
+  final: [
+    ["Las profesiones del museo", `<p>Detrás de cada museo trabaja un gran <mark>equipo</mark> de personas:</p><ul><li>El <b>director</b> o directora organiza todo el museo.</li><li>Los <b>conservadores</b> son expertos en arte que estudian las obras, saben su historia y deciden cómo cuidarlas.</li><li>Los <b>restauradores</b> reparan las obras dañadas por el paso del tiempo: limpian el barniz amarillento, arreglan rasgaduras o consolidan la pintura que se levanta. Trabajan con mucha paciencia, con lupas y pinceles finísimos, y todo lo que hacen se tiene que poder deshacer.</li><li>Los <b>comisarios</b> preparan las exposiciones: eligen las obras, el orden y cómo se cuelgan.</li><li>Los <b>museógrafos</b> diseñan las salas: la luz, los colores de las paredes, las vitrinas.</li><li>Los <b>educadores</b> y <b>guías</b> explican las obras al público y organizan talleres para niños.</li><li>Los <b>vigilantes</b> protegen las obras y cuidan de que se cumplan las normas.</li></ul><p>Además, el museo controla la <b>temperatura</b> y la <b>humedad</b> de las salas, porque los cambios bruscos pueden agrietar la pintura. Y la luz es suave para que los colores no se apaguen.</p>`,
+      H6.flujo("Una obra llega", ["conservador|estudia", "restaurador|repara", "comisario|elige", "guía|explica"], cAZ)],
+    ["El arte en la calle", `<p>No todo el arte está dentro de los museos. Muchas obras están en la <mark>calle</mark>, al alcance de todos:</p><ul><li><b>Esculturas públicas</b>: en plazas, parques y jardines. Por ejemplo, el <b>«Peine del viento»</b> de <b>Eduardo Chillida</b>, unas grandes esculturas de hierro clavadas en las rocas de la playa de San Sebastián, donde rompen las olas.</li><li><b>Arquitectura</b>: edificios que son obras de arte, como la <b>Sagrada Familia</b> o el <b>Parque Güell</b> de Gaudí, en Barcelona, o el <b>Museo Guggenheim</b> de Bilbao, cubierto de titanio.</li><li><b>Murales</b>: grandes pinturas en las paredes de los edificios. Hay festivales de murales en muchas ciudades de España que llenan de color los barrios.</li><li><b>Arte urbano</b>: pinturas, plantillas y pegatinas en muros, hechas con permiso. Algunos artistas urbanos se han hecho famosos en todo el mundo.</li><li><b>Fuentes</b> y monumentos, como la fuente de Cibeles en Madrid.</li></ul><p>Recuerda: el arte urbano debe hacerse en <b>espacios permitidos</b>. Pintar sin permiso en paredes ajenas estropea el patrimonio de todos.</p><p>La próxima vez que pasees por tu ciudad o tu pueblo, busca obras de arte en la calle. ¡Seguro que encuentras alguna!</p>`,
+      L6.filas("En la calle", [["Peine del viento", "Chillida", cAZ], ["Sagrada Familia", "Gaudí", cNA], ["Guggenheim", "Bilbao, titanio", cMO], ["murales", "con permiso", cVE]])],
+  ],
+  ejemplos: [
+    ["En «Las Meninas», ¿a quién miran los personajes?", ["En el espejo del fondo se reflejan dos figuras.", "Son los reyes, que estarían donde está el espectador."], "A los reyes Felipe IV y Mariana."],
+    ["Un cuadro antiguo tiene el barniz amarillo y una pequeña rotura. ¿Quién se encarga?", ["Estudiar no es repararlo.", "Reparar obras es trabajo del restaurador."], "Un restaurador."],
+  ],
+  errores: ["Pensar que en la historia no hubo mujeres artistas: hubo muchas, aunque se las olvidó.", "Creer que cualquier pintada en la calle es arte urbano: debe hacerse en espacios permitidos."],
+  ejercicios: [
+    ["b", "¿Qué museo es el más visitado del mundo?", "El Louvre."],
+    ["b", "¿En qué año pintó Velázquez «Las Meninas»?", "En 1656."],
+    ["b", "¿Quién se refleja en el espejo de «Las Meninas»?", "Felipe IV y la reina Mariana."],
+    ["b", "Nombra una mujer artista.", "Por ejemplo, Sofonisba Anguissola."],
+    ["b", "¿Qué hace un restaurador?", "Repara obras dañadas."],
+    ["m", "¿Por qué hubo menos mujeres artistas en el pasado?", "Porque no podían estudiar en academias ni trabajar en talleres."],
+    ["m", "¿Cuántas versiones de «Las Meninas» pintó Picasso?", "58."],
+    ["m", "¿Por qué los museos controlan la temperatura y la humedad?", "Para que las obras no se estropeen."],
+    ["m", "¿Qué es el «Peine del viento»?", "Esculturas de Chillida en la playa de San Sebastián."],
+    ["m", "¿Qué hace un comisario?", "Prepara las exposiciones."],
+    ["a", "Haz una visita virtual a un museo del mundo y cuenta tres obras.", "Respuesta abierta."],
+    ["a", "Dibuja tu propia versión de «Las Meninas» con tu familia.", "Respuesta abierta."],
+    ["a", "Investiga a una mujer artista y haz una ficha.", "Respuesta abierta."],
+    ["a", "Busca una obra de arte en la calle de tu localidad y fotografíala.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["La Gioconda está en el…", ["Louvre", "Prado", "MoMA"], "Museos."],
+    ["En «Las Meninas», Velázquez aparece…", ["pintando", "en el espejo", "durmiendo"], "Las Meninas."],
+    ["Sofonisba Anguissola pintó en la corte de…", ["Felipe II", "Napoleón", "Isabel la Católica"], "Mujeres artistas."],
+    ["Quien prepara una exposición es el…", ["comisario", "vigilante", "restaurador"], "Profesiones."],
+    ["El Guggenheim está en…", ["Bilbao", "Sevilla", "Madrid"], "Calle."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué descubrieron los niños en el espejo?", ["a los reyes", "a la guía", "a Picasso"], "Lectura."],
+    ["¿Qué pintaba Clara Peeters?", ["bodegones", "esculturas", "murales"], "Mujeres artistas."],
+  ],
+  tarjetas: [
+    ["Museos del mundo", "Louvre, Británico, Uffizi, Rijksmuseum, MoMA; visitas virtuales."],
+    ["Las Meninas", "1656; infanta, meninas, Velázquez, espejo con los reyes."],
+    ["Mujeres artistas", "Sofonisba, Clara Peeters, Artemisia, Maruja Mallo, Kusama."],
+    ["Museo y calle", "Conservador, restaurador, comisario; Chillida, Gaudí, murales."],
+  ],
+  glosario: [
+    ["Pinacoteca", "Museo de pinturas."],
+    ["Visita virtual", "Recorrido de un museo por internet."],
+    ["Infanta", "Hija del rey."],
+    ["Menina", "Dama joven que servía a la infanta."],
+    ["Autorretrato", "Retrato del artista hecho por sí mismo."],
+    ["Bodegón", "Pintura de objetos quietos."],
+    ["Conservador", "Experto que estudia y cuida las obras."],
+    ["Restaurador", "Persona que repara obras de arte."],
+    ["Comisario", "Persona que organiza una exposición."],
+    ["Mural", "Pintura grande en una pared."],
+    ["Arte urbano", "Arte hecho en las calles."],
+    ["Patrimonio", "Bienes culturales que pertenecen a todos."],
+  ],
+  situacion: {
+    titulo: "Somos el equipo del museo",
+    reto: "La clase organiza una exposición repartiéndose las profesiones de un museo de verdad.",
+    pasos: ["Elegir un tema: mujeres artistas, «Las Meninas» o arte en la calle.", "Los conservadores investigan; los artistas crean versiones de las obras.", "Los comisarios y museógrafos eligen el orden y montan las salas.", "Los guías hacen la visita a otras clases y las familias."],
+    producto: "Una exposición con cartelas y visitas guiadas.",
+    evaluacion: ["Conoce museos y obras importantes.", "Analiza una obra con detalle.", "Valora a las mujeres artistas.", "Trabaja en equipo con un papel concreto."],
+  },
+});

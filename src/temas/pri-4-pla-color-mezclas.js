@@ -95,3 +95,91 @@ module.exports = tema({
   ideas: ["Taller de mezclas en paletas con solo tres primarios.", "La misma imagen pintada en cálidos y en fríos y comparación en grupo.", "Gama de un color en diez cuadraditos."],
   fuentes: [["Diccionario de la RAE: color", "https://dle.rae.es/color"], ["Museo Nacional del Prado: educación", "https://www.museodelprado.es/aprende/educacion"]],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Distinguir los colores luz de los colores pigmento", "Combinar colores con armonía o con contraste", "Descubrir para qué usan el color los seres vivos", "Conocer pintores del color y fabricar pinturas naturales"],
+  lectura: { titulo: "El misterio de la pantalla", html: `<p>Un día de lluvia, Hugo estaba aburrido en casa y cogió la lupa de su abuelo para mirar cosas de cerca: una hoja, un billete, su propia piel… Hasta que se le ocurrió acercar la lupa a la pantalla de la televisión.</p><p>—¡Mamá, ven a ver esto! —gritó.</p><p>En la pantalla se veía un prado verde y un cielo azul. Pero a través de la lupa, Hugo no veía ni verde ni azul: veía miles de puntitos diminutos de tres colores, <b>rojo</b>, <b>verde</b> y <b>azul</b>, unos encendidos y otros apagados.</p><p>—¿Dónde está el amarillo del sol? —preguntó—. ¡Aquí solo hay rojo y verde!</p><p>Su madre, que era ingeniera, sonrió.</p><p>—Es que la luz se mezcla de forma diferente a la pintura. En la pantalla, cuando se encienden juntos un puntito rojo y uno verde, nuestro ojo ve <b>amarillo</b>. Y si se encienden los tres a la vez, vemos <b>blanco</b>.</p><p>—Pero en clase de Plástica, si mezclo rojo y verde con témpera, sale un marrón feísimo.</p><p>—Exacto. Por eso los artistas hablan de dos tipos de color: los colores <b>luz</b>, como los de la pantalla, y los colores <b>pigmento</b>, como los de tus pinturas.</p><p>Hugo se pasó el resto de la tarde mirando con la lupa el móvil, el ordenador y la tableta. En todos encontró los mismos tres colores escondidos.</p>` },
+  tras: {
+    "Los colores primarios": [
+      ["Colores luz y colores pigmento", `<p>Hay dos formas de obtener colores, y cada una tiene sus propios <mark>primarios</mark>:</p><ul><li>Los <b>colores pigmento</b> son los de las pinturas, las tintas y los lápices. Sus primarios son el <b>amarillo</b>, el <b>magenta</b> (un rojo rosado) y el <b>cian</b> (un azul verdoso). En el colegio los llamamos amarillo, rojo y azul. Cuando los mezclamos, cada vez el color se vuelve más <b>oscuro</b>: si mezclas los tres, sale un color casi <b>negro</b> o marrón muy oscuro. Por eso se llama <b>mezcla sustractiva</b> (que resta luz).</li><li>Los <b>colores luz</b> son los de las pantallas, los focos y el arcoíris. Sus primarios son el <b>rojo</b>, el <b>verde</b> y el <b>azul</b> (en inglés, <b>RGB</b>). Cuando los mezclamos, el color se vuelve más <b>claro</b>: si mezclas los tres, sale <b>blanco</b>. Por eso se llama <b>mezcla aditiva</b> (que suma luz).</li></ul><p>Algunas curiosidades:</p><ul><li>En la luz, <b>rojo + verde = amarillo</b>. ¡Muy diferente a la pintura!</li><li>Las impresoras usan los primarios pigmento (cian, magenta y amarillo) más el negro: <b>CMYK</b>.</li><li>Isaac Newton descubrió que la luz blanca del sol contiene todos los colores, al hacerla pasar por un <b>prisma</b> de cristal.</li></ul>`,
+        H6.dos("Dos mezclas", ["PIGMENTO", ["amarillo, magenta", "y cian", "todos = oscuro"], cNA], ["LUZ", ["rojo, verde", "y azul (RGB)", "todos = blanco"], cAZ]), ["h6fhB08go70", "¿Cómo percibimos los colores? Mezcla aditiva y sustractiva", "OSAL Óptica USAL", 58188]],
+    ],
+    "El círculo de los colores": [
+      ["Armonía y contraste", `<p>Cuando pintamos, elegimos qué colores poner juntos. Hay dos grandes formas de <mark>combinarlos</mark>:</p><ul><li><b>Armonía</b>: usar colores que se <b>parecen</b>, que están <b>cerca</b> en el círculo cromático. Por ejemplo, amarillo, naranja y rojo; o azul, verde y turquesa. El resultado es tranquilo, suave y agradable. También hay armonía cuando usamos un solo color en distintos tonos, del más claro al más oscuro: se llama <b>monocromía</b>.</li><li><b>Contraste</b>: usar colores muy <b>diferentes</b>, que están <b>lejos</b> o enfrente en el círculo, como los complementarios: rojo y verde, azul y naranja, amarillo y morado. El resultado es llamativo, alegre y lleno de energía. Los colores parecen más intensos uno al lado del otro.</li></ul><p>También hay contraste entre <b>claro y oscuro</b>: un dibujo amarillo sobre fondo negro se ve desde muy lejos. Por eso muchas señales de peligro son amarillas y negras.</p><p>¿Cuándo usar cada uno?</p><ul><li>Para un cartel que llame la atención: <b>contraste</b>.</li><li>Para un paisaje tranquilo o una habitación relajante: <b>armonía</b>.</li></ul><p>Fíjate en los carteles, los logotipos y la ropa: ¡verás armonías y contrastes por todas partes!</p>`,
+        L6.filas("Combinar", [["armonía", "colores vecinos", cVE], ["monocromía", "un color, varios tonos", cAZ], ["contraste", "complementarios", cRO], ["claro-oscuro", "amarillo y negro", cNA]])],
+    ],
+    "Colores cálidos y fríos": [
+      ["El color en la naturaleza", `<p>Los seres vivos usan el <mark>color</mark> para sobrevivir. Fíjate en estos ejemplos:</p><ul><li><b>Camuflaje</b>: muchos animales tienen el color de su entorno para no ser vistos. El oso polar es blanco como la nieve; los saltamontes son verdes como la hierba; el insecto palo parece una ramita. El <b>camaleón</b> y el <b>pulpo</b> pueden incluso cambiar de color.</li><li><b>Avisar de peligro</b>: otros animales tienen colores muy llamativos para decir «¡no me comas, soy venenoso!». Por ejemplo, las ranas punta de flecha de colores brillantes, las avispas amarillas y negras o la salamandra negra y amarilla. Se llaman <b>colores de advertencia</b>.</li><li><b>Atraer</b>: las flores tienen colores vivos para atraer a las abejas y mariposas, que transportan el polen. El pavo real macho despliega su cola de colores para atraer a la hembra.</li><li><b>Avisar de que está maduro</b>: muchas frutas cambian de verde a rojo, amarillo o naranja cuando están listas para comer.</li></ul><p>En <b>otoño</b>, las hojas de muchos árboles pasan del verde al amarillo, naranja y rojo. Ocurre porque dejan de fabricar <b>clorofila</b>, el pigmento verde, y aparecen otros colores que estaban escondidos.</p><p>¡La naturaleza es la mayor paleta de colores que existe!</p>`,
+        H6.rueda("Para qué", "COLOR", [["camuflaje", cVE], ["peligro", cRO], ["atraer", cMO], ["madurez", cNA]]), ["rE8zr-RcNFQ", "10 animales con camuflajes increíbles", "luiSpace", 10206337]],
+    ],
+  },
+  final: [
+    ["Los pintores del color", `<p>Algunos pintores hicieron del <mark>color</mark> el protagonista de sus obras:</p><ul><li><b>Claude Monet</b> (Francia) fue uno de los <b>impresionistas</b>. Pintaba al aire libre, con pinceladas rápidas y colores puros, para captar la luz de cada momento. Pintó muchas veces el mismo lugar a distintas horas para mostrar cómo cambiaba el color. Sus cuadros de <b>nenúfares</b> en el estanque de su jardín son famosísimos.</li><li><b>Joaquín Sorolla</b> (Valencia) fue el «pintor de la luz». Pintaba playas del Mediterráneo, niños bañándose y velas blancas brillando al sol. Su casa en Madrid es hoy el Museo Sorolla.</li><li><b>Henri Matisse</b> y los <b>fauvistas</b> («fieras» en francés) usaban colores muy intensos y nada realistas: caras verdes, árboles rojos, cielos amarillos.</li><li><b>Vasili Kandinsky</b> (Rusia) pensaba que los colores eran como la música. Pintó cuadros abstractos solo con colores y formas, sin dibujar nada reconocible.</li><li><b>Piet Mondrian</b> (Países Bajos) usaba solo los tres primarios, el blanco y el negro, en cuadrados y rectángulos.</li></ul><p>Pinta el mismo paisaje dos veces: una por la mañana y otra al atardecer, como Monet. ¿Qué colores cambian?</p>`,
+      L6.filas("Pintores", [["Monet", "luz, nenúfares", cAZ], ["Sorolla", "playas", cNA], ["Kandinsky", "colores y música", cRO], ["Mondrian", "primarios", cMO]]), ["83Gj0LBWXpM", "¡Claude Monet para niños!", "Comic Kids", 114259]],
+    ["Fabricar colores naturales", `<p>Antes de que existieran las pinturas de tubo, los artistas tenían que <mark>fabricar sus colores</mark>. Usaban <b>pigmentos</b>, polvos de color que sacaban de la naturaleza, y los mezclaban con algo que los uniera, el <b>aglutinante</b> (huevo, aceite, agua con goma…).</p><ul><li>En la <b>Prehistoria</b>, en cuevas como Altamira, se pintaba con <b>tierras</b> rojas y amarillas (óxidos de hierro) y <b>carbón</b> para el negro.</li><li>El azul más caro era el <b>ultramar</b>, que se sacaba moliendo una piedra preciosa, el <b>lapislázuli</b>. Valía más que el oro.</li><li>El rojo <b>carmín</b> se obtenía de la <b>cochinilla</b>, un pequeño insecto que vive en los cactus.</li></ul><p><b>Taller: tus propias acuarelas naturales</b>. Con ayuda de un adulto, prepara en vasitos:</p><ul><li><b>Amarillo</b>: cúrcuma en polvo con un poco de agua.</li><li><b>Rosa o morado</b>: agua de cocer remolacha o col lombarda.</li><li><b>Marrón</b>: café o cacao disuelto.</li><li><b>Verde</b>: espinacas trituradas y coladas.</li><li><b>Naranja</b>: pimentón dulce con agua.</li></ul><p>Pinta con ellos sobre papel grueso. Los colores serán suaves y con el tiempo pueden cambiar, igual que les pasaba a las pinturas antiguas.</p>`,
+      H6.flujo("Pintura natural", ["pigmento|cúrcuma", "aglutinante|agua", "mezclar|en vaso", "pintar|y secar"], cNA)],
+  ],
+  ejemplos: [
+    ["En una pantalla se encienden a la vez un punto rojo y uno verde. ¿Qué color ves?", ["Es mezcla de colores luz (aditiva).", "Rojo + verde luz = amarillo."], "Amarillo."],
+    ["Quieres hacer un cartel de una fiesta que se vea desde lejos. ¿Armonía o contraste?", ["El contraste llama más la atención.", "Por ejemplo, naranja sobre azul."], "Contraste."],
+  ],
+  errores: ["Pensar que la luz se mezcla igual que la pintura: en la luz, los tres primarios juntos dan blanco.", "Creer que los animales de colores vivos siempre quieren esconderse: muchos avisan de que son venenosos."],
+  ejercicios: [
+    ["b", "¿Cuáles son los primarios de la luz?", "Rojo, verde y azul."],
+    ["b", "¿Qué color sale al mezclar los tres primarios luz?", "Blanco."],
+    ["b", "¿Qué es la monocromía?", "Usar un solo color en distintos tonos."],
+    ["b", "Nombra un animal que se camufla.", "Por ejemplo, el camaleón o el oso polar."],
+    ["b", "¿Qué pintaba Monet en su jardín?", "Nenúfares."],
+    ["m", "¿Por qué la mezcla de pigmentos se llama sustractiva?", "Porque cada mezcla resta luz y se oscurece."],
+    ["m", "¿Qué significa CMYK?", "Cian, magenta, amarillo y negro de las impresoras."],
+    ["m", "¿Por qué las hojas cambian de color en otoño?", "Porque dejan de fabricar clorofila."],
+    ["m", "¿De dónde se sacaba el azul ultramar?", "Del lapislázuli."],
+    ["m", "¿Qué es un aglutinante?", "Lo que une el pigmento para hacer pintura."],
+    ["a", "Mira una pantalla con lupa y dibuja lo que ves.", "Respuesta abierta."],
+    ["a", "Pinta dos cuadros: uno en armonía y otro en contraste.", "Respuesta abierta."],
+    ["a", "Fabrica tres colores naturales y pinta con ellos.", "Respuesta abierta."],
+    ["a", "Pinta el mismo paisaje a dos horas distintas, como Monet.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Las pantallas usan colores…", ["luz", "pigmento", "de tierra"], "Luz."],
+    ["Colores vecinos en el círculo dan…", ["armonía", "contraste", "negro"], "Combinar."],
+    ["Una rana de colores brillantes suele avisar de que es…", ["venenosa", "pequeña", "dormilona"], "Naturaleza."],
+    ["Sorolla es el pintor de…", ["la luz", "la noche", "los relojes"], "Pintores."],
+    ["El carmín se sacaba de la…", ["cochinilla", "remolacha", "piedra"], "Pigmentos."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué tres colores vio Hugo con la lupa?", ["rojo, verde y azul", "amarillo, rojo y azul", "blanco y negro"], "Lectura."],
+    ["¿Quién descubrió que la luz blanca contiene todos los colores?", ["Newton", "Monet", "Velázquez"], "Luz."],
+  ],
+  tarjetas: [
+    ["Luz y pigmento", "Luz RGB (todos = blanco); pigmento CMY (todos = oscuro)."],
+    ["Armonía y contraste", "Vecinos y monocromía; complementarios y claro-oscuro."],
+    ["Naturaleza", "Camuflaje, advertencia, atracción, madurez; clorofila."],
+    ["Pintores y pigmentos", "Monet, Sorolla, Kandinsky; lapislázuli, cochinilla."],
+  ],
+  glosario: [
+    ["Pigmento", "Sustancia que da color."],
+    ["Mezcla sustractiva", "Mezcla de pigmentos que oscurece."],
+    ["Mezcla aditiva", "Mezcla de luces que aclara."],
+    ["RGB", "Rojo, verde y azul de las pantallas."],
+    ["Prisma", "Cristal que separa la luz en colores."],
+    ["Armonía", "Combinación de colores parecidos."],
+    ["Contraste", "Combinación de colores muy diferentes."],
+    ["Camuflaje", "Color que ayuda a no ser visto."],
+    ["Clorofila", "Pigmento verde de las plantas."],
+    ["Impresionismo", "Estilo que captaba la luz con pinceladas rápidas."],
+    ["Aglutinante", "Sustancia que une el pigmento."],
+    ["Lapislázuli", "Piedra azul de la que se sacaba el ultramar."],
+  ],
+  situacion: {
+    titulo: "Laboratorio del color",
+    reto: "La clase investiga el color en la luz, en la naturaleza y en el arte.",
+    pasos: ["Observar pantallas con lupa y hacer un arcoíris con un vaso de agua al sol.", "Buscar fotos de animales camuflados y de advertencia.", "Fabricar pinturas naturales y probarlas.", "Pintar una obra inspirada en un pintor del color usando armonía o contraste."],
+    producto: "Un mural del laboratorio del color.",
+    evaluacion: ["Distingue colores luz y pigmento.", "Usa armonía y contraste con intención.", "Explica funciones del color en la naturaleza.", "Conoce pintores del color."],
+  },
+});
