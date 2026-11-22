@@ -92,3 +92,91 @@ module.exports = tema({
   ideas: ["Mapa sonoro con canciones recogidas en las familias.", "Aprendizaje del paso básico de una danza tradicional.", "Ritmos de jota y sevillanas con palmas y castañuelas."],
   fuentes: [["UNESCO: El flamenco, patrimonio cultural inmaterial", "https://ich.unesco.org/es/RL/el-flamenco-00363"], ["Real Academia Española: folclore", "https://dle.rae.es/folclore"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer el romance como canción narrativa tradicional", "Identificar fiestas musicales españolas declaradas Patrimonio de la Humanidad", "Valorar el trabajo de los recopiladores del folclore", "Comparar músicas tradicionales del mundo y formaciones de danza"],
+  lectura: { titulo: "La canción del bisabuelo", html: `<p>Para el trabajo de Música, Daniel tenía que recoger una canción tradicional de su familia. Llamó por videollamada a su bisabuelo Ramiro, que vivía en un pueblo de la montaña de León y acababa de cumplir noventa y tres años.</p><p>—¿Una canción de cuando era pequeño? —El bisabuelo se quedó pensativo—. Mi madre cantaba una mientras hilaba. Contaba la historia de un paje que se enamoraba de una princesa…</p><p>Y empezó a cantar con una voz temblorosa pero afinada. La canción era larguísima, con versos que parecían no acabar nunca, y la melodía se repetía una y otra vez.</p><p>Daniel lo grabó todo. En clase, la profesora escuchó la grabación con mucha atención.</p><p>—Daniel, esto es un romance —le explicó—. Se llama Gerineldo y se canta desde hace siglos. Hay versiones parecidas en Asturias, en Andalucía, en Canarias, en América e incluso entre las comunidades sefardíes de Marruecos y Turquía.</p><p>Daniel no podía creerlo: la canción de su bisabuelo había viajado por medio mundo durante siglos, de boca en boca.</p><p>Esa tarde volvió a llamarle para darle las gracias. El bisabuelo se rió:</p><p>—Pues apunta, que me sé otras veinte.</p>` },
+  tras: {
+    "Las canciones populares": [
+      ["Los romances: historias cantadas", `<p>Un <mark>romance</mark> es un poema narrativo que <b>cuenta una historia</b> y se canta con una melodía sencilla que se repite en cada pareja de versos. Sus versos tienen normalmente <b>ocho sílabas</b> y riman en los versos pares con rima asonante (solo coinciden las vocales).</p><p>Los romances nacieron en la Edad Media, a partir de los largos cantares de gesta que recitaban los juglares. Contaban historias de caballeros, de amores imposibles, de batallas contra los moros, de princesas encantadas o de crímenes terribles. Algunos de los más conocidos son <b>Gerineldo</b>, <b>el conde Olinos</b> o <b>la doncella guerrera</b>.</p><p>Se transmitieron <b>de boca en boca</b> durante siglos: las mujeres los cantaban mientras hilaban o lavaban, y los niños los usaban en juegos de corro. Por eso existen cientos de versiones de un mismo romance.</p><p>Cuando los judíos fueron expulsados de España en 1492, se llevaron sus romances. Las comunidades <b>sefardíes</b> del norte de África, Grecia o Turquía los siguieron cantando en judeoespañol durante más de cinco siglos.</p><p>El filólogo <b>Ramón Menéndez Pidal</b> dedicó gran parte de su vida a recoger y estudiar el <b>Romancero</b>, el conjunto de todos estos romances.</p>`,
+        L6.filas("El romance", [["qué es", "historia cantada", cAZ], ["versos", "8 sílabas", cVE], ["rima", "asonante en pares", cNA], ["transmisión", "oral, de boca en boca", cRO]]), ["7DjdexJ9Bb4", "Carmen Prieto: Gerineldo (1952)", "Lomax Film Collection", 83709]],
+    ],
+    "La jota y otras danzas del centro y este": [
+      ["Fiestas con música, patrimonio de la humanidad", `<p>La UNESCO protege el <b>Patrimonio Cultural Inmaterial</b>: tradiciones vivas como músicas, danzas, fiestas y oficios. España tiene muchas en esta lista, y varias son fiestas en las que la música es protagonista:</p><ul><li><b>El Misteri d'Elx</b> (Elche): un drama cantado sobre la muerte y la asunción de la Virgen que se representa cada agosto en la basílica de Santa María desde la Edad Media. Fue una de las primeras tradiciones del mundo reconocidas por la UNESCO, en 2001.</li><li><b>La Patum de Berga</b> (Cataluña): fiesta del Corpus con gigantes, dragones de fuego y danzas al ritmo del tabal, un gran tambor.</li><li><b>Els castells</b>: torres humanas que se levantan mientras la gralla toca una melodía especial, el «toc de castells», que avisa al público de cómo avanza la torre.</li><li><b>El canto de la Sibila</b> (Mallorca): un canto medieval que se interpreta la noche de Navidad en las iglesias.</li><li><b>Las tamboradas</b>: en pueblos de Aragón, Murcia, Castilla-La Mancha o la Comunidad Valenciana, cientos de personas tocan tambores y bombos durante la Semana Santa.</li></ul><p>Junto a estas, también están en la lista el flamenco y el silbo gomero, que ya conoces.</p>`,
+        H6.rueda("Patrimonio UNESCO", "FIESTAS", [["Misteri", cMO], ["Patum", cRO], ["castells", cNA], ["tamboradas", cAZ]]), ["zFE8gj1rID4", "El misterio de Elche", "UNESCO en español", 63911]],
+    ],
+    "Conservar el patrimonio": [
+      ["Los cazadores de canciones", `<p>Gran parte de las canciones tradicionales que conocemos hoy se salvaron gracias a personas que recorrieron los pueblos para <b>recopilarlas</b>: escuchaban a la gente mayor, escribían las melodías y, más tarde, las grababan.</p><ul><li><b>Felipe Pedrell</b> (1841-1922), compositor de Tortosa, reunió un gran <b>Cancionero musical popular español</b> y animó a sus alumnos, como Falla o Granados, a inspirarse en el folclore.</li><li><b>Federico Olmeda</b> recopiló a principios del siglo XX las canciones de Burgos y de Castilla.</li><li><b>Manuel García Matos</b> grabó miles de canciones en todas las regiones durante el siglo XX.</li><li>El estadounidense <b>Alan Lomax</b> recorrió España en 1952 con una grabadora y registró canciones de trabajo, romances, jotas y cantos de muchas regiones. Sus grabaciones se pueden escuchar hoy en internet.</li><li><b>Joaquín Díaz</b>, cantante e investigador vallisoletano, ha creado en Urueña (Valladolid) un gran archivo y museo de música tradicional.</li></ul><p>Su método se llama <b>trabajo de campo</b>: ir al lugar, escuchar con respeto, preguntar, grabar y anotar quién canta, dónde y cuándo. Es exactamente lo que vas a hacer tú en el taller de este tema, ¡como un auténtico investigador!</p>`,
+        H6.flujo("Trabajo de campo", ["ir|al lugar", "escuchar|y preguntar", "grabar|y anotar", "archivar|y compartir"], cVE)],
+    ],
+  },
+  final: [
+    ["Músicas tradicionales del mundo", `<p>Cada país tiene músicas que cuentan quién es su gente. Algunas también han sido declaradas Patrimonio Cultural Inmaterial por la UNESCO:</p><ul><li><b>El fado</b> (Portugal): canciones melancólicas, cantadas con mucho sentimiento y acompañadas por la guitarra portuguesa. Expresan la <i>saudade</i>, una mezcla de nostalgia y tristeza.</li><li><b>El tango</b> (Argentina y Uruguay): nació en los barrios de Buenos Aires y Montevideo. Se baila en pareja, muy abrazados, y su instrumento más característico es el <b>bandoneón</b>, un tipo de acordeón.</li><li><b>El mariachi</b> (México): un grupo con violines, trompetas, guitarras, vihuela y guitarrón, con sus trajes de charro.</li><li><b>La rumba cubana</b>: mezcla de raíces africanas y españolas, con percusión, canto y baile.</li><li><b>El reggae</b> (Jamaica): con su ritmo tranquilo y el acento en los tiempos débiles; Bob Marley lo hizo famoso en todo el mundo.</li></ul><p>Muchas de estas músicas tienen algo de España, y a la vez la música española recibió influencias de América (como la habanera o algunos palos flamencos «de ida y vuelta»). Las músicas viajan y se mezclan, igual que las personas.</p>`,
+      L6.filas("Del mundo", [["fado", "Portugal", cAZ], ["tango", "Argentina, Uruguay", cRO], ["mariachi", "México", cNA], ["reggae", "Jamaica", cVE]])],
+    ["Cómo se organiza una danza tradicional", `<p>Las danzas tradicionales se pueden estudiar fijándonos en <b>cómo se colocan los bailarines</b> en el espacio. Hay varias formaciones básicas:</p><ul><li><b>En corro</b>: todos en círculo, a menudo cogidos de la mano. Es la formación más antigua y representa la unión del grupo, como en la sardana.</li><li><b>En fila o cadena</b>: los bailarines van uno detrás de otro o en línea, siguiendo a quien guía.</li><li><b>En parejas</b>: dos personas bailan frente a frente, como en la jota, las sevillanas o la muñeira.</li><li><b>En dos filas enfrentadas</b>: como en los paloteos, en los que los danzantes chocan palos con el compañero de enfrente.</li><li><b>Individual o de exhibición</b>: un solo bailarín muestra su habilidad ante el grupo, como en el aurresku.</li></ul><p>Además de la formación, en cada danza se estudian los <b>pasos</b> (los movimientos de los pies), las <b>figuras</b> (dibujos que forma el grupo, como cruces o giros), el <b>compás</b> de la música y el <b>vestuario</b>. Muchas danzas se aprenden por imitación: mirando a las personas que ya las saben y repitiendo hasta que salen solas.</p>`,
+      H6.dos("Formaciones", ["EN GRUPO", ["corro", "fila o cadena", "dos filas"], cAZ], ["EN POCOS", ["parejas", "individual", "exhibición"], cNA])],
+  ],
+  ejemplos: [
+    ["Una canción cuenta la historia de un caballero en versos de ocho sílabas y se transmitió de boca en boca. ¿Qué es?", ["Es narrativa.", "Versos octosílabos y tradición oral."], "Un romance."],
+    ["En una fiesta, una melodía de gralla acompaña la construcción de una torre humana. ¿Qué fiesta es?", ["Torres humanas.", "Toc de castells."], "Els castells."],
+  ],
+  errores: ["Pensar que una canción tradicional tiene una única versión correcta.", "Creer que el patrimonio inmaterial son solo monumentos."],
+  ejercicios: [
+    ["b", "¿Qué es un romance?", "Un poema narrativo que se canta."],
+    ["b", "¿Cuántas sílabas tienen los versos del romance?", "Ocho."],
+    ["b", "¿Dónde se representa el Misteri?", "En Elche."],
+    ["b", "¿Qué instrumento caracteriza el tango?", "El bandoneón."],
+    ["b", "¿Qué es el trabajo de campo?", "Ir al lugar a escuchar, grabar y anotar la música."],
+    ["m", "¿Por qué los sefardíes conservaron romances españoles?", "Porque se los llevaron al ser expulsados en 1492 y los siguieron cantando."],
+    ["m", "Nombra tres fiestas españolas Patrimonio de la Humanidad con música.", "Misteri d'Elx, Patum de Berga, castells, canto de la Sibila o tamboradas."],
+    ["m", "¿Qué hizo Alan Lomax en España?", "Grabó canciones tradicionales en 1952."],
+    ["m", "Explica qué es la saudade del fado.", "Una mezcla de nostalgia y tristeza."],
+    ["m", "Describe tres formaciones de danza.", "Corro, fila, parejas (o dos filas, individual)."],
+    ["a", "Recoge un romance o canción de una persona mayor y transcribe su letra.", "Respuesta abierta."],
+    ["a", "Compara una danza en corro y una en parejas que conozcas.", "Respuesta abierta."],
+    ["a", "Investiga una fiesta tradicional de tu comunidad y su música.", "Respuesta abierta."],
+    ["a", "Escucha un fado y un tango y compara su carácter e instrumentos.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El romance Gerineldo es…", ["una canción narrativa tradicional", "una danza", "un instrumento"], "Romances."],
+    ["El toc de castells lo toca…", ["la gralla", "el txistu", "la gaita"], "Fiestas."],
+    ["Felipe Pedrell reunió…", ["un cancionero popular español", "un museo de pintura", "una orquesta"], "Recopiladores."],
+    ["El mariachi es de…", ["México", "Portugal", "Jamaica"], "Mundo."],
+    ["La sardana se baila…", ["en corro", "en parejas", "en solitario"], "Danzas."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué tipo de canción le canta el bisabuelo a Daniel?", ["un romance", "una jota", "un villancico"], "Lectura."],
+    ["El Patrimonio Cultural Inmaterial protege…", ["tradiciones vivas", "solo edificios", "solo libros"], "Patrimonio."],
+  ],
+  tarjetas: [
+    ["Romance", "Historia cantada en versos de 8 sílabas; tradición oral; sefardíes."],
+    ["Fiestas UNESCO", "Misteri d'Elx, Patum, castells, Sibila, tamboradas."],
+    ["Recopiladores", "Pedrell, Olmeda, García Matos, Lomax, Joaquín Díaz."],
+    ["Mundo y danzas", "Fado, tango, mariachi, reggae; corro, fila, parejas."],
+  ],
+  glosario: [
+    ["Romance", "Poema narrativo tradicional que se canta."],
+    ["Romancero", "Conjunto de los romances."],
+    ["Sefardí", "Descendiente de los judíos expulsados de España en 1492."],
+    ["Rima asonante", "Rima en la que solo coinciden las vocales."],
+    ["Patrimonio inmaterial", "Tradiciones vivas como músicas, fiestas y oficios."],
+    ["Misteri d'Elx", "Drama cantado medieval de Elche."],
+    ["Gralla", "Instrumento de viento catalán de sonido potente."],
+    ["Tamborada", "Fiesta en la que se tocan tambores y bombos en grupo."],
+    ["Cancionero", "Colección de canciones."],
+    ["Trabajo de campo", "Investigación en el lugar, escuchando y grabando."],
+    ["Bandoneón", "Instrumento de fuelle típico del tango."],
+    ["Saudade", "Sentimiento de nostalgia propio del fado."],
+  ],
+  situacion: {
+    titulo: "El archivo de la memoria",
+    reto: "La clase crea un archivo sonoro con canciones tradicionales de las familias.",
+    pasos: ["Preparad una ficha de entrevista: nombre, lugar, cuándo se cantaba la canción.", "Grabad, con permiso, a una persona mayor cantando o explicando una canción.", "Transcribid la letra y clasificad la canción por su función.", "Publicad el archivo en la web del colegio o en un mapa sonoro."],
+    producto: "Un archivo sonoro con grabaciones, letras y fichas.",
+    evaluacion: ["Aplica el método del trabajo de campo.", "Clasifica canciones por su función.", "Reconoce romances y otros géneros tradicionales.", "Valora y respeta el patrimonio de las familias."],
+  },
+});

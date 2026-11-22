@@ -96,3 +96,91 @@ module.exports = tema({
   ideas: ["Museo de la música con carteles por épocas.", "Juego de audición «¿de qué época es?».", "Biografías ilustradas de compositoras y compositores."],
   fuentes: [["Fundación Juan March: conciertos didácticos", "https://www.march.es/es/madrid/conciertos-didacticos"], ["Real Academia Española: polifonía", "https://dle.rae.es/polifonía"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer el origen del nombre de las notas", "Comparar las vidas y obras de Mozart y Beethoven", "Entender cómo funciona la música de cine", "Valorar a las mujeres compositoras y a los grandes músicos españoles"],
+  lectura: { titulo: "La máquina del tiempo de la abuela", html: `<p>La abuela de Irene tenía en el desván un tocadiscos antiguo y una caja llena de discos de vinilo. Un sábado lluvioso, Irene y su amigo Pablo decidieron convertirlo en una máquina del tiempo.</p><p>—Cada disco nos lleva a una época —dijo Irene, muy seria.</p><p>El primero sonaba lejano y tranquilo: voces de hombres cantando todas juntas la misma melodía, sin instrumentos.</p><p>—Esto suena a iglesia antigua —dijo Pablo—. Edad Media, seguro.</p><p>El segundo tenía un clave nervioso y unos violines que corrían como si les persiguieran. El tercero era una orquesta enorme que empezaba con cuatro notas muy famosas: ta-ta-ta-taaa.</p><p>—¡Esa la conozco! —gritó Irene—. Es Beethoven.</p><p>Así pasaron la tarde: una guitarra flamenca, un saxofón de jazz, una canción pop de cuando su abuela era joven. La abuela subió con la merienda y se quedó escuchando con ellos.</p><p>—Con esa canción bailé con tu abuelo por primera vez —dijo, señalando el último disco.</p><p>Irene entendió entonces que la historia de la música también estaba hecha de pequeñas historias de personas.</p>` },
+  tras: {
+    "Edad Media: gregoriano y trovadores": [
+      ["El nombre de las notas: un himno medieval", `<p>¿Te has preguntado alguna vez por qué las notas se llaman do, re, mi, fa, sol, la, si? La respuesta está en un monasterio medieval.</p><p>En el siglo XI, el monje italiano <b>Guido de Arezzo</b> enseñaba a cantar a los niños del coro. Para ayudarles a recordar las notas, usó un himno en latín dedicado a san Juan Bautista, <i>Ut queant laxis</i>. Se dio cuenta de que cada verso empezaba una nota más aguda que el anterior, así que tomó la <b>primera sílaba</b> de cada verso para nombrar las notas: <b>ut, re, mi, fa, sol, la</b>.</p><p>Más tarde se añadió la nota <b>si</b>, formada con las iniciales de las dos últimas palabras del himno, <i>Sancte Iohannes</i> (san Juan). Y en el siglo XVII, en Italia, se cambió <b>ut</b> por <b>do</b>, que es más fácil de cantar porque termina en vocal. En Francia todavía se usa a veces «ut».</p><p>Guido también perfeccionó el sistema de líneas para escribir la música, antepasado de nuestro pentagrama, y se le atribuye la llamada <b>mano guidoniana</b>: un método para señalar las notas en las articulaciones de los dedos. Gracias a él, los cantores podían aprender una melodía nueva mucho más deprisa, sin tener que memorizarla de oído.</p>`,
+        H6.flujo("Del himno a las notas", ["himno|Ut queant", "ut re mi|fa sol la", "+ si|san Juan", "ut → do|siglo XVII"], cMO)],
+    ],
+    "Clasicismo: equilibrio y claridad": [
+      ["Mozart y Beethoven: dos vidas de película", `<p><b>Wolfgang Amadeus Mozart</b> nació en <b>Salzburgo</b> (Austria) en 1756. Con cinco años ya componía pequeñas piezas, y su padre lo llevó de gira por las cortes de Europa junto a su hermana Nannerl, también excelente pianista. Escribió música de todo tipo: sinfonías, conciertos, música de cámara, misas y óperas como <i>La flauta mágica</i> o <i>Las bodas de Fígaro</i>. Su <i>Pequeña serenata nocturna</i> es una de las obras más conocidas del mundo. Murió en Viena en 1791, con solo 35 años.</p><p><b>Ludwig van Beethoven</b> nació en <b>Bonn</b> (Alemania) en 1770 y se trasladó a Viena, donde vivió el resto de su vida. Tenía un carácter fuerte y quería que los músicos fueran respetados como artistas, no como sirvientes. Hacia los 30 años empezó a quedarse sordo, una tragedia para un músico. Aun así, siguió componiendo: escuchaba la música «por dentro». Su <b>Novena Sinfonía</b> (1824) termina con un coro que canta la <i>Oda a la alegría</i>, un poema de Schiller sobre la fraternidad. Hoy esa melodía es el <b>himno de la Unión Europea</b>. Se cuenta que, en el estreno, no oyó los aplausos y tuvieron que girarlo para que viera al público ovacionándole.</p><p>Mozart representa el equilibrio clásico; Beethoven abre la puerta a la emoción romántica.</p>`,
+        H6.dos("Dos genios", ["MOZART", ["Salzburgo, 1756", "niño prodigio", "La flauta mágica"], cAZ], ["BEETHOVEN", ["Bonn, 1770", "sordo", "Novena Sinfonía"], cRO]), ["Ck2SnXmD6nE", "Mozart, un niño genial/ Sheila Blanco, Bioclassics (con subtítulos en español e inglés)", "Sheila Blanco", 1431783]],
+    ],
+    "Siglos XX y XXI: todos los estilos": [
+      ["La música de cine", `<p>Desde que nació el cine, la música lo ha acompañado. Las primeras películas eran <b>mudas</b>: no tenían sonido grabado, así que en la sala había un pianista, un organista o incluso una pequeña orquesta que tocaba en directo mientras se proyectaba la imagen. En 1927 llegó el cine sonoro y, con él, la <mark>banda sonora</mark> grabada.</p><p>La música de cine tiene varias funciones:</p><ul><li><b>Crear ambiente</b>: miedo, alegría, tensión, misterio.</li><li><b>Contar lo que no se ve</b>: lo que sienten los personajes por dentro.</li><li><b>Unir escenas</b> y dar ritmo a la película.</li></ul><p>Muchos compositores usan el <b>leitmotiv</b>, una idea del compositor alemán Richard Wagner: un tema musical asociado a un personaje o a una idea, que suena cada vez que aparece. <b>John Williams</b> es un maestro de esta técnica: piensa en los temas de <i>La guerra de las galaxias</i>, de <i>Indiana Jones</i> o en las dos notas que anuncian al tiburón de <i>Tiburón</i>.</p><p>España tiene compositores de cine muy reconocidos, como <b>Alberto Iglesias</b>, nominado varias veces al Óscar, o <b>Roque Baños</b>. Prueba a ver una escena sin sonido y luego con música: ¡parece otra película!</p>`,
+        L6.filas("Funciones de la banda sonora", [["ambiente", "miedo, alegría", cMO], ["emociones", "lo que no se ve", cRO], ["ritmo", "une escenas", cAZ], ["leitmotiv", "tema = personaje", cVE]]), ["-b2Ae30N1RQ", "3 pasos para hacer una Banda Sonora (y no morir en el intento)", "Jaime Altozano", 605118]],
+    ],
+  },
+  final: [
+    ["Mujeres en la historia de la música", `<p>Durante siglos, a las mujeres les resultó muy difícil dedicarse a la composición: no podían estudiar en muchos conservatorios, ni dirigir orquestas, ni publicar con libertad. Aun así, muchas compusieron obras extraordinarias:</p><ul><li><b>Hildegarda de Bingen</b> (siglo XII): abadesa alemana, escritora, científica y compositora de cantos religiosos de gran belleza.</li><li><b>Barbara Strozzi</b> (siglo XVII): cantante y compositora veneciana que publicó numerosos libros de canciones, algo excepcional en su tiempo.</li><li><b>Fanny Mendelssohn</b> (siglo XIX): compuso cientos de obras; algunas se publicaron bajo el nombre de su hermano Felix.</li><li><b>Clara Schumann</b> (siglo XIX): una de las grandes pianistas de su época y compositora.</li><li><b>María Rodrigo</b> (1888-1967): compositora madrileña, la primera mujer que estrenó una ópera en el Teatro Real de Madrid, <i>Becqueriana</i> (1915).</li></ul><p>En el siglo XX y XXI destacan intérpretes como la pianista barcelonesa <b>Alicia de Larrocha</b> y cada vez más directoras de orquesta y compositoras de cine. Recuperar la música de estas mujeres, que muchas veces fue olvidada, es una tarea importante de los músicos y los investigadores de hoy.</p>`,
+      L6.filas("Compositoras", [["Hildegarda", "siglo XII", cMO], ["B. Strozzi", "siglo XVII", cAZ], ["C. Schumann", "siglo XIX", cVE], ["María Rodrigo", "siglo XX", cRO]])],
+    ["Grandes músicos españoles", `<p>Además de los que ya conoces (Tomás Luis de Victoria, Albéniz, Granados o Falla), España ha dado muchos músicos importantes:</p><ul><li><b>Antonio de Cabezón</b> (siglo XVI): organista de la corte de Felipe II, ciego desde niño, uno de los grandes compositores para teclado de su tiempo.</li><li><b>Antonio Soler</b> (siglo XVIII): monje del monasterio de El Escorial, famoso por sus sonatas para clave.</li><li><b>Pau Casals</b> (1876-1973): violonchelista de El Vendrell (Tarragona). Dio a conocer al mundo las suites para violonchelo de Bach y compuso el <i>Himno de las Naciones Unidas</i>.</li><li><b>Andrés Segovia</b> (1893-1987): guitarrista de Linares que llevó la guitarra española a las grandes salas de concierto.</li><li><b>Joaquín Rodrigo</b> (1901-1999): compositor de Sagunto que se quedó ciego a los tres años. Su <b>Concierto de Aranjuez</b> (1939), para guitarra y orquesta, es una de las obras españolas más interpretadas en todo el mundo; su segundo movimiento, el Adagio, es especialmente famoso.</li><li><b>Paco de Lucía</b> (1947-2014): guitarrista de Algeciras que renovó el flamenco y lo mezcló con el jazz.</li></ul><p>Busca si en tu ciudad o comunidad nació algún músico importante: seguro que encuentras más de uno.</p>`,
+      H6.rueda("Música española", "ESPAÑA", [["Cabezón", cMO], ["Casals", cAZ], ["Rodrigo", cVE], ["Paco de Lucía", cRO]]), ["Idsb6gk6j_U", "Concierto de Aranjuez. II Adagio. Joaquín Rodrigo. Pablo Saínz Villegas/Carlos Kalmar/ORTVE.", "Joaquín Rodrigo", 6474972]],
+  ],
+  ejemplos: [
+    ["¿De dónde sale el nombre de la nota «sol»?", ["Guido usó las primeras sílabas de un himno.", "El quinto verso empezaba por «Solve»."], "De la primera sílaba del quinto verso del himno a san Juan."],
+    ["Una melodía suena siempre que aparece el villano de una película. ¿Cómo se llama esa técnica?", ["Tema asociado a un personaje.", "Idea de Wagner."], "Leitmotiv."],
+  ],
+  errores: ["Pensar que Beethoven nació sordo.", "Creer que en la historia de la música no hubo mujeres compositoras."],
+  ejercicios: [
+    ["b", "¿Quién dio nombre a las notas?", "Guido de Arezzo."],
+    ["b", "¿Dónde nació Mozart?", "En Salzburgo."],
+    ["b", "¿Qué melodía de Beethoven es el himno de la Unión Europea?", "La Oda a la alegría de la Novena Sinfonía."],
+    ["b", "¿Qué es una banda sonora?", "La música de una película."],
+    ["b", "¿Quién compuso el Concierto de Aranjuez?", "Joaquín Rodrigo."],
+    ["m", "Explica cómo se pasó de «ut» a «do».", "En el siglo XVII se cambió en Italia porque «do» es más fácil de cantar."],
+    ["m", "Escribe tres funciones de la música de cine.", "Crear ambiente, expresar emociones y unir escenas."],
+    ["m", "¿Por qué fue tan difícil para las mujeres componer en el pasado?", "No podían estudiar, dirigir ni publicar con libertad."],
+    ["m", "Compara a Mozart y Beethoven en dos aspectos.", "Respuesta abierta (lugar y fecha, estilo, vida)."],
+    ["m", "¿Qué aportó Pau Casals a la música?", "Dio a conocer las suites para violonchelo de Bach y compuso el Himno de las Naciones Unidas."],
+    ["a", "Ve una escena de película sin sonido y con música y describe la diferencia.", "Respuesta abierta."],
+    ["a", "Prepara una ficha biográfica de una compositora.", "Respuesta abierta."],
+    ["a", "Inventa un leitmotiv para un personaje de un cuento.", "Respuesta abierta."],
+    ["a", "Investiga un músico de tu comunidad y preséntalo.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El himno que dio nombre a las notas estaba dedicado a…", ["san Juan Bautista", "san Pedro", "la Virgen"], "Notas."],
+    ["Beethoven nació en…", ["Bonn", "Viena", "Salzburgo"], "Beethoven."],
+    ["Las primeras películas sin sonido grabado se llaman…", ["mudas", "sonoras", "musicales"], "Cine."],
+    ["María Rodrigo estrenó en el Teatro Real…", ["Becqueriana", "Carmen", "La flauta mágica"], "Compositoras."],
+    ["Paco de Lucía era…", ["guitarrista flamenco", "violonchelista", "organista"], "Españoles."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué obra reconoce Irene por sus cuatro notas?", ["la Quinta Sinfonía de Beethoven", "Las cuatro estaciones", "un canto gregoriano"], "Lectura."],
+    ["Antonio de Cabezón fue…", ["organista ciego del siglo XVI", "director de cine", "guitarrista de jazz"], "Españoles."],
+  ],
+  tarjetas: [
+    ["Nombre de las notas", "Guido de Arezzo, himno Ut queant laxis; ut → do."],
+    ["Mozart y Beethoven", "Mozart: Salzburgo 1756. Beethoven: Bonn 1770, sordo, Novena."],
+    ["Música de cine", "Ambiente, emociones, leitmotiv. John Williams, Alberto Iglesias."],
+    ["Mujeres y españoles", "Hildegarda, Clara Schumann, María Rodrigo; Casals, Rodrigo, Paco de Lucía."],
+  ],
+  glosario: [
+    ["Himno", "Canto solemne de alabanza."],
+    ["Mano guidoniana", "Método para señalar las notas en los dedos."],
+    ["Niño prodigio", "Niño con un talento excepcional desde muy pequeño."],
+    ["Oda a la alegría", "Final coral de la Novena de Beethoven, himno de la UE."],
+    ["Cine mudo", "Cine sin sonido grabado."],
+    ["Banda sonora", "Música compuesta para una película."],
+    ["Leitmotiv", "Tema musical asociado a un personaje o idea."],
+    ["Abadesa", "Mujer que dirige un monasterio."],
+    ["Teatro Real", "Teatro de ópera de Madrid."],
+    ["Clave", "Instrumento de teclado anterior al piano."],
+    ["Concierto", "Obra para solista y orquesta."],
+    ["Intérprete", "Músico que toca o canta una obra."],
+  ],
+  situacion: {
+    titulo: "La línea del tiempo sonora",
+    reto: "La clase crea una línea del tiempo interactiva con músicos y obras de todas las épocas.",
+    pasos: ["Repartid épocas y elegid en cada una un compositor y una compositora o intérprete.", "Preparad una ficha con su vida, una obra y un dato curioso.", "Añadid un código QR o un audio con un fragmento de su música.", "Montad la línea del tiempo y haced de guías para otra clase."],
+    producto: "Una línea del tiempo con fichas y fragmentos sonoros.",
+    evaluacion: ["Ordena correctamente las épocas.", "Relaciona músicos con obras y épocas.", "Incluye a mujeres y músicos españoles.", "Explica con claridad lo investigado."],
+  },
+});

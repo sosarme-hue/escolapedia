@@ -99,3 +99,91 @@ module.exports = tema({
   ideas: ["Rondó colectivo con percusión corporal.", "Análisis de la forma de canciones actuales con letras de colores.", "Musicograma gigante en papel continuo."],
   fuentes: [["Real Academia Española: rondó", "https://dle.rae.es/rondó"], ["Real Academia Española: canon", "https://dle.rae.es/canon"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Reconocer frases de pregunta y respuesta y las cadencias", "Conocer la música programática y obras que cuentan historias", "Analizar la estructura de una canción actual y del blues", "Identificar la suite y las danzas que la forman"],
+  lectura: { titulo: "El misterio del estribillo", html: `<p>Nora estaba convencida de que todas las canciones de la radio eran distintas. Su hermano Íker, que estudiaba producción musical, le hizo una apuesta.</p><p>—Te apuesto el postre a que puedo adivinar cuándo va a entrar el estribillo de una canción que no he oído nunca.</p><p>Nora eligió una canción nueva en su móvil. Íker cerró los ojos y escuchó. Tras una introducción de guitarra, empezó a cantar una voz suave. Luego la música fue subiendo, la batería se aceleró un poco…</p><p>—Ahora —dijo Íker, levantando un dedo.</p><p>Y entró el estribillo, más fuerte, con todos los instrumentos a la vez.</p><p>—¡Has hecho trampa! —protestó Nora.</p><p>—Nada de trampa. Casi todas las canciones siguen un plan: introducción, estrofa, una parte que prepara la llegada y el estribillo. Después se repite, a veces aparece un puente diferente y se vuelve al estribillo final. Los compositores usan formas como los arquitectos usan planos.</p><p>Nora se pasó la tarde escuchando canciones y dibujando sus estructuras con letras en un cuaderno. Esa noche, Íker se comió dos postres. Pero Nora ya sabía el secreto.</p>` },
+  tras: {
+    "¿Qué es la forma musical?": [
+      ["Pregunta y respuesta: la frase musical", `<p>Las frases musicales funcionan muchas veces como una conversación. Una primera frase parece una <b>pregunta</b>: termina en una nota que deja la sensación de que falta algo. Una segunda frase actúa como <b>respuesta</b>: empieza de forma parecida, pero termina en la <b>tónica</b>, la nota «casa», y suena acabada. Los músicos llaman a estas dos frases <b>antecedente</b> y <b>consecuente</b>.</p><p>El final de una frase se llama <mark>cadencia</mark>. Hay cadencias que dejan la música en suspenso, como una coma en un texto, y cadencias <b>conclusivas</b>, que cierran como un punto final. Si cantas una canción y te paras justo antes de la última nota, notarás que tu oído «pide» terminar: esa es la fuerza de la cadencia.</p><p>Las frases, a su vez, están hechas de <b>motivos</b>, ideas muy cortas que se repiten y transforman. El ejemplo más famoso es el inicio de la <b>Quinta Sinfonía de Beethoven</b>: cuatro notas, tres cortas y una larga («ta-ta-ta-taaa»), con las que construye todo un movimiento.</p><p>Un buen juego para la clase: una persona improvisa una pregunta de cuatro compases con la flauta o la voz, y otra le contesta con una respuesta que acabe en do.</p>`,
+        H6.flujo("Construir una obra", ["motivo|pocas notas", "frase|4 u 8", "sección|A, B…", "obra|completa"], cAZ)],
+    ],
+    "Tema con variaciones": [
+      ["Música que cuenta historias", `<p>Algunas obras instrumentales, sin letra, intentan contar una historia o describir un paisaje, un animal o un personaje. Se llama <mark>música programática</mark>, porque sigue un «programa», es decir, un argumento. La música que no describe nada concreto se llama <b>música pura</b> o absoluta.</p><p>Algunos ejemplos famosos:</p><ul><li><b>El carnaval de los animales</b> (1886), de Camille Saint-Saëns: catorce piezas breves dedicadas a animales. El león ruge en el piano y la cuerda grave, los elefantes bailan pesadamente en el contrabajo, el acuario brilla con notas delicadas y el cisne se desliza con la melodía del violonchelo.</li><li><b>El aprendiz de brujo</b> (1897), de Paul Dukas: un aprendiz hechiza una escoba para que acarree agua y no sabe cómo pararla. La película <i>Fantasía</i> de Disney la hizo famosa.</li><li><b>Cuadros de una exposición</b>, de Modest Músorgski: describe un paseo por una exposición de pinturas; un tema llamado «Promenade» representa al visitante caminando entre cuadro y cuadro.</li><li><b>Las cuatro estaciones</b>, de Vivaldi, que ya conoces.</li></ul><p>En la música programática, la forma se adapta a la historia: los temas aparecen cuando aparecen los personajes, y la música cambia cuando cambia la acción.</p>`,
+        L6.filas("El carnaval de los animales", [["león", "piano y cuerda", cNA], ["elefante", "contrabajo", cMO], ["acuario", "notas brillantes", cAZ], ["cisne", "violonchelo", cVE]]), ["8zIhK0OV4n4", "El Despertar de los Animales - El carnaval de los animales de Saint-Saëns", "Musicaeduca", 494367]],
+    ],
+    "El canon y otras formas": [
+      ["La estructura de una canción actual", `<p>La mayoría de las canciones pop, rock o de cantautor siguen una estructura parecida, aunque cada artista la cambia a su gusto:</p><ul><li><b>Introducción</b>: unos compases instrumentales que presentan el ambiente.</li><li><b>Estrofa</b>: la letra cambia en cada una y cuenta la historia. La música suele ser más tranquila.</li><li><b>Preestribillo</b>: una parte corta que prepara y aumenta la tensión.</li><li><b>Estribillo</b>: la parte que todo el mundo recuerda y canta. Su letra se repite igual cada vez y suele contener el título de la canción. Es más intenso.</li><li><b>Puente</b>: una sección diferente, normalmente hacia el final, que rompe la repetición y da variedad.</li><li><b>Final</b> o coda: puede ser un estribillo repetido que se apaga poco a poco (fundido) o un cierre brusco.</li></ul><p>Una estructura muy habitual sería: <b>intro – estrofa – estribillo – estrofa – estribillo – puente – estribillo – final</b>. Si lo escribes con letras: A B A B C B.</p><p>Muchas canciones tienen además un <b>gancho</b>: un fragmento muy corto (de melodía, de ritmo o de letra) que se queda en la cabeza enseguida. Los compositores lo cuidan especialmente, porque es lo que hace que una canción se recuerde.</p>`,
+        H6.flujo("Una canción típica", ["intro|inicio", "estrofa|A", "estribillo|B", "puente|C"], cRO), ["eKvsEOLYb_k", "Video 04   La estructura de una canción   4to Primaria   Marzo", "Alfa Digital", 49419]],
+    ],
+  },
+  final: [
+    ["La suite: una colección de danzas", `<p>En el Barroco, los compositores escribían <mark>suites</mark>: colecciones de danzas instrumentales, todas en la misma tonalidad, pensadas para escuchar más que para bailar. Cada danza tenía su carácter, su compás y su tempo, y se alternaban las lentas con las rápidas. Las más habituales eran:</p><ul><li><b>Alemanda</b>: moderada, en compás de cuatro.</li><li><b>Corrente</b>: más rápida y ligera.</li><li><b>Zarabanda</b>: lenta, solemne, en compás de tres. Curiosamente, su origen está en una danza muy animada que se bailaba en España y América en el siglo XVI.</li><li><b>Giga</b>: muy rápida y saltarina, a menudo en compás compuesto.</li></ul><p>A veces se añadían otras, como el <b>minueto</b>, una danza elegante en compás de 3/4 que más tarde entró en las sinfonías del Clasicismo.</p><p>Cada danza suele tener <b>forma binaria</b> (A A B B): dos partes que se repiten. Bach escribió suites para violonchelo solo que hoy son de las obras más tocadas por los chelistas de todo el mundo.</p><p>La idea de la suite no desapareció: en el siglo XIX y XX se llamó suite a una selección de fragmentos de un ballet o de una ópera, como la suite de <i>El cascanueces</i> de Chaikovski.</p>`,
+      L6.filas("La suite barroca", [["alemanda", "moderada", cAZ], ["corrente", "rápida", cVE], ["zarabanda", "lenta", cMO], ["giga", "muy rápida", cRO]])],
+    ["Improvisar: el blues y el jazz", `<p>No toda la música está completamente escrita. En la <mark>improvisación</mark>, el músico inventa la música en el mismo momento en que la toca. Pero improvisar no es tocar cualquier cosa: se hace siempre sobre una <b>forma</b> que todos conocen.</p><p>El <b>blues</b> nació entre la población afroamericana del sur de Estados Unidos a finales del siglo XIX. Su forma más típica es el <b>blues de 12 compases</b>: una serie de acordes que se repite una y otra vez, siempre en el mismo orden. Las letras suelen ser AAB: se canta una frase, se repite, y la tercera responde a las dos primeras.</p><p>El <b>jazz</b>, nacido en Nueva Orleans a principios del siglo XX, usa un plan parecido:</p><ol><li>Todos tocan el <b>tema</b> (la melodía principal).</li><li>Cada músico hace su <b>solo</b> improvisado, mientras los demás tocan los acordes del tema.</li><li>Al final, todos vuelven al tema.</li></ol><p>Es una forma ternaria (A – improvisaciones – A) en la que el centro cambia cada noche. Por eso dos conciertos de jazz con la misma pieza nunca suenan igual.</p><p>En clase podéis improvisar con solo tres o cuatro notas sobre un ostinato repetido: lo importante es escuchar a los demás y respetar el pulso.</p>`,
+      H6.dos("Escrito o improvisado", ["ESCRITO", ["partitura", "igual cada vez", "música clásica"], cAZ], ["IMPROVISADO", ["sobre una forma", "cambia cada vez", "blues y jazz"], cNA])],
+  ],
+  ejemplos: [
+    ["Una canción sigue: intro, estrofa, estribillo, estrofa, estribillo, puente, estribillo. ¿Cómo la escribes con letras?", ["Estrofa = A, estribillo = B, puente = C.", "Se ignora la intro."], "A B A B C B."],
+    ["Una pieza instrumental imita a un león, unos elefantes y un cisne. ¿Qué tipo de música es?", ["Describe animales concretos.", "Sigue un programa."], "Música programática."],
+  ],
+  errores: ["Pensar que improvisar es tocar sin ninguna regla.", "Confundir estrofa (letra cambia) y estribillo (letra se repite)."],
+  ejercicios: [
+    ["b", "¿Qué es una cadencia?", "El final de una frase musical."],
+    ["b", "¿Quién compuso El carnaval de los animales?", "Camille Saint-Saëns."],
+    ["b", "¿Qué parte de una canción repite siempre la misma letra?", "El estribillo."],
+    ["b", "¿Qué es una suite?", "Una colección de danzas instrumentales."],
+    ["b", "¿Dónde nació el jazz?", "En Nueva Orleans."],
+    ["m", "Explica la diferencia entre música programática y música pura.", "La programática describe una historia o imagen; la pura no describe nada concreto."],
+    ["m", "Nombra las cuatro danzas habituales de la suite barroca.", "Alemanda, corrente, zarabanda y giga."],
+    ["m", "¿Qué es el puente en una canción?", "Una sección diferente que rompe la repetición."],
+    ["m", "Describe el plan de una pieza de jazz.", "Tema, solos improvisados y tema."],
+    ["m", "¿Cómo es el motivo de la Quinta de Beethoven?", "Tres notas cortas y una larga."],
+    ["a", "Analiza tu canción favorita y escribe su estructura con letras.", "Respuesta abierta."],
+    ["a", "Inventa una pregunta y una respuesta musicales de cuatro compases cada una.", "Respuesta abierta."],
+    ["a", "Elige un animal y compón una pieza breve que lo describa.", "Respuesta abierta."],
+    ["a", "Improvisa con tres notas sobre un ostinato de la clase.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["La frase que suena acabada es el…", ["consecuente", "antecedente", "motivo"], "Frases."],
+    ["El cisne del Carnaval de los animales lo toca…", ["el violonchelo", "la tuba", "el piano solo"], "Programática."],
+    ["El gancho de una canción es…", ["un fragmento corto fácil de recordar", "la introducción", "el final"], "Canción."],
+    ["La zarabanda en la suite es…", ["lenta y solemne", "muy rápida", "en compás de cuatro"], "Suite."],
+    ["El blues típico tiene…", ["12 compases", "8 compases", "4 compases"], "Blues."],
+  ],
+  examen: [
+    ["En la lectura, ¿cómo adivina Íker la llegada del estribillo?", ["por el plan habitual de las canciones", "porque ya conocía la canción", "por la letra"], "Lectura."],
+    ["El aprendiz de brujo es de…", ["Paul Dukas", "Vivaldi", "Bach"], "Programática."],
+  ],
+  tarjetas: [
+    ["Frase musical", "Pregunta (antecedente) y respuesta (consecuente); termina en cadencia."],
+    ["Música programática", "Cuenta una historia: Saint-Saëns, Dukas, Músorgski."],
+    ["Canción actual", "Intro, estrofa, preestribillo, estribillo, puente, final."],
+    ["Suite e improvisación", "Danzas barrocas; blues de 12 compases y jazz."],
+  ],
+  glosario: [
+    ["Antecedente", "Frase que suena como una pregunta."],
+    ["Consecuente", "Frase que responde y suena acabada."],
+    ["Cadencia", "Final de una frase musical."],
+    ["Música programática", "Música instrumental que describe una historia o imagen."],
+    ["Música pura", "Música que no describe nada concreto."],
+    ["Estrofa", "Parte de la canción cuya letra cambia."],
+    ["Estribillo", "Parte de la canción que se repite igual."],
+    ["Puente", "Sección distinta que da variedad."],
+    ["Gancho", "Fragmento corto y pegadizo de una canción."],
+    ["Suite", "Colección de danzas instrumentales."],
+    ["Improvisación", "Crear música en el momento de tocarla."],
+    ["Blues", "Estilo afroamericano con una forma típica de 12 compases."],
+  ],
+  situacion: {
+    titulo: "Analistas musicales",
+    reto: "La clase prepara una guía de escucha con la estructura de varias obras y canciones.",
+    pasos: ["Elegid tres piezas: una canción actual, una danza y una obra programática.", "Escuchad y dividid cada pieza en secciones con letras.", "Dibujad un musicograma de cada una.", "Presentad la guía a otra clase y escuchadla juntos."],
+    producto: "Una guía de escucha con estructuras y musicogramas.",
+    evaluacion: ["Identifica secciones y repeticiones.", "Distingue música programática y pura.", "Reconoce partes de una canción.", "Explica la forma con vocabulario adecuado."],
+  },
+});
