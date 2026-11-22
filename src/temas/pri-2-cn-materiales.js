@@ -136,3 +136,94 @@ module.exports = tema({
   saberes: "Materiales: objetos y materiales, origen natural o artificial, propiedades básicas, uso adecuado y consumo responsable (reducir, reutilizar y reciclar)",
   ideas: ["Caja de materiales para clasificar por propiedades (duro/blando, transparente/opaco).", "Punto limpio de clase con papeleras de colores.", "Taller de reutilización: juguetes con envases."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer de dónde vienen el papel y el vidrio", "Distinguir materiales que dejan pasar la luz", "Saber qué materiales atraen los imanes", "Reutilizar objetos para darles una segunda vida"],
+  lectura: { titulo: "Los tres cerditos modernos", html: `<p>Había una vez tres cerditos que querían construir sus casas en el siglo XXI.</p><p>El primero hizo su casa con <b>cartón</b>, porque era barato y ligero. Pero llegó la lluvia, el cartón se empapó y la casa se deshizo como una galleta en la leche.</p><p>El segundo la hizo con <b>plástico</b>, porque no se moja. Pero en verano el sol calentó tanto que dentro hacía un calor horrible, y el plástico se deformó.</p><p>El tercero era el más pensativo. Usó <b>ladrillos</b> y <b>piedra</b> para las paredes, porque son duros y resistentes. Puso <b>madera</b> en las puertas, <b>vidrio</b> en las ventanas para que entrara la luz, y <b>tejas</b> de barro en el tejado para que resbalara la lluvia.</p><p>Cuando llegó el lobo y sopló, la casa ni se movió.</p><p>—Cada material tiene su trabajo —explicó el cerdito a sus hermanos—. Hay que elegir el adecuado para cada parte.</p><p>Y los tres vivieron juntos, secos y fresquitos, en la casa de ladrillo.</p>` },
+  tras: {
+    "Materiales naturales": [
+      ["De dónde vienen el papel y el vidrio", `<p>Muchos materiales que usamos se fabrican a partir de <mark>materiales naturales</mark>:</p><ul><li>El <b>papel</b> se hace con la madera de los árboles. Se tritura, se mezcla con agua hasta formar una pasta y se seca en láminas finas.</li><li>El <b>vidrio</b> se hace con <b>arena</b> calentada a muchísima temperatura hasta que se derrite. Luego se le da forma y se enfría.</li><li>El <b>plástico</b> se fabrica con <b>petróleo</b>, un líquido negro que hay bajo la tierra.</li><li>La <b>tela</b> de algodón viene de una planta; la de lana, de las ovejas.</li><li>Los <b>ladrillos</b> se hacen con barro cocido en un horno.</li></ul><p>Por eso es tan importante reciclar el papel: así se cortan menos árboles.</p><p><b>Actividad</b>: elige tres objetos de clase y averigua de qué material natural vienen.</p>`,
+        L6.filas("Origen", [["papel", "árboles", cVE], ["vidrio", "arena", cAZ], ["plástico", "petróleo", cMO], ["ladrillo", "barro", cRO]]),
+        ["fZN0OuroJzM", "Los Materiales | Tipos y Características", "Aula chachi", 540328]],
+    ],
+    "Más propiedades": [
+      ["¿Deja pasar la luz?", `<p>Según cómo dejan pasar la luz, los materiales pueden ser:</p><ul><li><mark>Transparentes</mark>: dejan pasar la luz y vemos claramente a través de ellos. El vidrio de una ventana, el agua limpia, el plástico de una botella.</li><li><mark>Translúcidos</mark>: dejan pasar algo de luz, pero no vemos bien lo de detrás. El papel de cebolla, el cristal de la ducha, una cortina fina.</li><li><mark>Opacos</mark>: no dejan pasar la luz. No vemos nada a través. La madera, el metal, el cartón, una pared.</li></ul><p>Elegimos uno u otro según lo que necesitemos: ventanas transparentes para ver fuera, cristales translúcidos en el baño para tener intimidad y persianas opacas para dormir a oscuras.</p><p><b>Actividad</b>: con una linterna, prueba qué materiales de clase son transparentes, translúcidos u opacos.</p>`,
+        H6.flujo("Luz", ["transparente|vidrio", "translúcido|papel fino", "opaco|madera", "linterna|¡prueba!"], cAZ)],
+    ],
+    "Cada material para su uso": [
+      ["Materiales e imanes", `<p>Los <mark>imanes</mark> atraen algunos materiales, pero no todos.</p><ul><li><b>Sí atraen</b>: el <b>hierro</b> y el <b>acero</b>. Por ejemplo, clips, clavos, tornillos, tijeras y la puerta de la nevera.</li><li><b>No atraen</b>: la madera, el plástico, el papel, el vidrio, la tela… ¡ni tampoco el aluminio de las latas de refresco!</li></ul><p>Los imanes tienen dos extremos llamados <b>polos</b>. Si acercamos dos imanes, a veces se atraen y a veces se empujan.</p><p>Usamos imanes en:</p><ul><li>Los imanes de la <b>nevera</b>.</li><li>La <b>brújula</b>, que tiene una aguja imantada que señala el norte.</li><li>Los cierres de algunos bolsos y estuches.</li><li>Las fábricas de reciclaje, para separar el hierro de la basura.</li></ul><p><b>Actividad</b>: con un imán, descubre qué objetos de tu estuche atrae.</p>`,
+        H6.dos("Imán", ["ATRAE", ["hierro", "acero", "clips"], cRO], ["NO ATRAE", ["madera", "plástico", "aluminio"], cAZ])],
+    ],
+    "Reducir, reutilizar y reciclar": [
+      ["Segunda vida para los objetos", `<p><mark>Reutilizar</mark> es darle otro uso a un objeto en lugar de tirarlo. ¡Con imaginación, casi todo sirve!</p><ul><li>Un <b>bote de cristal</b> puede ser un lapicero o un tarro para guardar botones.</li><li>Una <b>caja de zapatos</b> puede ser una casita de muñecas o un archivador.</li><li>Los <b>rollos de papel</b> sirven para hacer prismáticos o marionetas.</li><li>Una <b>botella de plástico</b> cortada puede ser una maceta o un comedero de pájaros.</li><li>La <b>ropa</b> que se nos queda pequeña puede ser para un primo o donarse.</li><li>Los <b>libros</b> que ya hemos leído podemos intercambiarlos.</li></ul><p>Reutilizar ahorra materiales y dinero, y además genera menos basura.</p><p>También podemos <b>reparar</b>: coser un botón o pegar un juguete roto en lugar de comprar otro.</p><p><b>Actividad</b>: trae a clase un envase vacío y transfórmalo en algo útil.</p>`,
+        H6.rueda("Reutilizar", "2.ª VIDA", [["bote", cNA], ["caja", cAZ], ["rollo", cVE], ["botella", cRO]]),
+        ["P3yOGuLcODk", "Las 4 R's | Canciones Infantiles", "El Payaso Plim Plim", 6485770]],
+    ],
+  },
+  final: [
+    ["Materiales en la historia", `<p>A lo largo de la historia, las personas han usado <mark>materiales distintos</mark>:</p><ul><li>En la <b>Prehistoria</b> usaban piedra, hueso, madera y pieles. Hacían herramientas de piedra afilada.</li><li>Después aprendieron a hacer <b>cerámica</b> con barro y a fundir <b>metales</b> como el cobre, el bronce y el hierro.</li><li>Los romanos usaban mucho la <b>piedra</b>, el ladrillo y el hormigón para construir puentes y acueductos que todavía siguen en pie.</li><li>Hace unos cien años se inventó el <b>plástico</b>, que hoy está en todas partes.</li><li>Hoy se inventan materiales nuevos, como tejidos que no se mojan o plásticos que se deshacen solos.</li></ul><p>Cada nuevo material ha cambiado la forma de vivir de las personas.</p><p><b>Actividad</b>: pregunta a tus abuelos de qué material eran sus juguetes cuando eran pequeños.</p>`,
+      L6.filas("Historia", [["Prehistoria", "piedra, hueso", cMO], ["Antigüedad", "barro, metal", cNA], ["Romanos", "piedra, ladrillo", cAZ], ["Hoy", "plástico", cRO]])],
+    ["Repaso: los tres cerditos", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>El <b>cartón</b> es ligero y barato, pero se moja y se deshace: no sirve para una casa.</li><li>El <b>plástico</b> no se moja, pero con calor se deforma: tampoco es el mejor.</li><li>Los <b>ladrillos</b> y la <b>piedra</b> son duros y resistentes: perfectos para las paredes.</li><li>La <b>madera</b>: buena para las puertas.</li><li>El <b>vidrio</b> es transparente: deja entrar la luz por las ventanas.</li><li>Las <b>tejas</b> de barro son impermeables: la lluvia resbala.</li></ul><p>El tercer cerdito eligió cada material según sus <b>propiedades</b>. ¡Eso hacen los arquitectos de verdad!</p><p><b>Actividad</b>: diseña tu casa ideal y escribe qué material usarías en cada parte y por qué.</p>`,
+      H6.dos("Casa", ["MAL", ["cartón: se moja", "plástico: calor"], cRO], ["BIEN", ["ladrillo, piedra", "vidrio, tejas"], cVE])],
+  ],
+  ejemplos: [
+    ["¿El vidrio es transparente u opaco?", ["Vemos a través de él."], "Transparente."],
+    ["¿Un imán atrae una lata de aluminio?", ["El aluminio no es hierro ni acero."], "No."],
+  ],
+  errores: ["Pensar que los imanes atraen todos los metales.", "Tirar objetos que podrían reutilizarse."],
+  ejercicios: [
+    ["b", "¿De qué se hace el papel?", "De la madera de los árboles."],
+    ["b", "¿De qué se hace el vidrio?", "De arena."],
+    ["b", "Di un material opaco.", "Madera, metal, cartón…"],
+    ["b", "¿Qué atrae un imán?", "Hierro y acero."],
+    ["b", "Di una forma de reutilizar un bote.", "Como lapicero."],
+    ["m", "¿Qué diferencia hay entre transparente y translúcido?", "En el transparente se ve bien; en el translúcido, no."],
+    ["m", "¿De dónde viene el plástico?", "Del petróleo."],
+    ["m", "¿Para qué sirve la brújula?", "Para saber dónde está el norte."],
+    ["m", "¿Por qué reciclar papel ayuda a los bosques?", "Porque se cortan menos árboles."],
+    ["m", "Di dos materiales que usaban en la Prehistoria.", "Piedra, hueso, madera…"],
+    ["a", "En la lectura, ¿por qué se deshace la casa de cartón?", "Porque el cartón se empapa con la lluvia."],
+    ["a", "¿Por qué ponemos cristal translúcido en el baño?", "Para que entre luz pero no se vea dentro."],
+    ["a", "Inventa un objeto reutilizando una caja de zapatos.", "Respuesta libre."],
+    ["a", "Elige un material para un paraguas y explica por qué.", "Tela impermeable o plástico, porque no deja pasar el agua."],
+  ],
+  quiz: [
+    ["El vidrio se fabrica con…", ["arena", "madera", "petróleo"], "Origen."],
+    ["Un material que no deja pasar la luz es…", ["opaco", "transparente", "translúcido"], "Luz."],
+    ["Un imán atrae un…", ["clip de acero", "lápiz de madera", "vaso de vidrio"], "Imanes."],
+    ["Usar un bote como lapicero es…", ["reutilizar", "reciclar", "tirar"], "Segunda vida."],
+    ["El plástico se inventó hace unos…", ["cien años", "mil años", "diez años"], "Historia."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué material se deforma con el calor?", ["el plástico", "el ladrillo", "la piedra"], "Lectura."],
+    ["Las tejas sirven para que…", ["resbale la lluvia", "entre la luz", "se abra la puerta"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Luz", "Transparente, translúcido y opaco."],
+    ["Imán", "Atrae hierro y acero; no madera, plástico ni aluminio."],
+  ],
+  glosario: [
+    ["Transparente", "Que deja ver a través de él."],
+    ["Translúcido", "Que deja pasar algo de luz."],
+    ["Opaco", "Que no deja pasar la luz."],
+    ["Imán", "Objeto que atrae el hierro."],
+    ["Brújula", "Aparato con una aguja que señala el norte."],
+    ["Petróleo", "Líquido negro del que se hace el plástico."],
+    ["Reutilizar", "Usar otra vez algo para otro fin."],
+    ["Cerámica", "Objetos de barro cocido."],
+    ["Impermeable", "Que no deja pasar el agua."],
+    ["Propiedad", "Característica de un material."],
+  ],
+  situacion: {
+    titulo: "Taller de la segunda vida",
+    reto: "La clase investiga materiales con linternas e imanes y crea objetos útiles con envases reutilizados.",
+    pasos: ["Clasificar materiales en transparentes, translúcidos y opacos.", "Probar qué materiales atrae un imán.", "Diseñar un objeto útil con envases usados.", "Exponer los objetos explicando de qué materiales están hechos."],
+    producto: "Una exposición de objetos reutilizados con fichas de materiales.",
+    evaluacion: ["Sabe de dónde vienen algunos materiales.", "Clasifica según la luz.", "Predice qué atrae un imán.", "Reutiliza objetos con creatividad."],
+  },
+});

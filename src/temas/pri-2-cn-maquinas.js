@@ -136,3 +136,93 @@ module.exports = tema({
   saberes: "Tecnología: máquinas simples (palanca, rueda, polea, plano inclinado y cuña), máquinas complejas y uso seguro de objetos y aparatos",
   ideas: ["Construir una polea con un carrete de hilo y un cubo pequeño.", "Rampas con distintos ángulos y coches de juguete para medir distancias.", "Caza de máquinas simples por el colegio con fotos."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Encontrar palancas en objetos de casa", "Conocer los engranajes", "Saber qué energía mueve cada máquina", "Conocer inventores e inventos importantes"],
+  lectura: { titulo: "El piano que no subía", html: `<p>La familia de Óscar se muda a un piso nuevo. Todo cabe por la escalera menos una cosa: el piano de la abuela. ¡Pesa muchísimo!</p><p>—No pasa por la puerta del portal —dice el hombre de la mudanza—. Tendremos que subirlo por la ventana.</p><p>Óscar no entiende cómo. ¿Quién puede levantar algo tan pesado hasta un tercer piso?</p><p>Entonces llega un camión con una grúa. En lo alto tiene una polea, una rueda con una cuerda. Atan el piano con correas y un motor empieza a tirar de la cuerda.</p><p>Poco a poco, el piano sube por el aire, balanceándose suavemente. Óscar lo mira desde la acera con la boca abierta.</p><p>Arriba, dos hombres lo cogen por la ventana y lo meten en el salón con unas rampas y un carrito con ruedas.</p><p>—¡Las máquinas son geniales! —dice Óscar.</p><p>Esa tarde, la abuela toca una canción para celebrarlo.</p>` },
+  tras: {
+    "La palanca": [
+      ["Palancas en casa", `<p>En casa hay muchas <mark>palancas</mark>, aunque no lo parezca:</p><ul><li>Las <b>tijeras</b>: son dos palancas unidas por un tornillo.</li><li>El <b>cascanueces</b>: con poca fuerza en los mangos, rompemos una nuez dura.</li><li>Las <b>pinzas</b> de cocina y las de depilar.</li><li>El <b>abrebotellas</b>.</li><li>La <b>carretilla</b>: la rueda es el punto de apoyo y levantamos mucho peso.</li><li>Los <b>alicates</b>.</li></ul><p>También nuestro cuerpo funciona como una palanca: el brazo, al levantar algo, usa el codo como punto de apoyo.</p><p>El truco de la palanca es que, cuanto más lejos del punto de apoyo empujamos, <b>menos fuerza</b> necesitamos. Por eso es más fácil abrir una puerta empujando lejos de las bisagras.</p><p><b>Actividad</b>: busca en tu casa tres objetos que sean palancas y dibújalos.</p>`,
+        L6.filas("Palancas", [["tijeras", "cortar", cAZ], ["cascanueces", "romper", cNA], ["pinzas", "coger", cVE], ["carretilla", "llevar peso", cRO]]),
+        ["bkqGpUztBS4", "Los Fixis - La Palanca", "Los Fixis", 3371543]],
+    ],
+    "La rueda": [
+      ["Los engranajes", `<p>Los <mark>engranajes</mark> son ruedas con <b>dientes</b> en el borde. Cuando dos engranajes encajan, al girar uno, gira el otro.</p><ul><li>Si una rueda gira hacia la derecha, la otra gira hacia la <b>izquierda</b>.</li><li>Si una rueda es <b>pequeña</b> y la otra <b>grande</b>, la pequeña da muchas vueltas mientras la grande da pocas.</li></ul><p>¿Dónde hay engranajes?</p><ul><li>En la <b>bicicleta</b>: los platos y piñones, unidos por una cadena.</li><li>En los <b>relojes</b> de agujas.</li><li>En las <b>batidoras</b> de manivela.</li><li>En los coches y en muchos juguetes.</li></ul><p>En la bici, cuando cambias de marcha, cambias de engranaje: unos sirven para subir cuestas con menos esfuerzo y otros para ir muy rápido en llano.</p><p><b>Actividad</b>: mira la cadena de una bicicleta y cuenta los dientes del plato.</p>`,
+        H6.dos("Engranajes", ["PEQUEÑO", ["muchas vueltas", "rápido", "piñón"], cRO], ["GRANDE", ["pocas vueltas", "lento", "plato"], cAZ])],
+    ],
+    "Máquinas complejas": [
+      ["¿Qué mueve las máquinas?", `<p>Las máquinas necesitan <mark>energía</mark> para funcionar. Según de dónde la saquen:</p><ul><li><b>Fuerza de las personas</b>: la bici, las tijeras, el patinete.</li><li><b>Electricidad</b>: la lavadora, el ordenador, la nevera. Se enchufan o llevan pilas o batería.</li><li><b>Gasolina</b> o gasóleo: muchos coches, camiones y barcos.</li><li><b>El viento</b>: los molinos y los barcos de vela.</li><li><b>El agua</b>: los molinos de agua y las centrales de los embalses.</li><li><b>El sol</b>: las calculadoras solares y algunos coches.</li></ul><p>Algunas energías se acaban y contaminan, como la gasolina. Otras no se acaban y contaminan poco, como el sol y el viento: son energías <b>limpias</b>.</p><p>Por eso cada vez hay más coches eléctricos y placas solares.</p><p><b>Actividad</b>: haz una lista de máquinas de tu casa y escribe qué energía usa cada una.</p>`,
+        H6.rueda("Energía", "MÁQUINA", [["personas", cNA], ["electricidad", cAZ], ["viento", cVE], ["sol", cRO]])],
+    ],
+    "Con seguridad": [
+      ["Inventores e inventos", `<p>Todas las máquinas las ha inventado alguien. Las personas que inventan se llaman <mark>inventores</mark>.</p><ul><li>La <b>rueda</b> se inventó hace más de 5000 años. No sabemos quién fue.</li><li><b>Arquímedes</b>, un sabio griego, estudió la palanca y dijo: «Dadme un punto de apoyo y moveré el mundo».</li><li><b>Leonardo da Vinci</b> dibujó máquinas voladoras hace 500 años, mucho antes de que existieran los aviones.</li><li><b>Isaac Peral</b>, un español, inventó un submarino.</li><li><b>Manuel Jalón</b>, otro español, inventó la fregona.</li></ul><p>Para inventar hace falta <b>curiosidad</b>, imaginación y mucha paciencia: casi siempre los inventos fallan muchas veces antes de funcionar.</p><p><b>Actividad</b>: inventa una máquina que te ayude a recoger tu habitación. Dibújala y explica cómo funciona.</p>`,
+        L6.filas("Inventos", [["rueda", "hace 5000 años", cNA], ["Arquímedes", "palanca", cAZ], ["Isaac Peral", "submarino", cVE], ["Manuel Jalón", "fregona", cRO]])],
+    ],
+  },
+  final: [
+    ["Robots: máquinas que obedecen", `<p>Un <mark>robot</mark> es una máquina que puede hacer tareas sola siguiendo unas instrucciones. Esas instrucciones se llaman <b>programa</b>.</p><p>Hay robots en muchos sitios:</p><ul><li>En las <b>fábricas</b>: montan coches, pintan y cargan cajas.</li><li>En las <b>casas</b>: el robot aspirador limpia el suelo solo.</li><li>En los <b>hospitales</b>: ayudan a los médicos en operaciones muy delicadas.</li><li>En el <b>espacio</b>: hay robots explorando Marte.</li></ul><p>Los robots no piensan como las personas: solo hacen lo que alguien les ha programado.</p><p>En el cole puedes aprender a <b>programar</b> robots sencillos con flechas: adelante, atrás, gira a la derecha, gira a la izquierda.</p><p><b>Actividad</b>: jugad a robots: un compañero da órdenes con flechas y el otro las sigue para llegar a un objeto.</p>`,
+      H6.flujo("Programa", ["adelante|2 pasos", "gira|derecha", "adelante|1 paso", "coge|¡el objeto!"], cAZ)],
+    ["Repaso: el piano de Óscar", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>¿Qué máquina sube el piano? Una <b>grúa</b> con una <b>polea</b>.</li><li>¿Qué energía la mueve? Un <b>motor</b>.</li><li>¿Para qué usan las rampas? Son <b>planos inclinados</b>: ayudan a mover cosas pesadas sin levantarlas.</li><li>¿Y el carrito? Tiene <b>ruedas</b>, que facilitan arrastrar.</li><li>¿La grúa es una máquina simple o compleja? <b>Compleja</b>: tiene polea, motor, ruedas y palancas.</li></ul><p>Sin estas máquinas, ¡subir un piano a un tercer piso sería casi imposible!</p><p><b>Actividad</b>: dibuja cómo subirías un objeto pesado a lo alto de un armario usando una máquina simple.</p>`,
+      L6.filas("Mudanza", [["grúa", "polea + motor", cAZ], ["rampa", "plano inclinado", cNA], ["carrito", "ruedas", cVE], ["grúa", "compleja", cRO]])],
+  ],
+  ejemplos: [
+    ["¿Por qué las tijeras son una palanca?", ["Tienen un punto de apoyo: el tornillo.", "Con poca fuerza cortamos."], "Son dos palancas unidas."],
+    ["Dos engranajes: uno gira a la derecha. ¿Y el otro?", ["Los dientes empujan al contrario."], "A la izquierda."],
+  ],
+  errores: ["Pensar que las máquinas tienen que ser grandes o tener motor.", "Creer que los robots piensan solos."],
+  ejercicios: [
+    ["b", "Di una palanca que haya en tu casa.", "Tijeras, pinzas, cascanueces…"],
+    ["b", "¿Qué son los engranajes?", "Ruedas con dientes."],
+    ["b", "Di una máquina que funcione con electricidad.", "Lavadora, nevera…"],
+    ["b", "¿Qué inventó Manuel Jalón?", "La fregona."],
+    ["b", "¿Qué es un robot?", "Una máquina que hace tareas sola con un programa."],
+    ["m", "¿Dónde hay engranajes en la bici?", "En los platos y piñones."],
+    ["m", "Di dos energías limpias.", "El sol y el viento."],
+    ["m", "¿Por qué empujamos la puerta lejos de las bisagras?", "Porque así necesitamos menos fuerza."],
+    ["m", "¿Qué dijo Arquímedes?", "Dadme un punto de apoyo y moveré el mundo."],
+    ["m", "Di dos lugares donde hay robots.", "Fábricas, casas, hospitales, Marte."],
+    ["a", "En la lectura, ¿por qué suben el piano por la ventana?", "Porque no cabe por la puerta del portal."],
+    ["a", "Explica qué pasa si un engranaje pequeño mueve a uno grande.", "El pequeño da muchas vueltas y el grande pocas."],
+    ["a", "Inventa una máquina y di qué energía usaría.", "Respuesta libre."],
+    ["a", "Escribe un programa con flechas para ir de la puerta a tu mesa.", "Respuesta libre."],
+  ],
+  quiz: [
+    ["El cascanueces es una…", ["palanca", "polea", "rueda"], "Palancas."],
+    ["Las ruedas con dientes son…", ["engranajes", "poleas", "cuñas"], "Engranajes."],
+    ["Una energía limpia es…", ["el sol", "la gasolina", "el carbón"], "Energía."],
+    ["La fregona la inventó…", ["Manuel Jalón", "Arquímedes", "Leonardo"], "Inventores."],
+    ["Las instrucciones de un robot son su…", ["programa", "motor", "rueda"], "Robots."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué sube el piano?", ["una grúa con polea", "una escalera", "un ascensor"], "Lectura."],
+    ["Las rampas de la mudanza son…", ["planos inclinados", "palancas", "engranajes"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Engranajes", "Ruedas con dientes que giran al contrario."],
+    ["Energía", "Personas, electricidad, gasolina, viento, agua, sol."],
+  ],
+  glosario: [
+    ["Palanca", "Barra que se apoya en un punto para mover peso."],
+    ["Engranaje", "Rueda con dientes."],
+    ["Energía", "Lo que hace funcionar las máquinas."],
+    ["Electricidad", "Energía que llega por los enchufes."],
+    ["Energía limpia", "Energía que contamina poco."],
+    ["Inventor", "Persona que crea algo nuevo."],
+    ["Robot", "Máquina que hace tareas sola."],
+    ["Programa", "Instrucciones para una máquina."],
+    ["Grúa", "Máquina para levantar cosas pesadas."],
+    ["Motor", "Parte que hace moverse a una máquina."],
+  ],
+  situacion: {
+    titulo: "Feria de inventos",
+    reto: "La clase organiza una feria donde cada grupo presenta un invento hecho con materiales reciclados y una máquina simple.",
+    pasos: ["Buscar palancas, ruedas y engranajes en objetos de casa.", "Diseñar un invento sencillo que resuelva un problema.", "Construirlo con cartón, gomas y palillos.", "Presentarlo explicando qué máquina simple y qué energía usa."],
+    producto: "Una feria de inventos con fichas explicativas.",
+    evaluacion: ["Reconoce palancas en objetos cotidianos.", "Explica cómo giran los engranajes.", "Identifica la energía de cada máquina.", "Conoce algún inventor."],
+  },
+});

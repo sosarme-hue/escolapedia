@@ -135,3 +135,93 @@ module.exports = tema({
   saberes: "Las plantas: partes y funciones, la germinación de la semilla, necesidades para su desarrollo, tipos de plantas y su importancia para la vida",
   ideas: ["Semilleros con lentejas y judías en vasos transparentes para ver las raíces.", "Experimento de una planta con luz y otra sin luz durante una semana.", "Apadrinar un árbol del patio y anotar sus cambios en cada estación."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Entender cómo fabrican su alimento las plantas", "Distinguir árboles, arbustos y hierbas", "Conocer cómo viajan las semillas", "Cuidar un huerto o una planta en clase"],
+  lectura: { titulo: "El huerto del cole", html: `<p>En el patio del colegio de Iván hay un rincón con tierra que nadie usaba. Un día, la maestra propone convertirlo en un huerto.</p><p>Los niños de 2.º quitan las piedras, remueven la tierra con rastrillos y echan abono. Después siembran semillas de lechuga, rabanitos y tomates. También plantan unas fresas que trae Iván de casa.</p><p>Cada día, por turnos, riegan con una regadera. Al principio no pasa nada, y algunos se impacientan.</p><p>—¿Seguro que esto funciona? —pregunta Lola.</p><p>Una semana después aparecen unos brotes verdes diminutos. ¡Los rabanitos son los primeros!</p><p>Durante semanas, los niños quitan las malas hierbas y espantan a los caracoles. Las plantas crecen y crecen.</p><p>En junio hacen la gran cosecha. Hay rabanitos rojos, lechugas enormes y tomates brillantes. Con ellos preparan una ensalada para todo el cole.</p><p>—Nunca me habían gustado los tomates —dice Lola—. ¡Pero estos los he cuidado yo!</p>` },
+  tras: {
+    "Para qué sirve cada parte": [
+      ["Las plantas fabrican su comida", `<p>Las plantas no comen como los animales. ¡Ellas mismas <mark>fabrican su alimento</mark>! Lo hacen en las hojas:</p><ul><li>La <b>raíz</b> toma agua y sales minerales del suelo.</li><li>El <b>tallo</b> sube esa agua hasta las hojas.</li><li>Las <b>hojas</b> atrapan la <b>luz del sol</b> gracias a su color verde y toman un gas del aire.</li><li>Con todo eso, fabrican su alimento, una especie de azúcar.</li></ul><p>Este proceso se llama <b>fotosíntesis</b>. ¡Y lo mejor es que, al hacerlo, las plantas sueltan <b>oxígeno</b>, el gas que nosotros respiramos!</p><p>Por eso las plantas sin luz se ponen amarillas y se mueren: no pueden fabricar su comida.</p><p><b>Actividad</b>: tapa una hoja de una planta con papel de aluminio durante una semana. ¿Qué color tiene al destaparla?</p>`,
+        H6.flujo("Fotosíntesis", ["raíz|agua", "tallo|sube", "hoja|sol + aire", "alimento|y oxígeno"], cVE),
+        ["SljwLkjPlmc", "Fotosíntesis ¡Hola Plantita! | Canciones Infantiles", "El Payaso Plim Plim", 301775851]],
+    ],
+    "La semilla": [
+      ["Semillas viajeras", `<p>Las plantas no pueden andar, pero sus <mark>semillas viajan</mark> para crecer en otros lugares:</p><ul><li>Con el <b>viento</b>: las semillas del diente de león tienen pelitos como paracaídas, y las del arce, alas que giran.</li><li>Con los <b>animales</b>: algunas tienen ganchitos que se pegan al pelo de los perros o a nuestros calcetines. Otras están dentro de frutos que comen los pájaros, y salen con sus cacas lejos de la planta.</li><li>Con el <b>agua</b>: el coco flota en el mar y puede llegar a otra isla.</li><li>Por sí mismas: algunas plantas, como las legumbres, abren sus vainas de golpe y lanzan las semillas.</li><li>Las <b>ardillas</b> esconden bellotas para el invierno y se olvidan de algunas, ¡que se convierten en árboles!</li></ul><p><b>Actividad</b>: después de pasear por el campo, revisa tus calcetines. ¿Llevas semillas viajeras?</p>`,
+        L6.filas("Viajan", [["viento", "diente de león", cAZ], ["animales", "ganchitos", cNA], ["agua", "coco", cVE], ["ardillas", "bellotas", cRO]])],
+    ],
+    "Plantas muy distintas": [
+      ["Árboles, arbustos y hierbas", `<p>Según su tamaño y su tallo, las plantas se clasifican en tres grupos:</p><ul><li><mark>Árboles</mark>: son grandes, con un tallo duro y grueso llamado <b>tronco</b>. Las ramas salen a cierta altura. El pino, la encina, el roble, el olivo.</li><li><mark>Arbustos</mark>: son medianos y tienen tallos duros, pero las ramas salen desde el suelo. El romero, el rosal, la adelfa.</li><li><mark>Hierbas</mark>: son pequeñas y tienen el tallo blando y verde. La margarita, el trigo, la lechuga, el césped.</li></ul><p>Algunos árboles pierden las hojas en otoño: son de hoja <b>caduca</b>, como el castaño. Otros las mantienen todo el año: son de hoja <b>perenne</b>, como el pino o la encina.</p><p><b>Actividad</b>: en el patio, busca un árbol, un arbusto y una hierba, y dibújalos.</p>`,
+        H6.rueda("Plantas", "TALLO", [["árbol", cVE], ["arbusto", cNA], ["hierba", cAZ], ["caduca", cRO]])],
+    ],
+    "¿Para qué sirven las plantas?": [
+      ["Cuidamos un huerto", `<p>Tener un <mark>huerto</mark>, aunque sea en una maceta, es una forma estupenda de aprender sobre las plantas. Estos son los pasos:</p><ul><li><b>Preparar</b> la tierra: quitar piedras, removerla y añadir abono.</li><li><b>Sembrar</b> las semillas a poca profundidad, o plantar plantas pequeñas.</li><li><b>Regar</b> con frecuencia, sin encharcar.</li><li><b>Cuidar</b>: quitar las malas hierbas y vigilar los bichos que se las comen.</li><li><b>Cosechar</b>: recoger los frutos y las hortalizas cuando están maduros.</li></ul><p>En casa se pueden cultivar en macetas tomates cherry, fresas, lechugas o hierbas aromáticas como la albahaca y la menta.</p><p>Cuidar un huerto enseña paciencia y responsabilidad. ¡Y las verduras que cultivas tú saben mejor!</p><p><b>Actividad</b>: planta una semilla de tomate en un vaso de yogur y cuídala en la ventana.</p>`,
+        H6.flujo("Huerto", ["preparar|tierra", "sembrar|semillas", "regar|y cuidar", "cosechar|¡a comer!"], cNA)],
+    ],
+  },
+  final: [
+    ["Plantas que comemos", `<p>Comemos muchas <mark>partes distintas</mark> de las plantas:</p><ul><li><b>Raíces</b>: la zanahoria, el rábano, la remolacha.</li><li><b>Tallos</b>: el espárrago, el apio. La patata también es un tallo que crece bajo tierra.</li><li><b>Hojas</b>: la lechuga, la espinaca, la acelga, el repollo.</li><li><b>Flores</b>: la coliflor, el brócoli y la alcachofa son flores que aún no se han abierto.</li><li><b>Frutos</b>: la manzana, el tomate, el pimiento, el calabacín.</li><li><b>Semillas</b>: los garbanzos, las lentejas, el arroz, el maíz, las nueces.</li></ul><p>¿Sabías que el tomate es un fruto y no una verdura? Tiene semillas dentro, como la manzana.</p><p><b>Actividad</b>: mira lo que comes hoy y di qué parte de la planta es cada alimento vegetal.</p>`,
+      L6.filas("Comemos", [["raíz", "zanahoria", cNA], ["hoja", "lechuga", cVE], ["flor", "brócoli", cAZ], ["fruto", "tomate", cRO]])],
+    ["Repaso: el huerto del cole", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Los niños <b>preparan</b> la tierra quitando piedras y echando abono.</li><li><b>Siembran</b> semillas de lechuga, rabanitos y tomates.</li><li>Las riegan cada día: las plantas necesitan <b>agua</b>.</li><li>A la semana <b>germinan</b>: salen brotes verdes.</li><li>Quitan las <b>malas hierbas</b> y espantan a los caracoles.</li><li>En junio <b>cosechan</b>.</li></ul><p>¿Qué parte de la planta comemos? Del rabanito, la <b>raíz</b>; de la lechuga, las <b>hojas</b>; del tomate, el <b>fruto</b>. ¡Y de las fresas, también el fruto!</p><p>¿Son árboles, arbustos o hierbas? Las lechugas, los rabanitos y las fresas son <b>hierbas</b>: tienen el tallo blando.</p><p><b>Actividad</b>: escribe un diario del huerto con lo que pasa cada semana.</p>`,
+      H6.dos("Huerto", ["SEMBRAMOS", ["lechuga", "rabanitos", "tomates"], cVE], ["COMEMOS", ["hojas", "raíces", "frutos"], cRO])],
+  ],
+  ejemplos: [
+    ["¿Dónde fabrican las plantas su alimento?", ["Necesitan luz del sol.", "La atrapan las hojas verdes."], "En las hojas."],
+    ["¿El rosal es árbol, arbusto o hierba?", ["Tallo duro.", "Ramas desde el suelo."], "Arbusto."],
+  ],
+  errores: ["Pensar que las plantas comen tierra.", "Creer que el tomate es una verdura y no un fruto."],
+  ejercicios: [
+    ["b", "¿Cómo se llama el proceso con el que las plantas fabrican su alimento?", "Fotosíntesis."],
+    ["b", "¿Qué gas sueltan las plantas?", "Oxígeno."],
+    ["b", "Di un árbol.", "Pino, roble, olivo…"],
+    ["b", "¿Qué parte de la zanahoria comemos?", "La raíz."],
+    ["b", "¿Cómo viajan las semillas del diente de león?", "Con el viento."],
+    ["m", "¿Qué diferencia hay entre árbol y arbusto?", "El árbol tiene tronco; en el arbusto las ramas salen del suelo."],
+    ["m", "¿Qué es un árbol de hoja caduca?", "El que pierde las hojas en otoño."],
+    ["m", "¿Qué parte de la planta es la coliflor?", "Una flor."],
+    ["m", "¿Por qué una planta sin luz se pone amarilla?", "Porque no puede fabricar su alimento."],
+    ["m", "Ordena: cosechar, sembrar, preparar, regar.", "Preparar, sembrar, regar, cosechar."],
+    ["a", "En la lectura, ¿qué sale primero en el huerto?", "Los rabanitos."],
+    ["a", "Explica cómo ayudan las ardillas a plantar árboles.", "Esconden bellotas y olvidan algunas, que germinan."],
+    ["a", "¿Por qué decimos que las plantas nos ayudan a respirar?", "Porque sueltan oxígeno."],
+    ["a", "Clasifica: patata, espinaca, lenteja, manzana.", "Tallo, hoja, semilla, fruto."],
+  ],
+  quiz: [
+    ["Las plantas fabrican su alimento en las…", ["hojas", "raíces", "flores"], "Fotosíntesis."],
+    ["El coco viaja con el…", ["agua", "viento", "perro"], "Semillas."],
+    ["La margarita es una…", ["hierba", "árbol", "arbusto"], "Tipos."],
+    ["El último paso del huerto es…", ["cosechar", "sembrar", "preparar"], "Huerto."],
+    ["Las lentejas son…", ["semillas", "raíces", "hojas"], "Comemos."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué preparan con la cosecha?", ["una ensalada", "una tarta", "un zumo"], "Lectura."],
+    ["Del rabanito comemos la…", ["raíz", "flor", "semilla"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Fotosíntesis", "Raíz, tallo, hoja + sol = alimento y oxígeno."],
+    ["Tipos de plantas", "Árboles, arbustos y hierbas."],
+  ],
+  glosario: [
+    ["Fotosíntesis", "Forma en que las plantas fabrican su alimento."],
+    ["Oxígeno", "Gas que respiramos y sueltan las plantas."],
+    ["Árbol", "Planta grande con tronco."],
+    ["Arbusto", "Planta mediana con ramas desde el suelo."],
+    ["Hierba", "Planta pequeña de tallo blando."],
+    ["Caduca", "Hoja que cae en otoño."],
+    ["Perenne", "Hoja que se mantiene todo el año."],
+    ["Huerto", "Terreno donde se cultivan hortalizas."],
+    ["Abono", "Sustancia que alimenta la tierra."],
+    ["Cosechar", "Recoger lo que se ha cultivado."],
+  ],
+  situacion: {
+    titulo: "Nuestro huerto en macetas",
+    reto: "La clase monta un pequeño huerto en macetas, lo cuida durante semanas y lleva un diario de crecimiento.",
+    pasos: ["Preparar macetas con tierra y abono.", "Sembrar semillas de rabanitos, lechugas o legumbres.", "Regar por turnos y medir lo que crecen cada semana.", "Cosechar y explicar qué parte de la planta comemos."],
+    producto: "Un huerto de clase y un diario con medidas y dibujos.",
+    evaluacion: ["Explica la fotosíntesis de forma sencilla.", "Clasifica árboles, arbustos y hierbas.", "Conoce cómo viajan las semillas.", "Cuida responsablemente las plantas."],
+  },
+});

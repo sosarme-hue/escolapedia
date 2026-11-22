@@ -130,3 +130,92 @@ module.exports = tema({
   saberes: "El cuerpo humano: el aparato locomotor (huesos, músculos y articulaciones) y hábitos saludables para cuidarlo",
   ideas: ["Esqueleto de papel con encuadernadores en las articulaciones.", "Juego de «Simón dice» nombrando articulaciones.", "Comparar un brazo de cartón rígido con uno con «codo» de encuadernador."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer huesos curiosos: el más grande y el más pequeño", "Saber que los músculos trabajan por parejas", "Mantener una buena postura", "Saber qué hacer ante un golpe o una fractura"],
+  lectura: { titulo: "La escayola de Marina", html: `<p>Marina se cayó de la bicicleta en el parque. Intentó mover el brazo, pero le dolía muchísimo.</p><p>Sus padres la llevaron al hospital. Allí, la médica le hizo una radiografía: una foto especial que deja ver los huesos por dentro.</p><p>—Mira —le enseñó la médica—. Aquí tienes una pequeña rotura en el hueso del brazo. Se llama fractura.</p><p>—¿Se me quedará roto para siempre? —preguntó Marina, asustada.</p><p>—No, tranquila. Los huesos están vivos y saben repararse solos. Solo necesitamos que esté quieto unas semanas.</p><p>Le pusieron una escayola blanca y dura. Al día siguiente, en el cole, todos sus compañeros firmaron en ella y le hicieron dibujos.</p><p>Seis semanas después, le quitaron la escayola. El brazo estaba curado, aunque un poco flojito. Con ejercicios, poco a poco, recuperó la fuerza.</p><p>Desde entonces, Marina siempre se pone el casco y las coderas para montar en bici.</p>` },
+  tras: {
+    "El esqueleto": [
+      ["Huesos curiosos", `<p>Nuestro esqueleto tiene <mark>huesos muy curiosos</mark>:</p><ul><li>El hueso más <b>largo</b> es el <b>fémur</b>, en el muslo. Es fortísimo.</li><li>El hueso más <b>pequeño</b> es el <b>estribo</b>, dentro del oído. ¡Es más pequeño que un grano de arroz!</li><li>En cada <b>mano</b> tenemos 27 huesos. Por eso podemos hacer movimientos tan precisos, como escribir o atarnos los cordones.</li><li>Los <b>bebés</b> nacen con más huesos que los adultos. Al crecer, algunos se unen entre sí.</li><li>La <b>columna vertebral</b> está formada por muchos huesecillos llamados vértebras, uno encima de otro, como una torre de fichas.</li></ul><p>Los huesos parecen piedras, pero están <b>vivos</b>: crecen, se reparan y fabrican la sangre en su interior.</p><p><b>Actividad</b>: tócate el brazo y la pierna y busca dónde notas los huesos bajo la piel.</p>`,
+        L6.filas("Huesos", [["fémur", "el más largo", cNA], ["estribo", "el más pequeño", cRO], ["mano", "27 huesos", cAZ], ["columna", "vértebras", cVE]])],
+    ],
+    "Los músculos": [
+      ["Músculos que trabajan en pareja", `<p>Los músculos solo saben hacer una cosa: <mark>tirar</mark>. No pueden empujar. Por eso trabajan por <b>parejas</b>: uno tira hacia un lado y el otro hacia el otro.</p><p>El ejemplo más fácil está en el brazo:</p><ul><li>Para <b>doblar</b> el brazo, el músculo de delante, el <b>bíceps</b>, se encoge y se pone duro. ¡Toca cómo se forma la «bola»!</li><li>Para <b>estirar</b> el brazo, el músculo de detrás, el <b>tríceps</b>, se encoge y tira hacia el otro lado.</li></ul><p>Mientras uno se encoge, el otro se relaja y se estira.</p><p>Otros músculos trabajan sin que lo pensemos: el <b>corazón</b> es un músculo que late día y noche, y los músculos del estómago mueven la comida.</p><p>¡Y para sonreír usamos muchos músculos de la cara!</p><p><b>Actividad</b>: dobla y estira el brazo con la otra mano encima del bíceps. ¿Qué notas?</p>`,
+        H6.dos("Brazo", ["DOBLAR", ["bíceps", "se encoge", "¡bola!"], cRO], ["ESTIRAR", ["tríceps", "se encoge", "detrás"], cAZ])],
+    ],
+    "Las articulaciones": [
+      ["La buena postura", `<p>La forma en que colocamos el cuerpo se llama <mark>postura</mark>. Una mala postura, repetida muchos días, puede hacer que nos duela la espalda.</p><p>Consejos para una buena postura:</p><ul><li><b>Sentado</b>: espalda recta apoyada en el respaldo y pies en el suelo. No te encorves sobre la mesa.</li><li><b>Con la mochila</b>: llévala con las dos asas, bien pegada a la espalda, y que no pese demasiado. Mejor aún, con ruedas.</li><li><b>Al coger peso</b>: dobla las rodillas en lugar de la espalda.</li><li><b>Con pantallas</b>: ponlas a la altura de los ojos y no agaches mucho la cabeza.</li><li><b>Al dormir</b>: un colchón firme y una almohada que no sea muy alta.</li></ul><p>Cambiar de postura y moverse cada rato también ayuda.</p><p><b>Actividad</b>: pide a un compañero que te observe sentado y que te diga si tu postura es buena.</p>`,
+        H6.flujo("Postura", ["sentado|recto", "mochila|dos asas", "peso|rodillas", "pantalla|a los ojos"], cVE)],
+    ],
+    "Cuidamos huesos y músculos": [
+      ["Si nos hacemos daño", `<p>A veces, al jugar o hacer deporte, nos hacemos <mark>daño</mark>:</p><ul><li>Un <b>golpe</b> o moratón: ponemos frío (hielo envuelto en un trapo) para que baje la hinchazón.</li><li>Un <b>esguince</b>: se tuerce una articulación, como el tobillo. Duele y se hincha. Hay que descansar.</li><li>Una <b>fractura</b>: se rompe un hueso. Duele mucho y no se puede mover. Hay que ir al médico.</li></ul><p>Para ver si un hueso está roto, los médicos hacen una <b>radiografía</b>. Si lo está, ponen una <b>escayola</b> o una férula para que el hueso no se mueva mientras se cura.</p><p>Si te haces daño, avisa siempre a un adulto. Y si alguien se cae, no le muevas: pide ayuda.</p><p>Para prevenir, usa <b>casco</b>, rodilleras y coderas cuando montes en bici o patines.</p><p><b>Actividad</b>: haced en clase un pequeño botiquín de cartón con lo que llevaríais.</p>`,
+        L6.filas("Daño", [["golpe", "frío", cAZ], ["esguince", "descanso", cNA], ["fractura", "médico", cRO], ["prevenir", "casco", cVE]])],
+    ],
+  },
+  final: [
+    ["Huesos de animales", `<p>Los animales <b>vertebrados</b> también tienen <mark>esqueleto</mark>, pero cada uno es diferente:</p><ul><li>La <b>jirafa</b> tiene un cuello larguísimo… ¡pero tiene el mismo número de vértebras en el cuello que nosotros: siete! Lo que pasa es que las suyas son enormes.</li><li>Las <b>aves</b> tienen huesos huecos, llenos de aire, para pesar menos y poder volar.</li><li>La <b>serpiente</b> tiene cientos de vértebras y costillas. Por eso se dobla tanto.</li><li>Los <b>peces</b> tienen espinas, que son sus huesos.</li></ul><p>Los animales <b>invertebrados</b>, como el caracol, la araña o el cangrejo, no tienen huesos. Algunos tienen una concha o un caparazón duro por fuera.</p><p>Los científicos que estudian huesos de animales antiguos, como los dinosaurios, se llaman <b>paleontólogos</b>.</p><p><b>Actividad</b>: busca una foto del esqueleto de un dinosaurio y compáralo con el tuyo.</p>`,
+      H6.rueda("Esqueletos", "HUESOS", [["jirafa", cNA], ["aves", cAZ], ["serpiente", cVE], ["peces", cRO]])],
+    ["Repaso: la escayola de Marina", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Marina se cae y se hace una <b>fractura</b> en un hueso del brazo.</li><li>La médica hace una <b>radiografía</b> para ver el hueso por dentro.</li><li>Los huesos están <b>vivos</b>: se reparan solos si están quietos.</li><li>La <b>escayola</b> mantiene el brazo quieto.</li><li>Al quitarla, el brazo está flojito porque los <b>músculos</b> no se han movido. Con ejercicio recupera la fuerza.</li><li>Ahora usa <b>casco</b> y <b>coderas</b>: así previene.</li></ul><p>Los huesos y los músculos trabajan juntos: si uno se lesiona, el otro también lo nota.</p><p><b>Actividad</b>: escribe tres consejos para que tus compañeros no se hagan daño en el recreo.</p>`,
+      H6.flujo("Marina", ["caída|fractura", "hospital|radiografía", "escayola|6 semanas", "ejercicio|¡curada!"], cAZ)],
+  ],
+  ejemplos: [
+    ["¿Qué músculo se encoge al doblar el brazo?", ["El de delante del brazo."], "El bíceps."],
+    ["¿Qué hacemos si nos damos un golpe?", ["Ponemos frío envuelto en un trapo."], "Hielo para bajar la hinchazón."],
+  ],
+  errores: ["Pensar que los huesos no están vivos.", "Llevar la mochila colgada de un solo hombro."],
+  ejercicios: [
+    ["b", "¿Cuál es el hueso más largo?", "El fémur."],
+    ["b", "¿Dónde está el hueso más pequeño?", "En el oído."],
+    ["b", "¿Qué hace el bíceps?", "Doblar el brazo."],
+    ["b", "¿Qué es una fractura?", "La rotura de un hueso."],
+    ["b", "¿Qué usamos en la bici para protegernos?", "Casco, rodilleras, coderas."],
+    ["m", "¿Por qué los músculos trabajan por parejas?", "Porque solo pueden tirar, no empujar."],
+    ["m", "Di dos consejos para sentarse bien.", "Espalda recta y pies en el suelo."],
+    ["m", "¿Qué es una radiografía?", "Una foto que deja ver los huesos."],
+    ["m", "¿Por qué las aves tienen huesos huecos?", "Para pesar menos y volar."],
+    ["m", "¿Qué es un esguince?", "Una torcedura de una articulación."],
+    ["a", "En la lectura, ¿por qué está flojo el brazo de Marina?", "Porque los músculos no se movieron durante semanas."],
+    ["a", "¿Cuántas vértebras tiene en el cuello la jirafa?", "Siete, como nosotros."],
+    ["a", "Explica cómo coger una caja pesada del suelo.", "Doblando las rodillas, no la espalda."],
+    ["a", "¿Qué hacemos si un compañero se cae y no puede moverse?", "No moverlo y avisar a un adulto."],
+  ],
+  quiz: [
+    ["El hueso más largo es el…", ["fémur", "estribo", "cráneo"], "Huesos."],
+    ["Para estirar el brazo trabaja el…", ["tríceps", "bíceps", "corazón"], "Parejas."],
+    ["La mochila se lleva…", ["con las dos asas", "en un hombro", "en la mano"], "Postura."],
+    ["Una rotura de hueso es una…", ["fractura", "agujetas", "postura"], "Daño."],
+    ["Los huesos de las aves son…", ["huecos", "de metal", "blandos"], "Animales."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué le ponen a Marina?", ["una escayola", "una tirita", "un casco"], "Lectura."],
+    ["¿Cuánto tiempo lleva Marina la escayola?", ["6 semanas", "2 días", "1 año"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Músculos en pareja", "Bíceps dobla, tríceps estira."],
+    ["Buena postura", "Espalda recta y mochila con dos asas."],
+  ],
+  glosario: [
+    ["Fémur", "Hueso del muslo, el más largo."],
+    ["Estribo", "Hueso del oído, el más pequeño."],
+    ["Vértebra", "Cada hueso de la columna."],
+    ["Bíceps", "Músculo que dobla el brazo."],
+    ["Tríceps", "Músculo que estira el brazo."],
+    ["Postura", "Forma de colocar el cuerpo."],
+    ["Fractura", "Rotura de un hueso."],
+    ["Esguince", "Torcedura de una articulación."],
+    ["Radiografía", "Foto de los huesos por dentro."],
+    ["Escayola", "Funda dura que inmoviliza un hueso roto."],
+  ],
+  situacion: {
+    titulo: "Campaña de la espalda sana",
+    reto: "La clase prepara una campaña con carteles y demostraciones para enseñar a todo el colegio a cuidar huesos y músculos.",
+    pasos: ["Investigar qué es una buena postura.", "Pesar las mochilas de la clase y comparar.", "Ensayar cómo sentarse y coger peso correctamente.", "Hacer carteles y explicarlos a otra clase."],
+    producto: "Carteles y una demostración sobre la espalda sana.",
+    evaluacion: ["Conoce huesos importantes.", "Explica cómo trabajan los músculos.", "Muestra una buena postura.", "Sabe actuar ante un golpe."],
+  },
+});
