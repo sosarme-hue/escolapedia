@@ -89,3 +89,91 @@ module.exports = P.tema({
   saberes: "Moisés y el Éxodo: la esclavitud en Egipto, la vocación de Moisés, la Pascua y el paso del mar Rojo; el desierto; la alianza del Sinaí y los Diez Mandamientos; la relación entre la Pascua judía y la Pascua cristiana",
   ideas: ["Línea del tiempo de Moisés con viñetas.", "Construir las tablas de la Ley con cartón y escribir los mandamientos con palabras propias.", "Debate: ¿qué normas del aula nos hacen más libres?"],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer cómo celebran hoy los judíos la Pascua", "Comprender el relato del becerro de oro", "Descubrir qué era el Arca de la Alianza", "Conocer la Torá y la figura de Moisés en el arte"],
+  lectura: { titulo: "La pregunta de Daniel", html: `<p>Daniel es judío y vive en Madrid. Una noche de primavera, toda su familia se reunió en casa de sus abuelos para la cena de <b>Pésaj</b>, la Pascua judía. La mesa estaba preciosa: mantel blanco, velas encendidas y, en el centro, un plato redondo con alimentos que Daniel conocía bien: un hueso, un huevo, hierbas amargas, una pasta marrón y un poco de agua con sal.</p><p>Como era el más pequeño de la familia, a Daniel le tocaba el momento más importante. Se puso de pie, algo nervioso, y preguntó en voz alta:</p><p>—¿Por qué esta noche es diferente de todas las demás noches?</p><p>Entonces el abuelo abrió un libro antiguo y empezó a contar la historia: los israelitas eran esclavos en Egipto, Moisés habló con el faraón, cayeron las plagas y el pueblo salió de noche, tan deprisa que el pan no tuvo tiempo de subir.</p><p>—Por eso comemos este pan plano, la matzá —explicó el abuelo, partiendo un trozo—. Y estas hierbas amargas nos recuerdan lo amarga que es la esclavitud.</p><p>Daniel probó la hierba y arrugó la nariz. Todos se rieron.</p><p>Al final, el abuelo escondió un trozo de matzá y Daniel lo encontró debajo de un cojín.</p><p>—Hace más de tres mil años que contamos esta historia —le dijo el abuelo—. Y algún día, tú se la contarás a tus nietos.</p>` },
+  tras: {
+    "Las plagas y la primera Pascua": [
+      ["El Pésaj: la Pascua judía hoy", `<p>Los judíos de todo el mundo siguen celebrando cada primavera el <mark>Pésaj</mark>, la fiesta que recuerda la salida de Egipto. Dura una semana, y empieza con una cena muy especial llamada <b>séder</b>, que significa «orden», porque todo se hace en un orden fijo.</p><p>Durante el séder se lee un libro, la <b>Hagadá</b>, que cuenta la historia del Éxodo. En la mesa hay un <b>plato del séder</b> con alimentos que son símbolos:</p><ul><li><b>Matzá</b>: pan sin levadura, plano, porque los israelitas salieron con tanta prisa que la masa no tuvo tiempo de subir.</li><li><b>Hierbas amargas</b> (como la lechuga o el rábano picante): recuerdan la amargura de la esclavitud.</li><li><b>Jaroset</b>: una pasta dulce de manzana, nueces y vino que recuerda el barro con el que hacían ladrillos.</li><li><b>Agua con sal</b>: las lágrimas de los esclavos.</li><li><b>Un hueso asado</b>: el cordero de la primera Pascua.</li></ul><p>El niño más pequeño pregunta: «¿Por qué esta noche es diferente de todas las demás?», y los mayores le responden contando la historia. Así, la memoria pasa de padres a hijos.</p><p>Para los cristianos, esta fiesta es muy importante: la <b>Última Cena</b> de Jesús fue una cena de Pascua.</p>`,
+        L6.filas("Séder", [["matzá", "prisa al salir", cNA], ["hierbas", "esclavitud", cVE], ["jaroset", "barro", cMO], ["agua salada", "lágrimas", cAZ]]), ["WQlDfUEpk10", "Cómo organizar un Séder de Pésaj", "Howcast", 251754]],
+    ],
+    "Cuarenta años en el desierto": [
+      ["El becerro de oro", `<p>Mientras Moisés estaba en lo alto del monte Sinaí hablando con Dios, pasaron <b>cuarenta días</b>. Abajo, el pueblo se impacientó. El libro del Éxodo lo cuenta así (Ex 32), con nuestras palabras:</p><ul><li>La gente le dijo a Aarón, el hermano de Moisés: «No sabemos qué ha sido de Moisés. Haznos un dios que vaya delante de nosotros».</li><li>Aarón les pidió sus <b>pendientes de oro</b>, los fundió e hizo con ellos un <mark>becerro de oro</mark>, una estatua de un ternero.</li><li>El pueblo empezó a adorarlo, a bailar y a hacer fiesta a su alrededor, diciendo: «Este es nuestro dios, el que nos sacó de Egipto».</li><li>Cuando Moisés bajó y lo vio, se enfadó tanto que <b>rompió las tablas</b> de la Ley contra el suelo. Destruyó el becerro y lo convirtió en polvo.</li><li>Después, Moisés subió de nuevo al monte a pedir perdón a Dios por el pueblo. Dios <b>perdonó</b> y le mandó hacer unas tablas nuevas.</li></ul><p>Un <mark>ídolo</mark> es algo que se pone en el lugar de Dios. El pueblo cambió al Dios que lo había liberado por una estatua que no podía hacer nada. Hoy no se adoran becerros, pero a veces las personas ponen en el centro de su vida el dinero, la fama o las pantallas, como si fueran lo más importante.</p><p>¿Qué cosas pueden convertirse en «becerros de oro» para ti?</p>`,
+        H6.flujo("Ex 32", ["pueblo|impaciente", "becerro|de oro", "Moisés|rompe tablas", "Dios|perdona"], cNA)],
+    ],
+    "Los Diez Mandamientos": [
+      ["El Arca de la Alianza", `<p>Las tablas de los mandamientos eran tan importantes para el pueblo de Israel que construyeron un cofre especial para guardarlas: el <mark>Arca de la Alianza</mark> (Ex 25).</p><ul><li>Era un <b>cofre de madera de acacia</b> cubierto de <b>oro</b> por dentro y por fuera, de algo más de un metro de largo.</li><li>Sobre la tapa había dos <b>querubines</b> (ángeles) de oro con las alas extendidas, uno frente al otro.</li><li>Dentro estaban las <b>tablas de la Ley</b>. Según algunos textos, también un poco de maná y el bastón de Aarón.</li><li>Tenía cuatro anillas por las que se metían dos <b>varas</b> para llevarla a hombros, porque no se podía tocar.</li></ul><p>Durante el viaje por el desierto, el Arca se guardaba en una gran tienda llamada <b>Tienda del Encuentro</b> o <b>tabernáculo</b>. Para el pueblo era el signo de que <b>Dios caminaba con ellos</b>.</p><p>Siglos después, el rey Salomón la colocó en el <b>Templo de Jerusalén</b>. Cuando los babilonios destruyeron el templo, hace unos 2600 años, el Arca <b>desapareció</b>. Nadie sabe dónde está. Por eso ha inspirado muchas leyendas y hasta una famosa película de aventuras.</p><p>Para los judíos y los cristianos, lo importante no es el cofre, sino lo que contenía: la Palabra de Dios.</p>`,
+        L6.filas("El Arca", [["material", "acacia y oro", cNA], ["tapa", "dos querubines", cMO], ["dentro", "tablas de la Ley", cAZ], ["hoy", "desaparecida", cRO]])],
+    ],
+  },
+  final: [
+    ["Moisés en el arte", `<p>Moisés es uno de los personajes de la Biblia que más veces se ha representado en el arte:</p><ul><li>La escultura más famosa es el <b>Moisés</b> de <b>Miguel Ángel</b>, en la iglesia de San Pietro in Vincoli de Roma. Lo esculpió en mármol hace unos 500 años para la tumba del papa Julio II. Moisés aparece sentado, con una barba larguísima, las tablas de la Ley bajo el brazo y una mirada muy intensa.</li><li>Una leyenda cuenta que Miguel Ángel, al terminarla, le pareció tan real que le golpeó la rodilla y le dijo: «¿Por qué no hablas?».</li><li>Si la miras bien, verás que Moisés tiene <b>dos pequeños cuernos</b> en la cabeza. ¿Por qué? El Éxodo dice que, al bajar del Sinaí, la cara de Moisés <b>brillaba</b>. En hebreo, la palabra para «rayos de luz» se parece mucho a la palabra «cuernos», y la traducción latina de la Biblia de la época decía «cuernos». Por eso muchos artistas lo representaron así.</li><li>En el cine, la película de dibujos animados <b>El príncipe de Egipto</b> (1998) cuenta la historia de Moisés y su hermano adoptivo, el faraón.</li></ul><p>Dibuja tu propio Moisés en uno de los momentos de su vida: la cesta en el río, la zarza, el mar Rojo o el monte Sinaí.</p>`,
+      H6.rueda("Moisés", "MOISÉS", [["Miguel Ángel", cAZ], ["cuernos", cRO], ["tablas", cNA], ["cine", cVE]]), ["0qE6xt9vIdw", "¿Por qué Miguel Angel esculpió a Moisés con cuernos?", "Monitor fantasma", 38627]],
+    ["La Torá: el libro de Moisés", `<p>Los cinco primeros libros de la Biblia (<b>Génesis, Éxodo, Levítico, Números y Deuteronomio</b>) forman la <mark>Torá</mark>, que significa «enseñanza» o «ley». Los cristianos los llaman <b>Pentateuco</b> («cinco libros»). La tradición los atribuye a Moisés.</p><p>Para los judíos, la Torá es lo más sagrado. Así se cuida:</p><ul><li>Se escribe <b>a mano</b>, en hebreo, sobre un largo <b>rollo de pergamino</b>. Lo hace un escriba especial, el <b>sofer</b>, con pluma y tinta. Tarda más de un año, y no puede cometer ni un error.</li><li>El rollo se guarda en un armario llamado <b>arca</b>, en la <b>sinagoga</b>, el lugar donde los judíos se reúnen para rezar y leer las Escrituras.</li><li>Para leerlo, no se toca el pergamino con los dedos: se usa un puntero de plata con forma de mano llamado <b>yad</b>.</li><li>Cada semana se lee un trozo, y en un año se lee entera. Cuando se termina, se celebra con una fiesta bailando con los rollos.</li><li>Cuando un chico cumple 13 años, celebra su <b>bar mitzvá</b>, y lee por primera vez la Torá en público. En muchas comunidades, las chicas celebran su <b>bat mitzvá</b>.</li></ul><p>Los cristianos también leen estos libros: son la primera parte del <b>Antiguo Testamento</b>.</p>`,
+      H6.flujo("La Torá", ["5 libros|Pentateuco", "sofer|la escribe", "sinagoga|la guarda", "yad|para leer"], cMO)],
+  ],
+  ejemplos: [
+    ["¿Por qué en el séder se come pan sin levadura?", ["Los israelitas salieron de Egipto con mucha prisa.", "La masa no tuvo tiempo de subir."], "Para recordar la prisa de la salida de Egipto."],
+    ["¿Por qué el Moisés de Miguel Ángel tiene cuernos?", ["El Éxodo dice que su cara brillaba.", "La traducción latina dijo «cuernos» en vez de «rayos»."], "Por una traducción de la palabra hebrea que significa rayos de luz."],
+  ],
+  errores: ["Pensar que el Arca de la Alianza es el arca de Noé: son dos cosas distintas.", "Creer que la Torá es un libro distinto de la Biblia: son sus cinco primeros libros."],
+  ejercicios: [
+    ["b", "¿Cómo se llama la cena de la Pascua judía?", "Séder."],
+    ["b", "¿De qué hizo Aarón el becerro?", "De los pendientes de oro del pueblo."],
+    ["b", "¿Qué se guardaba dentro del Arca de la Alianza?", "Las tablas de la Ley."],
+    ["b", "¿Dónde está el Moisés de Miguel Ángel?", "En San Pietro in Vincoli, Roma."],
+    ["b", "¿Qué significa Torá?", "Enseñanza o ley."],
+    ["m", "¿Qué recuerdan las hierbas amargas del séder?", "La amargura de la esclavitud."],
+    ["m", "¿Qué hizo Moisés al ver el becerro de oro?", "Rompió las tablas y destruyó el becerro."],
+    ["m", "¿Qué es un ídolo?", "Algo que se pone en el lugar de Dios."],
+    ["m", "¿Qué pasó con el Arca de la Alianza?", "Desapareció cuando los babilonios destruyeron el templo."],
+    ["m", "¿Qué es el yad?", "Un puntero con forma de mano para leer la Torá."],
+    ["a", "Diseña un plato del séder y explica cada alimento.", "Respuesta abierta."],
+    ["a", "Escribe qué «becerros de oro» hay hoy y cómo evitarlos.", "Respuesta abierta."],
+    ["a", "Construye una maqueta del Arca con una caja y papel dorado.", "Respuesta abierta."],
+    ["a", "Compara la Pascua judía y la Pascua cristiana.", "Una recuerda la salida de Egipto; la otra, la resurrección de Jesús."],
+  ],
+  quiz: [
+    ["La matzá es…", ["pan sin levadura", "un vino", "un libro"], "Pésaj."],
+    ["El becerro de oro lo hizo…", ["Aarón", "Josué", "el faraón"], "Becerro."],
+    ["El Arca de la Alianza era de…", ["acacia y oro", "piedra", "hierro"], "Arca."],
+    ["Los cuernos de Moisés vienen de una palabra que significa…", ["rayos de luz", "fuerza", "toro"], "Arte."],
+    ["El escriba que copia la Torá se llama…", ["sofer", "rabino", "faraón"], "Torá."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué pregunta hace Daniel?", ["por qué esta noche es diferente", "cuándo se cena", "dónde está Moisés"], "Lectura."],
+    ["¿Qué hizo Dios después del becerro de oro?", ["perdonar y dar tablas nuevas", "abandonar al pueblo", "volver a Egipto"], "Becerro."],
+  ],
+  tarjetas: [
+    ["Pésaj", "Séder, Hagadá, matzá, hierbas amargas, la pregunta del pequeño."],
+    ["Becerro de oro", "Ídolo; Moisés rompe las tablas; Dios perdona."],
+    ["Arca de la Alianza", "Cofre de acacia y oro con las tablas; desaparecida."],
+    ["Arte y Torá", "Moisés de Miguel Ángel con cuernos; Torá, sofer, yad."],
+  ],
+  glosario: [
+    ["Pésaj", "Pascua judía."],
+    ["Séder", "Cena ritual de la Pascua judía."],
+    ["Hagadá", "Libro que se lee en el séder."],
+    ["Matzá", "Pan sin levadura."],
+    ["Ídolo", "Imagen u objeto que se adora en lugar de Dios."],
+    ["Becerro", "Cría de la vaca, ternero."],
+    ["Arca de la Alianza", "Cofre sagrado con las tablas de la Ley."],
+    ["Querubín", "Tipo de ángel."],
+    ["Tabernáculo", "Tienda donde se guardaba el Arca."],
+    ["Torá", "Los cinco primeros libros de la Biblia."],
+    ["Sinagoga", "Lugar de reunión y oración de los judíos."],
+    ["Bar mitzvá", "Fiesta en que un chico judío lee la Torá por primera vez."],
+  ],
+  situacion: {
+    titulo: "Museo del Éxodo",
+    reto: "La clase prepara un museo con objetos y explicaciones sobre la historia de Moisés y su importancia para judíos y cristianos.",
+    pasos: ["Preparar un plato del séder con dibujos o alimentos reales y sus carteles.", "Dramatizar el relato del becerro de oro.", "Construir una maqueta del Arca de la Alianza.", "Hacer un rollo de la Torá de papel y dibujar a Moisés al estilo de un artista."],
+    producto: "Un museo del Éxodo con maquetas, carteles y dibujos.",
+    evaluacion: ["Explica los símbolos del Pésaj.", "Comprende qué es un ídolo.", "Conoce el Arca de la Alianza.", "Sabe qué es la Torá."],
+  },
+});

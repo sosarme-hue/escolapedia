@@ -93,3 +93,91 @@ module.exports = P.tema({
   saberes: "Los milagros de Jesús como signos del Reino de Dios: las bodas de Caná, la multiplicación de los panes, la tempestad calmada, curaciones (Bartimeo, el paralítico) y la resurrección de Lázaro; la fe, la compasión y el compartir",
   ideas: ["Cómic en cuatro viñetas de un milagro.", "Campaña de aula para compartir (recogida de alimentos o material).", "Rincón de «pequeños milagros» con gestos de ayuda entre compañeros."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer el relato de Jesús caminando sobre el agua", "Valorar la gratitud con el relato de los diez leprosos", "Descubrir los milagros en el arte", "Conocer a quienes cuidan a los enfermos inspirados por Jesús"],
+  lectura: { titulo: "Los nueve que no volvieron", html: `<p>La profesora de Religión, Inés, terminó de leer el relato de los diez leprosos y cerró la Biblia.</p><p>—¿Qué os ha llamado la atención?</p><p>Nicolás levantó la mano enseguida.</p><p>—Que de diez que curó, solo uno volvió a dar las gracias. ¡Los otros nueve fueron unos maleducados!</p><p>La clase se rio. Inés también sonrió.</p><p>—Vale. Ahora pensad en esta semana. ¿Cuántas veces os han ayudado y no habéis dado las gracias?</p><p>Hubo un silencio largo. Paula pensó en su madre, que le había preparado la mochila esa mañana mientras ella buscaba las zapatillas. Pablo se acordó del conserje, que le había abierto la puerta del gimnasio cuando se dejó la sudadera. Nicolás bajó la cabeza: su hermano mayor le había ayudado con los deberes de matemáticas y él había salido corriendo a jugar.</p><p>—Creo que yo soy de los nueve —murmuró.</p><p>—Casi todos lo somos a veces —dijo Inés—. Por eso os propongo un reto: durante una semana, cada uno va a dar las gracias, de verdad, a tres personas que normalmente no reciben las gracias.</p><p>Al viernes siguiente, contaron sus experiencias. El conserje se había emocionado. La cocinera del comedor les había dado un abrazo.</p><p>—Dar las gracias —dijo Paula— también es una especie de pequeño milagro.</p>` },
+  tras: {
+    "Cinco panes y dos peces": [
+      ["Jesús camina sobre el agua", `<p>Después de dar de comer a la multitud, Jesús mandó a sus discípulos que cruzaran el lago en barca mientras él se quedaba a rezar en el monte. Contado con nuestras palabras (Mt 14,22-33):</p><ul><li>De noche, la barca estaba en medio del lago, sacudida por las olas y el viento.</li><li>De madrugada, los discípulos vieron a alguien que se acercaba <b>andando sobre el agua</b>. Pensaron que era un fantasma y gritaron de miedo.</li><li>Jesús les dijo: «¡Ánimo, soy yo, no tengáis miedo!».</li><li><b>Pedro</b> contestó: «Señor, si eres tú, mándame ir hacia ti andando sobre el agua». Jesús le dijo: «Ven».</li><li>Pedro bajó de la barca y empezó a caminar sobre el agua. Pero, al notar la fuerza del viento, le entró miedo y comenzó a <b>hundirse</b>. Gritó: «¡Señor, sálvame!».</li><li>Jesús le tendió la mano enseguida y lo sujetó: «¡Qué poca fe! ¿Por qué has dudado?».</li></ul><p>Este relato habla de algo que nos pasa a todos: mientras Pedro miraba a Jesús, avanzaba; cuando se fijó en el viento, se hundió. Para los cristianos, enseña que la <mark>confianza</mark> ayuda a superar los miedos, y que cuando alguien se hunde, Jesús le tiende la mano.</p><p>¿Qué «vientos» te dan miedo a ti? ¿Quién te tiende la mano?</p>`,
+        H6.dos("Pedro", ["CONFÍA", ["mira a Jesús", "avanza", "camina"], cAZ], ["DUDA", ["mira al viento", "se hunde", "pide ayuda"], cRO]), ["ifTLMZRuTHg", "Historias de la Biblia - Pedro camina sobre el agua", "Saddleback Kids", 202789]],
+    ],
+    "El ciego Bartimeo": [
+      ["Los diez leprosos: dar las gracias", `<p>La <mark>lepra</mark> era una enfermedad de la piel muy temida en tiempos de Jesús. Quien la tenía debía vivir apartado, fuera de los pueblos, y avisar a gritos si alguien se acercaba. Era una enfermedad y, además, una gran <b>soledad</b>.</p><p>El Evangelio de Lucas cuenta (Lc 17,11-19), con nuestras palabras:</p><ul><li>Cuando Jesús iba a entrar en un pueblo, salieron a su encuentro <b>diez leprosos</b>. Se quedaron lejos y gritaron: «¡Jesús, maestro, ten compasión de nosotros!».</li><li>Jesús les dijo: «Id a presentaros a los sacerdotes», que eran los que comprobaban si alguien se había curado.</li><li>Mientras iban de camino, quedaron <b>curados</b>.</li><li>Uno de ellos, al verse sano, volvió alabando a Dios a gritos, se echó a los pies de Jesús y le dio las <b>gracias</b>. Era un <b>samaritano</b>, un extranjero mal visto por los judíos.</li><li>Jesús preguntó: «¿No eran diez los curados? ¿Dónde están los otros nueve?».</li></ul><p>Este relato enseña el valor de la <mark>gratitud</mark>. Los diez recibieron la curación, pero solo uno se dio cuenta del regalo y volvió. Y, curiosamente, fue el que menos se esperaba: el extranjero.</p><p>Hoy, la lepra tiene cura con medicinas, pero en algunos países pobres todavía hay personas que la sufren.</p>`,
+        H6.flujo("Leprosos", ["diez|piden", "van de|camino", "quedan|curados", "uno|vuelve"], cVE), ["p-i_J63Fey8", "Historias de la Biblia - El leproso agradecido", "Saddleback Kids", 299863]],
+    ],
+    "Lázaro vuelve a la vida": [
+      ["Los milagros en el arte", `<p>Los milagros de Jesús han inspirado a muchos pintores a lo largo de los siglos:</p><ul><li><b>Rembrandt</b>, pintor holandés, pintó en <b>1633</b> <i>La tormenta en el mar de Galilea</i>, su único cuadro de un paisaje marino. Se ve la barca a punto de volcar entre olas enormes, los discípulos asustados y Jesús tranquilo. Uno de los personajes mira directamente al espectador: muchos creen que es el propio Rembrandt.</li><li>Este cuadro tiene una historia de misterio: en <b>1990</b> unos ladrones disfrazados de policías lo robaron del Museo Isabella Stewart Gardner de Boston (Estados Unidos). ¡Todavía no se ha encontrado! En el museo siguen colgados los marcos vacíos, esperando a que vuelva.</li><li>En las <b>catacumbas</b> de Roma, los primeros cristianos ya pintaron hace casi 1800 años la resurrección de Lázaro y la multiplicación de los panes.</li><li><b>Giotto</b>, pintor italiano, pintó la resurrección de Lázaro en la capilla de los Scrovegni de Padua, hacia 1305.</li><li>Las <b>Bodas de Caná</b> de <b>Veronés</b>, en el Museo del Louvre de París, es uno de los cuadros más grandes del museo: mide casi 10 metros de ancho y tiene más de cien personajes.</li></ul><p>Elige un milagro y dibújalo: piensa en qué momento exacto quieres pintar y en qué cara pondrá cada personaje.</p>`,
+        L6.filas("Arte", [["Rembrandt", "la tormenta", cAZ], ["catacumbas", "Lázaro y panes", cMO], ["Giotto", "Lázaro", cNA], ["Veronés", "Caná", cRO]]), ["aTAWHOHdDsU", "La tormenta en el mar de Galilea de Rembrandt - Historia del Arte | La Galería", "La Galería - Arte y Cultura", 18993]],
+    ],
+  },
+  final: [
+    ["La pesca milagrosa", `<p>El Evangelio de Lucas cuenta (Lc 5,1-11), con nuestras palabras, cómo conoció Jesús a sus primeros discípulos:</p><ul><li><b>Simón</b> (que después se llamaría <b>Pedro</b>) y sus compañeros eran pescadores en el lago de Genesaret, otro nombre del lago de Galilea. Habían pasado <b>toda la noche</b> pescando sin coger nada y estaban lavando las redes, cansados.</li><li>Jesús subió a la barca de Simón y, después de hablar a la gente, le dijo: «Rema mar adentro y echad las redes para pescar».</li><li>Simón contestó: «Maestro, hemos estado toda la noche bregando y no hemos cogido nada; pero, si tú lo dices, echaré las redes».</li><li>¡Pescaron tantos peces que las redes empezaban a romperse! Tuvieron que pedir ayuda a otra barca, la de <b>Santiago y Juan</b>, y las dos barcas se llenaron tanto que casi se hundían.</li><li>Jesús les dijo: «No temáis: desde ahora seréis <b>pescadores de hombres</b>». Ellos dejaron todo y lo siguieron.</li></ul><p>Fíjate en la respuesta de Pedro: estaba cansado y no creía que sirviera de nada, pero <mark>confió</mark> en Jesús. Y la expresión «pescadores de hombres» quiere decir que su nueva tarea sería reunir a las personas en torno a Jesús.</p><p>Por eso el <b>pez</b> fue uno de los primeros símbolos cristianos.</p>`,
+      H6.flujo("Pesca", ["noche|sin peces", "«echad|las redes»", "redes|llenas", "pescadores|de hombres"], cAZ)],
+    ["Cuidar a los enfermos: de san Juan de Dios a hoy", `<p>Jesús curó a muchos enfermos y les devolvió la dignidad. Inspirados por él, a lo largo de la historia muchos cristianos han dedicado su vida a <mark>cuidar a los enfermos</mark>:</p><ul><li><b>San Juan de Dios</b> nació en Portugal en 1495 y vivió en <b>Granada</b>. Tras una vida de soldado y pastor, decidió dedicarse a los pobres y enfermos. Recogía a los que encontraba en la calle y los llevaba a un hospital que fundó, donde cuidaba a cada uno con cariño, sin preguntar de dónde venía. De él nació la <b>Orden Hospitalaria de San Juan de Dios</b>, que hoy tiene hospitales en más de 50 países. Es el patrón de los enfermos y de los enfermeros.</li><li>Muchos de los primeros <b>hospitales</b> de Europa los crearon monjes y monjas para atender a peregrinos y pobres.</li><li><b>Santa Teresa de Calcuta</b> cuidaba en la India a los enfermos más abandonados, para que nadie muriera solo.</li></ul><p>Hoy también hay muchas personas, creyentes o no, que hacen lo mismo: médicos, enfermeras, cuidadores, voluntarios que visitan a ancianos o que acompañan a niños en los hospitales.</p><p>Tú también puedes: hacer una tarjeta para un compañero enfermo, visitar a tus abuelos, llamar a alguien que está solo. Son pequeños signos, como los de Jesús.</p>`,
+      H6.rueda("Cuidar", "CUIDAR", [["médicos", cAZ], ["enfermeras", cVE], ["voluntarios", cNA], ["tú", cRO]]), ["cXIABzT-5hc", "La vida y obra de San Juan de Dios", "Academia Play", 103230]],
+  ],
+  ejemplos: [
+    ["¿Por qué empezó Pedro a hundirse en el agua?", ["Mientras miraba a Jesús, caminaba.", "Al fijarse en el viento, le entró miedo."], "Porque dudó y tuvo miedo del viento."],
+    ["De los diez leprosos, ¿quién volvió a dar las gracias?", ["Los diez quedaron curados.", "Solo volvió uno, un extranjero."], "Un samaritano."],
+  ],
+  errores: ["Pensar que los diez leprosos dieron las gracias: solo volvió uno.", "Creer que el cuadro de Rembrandt está en un museo: fue robado en 1990 y sigue sin aparecer."],
+  ejercicios: [
+    ["b", "¿Qué discípulo caminó sobre el agua?", "Pedro."],
+    ["b", "¿Cuántos leprosos curó Jesús en el relato de Lucas?", "Diez."],
+    ["b", "¿Quién pintó La tormenta en el mar de Galilea?", "Rembrandt."],
+    ["b", "¿En qué ciudad española vivió san Juan de Dios?", "En Granada."],
+    ["b", "¿Qué animal fue un símbolo cristiano antiguo?", "El pez."],
+    ["m", "¿Por qué los leprosos vivían apartados?", "Porque la lepra era muy temida y debían vivir fuera de los pueblos."],
+    ["m", "¿Qué significa ser pescadores de hombres?", "Reunir a las personas en torno a Jesús."],
+    ["m", "¿Qué le dijo Jesús a Pedro al sujetarlo?", "«¡Qué poca fe! ¿Por qué has dudado?»."],
+    ["m", "¿Qué fundó san Juan de Dios?", "Un hospital, del que nació la Orden Hospitalaria."],
+    ["m", "¿Qué pasó en el Museo Gardner en 1990?", "Robaron el cuadro de Rembrandt."],
+    ["a", "Escribe tres cartas de agradecimiento a personas que te ayudan.", "Respuesta abierta."],
+    ["a", "Dibuja un milagro eligiendo el momento más importante.", "Respuesta abierta."],
+    ["a", "Compara la pesca milagrosa con la multiplicación de los panes.", "En los dos, de poco o nada sale abundancia."],
+    ["a", "Prepara una tarjeta para alguien que está enfermo o solo.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Pedro se hundió porque…", ["tuvo miedo y dudó", "no sabía nadar", "llevaba peso"], "Agua."],
+    ["El leproso que volvió era…", ["samaritano", "romano", "sacerdote"], "Leprosos."],
+    ["El cuadro de Rembrandt fue robado en…", ["1990", "1633", "2020"], "Arte."],
+    ["Tras la pesca milagrosa, Jesús los llamó…", ["pescadores de hombres", "reyes", "profetas"], "Pesca."],
+    ["San Juan de Dios es patrón de…", ["los enfermos", "los pescadores", "los pintores"], "Cuidar."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué reto propuso la profesora?", ["dar las gracias a tres personas", "pintar un cuadro", "leer la Biblia entera"], "Lectura."],
+    ["¿Dónde pescaban Pedro y sus compañeros?", ["en el lago de Genesaret", "en el Mediterráneo", "en el río Jordán"], "Pesca."],
+  ],
+  tarjetas: [
+    ["Caminar sobre el agua", "Pedro confía, duda, se hunde; Jesús le tiende la mano."],
+    ["Diez leprosos", "Solo uno vuelve a dar las gracias: gratitud."],
+    ["Milagros en el arte", "Rembrandt (robado en 1990), catacumbas, Giotto, Veronés."],
+    ["Pesca y cuidado", "Pescadores de hombres; san Juan de Dios en Granada."],
+  ],
+  glosario: [
+    ["Lepra", "Enfermedad de la piel muy temida en la Antigüedad."],
+    ["Samaritano", "Habitante de Samaría, mal visto por los judíos."],
+    ["Gratitud", "Sentimiento de agradecer lo recibido."],
+    ["Confianza", "Seguridad en alguien."],
+    ["Dudar", "No estar seguro de algo."],
+    ["Bregar", "Trabajar con esfuerzo."],
+    ["Pescadores de hombres", "Quienes reúnen a las personas en torno a Jesús."],
+    ["Catacumbas", "Galerías subterráneas de los primeros cristianos."],
+    ["Rembrandt", "Pintor holandés del siglo XVII."],
+    ["Hospitalario", "Que acoge y cuida a los enfermos."],
+    ["Orden religiosa", "Comunidad de religiosos con una misión."],
+    ["Voluntario", "Persona que ayuda sin cobrar."],
+  ],
+  situacion: {
+    titulo: "La semana de la gratitud y el cuidado",
+    reto: "La clase organiza una semana para dar las gracias y cuidar a quien lo necesita, inspirándose en los milagros de Jesús.",
+    pasos: ["Leer y dramatizar los relatos de Pedro en el agua y de los diez leprosos.", "Escribir cartas de agradecimiento a personas del colegio.", "Pintar un milagro en grupos y montar una exposición.", "Preparar tarjetas para personas enfermas o mayores."],
+    producto: "Cartas, exposición de pinturas y tarjetas de ánimo.",
+    evaluacion: ["Conoce los relatos nuevos.", "Expresa gratitud.", "Reconoce los milagros en el arte.", "Valora el cuidado de los enfermos."],
+  },
+});
