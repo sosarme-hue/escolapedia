@@ -91,3 +91,99 @@ module.exports = tema({
   ideas: ["Rutina diaria de saludo con el panel «How are you today?».", "Juego de «Simon says» con las instrucciones de clase.", "Cartel de classroom phrases visible en el aula."],
   fuentes: [["British Council LearnEnglish Kids: greetings", "https://learnenglishkids.britishcouncil.org/"], ["Cambridge Dictionary", "https://dictionary.cambridge.org/"]],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  videos: {
+    "Good morning, good afternoon": ["CuI_p7a9VGs", "Good Morning Song for Kids (with lyrics) | The Singing Walrus", "The Singing Walrus - Canciones Inglesas para niños", 136178353],
+  },
+  objetivos: ["Ask and say your age with numbers 1 to 20", "Spell your name with the English alphabet", "Say the day and the date in class", "Know how people greet around the world and write a short message"],
+  lectura: { titulo: "The new pupil", html: `<p>It's Monday morning. The children are in class when somebody knocks at the door.</p><p>"Come in!" says Miss Green.</p><p>A girl opens the door. She's got long black hair and a blue backpack.</p><p>"Good morning, everybody. This is Aiko. She's from Japan," says the head teacher.</p><p>Aiko bows a little. "Hello," she says quietly.</p><p>"Hi, Aiko! Nice to meet you!" says Pablo. "I'm Pablo. How old are you?"</p><p>"I'm eight."</p><p>"Me too! How do you spell your name?"</p><p>"A-I-K-O."</p><p>Miss Green writes the name on the board. "Welcome to our class, Aiko. Sit down here, next to Pablo, please."</p><p>At break time, Pablo shows Aiko the playground. She teaches him to say <i>konnichiwa</i> (hello in Japanese), and he teaches her to say <i>hola</i>.</p><p>At the end of the day, Aiko waves her hand. "Goodbye, Pablo! See you tomorrow!"</p><p>"Bye, Aiko! Have a nice evening!"</p>` },
+  tras: {
+    "What's your name?": [
+      ["How old are you? Numbers 1 to 20", `<p>When we meet a new friend, we often ask their <mark>age</mark> (edad):</p><ul><li>«<b>How old are you?</b>» (¿cuántos años tienes?)</li><li>«<b>I'm eight.</b>» or «<b>I'm eight years old.</b>»</li></ul><p>Be careful! In Spanish we say <i>tengo ocho años</i>, with the verb <i>tener</i>. In English we use the verb <b>be</b>: «I <b>am</b> eight». Never say <i>I have eight years</i>!</p><p>Let's revise the <b>numbers</b>:</p><ul><li>1 one, 2 two, 3 three, 4 four, 5 five, 6 six, 7 seven, 8 eight, 9 nine, 10 ten.</li><li>11 eleven, 12 twelve, 13 thirteen, 14 fourteen, 15 fifteen, 16 sixteen, 17 seventeen, 18 eighteen, 19 nineteen, 20 twenty.</li></ul><p>Look at 13 to 19: they all end in <b>-teen</b>. That's why teenagers (adolescentes) are people from thirteen to nineteen years old!</p><p>To ask about other people:</p><ul><li>«How old <b>is</b> your brother?» – «<b>He's</b> twelve.»</li><li>«How old <b>is</b> your grandma?» – «<b>She's</b> seventy.»</li></ul><p><b>Activity</b>: ask five classmates «How old are you?» and write the answers in a table.</p>`,
+        L6.filas("Age", [["How old", "are you?", cAZ], ["I'm", "eight", cVE], ["He's", "twelve", cNA], ["13–19", "-teen", cRO]])],
+    ],
+    "How are you?": [
+      ["Spell it, please! The alphabet", `<p>In English, the letters have <mark>different names</mark> from Spanish. We need them to <b>spell</b> (deletrear) our name and new words.</p><p>Some letters are very different. Be careful with these:</p><ul><li><b>A</b> sounds like «ei», <b>E</b> like «i», <b>I</b> like «ai».</li><li><b>G</b> sounds like «yi» and <b>J</b> like «yei».</li><li><b>H</b> sounds like «eich», <b>R</b> like «ar», <b>W</b> like «dabliu», <b>Y</b> like «uai».</li></ul><p>To ask someone to spell a word, say: «<b>How do you spell</b> your name?» or «<b>Can you spell</b> it, please?»</p><p>Answer letter by letter: «M-A-R-T-A». If there are two equal letters together, say <b>double</b>: «A-double N-A» (Anna).</p><p>Spelling is very useful when you call somebody on the phone, when a name is difficult, or when you play word games like <i>Hangman</i> (el ahorcado).</p><p>The <b>alphabet song</b> helps to remember the order of the letters. Sing it with your class!</p><p><b>Activity</b>: spell your name, your surname and the name of your town to a partner. Your partner writes them.</p>`,
+        L6.filas("Spelling", [["A", "«ei»", cAZ], ["E", "«i»", cVE], ["I", "«ai»", cNA], ["double N", "Anna", cRO]]),
+        ["36IBDpTRVNE", "Alphabet Song | ABC Song | Phonics Song", "Have Fun Teaching", 399669925]],
+    ],
+    "Classroom instructions": [
+      ["What day is it today?", `<p>Many classes start the day with the <mark>calendar</mark>. The teacher asks: «<b>What day is it today?</b>» and a pupil answers: «<b>It's Monday.</b>»</p><p><b>The days of the week</b>:</p><ul><li>Monday (lunes), Tuesday (martes), Wednesday (miércoles), Thursday (jueves), Friday (viernes).</li><li>Saturday (sábado) and Sunday (domingo) are the <b>weekend</b>.</li></ul><p>Remember: in English, days and months always start with a <b>capital letter</b>: <i>Monday</i>, <i>March</i>. In Spanish and Catalan we use small letters.</p><p><b>The months of the year</b>: January, February, March, April, May, June, July, August, September, October, November, December.</p><p>To say the <b>date</b>, we use special numbers: <i>first</i> (1st), <i>second</i> (2nd), <i>third</i> (3rd), <i>fourth</i> (4th)… «Today is Monday, the <b>third</b> of March.»</p><p>We can also talk about the <b>weather</b> in the morning routine: «What's the weather like today?» – «It's sunny / rainy / cloudy / windy.»</p><p>And yesterday and tomorrow: «Yesterday was Sunday. Tomorrow is Tuesday.»</p><p><b>Activity</b>: be the calendar helper for a week. Say the day, the date and the weather every morning.</p>`,
+        H6.rueda("Calendar", "TODAY", [["Monday", cAZ], ["March", cVE], ["3rd", cNA], ["sunny", cRO]])],
+    ],
+    "Classroom objects": [
+      ["What colour is it?", `<p>To describe classroom objects, we need <mark>colours</mark>:</p><ul><li>red (rojo), blue (azul), yellow (amarillo), green (verde), orange (naranja), purple (morado), pink (rosa), brown (marrón), black (negro), white (blanco), grey (gris).</li></ul><p>Questions and answers:</p><ul><li>«<b>What colour is</b> your pencil case?» – «<b>It's</b> blue.»</li><li>«<b>What colour are</b> your scissors?» – «<b>They're</b> red.»</li></ul><p>Look at the <b>order of the words</b>. In Spanish, the colour goes after the object: <i>un lápiz rojo</i>. In English, the colour goes <b>before</b> the object: «a <b>red</b> pencil», «a <b>green</b> ruler».</p><p>Also, colours <b>don't change</b> in the plural: «two <b>red</b> pencils» (not <i>reds</i>).</p><p>We can also say <b>light</b> (claro) and <b>dark</b> (oscuro): «a light blue bag», «a dark green book».</p><p>Classroom game: <b>I spy</b> (veo, veo). One pupil says: «I spy with my little eye something <b>yellow</b>.» The others guess: «Is it the pencil?» – «Yes, it is!» or «No, it isn't.»</p><p><b>Activity</b>: describe five things on your desk with their colour: «a blue pen, a pink rubber…».</p>`,
+        H6.dos("Order", ["SPANISH", ["lápiz rojo", "goma rosa", "dos lápices rojos"], cNA], ["ENGLISH", ["red pencil", "pink rubber", "two red pencils"], cAZ])],
+    ],
+  },
+  final: [
+    ["Greetings around the world", `<p>People greet each other in <mark>different ways</mark> around the world. It's interesting to know them, especially if you have classmates from other countries.</p><ul><li>In <b>Spain</b>, friends and family often give <b>two kisses</b> on the cheeks.</li><li>In the <b>United Kingdom</b>, adults usually <b>shake hands</b> (se dan la mano) when they meet for the first time. Friends just say «Hi!».</li><li>In <b>Japan</b>, people <b>bow</b> (hacen una reverencia): they bend their body forward. The deeper the bow, the more respect.</li><li>In <b>India</b>, many people put their hands together in front of the chest and say «<i>Namaste</i>».</li><li>In <b>New Zealand</b>, the Maori people touch noses and foreheads: it's called <i>hongi</i>.</li></ul><p>And how do you say <b>hello</b> in other languages?</p><ul><li>Spanish: <i>hola</i>. Catalan: <i>hola</i>. French: <i>bonjour</i>.</li><li>Italian: <i>ciao</i>. German: <i>hallo</i>. Japanese: <i>konnichiwa</i>. Chinese: <i>nǐ hǎo</i>.</li></ul><p>All the greetings are different, but they mean the same: «I'm happy to see you!»</p><p><b>Activity</b>: ask your classmates and families how to say «hello» in other languages and make a poster.</p>`,
+      L6.filas("Hello!", [["Spain", "two kisses", cAZ], ["UK", "shake hands", cVE], ["Japan", "bow", cNA], ["India", "namaste", cRO]])],
+    ["Write a message to a new friend", `<p>Now you can <mark>write</mark> a short message to introduce yourself. It can be a note, a card or an email to a new friend.</p><p>Look at this example:</p><p><i>Hello, Aiko!<br>My name's Pablo and I'm eight years old. I'm from Spain. I'm in Year 3 with Miss Green. My favourite colour is blue and my favourite day is Saturday. How are you? Can you teach me more words in Japanese?<br>See you tomorrow!<br>Pablo</i></p><p>The parts of the message are:</p><ul><li><b>1. Greeting</b>: <i>Hello, Aiko!</i> or <i>Hi, Aiko!</i> or <i>Dear Aiko,</i></li><li><b>2. About me</b>: name, age, where you are from, your class.</li><li><b>3. Favourite things</b>: colour, day, number…</li><li><b>4. A question</b>: <i>How are you? What's your favourite colour?</i></li><li><b>5. Goodbye</b>: <i>See you soon! Bye!</i> and your <b>name</b>.</li></ul><p>Remember the capital letters: <i>I</i> (always), names, days, months, countries and languages: <i>I'm from Spain. I speak Spanish and English.</i></p><p><b>Activity</b>: write a message to a classmate and put it in the class letterbox.</p>`,
+      H6.flujo("Message", ["Hello|+ name", "about|me", "a|question", "See you!|+ name"], cVE)],
+  ],
+  ejemplos: [
+    ["Correct the sentence: «I have eight years».", ["In English we use the verb be for age.", "I am = I'm."], "I'm eight (years old)."],
+    ["Put the words in order: pencil / a / red.", ["In English, the colour goes before the object.", "a + colour + object."], "A red pencil."],
+  ],
+  errores: ["Saying «I have eight years» instead of «I'm eight».", "Writing days and months with a small letter: «monday» instead of «Monday»."],
+  ejercicios: [
+    ["b", "Answer: How old are you?", "Example: I'm eight."],
+    ["b", "Write the number 15 in words.", "Fifteen."],
+    ["b", "What day comes after Wednesday?", "Thursday."],
+    ["b", "How do you say «rojo» in English?", "Red."],
+    ["b", "In the reading, where is Aiko from?", "From Japan."],
+    ["m", "Spell your name with double letters if you have them.", "Example: A-double N-A."],
+    ["m", "Write today's date in English.", "Example: Today is Monday, the third of March."],
+    ["m", "Translate: dos reglas verdes.", "Two green rulers."],
+    ["m", "How do people greet in Japan?", "They bow."],
+    ["m", "Ask about your brother's age.", "How old is your brother?"],
+    ["a", "Write a message to a new friend with five parts.", "Open answer."],
+    ["a", "Play «I spy» with three objects and write the sentences.", "Example: I spy with my little eye something yellow."],
+    ["a", "Write the weekend days and three months with capital letters.", "Saturday, Sunday; January, May, October."],
+    ["a", "In the reading, what does Aiko teach Pablo?", "To say «konnichiwa», hello in Japanese."],
+  ],
+  quiz: [
+    ["«¿Cuántos años tienes?» in English is…", ["How old are you?", "How are you?", "What's your name?"], "Age."],
+    ["The letter E in English sounds like…", ["«i»", "«e»", "«ai»"], "Spelling."],
+    ["The day after Friday is…", ["Saturday", "Sunday", "Thursday"], "Calendar."],
+    ["Which is correct?", ["a blue bag", "a bag blue", "a blues bag"], "Colours."],
+    ["In Japan, people often greet with…", ["a bow", "two kisses", "a hongi"], "World."],
+  ],
+  examen: [
+    ["In the reading, how does Aiko spell her name?", ["A-I-K-O", "A-Y-K-O", "I-K-O"], "Reading."],
+    ["In English, days of the week start with…", ["a capital letter", "a small letter", "a number"], "Calendar."],
+  ],
+  tarjetas: [
+    ["Age", "How old are you? – I'm eight. 13–19 end in -teen."],
+    ["Spelling", "How do you spell it? A «ei», E «i», I «ai»; double N."],
+    ["Calendar", "Monday… Sunday; January… December; It's sunny."],
+    ["Colours and world", "a red pencil; bow, shake hands, two kisses, namaste."],
+  ],
+  glosario: [
+    ["Greeting", "Saludo."],
+    ["Age", "Edad."],
+    ["Spell", "Deletrear."],
+    ["Double", "Doble: dos letras iguales juntas."],
+    ["Weekend", "Fin de semana."],
+    ["Date", "Fecha."],
+    ["Weather", "El tiempo que hace."],
+    ["Light / dark", "Claro / oscuro."],
+    ["I spy", "Veo, veo."],
+    ["Bow", "Reverencia."],
+    ["Shake hands", "Darse la mano."],
+    ["Pupil", "Alumno o alumna."],
+  ],
+  situacion: {
+    titulo: "Welcome to our class!",
+    reto: "The class prepares a welcome pack in English for a new pupil: a greeting poster, a class calendar and a message from each child.",
+    pasos: ["Make a poster with «hello» in many languages.", "Prepare a calendar corner with days, months and weather.", "Write a message with name, age and favourite things.", "Role-play the first day: greet, spell your name and show the classroom."],
+    producto: "A welcome pack and a role-play of the first day.",
+    evaluacion: ["Asks and says the age.", "Spells names correctly.", "Says the day, date and weather.", "Writes a short message with capital letters."],
+  },
+});

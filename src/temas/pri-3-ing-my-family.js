@@ -91,3 +91,99 @@ module.exports = tema({
   ideas: ["Árbol genealógico ilustrado presentado oralmente.", "Juego de adivinanzas: «She's my mum's sister. Who is she?».", "Lectura de un texto modelo y escritura de uno propio."],
   fuentes: [["British Council LearnEnglish Kids: family", "https://learnenglishkids.britishcouncil.org/"], ["Cambridge Dictionary", "https://dictionary.cambridge.org/"]],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Use more family words: twins, only child, baby", "Use the possessives my, your, his, her, our, their", "Ask and answer «Whose is it?»", "Talk about family jobs and celebrations"],
+  lectura: { titulo: "A big birthday party", html: `<p>Today is Saturday and it's Grandma Rosa's birthday. She's seventy! All the family is at her house.</p><p>"Look, Max," says Mum. "These are your cousins from London, Lily and Jack. They're twins."</p><p>Lily and Jack are nine. They've got red hair and lots of freckles. Their dad, Uncle Tom, is Mum's brother. He's a cook in a big restaurant, so he has made the birthday cake.</p><p>Max hasn't got any brothers or sisters. He's an only child. But today he's got a lot of family around him: his grandparents, two aunts, three uncles and six cousins!</p><p>"Whose is this teddy?" asks Aunt Clara.</p><p>"It's Baby Nora's," says Jack. Nora is the youngest cousin. She's only one.</p><p>At five o'clock, Uncle Tom brings the cake. It's a chocolate cake with seventy small candles. Everybody sings "Happy Birthday".</p><p>Grandma Rosa blows out the candles. "Thank you, everybody," she says. "My favourite present is my family!"</p>` },
+  tras: {
+    "My family": [
+      ["Pets are family too", `<p>For many children, their <mark>pet</mark> (mascota) is a member of the family. In English, we talk about pets with <b>has got</b> and <b>is</b>:</p><ul><li>«I've got a <b>dog</b>. Its name is Toby. It's brown and white.»</li><li>«My cousin has got two <b>cats</b> and a <b>hamster</b>.»</li><li>«We haven't got any pets, but I want a <b>rabbit</b>.»</li></ul><p>Common pets: <i>dog</i> (perro), <i>cat</i> (gato), <i>rabbit</i> (conejo), <i>hamster</i> (hámster), <i>fish</i> (pez), <i>bird</i> (pájaro), <i>tortoise</i> (tortuga de tierra), <i>guinea pig</i> (cobaya).</p><p>Look at the word <b>its</b>: it means «su» for animals and things. «The cat is eating. <b>Its</b> food is in a bowl.» Don't confuse <i>its</i> (su) with <i>it's</i> (it is = es/está).</p><p>To ask about pets:</p><ul><li>«<b>Have you got a pet?</b>» – «Yes, I have. I've got a fish.» / «No, I haven't.»</li><li>«<b>What's its name?</b>» – «Its name is Nemo.»</li></ul><p>Remember that pets need care: food, water, a clean place and a lot of love. They are not toys!</p><p><b>Activity</b>: draw your pet, or the pet you want, and write three sentences about it.</p>`,
+        L6.filas("Pets", [["dog", "perro", cAZ], ["rabbit", "conejo", cVE], ["tortoise", "tortuga", cNA], ["its name", "su nombre", cRO]])],
+    ],
+    "Uncles, aunts and cousins": [
+      ["Twins, babies and more", `<p>Here are some <mark>more family words</mark>:</p><ul><li><b>twins</b> (gemelos o mellizos): two brothers or sisters born on the same day. «Lily and Jack are twins.»</li><li><b>baby</b> (bebé): a very small child. «My baby sister is one.»</li><li><b>only child</b> (hijo único): a child without brothers or sisters. «Max is an only child.»</li><li><b>parents</b> (padres): mum and dad together. Be careful: <i>parents</i> is <b>not</b> «parientes»!</li><li><b>relatives</b> (parientes, familiares): all the people in your family.</li><li><b>stepmum / stepdad</b> (madrastra / padrastro): the new partner of your mum or dad. And <b>stepbrother / stepsister</b>.</li><li><b>nephew / niece</b> (sobrino / sobrina): for your parents, your cousins are their nephews and nieces.</li></ul><p>To say who is older or younger:</p><ul><li><b>older</b> (mayor): «My <b>older</b> brother is fourteen.»</li><li><b>younger</b> (menor): «My <b>younger</b> sister is five.»</li><li>The youngest: «Nora is the <b>youngest</b> cousin.»</li></ul><p><b>Activity</b>: write three sentences about your relatives with <i>older</i> and <i>younger</i>.</p>`,
+        L6.filas("Family", [["twins", "gemelos", cAZ], ["only child", "hijo único", cVE], ["parents", "padres", cNA], ["relatives", "parientes", cRO]]),
+        ["24GWC1dDyUM", "Learn Family Members in English | Family Vocabulary | Fun Kids English", "Fun Kids English", 1887803]],
+    ],
+    "This is my…": [
+      ["My, your, his, her…", `<p>The <mark>possessives</mark> tell us who something belongs to. In English they are very easy, because they <b>never change</b> with the noun:</p><ul><li><b>I → my</b>: «<b>my</b> mum, <b>my</b> cousins».</li><li><b>you → your</b>: «<b>your</b> dad, <b>your</b> grandparents».</li><li><b>he → his</b>: «Max and <b>his</b> family».</li><li><b>she → her</b>: «Grandma and <b>her</b> cake».</li><li><b>it → its</b>: «The dog and <b>its</b> ball».</li><li><b>we → our</b>: «<b>our</b> house».</li><li><b>they → their</b>: «The twins and <b>their</b> dad».</li></ul><p>In Spanish, <i>su</i> can mean «of him», «of her» or «of them». In English we must choose: <b>his</b> (of a boy or man), <b>her</b> (of a girl or woman), <b>their</b> (of two or more).</p><ul><li>«This is Tom. <b>His</b> sister is Clara.»</li><li>«This is Clara. <b>Her</b> brother is Tom.»</li><li>«These are the twins. <b>Their</b> hair is red.»</li></ul><p>Also, there is no plural: «my <b>cousin</b>» and «my <b>cousins</b>»; we never say <i>mys</i>.</p><p><b>Activity</b>: complete: «This is my aunt. ___ name is Clara. These are my cousins. ___ names are Lily and Jack.»</p>`,
+        L6.filas("Whose?", [["he", "his", cAZ], ["she", "her", cVE], ["we", "our", cNA], ["they", "their", cRO]])],
+    ],
+    "Tom's sister: the possessive 's": [
+      ["Whose is it?", `<p>To ask who something belongs to, we use <mark>Whose</mark> (¿de quién?):</p><ul><li>«<b>Whose</b> is this teddy?» – «It's Nora<b>'s</b>.»</li><li>«<b>Whose</b> are these shoes?» – «They're Dad<b>'s</b>.»</li><li>«<b>Whose</b> bike is it?» – «It's my brother<b>'s</b>.»</li></ul><p>Remember the possessive <b>'s</b>: the owner (dueño) goes first, then <b>'s</b>, then the thing: «<b>Nora's</b> teddy» (el osito de Nora). In Spanish the order is the opposite!</p><p>Some important rules:</p><ul><li>With one person: <b>'s</b>: «my sister's room».</li><li>With a plural ending in -s: only <b>'</b>: «my parents' car» (el coche de mis padres), «the twins' toys».</li><li>With two names: 's only at the end: «Lily and Jack's house».</li></ul><p>Be careful not to confuse two 's:</p><ul><li>«Nora<b>'s</b> two» = Nora <b>is</b> two.</li><li>«Nora<b>'s</b> teddy» = the teddy of Nora.</li></ul><p>Look at the next word: if it's a thing (teddy, bike), it's possessive.</p><p><b>Activity</b>: put some objects on a table. Ask «Whose is this?» and answer with the names of your classmates.</p>`,
+        H6.dos("Order", ["SPANISH", ["el osito", "de Nora"], cNA], ["ENGLISH", ["Nora's", "teddy"], cAZ]),
+        ["vc5quu-Ma7U", "Apostrophes for Possession | Possessive Nouns | EasyTeaching", "EasyTeaching", 651485]],
+    ],
+    "Reading: Emma's family": [
+      ["What does your mum do?", `<p>We can talk about our family's <mark>jobs</mark> (trabajos). To ask, we say: «<b>What does your mum do?</b>» or «<b>What's her job?</b>»</p><p>To answer, we use <b>a</b> or <b>an</b> before the job:</p><ul><li>«My mum is <b>a</b> teacher.» (maestra)</li><li>«My dad is <b>a</b> nurse.» (enfermero)</li><li>«My uncle is <b>a</b> cook.» (cocinero)</li><li>«My aunt is <b>an</b> engineer.» (ingeniera)</li><li>«My grandpa is <b>a</b> farmer.» (granjero) / «He's retired.» (jubilado)</li></ul><p>Use <b>an</b> before a vowel sound: <i>an artist, an engineer, an architect</i>. Use <b>a</b> before a consonant: <i>a doctor, a vet, a firefighter</i>.</p><p>In Spanish we don't say the article: <i>Mi madre es maestra</i>. But in English it's necessary: «My mother is <b>a</b> teacher». Never say <i>My mum is teacher</i>.</p><p>More jobs: <i>doctor, vet</i> (veterinario), <i>police officer, firefighter</i> (bombero), <i>shop assistant</i> (dependiente), <i>bus driver, hairdresser</i> (peluquero), <i>pilot, scientist</i>.</p><p>In English, most jobs are the same for men and women: <i>a doctor, a teacher, a pilot</i>.</p><p><b>Activity</b>: interview two people in your family: «What do you do?» Write their answers.</p>`,
+        L6.filas("Jobs", [["a", "teacher", cAZ], ["a", "nurse", cVE], ["an", "engineer", cNA], ["an", "artist", cRO]])],
+    ],
+  },
+  final: [
+    ["Family celebrations", `<p>Families get together for <mark>celebrations</mark>. Here are some important ones and what we say:</p><ul><li><b>Birthday</b> (cumpleaños): «<b>Happy birthday!</b>» We sing the song, give presents and blow out the candles on the cake.</li><li><b>Christmas</b> (Navidad): «<b>Merry Christmas!</b>» In the UK, children get presents from Father Christmas on the 25th of December. In Spain, many children also get presents from the Three Kings on the 6th of January.</li><li><b>New Year</b> (Año Nuevo): «<b>Happy New Year!</b>» In Spain, people eat twelve grapes at midnight.</li><li><b>Wedding</b> (boda): two people get married. We say «<b>Congratulations!</b>» (¡enhorabuena!).</li><li><b>A new baby</b>: we also say «Congratulations!» to the parents.</li></ul><p>To talk about your birthday:</p><ul><li>«<b>When's your birthday?</b>» – «It's in <b>May</b>.» / «It's on the <b>12th of May</b>.»</li><li>Use <b>in</b> with months and <b>on</b> with dates.</li></ul><p>And to thank people for presents: «<b>Thank you</b> for the present! I love it!»</p><p><b>Activity</b>: make a class birthday calendar. Write everybody's name in their month.</p>`,
+      H6.rueda("Celebrate", "PARTY!", [["birthday", cAZ], ["Christmas", cVE], ["New Year", cNA], ["wedding", cRO]])],
+  ],
+  ejemplos: [
+    ["Complete: «This is Clara. ___ brother is Tom.»", ["Clara is a girl.", "For a girl we use her."], "Her brother is Tom."],
+    ["Correct: «My mum is teacher.»", ["In English we need a or an before a job.", "Teacher starts with a consonant: a."], "My mum is a teacher."],
+  ],
+  errores: ["Using «his» for a girl or «her» for a boy: «Clara and his brother».", "Forgetting the article with jobs: «My dad is nurse»."],
+  ejercicios: [
+    ["b", "How do you say «hijo único» in English?", "Only child."],
+    ["b", "What's the possessive of «they»?", "Their."],
+    ["b", "Complete: «My aunt is ___ engineer».", "An."],
+    ["b", "What do we say on someone's birthday?", "Happy birthday!"],
+    ["b", "In the reading, how old is Grandma Rosa?", "Seventy."],
+    ["m", "Translate: el coche de mi padre.", "My father's car."],
+    ["m", "Complete: «Tom and ___ sister» / «Clara and ___ brother».", "His; her."],
+    ["m", "Answer: Whose is the teddy in the reading?", "It's Baby Nora's."],
+    ["m", "What's the difference between «parents» and «relatives»?", "Parents are mum and dad; relatives are all the family."],
+    ["m", "Write the job of someone in your family with a or an.", "Example: My uncle is a cook."],
+    ["a", "Write five sentences about your family with my, his, her and their.", "Open answer."],
+    ["a", "Explain the two meanings of 's in «Nora's two» and «Nora's teddy».", "Nora's two = Nora is two; Nora's teddy = the teddy of Nora."],
+    ["a", "Describe Max's family using the reading.", "Example: Max is an only child. His cousins Lily and Jack are twins. His uncle Tom is a cook."],
+    ["a", "Write about a family celebration in your house.", "Open answer."],
+  ],
+  quiz: [
+    ["Lily and Jack were born on the same day. They're…", ["twins", "parents", "nieces"], "Family."],
+    ["«Parents» means…", ["padres", "parientes", "primos"], "Family."],
+    ["«This is Tom. ___ dog is black.»", ["His", "Her", "Their"], "Possessives."],
+    ["«El coche de mis padres» is…", ["my parents' car", "my parent's cars", "the car my parents"], "Whose."],
+    ["My aunt is ___ artist.", ["an", "a", "—"], "Jobs."],
+  ],
+  examen: [
+    ["In the reading, who made the cake?", ["Uncle Tom", "Grandma Rosa", "Mum"], "Reading."],
+    ["We say «Congratulations!» at…", ["a wedding", "breakfast", "school every day"], "Celebrations."],
+  ],
+  tarjetas: [
+    ["More family", "twins, baby, only child, parents, relatives, older, younger."],
+    ["Possessives", "my, your, his, her, its, our, their."],
+    ["Whose?", "Whose is it? – It's Nora's. My parents' car."],
+    ["Jobs and parties", "a teacher, an engineer; Happy birthday! Merry Christmas!"],
+  ],
+  glosario: [
+    ["Twins", "Gemelos o mellizos."],
+    ["Only child", "Hijo o hija único."],
+    ["Parents", "Padres (madre y padre)."],
+    ["Relatives", "Parientes, familiares."],
+    ["Older / younger", "Mayor / menor."],
+    ["Whose", "¿De quién?"],
+    ["Pet", "Mascota."],
+    ["Job", "Trabajo, profesión."],
+    ["Retired", "Jubilado."],
+    ["Wedding", "Boda."],
+    ["Congratulations", "¡Enhorabuena!"],
+    ["Candle", "Vela."],
+  ],
+  situacion: {
+    titulo: "Our family album",
+    reto: "Each child makes a family album page in English with photos or drawings, and presents it to the class.",
+    pasos: ["Draw or stick pictures of your family members and pets.", "Write who they are with my, his, her and their.", "Add their jobs with a or an and the dates of their birthdays.", "Present your page to the class and answer questions."],
+    producto: "A class family album.",
+    evaluacion: ["Uses family words correctly.", "Chooses his, her and their.", "Uses the possessive 's.", "Talks about jobs with a or an."],
+  },
+});

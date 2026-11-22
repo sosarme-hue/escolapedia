@@ -102,3 +102,101 @@ module.exports = tema({
   ideas: ["Dictado de monstruos por parejas.", "Juego de adivinar personajes con preguntas de sí o no.", "Mural de la clase con descripciones físicas."],
   fuentes: [["British Council LearnEnglish Kids: grammar", "https://learnenglishkids.britishcouncil.org/"], ["Cambridge Dictionary: have got", "https://dictionary.cambridge.org/grammar/british-grammar/have-got-and-have"]],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  videos: {
+    "Body parts": ["h4eueDYPTIg", "Head, Shoulders, Knees & Toes - Exercise Song For Kids", "ChuChu TV Nursery Rhymes & Kids Songs", 1387446212],
+  },
+  objetivos: ["Use the short forms I've got and she's got", "Use a, an and any with have got", "Describe people and animals in detail", "Use irregular plurals: feet, teeth, children"],
+  lectura: { titulo: "The lost dog", html: `<p>Sam is very sad. His dog, Biscuit, is lost. Sam and his sister Mia make a poster to find him.</p><p><i>LOST DOG! Have you seen Biscuit? He's small and very friendly. He's got short brown fur and a white spot on his back. He's got long floppy ears and a short tail. He's got big black eyes and a pink nose. He hasn't got a collar, but he's got a red scarf around his neck. If you find him, please call Sam.</i></p><p>They put the poster on the trees in the park and on the door of the supermarket.</p><p>The next morning, Mrs Brown from number 12 knocks at the door. She's got grey hair and glasses, and she's got a basket in her hands.</p><p>"Hello, Sam. Have you got a small brown dog with a red scarf?" she asks.</p><p>"Yes, I have!" says Sam.</p><p>Mrs Brown opens the basket. Biscuit jumps out and licks Sam's face.</p><p>"Thank you, Mrs Brown!" says Sam.</p><p>"Thank you for your poster," she smiles. "Your description was perfect!"</p>` },
+  tras: {
+    "Have got or has got?": [
+      ["Short forms: I've got, she's got", `<p>When we speak, and in informal writing, we usually use <mark>short forms</mark> (formas cortas). We join the subject and the verb with an <b>apostrophe</b> ('):</p><ul><li>I have got → <b>I've got</b></li><li>you have got → <b>you've got</b></li><li>he has got → <b>he's got</b></li><li>she has got → <b>she's got</b></li><li>it has got → <b>it's got</b></li><li>we have got → <b>we've got</b></li><li>they have got → <b>they've got</b></li></ul><p>And in the negative:</p><ul><li>have not → <b>haven't</b>: «I <b>haven't</b> got a bike.»</li><li>has not → <b>hasn't</b>: «She <b>hasn't</b> got a cat.»</li></ul><p>Be careful! <b>He's</b> can mean two things:</p><ul><li>«He<b>'s</b> got a dog» = he <b>has</b> got.</li><li>«He<b>'s</b> eight» = he <b>is</b> eight.</li></ul><p>How do you know? Look for the word <b>got</b>. If <i>got</i> is there, 's means <i>has</i>.</p><p><b>Activity</b>: rewrite these sentences with short forms: «We have got a garden. She has got long hair. They have not got a car.»</p>`,
+        L6.filas("Short", [["I have", "I've", cAZ], ["she has", "she's", cVE], ["they have", "they've", cNA], ["has not", "hasn't", cRO]])],
+    ],
+    "Questions: Have you got…?": [
+      ["A, an or any?", `<p>With <b>have got</b> we often use <b>a</b>, <b>an</b> or <b>any</b> before the noun:</p><ul><li><b>a</b> + one thing that starts with a consonant sound: «I've got <b>a</b> bike.»</li><li><b>an</b> + one thing that starts with a vowel sound: «She's got <b>an</b> umbrella.» «I've got <b>an</b> orange.»</li><li>a number or <b>some</b> for more than one: «I've got <b>two</b> cats.» «We've got <b>some</b> books.»</li></ul><p>In <mark>questions</mark> and <mark>negatives</mark> with plurals, we use <b>any</b>:</p><ul><li>«Have you got <b>any</b> pets?» (¿Tienes mascotas?)</li><li>«I haven't got <b>any</b> brothers.» (No tengo hermanos.)</li><li>«Has she got <b>any</b> sweets?»</li></ul><p>In Spanish we often say <i>No tengo hermanos</i>, without any word before the noun. In English, we need <b>any</b>: «I haven't got <b>any</b> brothers».</p><p>With one thing in negatives and questions, we use <b>a</b> or <b>an</b>: «I haven't got <b>a</b> dog.» «Have you got <b>an</b> eraser?»</p><p><b>Activity</b>: ask a partner five questions with «Have you got any…?»: pets, cousins, brothers, posters, books.</p>`,
+        L6.filas("Article", [["a", "a bike", cAZ], ["an", "an orange", cVE], ["some", "some books", cNA], ["any", "any pets?", cRO]])],
+    ],
+    "Describing people: hair and eyes": [
+      ["Tall or short? Glasses and freckles", `<p>To describe people, we use <b>be</b> for size and shape, and <b>have got</b> for things on their body:</p><p><b>With be</b>:</p><ul><li>«She's <b>tall</b>.» (alta) / «He's <b>short</b>.» (bajo)</li><li>«He's <b>thin</b>.» (delgado) / «She's <b>strong</b>.» (fuerte)</li><li>«My grandpa is <b>old</b>.» / «My cousin is <b>young</b>.»</li></ul><p><b>With have got</b>:</p><ul><li><b>glasses</b> (gafas): «Mrs Brown has got glasses.»</li><li><b>freckles</b> (pecas): «The twins have got freckles.»</li><li><b>a beard</b> (barba) and <b>a moustache</b> (bigote): «My uncle has got a black beard.»</li><li><b>a fringe</b> (flequillo), <b>a ponytail</b> (coleta), <b>plaits</b> (trenzas).</li></ul><p>Remember the order of adjectives: size first, then colour: «She's got <b>long brown</b> hair.» Not <i>brown long hair</i>.</p><p>And remember: <b>hair</b> is singular in English. «Her hair <b>is</b> long» (not <i>are</i>). Never say <i>hairs</i> for the hair on your head.</p><p>To ask: «<b>What does she look like?</b>» (¿Cómo es físicamente?) – «She's tall and she's got curly hair.»</p><p><b>Activity</b>: describe a person in your family with three sentences with <i>be</i> and three with <i>have got</i>.</p>`,
+        H6.dos("Describe", ["BE", ["tall", "thin", "young"], cAZ], ["HAVE GOT", ["glasses", "freckles", "a beard"], cVE]),
+        ["7zCNjzTEOeI", "What Does He Look Like? Song | Describing People", "English Tree", 1831128]],
+    ],
+    "Body parts": [
+      ["Animal bodies", `<p>Animals have got some <mark>body parts</mark> that people haven't got. Learn their names:</p><ul><li><b>tail</b> (cola): «A monkey has got a long tail.»</li><li><b>wings</b> (alas): «Birds and butterflies have got wings.»</li><li><b>fur</b> (pelaje): «A bear has got thick fur.»</li><li><b>feathers</b> (plumas): «A parrot has got colourful feathers.»</li><li><b>beak</b> (pico): «An eagle has got a strong beak.»</li><li><b>paws</b> (patas con almohadillas) and <b>claws</b> (garras): «A cat has got soft paws and sharp claws.»</li><li><b>horns</b> (cuernos): «A goat has got two horns.»</li><li><b>scales</b> (escamas) and <b>fins</b> (aletas): «A fish has got scales and fins.»</li><li><b>a trunk</b> (trompa): «An elephant has got a long trunk.»</li></ul><p>To talk about one animal, we use <b>it</b> and <b>has got</b>: «<b>It's got</b> four legs and a tail.»</p><p>To talk about a group of animals, we use <b>they</b> and <b>have got</b>: «Elephants <b>have got</b> big ears.»</p><p>Animal riddles are fun: «It's grey. It's got big ears and a long trunk. What is it?» – «It's an elephant!»</p><p><b>Activity</b>: write a riddle about your favourite animal with three sentences with <i>has got</i>.</p>`,
+        L6.filas("Animals", [["tail", "cola", cAZ], ["wings", "alas", cVE], ["beak", "pico", cNA], ["claws", "garras", cRO]])],
+    ],
+    "Possessions: my favourite things": [
+      ["One foot, two feet", `<p>Most English nouns make the plural with <b>-s</b>: <i>one eye, two eyes; one arm, two arms</i>. But some nouns are <mark>irregular</mark>: they change completely.</p><ul><li>one <b>foot</b> → two <b>feet</b> (pie, pies)</li><li>one <b>tooth</b> → two <b>teeth</b> (diente, dientes)</li><li>one <b>child</b> → two <b>children</b> (niño, niños)</li><li>one <b>man</b> → two <b>men</b>; one <b>woman</b> → two <b>women</b></li><li>one <b>mouse</b> → two <b>mice</b> (ratón, ratones)</li><li>one <b>person</b> → two <b>people</b> (persona, personas)</li><li>one <b>fish</b> → two <b>fish</b> (no change!)</li><li>one <b>sheep</b> → two <b>sheep</b> (no change!)</li></ul><p>Some plurals add <b>-es</b>: <i>one box, two boxes; one watch, two watches; one bus, two buses</i>.</p><p>And words ending in consonant + <b>y</b> change to <b>-ies</b>: <i>one baby, two babies; one puppy, two puppies</i>.</p><p>These irregular plurals are very common when we describe people and animals: «The monster has got three <b>feet</b> and a hundred <b>teeth</b>!» «There are twenty <b>children</b> in my class.»</p><p><b>Activity</b>: draw a funny monster and write how many feet, teeth and eyes it has got.</p>`,
+        L6.filas("Plurals", [["foot", "feet", cAZ], ["tooth", "teeth", cVE], ["child", "children", cNA], ["mouse", "mice", cRO]])],
+    ],
+  },
+  final: [
+    ["Game: Guess who?", `<p><mark>Guess who?</mark> (¿Quién es quién?) is a great game to practise <i>have got</i> and descriptions.</p><p><b>How to play</b>:</p><ul><li><b>1.</b> Each player has got a board with lots of faces. Every face is different: long or short hair, glasses, hats, beards…</li><li><b>2.</b> Each player chooses a secret person.</li><li><b>3.</b> Players take turns to ask <b>yes/no questions</b>: «<b>Has your person got</b> glasses?» «<b>Is your person</b> a man?» «<b>Has she got</b> curly hair?»</li><li><b>4.</b> The other player answers with short answers: «Yes, she has.» / «No, he hasn't.» / «Yes, he is.»</li><li><b>5.</b> Close the faces that are not possible.</li><li><b>6.</b> When you know, say: «<b>Is it</b> Anna?» The first player to find the secret person wins.</li></ul><p>You can also play with your classmates. One pupil thinks of a classmate, and the others ask: «Has he got brown eyes? Is he tall? Has he got a blue jumper?»</p><p>Remember the short answers:</p><ul><li>«Has he got…?» – «Yes, he <b>has</b>.» / «No, he <b>hasn't</b>.»</li><li>«Is she…?» – «Yes, she <b>is</b>.» / «No, she <b>isn't</b>.»</li></ul><p><b>Activity</b>: make your own Guess who? cards with drawings of eight people.</p>`,
+      H6.flujo("Guess who?", ["choose|a person", "ask|questions", "close|the faces", "Is it…?|you win!"], cNA)],
+  ],
+  ejemplos: [
+    ["Write the short form: «She has got a red bike».", ["She has = she's.", "Got stays after the short form."], "She's got a red bike."],
+    ["Correct: «I haven't got brothers».", ["Negative sentence with a plural.", "We need any before the noun."], "I haven't got any brothers."],
+  ],
+  errores: ["Saying «Her hairs are long» instead of «Her hair is long».", "Saying «two foots» or «three tooths» instead of «two feet» and «three teeth»."],
+  ejercicios: [
+    ["b", "Write the short form of «they have got».", "They've got."],
+    ["b", "Complete: «I've got ___ orange».", "An."],
+    ["b", "How do you say «gafas» in English?", "Glasses."],
+    ["b", "What's the plural of «foot»?", "Feet."],
+    ["b", "In the reading, what's the name of the dog?", "Biscuit."],
+    ["m", "Make a question: you / any pets.", "Have you got any pets?"],
+    ["m", "Answer: Has a bird got fur?", "No, it hasn't. It's got feathers."],
+    ["m", "Order the words: hair / long / brown / she's got.", "She's got long brown hair."],
+    ["m", "Write the plural of child, mouse and person.", "Children, mice, people."],
+    ["m", "Describe Mrs Brown from the reading.", "She's got grey hair and glasses."],
+    ["a", "Write a «Lost pet» poster with six sentences.", "Open answer."],
+    ["a", "Write an animal riddle with has got.", "Example: It's got a long neck and four legs. It's yellow and brown. It's a giraffe."],
+    ["a", "Explain the two meanings of «He's» in «He's got a dog» and «He's eight».", "He has got a dog; he is eight."],
+    ["a", "Play Guess who? and write five questions you asked.", "Open answer."],
+  ],
+  quiz: [
+    ["The short form of «she has got» is…", ["she's got", "she've got", "she got"], "Short."],
+    ["«Have you got ___ sisters?»", ["any", "a", "an"], "Any."],
+    ["«Pecas» in English is…", ["freckles", "plaits", "glasses"], "Describe."],
+    ["A bird has got…", ["feathers and a beak", "fur and a trunk", "scales and fins"], "Animals."],
+    ["The plural of «tooth» is…", ["teeth", "tooths", "teeths"], "Plurals."],
+  ],
+  examen: [
+    ["In the reading, who finds the dog?", ["Mrs Brown", "Mia", "a police officer"], "Reading."],
+    ["«Has your person got glasses?» – «No, she ___.»", ["hasn't", "isn't", "haven't"], "Guess who."],
+  ],
+  tarjetas: [
+    ["Short forms", "I've got, she's got, they've got; haven't, hasn't."],
+    ["A, an, any", "a bike, an orange; Have you got any pets?"],
+    ["Describe", "Be: tall, thin. Have got: glasses, freckles, a beard."],
+    ["Bodies and plurals", "tail, wings, beak, claws; feet, teeth, children, mice."],
+  ],
+  glosario: [
+    ["Short form", "Forma contraída: I've, she's."],
+    ["Any", "Algún, ningún (en preguntas y negativas)."],
+    ["Tall / short", "Alto / bajo."],
+    ["Glasses", "Gafas."],
+    ["Freckles", "Pecas."],
+    ["Beard", "Barba."],
+    ["Tail", "Cola."],
+    ["Wings", "Alas."],
+    ["Fur", "Pelaje."],
+    ["Feathers", "Plumas."],
+    ["Feet", "Pies (plural de foot)."],
+    ["Poster", "Cartel."],
+  ],
+  situacion: {
+    titulo: "Lost and found",
+    reto: "The class makes «Lost» posters for imaginary pets and people, and plays a game to find them with descriptions.",
+    pasos: ["Invent and draw a lost pet or a lost toy.", "Write a poster with be and have got.", "Read the posters and ask questions with «Has it got…?».", "Play Guess who? with drawings of the class."],
+    producto: "A wall of «Lost» posters and a class Guess who? game.",
+    evaluacion: ["Uses have got and has got correctly.", "Uses short forms and short answers.", "Describes people and animals in detail.", "Uses irregular plurals."],
+  },
+});
