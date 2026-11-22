@@ -148,3 +148,91 @@ module.exports = {
   fuentes: [RD, wiki("Aparato digestivo", "Aparato_digestivo"), wiki("Aparato circulatorio", "Aparato_circulatorio"), { t: "Fundación Española del Corazón", url: "https://fundaciondelcorazon.com/" }],
   revisado: REV,
 };
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Seguir el recorrido y los tiempos de la digestión", "Explicar el intercambio de gases en los alvéolos", "Conocer los componentes de la sangre y sus funciones", "Medir el pulso y relacionarlo con el trabajo del corazón"],
+  lectura: { titulo: "El médico aragonés que siguió la sangre", html: `<p>Miguel Servet nació hacia 1511 en Villanueva de Sijena, en Huesca. Era un joven tan curioso que estudió muchas cosas a la vez: leyes, lenguas, geografía, teología y, sobre todo, <b>medicina</b>.</p><p>En su época, casi todos los médicos de Europa seguían las ideas de un sabio griego llamado Galeno, que había vivido trece siglos antes. Galeno pensaba que la sangre pasaba directamente de un lado del corazón al otro a través de unos agujeritos invisibles.</p><p>Servet no estaba convencido. Estudió con atención el corazón y los pulmones y llegó a otra conclusión: la sangre sale del corazón, <b>viaja a los pulmones</b>, allí se mezcla con el aire y cambia de color, y después vuelve al corazón. Había descrito la <b>circulación pulmonar</b>, una de las dos partes de la doble circulación.</p><p>Lo escribió en un libro publicado en 1553. Por desgracia, ese libro también contenía ideas religiosas que no gustaron a las autoridades de su tiempo, y Servet fue condenado a muerte en Ginebra ese mismo año. Hoy es recordado como un hombre valiente que defendió lo que pensaba, y muchos hospitales y calles de España llevan su nombre.</p>` },
+  tras: {
+    "Cómo se digieren los alimentos": [
+      ["El viaje de un bocadillo", `<p>Sigamos el recorrido de un bocadillo por el aparato digestivo y lo que tarda en cada parte:</p><ul><li><b>Boca</b> (unos segundos o un minuto): los dientes lo trituran y la saliva lo humedece y empieza a transformar el almidón del pan. Se forma el <b>bolo alimenticio</b>.</li><li><b>Esófago</b> (unos segundos): el bolo baja empujado por los músculos del esófago, aunque estés cabeza abajo.</li><li><b>Estómago</b> (de 2 a 4 horas): los jugos gástricos, muy ácidos, deshacen el bolo y atacan las proteínas del jamón o del queso. Se forma una papilla, el <b>quimo</b>.</li><li><b>Intestino delgado</b> (varias horas): mide unos 6 o 7 metros. La bilis del hígado y el jugo del páncreas terminan la digestión, y los nutrientes pasan a la sangre a través de millones de pliegues diminutos, las <b>vellosidades</b>.</li><li><b>Intestino grueso</b> (de uno a dos días): mide alrededor de 1,5 metros. Aquí se absorbe el agua y se forman las heces con lo que no se ha digerido, como la fibra.</li></ul><p>Las sustancias de los jugos digestivos que trocean los alimentos se llaman <b>enzimas</b>: son como tijeras químicas, cada una especializada en cortar un tipo de nutriente.</p>`,
+        H6.flujo("Tiempos de la digestión", ["Boca|segundos", "Estómago|2-4 h", "Delgado|horas", "Grueso|1-2 días"], cNA)],
+    ],
+    "Inspirar y espirar": [
+      ["Los alvéolos: donde el aire se encuentra con la sangre", `<p>Los bronquios se ramifican dentro de los pulmones en tubos cada vez más finos, los <b>bronquiolos</b>, como las ramas de un árbol puesto boca abajo. Al final de cada bronquiolo hay racimos de saquitos diminutos: los <b>alvéolos</b>.</p><p>Cada pulmón tiene cientos de millones de alvéolos. Si se pudieran extender todos sobre el suelo, ocuparían unos <b>70 m²</b>, la superficie de un piso. Tanta superficie sirve para que el intercambio de gases sea muy rápido.</p><p>Los alvéolos están rodeados de <b>capilares</b>, vasos sanguíneos finísimos. Sus paredes y las de los alvéolos son tan delgadas que los gases las atraviesan:</p><ul><li>El <b>oxígeno</b> del aire pasa del alvéolo a la sangre, que lo llevará a todas las células.</li><li>El <b>dióxido de carbono</b>, un desecho de las células, pasa de la sangre al alvéolo y sale al espirar.</li></ul><p>Este paso se llama <b>intercambio de gases</b>. En reposo, una persona adulta respira entre 12 y 20 veces por minuto; al correr, mucho más rápido, porque los músculos necesitan más oxígeno.</p><p>El humo del tabaco daña los alvéolos y hace que el intercambio sea peor: por eso los fumadores se cansan antes.</p>`,
+        H6.dos("Intercambio de gases", ["Entra", ["oxígeno", "del alvéolo", "a las células"], cAZ], ["Sale", ["dióxido de carbono", "al alvéolo", "al espirar"], cRO]), ["Yhpme_G2QcU", "Biología: El oxígeno y la respiración", "Educar Portal", 680557]],
+    ],
+    "La doble circulación": [
+      ["La sangre y sus componentes", `<p>Una persona adulta tiene unos <b>5 litros</b> de sangre. Parece un líquido rojo y uniforme, pero si la dejamos reposar en un tubo especial se separa en partes:</p><ul><li>El <b>plasma</b> es la parte líquida, de color amarillento. Es casi todo agua y transporta los nutrientes, las sales y los desechos. Supone algo más de la mitad de la sangre.</li><li>Los <b>glóbulos rojos</b> transportan el oxígeno gracias a una sustancia roja, la <b>hemoglobina</b>, que es la que da color a la sangre. Viven unos cuatro meses.</li><li>Los <b>glóbulos blancos</b> defienden el cuerpo de los microbios: son nuestro ejército.</li><li>Las <b>plaquetas</b> son fragmentos de células que forman tapones cuando nos hacemos una herida: así se forma la costra.</li></ul><p>Todas estas células se fabrican en la <b>médula ósea</b>, dentro de los huesos.</p><p>No todas las personas tienen el mismo tipo de sangre. Hay cuatro grupos principales: <b>A, B, AB y 0</b>. Cuando alguien necesita una transfusión, debe recibir sangre compatible. Donar sangre, a partir de los 18 años, es un gesto sencillo que salva vidas, porque la sangre no se puede fabricar en ningún laboratorio.</p>`,
+        L6.filas("Componentes de la sangre", [["plasma", "transporta sustancias", cNA], ["glóbulos rojos", "llevan oxígeno", cRO], ["glóbulos blancos", "defienden", cAZ], ["plaquetas", "cierran heridas", cMO]])],
+    ],
+  },
+  final: [
+    ["El corazón, una bomba incansable", `<p>El corazón es un <b>músculo</b> del tamaño aproximado de tu puño. Se contrae y se relaja sin parar desde antes de nacer: cada contracción es un <b>latido</b>.</p><p>En reposo, el corazón de una persona adulta late unas 70 veces por minuto. Haz la cuenta: 70 × 60 × 24 son más de <b>100 000 latidos al día</b>. En los niños late algo más deprisa, y en los bebés todavía más.</p><p>Puedes notar los latidos tomándote el <b>pulso</b>: coloca dos dedos (no el pulgar) en la cara interna de la muñeca, por debajo del dedo pulgar, o en un lado del cuello. Cuenta los golpes durante 15 segundos y multiplica por 4: así sabrás tus pulsaciones por minuto.</p><p>Prueba a medirlo en reposo y después de saltar durante un minuto. Verás que sube mucho: los músculos necesitan más oxígeno y el corazón bombea más deprisa para llevárselo. Al descansar, vuelve poco a poco a lo normal. Cuanto más en forma está una persona, antes recupera su pulso de reposo.</p><p>El médico inglés <b>William Harvey</b> demostró en 1628 que la sangre circula en un circuito cerrado impulsada por el corazón.</p>`,
+      H6.barras("Pulsaciones por minuto", [["reposo", 80, cAZ, "80"], ["andar", 100, cNA, "100"], ["saltar", 140, cRO, "140"]], 140)],
+    ["Hábitos para cuidar la nutrición", `<p>Los cuatro aparatos de la nutrición trabajan sin descanso. Algunos hábitos sencillos los ayudan a funcionar bien:</p><ul><li><b>Aparato digestivo</b>: masticar despacio, comer frutas, verduras y legumbres por su fibra, beber agua y lavarse los dientes después de cada comida. Comer con prisas o con pantallas delante hace que comamos más y peor.</li><li><b>Aparato respiratorio</b>: respirar por la nariz, que filtra y calienta el aire; ventilar las habitaciones; hacer ejercicio al aire libre y, por supuesto, no fumar ni respirar el humo de otros.</li><li><b>Aparato circulatorio</b>: moverse cada día al menos una hora, tomar poca sal y pocos alimentos ultraprocesados, que tienen demasiadas grasas y azúcares.</li><li><b>Aparato excretor</b>: beber agua suficiente, sobre todo cuando hace calor o hacemos deporte, y no aguantar mucho rato las ganas de orinar.</li></ul><p>Un buen truco para saber si bebes suficiente: si la orina es de color amarillo muy claro, vas bien; si es oscura, necesitas más agua.</p>`,
+      L6.filas("Hábitos sanos", [["digestivo", "masticar, fibra, agua", cNA], ["respiratorio", "nariz, aire libre", cAZ], ["circulatorio", "ejercicio, poca sal", cRO], ["excretor", "beber agua", cVE]])],
+  ],
+  ejemplos: [
+    ["En 15 segundos cuentas 21 latidos. ¿Cuántas pulsaciones por minuto tienes?", ["Un minuto son 4 veces 15 segundos.", "21 × 4."], "84 pulsaciones por minuto."],
+    ["¿Cuántas veces late al día un corazón que late 70 veces por minuto?", ["En una hora: 70 × 60 = 4 200.", "En un día: 4 200 × 24."], "100 800 latidos."],
+  ],
+  errores: ["Pensar que los alimentos pasan a la sangre en el estómago: la mayoría se absorbe en el intestino delgado.", "Creer que la sangre solo sirve para llevar oxígeno: también transporta nutrientes, desechos y defensas."],
+  ejercicios: [
+    ["b", "¿Cómo se llaman los saquitos de los pulmones donde se intercambian los gases?", "Alvéolos."],
+    ["b", "¿Qué componente de la sangre transporta el oxígeno?", "Los glóbulos rojos."],
+    ["b", "¿Cuánto mide aproximadamente el intestino delgado?", "Unos 6 o 7 metros."],
+    ["b", "¿Cuáles son los cuatro grupos sanguíneos principales?", "A, B, AB y 0."],
+    ["b", "¿Qué científico describió la circulación pulmonar en 1553?", "Miguel Servet."],
+    ["m", "¿Qué gas pasa de la sangre a los alvéolos? ¿Por qué hay que expulsarlo?", "El dióxido de carbono; es un desecho de las células."],
+    ["m", "¿Qué hacen las plaquetas cuando te haces una herida?", "Forman un tapón para cortar la hemorragia."],
+    ["m", "¿Qué son las enzimas digestivas?", "Sustancias que trocean los alimentos, como tijeras químicas."],
+    ["m", "Cuentas 20 latidos en 15 segundos. ¿Cuál es tu pulso por minuto?", "80."],
+    ["m", "¿Por qué el pulso sube al hacer ejercicio?", "Porque los músculos necesitan más oxígeno y el corazón bombea más deprisa."],
+    ["a", "¿Para qué sirven las vellosidades intestinales?", "Aumentan la superficie para absorber los nutrientes."],
+    ["a", "¿Por qué los alvéolos tienen tanta superficie?", "Para que el intercambio de gases sea rápido y suficiente."],
+    ["a", "¿Por qué es tan importante donar sangre?", "Porque no se puede fabricar y salva vidas en operaciones y accidentes."],
+    ["a", "Explica qué cambio en las ideas de Galeno propuso Servet.", "Que la sangre pasa por los pulmones antes de volver al corazón."],
+  ],
+  quiz: [
+    ["La papilla que se forma en el estómago se llama…", ["quimo", "bolo", "plasma"], "Estómago."],
+    ["El intercambio de gases se produce en los…", ["alvéolos", "bronquios", "riñones"], "Pulmones."],
+    ["La parte líquida de la sangre es el…", ["plasma", "glóbulo rojo", "quimo"], "Componentes."],
+    ["En reposo, el corazón de un adulto late unas…", ["70 veces por minuto", "7 veces por minuto", "700 veces por minuto"], "Pulso."],
+    ["En el intestino grueso se absorbe sobre todo…", ["agua", "oxígeno", "sangre"], "Digestión."],
+  ],
+  examen: [
+    ["Las defensas de la sangre son los…", ["glóbulos blancos", "glóbulos rojos", "alvéolos"], "Ejército."],
+    ["William Harvey demostró en 1628 que la sangre…", ["circula impulsada por el corazón", "se fabrica en el hígado", "no se mueve"], "Circulación."],
+  ],
+  tarjetas: [
+    ["El viaje de la comida", "Boca, esófago, estómago (2-4 h), intestino delgado (6-7 m), intestino grueso."],
+    ["Alvéolos", "Saquitos de los pulmones donde el oxígeno entra en la sangre y sale el CO₂."],
+    ["Componentes de la sangre", "Plasma, glóbulos rojos, glóbulos blancos y plaquetas."],
+    ["El pulso", "Latidos en 15 s × 4. En reposo, unas 70-80 por minuto."],
+  ],
+  glosario: [
+    ["Bolo alimenticio", "Alimento triturado y ensalivado en la boca."],
+    ["Quimo", "Papilla que se forma en el estómago."],
+    ["Vellosidades", "Pliegues diminutos del intestino que absorben nutrientes."],
+    ["Enzima", "Sustancia que trocea los nutrientes en la digestión."],
+    ["Bronquiolo", "Tubo finísimo en que se ramifican los bronquios."],
+    ["Alvéolo", "Saquito pulmonar donde se intercambian los gases."],
+    ["Capilar", "Vaso sanguíneo finísimo."],
+    ["Plasma", "Parte líquida de la sangre."],
+    ["Hemoglobina", "Sustancia roja que transporta el oxígeno."],
+    ["Plaqueta", "Fragmento de célula que ayuda a cerrar las heridas."],
+    ["Pulso", "Latido de las arterias que se nota en la muñeca o el cuello."],
+    ["Transfusión", "Paso de sangre de un donante a otra persona."],
+  ],
+  situacion: {
+    titulo: "Laboratorio del pulso",
+    reto: "La clase investiga cómo cambia el pulso con distintas actividades y elabora recomendaciones para cuidar el corazón.",
+    pasos: ["Aprended a tomaros el pulso en la muñeca y en el cuello.", "Medid el pulso en reposo, después de andar, de saltar un minuto y tras cinco minutos de descanso.", "Organizad los datos de la clase en una tabla y un gráfico de barras.", "Sacad conclusiones y preparad un decálogo para cuidar los aparatos de la nutrición."],
+    producto: "Un informe con gráficos y un decálogo de hábitos saludables.",
+    evaluacion: ["Mide el pulso correctamente.", "Registra y representa datos.", "Relaciona ejercicio, oxígeno y corazón.", "Propone hábitos saludables razonados."],
+  },
+});

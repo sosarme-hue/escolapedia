@@ -143,3 +143,91 @@ module.exports = {
   fuentes: [RD, wiki("Sistema nervioso", "Sistema_nervioso"), wiki("Santiago Ramón y Cajal", "Santiago_Ramón_y_Cajal"), { t: "Instituto Cajal (CSIC)", url: "https://www.cajal.csic.es/" }],
   revisado: REV,
 };
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Comprender que el cerebro interpreta lo que captan los sentidos", "Describir cómo viaja un mensaje nervioso", "Medir el tiempo de reacción con un experimento", "Valorar el sueño y otros hábitos para cuidar el sistema nervioso"],
+  lectura: { titulo: "Agua en la mano", html: `<p>Helen Keller nació en 1880 en Estados Unidos. Cuando tenía un año y medio, una grave enfermedad la dejó <b>ciega y sorda</b>. Sin ver ni oír, no podía aprender a hablar, y vivía encerrada en un mundo silencioso y oscuro. Se enfadaba y daba golpes, porque no sabía cómo expresar lo que quería.</p><p>Cuando Helen tenía casi siete años, llegó a su casa una joven maestra, <b>Anne Sullivan</b>. Anne le escribía palabras en la palma de la mano con los dedos, letra a letra. Helen repetía los movimientos, pero no entendía que eran nombres de cosas.</p><p>Un día, Anne llevó a Helen junto a una bomba de agua. Le puso una mano bajo el chorro frío y, en la otra, le escribió despacio: a-g-u-a. De repente, Helen lo comprendió: ¡aquello que corría por su mano se llamaba «agua»! Ese mismo día aprendió muchas palabras más.</p><p>Usando el <b>tacto</b>, Helen aprendió a leer en braille, a escribir e incluso a hablar. Fue a la universidad, escribió libros y dedicó su vida a defender los derechos de las personas con discapacidad. Su historia demuestra lo extraordinario que es nuestro cerebro.</p>` },
+  tras: {
+    "La vista y el oído": [
+      ["El cerebro también ve: ilusiones ópticas", `<p>Los ojos captan la luz, pero quien realmente «ve» es el <b>cerebro</b>. Los ojos envían señales por el nervio óptico, y el cerebro las interpreta usando lo que ya sabe del mundo. Casi siempre acierta, pero a veces se equivoca: son las <b>ilusiones ópticas</b>.</p><ul><li>En algunas ilusiones, dos líneas exactamente iguales parecen de distinta longitud según hacia dónde apunten las flechas de sus extremos.</li><li>Un mismo color gris parece más claro sobre un fondo oscuro y más oscuro sobre un fondo claro.</li><li>Algunos dibujos se pueden ver de dos formas, por ejemplo un jarrón o dos caras de perfil, pero el cerebro no puede ver las dos a la vez.</li></ul><p>Además, cada ojo tiene un <b>punto ciego</b>: el lugar donde el nervio óptico sale del ojo y donde no hay células que capten la luz. No lo notamos porque el cerebro «rellena» el hueco con lo que hay alrededor.</p><p>Con el oído pasa algo parecido: en un lugar ruidoso, el cerebro es capaz de concentrarse en la voz de un amigo y dejar en segundo plano el resto de sonidos.</p>`,
+        H6.flujo("Cómo vemos", ["Ojo|capta luz", "Nervio|óptico", "Cerebro|interpreta"], cAZ), ["DAKZ_ipqc6A", "11 Ilusiones ópticas que engañarán a tus ojos", "GENIAL", 19685145]],
+    ],
+    "Las neuronas": [
+      ["Cómo viaja un mensaje nervioso", `<p>Las neuronas se comunican mediante <b>impulsos nerviosos</b>, que son pequeñas señales eléctricas. Así viaja un mensaje:</p><ol><li>Las <b>dendritas</b>, las ramitas de la neurona, reciben el mensaje.</li><li>El impulso recorre el cuerpo de la neurona y avanza por el <b>axón</b>, una prolongación larga como un cable.</li><li>Al final del axón, el mensaje tiene que saltar a la siguiente neurona. Pero las neuronas no se tocan: entre ellas hay un espacio diminuto. Esta zona de comunicación se llama <b>sinapsis</b>.</li><li>En la sinapsis, la neurona libera unas sustancias químicas que llegan a la siguiente neurona y hacen que el impulso continúe.</li></ol><p>Los impulsos nerviosos son muy rápidos: en algunos nervios viajan a más de 100 metros por segundo, más deprisa que un coche de carreras.</p><p>El cerebro humano tiene unos <b>86 000 millones de neuronas</b>, y cada una puede conectarse con miles de otras. Cada vez que aprendes algo nuevo, se crean o se refuerzan conexiones. Por eso, cuanto más practicas algo, como tocar un instrumento o resolver problemas, más fácil te resulta: el camino entre tus neuronas se va haciendo más fuerte.</p>`,
+        L6.filas("Partes del viaje", [["dendritas", "reciben", cVE], ["axón", "conduce", cAZ], ["sinapsis", "pasa a otra neurona", cNA], ["velocidad", "más de 100 m/s", cRO]]), ["-_GXk4HZML4", "El Sistema Nervioso - El cuerpo humano para niños", "Smile and Learn - Español", 2037037]],
+    ],
+    "Actos voluntarios y actos reflejos": [
+      ["Mide tu tiempo de reacción", `<p>El <b>tiempo de reacción</b> es lo que tardamos en responder a un estímulo: desde que vemos, oímos o sentimos algo hasta que nos movemos. Lo puedes medir con una simple <b>regla</b>:</p><ol><li>Un compañero sujeta una regla de 30 cm por el extremo de arriba, en vertical.</li><li>Tú colocas el pulgar y el índice abiertos a la altura del cero, sin tocar la regla.</li><li>Sin avisar, tu compañero suelta la regla. Tú debes atraparla lo antes posible.</li><li>Mira en qué centímetro la has atrapado.</li></ol><p>Cuanto menos haya caído la regla, más rápida es tu reacción. Si la atrapas hacia los <b>20 cm</b>, tu tiempo de reacción es de unos <b>0,2 segundos</b>, que es lo habitual. Si la atrapas a los 10 cm, unos 0,14 segundos: ¡muy rápido!</p><p>Repite la prueba varias veces y calcula la media. Verás que con la práctica mejoras un poco, y que si estás cansado o distraído, empeoras.</p><p>Por eso es tan peligroso usar el móvil mientras se cruza la calle o conducir con sueño: el tiempo de reacción aumenta, y en ese tiempo un coche puede recorrer muchos metros.</p>`,
+        H6.barras("Atrapar la regla", [["10 cm", 14, cVE, "0,14 s"], ["20 cm", 20, cNA, "0,20 s"], ["30 cm", 25, cRO, "0,25 s"]], 25)],
+    ],
+  },
+  final: [
+    ["Dormir: el cerebro también trabaja", `<p>Pasamos aproximadamente un tercio de la vida durmiendo. ¿Es tiempo perdido? ¡Al contrario! Mientras dormimos, el cerebro hace trabajos muy importantes:</p><ul><li><b>Ordena y guarda lo aprendido</b> durante el día. Por eso, después de dormir bien, recordamos mejor lo que estudiamos.</li><li><b>Limpia los desechos</b> que se acumulan en el cerebro mientras estamos despiertos.</li><li>Durante el sueño profundo se fabrica la <b>hormona del crecimiento</b>.</li><li>Recupera la energía y ayuda a controlar las <b>emociones</b>: con sueño estamos más irritables.</li></ul><p>Los especialistas recomiendan que los niños y niñas de entre 6 y 12 años duerman entre <b>9 y 12 horas</b> cada noche.</p><p>Algunos consejos para dormir bien:</p><ul><li>Acostarse y levantarse siempre más o menos a la misma hora.</li><li>Apagar las <b>pantallas</b> al menos una hora antes de dormir, porque su luz engaña al cerebro y le hace creer que todavía es de día.</li><li>Cenar ligero y no demasiado tarde.</li><li>Dormir en una habitación a oscuras, tranquila y fresca.</li></ul>`,
+      L6.filas("Mientras duermes", [["memoria", "guarda lo aprendido", cAZ], ["limpieza", "retira desechos", cVE], ["crecimiento", "se fabrica la hormona", cNA], ["recomendado", "9 a 12 horas", cMO]]), ["czCphrEerwg", "¿Cuáles podrían ser las consecuencias de no dormir? - Claudia Aguirre", "Sé Curioso — TED-Ed", 7318395]],
+    ["Cuidar el sistema nervioso y los sentidos", `<p>El sistema nervioso dirige todo nuestro cuerpo y, si se daña, a menudo no se puede reparar. Por eso hay que cuidarlo:</p><ul><li><b>Proteger la cabeza y la espalda</b>: usar casco en la bici, el patinete o los patines, y llevar siempre el cinturón de seguridad en el coche. El cráneo y la columna protegen el encéfalo y la médula, pero un golpe fuerte puede dañarlos.</li><li><b>Cuidar los oídos</b>: con auriculares, no subir el volumen por encima de más o menos la mitad y descansar a menudo. El ruido muy fuerte destruye células del oído que no se recuperan.</li><li><b>Cuidar la vista</b>: leer con buena luz, descansar de las pantallas mirando a lo lejos de vez en cuando y usar gafas de sol homologadas en la playa o en la nieve.</li><li><b>Alejarse del alcohol, el tabaco y otras drogas</b>, que alteran el funcionamiento de las neuronas, sobre todo en un cerebro que todavía se está desarrollando.</li><li><b>Mantener el cerebro activo</b>: leer, jugar, aprender cosas nuevas, hacer deporte y relacionarse con otras personas.</li></ul>`,
+      H6.rueda("Cuida tu sistema nervioso", "CEREBRO", [["Casco", cRO], ["Volumen bajo", cAZ], ["Dormir", cMO], ["Aprender", cVE]])],
+  ],
+  ejemplos: [
+    ["Atrapas la regla a los 20 cm. ¿Cuál es tu tiempo de reacción aproximado?", ["Una caída de 20 cm corresponde a unos 0,2 segundos."], "Unos 0,2 segundos."],
+    ["Si te acuestas a las 21:30 y te levantas a las 7:30, ¿duermes las horas recomendadas?", ["De 21:30 a 7:30 hay 10 horas.", "Lo recomendado son de 9 a 12 horas."], "Sí: 10 horas."],
+  ],
+  errores: ["Creer que vemos con los ojos solamente: quien interpreta las imágenes es el cerebro.", "Pensar que las neuronas están pegadas unas a otras: se comunican a través de la sinapsis."],
+  ejercicios: [
+    ["b", "¿Cómo se llama la zona donde una neurona pasa el mensaje a otra?", "Sinapsis."],
+    ["b", "¿Cuántas horas deben dormir los niños de 6 a 12 años?", "Entre 9 y 12 horas."],
+    ["b", "¿Qué es el punto ciego?", "La zona del ojo donde sale el nervio óptico y no se capta luz."],
+    ["b", "¿Con qué sentido aprendió Helen Keller a comunicarse?", "Con el tacto."],
+    ["b", "¿Por qué hay que llevar casco en la bici?", "Para proteger el encéfalo de los golpes."],
+    ["m", "¿Qué es una ilusión óptica?", "Un error del cerebro al interpretar lo que ven los ojos."],
+    ["m", "Ordena el recorrido del impulso: axón, dendritas, sinapsis.", "Dendritas, axón, sinapsis."],
+    ["m", "¿Por qué no hay que usar pantallas antes de dormir?", "Su luz engaña al cerebro y retrasa el sueño."],
+    ["m", "Atrapas la regla a los 10 cm y tu compañero a los 25 cm. ¿Quién reacciona antes?", "Tú, porque la regla cayó menos."],
+    ["m", "Di tres cosas que hace el cerebro mientras dormimos.", "Guarda lo aprendido, limpia desechos y fabrica la hormona del crecimiento."],
+    ["a", "¿Por qué aprender algo se hace más fácil con la práctica?", "Porque se refuerzan las conexiones entre neuronas."],
+    ["a", "¿Por qué es peligroso cruzar la calle mirando el móvil?", "Aumenta el tiempo de reacción y no percibimos el peligro a tiempo."],
+    ["a", "Has hecho la prueba de la regla 5 veces: 18, 22, 20, 16 y 24 cm. ¿Cuál es la media?", "20 cm."],
+    ["a", "¿Por qué los daños en el sistema nervioso son tan graves?", "Porque las neuronas casi no se regeneran."],
+  ],
+  quiz: [
+    ["Quien interpreta las imágenes que captan los ojos es…", ["el cerebro", "la retina", "el cristalino"], "Ilusiones."],
+    ["La prolongación larga de la neurona es el…", ["axón", "dendrita", "núcleo"], "Viaje."],
+    ["Un tiempo de reacción normal es de unos…", ["0,2 segundos", "2 segundos", "20 segundos"], "Regla."],
+    ["El cerebro humano tiene unas…", ["86 000 millones de neuronas", "86 neuronas", "8 600 neuronas"], "Neuronas."],
+    ["Mientras dormimos, el cerebro…", ["guarda lo aprendido", "se apaga del todo", "deja de recibir sangre"], "Sueño."],
+  ],
+  examen: [
+    ["Las neuronas se comunican por…", ["la sinapsis", "los alvéolos", "las vellosidades"], "Sinapsis."],
+    ["Helen Keller era…", ["ciega y sorda", "solo ciega", "solo sorda"], "Lectura."],
+  ],
+  tarjetas: [
+    ["El cerebro ve", "Los ojos captan la luz y el cerebro interpreta; a veces se engaña (ilusiones)."],
+    ["Impulso nervioso", "Dendritas → axón → sinapsis → siguiente neurona."],
+    ["Tiempo de reacción", "Unos 0,2 segundos; empeora con cansancio y distracciones."],
+    ["Dormir", "De 9 a 12 horas: memoria, limpieza y crecimiento."],
+  ],
+  glosario: [
+    ["Ilusión óptica", "Imagen que el cerebro interpreta de forma equivocada."],
+    ["Punto ciego", "Zona de la retina sin células sensibles a la luz."],
+    ["Nervio óptico", "Nervio que lleva la información del ojo al cerebro."],
+    ["Impulso nervioso", "Señal eléctrica que recorre las neuronas."],
+    ["Dendrita", "Prolongación corta de la neurona que recibe mensajes."],
+    ["Axón", "Prolongación larga de la neurona que conduce el impulso."],
+    ["Sinapsis", "Zona de comunicación entre dos neuronas."],
+    ["Tiempo de reacción", "Tiempo que tardamos en responder a un estímulo."],
+    ["Hormona del crecimiento", "Sustancia que hace crecer el cuerpo, sobre todo al dormir."],
+    ["Braille", "Sistema de lectura con puntos en relieve para personas ciegas."],
+    ["Estímulo", "Cambio que perciben los sentidos."],
+    ["Homologado", "Que cumple las normas de seguridad."],
+  ],
+  situacion: {
+    titulo: "Científicos de los reflejos",
+    reto: "La clase investiga de qué depende el tiempo de reacción con el experimento de la regla.",
+    pasos: ["Formulad preguntas: ¿reaccionamos mejor con la mano con la que escribimos?, ¿mejora con la práctica?, ¿empeora con distracciones?", "Haced la prueba de la regla varias veces en cada situación y anotad los resultados.", "Calculad medias y representadlas en gráficos de barras.", "Sacad conclusiones y relacionadlas con la seguridad vial y el uso del móvil."],
+    producto: "Un informe científico con datos, gráficos y conclusiones.",
+    evaluacion: ["Plantea hipótesis.", "Mide y registra datos con cuidado.", "Calcula medias y hace gráficos.", "Relaciona los resultados con la vida diaria."],
+  },
+});

@@ -142,3 +142,91 @@ module.exports = {
   fuentes: [RD, wiki("Aparato reproductor", "Aparato_reproductor"), wiki("Pubertad", "Pubertad"), { t: "Asociación Española de Pediatría, En Familia", url: "https://enfamilia.aeped.es/" }],
   revisado: REV,
 };
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Explicar por qué nos parecemos a nuestra familia: genes y cromosomas", "Reconocer los cambios emocionales de la pubertad y cómo afrontarlos", "Describir el desarrollo del bebé durante el embarazo", "Comparar la reproducción humana con la de otros seres vivos y valorar la intimidad"],
+  lectura: { titulo: "Un hermanito en camino", html: `<p>Una tarde de domingo, los padres de Lucía la sentaron en el sofá con una sonrisa misteriosa y le enseñaron una foto en blanco y negro, llena de manchas.</p><p>—¿Qué es esto? —preguntó Lucía.</p><p>—Es una <b>ecografía</b> —le explicó su madre—. Esta manchita de aquí es tu futuro hermano o hermana. Ahora mismo es más pequeño que una aceituna, pero su corazón ya late.</p><p>Lucía se quedó con la boca abierta. Durante los meses siguientes fue viendo cómo crecía la barriga de su madre. En la ecografía del quinto mes ya se distinguían la cabeza, los brazos y hasta los dedos. Una noche, su madre le cogió la mano y la apoyó en la tripa. Lucía notó un golpecito.</p><p>—¡Me ha dado una patada!</p><p>Lucía tenía muchas preguntas: ¿cómo come el bebé ahí dentro?, ¿se parecerá a mí?, ¿por qué tarda nueve meses? Su padre le dijo que muchas respuestas estaban en su libro de Ciencias. Esa misma noche, Lucía lo abrió por el tema de la reproducción y empezó a leer con más ganas que nunca.</p>` },
+  tras: {
+    "Las células reproductoras": [
+      ["Los genes: por qué nos parecemos a nuestra familia", `<p>Dentro del núcleo de cada célula están las instrucciones para formar y hacer funcionar el cuerpo. Están escritas en el <b>ADN</b>, una molécula muy larga que se enrolla formando los <b>cromosomas</b>. Cada trozo de ADN con una instrucción concreta, como el color de los ojos o la forma del pelo, es un <b>gen</b>.</p><p>Las células del cuerpo humano tienen <b>46 cromosomas</b>, organizados en 23 parejas. Pero las células reproductoras son especiales: el óvulo y el espermatozoide tienen solo <b>23 cromosomas</b> cada uno, la mitad.</p><p>Cuando se unen en la fecundación, se juntan las dos mitades: 23 + 23 = 46. Por eso el bebé recibe <b>la mitad de sus genes de la madre y la otra mitad del padre</b>, y se parece en algunas cosas a uno y en otras al otro.</p><p>Una de esas parejas de cromosomas decide el sexo biológico: XX en las chicas y XY en los chicos. El óvulo siempre lleva un X, y el espermatozoide puede llevar un X o un Y.</p><p>Pero no todo depende de los genes: cómo somos también depende de lo que comemos, de lo que aprendemos, del ejercicio que hacemos y de las personas que nos rodean.</p>`,
+        H6.flujo("La herencia", ["Óvulo|23", "Espermat.|23", "Bebé|46"], cMO), ["axSh_Gl5GVo", "¿Por qué nos parecemos a nuestros papás? La Genética 🧬", "CuriosaMente", 1505521]],
+    ],
+    "La pubertad: el cuerpo cambia": [
+      ["También cambian las emociones", `<p>En la pubertad no solo cambia el cuerpo. Las <b>hormonas</b> y el desarrollo del cerebro hacen que también cambien la forma de sentir y de pensar:</p><ul><li>Las <b>emociones</b> se vuelven más intensas y cambiantes: puedes pasar de la alegría al enfado o a la tristeza muy deprisa, a veces sin saber muy bien por qué.</li><li>Aparece más necesidad de <b>intimidad</b> y de tener tu propio espacio.</li><li>Los <b>amigos</b> se vuelven muy importantes, y preocupa mucho lo que piensan los demás.</li><li>Surgen nuevas dudas sobre el propio cuerpo, sobre quién eres y qué te gusta.</li></ul><p>Todo esto es <b>normal</b> y les pasa a todas las personas. Algunas ideas ayudan a vivirlo mejor:</p><ul><li>Cada cuerpo tiene su ritmo: hay quien empieza a cambiar a los 9 años y quien lo hace a los 14. Nadie va tarde ni pronto.</li><li>Nunca hay que burlarse de los cambios de los demás.</li><li>Hablar de lo que sientes con tu familia, tus profesores o un adulto de confianza ayuda mucho.</li><li>Dormir bien, hacer deporte y cuidar la higiene, porque ahora se suda más, te hará sentir mejor.</li></ul>`,
+        H6.dos("En la pubertad", ["Cuerpo", ["crece deprisa", "más sudor", "cada uno a su ritmo"], cAZ], ["Emociones", ["más intensas", "más intimidad", "amigos importantes"], cRO]), ["v4KplEgXI9c", "¿Cómo funciona el cerebro de un adolescente? David Bueno, biólogo y genetista", "AprendemosJuntos", 1508090]],
+    ],
+    "El embarazo": [
+      ["El bebé mes a mes", `<p>Desde la fecundación hasta el parto pasan unos nueve meses. Durante ese tiempo, una sola célula se convierte en un bebé completo. Estos son algunos momentos importantes:</p><ul><li><b>Primer mes</b>: el embrión mide unos pocos milímetros. Hacia el final de este mes, su pequeño corazón empieza a latir.</li><li><b>Tercer mes</b>: mide unos 6 o 7 cm y ya tiene forma humana, con brazos, piernas y dedos. Desde ahora se le llama <b>feto</b>.</li><li><b>Quinto mes</b>: se mueve tanto que la madre empieza a notar sus pataditas. Puede oír sonidos, como el latido del corazón de su madre.</li><li><b>Séptimo mes</b>: abre y cierra los ojos y reacciona a la luz y a los ruidos.</li><li><b>Noveno mes</b>: mide alrededor de 50 cm, pesa unos 3 kilos y suele colocarse cabeza abajo, preparado para nacer.</li></ul><p>Durante todo ese tiempo, el feto vive dentro del útero, flotando en el <b>líquido amniótico</b>, que lo protege de los golpes. Recibe el oxígeno y los nutrientes de la madre a través de la <b>placenta</b> y el <b>cordón umbilical</b>. Por eso la madre embarazada debe alimentarse bien y evitar el alcohol y el tabaco, que pasan al bebé.</p>`,
+        L6.filas("Crecimiento del bebé", [["1.er mes", "milímetros; late el corazón", cRO], ["3.er mes", "6-7 cm; ya es feto", cNA], ["5.º mes", "se notan las patadas", cAZ], ["9.º mes", "unos 50 cm y 3 kg", cVE]])],
+    ],
+  },
+  final: [
+    ["La reproducción en otros seres vivos", `<p>Todos los seres vivos se reproducen, pero de formas muy distintas.</p><p>En la <b>reproducción sexual</b> intervienen dos progenitores y sus células reproductoras. Así se reproducen las personas y casi todos los animales. Según dónde se desarrollan las crías, los animales pueden ser:</p><ul><li><b>Vivíparos</b>: la cría se desarrolla dentro de la madre, como en las personas, los perros o las ballenas.</li><li><b>Ovíparos</b>: la madre pone huevos y la cría se desarrolla dentro del huevo, fuera de su cuerpo, como en las aves, la mayoría de los reptiles y muchos peces.</li><li><b>Ovovivíparos</b>: los huevos se quedan dentro de la madre hasta que eclosionan, como en algunos tiburones y víboras.</li></ul><p>En la <b>reproducción asexual</b> basta un solo individuo, y las crías son copias idénticas de él:</p><ul><li>Las <b>bacterias</b> se dividen en dos.</li><li>Las <b>estrellas de mar</b> pueden regenerar un individuo nuevo a partir de un trozo de brazo.</li><li>Muchas <b>plantas</b> se reproducen por esquejes, tubérculos como la patata o estolones como la fresa.</li></ul>`,
+      H6.dos("Formas de reproducirse", ["Sexual", ["dos progenitores", "crías diferentes", "personas, aves"], cAZ], ["Asexual", ["un solo individuo", "copias idénticas", "bacterias, esquejes"], cVE])],
+    ["Mi cuerpo, mi intimidad", `<p>Conocer el propio cuerpo ayuda a cuidarlo y a protegerlo. Hay algunas ideas muy importantes que todos debemos saber:</p><ul><li><b>Tu cuerpo es tuyo</b>. Nadie puede tocarte de una forma que te haga sentir incómodo o incómoda, ni pedirte que tú le toques.</li><li>Las partes íntimas son las que cubre el bañador. Solo las pueden ver o tocar los médicos, con permiso y acompañados de tu familia, o los adultos que te cuidan cuando eres pequeño y necesitas ayuda para asearte.</li><li><b>Puedes decir que no</b>, aunque se trate de alguien conocido o de un adulto.</li><li>Hay secretos buenos, como una sorpresa de cumpleaños, y secretos malos, que te hacen sentir mal o te asustan. Los secretos malos <b>siempre se cuentan</b> a un adulto de confianza.</li><li>Lo mismo vale en internet: nunca envíes fotos tuyas a desconocidos y cuenta a tu familia si alguien te pide algo que te incomoda.</li></ul><p>Y del mismo modo que tú mereces respeto, debes respetar la intimidad y las decisiones de los demás. Si algo no va bien, en España puedes llamar gratis al teléfono de ayuda a la infancia: <b>116 111</b>.</p>`,
+      L6.filas("Ideas clave", [["mi cuerpo", "es mío", cAZ], ["decir no", "siempre puedo", cRO], ["secretos malos", "se cuentan", cNA], ["ayuda", "116 111", cVE]])],
+  ],
+  ejemplos: [
+    ["Las células de un perro tienen 78 cromosomas. ¿Cuántos tendrán sus óvulos y espermatozoides?", ["Las células reproductoras tienen la mitad.", "78 : 2."], "39 cromosomas."],
+    ["¿Qué tipo de reproducción tiene una gallina? ¿Y un rosal plantado por esqueje?", ["La gallina pone huevos: es ovípara (reproducción sexual).", "El esqueje crea una copia: reproducción asexual."], "Sexual ovípara y asexual."],
+  ],
+  errores: ["Creer que todas las personas viven la pubertad a la misma edad.", "Pensar que el bebé se alimenta de lo que come la madre directamente por la boca: lo recibe a través de la placenta y el cordón."],
+  ejercicios: [
+    ["b", "¿Cuántos cromosomas tienen las células del cuerpo humano? ¿Y un óvulo?", "46 y 23."],
+    ["b", "¿Cómo se llama el líquido que protege al feto?", "Líquido amniótico."],
+    ["b", "¿En qué mes empieza la madre a notar las patadas del bebé?", "Hacia el quinto mes."],
+    ["b", "Pon un ejemplo de animal ovíparo y otro vivíparo.", "Gallina y perro."],
+    ["b", "¿Qué número de teléfono gratuito ayuda a niños y niñas en España?", "116 111."],
+    ["m", "¿Por qué nos parecemos a nuestro padre y a nuestra madre?", "Porque recibimos la mitad de los genes de cada uno."],
+    ["m", "¿Qué es un gen?", "Un trozo de ADN con una instrucción concreta."],
+    ["m", "Nombra dos cambios emocionales de la pubertad.", "Emociones más intensas y más necesidad de intimidad."],
+    ["m", "¿Qué diferencia hay entre un secreto bueno y uno malo?", "El bueno es una sorpresa; el malo te hace sentir mal y hay que contarlo."],
+    ["m", "¿Por qué una embarazada no debe beber alcohol?", "Porque pasa al bebé a través de la placenta."],
+    ["a", "¿Qué cromosomas tiene el óvulo y cuáles puede tener el espermatozoide? ¿Quién decide el sexo biológico?", "Óvulo X; espermatozoide X o Y: el espermatozoide."],
+    ["a", "¿Qué ventajas tiene la reproducción asexual para una planta?", "Es rápida y solo necesita un individuo."],
+    ["a", "¿Qué es un ovovivíparo? Pon un ejemplo.", "Animal cuyos huevos eclosionan dentro de la madre, como algunos tiburones."],
+    ["a", "Si un amigo se burla de cómo está cambiando el cuerpo de otro compañero, ¿qué podrías hacer?", "Explicarle que cada uno tiene su ritmo, defender al compañero y avisar a un adulto si sigue."],
+  ],
+  quiz: [
+    ["Las instrucciones del cuerpo están escritas en el…", ["ADN", "plasma", "líquido amniótico"], "Genes."],
+    ["Un óvulo tiene…", ["23 cromosomas", "46 cromosomas", "92 cromosomas"], "La mitad."],
+    ["A partir del tercer mes, el bebé se llama…", ["feto", "embrión", "cigoto"], "Embarazo."],
+    ["Los animales que ponen huevos son…", ["ovíparos", "vivíparos", "asexuales"], "Reproducción."],
+    ["Los secretos que te hacen sentir mal…", ["se cuentan a un adulto de confianza", "se guardan siempre", "se olvidan"], "Intimidad."],
+  ],
+  examen: [
+    ["El bebé recibe oxígeno y nutrientes a través de…", ["la placenta y el cordón umbilical", "la boca", "los pulmones"], "Embarazo."],
+    ["La estrella de mar puede reproducirse de forma…", ["asexual, a partir de un trozo de brazo", "solo ovípara", "vivípara"], "Asexual."],
+  ],
+  tarjetas: [
+    ["Genes y cromosomas", "46 cromosomas; óvulo y espermatozoide, 23 cada uno."],
+    ["Emociones en la pubertad", "Más intensas; cada uno a su ritmo; hablar ayuda."],
+    ["El bebé mes a mes", "1.er mes late el corazón; 3.º feto; 5.º patadas; 9.º unos 50 cm."],
+    ["Mi intimidad", "Mi cuerpo es mío, puedo decir no, los secretos malos se cuentan. 116 111."],
+  ],
+  glosario: [
+    ["ADN", "Molécula que contiene las instrucciones de los seres vivos."],
+    ["Cromosoma", "Estructura del núcleo formada por ADN enrollado."],
+    ["Gen", "Trozo de ADN con una instrucción concreta."],
+    ["Hormona", "Sustancia que regula el funcionamiento del cuerpo."],
+    ["Ecografía", "Imagen del interior del cuerpo hecha con ultrasonidos."],
+    ["Feto", "Bebé en desarrollo a partir del tercer mes."],
+    ["Líquido amniótico", "Líquido que rodea y protege al feto."],
+    ["Vivíparo", "Animal cuya cría se desarrolla dentro de la madre."],
+    ["Ovíparo", "Animal que pone huevos."],
+    ["Ovovivíparo", "Animal cuyos huevos eclosionan dentro de la madre."],
+    ["Reproducción asexual", "Reproducción con un solo individuo y crías idénticas."],
+    ["Esqueje", "Trozo de planta que se planta para obtener otra nueva."],
+  ],
+  situacion: {
+    titulo: "La línea de la vida",
+    reto: "La clase elabora una gran línea del tiempo de la vida humana, desde la fecundación hasta la edad adulta, con datos científicos y mensajes de respeto.",
+    pasos: ["Repartid las etapas: fecundación, embarazo mes a mes, nacimiento, infancia, pubertad y edad adulta.", "Investigad en el libro y en fuentes fiables los cambios principales de cada etapa.", "Diseñad la línea del tiempo con dibujos, medidas y datos curiosos.", "Añadid en cada etapa un mensaje de cuidado y respeto hacia uno mismo y hacia los demás."],
+    producto: "Un mural de la línea de la vida para el pasillo del colegio.",
+    evaluacion: ["Describe con precisión las etapas de la vida.", "Usa vocabulario científico adecuado.", "Muestra respeto por la diversidad de ritmos.", "Trabaja en equipo de forma responsable."],
+  },
+});
