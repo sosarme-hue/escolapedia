@@ -99,3 +99,90 @@ module.exports = P.tema({
   saberes: "Comunicación: preguntar y decir la hora; días de la semana y momentos del día; describir la rutina diaria con verbos pronominales; preguntar a qué hora; conectores de orden; aspectos socioculturales del horario escolar francés",
   ideas: ["Reloj de cartón para practicar la hora por parejas.", "Cómic de la rutina diaria con viñetas y conectores.", "Comparar el horario de un colegio francés con el nuestro."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { H } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Leer la hora oficial de 24 horas en horarios de trenes y programas", "Conocer el horario escolar francés y nombrar las asignaturas", "Quedar con amigos y hablar de puntualidad", "Expresar frecuencia y comparar la hora en distintos países francófonos"],
+  lectura: { titulo: "Une journée à Paris", html: `<p>Sara es española y pasa un día en París con su clase. Lee su horario. Las palabras difíciles llevan traducción.</p><p><i>Le train part de la gare de Lyon (estación) à 8 h 15. Nous arrivons à la tour Eiffel à 9 heures pile (en punto). Nous montons au deuxième étage: la vue est magnifique !</i></p><p><i>À 11 h 30, nous faisons une promenade en bateau sur la Seine. Le guide dit: « À gauche, Notre-Dame ! À droite, le musée du Louvre ! » À une heure moins le quart, nous pique-niquons (hacemos un picnic) dans un parc.</i></p><p><i>L'après-midi, de 14 h à 16 h 30, nous visitons le Louvre. Je vois la Joconde (la Gioconda): elle est très petite ! À cinq heures, nous mangeons une crêpe. Mais attention: mon amie Paula arrive en retard au point de rendez-vous (punto de encuentro) et la prof n'est pas contente.</i></p><p><i>Le train de retour part à 19 h 05. Je m'endors (me duermo) dans le train à sept heures et demie. Quelle journée !</i></p>` },
+  tras: {
+    "Minutos exactos": [
+      ["La hora oficial: de 0 a 24", `<p>Hasta ahora has dicho la hora de forma familiar, con <i>et quart, et demie</i> y <i>moins le quart</i>. Pero en los <b>horarios oficiales</b> (trenes, aviones, cine, televisión, colegio) los franceses usan el <b>reloj de 24 horas</b> y dicen siempre los minutos como número.</p><ul><li>15:30 → <i>Il est <b>quinze heures trente</b>.</i> (y no «quinze heures et demie»)</li><li>18:45 → <i>dix-huit heures quarante-cinq</i></li><li>20:15 → <i>vingt heures quinze</i></li><li>00:00 → <i>minuit</i>; 12:00 → <i>midi</i> o <i>douze heures</i></li></ul><p>Por escrito, los franceses no usan los dos puntos: escriben una <b>h</b>: <b>18 h 45</b>, <b>9 h</b>, <b>14 h 30</b>.</p><p>Ejemplos de la vida real:</p><ul><li><i>Le train pour Lyon part à 16 h 20.</i> — El tren a Lyon sale a las 16:20.</li><li><i>Le film commence à 21 h.</i> — La película empieza a las 21:00.</li><li><i>Le musée est ouvert de 9 h à 18 h.</i> — El museo abre de 9:00 a 18:00.</li></ul><p>Para pasar de la hora oficial a la familiar, resta 12 a las horas de la tarde: 16 h 20 son las <i>quatre heures vingt de l'après-midi</i>.</p>`,
+        P.filas("Hora oficial y hora familiar en francés", [["15 h 30", "quinze heures trente", AZ], ["18 h 45", "dix-huit heures quarante-cinq", RO], ["20 h 15", "vingt heures quinze", VE], ["0 h", "minuit", MO]], "L'heure officielle"), ["Q9u6UaOvjMU", "Dire/demander l'heure", "onparle", 529215]],
+    ],
+    "Los días de la semana": [
+      ["El horario escolar en Francia", `<p>El horario del colegio se llama <b>l'emploi du temps</b>. En Francia, la escuela primaria se llama <b>l'école élémentaire</b>, y tiene cinco cursos: CP, CE1, CE2, CM1 y CM2. ¡Tú estarías en <b>CM2</b>!</p><p>Algunas diferencias con España:</p><ul><li>Muchos colegios <b>no tienen clase el miércoles</b> (o solo por la mañana). Los niños hacen deporte, música o van al centro de ocio.</li><li>Las clases suelen ser de <b>8 h 30 a 16 h 30</b>, con una pausa larga para comer en <b>la cantine</b>.</li><li>El recreo se llama <b>la récré</b> (la récréation).</li></ul><p>Las asignaturas (<b>les matières</b>):</p><ul><li><b>le français</b>, <b>les maths</b>, <b>les sciences</b>, <b>l'histoire-géo</b></li><li><b>l'anglais</b> u otra lengua extranjera</li><li><b>l'EPS</b> (educación física), <b>les arts plastiques</b>, <b>la musique</b></li></ul><p>Para hablar del horario: <i><b>Le lundi</b>, j'ai maths à neuf heures.</i> (Los lunes tengo mates a las nueve.) Con <b>le</b> delante del día, significa «todos los lunes». Para preguntar: <i>Qu'est-ce que tu as le mardi ?</i> — ¿Qué tienes los martes? Y para opinar: <i>Ma matière préférée, c'est l'EPS !</i></p>`,
+        P.tabla("Horario escolar de un alumno francés de CM2", ["", "lundi", "jeudi"], [["8 h 30", "français", "maths"], ["10 h", "récré", "récré"], ["10 h 15", "maths", "anglais"], ["14 h", "EPS", "musique"]], AZ)],
+    ],
+    "¿A qué hora?": [
+      ["Quedar con amigos y ser puntual", `<p>Para quedar con alguien (<b>se donner rendez-vous</b>) necesitas estas frases:</p><ul><li><i>On se retrouve à quelle heure ?</i> — ¿A qué hora quedamos?</li><li><i>On se retrouve à trois heures devant le cinéma.</i> — Quedamos a las tres delante del cine.</li><li><i>D'accord ! / Ça marche !</i> — ¡Vale!</li><li><i>Désolé, je ne peux pas.</i> — Lo siento, no puedo.</li></ul><p>Para precisar la hora:</p><ul><li><b>à trois heures pile</b> — a las tres en punto</li><li><b>vers trois heures</b> — hacia las tres, más o menos</li><li><b>entre trois et quatre heures</b> — entre las tres y las cuatro</li></ul><p>Y para hablar de puntualidad:</p><ul><li><b>être à l'heure</b> — llegar puntual</li><li><b>être en avance</b> — llegar pronto</li><li><b>être en retard</b> — llegar tarde: <i>Désolé, je suis en retard !</i></li><li><b>tôt</b> — temprano; <b>tard</b> — tarde</li></ul><p>¡Ojo! «Tarde» como parte del día es <b>l'après-midi</b>, pero «llegar tarde» es <b>être en retard</b> y «acostarse tarde» es <b>se coucher tard</b>. Son tres palabras diferentes en francés.</p>`,
+        P.dialogo("Quedar con un amigo", [["Tom", "On se retrouve à quelle heure ?", AZ], ["Zoé", "À trois heures pile.", MO], ["Tom", "D'accord, à tout à l'heure !", AZ]]), ["1zYIOBs6-TY", "Apprendre le français - Quelle heure est il?", "AFE", 882270]],
+    ],
+  },
+  final: [
+    ["¿Con qué frecuencia?", `<p>Para decir cada cuánto haces algo usamos los <b>adverbios de frecuencia</b>. Van <b>detrás del verbo</b>:</p><ul><li><b>toujours</b> — siempre: <i>Je prends toujours le petit-déjeuner.</i></li><li><b>souvent</b> — a menudo: <i>Je joue souvent au foot.</i></li><li><b>parfois</b> o <b>quelquefois</b> — a veces: <i>Je regarde parfois la télé.</i></li><li><b>rarement</b> — raramente: <i>Je mange rarement des bonbons.</i></li><li><b>ne… jamais</b> — nunca. ¡Necesita <i>ne</i> delante del verbo! <i>Je <b>ne</b> suis <b>jamais</b> en retard.</i></li></ul><p>También puedes contar las veces:</p><ul><li><b>une fois par semaine</b> — una vez por semana</li><li><b>deux fois par jour</b> — dos veces al día</li><li><b>tous les jours</b> — todos los días; <b>tous les matins</b> — todas las mañanas</li><li><b>le week-end</b> — los fines de semana</li></ul><p>Para preguntar: <i>Tu fais du sport <b>combien de fois par semaine</b> ?</i> (¿Cuántas veces por semana haces deporte?) — <i>Trois fois par semaine.</i></p><p>Recuerda la diferencia con el español: decimos «nunca llego tarde», pero en francés hacen falta dos palabras, <b>ne</b> y <b>jamais</b>, alrededor del verbo.</p>`,
+      H.barras("¿Con qué frecuencia?", [["toujours", 100, AZ, "100 %"], ["souvent", 75, VE, "75 %"], ["parfois", 50, NA, "50 %"], ["rarement", 20, MO, "20 %"], ["jamais", 0, RO, "0 %"]], 100)],
+    ["La hora en el mundo francófono", `<p>Cuando en Madrid son las doce del mediodía, ¿qué hora es en otros lugares donde se habla francés? La Tierra está dividida en <b>fuseaux horaires</b> (husos horarios), porque el Sol no ilumina todo el planeta a la vez.</p><p>En invierno, cuando son las <b>12 h</b> en París (la misma hora que en Madrid):</p><ul><li>en <b>Bruselas</b> (Bélgica) y en <b>Ginebra</b> (Suiza) también son las 12 h;</li><li>en <b>Dakar</b> (Senegal) son las <b>11 h</b>;</li><li>en <b>Montreal</b> (Quebec, Canadá) son las <b>6 h</b> de la mañana: los niños todavía duermen;</li><li>en <b>La Reunión</b>, una isla francesa en el océano Índico, son las <b>15 h</b>;</li><li>en <b>Numea</b> (Nueva Caledonia, en el Pacífico) son las <b>22 h</b>: ¡ya es de noche!</li></ul><p>Por eso Francia es el país con más husos horarios del mundo: tiene territorios en todos los océanos, como la Guayana Francesa, la Polinesia o las Antillas.</p><p>Para preguntar: <i>Quelle heure est-il à Montréal ?</i> — <i>Il est six heures du matin.</i></p>`,
+      P.filas("Hora en ciudades francófonas cuando en París son las 12 h", [["Paris", "12 h", AZ], ["Dakar", "11 h", VE], ["Montréal", "6 h", RO], ["La Réunion", "15 h", NA], ["Nouméa", "22 h", MO]], "Fuseaux horaires")],
+  ],
+  ejemplos: [
+    ["Lee en voz alta el horario: «Le train part à 17 h 50.»", ["Hora oficial: número + heures + minutos.", "17 → dix-sept; 50 → cinquante."], "Le train part à dix-sept heures cinquante."],
+    ["Di que nunca llegas tarde y que haces deporte dos veces por semana.", ["ne… jamais alrededor del verbo", "deux fois par semaine"], "Je ne suis jamais en retard. Je fais du sport deux fois par semaine."],
+  ],
+  errores: ["Decir «quinze heures et demie» en un horario oficial: es «quinze heures trente».", "Olvidar «ne» con jamais: «je ne suis jamais en retard»."],
+  ejercicios: [
+    ["b", "Escribe en letras: 14 h 30, 19 h 15, 21 h 45.", "quatorze heures trente, dix-neuf heures quinze, vingt et une heures quarante-cinq."],
+    ["b", "¿Cómo se llama el recreo en Francia?", "la récré (la récréation)."],
+    ["b", "Traduce: llegar tarde, llegar pronto, ser puntual.", "être en retard, être en avance, être à l'heure."],
+    ["b", "Ordena de más a menos: parfois, toujours, jamais, souvent.", "toujours, souvent, parfois, jamais."],
+    ["b", "Si en París son las 12 h, ¿qué hora es en Montreal?", "Las 6 h."],
+    ["m", "Pasa a hora oficial: «cinq heures et quart de l'après-midi».", "dix-sept heures quinze (17 h 15)."],
+    ["m", "Escribe tu horario del lunes con tres asignaturas y sus horas.", "Respuesta libre. Ej.: Le lundi, j'ai maths à neuf heures…"],
+    ["m", "Propón a un amigo quedar el sábado delante del parque a las cinco en punto.", "On se retrouve samedi à cinq heures pile devant le parc ?"],
+    ["m", "Escribe tres frases sobre tus hábitos con souvent, parfois y ne… jamais.", "Respuesta libre."],
+    ["m", "Según la lectura, ¿a qué hora sale el tren de vuelta y quién llegó tarde?", "A las 19 h 05; Paula."],
+    ["a", "Compara el horario escolar francés con el tuyo: tres diferencias.", "Ej.: no hay clase el miércoles, comen en la cantine, salen a las 16 h 30."],
+    ["a", "Inventa el horario de un día de excursión en una ciudad francesa con hora oficial.", "Respuesta libre."],
+    ["a", "Escribe un diálogo para quedar con un amigo que llega tarde.", "Respuesta libre."],
+    ["a", "Explica por qué Francia tiene tantos husos horarios.", "Porque tiene territorios en todos los océanos: Antillas, Guayana, Reunión, Polinesia, Nueva Caledonia…"],
+  ],
+  quiz: [
+    ["«18 h 45» se dice…", ["dix-huit heures quarante-cinq", "six heures et demie", "dix-huit heures et quart"], "Hora oficial."],
+    ["L'emploi du temps es…", ["el horario", "el tiempo libre", "el empleo"], "Horario."],
+    ["«Être en retard» significa…", ["llegar tarde", "llegar pronto", "por la tarde"], "Retard."],
+    ["«à trois heures pile» es…", ["en punto", "más o menos", "y cuarto"], "Pile."],
+    ["«Je ne mange ___ de bonbons.»", ["jamais", "toujours", "souvent"], "ne… jamais."],
+  ],
+  examen: [
+    ["En muchos colegios franceses no hay clase…", ["el miércoles", "el lunes", "el viernes"], "Mercredi."],
+    ["«Deux fois par semaine» significa…", ["dos veces por semana", "dos semanas", "dos días"], "Fois."],
+  ],
+  tarjetas: [
+    ["15 h 30", "quinze heures trente"],
+    ["l'emploi du temps", "el horario"],
+    ["être à l'heure / en retard", "ser puntual / llegar tarde"],
+    ["toujours, souvent, parfois, jamais", "siempre, a menudo, a veces, nunca"],
+  ],
+  glosario: [
+    ["l'heure officielle", "La hora de 24 horas."],
+    ["minuit", "Medianoche."],
+    ["l'emploi du temps", "El horario escolar."],
+    ["les matières", "Las asignaturas."],
+    ["la récré", "El recreo."],
+    ["un rendez-vous", "Una cita, un encuentro."],
+    ["pile", "En punto."],
+    ["en retard", "Con retraso, tarde."],
+    ["en avance", "Con antelación, pronto."],
+    ["souvent", "A menudo."],
+    ["parfois", "A veces."],
+    ["un fuseau horaire", "Un huso horario."],
+  ],
+  situacion: {
+    titulo: "Une journée en France",
+    reto: "Por grupos, la clase prepara el horario completo de un día de excursión en una ciudad francófona y lo presenta como si fuera un guía turístico.",
+    pasos: ["Elegid una ciudad francófona y buscad tres lugares para visitar y sus horarios de apertura.", "Escribid el programa del día con hora oficial: salida, visitas, comida y vuelta.", "Añadid dónde y a qué hora se reúne el grupo y una norma de puntualidad.", "Presentad el programa a la clase leyendo las horas en voz alta en francés."],
+    producto: "Un programa de excursión en francés con horas oficiales.",
+    evaluacion: ["Lee y escribe la hora oficial correctamente.", "Usa expresiones de puntualidad y para quedar.", "Usa adverbios de frecuencia en la posición correcta.", "Conoce el horario escolar francés y otras horas del mundo."],
+  },
+});

@@ -93,3 +93,90 @@ module.exports = P.tema({
   saberes: "Comunicación: léxico de alimentos; expresar gustos y preferencias con aimer, adorer, détester, préférer y parce que; cantidades con de; compra en el mercado y precios; números hasta 100; consejos con il faut; instrucciones de una receta en imperativo",
   ideas: ["Mercado simulado en clase con precios en euros y diálogos en francés.", "Encuesta de gustos alimentarios de la clase con gráfico.", "Libro de recetas sencillas de la clase en francés."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { H } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Nombrar las comidas del día y sus horarios en Francia", "Usar los partitivos du, de la, de l' y des", "Pedir comida en un restaurante en francés", "Conocer platos típicos del mundo francófono y las normas en la mesa"],
+  lectura: { titulo: "Le dimanche chez Mamie", html: `<p>Hugo vive en Rennes, en Bretaña. Lee cómo es su domingo. Las palabras difíciles llevan traducción.</p><p><i>Le dimanche, nous déjeunons toujours chez Mamie, ma grand-mère. Elle habite à la campagne, dans une vieille maison avec un grand jardin.</i></p><p><i>À midi et demi, toute la famille est à table. D'abord, il y a une entrée (primer plato): une salade de tomates. Ensuite, le plat principal: du poulet rôti (pollo asado) avec des haricots verts et des pommes de terre. Après, Mamie apporte le plateau de fromages (la tabla de quesos). Moi, je n'aime pas le fromage qui sent fort, mais mon père adore le camembert !</i></p><p><i>Enfin, le dessert: des crêpes avec du sucre et de la confiture de fraises. Les crêpes de Mamie sont les meilleures de Bretagne ! Moi, j'en mange trois. Mon petit frère en mange cinq… et après, il a mal au ventre !</i></p><p><i>À quatre heures et demie, c'est l'heure du goûter (la merienda): du pain et du chocolat. Mais personne n'a faim. Nous avons trop mangé !</i></p>` },
+  tras: {
+    "Las verduras y otros alimentos": [
+      ["Las comidas del día en Francia", `<p>En Francia se hacen cuatro comidas al día, y los horarios son más tempranos que en España:</p><ul><li><b>le petit-déjeuner</b> (el desayuno), hacia las 7:30: <i>une tartine</i> (una rebanada de pan con mantequilla y mermelada), un croissant, des céréales, un bol de chocolat chaud o un jus d'orange. Muchos niños mojan la tartine en el bol de leche.</li><li><b>le déjeuner</b> (la comida), hacia las 12:30. En el colegio se come en <b>la cantine</b>.</li><li><b>le goûter</b> (la merienda), hacia las 16:30, al salir del colegio: pain et chocolat, un fruit, des biscuits.</li><li><b>le dîner</b> (la cena), hacia las 19:30 o las 20:00. ¡Mucho antes que en España!</li></ul><p>Los verbos son fáciles: <b>déjeuner</b> (comer) y <b>dîner</b> (cenar). Para el desayuno se dice <b>prendre le petit-déjeuner</b>: <i>Je prends le petit-déjeuner à sept heures et demie.</i></p><p>Una comida francesa tradicional tiene varias partes: <b>l'entrée</b> (el primer plato), <b>le plat principal</b> (el plato principal), <b>le fromage</b> (el queso) y <b>le dessert</b> (el postre). Y en casi todas las comidas hay pan: <b>la baguette</b>.</p>`,
+        P.filas("Las cuatro comidas del día en Francia y sus horas", [["7 h 30", "le petit-déjeuner", NA], ["12 h 30", "le déjeuner", AZ], ["16 h 30", "le goûter", VE], ["19 h 30", "le dîner", MO]], "Les repas"), ["AKjhxR8Phkc", "Les repas de la journée en français - Niveau A1 de FLE. 😍English subtitles available!", "La prof Elisabeth", 96242]],
+    ],
+    "Las cantidades": [
+      ["Los partitivos: du, de la, des", `<p>Cuando hablamos de una <b>cantidad que no se cuenta</b> («como pan», «bebo agua»), en español no ponemos artículo. En francés sí: se usa el <b>partitivo</b>.</p><ul><li><b>du</b> + masculino: <i>Je mange <b>du</b> pain.</i> (Como pan.)</li><li><b>de la</b> + femenino: <i>Je mange <b>de la</b> confiture.</i> (Como mermelada.)</li><li><b>de l'</b> + vocal o h: <i>Je bois <b>de l'</b>eau.</i> (Bebo agua.)</li><li><b>des</b> + plural: <i>Je mange <b>des</b> fruits.</i> (Como fruta.)</li></ul><p>En negativo, todos se convierten en <b>de</b> (o <b>d'</b> ante vocal):</p><ul><li><i>Je ne mange pas <b>de</b> viande.</i> (No como carne.)</li><li><i>Je ne bois pas <b>d'</b>eau gazeuse.</i> (No bebo agua con gas.)</li></ul><p>¡Cuidado! Con los verbos de gusto (<b>aimer, adorer, détester, préférer</b>) se usa el artículo determinado, porque hablamos del alimento en general: <i>J'aime <b>le</b> pain</i>, pero <i>je mange <b>du</b> pain</i>.</p><p>Truco para saber cuál usar: pregúntate si hablas de «un poco de algo». Si es así, usa el partitivo: <i>du lait</i> = un poco de leche.</p>`,
+        P.filas("Partitivos en francés", [["du", "du pain, du lait", AZ], ["de la", "de la confiture", RO], ["de l'", "de l'eau", VE], ["des", "des fruits", NA], ["pas de", "pas de viande", MO]], "du, de la, des")],
+    ],
+    "Al mercado: comprar": [
+      ["En el restaurante", `<p>Cuando vas a un restaurante en Francia necesitas algunas frases. El camarero se llama <b>le serveur</b> y la camarera, <b>la serveuse</b>. La carta se llama <b>la carte</b>, y el menú del día con precio fijo, <b>le menu</b>.</p><p>Lo que dice el camarero:</p><ul><li><i>Vous avez choisi ?</i> — ¿Han elegido?</li><li><i>Et comme boisson ?</i> — ¿Y de beber?</li><li><i>Vous voulez un dessert ?</i> — ¿Quieren postre?</li></ul><p>Lo que dices tú:</p><ul><li><i>Je voudrais une crêpe au chocolat, s'il vous plaît.</i> — Quisiera una crepe de chocolate.</li><li><i>Pour moi, le menu enfant.</i> — Para mí, el menú infantil.</li><li><i>Une carafe d'eau, s'il vous plaît.</i> — Una jarra de agua (en Francia el agua del grifo es gratis en los restaurantes).</li><li><i>L'addition, s'il vous plaît.</i> — La cuenta, por favor.</li></ul><p>Fíjate en que con los platos se usa <b>à</b> + artículo para el ingrediente principal: <i>une glace <b>à la</b> vanille</i>, <i>un gâteau <b>au</b> chocolat</i>, <i>une tarte <b>aux</b> pommes</i>. ¡Son las mismas contracciones que en «j'ai mal au ventre»!</p>`,
+        P.dialogo("En el restaurante", [["Serveur", "Vous avez choisi ?", VE], ["Emma", "Une crêpe, s'il vous plaît.", MO], ["Serveur", "Et comme boisson ?", VE]]), ["Rux7jBCGGEE", "Commander au restaurant en français. Dialogue simulé pour le DELF A1 - FLE - English subtitles 😉", "La prof Elisabeth", 190563]],
+    ],
+  },
+  final: [
+    ["Platos del mundo francófono", `<p>La cocina francesa es famosa en todo el mundo. En 2010, la UNESCO declaró <b>le repas gastronomique des Français</b> (la comida gastronómica de los franceses) patrimonio cultural inmaterial de la humanidad, y en 2022 hizo lo mismo con la <b>baguette</b>.</p><p>Cada región tiene sus platos:</p><ul><li><b>Les crêpes</b> y <b>les galettes</b> de Bretaña: las crêpes son dulces y las galettes, saladas, de harina de trigo sarraceno.</li><li><b>La ratatouille</b> de Provenza: un guiso de verduras con tomate, calabacín, berenjena y pimiento, parecido al pisto.</li><li><b>La quiche lorraine</b> de Lorena: una tarta salada con huevo, nata y bacon.</li><li><b>Les fromages</b>: Francia tiene más de mil quesos, como el camembert, el brie o el roquefort.</li></ul><p>Y en otros países francófonos:</p><ul><li>En <b>Bélgica</b>: les gaufres (gofres) y les frites.</li><li>En <b>Quebec</b> (Canadá): la poutine, patatas fritas con queso y salsa, y el sirope de arce (le sirop d'érable).</li><li>En <b>Marruecos, Argelia y Túnez</b>: le couscous.</li><li>En <b>Senegal</b>: le thiéboudienne, arroz con pescado.</li></ul><p>Muchos de estos nombres han pasado al español tal cual: decimos «crepe», «quiche», «croissant» o «baguette». Es una prueba de lo famosa que es la cocina francesa. ¿Conoces otras palabras de comida que vengan del francés? Piensa en «bechamel», «puré» o «merengue».</p>`,
+      P.filas("Platos típicos del mundo francófono", [["les crêpes", "Bretagne", NA], ["la ratatouille", "Provence", RO], ["les gaufres", "Belgique", AZ], ["la poutine", "Québec", VE], ["le couscous", "Maghreb", MO]], "Spécialités")],
+    ["En la mesa: les bonnes manières", `<p>Para comer necesitas <b>le couvert</b> (los cubiertos y la vajilla):</p><ul><li><b>l'assiette</b> — el plato; <b>le bol</b> — el tazón</li><li><b>la fourchette</b> — el tenedor; <b>le couteau</b> — el cuchillo; <b>la cuillère</b> — la cuchara</li><li><b>le verre</b> — el vaso; <b>la serviette</b> — la servilleta</li></ul><p>Frases útiles en la mesa:</p><ul><li><i>J'ai faim !</i> — ¡Tengo hambre! <i>J'ai soif !</i> — ¡Tengo sed! (con <b>avoir</b>, como en español)</li><li><i>Bon appétit !</i> — ¡Que aproveche! Se dice antes de empezar a comer.</li><li><i>Passe-moi le sel, s'il te plaît.</i> — Pásame la sal, por favor.</li><li><i>C'est délicieux !</i> — ¡Está delicioso!</li><li><i>Encore un peu, s'il te plaît.</i> — Un poco más, por favor.</li><li><i>Non merci, je n'ai plus faim.</i> — No, gracias, ya no tengo hambre.</li></ul><p>Costumbres francesas: el pan se deja directamente sobre el mantel, junto al plato, y no en el plato. Las manos se dejan encima de la mesa, no en las rodillas. Y es de buena educación esperar a que todos estén servidos antes de empezar.</p>`,
+      P.tabla("Los cubiertos en francés", ["français", "español"], [["l'assiette", "el plato"], ["la fourchette", "el tenedor"], ["le couteau", "el cuchillo"], ["la cuillère", "la cuchara"], ["le verre", "el vaso"]], VE)],
+  ],
+  ejemplos: [
+    ["Di lo que desayunas: pan, mermelada, agua y fruta.", ["pain es masculino → du; confiture femenino → de la", "eau empieza por vocal → de l'; fruits plural → des"], "Je mange du pain, de la confiture et des fruits, et je bois de l'eau."],
+    ["Pide en un restaurante una tarta de manzana y la cuenta.", ["tarte + aux + pommes", "l'addition"], "Je voudrais une tarte aux pommes, s'il vous plaît. Et l'addition, s'il vous plaît."],
+  ],
+  errores: ["Decir «je mange pain»: hace falta el partitivo, «du pain».", "Decir «je ne mange pas du pain»: en negativo es «pas de pain»."],
+  ejercicios: [
+    ["b", "Ordena las comidas del día: le dîner, le petit-déjeuner, le goûter, le déjeuner.", "le petit-déjeuner, le déjeuner, le goûter, le dîner."],
+    ["b", "Completa: Je mange ___ pain, ___ salade et ___ œufs.", "du, de la, des."],
+    ["b", "Traduce: el tenedor, el cuchillo, la cuchara.", "la fourchette, le couteau, la cuillère."],
+    ["b", "¿Qué significa «L'addition, s'il vous plaît»?", "La cuenta, por favor."],
+    ["b", "¿De qué país es la poutine?", "De Quebec (Canadá)."],
+    ["m", "Pasa a negativo: «Je bois du lait.»", "Je ne bois pas de lait."],
+    ["m", "Escribe tu desayuno de hoy con partitivos.", "Respuesta libre. Ej.: Je bois du lait et je mange des céréales."],
+    ["m", "¿Qué diferencia hay entre una crêpe y una galette en Bretaña?", "La crêpe es dulce; la galette es salada, de trigo sarraceno."],
+    ["m", "Según la lectura, ¿qué comió Hugo en casa de su abuela?", "Ensalada de tomate, pollo asado con judías y patatas, queso y crepes."],
+    ["m", "Completa: une glace ___ vanille, un gâteau ___ chocolat, une tarte ___ pommes.", "à la, au, aux."],
+    ["a", "Escribe un diálogo de seis líneas en un restaurante.", "Respuesta libre."],
+    ["a", "Compara los horarios de las comidas en Francia y en tu casa.", "Respuesta libre."],
+    ["a", "Inventa el menú de un restaurante francés con entrée, plat, fromage y dessert.", "Respuesta libre."],
+    ["a", "Explica tres normas de educación en la mesa en Francia.", "El pan junto al plato, manos sobre la mesa, esperar a que todos estén servidos."],
+  ],
+  quiz: [
+    ["«Le goûter» es…", ["la merienda", "la comida", "el desayuno"], "Hacia las 16:30."],
+    ["«Je bois ___ eau.»", ["de l'", "du", "de la"], "Ante vocal."],
+    ["«Je ne mange pas ___ viande.»", ["de", "de la", "du"], "Negativo."],
+    ["«La fourchette» es…", ["el tenedor", "la cuchara", "el horno"], "Fourchette."],
+    ["El couscous es típico de…", ["el Magreb", "Bélgica", "Quebec"], "Norte de África."],
+  ],
+  examen: [
+    ["«Bon appétit !» se dice…", ["antes de comer", "al pagar", "al despedirse"], "Que aproveche."],
+    ["«Une tarte ___ pommes»:", ["aux", "au", "à la"], "Plural."],
+  ],
+  tarjetas: [
+    ["le petit-déjeuner / le dîner", "el desayuno / la cena"],
+    ["du, de la, de l', des", "Partitivos: un poco de…"],
+    ["L'addition, s'il vous plaît", "La cuenta, por favor"],
+    ["J'ai faim / J'ai soif", "Tengo hambre / Tengo sed"],
+  ],
+  glosario: [
+    ["le petit-déjeuner", "El desayuno."],
+    ["le déjeuner", "La comida del mediodía."],
+    ["le goûter", "La merienda."],
+    ["le dîner", "La cena."],
+    ["la cantine", "El comedor escolar."],
+    ["l'entrée", "El primer plato."],
+    ["le serveur", "El camarero."],
+    ["l'addition", "La cuenta."],
+    ["la fourchette", "El tenedor."],
+    ["le couteau", "El cuchillo."],
+    ["la cuillère", "La cuchara."],
+    ["avoir faim", "Tener hambre."],
+  ],
+  situacion: {
+    titulo: "Le restaurant de la classe",
+    reto: "La clase monta un restaurante francés: cada grupo diseña una carta y por turnos unos son camareros y otros clientes.",
+    pasos: ["Elegid platos del mundo francófono y escribid una carta con entrées, plats y desserts, con precios en euros.", "Preparad los cubiertos con etiquetas en francés y practicad las frases de la mesa.", "Representad la escena: los camareros toman nota y los clientes piden con «je voudrais».", "Al final, pedid la cuenta y calculad el total en francés."],
+    producto: "Una carta de restaurante en francés y una escena representada.",
+    evaluacion: ["Usa partitivos y artículos correctamente.", "Pide y ofrece comida con fórmulas de cortesía.", "Nombra los cubiertos y las comidas del día.", "Conoce platos típicos de países francófonos."],
+  },
+});

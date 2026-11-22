@@ -93,3 +93,92 @@ module.exports = P.tema({
   saberes: "Comunicación: presentarse y presentar a otros; datos personales (nombre, edad, cumpleaños, ciudad, nacionalidad); descripción física y de carácter; números hasta 31 y meses del año; concordancia de género en los adjetivos; preguntas personales",
   ideas: ["Carné de identidad en francés con foto y descripción.", "Juego «Qui est-ce ?»: adivinar un compañero a partir de su descripción.", "Calendario de cumpleaños de la clase en francés."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { H } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Saludar y elegir entre tu y vous según la persona", "Decir de dónde vienes y dónde vives con en, au y aux", "Hablar de gustos y aficiones con faire y jouer", "Presentar a la familia y conocer la francofonía"],
+  lectura: { titulo: "Un nouveau correspondant", html: `<p>La clase de Nora tiene correspondientes (amigos por carta) en un colegio de Montreal. Este es el correo que recibe Nora. Las palabras difíciles llevan traducción.</p><p><i>Salut Nora !</i></p><p><i>Je m'appelle Félix et j'ai onze ans. Mon anniversaire, c'est le 3 février. Je suis canadien et j'habite à Montréal, au Québec. Ici, on parle français, mais beaucoup de gens parlent aussi anglais.</i></p><p><i>Dans ma famille, nous sommes cinq: mon père, ma mère, ma grande sœur Léa, mon petit frère Samuel et moi. Ma mère vient d'Haïti, une île dans la mer des Caraïbes. Mes grands-parents habitent là-bas. Et nous avons un chien, Biscuit !</i></p><p><i>Je suis grand et j'ai les cheveux noirs et frisés. Je suis sportif et un peu bavard (hablador). Je fais du hockey sur glace (hockey sobre hielo) trois fois par semaine: c'est le sport national au Canada ! Je joue aussi de la guitare. Je déteste les épinards (las espinacas) et j'adore le sirop d'érable.</i></p><p><i>Et toi ? Comment est ta famille ? Quels sont tes loisirs (aficiones) ? Écris-moi vite !</i></p><p><i>À bientôt,<br>Félix</i></p>` },
+  tras: {
+    "Presentarse": [
+      ["Saludar: ¿tu o vous?", `<p>En francés hay dos maneras de dirigirse a una persona, como «tú» y «usted» en español, pero los franceses usan <b>vous</b> mucho más que nosotros «usted».</p><ul><li><b>Tu</b>: con amigos, compañeros de clase, la familia y los niños. <i>Salut ! Comment tu t'appelles ? Ça va ?</i></li><li><b>Vous</b>: con adultos que no conoces, con el profesor o la profesora, en una tienda o en el médico. <i>Bonjour Madame. Comment vous appelez-vous ? Comment allez-vous ?</i></li></ul><p>En Francia, los alumnos hablan de <b>vous</b> a sus profesores y les llaman <b>Madame</b> o <b>Monsieur</b>, sin el nombre: <i>Bonjour Madame !</i></p><p>Saludos y despedidas:</p><ul><li><b>Bonjour</b> (buenos días, durante el día) y <b>bonsoir</b> (buenas tardes/noches, a partir de las seis o las siete de la tarde)</li><li><b>Salut !</b> — ¡Hola! o ¡Adiós! (solo con amigos)</li><li><b>Au revoir</b> — adiós; <b>à bientôt</b> — hasta pronto; <b>à demain</b> — hasta mañana; <b>bonne journée</b> — que tengas un buen día</li></ul><p>Y una costumbre: entre amigos y familia se saludan con <b>la bise</b>, uno o varios besos en las mejillas. ¡En algunas regiones se dan dos, en otras tres o incluso cuatro!</p><p>Un consejo: si dudas entre tu y vous con un adulto, usa siempre <b>vous</b>. Es más educado, y si la persona prefiere que la tutees, te lo dirá: <i>On peut se tutoyer !</i> (¡Podemos tutearnos!). En cambio, tutear a un adulto desconocido puede parecer una falta de respeto. Y recuerda que <b>vous</b> también sirve para hablar a varias personas a la vez, aunque sean amigos: <i>Salut les amis, vous allez bien ?</i></p>`,
+        H.dos("Tu o vous", ["Tu", ["Salut !", "Ça va ?", "amis, famille"], VE], ["Vous", ["Bonjour Madame", "Vous allez bien ?", "adultes, prof"], AZ])],
+    ],
+    "Nacionalidades": [
+      ["Países: «je viens de», «j'habite en»", `<p>Para decir de dónde eres y dónde vives, la preposición cambia según el país sea femenino, masculino o plural. La mayoría de los países que terminan en <b>-e</b> son femeninos: <i>la France, l'Espagne, l'Italie, la Belgique</i>. Los demás suelen ser masculinos: <i>le Portugal, le Canada, le Maroc, le Sénégal</i>. Y algunos son plurales: <i>les États-Unis</i>.</p><p><b>Para vivir o ir</b> (en, a):</p><ul><li>femenino → <b>en</b>: <i>J'habite <b>en</b> Espagne.</i></li><li>masculino → <b>au</b>: <i>J'habite <b>au</b> Portugal.</i></li><li>plural → <b>aux</b>: <i>J'habite <b>aux</b> États-Unis.</i></li><li>ciudades → <b>à</b>: <i>J'habite <b>à</b> Madrid.</i></li></ul><p><b>Para la procedencia</b> (venir de):</p><ul><li>femenino → <b>de / d'</b>: <i>Je viens <b>d'</b>Espagne.</i></li><li>masculino → <b>du</b>: <i>Je viens <b>du</b> Maroc.</i></li><li>plural → <b>des</b>: <i>Je viens <b>des</b> États-Unis.</i></li></ul><p>Para preguntar: <i>Tu viens d'où ?</i> (¿De dónde eres?) — <i>Tu habites où ?</i> (¿Dónde vives?)</p>`,
+        P.tabla("Preposiciones con países en francés", ["", "j'habite…", "je viens…"], [["fém.", "en France", "de France"], ["masc.", "au Maroc", "du Maroc"], ["plur.", "aux États-Unis", "des États-Unis"]], VE), ["E9tPjQy97Kg", "Tu viens d'où ? Je viens de/du/d'/des... Je suis... Pays & Nationalités - Français débutant A0/A1/A2", "FLE Nantes", 80094]],
+    ],
+    "Describir el carácter": [
+      ["Gustos y aficiones", `<p>Cuando te presentas, es normal hablar de tus <b>loisirs</b> (aficiones). Para expresar gustos, usa estos verbos de menos a más:</p><ul><li><b>je déteste</b> — odio; <b>je n'aime pas</b> — no me gusta</li><li><b>j'aime bien</b> — me gusta; <b>j'aime</b> — me gusta mucho; <b>j'adore</b> — me encanta</li></ul><p>Detrás va un nombre con artículo (<i>j'aime <b>le</b> foot</i>) o un infinitivo (<i>j'adore <b>lire</b></i>).</p><p>Para los deportes y la música se usan dos verbos con contracciones:</p><ul><li><b>faire de</b> + deporte: <i>je fais <b>du</b> vélo, <b>de la</b> natation, <b>de l'</b>escalade, <b>du</b> judo</i>.</li><li><b>jouer à</b> + juego o deporte de pelota: <i>je joue <b>au</b> foot, <b>au</b> basket, <b>aux</b> cartes, <b>à la</b> console</i>.</li><li><b>jouer de</b> + instrumento: <i>je joue <b>du</b> piano, <b>de la</b> guitare, <b>de la</b> flûte</i>.</li></ul><p>Otras aficiones: <b>lire</b> (leer), <b>dessiner</b> (dibujar), <b>danser</b> (bailar), <b>chanter</b> (cantar), <b>regarder des séries</b>, <b>jouer aux jeux vidéo</b>.</p><p>Ejemplo: <i>Mes loisirs ? Je fais du judo le mardi, je joue du piano et j'adore dessiner. Mais je déteste le football !</i></p>`,
+        P.filas("faire de, jouer à, jouer de", [["faire du vélo", "deporte", VE], ["faire de la natation", "deporte", AZ], ["jouer au foot", "juego / pelota", NA], ["jouer du piano", "instrumento", MO], ["jouer de la guitare", "instrumento", RO]], "Mes loisirs")],
+    ],
+    "Presentar a otra persona": [
+      ["La familia", `<p>Para presentar a tu familia (<b>la famille</b>) necesitas este vocabulario:</p><ul><li><b>les parents</b> — los padres: <b>le père</b> (papa) y <b>la mère</b> (maman)</li><li><b>le frère</b> — el hermano; <b>la sœur</b> — la hermana</li><li><b>les grands-parents</b> — los abuelos: <b>le grand-père</b> (papi) y <b>la grand-mère</b> (mamie)</li><li><b>l'oncle</b> — el tío; <b>la tante</b> — la tía</li><li><b>le cousin</b> / <b>la cousine</b> — el primo / la prima</li><li><b>le fils</b> — el hijo; <b>la fille</b> — la hija (¡y también «la chica»!)</li></ul><p>Fíjate: <b>les parents</b> significa «los padres», no «los parientes». Los parientes son <b>la famille</b>.</p><p>Frases útiles: <i>Nous sommes quatre dans ma famille.</i> (Somos cuatro.) <i>J'ai un frère et deux sœurs.</i> <i>Je suis fils unique / fille unique.</i> (Soy hijo/hija única.) <i>Mon frère <b>aîné</b></i> (mayor), <i>ma sœur <b>cadette</b></i> (menor).</p><p>Para hablar de la familia de otra persona usamos <b>son, sa, ses</b> (su, sus): <i>Félix a une sœur. <b>Sa</b> sœur s'appelle Léa. <b>Son</b> chien s'appelle Biscuit. <b>Ses</b> grands-parents habitent en Haïti.</i></p>`,
+        P.filas("La familia en francés", [["le père / la mère", "padre / madre", AZ], ["le frère / la sœur", "hermano / hermana", VE], ["le grand-père", "el abuelo", NA], ["l'oncle / la tante", "tío / tía", MO], ["le cousin / la cousine", "primo / prima", RO]], "La famille"), ["ibj6ncTSt4s", "Présenter ma famille👨‍👩‍👧‍👦 En français", "Play and learn with Chahd", 358116]],
+    ],
+  },
+  final: [
+    ["La francofonía: el francés en el mundo", `<p>El francés no se habla solo en Francia. Unos <b>320 millones de personas</b> lo hablan en los cinco continentes, y es lengua oficial en más de 25 países. Al conjunto de países y personas que hablan francés se le llama <b>la francophonie</b>.</p><ul><li><b>Europa</b>: Francia, Bélgica, Suiza, Luxemburgo y Mónaco.</li><li><b>América</b>: Quebec (Canadá), Haití, y territorios franceses como Martinica, Guadalupe y la Guayana Francesa.</li><li><b>África</b>: es el continente con más hablantes de francés: Senegal, Costa de Marfil, Camerún, Malí, República Democrática del Congo… También se habla mucho en Marruecos, Argelia y Túnez.</li><li><b>Asia y Oceanía</b>: Nueva Caledonia, la Polinesia Francesa (Tahití) y, en parte, Vietnam o Líbano.</li></ul><p>El <b>20 de marzo</b> se celebra la <b>Journée internationale de la Francophonie</b> con fiestas, canciones y concursos en todo el mundo.</p><p>Saber francés te permite hablar con personas de muchos países. ¡Y fíjate en que <b>Kinsasa</b>, la capital del Congo, es una de las ciudades con más hablantes de francés del mundo, junto con París!</p><p>Muchos países francófonos tienen también otras lenguas. En Bélgica se habla francés, neerlandés y alemán; en Suiza, francés, alemán, italiano y romanche; en Quebec conviven el francés y el inglés; y en Senegal mucha gente habla wolof en casa y francés en la escuela. Igual que en España conviven el castellano, el catalán, el gallego o el euskera, en la francofonía es muy normal hablar dos o más lenguas. ¡Ser plurilingüe es una gran ventaja!</p>`,
+      P.filas("La francofonía en los cinco continentes", [["Europe", "France, Belgique, Suisse", AZ], ["Amérique", "Québec, Haïti", RO], ["Afrique", "Sénégal, Cameroun", NA], ["Océanie", "Tahiti, Nouméa", VE], ["20 mars", "Journée de la Francophonie", MO]], "La francophonie")],
+  ],
+  ejemplos: [
+    ["Di que vienes de España, vives en Francia y que tu amigo vive en Portugal.", ["España femenino → d'Espagne", "Francia femenino → en France; Portugal masculino → au Portugal"], "Je viens d'Espagne et j'habite en France. Mon ami habite au Portugal."],
+    ["Presenta tus aficiones: natación, piano y fútbol.", ["deporte individual → faire de la natation", "instrumento → jouer du piano; pelota → jouer au foot"], "Je fais de la natation, je joue du piano et je joue au foot."],
+  ],
+  errores: ["Tutear al profesor o a un adulto desconocido: se usa vous.", "Decir «j'habite à France»: con países femeninos es «en France»."],
+  ejercicios: [
+    ["b", "¿Usas tu o vous con: tu prima, la panadera, tu profesor, tu amigo?", "tu, vous, vous, tu."],
+    ["b", "Completa: J'habite ___ Espagne, ___ Maroc, ___ États-Unis, ___ Paris.", "en, au, aux, à."],
+    ["b", "Traduce: el abuelo, la tía, los primos.", "le grand-père, la tante, les cousins."],
+    ["b", "¿Cuándo se celebra el Día de la Francofonía?", "El 20 de marzo."],
+    ["b", "Completa: je joue ___ foot, je joue ___ guitare.", "au, de la."],
+    ["m", "Escribe tres saludos o despedidas para un amigo y tres para un adulto.", "Amigo: Salut, Ça va ?, À demain. Adulto: Bonjour Madame, Comment allez-vous ?, Au revoir Monsieur."],
+    ["m", "Presenta a tu familia en tres frases.", "Respuesta libre. Ej.: Nous sommes quatre. J'ai une sœur…"],
+    ["m", "Completa con son, sa, ses: Félix a un chien. ___ chien s'appelle Biscuit. ___ sœur s'appelle Léa.", "Son, Sa."],
+    ["m", "Según la lectura, ¿de dónde es Félix y qué deporte practica?", "Es canadiense, de Montreal; practica hockey sobre hielo."],
+    ["m", "Di de dónde vienen: Ahmed (Maroc), Emma (Belgique), John (États-Unis).", "Ahmed vient du Maroc. Emma vient de Belgique. John vient des États-Unis."],
+    ["a", "Responde al correo de Félix presentándote a ti y a tu familia.", "Respuesta libre."],
+    ["a", "Escribe tus aficiones con j'adore, j'aime bien y je déteste, y con faire y jouer.", "Respuesta libre."],
+    ["a", "Elige un país francófono y escribe cinco datos sobre él.", "Respuesta libre."],
+    ["a", "Representa con un compañero un saludo con un amigo y otro con la directora.", "Respuesta libre."],
+  ],
+  quiz: [
+    ["Con el profesor en Francia se usa…", ["vous", "tu", "salut"], "Respeto."],
+    ["«J'habite ___ Portugal.»", ["au", "en", "à"], "Masculino."],
+    ["«Les parents» significa…", ["los padres", "los parientes", "los primos"], "Falso amigo."],
+    ["«Je joue ___ piano.»", ["du", "au", "de la"], "Instrumento."],
+    ["El continente con más hablantes de francés es…", ["África", "Europa", "América"], "Francophonie."],
+  ],
+  examen: [
+    ["«Je viens ___ Maroc.»", ["du", "de", "au"], "Masculino."],
+    ["«Sa sœur» significa…", ["su hermana", "mi hermana", "tu hermana"], "Son, sa, ses."],
+  ],
+  tarjetas: [
+    ["tu / vous", "con amigos / con adultos"],
+    ["en France, au Maroc, aux États-Unis", "en + fem., au + masc., aux + plural"],
+    ["faire du vélo / jouer du piano", "hacer bici / tocar el piano"],
+    ["la francophonie", "Países y personas que hablan francés"],
+  ],
+  glosario: [
+    ["salut", "Hola, adiós (informal)."],
+    ["bonsoir", "Buenas tardes / buenas noches."],
+    ["la bise", "El beso de saludo."],
+    ["je viens de", "Vengo de, soy de."],
+    ["les loisirs", "Las aficiones."],
+    ["jouer de", "Tocar (un instrumento)."],
+    ["les parents", "Los padres."],
+    ["la sœur", "La hermana."],
+    ["le cousin", "El primo."],
+    ["fils unique", "Hijo único."],
+    ["aîné", "Mayor (hermano)."],
+    ["la francophonie", "El conjunto de los países y hablantes de francés."],
+  ],
+  situacion: {
+    titulo: "Correspondants francophones",
+    reto: "La clase escribe cartas de presentación en francés para unos alumnos imaginarios de distintos países francófonos.",
+    pasos: ["Cada alumno elige un país francófono y busca dónde está y qué lenguas se hablan allí.", "Escribe una carta de presentación: nombre, edad, cumpleaños, nacionalidad y dónde vive.", "Añade una descripción de su familia, de su carácter y de sus aficiones con faire y jouer.", "Intercambiad las cartas y responded a la de un compañero usando la forma correcta de tu o vous."],
+    producto: "Una carta de presentación en francés y su respuesta.",
+    evaluacion: ["Se presenta con todos los datos personales.", "Usa en, au, aux y de, du, des con los países.", "Habla de familia y aficiones con vocabulario variado.", "Distingue tu y vous según la situación."],
+  },
+});
