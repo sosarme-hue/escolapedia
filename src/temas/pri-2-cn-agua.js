@@ -132,3 +132,94 @@ module.exports = tema({
   saberes: "Materia y sus cambios: el agua, sus estados (sólido, líquido y gaseoso), los cambios de estado por el calor y el frío, el ciclo del agua y su uso responsable",
   ideas: ["Experimento con cubitos en distintos lugares de la clase para ver cuál se funde antes.", "Ciclo del agua en una bolsa con cierre pegada a la ventana.", "Mural de consejos para ahorrar agua en el cole."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Distinguir agua dulce y agua salada", "Saber de dónde viene el agua del grifo", "Comprobar qué cosas flotan y cuáles se hunden", "Conocer qué se disuelve en el agua"],
+  lectura: { titulo: "El viaje de la gota Clara", html: `<p>Clara era una gota de agua que vivía en el mar. Un día de verano, el sol calentó tanto que Clara se convirtió en vapor y subió, subió, subió hasta el cielo.</p><p>Allí arriba se encontró con muchas otras gotas. Juntas formaron una nube blanca y esponjosa.</p><p>El viento empujó la nube hasta unas montañas. Allí hacía mucho frío, y Clara cayó al suelo convertida en un copo de nieve.</p><p>Pasó todo el invierno en la cima, quieta y helada. Cuando llegó la primavera, el sol la derritió y Clara bajó por un arroyo, saltando entre las piedras.</p><p>El arroyo la llevó a un río, y el río a un embalse. Desde allí, por unas tuberías, llegó a una ciudad… ¡y salió por el grifo de la casa de Pablo, que tenía sed!</p><p>Pablo se la bebió de un trago. Pero esa no es la última aventura de Clara. ¡El agua siempre sigue viajando!</p>` },
+  tras: {
+    "El agua está en todas partes": [
+      ["Agua dulce y agua salada", `<p>No toda el agua es igual. Hay dos tipos:</p><ul><li><mark>Agua salada</mark>: está en los <b>mares</b> y los <b>océanos</b>. Tiene mucha sal disuelta. No se puede beber ni usar para regar.</li><li><mark>Agua dulce</mark>: está en los <b>ríos</b>, los <b>lagos</b>, los <b>embalses</b>, bajo tierra y en el <b>hielo</b> de las montañas y los polos. Es la que bebemos.</li></ul><p>¿Sabías que casi toda el agua de la Tierra es salada? Si toda el agua del planeta cupiera en un cubo, el agua dulce que podemos usar sería solo ¡una cucharadita!</p><p>Por eso el agua dulce es tan valiosa y debemos cuidarla.</p><p>Los animales y plantas del mar están adaptados al agua salada. Los de los ríos, al agua dulce. Si cambiamos un pez de río al mar, ¡no sobrevive!</p><p><b>Actividad</b>: prueba una gota de agua con sal y otra sin sal. ¿Notas la diferencia?</p>`,
+        H6.dos("Agua", ["SALADA", ["mares", "océanos", "casi toda"], cAZ], ["DULCE", ["ríos, lagos", "hielo", "¡poquita!"], cVE])],
+    ],
+    "Agua líquida": [
+      ["Flota o se hunde", `<p>Cuando echamos objetos al agua, algunos se quedan arriba: <mark>flotan</mark>. Otros bajan al fondo: <mark>se hunden</mark>.</p><ul><li><b>Flotan</b>: un corcho, una hoja, un trozo de madera, una pelota, un patito de goma, el hielo.</li><li><b>Se hunden</b>: una piedra, una moneda, una canica, una llave, un clavo.</li></ul><p>Que algo flote no depende solo de lo grande que sea. ¡Un barco enorme de hierro flota! Depende del <b>material</b> y de la <b>forma</b>.</p><p>Un experimento: haz una bola con plastilina y échala al agua. Se hunde. Ahora dale forma de barquito, con los bordes levantados. ¡Flota!</p><p>Los barcos tienen forma de cáscara hueca para poder flotar, aunque sean muy pesados.</p><p><b>Actividad</b>: llena un barreño de agua, elige diez objetos y adivina antes si flotarán o se hundirán. Después compruébalo.</p>`,
+        L6.filas("¿Flota?", [["corcho", "flota", cVE], ["hielo", "flota", cAZ], ["piedra", "se hunde", cRO], ["moneda", "se hunde", cNA]]),
+        ["n7Fk4ydtgiU", "Hundir o Flotar | Aprende con Blippi", "Blippi en Español", 85221938]],
+    ],
+    "El ciclo del agua": [
+      ["Del río a tu grifo", `<p>¿Cómo llega el agua hasta el <mark>grifo</mark> de tu casa? Hace un largo viaje:</p><ul><li>El agua de lluvia y nieve llega a los ríos y se guarda en los <b>embalses</b>, unos lagos grandes hechos por las personas con una pared llamada presa.</li><li>Después va a la <b>potabilizadora</b>: allí la limpian y la hacen buena para beber. Se llama agua <b>potable</b>.</li><li>Por <b>tuberías</b> bajo las calles llega a las casas, los colegios y las fábricas.</li><li>El agua sucia sale por los <b>desagües</b> y va a la <b>depuradora</b>, donde la limpian antes de devolverla al río.</li></ul><p>Todo este camino cuesta mucho trabajo y dinero. Por eso no debemos malgastar el agua.</p><p><b>Actividad</b>: dibuja el viaje del agua desde el embalse hasta tu casa y de vuelta al río.</p>`,
+        H6.flujo("Viaje", ["embalse|guarda", "planta|la limpia", "tuberías|tu casa", "depuradora|al río"], cAZ),
+        ["nq70X1TPRRA", "La potabilización - Didáctica del Agua", "Global Omnium", 605585]],
+    ],
+    "Agua para vivir": [
+      ["El agua disuelve cosas", `<p>Si echamos una cucharada de <b>azúcar</b> en un vaso de agua y removemos, ¡el azúcar desaparece! En realidad no ha desaparecido: se ha <mark>disuelto</mark>. Está dentro del agua, en trocitos tan pequeños que no los vemos. Si probamos el agua, sabe dulce.</p><p>Se disuelven en agua:</p><ul><li>El azúcar y la sal.</li><li>El cacao en polvo (con leche).</li><li>Algunas pastillas efervescentes.</li></ul><p><b>No</b> se disuelven:</p><ul><li>La arena: se queda en el fondo.</li><li>El aceite: se queda flotando encima.</li><li>Las piedras y el arroz.</li></ul><p>El agua del mar es salada porque tiene mucha sal disuelta, que viene de las rocas.</p><p><b>Actividad</b>: en cuatro vasos con agua, echa azúcar, arena, aceite y sal. Remueve y observa qué pasa en cada uno.</p>`,
+        H6.dos("En agua", ["SE DISUELVE", ["azúcar", "sal", "cacao"], cVE], ["NO", ["arena", "aceite", "piedras"], cRO])],
+    ],
+  },
+  final: [
+    ["El agua y los seres vivos", `<p>Todos los seres vivos necesitan <mark>agua</mark>. Sin ella no hay vida.</p><ul><li>Nuestro cuerpo está formado casi en sus dos terceras partes por agua. Necesitamos beber varios vasos cada día, sobre todo cuando hace calor o hacemos deporte.</li><li>Las <b>plantas</b> toman el agua del suelo por la raíz. Si no la reciben, se marchitan.</li><li>Los <b>animales</b> beben en ríos, charcas y fuentes. Algunos, como el camello, aguantan muchos días sin beber.</li><li>Muchos animales, como los peces, las ranas o los delfines, <b>viven</b> en el agua.</li></ul><p>Cuando un lugar se queda sin lluvia durante mucho tiempo, hay <b>sequía</b>: las plantas se secan, los ríos bajan y los animales sufren.</p><p>Por eso el agua es un tesoro que debemos cuidar entre todos.</p><p><b>Actividad</b>: apunta cuántos vasos de agua bebes en un día.</p>`,
+      H6.rueda("Agua", "VIDA", [["personas", cAZ], ["plantas", cVE], ["animales", cNA], ["peces", cRO]])],
+    ["Repaso: el viaje de Clara", `<p>Repasamos con la <mark>lectura</mark> de la gota Clara:</p><ul><li>Clara vivía en el mar: era agua <b>salada</b> y <b>líquida</b>.</li><li>El sol la calentó y se convirtió en <b>vapor</b>: <b>evaporación</b>.</li><li>Formó una nube con otras gotas: <b>condensación</b>.</li><li>Cayó como copo de nieve: agua <b>sólida</b>, <b>precipitación</b>.</li><li>En primavera se derritió: <b>fusión</b>.</li><li>Bajó por un arroyo y un río: agua <b>dulce</b>.</li><li>Llegó a un embalse y, por tuberías, al grifo de Pablo: agua <b>potable</b>.</li></ul><p>Clara pasó por los tres estados del agua: líquido, gaseoso y sólido. ¡Y su viaje no termina nunca, porque el ciclo del agua siempre continúa!</p><p><b>Actividad</b>: dibuja una tira cómica con el viaje de Clara en seis viñetas.</p>`,
+      L6.filas("Clara", [["mar", "líquida", cAZ], ["nube", "vapor", cMO], ["montaña", "nieve", cNA], ["grifo", "potable", cVE]])],
+  ],
+  ejemplos: [
+    ["¿Se puede beber agua del mar?", ["Es agua salada.", "Tiene mucha sal."], "No."],
+    ["¿Qué pasa con el azúcar en el agua?", ["Remuevo.", "No se ve, pero el agua sabe dulce."], "Se disuelve."],
+  ],
+  errores: ["Pensar que las cosas pesadas siempre se hunden.", "Creer que el azúcar disuelto desaparece del todo."],
+  ejercicios: [
+    ["b", "¿Dónde hay agua salada?", "En los mares y océanos."],
+    ["b", "Di dos objetos que flotan.", "Corcho, madera…"],
+    ["b", "¿Qué es el agua potable?", "La que se puede beber."],
+    ["b", "Di algo que se disuelve en agua.", "Azúcar, sal…"],
+    ["b", "¿Qué es una sequía?", "Mucho tiempo sin llover."],
+    ["m", "¿Dónde se limpia el agua antes de llegar a casa?", "En la potabilizadora."],
+    ["m", "¿Por qué flota un barco de hierro?", "Por su forma hueca."],
+    ["m", "¿Qué le pasa al aceite en el agua?", "Flota encima, no se disuelve."],
+    ["m", "¿Qué es un embalse?", "Un lago hecho por las personas para guardar agua."],
+    ["m", "¿Por qué el agua dulce es valiosa?", "Porque hay muy poca."],
+    ["a", "En la lectura, ¿en qué tres estados estuvo Clara?", "Líquido, gaseoso y sólido."],
+    ["a", "Explica cómo hacer flotar la plastilina.", "Dándole forma de barquito."],
+    ["a", "Ordena: depuradora, grifo, embalse, potabilizadora.", "Embalse, potabilizadora, grifo, depuradora."],
+    ["a", "¿Por qué es salada el agua del mar?", "Porque tiene sal disuelta que viene de las rocas."],
+  ],
+  quiz: [
+    ["Casi toda el agua de la Tierra es…", ["salada", "dulce", "hielo"], "Tipos."],
+    ["Una piedra en el agua…", ["se hunde", "flota", "se disuelve"], "Flotar."],
+    ["El agua sucia se limpia en la…", ["depuradora", "potabilizadora", "nube"], "Viaje."],
+    ["La sal en el agua…", ["se disuelve", "flota", "se hunde siempre"], "Disolver."],
+    ["Mucho tiempo sin lluvia es una…", ["sequía", "inundación", "nevada"], "Vida."],
+  ],
+  examen: [
+    ["En la lectura, ¿por dónde sale Clara al final?", ["por un grifo", "por una fuente", "por la ducha"], "Lectura."],
+    ["Cuando Clara se derrite hay…", ["fusión", "evaporación", "condensación"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Agua dulce y salada", "Salada en el mar; dulce en ríos, lagos y hielo."],
+    ["Del río al grifo", "Embalse, potabilizadora, tuberías, depuradora."],
+  ],
+  glosario: [
+    ["Agua salada", "Agua con mucha sal, como la del mar."],
+    ["Agua dulce", "Agua con poca sal, como la de los ríos."],
+    ["Potable", "Que se puede beber."],
+    ["Embalse", "Lago artificial para guardar agua."],
+    ["Potabilizadora", "Lugar donde se limpia el agua para beber."],
+    ["Depuradora", "Lugar donde se limpia el agua sucia."],
+    ["Flotar", "Quedarse en la superficie del agua."],
+    ["Disolver", "Mezclarse con el agua hasta no verse."],
+    ["Sequía", "Mucho tiempo sin llover."],
+    ["Tubería", "Tubo por donde va el agua."],
+  ],
+  situacion: {
+    titulo: "Laboratorio del agua",
+    reto: "La clase hace experimentos con agua y prepara un cartel para enseñar a otros a cuidarla.",
+    pasos: ["Probar qué objetos flotan y cuáles se hunden.", "Comprobar qué sustancias se disuelven.", "Dibujar el viaje del agua hasta el grifo.", "Hacer un cartel con consejos para ahorrar agua."],
+    producto: "Fichas de experimentos y un cartel de ahorro de agua.",
+    evaluacion: ["Distingue agua dulce y salada.", "Predice y comprueba si flota.", "Sabe qué se disuelve.", "Explica el viaje del agua al grifo."],
+  },
+});

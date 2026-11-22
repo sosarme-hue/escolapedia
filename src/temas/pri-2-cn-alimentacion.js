@@ -133,3 +133,93 @@ module.exports = tema({
   saberes: "Vida saludable: la alimentación equilibrada, los grupos de alimentos y la importancia del agua y del desayuno",
   ideas: ["Mural del plato saludable con recortes de folletos de supermercado.", "Registro semanal de fruta en el almuerzo con pegatinas.", "Taller de brochetas de fruta de colores."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Preparar un desayuno completo", "Conocer las cinco comidas del día", "Leer la información sencilla de una etiqueta", "Aplicar normas de higiene en la cocina y en la mesa"],
+  lectura: { titulo: "El desayuno de los campeones", html: `<p>Daniela juega al baloncesto los sábados. Un sábado, llegó al partido sin desayunar porque se había dormido.</p><p>Al principio corría mucho, pero pronto empezó a sentirse cansada. Le dolía un poco la cabeza y le temblaban las piernas. Su entrenadora la sentó en el banquillo.</p><p>—¿Has desayunado hoy? —le preguntó.</p><p>—No, no me dio tiempo.</p><p>La entrenadora le dio un plátano y un vaso de agua.</p><p>—El cuerpo es como un coche —le explicó—. Si no tiene gasolina, no puede correr.</p><p>Esa semana, Daniela preparó con su padre un plan para los sábados: un vaso de leche, una tostada con tomate y aceite, y una pieza de fruta.</p><p>El sábado siguiente, Daniela desayunó bien antes del partido. Corrió, saltó y encestó tres canastas. ¡Su equipo ganó!</p><p>—Es el desayuno de los campeones —dijo su padre, guiñándole un ojo.</p>` },
+  tras: {
+    "¿Por qué comemos?": [
+      ["Las cinco comidas del día", `<p>Para tener energía todo el día, es bueno repartir lo que comemos en <mark>cinco comidas</mark>:</p><ul><li><b>Desayuno</b>: al levantarnos. Es muy importante, porque llevamos muchas horas sin comer.</li><li><b>Almuerzo</b> o media mañana: en el recreo. Una fruta o un bocadillo pequeño.</li><li><b>Comida</b>: a mediodía. Es la comida más completa.</li><li><b>Merienda</b>: por la tarde. Fruta, yogur o un bocadillo.</li><li><b>Cena</b>: por la noche. Más ligera que la comida, para dormir bien.</li></ul><p>Es mejor comer <b>a horas parecidas</b> cada día y no picar entre horas, sobre todo chucherías.</p><p>Comer sentados, despacio y en familia también es parte de comer bien. ¡Y sin pantallas!</p><p><b>Actividad</b>: apunta qué comes en cada una de las cinco comidas de un día.</p>`,
+        L6.filas("Comidas", [["desayuno", "mañana", cNA], ["almuerzo", "recreo", cAZ], ["comida", "mediodía", cVE], ["merienda y cena", "tarde, noche", cRO]]),
+        ["nMmIBlRl8ls", "¡Me Gusta Comer Sano! | Alimentación Saludable", "Bebefinn en español", 312191050]],
+    ],
+    "Pan, arroz y pasta": [
+      ["Un desayuno completo", `<p>Un <mark>buen desayuno</mark> tiene tres partes:</p><ul><li>Un <b>lácteo</b>: leche, yogur o queso. Nos da calcio para los huesos.</li><li>Un <b>cereal</b>: pan, tostadas o copos de avena. Nos da energía.</li><li>Una <b>fruta</b>: una pieza entera o un zumo natural. Nos da vitaminas.</li></ul><p>Ejemplos de desayunos completos:</p><ul><li>Leche, tostada con tomate y aceite, y una mandarina.</li><li>Yogur con copos de avena y fresas.</li><li>Leche con cacao, pan con queso y un plátano.</li></ul><p>Las galletas de chocolate, los bollos y los cereales con mucho azúcar no son un buen desayuno de cada día. Pueden ser algo especial de vez en cuando.</p><p><b>Actividad</b>: diseña tres desayunos completos para tres días distintos.</p>`,
+        H6.flujo("Desayuno", ["lácteo|leche", "cereal|tostada", "fruta|plátano", "¡energía!|a correr"], cVE)],
+    ],
+    "Dulces, solo a veces": [
+      ["Leer las etiquetas", `<p>Los alimentos que compramos envasados tienen una <mark>etiqueta</mark>. En ella hay información útil:</p><ul><li>El <b>nombre</b> del producto.</li><li>Los <b>ingredientes</b>: de qué está hecho. El que aparece primero es el que más hay.</li><li>La <b>fecha de caducidad</b> o de consumo preferente: hasta cuándo se puede comer.</li><li>El <b>peso</b> o la cantidad: 250 g, 1 litro…</li><li>Los <b>alérgenos</b>: avisos para las personas con alergia, como «contiene leche» o «contiene frutos secos».</li></ul><p>Si en una galleta el primer ingrediente es el azúcar, ¡quiere decir que tiene muchísimo!</p><p>Algunos productos tienen un <b>semáforo</b> de colores: verde es mejor y rojo, para comer muy poco.</p><p><b>Actividad</b>: busca en casa la etiqueta de un yogur y encuentra su fecha de caducidad y sus ingredientes.</p>`,
+        L6.filas("Etiqueta", [["ingredientes", "de qué es", cAZ], ["caducidad", "hasta cuándo", cRO], ["peso", "cuánto", cNA], ["alérgenos", "avisos", cMO]])],
+    ],
+    "El agua": [
+      ["Higiene en la cocina y la mesa", `<p>Para comer bien también hay que cuidar la <mark>higiene</mark>. Así evitamos que los gérmenes nos pongan enfermos:</p><ul><li><b>Lavarse las manos</b> con agua y jabón antes de comer y de cocinar.</li><li><b>Lavar</b> la fruta y la verdura antes de comerla.</li><li>Guardar en la <b>nevera</b> los alimentos que lo necesitan, como la leche, la carne o el pescado.</li><li>No comer alimentos <b>caducados</b> ni que huelan mal.</li><li>Usar <b>cubiertos y servilleta</b>, y no hablar con la boca llena.</li><li><b>Lavarse los dientes</b> después de comer.</li></ul><p>En la cocina, los niños deben ayudar siempre con un adulto, porque hay fuego, cuchillos y aparatos que queman.</p><p><b>Actividad</b>: haz un cartel con las normas de higiene para colgar en el comedor del cole.</p>`,
+        H6.rueda("Higiene", "MESA", [["manos", cAZ], ["lavar fruta", cVE], ["nevera", cNA], ["dientes", cRO]])],
+    ],
+  },
+  final: [
+    ["Comidas de aquí y de allá", `<p>Cada lugar del mundo tiene sus <mark>comidas típicas</mark>, según lo que crece y se cría allí:</p><ul><li>En <b>España</b> seguimos la <b>dieta mediterránea</b>: aceite de oliva, verduras, legumbres, pescado, pan y fruta. ¡Es una de las más sanas del mundo!</li><li>En <b>Japón</b> comen mucho arroz y pescado, como el sushi.</li><li>En <b>México</b>, tortillas de maíz, frijoles y aguacate.</li><li>En <b>Italia</b>, pasta y pizza.</li><li>En <b>Marruecos</b>, cuscús y té con hierbabuena.</li></ul><p>En cada región de España también hay platos típicos: la paella en Valencia, el gazpacho en Andalucía, el cocido en Madrid, el pulpo en Galicia…</p><p>Probar comidas nuevas es una forma de conocer otras culturas.</p><p><b>Actividad</b>: pregunta en casa cuál es el plato típico de tu pueblo o del lugar de origen de tu familia.</p>`,
+      L6.filas("Platos", [["España", "paella", cNA], ["Japón", "sushi", cRO], ["México", "tortillas", cVE], ["Italia", "pasta", cAZ]])],
+    ["Repaso: el desayuno de Daniela", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>¿Por qué se cansa Daniela en el partido? Porque <b>no ha desayunado</b> y su cuerpo no tiene energía.</li><li>¿Qué le da la entrenadora? Un <b>plátano</b> (fruta) y <b>agua</b>.</li><li>¿A qué compara la entrenadora el cuerpo? A un <b>coche</b>: los alimentos son su gasolina.</li><li>El desayuno nuevo: <b>leche</b> (lácteo), <b>tostada</b> (cereal) y <b>fruta</b>. ¡Es un desayuno completo!</li><li>La tostada con tomate y aceite es parte de la <b>dieta mediterránea</b>.</li></ul><p>El desayuno es la comida que nos prepara para empezar el día con fuerza, igual que a Daniela para encestar.</p><p><b>Actividad</b>: escribe tu propio «desayuno de campeones» y dibújalo en un plato.</p>`,
+      H6.dos("Daniela", ["SIN COMER", ["cansada", "dolor", "banquillo"], cRO], ["DESAYUNADA", ["energía", "corre", "¡3 canastas!"], cVE])],
+  ],
+  ejemplos: [
+    ["¿Es completo un desayuno de leche y galletas?", ["Tiene lácteo y cereal.", "Falta la fruta."], "No del todo: falta fruta."],
+    ["¿Qué ingrediente hay más en un producto?", ["Miro la lista.", "El primero es el que más hay."], "El primero de la lista."],
+  ],
+  errores: ["Saltarse el desayuno.", "Pensar que los bollos son un buen desayuno de cada día."],
+  ejercicios: [
+    ["b", "¿Cuántas comidas al día son recomendables?", "Cinco."],
+    ["b", "Di las tres partes de un desayuno completo.", "Lácteo, cereal y fruta."],
+    ["b", "¿Qué indica la fecha de caducidad?", "Hasta cuándo se puede comer."],
+    ["b", "¿Qué hacemos antes de comer?", "Lavarnos las manos."],
+    ["b", "¿Qué es la dieta mediterránea?", "La forma de comer típica de España, con aceite de oliva, verduras, pescado…"],
+    ["m", "Escribe un desayuno completo.", "Leche, tostada y una manzana."],
+    ["m", "¿Por qué la cena debe ser ligera?", "Para dormir bien."],
+    ["m", "¿Qué son los alérgenos?", "Avisos de ingredientes que dan alergia."],
+    ["m", "¿Por qué lavamos la fruta?", "Para quitar suciedad y gérmenes."],
+    ["m", "Di un plato típico de otro país.", "Sushi, pizza, cuscús…"],
+    ["a", "En la lectura, ¿a qué compara la entrenadora el cuerpo?", "A un coche que necesita gasolina."],
+    ["a", "Si el primer ingrediente de unas galletas es el azúcar, ¿qué significa?", "Que tienen mucho azúcar."],
+    ["a", "Planifica las cinco comidas de un día sano.", "Respuesta libre equilibrada."],
+    ["a", "¿Por qué los niños deben cocinar con un adulto?", "Porque hay fuego, cuchillos y aparatos peligrosos."],
+  ],
+  quiz: [
+    ["La comida más completa del día es la…", ["comida de mediodía", "merienda", "cena"], "Comidas."],
+    ["Un desayuno completo tiene lácteo, cereal y…", ["fruta", "bollo", "refresco"], "Desayuno."],
+    ["En una etiqueta, el ingrediente principal va…", ["primero", "último", "en medio"], "Etiquetas."],
+    ["La leche se guarda en la…", ["nevera", "despensa caliente", "mochila"], "Higiene."],
+    ["La paella es típica de…", ["Valencia", "Japón", "México"], "Platos."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué le da la entrenadora a Daniela?", ["un plátano y agua", "un bollo", "un zumo de bote"], "Lectura."],
+    ["El nuevo desayuno de Daniela es…", ["completo", "solo dulce", "sin lácteo"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Cinco comidas", "Desayuno, almuerzo, comida, merienda y cena."],
+    ["Desayuno completo", "Lácteo + cereal + fruta."],
+  ],
+  glosario: [
+    ["Desayuno", "Primera comida del día."],
+    ["Merienda", "Comida de la tarde."],
+    ["Lácteo", "Alimento hecho con leche."],
+    ["Cereal", "Trigo, arroz, avena… y alimentos hechos con ellos."],
+    ["Etiqueta", "Información escrita en un envase."],
+    ["Caducidad", "Fecha hasta la que se puede comer algo."],
+    ["Alérgeno", "Ingrediente que puede dar alergia."],
+    ["Higiene", "Limpieza para cuidar la salud."],
+    ["Germen", "Ser diminuto que puede poner enfermo."],
+    ["Dieta mediterránea", "Forma sana de comer de los países del Mediterráneo."],
+  ],
+  situacion: {
+    titulo: "La semana del desayuno sano",
+    reto: "La clase organiza una semana en la que cada día alguien trae y explica un desayuno o almuerzo saludable.",
+    pasos: ["Diseñar desayunos completos con lácteo, cereal y fruta.", "Leer las etiquetas de los productos que traemos.", "Aplicar normas de higiene antes de comer.", "Hacer un mural con los mejores desayunos de la semana."],
+    producto: "Un mural de desayunos y almuerzos saludables.",
+    evaluacion: ["Conoce las cinco comidas.", "Prepara un desayuno completo.", "Lee datos sencillos de una etiqueta.", "Aplica normas de higiene."],
+  },
+});

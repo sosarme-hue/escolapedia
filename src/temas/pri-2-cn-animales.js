@@ -128,3 +128,94 @@ module.exports = tema({
   saberes: "Los animales: características, clasificación (vertebrados e invertebrados; vivíparos y ovíparos; según su alimentación), hábitat y respeto por los seres vivos",
   ideas: ["Clasificación de fichas de animales en tablas de doble entrada.", "Terrario temporal de caracoles o gusanos para observar y devolverlos.", "Juego de «¿quién soy?» con tres pistas por animal."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer los cinco grupos de vertebrados", "Distinguir animales domésticos y salvajes", "Saber cómo se cubre el cuerpo de cada animal", "Conocer animales en peligro y cómo protegerlos"],
+  lectura: { titulo: "El huevo misterioso", html: `<p>Un día de primavera, Hugo y su tía Rocío pasean por el campo. Junto a un arbusto, Hugo encuentra un nido con un huevo pequeño y moteado.</p><p>—¡Tía, mira! Me lo llevo a casa para cuidarlo.</p><p>—Mejor no —le dice Rocío—. Su mamá estará cerca. Si lo cogemos, no podrá darle calor, y el pollito no nacerá.</p><p>Se esconden detrás de un árbol y esperan en silencio. Al poco rato, un pájaro marrón con el pecho anaranjado se posa en el nido y se sienta sobre el huevo.</p><p>—Es un petirrojo —susurra Rocío—. Está incubando su huevo.</p><p>Durante dos semanas, Hugo vuelve cada tarde a mirar desde lejos con unos prismáticos. Un día, ve que el huevo se ha roto y que hay un pollito sin plumas, con el pico muy abierto.</p><p>La mamá le trae gusanos sin parar.</p><p>—Has hecho lo correcto —le dice su tía—. Los animales salvajes deben vivir en libertad.</p>` },
+  tras: {
+    "Vertebrados": [
+      ["Los cinco grupos de vertebrados", `<p>Los vertebrados se dividen en <mark>cinco grupos</mark>:</p><ul><li><b>Mamíferos</b>: tienen pelo, y las crías maman leche de su madre. El perro, la vaca, el delfín y las personas.</li><li><b>Aves</b>: tienen plumas, pico y dos alas. Nacen de huevos. La gallina, el petirrojo, el pingüino.</li><li><b>Peces</b>: tienen escamas y aletas. Viven en el agua y respiran por branquias. La sardina, el tiburón.</li><li><b>Reptiles</b>: tienen escamas duras y la piel seca. Muchos se arrastran. La serpiente, el lagarto, la tortuga.</li><li><b>Anfibios</b>: tienen la piel desnuda y húmeda. Nacen en el agua y de mayores viven en tierra. La rana, el sapo, la salamandra.</li></ul><p><b>Actividad</b>: clasifica en los cinco grupos: gato, águila, trucha, cocodrilo, rana.</p>`,
+        L6.filas("Vertebrados", [["mamíferos", "pelo, leche", cNA], ["aves", "plumas", cAZ], ["peces", "aletas", cVE], ["reptiles y anfibios", "escamas, piel", cRO]]),
+        ["swoNNbF23aU", "Los animales vertebrados e invertebrados para niños", "Smile and Learn - Español", 32556398]],
+    ],
+    "¿Cómo nacen?": [
+      ["¿Cómo cubren su cuerpo?", `<p>Cada animal tiene el cuerpo <mark>cubierto</mark> de una manera, que lo protege del frío, del calor o de otros animales:</p><ul><li><b>Pelo</b>: los mamíferos. El oso polar tiene un pelo espeso para el frío.</li><li><b>Plumas</b>: las aves. Les sirven para volar y mantener el calor.</li><li><b>Escamas</b>: los peces y los reptiles. Son como pequeñas placas.</li><li><b>Piel desnuda</b>: los anfibios. Tiene que estar siempre húmeda.</li><li><b>Concha</b> o <b>caparazón</b>: el caracol, el cangrejo o la tortuga.</li><li><b>Pinchos</b>: el erizo y el puercoespín, para defenderse.</li></ul><p>Con solo mirar cómo es la piel de un animal, ¡ya podemos adivinar a qué grupo pertenece!</p><p><b>Actividad</b>: busca en revistas fotos de animales con pelo, plumas, escamas y concha, y haz un mural.</p>`,
+        H6.rueda("Cubierta", "PIEL", [["pelo", cNA], ["plumas", cAZ], ["escamas", cVE], ["concha", cRO]])],
+    ],
+    "¿Qué comen?": [
+      ["Domésticos y salvajes", `<p>Según dónde y con quién viven, los animales pueden ser:</p><ul><li><mark>Domésticos</mark>: viven con las personas, que los cuidan y alimentan. Unos son de <b>compañía</b>, como el perro, el gato o el hámster. Otros son de <b>granja</b>, como la vaca, la gallina o la oveja, y nos dan leche, huevos o lana.</li><li><mark>Salvajes</mark>: viven en libertad en la naturaleza y buscan su propia comida. El lobo, el león, el ciervo o el águila.</li></ul><p>Tener una mascota es una gran responsabilidad: hay que darle de comer, limpiarla, sacarla a pasear y llevarla al veterinario.</p><p>Los animales salvajes <b>no</b> deben ser mascotas. Necesitan vivir libres en su hábitat, como el petirrojo de la lectura.</p><p><b>Actividad</b>: haz dos listas: cinco animales domésticos y cinco salvajes.</p>`,
+        H6.dos("Animales", ["DOMÉSTICOS", ["perro, gato", "vaca, gallina", "nos cuidan"], cVE], ["SALVAJES", ["lobo, león", "águila", "en libertad"], cRO]),
+        ["fOYM6mZjIrc", "Animales Herbívoros, Carnívoros y Omnívoros", "FlexFlix Kids en Español", 2998608]],
+    ],
+    "¿Dónde viven?": [
+      ["Animales en peligro", `<p>Algunos animales están <mark>en peligro de extinción</mark>: quedan tan pocos que podrían desaparecer para siempre.</p><p>En España hay varios animales en peligro:</p><ul><li>El <b>lince ibérico</b>: un felino que solo vive en España y Portugal.</li><li>El <b>oso pardo</b>: vive en las montañas del norte.</li><li>El <b>águila imperial</b>.</li><li>El <b>urogallo</b>, un ave grande de los bosques.</li></ul><p>¿Por qué desaparecen? Porque se destruyen los bosques donde viven, por la caza, por la contaminación o porque atropellan a muchos en las carreteras.</p><p>Para protegerlos, se crean <b>parques naturales</b>, se prohíbe cazarlos y se cuidan sus crías. Gracias a esto, ¡ya hay más linces que hace unos años!</p><p><b>Actividad</b>: busca información sobre el lince ibérico y dibújalo.</p>`,
+        L6.filas("En peligro", [["lince", "ibérico", cNA], ["oso", "pardo", cMO], ["águila", "imperial", cAZ], ["urogallo", "bosques", cVE]])],
+    ],
+  },
+  final: [
+    ["Cuidar y respetar a los animales", `<p>Todos podemos ayudar a <mark>cuidar a los animales</mark>:</p><ul><li>No molestar a los animales salvajes ni coger sus <b>nidos</b> o sus crías.</li><li>No tirar <b>basura</b> en el campo, en los ríos ni en el mar. Los plásticos pueden matar a tortugas, peces y aves.</li><li>Cuidar bien a nuestras <b>mascotas</b> y no abandonarlas nunca.</li><li>Observar a los animales en <b>silencio</b> y desde lejos, con prismáticos.</li><li>Poner <b>comederos</b> y casitas para pájaros en invierno.</li><li>Respetar las normas de los <b>parques naturales</b>.</li></ul><p>Los animales son seres vivos que sienten, como nosotros. Merecen respeto y cuidado.</p><p>Hay personas que trabajan protegiendo animales: <b>veterinarios</b>, <b>guardas forestales</b> y voluntarios de centros de recuperación.</p><p><b>Actividad</b>: fabrica un comedero para pájaros con un cartón de leche y semillas.</p>`,
+      H6.flujo("Cuidar", ["no molestar|nidos", "no tirar|basura", "mascotas|cuidarlas", "observar|en silencio"], cVE)],
+    ["Repaso: el huevo misterioso", `<p>Repasamos con la <mark>lectura</mark> de Hugo:</p><ul><li>El <b>petirrojo</b> es un <b>ave</b>: tiene plumas, pico y alas.</li><li>Es un animal <b>vertebrado</b>: tiene huesos.</li><li>Nace de un <b>huevo</b>: es <b>ovíparo</b>.</li><li>Es un animal <b>salvaje</b>: vive libre en el campo.</li><li>La madre <b>incuba</b> el huevo: se sienta encima para darle calor.</li><li>El pollito come <b>gusanos</b>: invertebrados.</li><li>Hugo hace lo correcto: <b>no coge el huevo</b> y observa desde lejos con prismáticos.</li></ul><p>Si Hugo se hubiera llevado el huevo, el pollito no habría nacido sin el calor de su madre.</p><p><b>Actividad</b>: haz una ficha del petirrojo con su grupo, su cubierta, cómo nace, qué come y dónde vive.</p>`,
+      L6.filas("Petirrojo", [["grupo", "ave", cAZ], ["cubierta", "plumas", cNA], ["nace", "de huevo", cVE], ["vive", "salvaje", cRO]])],
+  ],
+  ejemplos: [
+    ["¿A qué grupo pertenece la rana?", ["Tiene la piel desnuda y húmeda.", "Nace en el agua."], "Anfibios."],
+    ["¿El lobo es doméstico o salvaje?", ["Vive libre en la naturaleza."], "Salvaje."],
+  ],
+  errores: ["Pensar que el delfín es un pez (es un mamífero).", "Coger nidos o crías de animales salvajes."],
+  ejercicios: [
+    ["b", "Di los cinco grupos de vertebrados.", "Mamíferos, aves, peces, reptiles y anfibios."],
+    ["b", "¿Qué cubre el cuerpo de las aves?", "Plumas."],
+    ["b", "Di un animal doméstico.", "Perro, gato, vaca…"],
+    ["b", "Di un animal en peligro en España.", "El lince ibérico."],
+    ["b", "¿Qué tiene el erizo para defenderse?", "Pinchos."],
+    ["m", "Clasifica: gato, águila, trucha, cocodrilo, rana.", "Mamífero, ave, pez, reptil, anfibio."],
+    ["m", "¿Por qué el delfín es mamífero?", "Porque sus crías maman leche."],
+    ["m", "¿Por qué no deben ser mascotas los animales salvajes?", "Porque necesitan vivir libres."],
+    ["m", "Di dos causas de que desaparezcan animales.", "Destrucción de bosques, caza, contaminación…"],
+    ["m", "¿Cómo tiene la piel un anfibio?", "Desnuda y húmeda."],
+    ["a", "En la lectura, ¿por qué no debe llevarse Hugo el huevo?", "Porque la madre no podría darle calor y no nacería."],
+    ["a", "Haz una ficha de un animal: grupo, cubierta, cómo nace y qué come.", "Respuesta libre."],
+    ["a", "Explica dos cosas que puedes hacer para proteger a los animales.", "No tirar basura, no molestarlos…"],
+    ["a", "¿Qué es un parque natural y para qué sirve?", "Un espacio protegido donde viven animales y plantas."],
+  ],
+  quiz: [
+    ["Los animales con plumas son…", ["aves", "peces", "reptiles"], "Grupos."],
+    ["La serpiente tiene el cuerpo cubierto de…", ["escamas", "pelo", "plumas"], "Cubierta."],
+    ["La vaca es un animal…", ["doméstico de granja", "salvaje", "en peligro"], "Domésticos."],
+    ["El lince ibérico está…", ["en peligro de extinción", "en todas partes", "en la granja"], "Peligro."],
+    ["Para observar aves desde lejos usamos…", ["prismáticos", "una red", "una jaula"], "Cuidar."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué pájaro incuba el huevo?", ["un petirrojo", "una paloma", "un águila"], "Lectura."],
+    ["El petirrojo es…", ["un ave salvaje ovípara", "un mamífero doméstico", "un reptil"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Vertebrados", "Mamíferos, aves, peces, reptiles y anfibios."],
+    ["Domésticos y salvajes", "Viven con personas o libres en la naturaleza."],
+  ],
+  glosario: [
+    ["Mamífero", "Animal con pelo cuyas crías maman leche."],
+    ["Ave", "Animal con plumas, pico y alas."],
+    ["Reptil", "Animal con escamas duras que suele arrastrarse."],
+    ["Anfibio", "Animal de piel húmeda que vive en agua y tierra."],
+    ["Escama", "Placa pequeña que cubre peces y reptiles."],
+    ["Doméstico", "Animal que vive con las personas."],
+    ["Salvaje", "Animal que vive libre en la naturaleza."],
+    ["Extinción", "Desaparición total de una especie."],
+    ["Incubar", "Dar calor a los huevos hasta que nacen las crías."],
+    ["Parque natural", "Espacio protegido de la naturaleza."],
+  ],
+  situacion: {
+    titulo: "Enciclopedia de animales",
+    reto: "La clase crea una enciclopedia con fichas de animales de los cinco grupos y una sección de animales en peligro.",
+    pasos: ["Elegir un animal y buscar información.", "Hacer una ficha: grupo, cubierta, cómo nace, qué come y dónde vive.", "Indicar si es doméstico o salvaje y si está en peligro.", "Juntar las fichas y presentarlas."],
+    producto: "Una enciclopedia ilustrada de animales.",
+    evaluacion: ["Clasifica vertebrados en cinco grupos.", "Describe la cubierta del cuerpo.", "Distingue domésticos y salvajes.", "Propone formas de proteger animales."],
+  },
+});

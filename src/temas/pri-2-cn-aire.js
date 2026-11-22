@@ -132,3 +132,93 @@ module.exports = tema({
   saberes: "Materia: el aire y sus propiedades, su importancia para los seres vivos, el viento y sus usos, y la contaminación atmosférica",
   ideas: ["Experimentos: vaso boca abajo en agua, globo en una botella, papel plano y arrugado.", "Construir una manga de viento con una bolsa y medir la dirección del viento en el patio.", "Debate sencillo: ¿cómo venimos al cole? y gráfica de la clase."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer la atmósfera, la capa de aire que rodea la Tierra", "Saber que el aire caliente sube", "Distinguir brisa, viento fuerte y huracán", "Descubrir animales y semillas que viajan con el aire"],
+  lectura: { titulo: "La cometa de Nico", html: `<p>Nico y su abuela han construido una cometa con cañas, papel de colores y una cola larguísima de lazos.</p><p>El domingo suben a lo alto de una colina. Nico sujeta la cuerda y corre, pero la cometa cae al suelo una y otra vez.</p><p>—No hay viento —se queja Nico.</p><p>—Paciencia —dice la abuela—. Mira las hojas de los árboles.</p><p>Esperan un rato. De pronto, las hojas empiezan a moverse y la hierba se inclina. Nico siente el aire fresco en la cara.</p><p>—¡Ahora! —grita la abuela.</p><p>Nico corre contra el viento y suelta cuerda poco a poco. La cometa sube, sube, y se queda allí arriba bailando, sostenida por el aire.</p><p>—Abuela, ¿cómo puede volar si no tiene motor?</p><p>—El aire la empuja y la sostiene, igual que a los pájaros.</p><p>Esa tarde, la cometa de Nico es la más alta de toda la colina.</p>` },
+  tras: {
+    "El aire está en todas partes": [
+      ["La atmósfera: una manta de aire", `<p>La Tierra está rodeada por una capa de aire muy grande. Se llama <mark>atmósfera</mark>.</p><p>La atmósfera es como una <b>manta</b> invisible que envuelve el planeta. Nos ayuda mucho:</p><ul><li>Tiene el aire que <b>respiramos</b>.</li><li>Nos <b>protege</b> de los rayos del sol más fuertes, como una sombrilla gigante.</li><li>Mantiene la Tierra <b>calentita</b>: sin ella, por la noche haría un frío terrible.</li><li>En ella se forman las <b>nubes</b>, la lluvia y el viento.</li></ul><p>Cuanto más subimos, menos aire hay. En lo alto de las montañas más altas cuesta respirar, y los alpinistas llevan botellas de oxígeno.</p><p>Fuera de la atmósfera, en el espacio, ya no hay aire. Por eso los astronautas necesitan trajes especiales.</p><p><b>Actividad</b>: dibuja la Tierra rodeada de su atmósfera, con nubes y un avión dentro.</p>`,
+        H6.rueda("Atmósfera", "TIERRA", [["respirar", cAZ], ["protege", cVE], ["calor", cRO], ["nubes", cNA]]),
+        ["OHpxyPURzdU", "La Eduteca - El aire y la atmósfera", "La Eduteca", 641316]],
+    ],
+    "¿Cómo sabemos que hay aire?": [
+      ["El aire caliente sube", `<p>El aire puede estar <mark>caliente o frío</mark>, y no se comporta igual:</p><ul><li>El <b>aire caliente</b> pesa menos y <b>sube</b>.</li><li>El <b>aire frío</b> pesa más y <b>baja</b>.</li></ul><p>Lo podemos ver en muchas cosas:</p><ul><li>Los <b>globos aerostáticos</b> vuelan porque calientan el aire de dentro con un fuego. El aire caliente sube y se lleva el globo.</li><li>El <b>humo</b> de una chimenea sube porque está caliente.</li><li>En una habitación, el aire de arriba está más caliente que el de abajo, cerca del suelo.</li><li>Los <b>pájaros</b> grandes, como las águilas, suben sin mover las alas aprovechando el aire caliente.</li></ul><p>Cuando el aire caliente sube, deja un hueco que ocupa el aire frío. ¡Así se forma el <b>viento</b>!</p><p><b>Actividad</b>: con un adulto, cuelga una espiral de papel sobre un radiador y observa cómo gira.</p>`,
+        H6.dos("Aire", ["CALIENTE", ["pesa menos", "sube", "globo"], cRO], ["FRÍO", ["pesa más", "baja", "suelo"], cAZ])],
+    ],
+    "El viento": [
+      ["Brisa, vendaval y huracán", `<p>El viento puede soplar con <mark>distinta fuerza</mark>:</p><ul><li><b>Brisa</b>: viento suave. Mueve las hojas y nos refresca en verano. Es agradable.</li><li><b>Viento fuerte</b>: mueve las ramas y levanta polvo. Cuesta andar en contra.</li><li><b>Vendaval</b>: viento muy fuerte. Puede romper ramas y tirar cosas.</li><li><b>Huracán</b> o <b>tornado</b>: viento violentísimo que gira. Puede destruir casas. Son peligrosos.</li></ul><p>Para saber de dónde viene el viento usamos la <b>veleta</b>, y para medir su fuerza, el <b>anemómetro</b>, que tiene unas cazoletas que giran más rápido cuanto más fuerte sopla.</p><p>Cuando hay viento muy fuerte, debemos quedarnos en un lugar seguro y alejarnos de árboles y cornisas.</p><p><b>Actividad</b>: mira por la ventana y di si hoy hay calma, brisa o viento fuerte.</p>`,
+        L6.filas("Fuerza", [["brisa", "suave", cVE], ["fuerte", "mueve ramas", cNA], ["vendaval", "rompe ramas", cMO], ["huracán", "¡peligro!", cRO]])],
+    ],
+    "El aire empuja y sostiene": [
+      ["Viajeros del aire", `<p>Muchos seres vivos usan el aire para <mark>moverse</mark>:</p><ul><li>Las <b>aves</b> vuelan batiendo las alas. Algunas, como las cigüeñas, planean largas distancias.</li><li>Los <b>insectos</b> como mariposas, abejas y libélulas también vuelan.</li><li>Los <b>murciélagos</b> son los únicos mamíferos que vuelan de verdad.</li><li>Las <b>semillas</b> de algunas plantas viajan con el viento: el diente de león tiene una especie de paracaídas, y las semillas del arce giran como hélices.</li><li>El <b>polen</b> de muchas flores también se mueve con el aire.</li></ul><p>Las personas hemos copiado a la naturaleza para inventar <b>aviones</b>, <b>paracaídas</b>, <b>helicópteros</b> y <b>planeadores</b>.</p><p><b>Actividad</b>: sopla un diente de león y observa cómo vuelan sus semillas.</p>`,
+        H6.flujo("Vuelan", ["aves|alas", "insectos|alas", "semillas|paracaídas", "avión|motor"], cAZ)],
+    ],
+  },
+  final: [
+    ["El tiempo atmosférico", `<p>El <mark>tiempo atmosférico</mark> es cómo está el aire en un momento: si hace frío o calor, si llueve, si hay nubes o viento.</p><p>Las personas que estudian el tiempo se llaman <b>meteorólogos</b>. Usan aparatos para medirlo:</p><ul><li>El <b>termómetro</b> mide la temperatura: si hace frío o calor.</li><li>El <b>pluviómetro</b> recoge la lluvia y mide cuánta ha caído.</li><li>La <b>veleta</b> señala de dónde viene el viento.</li><li>El <b>anemómetro</b> mide la fuerza del viento.</li></ul><p>Con estos datos y con fotos de satélites hacen el <b>pronóstico del tiempo</b>, que vemos en la televisión: soles, nubes, gotas y flechas de viento.</p><p>Saber qué tiempo hará nos ayuda a elegir la ropa, decidir si llevar paraguas o saber si podemos ir de excursión.</p><p><b>Actividad</b>: haz un calendario del tiempo y dibuja cada día un sol, una nube o lluvia.</p>`,
+      L6.filas("Aparatos", [["termómetro", "temperatura", cRO], ["pluviómetro", "lluvia", cAZ], ["veleta", "dirección", cNA], ["anemómetro", "fuerza", cVE]])],
+    ["Repaso: la cometa de Nico", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Al principio la cometa no vuela porque hay <b>calma</b>: no hay viento.</li><li>¿Cómo saben que llega el viento? Las <b>hojas se mueven</b> y la hierba se inclina: ¡el aire no se ve, pero vemos lo que hace!</li><li>Nico nota el aire fresco en la cara: lo siente con el <b>tacto</b>.</li><li>La cometa vuela porque el aire la <b>empuja y la sostiene</b>.</li><li>¿Qué viento sería mejor, brisa o huracán? Una <b>brisa</b> o viento moderado. ¡Con un huracán, la cometa se rompería!</li><li>Los pájaros vuelan igual: el aire los sostiene.</li></ul><p>Las cometas se inventaron en China hace miles de años. ¡Algunas eran enormes!</p><p><b>Actividad</b>: construye una cometa sencilla con una bolsa de plástico, dos palillos y una cuerda.</p>`,
+      H6.dos("Cometa", ["SIN VIENTO", ["calma", "cae", "no vuela"], cMO], ["CON VIENTO", ["brisa", "sube", "¡vuela!"], cVE])],
+  ],
+  ejemplos: [
+    ["¿Por qué sube un globo aerostático?", ["Calienta el aire de dentro.", "El aire caliente pesa menos."], "Porque el aire caliente sube."],
+    ["¿Con qué medimos la fuerza del viento?", ["Busco el aparato de cazoletas."], "Con el anemómetro."],
+  ],
+  errores: ["Pensar que en el espacio hay aire.", "Creer que el aire frío sube."],
+  ejercicios: [
+    ["b", "¿Cómo se llama la capa de aire de la Tierra?", "Atmósfera."],
+    ["b", "¿El aire caliente sube o baja?", "Sube."],
+    ["b", "¿Qué es una brisa?", "Un viento suave."],
+    ["b", "Di un animal que vuele.", "Pájaro, mariposa, murciélago…"],
+    ["b", "¿Qué mide el termómetro?", "La temperatura."],
+    ["m", "Di dos cosas que hace la atmósfera por nosotros.", "Nos da aire y nos protege del sol."],
+    ["m", "¿Por qué sube el humo?", "Porque está caliente."],
+    ["m", "¿Qué hacemos si hay viento muy fuerte?", "Quedarnos en un lugar seguro."],
+    ["m", "¿Cómo viajan las semillas del diente de león?", "Con el viento, como paracaídas."],
+    ["m", "¿Qué es el pronóstico del tiempo?", "Lo que dicen que hará."],
+    ["a", "En la lectura, ¿cómo saben que llega el viento?", "Porque se mueven las hojas y la hierba."],
+    ["a", "¿Por qué los astronautas llevan trajes especiales?", "Porque en el espacio no hay aire."],
+    ["a", "Explica cómo se forma el viento.", "El aire caliente sube y el frío ocupa su lugar."],
+    ["a", "¿Qué inventos copian a los animales que vuelan?", "Aviones, planeadores, paracaídas."],
+  ],
+  quiz: [
+    ["La atmósfera es…", ["una capa de aire", "un mar", "una montaña"], "Atmósfera."],
+    ["El aire caliente…", ["sube", "baja", "se queda quieto"], "Caliente."],
+    ["El viento más peligroso es el…", ["huracán", "brisa", "calma"], "Fuerza."],
+    ["El único mamífero que vuela es el…", ["murciélago", "pájaro", "gato"], "Viajeros."],
+    ["La lluvia se mide con el…", ["pluviómetro", "termómetro", "anemómetro"], "Tiempo."],
+  ],
+  examen: [
+    ["En la lectura, ¿quién ayuda a Nico con la cometa?", ["su abuela", "su padre", "su amigo"], "Lectura."],
+    ["La cometa vuela porque el aire…", ["la empuja y la sostiene", "la calienta", "la moja"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Aire caliente", "Pesa menos y sube."],
+    ["Atmósfera", "Capa de aire que protege la Tierra."],
+  ],
+  glosario: [
+    ["Atmósfera", "Capa de aire que rodea la Tierra."],
+    ["Oxígeno", "Parte del aire que necesitamos para respirar."],
+    ["Brisa", "Viento suave."],
+    ["Huracán", "Viento muy fuerte y peligroso."],
+    ["Veleta", "Aparato que señala de dónde viene el viento."],
+    ["Anemómetro", "Aparato que mide la fuerza del viento."],
+    ["Pluviómetro", "Aparato que mide la lluvia."],
+    ["Meteorólogo", "Persona que estudia el tiempo."],
+    ["Globo aerostático", "Globo que vuela con aire caliente."],
+    ["Planear", "Volar sin mover las alas."],
+  ],
+  situacion: {
+    titulo: "Nuestra estación meteorológica",
+    reto: "La clase construye una pequeña estación del tiempo y anota cada día cómo está el aire.",
+    pasos: ["Fabricar una veleta y un pluviómetro con materiales reciclados.", "Anotar cada día la temperatura, el viento y la lluvia.", "Dibujar el tiempo en un calendario.", "Presentar el pronóstico de la clase como en la tele."],
+    producto: "Una estación meteorológica y un calendario del tiempo.",
+    evaluacion: ["Explica qué es la atmósfera.", "Sabe que el aire caliente sube.", "Clasifica vientos por su fuerza.", "Usa aparatos del tiempo."],
+  },
+});
