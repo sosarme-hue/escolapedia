@@ -91,3 +91,90 @@ module.exports = tema({
   ideas: ["Calendario de planes de la semana compartido en parejas.", "Propósitos de curso escritos con going to.", "Juego de predicciones con imágenes: «What's going to happen?»."],
   fuentes: [["British Council LearnEnglish Kids: going to", "https://learnenglishkids.britishcouncil.org/grammar-practice/going"], ["Cambridge Dictionary: be going to", "https://dictionary.cambridge.org/grammar/british-grammar/be-going-to"]],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { H } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Choose between going to and will", "Talk about intentions, resolutions and future jobs", "Write an invitation to an event"],
+  lectura: { titulo: "The big school project", html: `<p>On Monday, Ms Taylor gave the class some exciting news: «This term, we <b>are going to</b> make a school garden!»</p><p>Everybody cheered. Then they made a plan together.</p><p>«First, we<b>'re going to</b> clean the old corner behind the gym,» said Ms Taylor. «Who has ideas?»</p><p>Hugo raised his hand. «I<b>'m going to</b> bring my grandad's tools. He's a farmer and he<b>'s going to</b> help us on Saturday.»</p><p>«My sister and I <b>are going to</b> make labels for the plants,» said Ainhoa.</p><p>«And I<b>'m going to</b> draw a map of the garden,» added Iker, who loved drawing.</p><p>Ms Taylor wrote everything on the board. «What <b>are we going to</b> plant?» she asked.</p><p>«Tomatoes!» «Strawberries!» «Sunflowers!» shouted the children.</p><p>Suddenly, Daniela looked out of the window. The sky was very dark. «Oh no! Look at those clouds. It<b>'s going to</b> rain!»</p><p>«Don't worry,» laughed Ms Taylor. «Rain is good news for gardens. I think it <b>will</b> be the best project of the year.»</p><p><i>(Fíjate: going to sirve para planes ya decididos y para predicciones con pruebas, como las nubes. Will aparece al final para una opinión: «I think it will…».)</i></p>` },
+  tras: {
+    "How to form it": [
+      ["Pronunciation: gonna", `<p>When people speak quickly in English, <b>going to</b> often sounds like <b>«gonna»</b> /gona/: «I'm gonna watch a film.» «Are you gonna come?» You will hear it in songs, films and series all the time.</p><p>But be careful: <b>gonna</b> is only for <b>informal speaking</b>. When you write, always write the complete form: <b>going to</b>. In exams, in emails to teachers and in your school work, never write «gonna».</p><p>Also notice the <b>contractions</b> with the verb <i>be</i>, which are normal in speaking and in informal writing:</p><ul><li>I am → <b>I'm</b> going to…</li><li>you are → <b>you're</b> going to…</li><li>he is / she is / it is → <b>he's</b> / <b>she's</b> / <b>it's</b> going to…</li><li>we are / they are → <b>we're</b> / <b>they're</b> going to…</li></ul><p>When <b>go</b> is the main verb, we can say «I'm going to <b>go</b> to the beach», but it's more natural to say «I'm going to the beach» (present continuous).</p><p>Practise with this chant: «What are you gonna do? I'm gonna dance! What is she gonna do? She's gonna go to France!»</p>`,
+        L.filas("Spoken and written", [["written", "I'm going to watch", AZ], ["spoken", "I'm gonna watch", NA], ["short forms", "I'm · she's · we're", VE], ["exams", "never write gonna!", RO]])],
+    ],
+    "Predictions: look at the sky!": [
+      ["Will or going to?", `<p>English has two common ways to talk about the future: <b>going to</b> and <b>will</b>. Here's how to choose:</p><ul><li><b>Going to</b> for <b>plans</b> already decided: «I'm going to visit Paris next summer. We've got the tickets.» And for <b>predictions with evidence</b> (something we can see now): «Look at that glass! It's going to fall.»</li><li><b>Will</b> for <b>decisions made at the moment of speaking</b>: «It's cold in here.» – «I'll close the window.» And for <b>predictions based on opinion</b>, often with <i>I think</i>, <i>maybe</i>, <i>probably</i>: «I think it will be sunny tomorrow.» «Maybe robots will do our homework in the future.»</li><li><b>Will</b> also for <b>promises</b> and <b>offers</b>: «I'll help you with your project.» «I won't tell anybody. I promise!»</li></ul><p>Forms of will: <b>will + base form</b> for all persons: I will (<b>I'll</b>) go, she will (<b>she'll</b>) go. Negative: <b>won't</b> (will not). Question: «<b>Will</b> you come?» – «Yes, I will.»</p><p>Compare: «The phone is ringing!» – «<b>I'll</b> answer it.» (decided now) / «I<b>'m going to</b> call Grandma tonight.» (a plan from before).</p>`,
+        H.dos("Going to or will?", ["going to", ["plans", "evidence: clouds", "I'm going to visit…"], AZ], ["will", ["decide now", "opinion, promise", "I'll close it."], VE]), ["HTiT63K0KMo", "Futuro simple (Going to vs. Will)", "Learn English on Skype", 642940]],
+    ],
+    "Future time expressions": [
+      ["Intentions and resolutions", `<p>At the beginning of a new year, or a new school year, many people make <b>resolutions</b> (propósitos): things they want to change or improve. We usually write them with <b>going to</b>:</p><ul><li>«This year I<b>'m going to</b> read a book every month.»</li><li>«I<b>'m going to</b> learn to swim.»</li><li>«I<b>'m going to</b> eat more fruit and fewer sweets.»</li><li>«I<b>'m not going to</b> spend so much time with the tablet.»</li><li>«I<b>'m going to</b> help more at home.»</li></ul><p>Good resolutions are <b>realistic</b> and <b>concrete</b>. «I'm going to be perfect» is not a good resolution! «I'm going to practise the guitar for twenty minutes every day» is much better: you can check if you do it.</p><p>To make your resolutions stronger, add <b>how</b> and <b>when</b>: «I'm going to read every night <b>before bed</b>.» «I'm going to tidy my room <b>on Saturday mornings</b>.»</p><p>You can also talk about the resolutions of other people: «My dad is going to stop drinking so much coffee.» «My sister is going to join a theatre group.»</p><p>Write your resolutions on a card and check them at the end of the term. Did you do what you planned?</p>`,
+        L.filas("My resolutions", [["read", "a book every month", AZ], ["learn", "to swim", VE], ["eat", "more fruit, fewer sweets", NA], ["not", "so much tablet", RO], ["help", "more at home", AM]])],
+    ],
+  },
+  final: [
+    ["When I grow up…", `<p>What <b>are you going to be</b> when you grow up? Here is some vocabulary about <b>jobs</b>:</p><ul><li>Health: <b>doctor</b>, <b>nurse</b>, <b>vet</b> (veterinario), <b>dentist</b>.</li><li>Science and technology: <b>scientist</b>, <b>engineer</b>, <b>programmer</b>, <b>astronaut</b>.</li><li>Art and entertainment: <b>artist</b>, <b>musician</b>, <b>actor / actress</b>, <b>writer</b>, <b>photographer</b>.</li><li>Services: <b>teacher</b>, <b>firefighter</b> (bombero), <b>police officer</b>, <b>pilot</b>, <b>cook / chef</b>, <b>farmer</b>.</li><li>Sport: <b>footballer</b>, <b>tennis player</b>, <b>coach</b> (entrenador).</li></ul><p>Remember to use <b>a / an</b> with jobs: «I'm going to be <b>a</b> vet.» «She's going to be <b>an</b> engineer.» In Spanish we don't use the article («voy a ser veterinario»), but in English it's necessary!</p><p>Explain your reasons with <b>because</b>: «I'm going to be a vet <b>because</b> I love animals.» And talk about the steps: «First, I'm going to study biology. Then I'm going to work in a zoo.»</p><p>Of course, you can change your mind many times. Most adults didn't know at your age!</p>`,
+      L.filas("Future jobs", [["Health", "a doctor · a vet · a nurse", RO], ["Science", "a scientist · an engineer", AZ], ["Art", "an artist · a writer", AM], ["Services", "a teacher · a firefighter", NA]])],
+    ["Writing: an invitation", `<p>An <b>invitation</b> is a short text to invite people to an event: a birthday party, a school play, a sports match… Here's how to write one:</p><ol><li><b>Greeting</b>: «Dear Lucas,» or «Hi everybody!»</li><li><b>The event</b> with going to: «I<b>'m going to</b> have a birthday party!» «Our class <b>is going to</b> perform a play.»</li><li><b>The details</b>: <b>when</b> (date and time), <b>where</b> (place and address) and <b>what</b> you're going to do. «It's on Saturday 15th May, at 5 o'clock, at my house (12 Rose Street). We're going to play games, eat pizza and watch a film.»</li><li><b>What to bring</b> (if necessary): «Please bring a swimsuit and a towel.»</li><li><b>Asking for an answer</b>: «Please tell me if you can come before Wednesday.» Sometimes invitations say <b>RSVP</b> (from French: <i>répondez s'il vous plaît</i>, «please reply»).</li><li><b>Closing</b>: «Hope to see you there!» «See you soon,» + your name.</li></ol><p>To <b>answer</b> an invitation: «Thank you for the invitation! I'd love to come.» or «Thank you, but I'm sorry, I can't come. I'm going to visit my grandparents that weekend.»</p>`,
+      L.filas("Invitation checklist", [["What?", "a birthday party", AZ], ["When?", "Saturday 15th May, 5 pm", VE], ["Where?", "12 Rose Street", NA], ["Bring?", "a swimsuit", AM], ["Reply", "RSVP before Wednesday", RO]])],
+  ],
+  ejemplos: [
+    ["Going to or will? «Look! That boy ___ fall off the wall.» / «I'm thirsty.» «I ___ get you some water.»", ["There is evidence (we can see him) → going to: is going to fall.", "Decision at the moment of speaking → will: I'll get."], "That boy is going to fall off the wall. I'll get you some water."],
+    ["Correct: «I'm going to be vet because I love animals.»", ["Jobs need a / an in English.", "Vet starts with a consonant sound → a."], "I'm going to be a vet because I love animals."],
+  ],
+  errores: ["Escribir «gonna» en un texto escrito: en la escritura siempre «going to».", "Olvidar el artículo con las profesiones: «I'm going to be teacher» → «a teacher»."],
+  ejercicios: [
+    ["b", "Write the contractions: I am, she is, we are, they are.", "I'm, she's, we're, they're."],
+    ["b", "Complete with will: «I'm cold.» «I ___ close the window.»", "'ll (will)."],
+    ["b", "Write two resolutions for this school year.", "Example: I'm going to read more. I'm going to learn to swim."],
+    ["b", "Translate: «Voy a ser bombero.»", "I'm going to be a firefighter."],
+    ["b", "What does RSVP mean?", "Please reply (répondez s'il vous plaît)."],
+    ["m", "Going to or will? «I think robots ___ do housework in the future.»", "will."],
+    ["m", "Going to or will? «We've got the tickets. We ___ fly to Rome in July.»", "are going to."],
+    ["m", "Make negative: «She's going to be a pilot.»", "She isn't going to be a pilot."],
+    ["m", "Write a promise with will.", "Example: I'll help you with your homework."],
+    ["m", "Make a resolution more concrete: «I'm going to be healthier.»", "Example: I'm going to eat fruit every day and walk to school."],
+    ["a", "Write an invitation to your birthday party with all the parts.", "Open answer."],
+    ["a", "Write a paragraph: «When I grow up, I'm going to be…» with reasons and steps.", "Open answer."],
+    ["a", "Write a short dialogue with two offers or decisions with will and two plans with going to.", "Open answer."],
+    ["a", "Write five predictions about your town in 2050 with will.", "Open answer. Example: There will be more electric cars."],
+  ],
+  quiz: [
+    ["«The phone is ringing.» «I ___ answer it.»", ["'ll", "'m going to", "am"], "Decision now."],
+    ["«Look at the clouds! It ___ rain.»", ["'s going to", "will", "goes"], "Evidence."],
+    ["«Gonna» is…", ["informal speaking", "formal writing", "a mistake always"], "Only for speaking."],
+    ["«She's going to be ___ engineer.»", ["an", "a", "—"], "Jobs need an article."],
+    ["«I won't tell anybody» is a…", ["promise", "plan", "prediction with evidence"], "Will for promises."],
+  ],
+  examen: [
+    ["«Next summer we ___ visit Scotland. We've booked the hotel.»", ["are going to", "will", "go to"], "Plan."],
+    ["Negative of «I will» is…", ["I won't", "I willn't", "I don't will"], "won't."],
+  ],
+  tarjetas: [
+    ["gonna", "Forma oral informal de going to."],
+    ["will", "Decisiones al momento, opiniones y promesas."],
+    ["resolutions", "Propósitos: I'm going to read more."],
+    ["jobs", "I'm going to be a vet / an engineer."],
+  ],
+  glosario: [
+    ["plan", "Plan."],
+    ["intention", "Intención."],
+    ["prediction", "Predicción."],
+    ["evidence", "Prueba, señal."],
+    ["resolution", "Propósito."],
+    ["promise", "Promesa."],
+    ["offer", "Ofrecimiento."],
+    ["invitation", "Invitación."],
+    ["RSVP", "Se ruega respuesta."],
+    ["vet", "Veterinario/a."],
+    ["firefighter", "Bombero/a."],
+    ["grow up", "Crecer, hacerse mayor."],
+  ],
+  situacion: {
+    titulo: "Our class event",
+    reto: "La clase organiza en inglés un evento (una feria, una obra o una jornada deportiva) y prepara el plan y las invitaciones.",
+    pasos: ["Decide the event in groups and write the plan: who is going to do what.", "Make predictions: What's going to be difficult? What do you think will happen?", "Write invitations for families or another class with all the details.", "Hold the event and, afterwards, talk about what went well."],
+    producto: "Un plan de evento e invitaciones en inglés.",
+    evaluacion: ["Uses going to for plans and predictions with evidence.", "Uses will for decisions, opinions and promises.", "Writes a complete invitation.", "Talks about future intentions and jobs."],
+  },
+});

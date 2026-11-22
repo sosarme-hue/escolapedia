@@ -91,3 +91,91 @@ module.exports = tema({
   ideas: ["Juego de rol en la taquilla de una estación o en el mostrador de un aeropuerto.", "Postales de clase con un viaje real o imaginario.", "Concurso «Pack your suitcase» con tarjetas de objetos según el destino."],
   fuentes: [["British Council LearnEnglish Kids: holidays", "https://learnenglishkids.britishcouncil.org/word-games/holidays"], ["Cambridge Dictionary: travel vocabulary", "https://dictionary.cambridge.org/topics/travel-and-tourism/"]],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { H } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Name countries, nationalities and languages", "Make polite requests at a hotel or a restaurant", "Talk about past and future holidays and be a responsible tourist"],
+  lectura: { titulo: "An email from Ireland", html: `<p><i>From: Marta<br>To: Carlos<br>Subject: Hello from Ireland!</i></p><p>Hi Carlos,</p><p>How are you? I'm writing from Galway, in the west of Ireland. We <b>arrived</b> five days ago <b>by plane</b> from Bilbao. The flight <b>was</b> short, only two hours, but I <b>was</b> a bit nervous because it <b>was</b> my first time on a plane!</p><p>We<b>'re staying</b> at a small guest house near the sea. The owner, Mrs O'Brien, is very friendly. Every morning she makes a huge Irish breakfast: eggs, sausages, beans and toast. Yesterday I <b>asked</b>: «<b>Could I have</b> some cereal, please?» and she <b>laughed</b>. Now I get cereal and pancakes!</p><p>The weather is crazy here. In one day it can be sunny, rainy and windy. I always carry my raincoat in my backpack.</p><p>On Tuesday we <b>visited</b> the Cliffs of Moher. They <b>were</b> enormous! We <b>saw</b> puffins, little black and white birds with orange beaks. People here speak English, but some signs are also in <b>Irish</b>, the old language of Ireland.</p><p>Tomorrow we<b>'re going to</b> take a boat to the Aran Islands. I<b>'m going to</b> buy you a souvenir.</p><p>See you soon!<br>Marta</p>` },
+  videos: { "At the airport and the station": ["fC-ZZflVfcE", "At the Airport: Travel English Vocabulary", "Ellii (formerly ESL Library)", 543668] },
+  tras: {
+    "Transport: how did you travel?": [
+      ["Countries, nationalities and languages", `<p>When we travel, we visit other <b>countries</b>, meet people of other <b>nationalities</b> and hear other <b>languages</b>. In English, nationalities and languages are always written with a <b>capital letter</b> (en castellano, con minúscula):</p><ul><li><b>Spain</b> → Spanish → Spanish (and Catalan, Galician, Basque).</li><li><b>England / the UK</b> → English / British → English.</li><li><b>Ireland</b> → Irish → English and Irish.</li><li><b>France</b> → French → French.</li><li><b>Italy</b> → Italian → Italian.</li><li><b>Germany</b> → German → German.</li><li><b>Portugal</b> → Portuguese → Portuguese.</li><li><b>Greece</b> → Greek → Greek.</li><li><b>China</b> → Chinese → Chinese.</li><li><b>Japan</b> → Japanese → Japanese.</li><li><b>Mexico</b> → Mexican → Spanish.</li><li><b>the United States</b> → American → English.</li></ul><p>Useful questions: «Where are you <b>from</b>?» – «I'm <b>from</b> Spain. I'm Spanish.» «What languages <b>do you speak</b>?» – «I speak Spanish, Catalan and a bit of English.»</p><p>Notice the endings: <b>-ish</b> (Spanish, English), <b>-an</b> (Italian, Mexican), <b>-ese</b> (Chinese, Portuguese).</p>`,
+        L.tabla("Country → nationality", ["Country", "Nationality"], [["Spain", "Spanish"], ["France", "French"], ["Italy", "Italian"], ["Portugal", "Portuguese"], ["Germany", "German"]])],
+    ],
+    "At the airport and the station": [
+      ["At the hotel and the restaurant", `<p>On holiday you need to ask for things <b>politely</b>. Use <b>Could I…?</b>, <b>Can I have…?</b> and <b>I'd like…</b> (I would like, me gustaría), and always say <b>please</b> and <b>thank you</b>.</p><p><b>At the hotel</b>:</p><ul><li>«Hello, we've got a reservation. Our name is García.»</li><li>«Could we have a room with a view of the sea, please?»</li><li>«What time is breakfast?» – «From seven to ten.»</li><li>«Could I have another towel, please?»</li><li>«Is there wifi?» – «Yes, the password is on the card.»</li></ul><p><b>At the restaurant</b>:</p><ul><li>«A table for four, please.»</li><li>«Can I see the menu, please?»</li><li>«I'd like the fish and chips, please.» / «I'll have a salad.»</li><li>«Can I have some water, please?»</li><li>«Could we have the bill, please?» (la cuenta)</li></ul><p>The waiter may ask: «Are you ready to order?», «Anything to drink?», «Would you like a dessert?». Answer: «Yes, please» or «No, thank you».</p><p>In the UK and Ireland, people say <b>please</b>, <b>thank you</b> and <b>sorry</b> a lot. Using these words makes a very good impression! And remember that in many countries it is normal to leave a small tip (propina) for the waiter if you are happy with the service.</p>`,
+        L.dialogo("At the restaurant", [["Waiter", "Are you ready to order?", AZ], ["Ana", "I'd like the pasta, please.", RO], ["Waiter", "Anything to drink?", AZ], ["Ana", "Can I have water, please?", RO]])],
+    ],
+    "Holiday activities": [
+      ["Last summer and next summer", `<p>Holidays are perfect to practise two tenses: the <b>past simple</b> (to tell about your last holiday) and <b>going to</b> (to talk about your plans).</p><p><b>Last summer</b> (past simple):</p><ul><li>«Last summer I <b>went</b> to Asturias with my family.»</li><li>«We <b>travelled</b> by car and we <b>stayed</b> at a campsite.»</li><li>«The weather <b>was</b> cloudy but warm.»</li><li>«I <b>swam</b> in the sea, I <b>ate</b> lots of cheese and I <b>visited</b> a cave.»</li><li>«It <b>was</b> fantastic!»</li></ul><p><b>Next summer</b> (going to):</p><ul><li>«Next summer I<b>'m going to</b> go to my grandparents' village.»</li><li>«We<b>'re going to</b> travel by train.»</li><li>«I<b>'m going to</b> ride my bike every day and help on the farm.»</li></ul><p>Remember the time expressions: <b>last summer, two years ago, in 2023</b> (past) and <b>next summer, this August, in two weeks</b> (future).</p><p>Ask your classmates: «Where did you go last summer?» «Where are you going to go next summer?» Then compare your answers in a table. Who travelled the furthest? Who is going to have the most exciting holiday? You can make a class map with pins for all the places.</p>`,
+        H.dos("Past and future", ["Last summer", ["I went", "we stayed", "it was great"], AZ], ["Next summer", ["I'm going to go", "we're going to travel", "it'll be fun"], VE])],
+    ],
+  },
+  final: [
+    ["Responsible tourism", `<p>Travelling is fantastic, but tourists can also cause problems: rubbish on beaches, too much noise, too many people in small places, wasted water… A <b>responsible tourist</b> respects the places they visit and the people who live there. Here's some advice:</p><ul><li>You <b>should</b> take your rubbish with you and recycle it. You <b>shouldn't</b> leave anything on the beach or in the mountains.</li><li>You <b>should</b> stay on the paths in natural parks and you <b>shouldn't</b> pick flowers or feed wild animals.</li><li>You <b>should</b> save water and electricity in hotels: have short showers and turn off the lights and the air conditioning when you go out.</li><li>You <b>should</b> learn a few words of the local language: hello, please, thank you. People really appreciate it!</li><li>You <b>should</b> try local food and buy souvenirs from local artisans.</li><li>You <b>shouldn't</b> make noise at night in residential areas.</li><li>You <b>should</b> travel by train, bus or bike when possible: they pollute less than planes and cars.</li></ul><p>Remember the motto: <b>«Take only photos, leave only footprints.»</b> (Llévate solo fotos y deja solo huellas.) Being a good tourist means that the next visitors will enjoy the place as much as you did.</p>`,
+      L.filas("Responsible tourist", [["Rubbish", "take it with you", VE], ["Nature", "stay on the paths", AZ], ["Water", "short showers", NA], ["Language", "hello · please · thank you", AM], ["Transport", "train, bus or bike", RO]])],
+    ["Writing: a holiday email", `<p>When you are on holiday, you can write an <b>email</b> or a <b>postcard</b> to a friend. Look at Marta's email in the reading and follow her structure:</p><ol><li><b>Subject</b> (asunto): short and clear. «Hello from Ireland!»</li><li><b>Greeting</b>: «Hi Carlos,» or «Dear Grandma,».</li><li><b>Opening</b>: a question or a sentence to start. «How are you? I'm writing from Galway.»</li><li><b>Where you are and how you travelled</b> (past simple): «We arrived five days ago by plane.»</li><li><b>Where you're staying and what it's like</b> (present): «We're staying at a small guest house. The owner is very friendly.»</li><li><b>What you did</b> (past simple) and <b>the weather</b>: «On Tuesday we visited the cliffs. The weather is crazy here.»</li><li><b>Your plans</b> (going to): «Tomorrow we're going to take a boat.»</li><li><b>Closing</b>: «See you soon!», «Love,», «Bye for now,» + your name.</li></ol><p>An email is <b>informal</b>: you can use contractions (I'm, we're) and exclamations. But check your spelling and punctuation before you press «send»!</p>`,
+      L.filas("Holiday email", [["Subject", "Hello from Ireland!", AZ], ["Greeting", "Hi Carlos,", VE], ["Past", "We arrived by plane.", NA], ["Plans", "We're going to…", AM], ["Closing", "See you soon!", RO]])],
+  ],
+  ejemplos: [
+    ["Write the nationality and language: France, Portugal, Japan.", ["France → French (nationality and language).", "Portugal → Portuguese.", "Japan → Japanese. All with capital letters in English."], "French, Portuguese, Japanese"],
+    ["Make it polite: «Give me the bill.»", ["Use Could we / Could I + have…?", "Add please at the end."], "Could we have the bill, please?"],
+  ],
+  errores: ["Escribir nacionalidades e idiomas con minúscula: «spanish» → «Spanish».", "Pedir sin cortesía: «I want water» → «Can I have some water, please?»."],
+  ejercicios: [
+    ["b", "Write the nationality: Italy, Germany, Greece, China.", "Italian, German, Greek, Chinese."],
+    ["b", "Translate: «¿Me trae la cuenta, por favor?»", "Could we have the bill, please?"],
+    ["b", "Write two things a responsible tourist should do.", "Example: take your rubbish with you; save water."],
+    ["b", "Complete: «Last summer I ___ (go) to the beach. Next summer I'm ___ to go to the mountains.»", "went, going."],
+    ["b", "What does «Take only photos, leave only footprints» mean?", "Llévate solo fotos y deja solo huellas: respeta los lugares que visitas."],
+    ["m", "Correct: «I'm spanish and I speak english and french.»", "I'm Spanish and I speak English and French."],
+    ["m", "Write three polite requests at a hotel.", "Example: Could I have another towel, please? What time is breakfast? Is there wifi?"],
+    ["m", "Answer: «Where did you go last summer? How did you travel?»", "Open answer in the past simple."],
+    ["m", "Where did Marta go? How did she travel? What did she see?", "She went to Galway, in Ireland, by plane. She saw the Cliffs of Moher and puffins."],
+    ["m", "Order the dialogue: «I'd like the pasta.» / «Are you ready to order?» / «Anything to drink?» / «Water, please.»", "Are you ready to order? I'd like the pasta. Anything to drink? Water, please."],
+    ["a", "Write a holiday email to a friend with all the parts.", "Open answer."],
+    ["a", "Role-play at the restaurant: write a dialogue of eight lines.", "Open answer."],
+    ["a", "Make a poster «How to be a responsible tourist» with six tips.", "Open answer with should and shouldn't."],
+    ["a", "Write about your last holiday and your plans for the next one (eight sentences).", "Open answer with past simple and going to."],
+  ],
+  quiz: [
+    ["People from Portugal are…", ["Portuguese", "Portugish", "Portugal"], "-ese ending."],
+    ["«Could we have the ___, please?» (cuenta)", ["bill", "menu", "table"], "At the restaurant."],
+    ["«I'd like» means…", ["me gustaría", "me gusta", "me gustó"], "Polite request."],
+    ["A responsible tourist should…", ["take rubbish home", "feed wild animals", "pick flowers"], "Respect nature."],
+    ["«Next summer I ___ visit London.»", ["'m going to", "went", "visited"], "Future plan."],
+  ],
+  examen: [
+    ["In English, languages are written…", ["with a capital letter", "in small letters", "in italics"], "Spanish, English."],
+    ["«Where ___ you go last summer?»", ["did", "are", "do"], "Past simple question."],
+  ],
+  tarjetas: [
+    ["Nationalities", "Spanish, French, Italian, Portuguese (con mayúscula)."],
+    ["Polite requests", "Could I have…? Can I have…? I'd like…"],
+    ["Responsible tourism", "Take only photos, leave only footprints."],
+    ["Holiday email", "Subject, greeting, past, plans, closing."],
+  ],
+  glosario: [
+    ["country", "País."],
+    ["nationality", "Nacionalidad."],
+    ["language", "Idioma."],
+    ["reservation", "Reserva."],
+    ["bill", "Cuenta (restaurante)."],
+    ["menu", "Carta, menú."],
+    ["guest house", "Casa de huéspedes."],
+    ["souvenir", "Recuerdo."],
+    ["rubbish", "Basura."],
+    ["footprint", "Huella."],
+    ["subject", "Asunto (de un email)."],
+    ["polite", "Educado, cortés."],
+  ],
+  situacion: {
+    titulo: "Class travel agency",
+    reto: "La clase monta en inglés una agencia de viajes que diseña viajes responsables a distintos países y los presenta a sus clientes.",
+    pasos: ["In groups, choose a country and find information: language, nationality, places to visit, food and weather.", "Plan a five-day trip with going to: transport, accommodation and activities.", "Write tips for responsible tourism in that country and a model holiday email.", "Role-play: some students are travel agents and others are customers who ask questions politely."],
+    producto: "Folletos de viaje y una representación de la agencia.",
+    evaluacion: ["Uses vocabulary of countries, nationalities and languages.", "Makes polite requests.", "Talks about past and future holidays.", "Gives advice for responsible tourism."],
+  },
+});

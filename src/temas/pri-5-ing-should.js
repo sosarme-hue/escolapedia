@@ -91,3 +91,90 @@ module.exports = tema({
   ideas: ["Consultorio de la doctora: cartas de problemas y respuestas.", "Mural de clase «10 healthy habits».", "Juego de tarjetas de problemas y consejos por parejas."],
   fuentes: [["British Council LearnEnglish Kids: should", "https://learnenglishkids.britishcouncil.org/grammar-practice/should"], ["Cambridge Dictionary: should", "https://dictionary.cambridge.org/grammar/british-grammar/should"]],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { H } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Give advice politely with I think you should, Why don't you…? and You could…", "Distinguish advice (should) from rules (must, mustn't)", "Talk about sleep, screens and a visit to the doctor"],
+  lectura: { titulo: "Tom's tired week", html: `<p>Tom was always tired. On Monday he fell asleep in Maths. On Tuesday he forgot his PE kit. On Wednesday he was grumpy with his best friend.</p><p>On Thursday, his teacher, Mr Brown, asked him to stay after class. «Tom, what's the matter? You look very tired.»</p><p>«I don't know,» said Tom. «I go to bed at ten, but I play games on my tablet until midnight.»</p><p>«Ah, I see,» said Mr Brown. «I think you <b>should</b> leave your tablet in the living room at night. The light from the screen keeps your brain awake.»</p><p>Tom's grandma had more ideas. «You <b>shouldn't</b> drink cola in the evening, love. <b>Why don't you</b> read a book in bed instead?»</p><p>His sister Mia added: «And you <b>should</b> have a proper breakfast. You <b>could</b> try porridge with banana. It's delicious!»</p><p>Tom decided to try. He left the tablet downstairs, read a comic and fell asleep at half past nine. The next morning he woke up before his alarm. He had breakfast and walked to school with a smile.</p><p>«Good morning, Tom!» said Mr Brown. «You look different today.»</p><p>«I feel great,» said Tom. «Good advice really works!»</p>` },
+  tras: {
+    "Shouldn't: it's not a good idea": [
+      ["Should or must?", `<p><b>Should</b> and <b>must</b> are different. Should gives <b>advice</b>: it's a good idea, but you decide. <b>Must</b> expresses a <b>rule</b> or an <b>obligation</b>: you have to do it.</p><ul><li>«You <b>should</b> eat more fruit.» (It's a good idea.)</li><li>«You <b>must</b> wear a helmet when you ride a motorbike.» (It's the law.)</li></ul><p>The negatives are also different:</p><ul><li><b>shouldn't</b>: it's not a good idea. «You shouldn't eat so many sweets.»</li><li><b>mustn't</b>: it's prohibited (está prohibido). «You <b>mustn't</b> run in the corridors.» «You <b>mustn't</b> use your phone in class.»</li></ul><p>School rules are a good example of <b>must</b> and <b>mustn't</b>: «We must be on time. We mustn't shout in the library. We must respect our classmates.» Signs in public places also use them: «You mustn't feed the animals.» «You must stop at the red light.»</p><p>Like should, <b>must</b> is the same for all persons, and is followed by the base form without <i>to</i>: «She must go», not «she musts go» or «she must to go».</p>`,
+        H.dos("Advice or rule?", ["should", ["advice", "a good idea", "eat more fruit"], VE], ["must", ["rule, law", "obligatory", "mustn't run"], RO])],
+    ],
+    "Asking for advice": [
+      ["Other ways to give advice", `<p>«You should…» is very useful, but sometimes it can sound a bit strong. Here are other ways to give advice in a <b>polite</b> and friendly way:</p><ul><li><b>I think you should…</b>: «I think you should talk to your teacher.»</li><li><b>Maybe you should…</b>: «Maybe you should go to bed earlier.»</li><li><b>Why don't you…?</b> (¿Por qué no…?): «Why don't you join the basketball team?»</li><li><b>You could…</b> (Podrías…): «You could ask your brother for help.»</li><li><b>If I were you, I'd…</b> (Yo que tú…): «If I were you, I'd say sorry.»</li></ul><p>To <b>react</b> to advice, you can say: «That's a good idea!», «Thanks, I'll try.», «You're right.» or, if you don't agree, «I'm not sure. Maybe…».</p><p>When you give advice to a friend, first <b>listen</b> and show that you understand: «Oh no! I'm sorry.» «That sounds difficult.» Then give your advice. Good advice is kind, clear and useful.</p>`,
+        L.filas("Polite advice", [["I think you", "should rest", AZ], ["Why don't you…?", "join the team?", VE], ["You could", "ask for help", NA], ["If I were you,", "I'd say sorry", AM]]), ["OxO7YB-lNS0", "Dar consejos en inglés con should y shouldn't", "Memovoc English", 383135]],
+    ],
+    "A balanced diet": [
+      ["Sleep and screens", `<p>Two very important healthy habits are <b>sleeping well</b> and <b>using screens</b> in a sensible way.</p><p><b>Sleep</b>: doctors say that children between 6 and 12 years old should sleep <b>between 9 and 12 hours</b> every night. While we sleep, our body grows, our brain organises what we learned during the day and we recover energy. Advice for good sleep:</p><ul><li>You should go to bed at the <b>same time</b> every day, also at the weekend.</li><li>You shouldn't use screens (tablet, phone, TV) <b>one hour before bed</b>: the light keeps the brain awake.</li><li>You should keep your bedroom <b>dark, quiet and cool</b>.</li><li>You shouldn't have big meals or sugary drinks late in the evening.</li></ul><p><b>Screens</b>: tablets, computers and video games can be fun and useful, but too much time is not good for our eyes, our back or our mood. You should take a <b>break every 30 minutes</b>, sit up straight and look at something far away for a few seconds. You should also balance screen time with outdoor play, reading and time with family and friends.</p>`,
+        L.filas("Healthy sleep", [["9–12 hours", "every night", AZ], ["same time", "every day", VE], ["no screens", "1 hour before bed", RO], ["bedroom", "dark, quiet, cool", NA]])],
+    ],
+  },
+  final: [
+    ["At the doctor's", `<p>When we are ill, we go to the doctor. Here is a typical conversation and some useful phrases:</p><ul><li><b>Doctor</b>: «Hello! Come in and sit down. What's the matter?» / «How can I help you?»</li><li><b>Patient</b>: «I've got a sore throat (dolor de garganta) and a temperature (fiebre).» / «My arm hurts.» / «I feel sick.» (tengo náuseas)</li><li><b>Doctor</b>: «How long have you had it?» / «Since yesterday.» / «Let me have a look. Open your mouth and say "aaah".»</li><li><b>Doctor</b>: «It's a cold. You should stay at home for two days and drink lots of water. Take this medicine three times a day, after meals.»</li><li><b>Patient</b>: «Thank you, doctor.»</li></ul><p>More health problems: <b>a cough</b> (tos), <b>a runny nose</b> (mocos), <b>a broken arm</b>, <b>a cut</b>, <b>a bruise</b> (moratón), <b>an allergy</b>, <b>chickenpox</b> (varicela).</p><p>Notice: we say «I've got <b>a</b> headache», «I've got <b>a</b> cold», but «I've got <b>a temperature</b>» or «I've got <b>flu</b>» (gripe, without «a»).</p><p>In an emergency in Spain and the rest of Europe, you can call <b>112</b>. It is free and it works from any phone.</p>`,
+      L.dialogo("At the doctor's", [["Doctor", "What's the matter?", AZ], ["Eva", "I've got a sore throat.", RO], ["Doctor", "You should stay at home.", AZ], ["Eva", "Thank you, doctor.", RO]])],
+    ["Writing: a healthy habits poster", `<p>A <b>poster</b> is a great way to share advice with your school. Here's how to make an effective one:</p><ol><li><b>Choose a topic</b>: healthy food, sleep, screens, exercise, hygiene, safety in the sun…</li><li><b>Write a catchy title</b>: short and with a question or an exclamation. «Are you sleeping enough?» «Move your body!»</li><li><b>Write five or six tips</b>. Use <b>should / shouldn't</b>, or <b>imperatives</b>, which are shorter and very common in posters: «Drink water», «Don't skip breakfast». Imperative = the base form of the verb; negative with <b>Don't</b>.</li><li><b>Add a fact</b> to convince people: «Children need 9 to 12 hours of sleep.»</li><li><b>Design</b>: big letters for the title, one drawing or icon for each tip, few words and bright colours. People should be able to read it from far away.</li></ol><p>Compare the two styles: «You should wash your hands before lunch» (friendly advice) and «Wash your hands before lunch!» (direct instruction). Both are correct; choose the one that fits your poster.</p><p>Finally, check your spelling and put your poster in the corridor or the dining room.</p>`,
+      L.filas("Poster tips", [["Title", "Move your body!", RO], ["Tips", "should · don't + verb", AZ], ["Fact", "9–12 hours of sleep", VE], ["Design", "big letters, icons", NA]])],
+  ],
+  ejemplos: [
+    ["Should or must? «You ___ stop at a red light.» / «You ___ eat more vegetables.»", ["Stopping at a red light is the law → must.", "Eating vegetables is a good idea → should."], "You must stop at a red light. You should eat more vegetables."],
+    ["Give advice in three different ways: «I can't find my keys.»", ["I think you should… → look in your bag.", "Why don't you… → ask your mum?", "You could… → retrace your steps."], "I think you should look in your bag. Why don't you ask your mum? You could retrace your steps."],
+  ],
+  errores: ["Confundir mustn't (está prohibido) con shouldn't (no es buena idea).", "Poner to después de should o must: «You should to go» → «You should go»."],
+  ejercicios: [
+    ["b", "Translate: «No debes correr en los pasillos.» (it's a rule)", "You mustn't run in the corridors."],
+    ["b", "How many hours should children of your age sleep?", "Between 9 and 12 hours."],
+    ["b", "Complete: «Why ___ you go to bed earlier?»", "don't."],
+    ["b", "Write two school rules with must and mustn't.", "Example: We must be on time. We mustn't shout in the library."],
+    ["b", "Translate: «Tengo dolor de garganta y fiebre.»", "I've got a sore throat and a temperature."],
+    ["m", "Correct: «You must to wear a helmet and you shouldn't eats sweets.»", "You must wear a helmet and you shouldn't eat sweets."],
+    ["m", "Give advice with «You could…»: «I'm bored.»", "Example: You could read a book or play outside."],
+    ["m", "Write two tips about screens with should and shouldn't.", "Example: You should take a break every 30 minutes. You shouldn't use screens before bed."],
+    ["m", "Change to imperatives for a poster: «You should drink water. You shouldn't skip breakfast.»", "Drink water. Don't skip breakfast."],
+    ["m", "What advice did Tom get? Write three sentences.", "He should leave his tablet in the living room. He shouldn't drink cola in the evening. He should have a proper breakfast."],
+    ["a", "Write a dialogue at the doctor's with a problem, questions and advice.", "Open answer."],
+    ["a", "Make a healthy habits poster with a title, five tips and a fact.", "Open answer."],
+    ["a", "A friend writes: «I'm nervous about the exam.» Answer with empathy and three pieces of advice.", "Open answer."],
+    ["a", "Write the rules (must / mustn't) and advice (should / shouldn't) for a school trip.", "Open answer."],
+  ],
+  quiz: [
+    ["«You ___ use your phone in the exam.» (prohibited)", ["mustn't", "shouldn't", "don't must"], "A rule."],
+    ["«Why don't you…?» is used to…", ["give advice", "say a rule", "talk about the past"], "Polite suggestion."],
+    ["Children of 6–12 should sleep…", ["9–12 hours", "5–6 hours", "15 hours"], "Medical advice."],
+    ["«I've got ___ temperature.»", ["a", "an", "—"], "I've got a temperature."],
+    ["In posters, «Don't skip breakfast» is an…", ["imperative", "past simple", "question"], "Direct instruction."],
+  ],
+  examen: [
+    ["«You ___ wear a seatbelt in the car.» (law)", ["must", "should", "could"], "Obligation."],
+    ["«If I were you, I'd…» means…", ["Yo que tú, yo…", "Si yo fuera…, tú…", "Tú deberías…"], "Polite advice."],
+  ],
+  tarjetas: [
+    ["must / mustn't", "Obligación / prohibición."],
+    ["Polite advice", "Why don't you…? You could… If I were you…"],
+    ["Sleep", "9–12 hours; no screens 1 hour before bed."],
+    ["At the doctor's", "What's the matter? I've got a sore throat."],
+  ],
+  glosario: [
+    ["should", "Debería (consejo)."],
+    ["shouldn't", "No debería."],
+    ["must", "Tener que (obligación)."],
+    ["mustn't", "No poder, estar prohibido."],
+    ["advice", "Consejo(s)."],
+    ["habit", "Hábito."],
+    ["sore throat", "Dolor de garganta."],
+    ["temperature", "Fiebre."],
+    ["cough", "Tos."],
+    ["medicine", "Medicina."],
+    ["screen", "Pantalla."],
+    ["poster", "Cartel."],
+  ],
+  situacion: {
+    titulo: "Healthy school campaign",
+    reto: "La clase lanza en inglés una campaña de hábitos saludables para el colegio con carteles, normas y un consultorio de consejos.",
+    pasos: ["In groups, choose a topic: food, sleep, screens, exercise or hygiene.", "Find two facts and write six tips with should, shouldn't and imperatives.", "Make a poster and a list of school rules with must and mustn't.", "Open an «advice corner»: classmates write problems and your group answers politely."],
+    producto: "Carteles, normas y un buzón de consejos en inglés.",
+    evaluacion: ["Uses should and shouldn't to give advice.", "Distinguishes should and must.", "Gives advice politely in different ways.", "Talks about health problems and habits."],
+  },
+});
