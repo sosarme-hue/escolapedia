@@ -116,3 +116,94 @@ module.exports = P.tema({
   saberes: "Estadística y probabilidad: recogida de datos con tablas de recuento; pictogramas y gráficos de barras sencillos; lectura e interpretación",
   ideas: ["Encuesta real de la clase (fruta, deporte, mascota) y gráfico gigante en el mural.", "Registro del tiempo diario durante un mes.", "Comparar el mismo dato en pictograma y en barras."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Hacer preguntas para una encuesta", "Usar pictogramas con símbolos que valen más de uno", "Comparar datos y sacar conclusiones", "Hablar de lo seguro, lo posible y lo imposible"],
+  lectura: { titulo: "La excursión más votada", html: `<p>La seño Marta anuncia que la clase de 2.º B irá de excursión en primavera. Pero hay un problema: ¿adónde?</p><p>—Votaremos entre tres lugares —dice—: la granja, el zoo o el museo de los dinosaurios.</p><p>Cada niño escribe su elección en un papelito y lo mete en una caja. Después, Paula saca los papeles uno a uno y lee en voz alta. Hugo hace una rayita en la pizarra por cada voto.</p><p>Al final cuentan: la granja tiene 6 votos, el zoo tiene 9 y el museo tiene 10.</p><p>—¡Ganan los dinosaurios! —gritan algunos.</p><p>Para que se vea bien, dibujan un gráfico de barras en una cartulina grande. La barra del museo es la más alta.</p><p>—El zoo ha quedado muy cerca —dice la seño—. Quizá vayamos el próximo curso.</p><p>Y cuelgan el gráfico en el pasillo para que todo el colegio sepa adónde va 2.º B.</p>` },
+  tras: {
+    "Recoger datos": [
+      ["Hacer buenas preguntas", `<p>Para hacer una <mark>encuesta</mark> necesitamos una buena pregunta. Una buena pregunta es <b>clara</b> y tiene <b>respuestas cortas</b> que se pueden contar.</p><p>Comparemos:</p><ul><li>Pregunta difícil de contar: «¿Qué te gusta hacer?». Cada uno dirá algo distinto.</li><li>Pregunta buena: «¿Cuál es tu deporte favorito: fútbol, baloncesto, natación o patinaje?». Hay pocas opciones y se cuentan fácil.</li></ul><p>Consejos para una buena encuesta:</p><ul><li>Dar <b>pocas opciones</b>, entre 3 y 5.</li><li>Cada persona contesta <b>una sola vez</b>.</li><li>Apuntar las respuestas en el momento, para no olvidarlas.</li><li>Preguntar a <b>todos</b> los del grupo.</li></ul><p><b>Actividad</b>: inventa una pregunta para tu clase con cuatro opciones y escríbela en una hoja.</p>`,
+        H6.dos("Preguntas", ["DIFÍCIL", ["¿qué te gusta?", "mil respuestas", "no se cuenta"], cRO], ["BUENA", ["¿qué deporte?", "4 opciones", "se cuenta fácil"], cVE])],
+    ],
+    "El pictograma": [
+      ["Un dibujo que vale por varios", `<p>A veces hay muchos datos y dibujar un símbolo por cada uno ocupa demasiado. Entonces hacemos que <mark>cada dibujo valga más de uno</mark>.</p><p>Por ejemplo, en un pictograma de libros leídos:</p><ul><li>📘 = <b>2 libros</b>.</li><li>Ana: 📘📘📘 → 3 × 2 = <b>6 libros</b>.</li><li>Pedro: 📘📘 → <b>4 libros</b>.</li><li>Lola: 📘📘📘📘 → <b>8 libros</b>.</li></ul><p>Debajo del pictograma siempre hay una <b>leyenda</b> que explica cuánto vale cada dibujo. Si no la leemos, nos equivocamos al contar.</p><p>Para leerlo, contamos de 2 en 2 (o de 5 en 5, o de 10 en 10, según la leyenda). ¡Aquí ayudan mucho las tablas de multiplicar!</p><p><b>Actividad</b>: dibuja un pictograma de las frutas que comes en una semana donde cada 🍎 valga 2.</p>`,
+        L6.filas("📘 = 2", [["Ana", "3 → 6", cAZ], ["Pedro", "2 → 4", cVE], ["Lola", "4 → 8", cRO], ["leyenda", "¡léela!", cNA]]),
+        ["4zGN3sKV8T0", "¿QUE ES UN PICTOGRAMA? Explicado super fácil", "Daniel Carreón", 789554]],
+    ],
+    "Leer un gráfico": [
+      ["Comparar y sacar conclusiones", `<p>Un gráfico no solo sirve para mirar: sirve para <mark>sacar conclusiones</mark>, es decir, descubrir cosas.</p><p>Con el gráfico de la excursión (granja 6, zoo 9, museo 10) podemos preguntarnos:</p><ul><li>¿Cuál ganó? El <b>museo</b>, con la barra más alta.</li><li>¿Cuál tuvo menos votos? La <b>granja</b>.</li><li>¿Cuántos votos más tuvo el museo que la granja? 10 − 6 = <b>4</b>.</li><li>¿Cuántos niños votaron? 6 + 9 + 10 = <b>25</b>.</li></ul><p>Para comparar dos barras restamos: la diferencia nos dice cuánto más tiene una que otra.</p><p>Para saber el total, sumamos todas las barras.</p><p>Una conclusión es una frase: «A la mayoría de la clase le apetecen los dinosaurios».</p><p><b>Actividad</b>: escribe tres conclusiones sobre un gráfico de tu libro.</p>`,
+        H6.flujo("Concluir", ["miro|las barras", "comparo|resto", "sumo|el total", "escribo|una frase"], cAZ),
+        ["J-lDNbXM2wE", "COMO HACER UNA GRAFICA DE BARRAS Super facil", "Daniel Carreón", 5592461]],
+    ],
+    "El tiempo de la semana": [
+      ["Seguro, posible e imposible", `<p>Cuando hablamos del tiempo o de un juego, a veces no sabemos qué pasará. Usamos tres palabras:</p><ul><li><mark>Seguro</mark>: pasará siempre. «Mañana saldrá el sol» (aunque haya nubes delante).</li><li><mark>Posible</mark>: puede pasar o no. «Mañana lloverá».</li><li><mark>Imposible</mark>: no puede pasar nunca. «Un gato hablará en clase».</li></ul><p>Con una bolsa de canicas lo vemos claro. Si la bolsa tiene 5 canicas rojas y 2 azules:</p><ul><li>Sacar una canica roja es <b>posible</b>, y muy probable, porque hay muchas.</li><li>Sacar una azul es <b>posible</b>, pero menos probable.</li><li>Sacar una verde es <b>imposible</b>: no hay ninguna.</li></ul><p><b>Actividad</b>: escribe una cosa segura, una posible y una imposible sobre el fin de semana.</p>`,
+        L6.filas("¿Pasará?", [["seguro", "sale el sol", cVE], ["posible", "llueve", cNA], ["imposible", "gato habla", cRO], ["bolsa", "5 rojas, 2 azules", cAZ]])],
+    ],
+  },
+  final: [
+    ["Gráficos en la vida real", `<p>Los <mark>gráficos</mark> aparecen en muchos sitios:</p><ul><li>En el <b>telediario</b>, para mostrar cuántos goles ha marcado cada equipo o cuánta gente vota a cada partido.</li><li>En el <b>tiempo</b> de la tele, con soles, nubes y la temperatura de cada día.</li><li>En las <b>revistas</b> y los periódicos.</li><li>En las <b>aplicaciones</b> del móvil que cuentan los pasos que das cada día.</li><li>En el <b>médico</b>: el gráfico de cómo creces cada año.</li></ul><p>Los gráficos son útiles porque con <b>un vistazo</b> entendemos mucha información. Leer una lista larga de números cuesta más.</p><p>Pero hay que leerlos con cuidado: mirar el título, qué cuenta cada barra y la leyenda.</p><p><b>Actividad</b>: busca un gráfico en un periódico o en internet con tu familia y explica qué cuenta.</p>`,
+      H6.rueda("Gráficos", "DATOS", [["tele", cAZ], ["tiempo", cVE], ["móvil", cNA], ["médico", cRO]])],
+    ["Repaso: la encuesta de mascotas", `<p>Repasamos con una <mark>encuesta</mark> en 2.º A: «¿Qué mascota prefieres?».</p><p>Tabla de recuento:</p><ul><li>Perro: |||| ||| → <b>8</b>.</li><li>Gato: |||| → <b>5</b>.</li><li>Pez: ||| → <b>3</b>.</li><li>Conejo: |||| | → <b>6</b>.</li></ul><p>Preguntas:</p><ul><li>¿Cuál es la favorita? El <b>perro</b>.</li><li>¿Cuál tiene menos votos? El <b>pez</b>.</li><li>¿Cuántos más tiene el perro que el gato? 8 − 5 = <b>3</b>.</li><li>¿Cuántos niños contestaron? 8 + 5 + 3 + 6 = <b>22</b>.</li><li>Si hacemos un pictograma con 🐾 = 2, ¿cuántas huellas lleva el perro? <b>4</b>.</li></ul><p>Conclusión: en 2.º A gustan más los perros que el resto de mascotas.</p><p><b>Actividad</b>: haced la misma encuesta en vuestra clase y comparad los resultados.</p>`,
+      L6.filas("Mascotas", [["perro", "8", cRO], ["gato", "5", cNA], ["pez", "3", cAZ], ["conejo", "6", cVE]])],
+  ],
+  ejemplos: [
+    ["En un pictograma, ⭐ = 5. Lucía tiene ⭐⭐⭐. ¿Cuántos puntos?", ["Cuento de 5 en 5: 5, 10, 15."], "15 puntos."],
+    ["Zoo 9 votos, granja 6. ¿Cuántos votos más tiene el zoo?", ["9 − 6 = 3."], "3 votos más."],
+  ],
+  errores: ["No leer la leyenda y contar cada dibujo como 1.", "Hacer preguntas con demasiadas respuestas posibles."],
+  ejercicios: [
+    ["b", "¿Qué es una encuesta?", "Preguntar a varias personas y apuntar sus respuestas."],
+    ["b", "¿Qué explica la leyenda de un pictograma?", "Cuánto vale cada dibujo."],
+    ["b", "¿Es posible o imposible que llueva mañana?", "Posible."],
+    ["b", "En la encuesta de mascotas, ¿cuál ganó?", "El perro."],
+    ["b", "Di un sitio donde se ven gráficos.", "La tele, el periódico, el móvil…"],
+    ["m", "📘 = 2. Pedro tiene 📘📘📘📘📘. ¿Cuántos libros?", "10."],
+    ["m", "¿Cuántos niños votaron en la excursión?", "25."],
+    ["m", "¿Cuántos votos más tiene el conejo que el pez?", "3."],
+    ["m", "Bolsa con 4 canicas rojas. ¿Sacar una azul es posible o imposible?", "Imposible."],
+    ["m", "Mejora la pregunta «¿Qué te gusta?».", "Por ejemplo: «¿Qué fruta prefieres: manzana, plátano o fresa?»."],
+    ["a", "En la lectura, ¿por cuántos votos ganó el museo al zoo?", "Por 1 voto."],
+    ["a", "Escribe una conclusión del gráfico de mascotas.", "Por ejemplo: el pez es la mascota menos elegida."],
+    ["a", "¿Por qué un gráfico se entiende mejor que una lista de números?", "Porque con un vistazo se ve qué es mayor o menor."],
+    ["a", "Con 🐾 = 2, ¿cuántas huellas lleva el conejo, que tiene 6 votos?", "3 huellas."],
+  ],
+  quiz: [
+    ["Una buena pregunta de encuesta tiene…", ["pocas opciones", "infinitas respuestas", "ninguna opción"], "Preguntas."],
+    ["Si 📘 = 2, 📘📘📘 son…", ["6", "3", "5"], "Pictograma."],
+    ["Para saber cuántos más, en dos barras…", ["resto", "sumo", "multiplico"], "Comparar."],
+    ["«Un gato hablará en clase» es…", ["imposible", "seguro", "posible"], "Azar."],
+    ["Lo que explica cuánto vale cada dibujo es la…", ["leyenda", "barra", "pregunta"], "Leyenda."],
+  ],
+  examen: [
+    ["En la lectura, ¿cuántos votos tuvo la granja?", ["6", "9", "10"], "Lectura."],
+    ["En la encuesta de mascotas contestaron…", ["22 niños", "20 niños", "8 niños"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Leyenda", "Dice cuánto vale cada dibujo del pictograma."],
+    ["Seguro, posible, imposible", "Siempre, puede que sí o no, nunca."],
+  ],
+  glosario: [
+    ["Dato", "Información que recogemos."],
+    ["Encuesta", "Preguntas a varias personas."],
+    ["Recuento", "Contar con rayitas."],
+    ["Pictograma", "Gráfico con dibujos."],
+    ["Leyenda", "Explicación de lo que vale cada dibujo."],
+    ["Gráfico de barras", "Gráfico con barras de distinta altura."],
+    ["Conclusión", "Lo que descubrimos al leer un gráfico."],
+    ["Seguro", "Que pasará siempre."],
+    ["Posible", "Que puede pasar o no."],
+    ["Imposible", "Que no puede pasar nunca."],
+  ],
+  situacion: {
+    titulo: "Periodistas de datos",
+    reto: "Cada equipo hace una encuesta en el colegio, dibuja un pictograma y un gráfico de barras, y presenta sus conclusiones.",
+    pasos: ["Elegir una buena pregunta con 3 o 4 opciones.", "Preguntar y apuntar en una tabla de recuento.", "Dibujar un pictograma con leyenda y un gráfico de barras.", "Escribir tres conclusiones y presentarlas."],
+    producto: "Un cartel con la encuesta, los gráficos y las conclusiones.",
+    evaluacion: ["Formula una pregunta clara.", "Recoge datos con rayitas.", "Dibuja gráficos con leyenda.", "Saca conclusiones comparando."],
+  },
+});

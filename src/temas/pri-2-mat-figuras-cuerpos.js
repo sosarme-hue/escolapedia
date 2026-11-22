@@ -108,3 +108,94 @@ module.exports = P.tema({
   saberes: "Sentido espacial: figuras planas (triángulo, cuadrado, rectángulo y círculo) y sus elementos; cuerpos geométricos (cubo, prisma, esfera, cilindro, cono y pirámide)",
   ideas: ["Bolsa misteriosa: reconocer cuerpos por el tacto.", "Clasificar envases reales según rueden o no.", "Geoplano o palillos con plastilina para construir figuras y contar lados y vértices."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Reconocer el círculo, la circunferencia y otros polígonos", "Contar caras, aristas y vértices", "Distinguir líneas rectas y curvas", "Descubrir figuras y cuerpos en el arte y la ciudad"],
+  lectura: { titulo: "El robot de cajas", html: `<p>Una tarde de lluvia, Irene y su primo Marcos no saben a qué jugar. Entonces Irene tiene una idea:</p><p>—¡Vamos a construir un robot con cosas del reciclaje!</p><p>Buscan en el cubo amarillo y encuentran de todo. Una caja de cereales será el cuerpo: es un prisma. Una caja de galletas cuadrada será la cabeza: es casi un cubo.</p><p>Para los brazos usan dos rollos de papel de cocina, que son cilindros. Para las piernas, dos botes de patatas fritas, también cilindros.</p><p>—Le falta un sombrero —dice Marcos.</p><p>Hacen un cono con una cartulina enrollada y lo pegan sobre la cabeza.</p><p>Por último, Irene recorta dos círculos para los ojos y un rectángulo para la boca.</p><p>—¡Se llama Geómetro! —anuncia Marcos.</p><p>Cuando llega su madre, le preguntan qué figuras ve. Ella las nombra todas… ¡menos el cono, que le parece un gorro de fiesta!</p>` },
+  tras: {
+    "Lados y vértices": [
+      ["Líneas rectas y curvas", `<p>Todas las figuras están hechas de <mark>líneas</mark>. Hay dos clases principales:</p><ul><li><b>Línea recta</b>: va siempre en la misma dirección, sin torcerse. Como el borde de una regla.</li><li><b>Línea curva</b>: se va torciendo poco a poco. Como un arco iris.</li></ul><p>También hay líneas que mezclan las dos:</p><ul><li><b>Línea quebrada</b>: hecha de trozos rectos que cambian de dirección, como un zigzag o los dientes de una sierra.</li><li><b>Línea mixta</b>: tiene partes rectas y partes curvas, como una letra D.</li></ul><p>Las figuras que solo tienen lados rectos, como el triángulo o el cuadrado, se llaman <b>polígonos</b>. El círculo no es un polígono, porque su borde es curvo.</p><p><b>Actividad</b>: busca en tu nombre letras con líneas rectas, como la L, y letras con curvas, como la O.</p>`,
+        L6.filas("Líneas", [["recta", "regla", cAZ], ["curva", "arco iris", cVE], ["quebrada", "zigzag", cRO], ["mixta", "letra D", cNA]]),
+        ["4EPqwC0i2g8", "POCOYÓ en ESPAÑOL - Aprende Las FIGURAS GEOMÉTRICAS", "Pocoyó Español - Canal Oficial", 20237256]],
+    ],
+    "Cuadrado y rectángulo": [
+      ["Más polígonos y el círculo", `<p>Además del triángulo, el cuadrado y el rectángulo, hay más <mark>polígonos</mark>. Su nombre depende del número de lados:</p><ul><li>El <b>pentágono</b> tiene <b>5</b> lados. Mira la forma de una casita dibujada.</li><li>El <b>hexágono</b> tiene <b>6</b> lados. Las celdas de un panal de abejas son hexágonos.</li><li>El <b>octógono</b> tiene <b>8</b> lados, como la señal de STOP.</li></ul><p>El <mark>círculo</mark> es diferente: no tiene lados ni vértices. Su borde se llama <b>circunferencia</b>.</p><ul><li>La <b>circunferencia</b> es solo la línea, como un aro o un anillo.</li><li>El <b>círculo</b> es la línea y todo lo de dentro, como una moneda o una galleta.</li></ul><p><b>Actividad</b>: dibuja un panal de abejas con hexágonos y colorea cada celda.</p>`,
+        H6.dos("Redondo", ["ARO", ["circunferencia", "solo la línea", "un aro", "un anillo"], cAZ], ["CÍRCULO", ["línea y dentro", "una moneda", "una galleta"], cVE])],
+    ],
+    "Cubo y prisma": [
+      ["Caras, aristas y vértices", `<p>Los cuerpos geométricos con caras planas tienen tres partes:</p><ul><li><mark>Caras</mark>: las superficies planas. Son polígonos.</li><li><mark>Aristas</mark>: las líneas donde se juntan dos caras.</li><li><mark>Vértices</mark>: las esquinas donde se juntan varias aristas.</li></ul><p>Vamos a contar las del <b>cubo</b>, como un dado:</p><ul><li>Tiene <b>6 caras</b>, todas cuadradas.</li><li>Tiene <b>12 aristas</b>.</li><li>Tiene <b>8 vértices</b>.</li></ul><p>Una caja de zapatos, que es un prisma, también tiene 6 caras, 12 aristas y 8 vértices, pero sus caras son rectángulos.</p><p>Para no equivocarte al contar, marca con un gomet cada vértice que ya has contado.</p><p><b>Actividad</b>: con plastilina y palillos, construye un cubo: las bolitas son los vértices y los palillos, las aristas.</p>`,
+        L6.filas("El cubo", [["caras", "6", cNA], ["aristas", "12", cAZ], ["vértices", "8", cRO], ["caras de", "cuadrados", cVE]]),
+        ["4G4aOfXFwoc", "PARTES DE UN PRISMA Super fácil - Cara, vértice, arista, base", "Daniel Carreón", 2418682]],
+    ],
+    "Esfera, cilindro y cono": [
+      ["Cuerpos que ruedan y cuerpos que no", `<p>Los cuerpos geométricos se pueden dividir en dos grupos:</p><ul><li><mark>Cuerpos redondos</mark>: tienen alguna superficie curva. Son la <b>esfera</b>, el <b>cilindro</b> y el <b>cono</b>. Pueden <b>rodar</b>.</li><li><mark>Poliedros</mark>: todas sus caras son planas. Son el <b>cubo</b>, el <b>prisma</b> y la <b>pirámide</b>. No ruedan: se deslizan o se quedan quietos.</li></ul><p>Pero cada cuerpo redondo rueda a su manera:</p><ul><li>La esfera rueda hacia <b>cualquier lado</b>.</li><li>El cilindro rueda en <b>línea recta</b> si está tumbado. De pie, no rueda.</li><li>El cono rueda <b>en círculo</b>, alrededor de su punta.</li></ul><p>Por eso las ruedas de los coches y las pelotas son redondas, y los ladrillos y las cajas, que deben estar quietos, tienen caras planas.</p><p><b>Actividad</b>: haz rodar una pelota, una lata y un gorro de cumpleaños y observa su camino.</p>`,
+        H6.dos("Cuerpos", ["REDONDOS", ["esfera", "cilindro, cono", "ruedan"], cVE], ["POLIEDROS", ["cubo, prisma", "pirámide", "no ruedan"], cRO])],
+    ],
+  },
+  final: [
+    ["Figuras en el arte y en la ciudad", `<p>Los artistas y los arquitectos usan <mark>figuras y cuerpos geométricos</mark> en sus obras.</p><ul><li>El pintor <b>Kandinsky</b> llenaba sus cuadros de círculos de colores, triángulos y líneas.</li><li>El pintor <b>Mondrian</b> pintaba cuadrados y rectángulos rojos, azules y amarillos separados por líneas negras.</li><li>Las <b>pirámides de Egipto</b> son enormes pirámides de piedra construidas hace miles de años.</li></ul><p>En tu ciudad también hay geometría:</p><ul><li>Los edificios suelen ser <b>prismas</b>.</li><li>Las farolas y las columnas son <b>cilindros</b>.</li><li>Las señales de tráfico son <b>triángulos</b>, <b>círculos</b>, cuadrados y octógonos.</li><li>Las cúpulas de algunas iglesias son media <b>esfera</b>.</li></ul><p><b>Actividad</b>: pinta un cuadro al estilo de Mondrian con rectángulos de colores y líneas negras.</p>`,
+      L6.filas("Arte", [["Kandinsky", "círculos", cAZ], ["Mondrian", "rectángulos", cRO], ["Egipto", "pirámides", cNA], ["farola", "cilindro", cVE]])],
+    ["Repaso: el robot Geómetro", `<p>Repasamos con el <mark>robot</mark> de Irene y Marcos:</p><ul><li>El cuerpo, una caja de cereales: <b>prisma</b>.</li><li>La cabeza, una caja cuadrada: <b>cubo</b>.</li><li>Los brazos y las piernas, rollos y botes: <b>cilindros</b>.</li><li>El sombrero: <b>cono</b>.</li><li>Los ojos: <b>círculos</b>. La boca: un <b>rectángulo</b>.</li></ul><p>Preguntas:</p><ul><li>¿Cuántos cilindros tiene el robot? 2 brazos + 2 piernas = <b>4</b>.</li><li>¿Cuántas caras tiene su cabeza? <b>6</b>, como todos los cubos.</li><li>¿Qué partes podrían rodar? Los cilindros y el cono.</li><li>¿Qué figuras planas tiene? Círculos y un rectángulo.</li></ul><p><b>Actividad</b>: construye tu propio robot con envases y escribe el nombre de cada cuerpo geométrico en una etiqueta.</p>`,
+      H6.rueda("Robot", "ROBOT", [["prisma", cNA], ["cubo", cAZ], ["cilindro", cVE], ["cono", cRO]])],
+  ],
+  ejemplos: [
+    ["¿Cuántas aristas tiene un dado?", ["Cuento las de arriba: 4.", "Las de abajo: 4. Las de los lados: 4."], "12 aristas."],
+    ["¿Es el círculo un polígono?", ["Los polígonos tienen lados rectos.", "El círculo tiene borde curvo."], "No."],
+  ],
+  errores: ["Confundir la circunferencia (solo la línea) con el círculo.", "Pensar que el cilindro rueda de pie."],
+  ejercicios: [
+    ["b", "¿Cuántos lados tiene un hexágono?", "6."],
+    ["b", "¿Qué figura tiene la señal de STOP?", "Un octógono."],
+    ["b", "¿Cuántas caras tiene un cubo?", "6."],
+    ["b", "Di un cuerpo que rueda.", "Esfera, cilindro o cono."],
+    ["b", "¿Cómo se llama una línea en zigzag?", "Línea quebrada."],
+    ["m", "¿Cuántos vértices tiene una caja de zapatos?", "8."],
+    ["m", "¿En qué se diferencian el círculo y la circunferencia?", "La circunferencia es solo el borde; el círculo incluye lo de dentro."],
+    ["m", "¿Cómo rueda un cono?", "En círculo, alrededor de su punta."],
+    ["m", "Nombra dos poliedros.", "Cubo, prisma o pirámide."],
+    ["m", "¿Qué cuerpo es una farola?", "Un cilindro."],
+    ["a", "En la lectura, ¿qué cuerpo geométrico es el sombrero del robot?", "Un cono."],
+    ["a", "¿Por qué las ruedas son redondas y los ladrillos tienen caras planas?", "Las ruedas deben rodar; los ladrillos, estar quietos."],
+    ["a", "¿Cuántas figuras planas tiene la cara del robot? ¿Cuáles?", "3: dos círculos y un rectángulo."],
+    ["a", "Describe un cuadro de Mondrian.", "Rectángulos y cuadrados de colores con líneas negras."],
+  ],
+  quiz: [
+    ["Un pentágono tiene…", ["5 lados", "6 lados", "8 lados"], "Polígonos."],
+    ["Las esquinas de un cuerpo se llaman…", ["vértices", "caras", "aristas"], "Partes."],
+    ["Un cubo tiene…", ["12 aristas", "6 aristas", "8 aristas"], "Contar."],
+    ["Rueda hacia cualquier lado la…", ["esfera", "pirámide", "caja"], "Rodar."],
+    ["La línea en zigzag es…", ["quebrada", "curva", "recta"], "Líneas."],
+  ],
+  examen: [
+    ["En la lectura, ¿de qué son los brazos del robot?", ["rollos de papel", "botes de patatas", "cajas"], "Lectura."],
+    ["¿Cuántos cilindros tiene el robot?", ["4", "2", "6"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Cubo", "6 caras, 12 aristas y 8 vértices."],
+    ["Redondos y poliedros", "Los redondos ruedan; los poliedros, no."],
+  ],
+  glosario: [
+    ["Línea recta", "Línea que no se tuerce."],
+    ["Línea curva", "Línea que se tuerce poco a poco."],
+    ["Polígono", "Figura plana de lados rectos."],
+    ["Hexágono", "Polígono de 6 lados."],
+    ["Circunferencia", "Línea curva cerrada y redonda."],
+    ["Círculo", "Figura redonda con su interior."],
+    ["Cara", "Superficie plana de un cuerpo."],
+    ["Arista", "Línea donde se juntan dos caras."],
+    ["Vértice", "Esquina de una figura o cuerpo."],
+    ["Poliedro", "Cuerpo con todas sus caras planas."],
+  ],
+  situacion: {
+    titulo: "Museo de la geometría",
+    reto: "La clase monta un museo con robots de envases, cuadros geométricos y fotos de figuras en el barrio.",
+    pasos: ["Recoger envases y clasificarlos en redondos y poliedros.", "Construir un robot y etiquetar cada cuerpo.", "Pintar un cuadro con figuras planas al estilo de un artista.", "Contar caras, aristas y vértices de tres cuerpos."],
+    producto: "Una exposición con robots, cuadros y fichas de cuerpos geométricos.",
+    evaluacion: ["Nombra figuras planas y polígonos.", "Distingue círculo y circunferencia.", "Cuenta caras, aristas y vértices.", "Clasifica cuerpos que ruedan y que no."],
+  },
+});
