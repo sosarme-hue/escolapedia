@@ -141,3 +141,88 @@ module.exports = {
   fuentes: [RD, wiki("Máquina simple", "Máquina_simple"), wiki("Palanca", "Palanca"), wiki("Leonardo Torres Quevedo", "Leonardo_Torres_Quevedo")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Explicar cómo los engranajes transmiten y cambian el movimiento", "Valorar la imprenta y otros inventos que cambiaron la historia", "Describir las partes de un robot: sensores, programa y actuadores"],
+  lectura: { titulo: "La bicicleta de Clara", html: `<p>A Clara le regalaron una bicicleta de montaña con cambios. El primer día subió la cuesta de su calle y llegó arriba agotada. Su tío Andrés, que arreglaba bicis, se rio:</p><p>—¡Has subido con el cambio más duro! Mira: delante tienes el <b>plato</b>, una rueda con dientes unida a los pedales. Detrás, los <b>piñones</b>, ruedas dentadas más pequeñas. La <b>cadena</b> los une. Si pones un plato pequeño y un piñón grande, cada pedalada mueve poco la rueda, pero cuesta muy poco esfuerzo. Perfecto para subir.</p><p>Clara probó. Ahora tenía que pedalear muchas veces, pero subía sin cansarse. En la bajada cambió al plato grande y al piñón pequeño, y cada pedalada la lanzaba lejos.</p><p>—Tu bici es una <b>máquina compuesta</b> —le explicó su tío—: los pedales son <b>palancas</b>, las ruedas giran sobre <b>ejes</b>, los frenos son palancas y los cambios son <b>engranajes</b>. Todo para que hagas menos esfuerzo.</p><p>En este tema descubrirás cómo funcionan las máquinas y algunos de los inventos que cambiaron el mundo.</p>` },
+  tras: {
+    "La rueda y la polea": [
+      ["Engranajes: ruedas que se empujan", `<p>Los <b>engranajes</b> son ruedas con <b>dientes</b> en el borde que encajan unos con otros. Cuando una rueda gira, empuja a la otra con sus dientes y la hace girar. Sirven para <b>transmitir el movimiento</b> de un sitio a otro y para <b>cambiar su velocidad</b> o su sentido.</p><ul><li>Dos engranajes en contacto giran en <b>sentidos contrarios</b>: si uno gira como las agujas del reloj, el otro gira al revés.</li><li>Si una rueda grande de 40 dientes mueve a una pequeña de 20, por cada vuelta de la grande la pequeña da <b>dos vueltas</b>: gira más rápido.</li><li>Al revés, si la pequeña mueve a la grande, la grande gira más despacio pero con más <b>fuerza</b>.</li></ul><p>A veces las ruedas dentadas no se tocan y se unen con una <b>cadena</b>, como en la bicicleta; o se unen ruedas lisas con una <b>correa</b>, como en algunas lavadoras y en el motor de los coches.</p><p>Hay engranajes en los relojes de agujas, en las batidoras, en los coches, en los molinos, en los exprimidores manuales y en muchos juguetes. Si abres un juguete viejo con motor, ¡seguro que encuentras alguno!</p>`,
+        svg("Dos engranajes: el grande de 40 dientes da una vuelta y el pequeño de 20 dientes da dos", `${tit("Engranajes")}<circle cx="76" cy="94" r="40" fill="${COL.sol}" fill-opacity=".25" stroke="${COL.sol}" stroke-width="8" stroke-dasharray="5 5"/><circle cx="76" cy="94" r="5" fill="var(--ink)"/><circle cx="142" cy="94" r="22" fill="${COL.azul}" fill-opacity=".2" stroke="${COL.azul}" stroke-width="8" stroke-dasharray="5 5"/><circle cx="142" cy="94" r="4" fill="var(--ink)"/>${et(76, 154, "40 dientes", 80, { size: 10.5, color: COL.sol })}${et(142, 136, "20 dientes", 70, { size: 10.5, color: COL.azul })}${tx(212, 80, "1 vuelta", 80)}${tx(212, 96, "de la grande =", 80)}${tx(212, 112, "2 vueltas", 80, { weight: 700 })}${tx(130, 172, "giran en sentidos contrarios", 230)}`)],
+    ],
+    "Grandes inventos de la historia": [
+      ["La imprenta: libros para todos", `<p>Antes de la imprenta, los libros se copiaban <b>a mano</b>, letra a letra, sobre todo en los monasterios. Copiar un solo libro podía costar meses o incluso años, así que eran carísimos y muy pocas personas podían tener uno o aprender a leer.</p><p>Hacia el año <b>1450</b>, en la ciudad alemana de Maguncia, <b>Johannes Gutenberg</b> tuvo una idea genial: fabricar cada letra por separado en una pieza de metal, los <b>tipos móviles</b>. Con ellos se componía una página entera, se entintaba y se apretaba contra el papel con una prensa, como las que se usaban para hacer vino. Después se podían reordenar las letras para otra página.</p><p>Con la imprenta se podían hacer cientos de copias en poco tiempo. Los libros se abarataron, se extendieron por toda Europa y cada vez más gente aprendió a leer. Las ideas, los descubrimientos científicos y las noticias viajaron mucho más rápido.</p><p>Por eso la imprenta se considera uno de los inventos más importantes de la historia. Hoy seguimos imprimiendo libros y periódicos, aunque también leemos en pantallas: otro gran cambio en la forma de compartir el conocimiento.</p>`,
+        svg("De los libros copiados a mano a la imprenta de Gutenberg hacia 1450 y a los libros digitales", `${tit("Del pergamino a la pantalla")}${linea([["antes", "copias a mano", COL.marron], ["1450", "imprenta de Gutenberg", COL.rojo], ["hoy", "libros digitales", COL.azul]])}`)],
+    ],
+  },
+  final: [
+    ["Los robots", `<p>Un <b>robot</b> es una máquina que puede realizar tareas por sí sola siguiendo un <b>programa</b>, es decir, unas instrucciones escritas por personas. Todos los robots tienen tres partes:</p><ul><li><b>Sensores</b>: captan información del entorno, como nuestros sentidos. Pueden ser cámaras, micrófonos, sensores de luz, de distancia o de temperatura.</li><li>El <b>programa</b> y el <b>procesador</b>: es el «cerebro» del robot. Recibe la información de los sensores y decide qué hacer.</li><li><b>Actuadores</b>: motores, ruedas, brazos o pinzas que ejecutan las órdenes, como nuestros músculos.</li></ul><p>Hay robots en las fábricas de coches, que sueldan y pintan; robots aspiradora en las casas; robots que ayudan a los cirujanos en operaciones muy precisas; y robots exploradores que recorren la superficie de Marte.</p><p>Muchos robots usan hoy <b>inteligencia artificial</b>: programas que aprenden de muchos ejemplos para reconocer imágenes, voces o textos. Pero los robots no piensan ni sienten como las personas: hacen lo que se les ha programado. Tú también puedes programar robots sencillos en clase con bloques de instrucciones.</p>`,
+        svg("Partes de un robot: sensores captan, el programa decide y los actuadores ejecutan", `${tit("Cómo funciona un robot")}${flujo([["sensores", COL.azul], ["programa", COL.morado], ["actuadores", COL.rojo]], 50, 40)}${filas([["Sensores", "como nuestros sentidos", COL.azul], ["Programa", "como el cerebro", COL.morado], ["Actuadores", "como los músculos", COL.rojo]], 118, 20, { wa: 70, wb: 150 })}`)],
+    ["Leonardo da Vinci, un inventor adelantado", `<p><b>Leonardo da Vinci</b> (1452-1519) fue un genio italiano del Renacimiento. Es famoso por pintar la <i>Mona Lisa</i>, pero también fue ingeniero, inventor, arquitecto, músico y científico. Le interesaba todo: cómo vuelan los pájaros, cómo se mueve el agua, cómo es el cuerpo humano por dentro.</p><p>En sus <b>cuadernos</b> dejó miles de dibujos de máquinas, muchas de ellas siglos antes de que se pudieran construir:</p><ul><li>Una especie de <b>helicóptero</b> con una gran hélice en espiral.</li><li>Un <b>paracaídas</b> en forma de pirámide.</li><li>Un <b>carro blindado</b> que se movía con manivelas.</li><li>Máquinas voladoras con alas como las de los murciélagos.</li><li>Un traje para bucear y puentes que se montaban rápidamente.</li></ul><p>Muchas de esas máquinas nunca se construyeron en su época, porque no había motores ni materiales adecuados. Algunas se han fabricado siglos después siguiendo sus dibujos, ¡y funcionan! Curiosamente, Leonardo escribía muchas de sus notas <b>al revés</b>, de derecha a izquierda, de modo que se leen con un espejo. Su ejemplo nos enseña que observar la naturaleza con curiosidad es el primer paso para inventar.</p>`,
+        svg("Inventos dibujados por Leonardo da Vinci: helicóptero, paracaídas, carro blindado y máquina voladora", `${tit("Los cuadernos de Leonardo")}${fichas([["Helicóptero", "hélice en espiral", COL.azul], ["Paracaídas", "en forma de pirámide", COL.rojo], ["Carro blindado", "con manivelas", COL.marron], ["Alas", "como murciélagos", COL.morado]])}`)],
+  ],
+  ejemplos: [
+    ["Un plato de bicicleta tiene 48 dientes y el piñón 16. ¿Cuántas vueltas da la rueda trasera por cada pedalada completa?", ["Cada vuelta del plato hace pasar 48 dientes de cadena.", "El piñón tiene 16 dientes: 48 : 16 = 3.", "El piñón y la rueda trasera giran juntos."], "3 vueltas por pedalada"],
+    ["Un robot aspiradora choca con una silla y cambia de dirección. ¿Qué parte ha hecho cada cosa?", ["El sensor de choque o de distancia detecta la silla.", "El programa decide girar.", "Los motores de las ruedas (actuadores) hacen el giro."], "Sensor detecta, programa decide, actuador gira"],
+  ],
+  errores: ["Pensar que los robots piensan como las personas: siguen un programa escrito por personas."],
+  nivelesBase: "bbbmbmmmmm",
+  ejercicios: [
+    ["b", "¿Qué son los engranajes?", "Ruedas con dientes que encajan y transmiten el movimiento."],
+    ["b", "¿Quién inventó la imprenta de tipos móviles y hacia qué año?", "Johannes Gutenberg, hacia 1450."],
+    ["b", "Escribe las tres partes de un robot.", "Sensores, programa (procesador) y actuadores."],
+    ["b", "Nombra dos inventos dibujados por Leonardo da Vinci.", "El helicóptero y el paracaídas (también el carro blindado)."],
+    ["b", "¿En qué sentido gira un engranaje si el que lo mueve gira como las agujas del reloj?", "Al revés, en sentido contrario."],
+    ["m", "Un engranaje de 30 dientes mueve a otro de 10. Por cada vuelta del grande, ¿cuántas da el pequeño?", "3 vueltas."],
+    ["m", "¿Por qué los libros eran tan caros antes de la imprenta?", "Porque se copiaban a mano y cada copia costaba meses de trabajo."],
+    ["m", "¿Qué hacen los sensores de un robot? Pon dos ejemplos.", "Captan información del entorno; por ejemplo, una cámara y un sensor de distancia."],
+    ["m", "¿Qué marcha conviene en la bici para subir una cuesta? ¿Por qué?", "Plato pequeño y piñón grande: se pedalea más veces pero con menos esfuerzo."],
+    ["m", "¿Por qué muchas máquinas de Leonardo no se construyeron en su época?", "Porque no había motores ni materiales adecuados."],
+    ["m", "Escribe tres lugares donde se usan robots.", "Fábricas de coches, casas (robot aspiradora) y hospitales (también exploración espacial)."],
+    ["a", "Un plato de 40 dientes y un piñón de 10. Si das 20 pedaladas, ¿cuántas vueltas da la rueda trasera?", "40 : 10 = 4 vueltas por pedalada; 20 × 4 = 80 vueltas."],
+    ["a", "Explica por qué la imprenta ayudó a que más gente aprendiera a leer.", "Al abaratar los libros, muchas más personas podían tenerlos y había más motivos y medios para aprender a leer."],
+    ["a", "Diseña un robot que riegue las plantas del colegio: ¿qué sensores, qué programa y qué actuadores tendría?", "Respuesta abierta. Por ejemplo: sensor de humedad del suelo; programa que riega si la tierra está seca; actuador: una bomba de agua."],
+    ["a", "¿Qué tienen en común la palanca, la polea y los engranajes?", "Son máquinas que transmiten o cambian una fuerza o un movimiento para hacer el trabajo más fácil."],
+    ["a", "Compara la copia de libros a mano con la imprenta y con los libros digitales: escribe una ventaja de cada uno.", "Respuesta abierta. A mano: cada libro era único y artístico. Imprenta: muchas copias baratas. Digital: se comparten al instante y ocupan poco."],
+  ],
+  quiz: [
+    ["Dos engranajes en contacto giran…", ["En sentidos contrarios", "En el mismo sentido", "No giran"], "Los dientes empujan al otro lado."],
+    ["Gutenberg inventó la imprenta hacia…", ["1450", "1950", "1050"], "En Maguncia, Alemania."],
+    ["Los sensores de un robot sirven para…", ["Captar información", "Moverse", "Escribir el programa"], "Como nuestros sentidos."],
+    ["Los actuadores de un robot son como nuestros…", ["Músculos", "Ojos", "Pulmones"], "Ejecutan las órdenes."],
+    ["Leonardo da Vinci escribía muchas notas…", ["Al revés, como en un espejo", "En chino", "Solo con números"], "De derecha a izquierda."],
+  ],
+  examen: [
+    ["Si un engranaje grande mueve a uno pequeño, el pequeño gira…", ["Más rápido", "Más despacio", "Igual"], "Da más vueltas."],
+    ["Las piezas de metal con cada letra de la imprenta se llaman…", ["Tipos móviles", "Engranajes", "Poleas"], "Se reordenaban para cada página."],
+  ],
+  tarjetas: [
+    ["Engranajes", "Ruedas dentadas que transmiten el movimiento."],
+    ["Imprenta", "Gutenberg, hacia 1450: tipos móviles."],
+    ["Robot", "Sensores + programa + actuadores."],
+    ["Leonardo da Vinci", "Genio del Renacimiento que dibujó máquinas adelantadas."],
+  ],
+  glosario: [
+    ["Máquina", "Objeto que hace un trabajo con menos esfuerzo."],
+    ["Máquina simple", "Máquina de pocas piezas, como la palanca o la rueda."],
+    ["Máquina compuesta", "Máquina formada por varias máquinas simples."],
+    ["Palanca", "Barra rígida que gira sobre un punto de apoyo."],
+    ["Polea", "Rueda con un canal por el que pasa una cuerda."],
+    ["Plano inclinado", "Rampa para subir pesos con menos esfuerzo."],
+    ["Engranaje", "Rueda dentada que transmite el movimiento."],
+    ["Invento", "Algo nuevo creado para resolver un problema."],
+    ["Imprenta", "Máquina para hacer muchas copias de un texto."],
+    ["Robot", "Máquina que hace tareas sola siguiendo un programa."],
+    ["Sensor", "Pieza que capta información del entorno."],
+    ["Programa", "Conjunto de instrucciones que sigue una máquina."],
+  ],
+  situacion: {
+    titulo: "Feria de inventores",
+    reto: "Por equipos, inventad y construid con materiales reciclados una máquina que resuelva un pequeño problema del colegio.",
+    pasos: ["Detectad un problema real: recoger papeles, subir una mochila, avisar cuando alguien entra…", "Dibujad el invento en un cuaderno como Leonardo, señalando qué máquinas simples o engranajes usa.", "Construid un prototipo con cartón, cuerdas, carretes, tapones y gomas, y probadlo varias veces mejorándolo.", "Presentadlo en una feria con un cartel: problema, funcionamiento, máquinas simples y mejoras futuras."],
+    producto: "Un prototipo de invento con su cuaderno de diseño y su cartel.",
+    evaluacion: ["Identifica máquinas simples y engranajes en un diseño propio.", "Sigue el método del inventor: idea, diseño, prueba y mejora.", "Trabaja con seguridad y materiales reciclados.", "Explica con claridad cómo funciona el invento."],
+  },
+});

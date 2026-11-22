@@ -142,3 +142,87 @@ module.exports = {
   fuentes: [RD, wiki("Mapa", "Mapa"), wiki("Escala (cartografía)", "Escala_(cartografía)"), { t: "Instituto Geográfico Nacional", url: "https://www.ign.es/" }],
   revisado: REV,
 };
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { linea, ciclo } = require("./_pri5b");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Explicar las fases de la Luna y su relación con la Tierra", "Interpretar el relieve en un mapa con curvas de nivel y tintas hipsométricas", "Conocer la historia de los mapas, de las tablillas a los satélites"],
+  lectura: { titulo: "El mapa del tesoro", html: `<p>El primer día de las vacaciones, Daniel encontró en el desván de su abuela una caja vieja. Dentro había un papel doblado: ¡un mapa dibujado a mano! Arriba ponía «El tesoro del molino».</p><p>El mapa tenía una <b>flecha con una N</b>, que indicaba el norte; un cuadrito con dibujos y explicaciones, la <b>leyenda</b>: un árbol para el bosque, una línea azul para el río, una cruz para el tesoro. Abajo, una frase: «1 cm = 100 pasos». Era la <b>escala</b>.</p><p>Daniel y su prima Marta salieron con una brújula. Siguieron el río hacia el norte hasta el viejo molino. Desde allí, el mapa marcaba 3 centímetros hacia el este. «Son 300 pasos», calculó Marta. Contaron en voz alta… y al llegar a 300 encontraron una gran encina. Entre sus raíces había una lata oxidada con una nota: «Si has llegado hasta aquí, ya sabes leer mapas. Firmado: tu abuela, en 1975».</p><p>Ese verano, Daniel descubrió que un mapa es una herramienta poderosa. En este tema aprenderás a leerlo como un explorador.</p>` },
+  tras: {
+    "Los movimientos de la Tierra": [
+      ["La Luna, nuestro satélite", `<p>La <b>Luna</b> es el único <b>satélite natural</b> de la Tierra: un astro que gira a su alrededor. Está a unos <b>384 000 km</b> y es unas cuatro veces más pequeña que la Tierra. No tiene luz propia: brilla porque <b>refleja la luz del Sol</b>.</p><p>La Luna tarda unos <b>28 días</b> en dar una vuelta completa alrededor de la Tierra. Mientras lo hace, desde aquí vemos iluminada una parte distinta de ella cada noche. Son las <b>fases lunares</b>:</p><ul><li><b>Luna nueva</b>: no se ve, porque la cara iluminada mira hacia el Sol.</li><li><b>Cuarto creciente</b>: se ve la mitad derecha iluminada (en el hemisferio norte), con forma de D.</li><li><b>Luna llena</b>: se ve el círculo completo iluminado.</li><li><b>Cuarto menguante</b>: se ve la mitad izquierda, con forma de C.</li></ul><p>Un truco: la Luna es «mentirosa». Cuando parece una C, decrece; cuando parece una D, crece. Además, la Luna siempre nos muestra la misma cara. Su atracción provoca las <b>mareas</b>: la subida y bajada del nivel del mar dos veces al día. En 1969, los astronautas del Apolo 11 fueron los primeros en pisarla.</p>`,
+        svg("Fases de la Luna: nueva, cuarto creciente, llena y cuarto menguante", `${tit("Las fases de la Luna")}${ciclo([["luna nueva", COL.gris], ["creciente (D)", COL.sol], ["luna llena", COL.sol], ["menguante (C)", COL.sol]], 130, 100, 54, 96)}`)],
+    ],
+    "Tipos de mapas": [
+      ["El relieve en los mapas", `<p>¿Cómo se dibuja una montaña sobre un papel plano? Los cartógrafos usan varios recursos:</p><ul><li>Las <b>curvas de nivel</b>: son líneas que unen los puntos que están a la <b>misma altitud</b>. Imagina que cortas una montaña en rodajas horizontales cada 100 metros y dibujas el borde de cada rodaja vista desde arriba. Cuando las curvas están <b>muy juntas</b>, la pendiente es <b>fuerte</b>; cuando están <b>separadas</b>, el terreno es <b>suave</b>.</li><li>Las <b>tintas hipsométricas</b>: colores que indican la altitud. Normalmente el <b>verde</b> se usa para las zonas bajas, el <b>amarillo</b> y el <b>marrón claro</b> para las medias y el <b>marrón oscuro</b> para las más altas. Para el mar se usan tonos de <b>azul</b>: más oscuro cuanto más profundo.</li><li>El <b>sombreado</b>: se dibujan sombras como si el sol iluminara las montañas desde un lado, para que parezcan en relieve.</li></ul><p>La <b>altitud</b> se mide en metros sobre el nivel del mar. El punto más alto de España es el <b>Teide</b>, en Tenerife, con 3715 metros; en la península, el <b>Mulhacén</b>, en Sierra Nevada, con 3479 metros.</p>`,
+        svg("Curvas de nivel de una montaña: juntas en la pendiente fuerte y separadas en la suave", `${tit("Curvas de nivel")}${[[70, 54, COL.verde], [56, 42, "#a3e635"], [42, 30, COL.sol], [28, 18, COL.naranja], [14, 8, COL.marron]].map(([rx, ry, c]) => `<ellipse cx="${100 - (70 - rx) * 0.5}" cy="100" rx="${rx}" ry="${ry}" fill="${c}" fill-opacity=".35" stroke="${c}" stroke-width="1.5"/>`).join("")}${filas([["juntas", "pendiente fuerte", COL.marron], ["separadas", "pendiente suave", COL.verde], ["colores", "altitud", COL.sol]], 64, 34, { x: 180, wa: 56, wb: 60, dos: true })}`)],
+    ],
+  },
+  final: [
+    ["Breve historia de los mapas", `<p>Las personas llevamos miles de años dibujando mapas para orientarnos y conocer el mundo:</p><ul><li>Uno de los mapas más antiguos que se conservan es una <b>tablilla de arcilla de Babilonia</b>, de hace unos 2500 años, que representa el mundo como un círculo rodeado de agua.</li><li>Los <b>griegos</b> sabían que la Tierra era redonda. Hacia el año 150, <b>Ptolomeo</b> dibujó mapas con líneas parecidas a los paralelos y meridianos.</li><li>En la Edad Media, los marineros usaban <b>portulanos</b>, mapas de costas con muchas líneas de rumbo. Mallorca tuvo una famosa escuela de cartógrafos.</li><li>En el año <b>1500</b>, el marino español <b>Juan de la Cosa</b> dibujó el primer mapa que se conserva en el que aparece <b>América</b>.</li><li>Hoy los mapas se hacen con <b>fotografías aéreas</b> e <b>imágenes de satélite</b>, y los ordenadores los actualizan constantemente.</li></ul><p>Cada mapa refleja lo que se sabía en su época. Por eso los mapas antiguos tienen errores, tierras desconocidas e incluso monstruos marinos dibujados en los océanos que nadie había explorado.</p>`,
+        svg("Historia de los mapas: tablilla babilónica, Ptolomeo hacia el 150, Juan de la Cosa en 1500 y satélites hoy", `${tit("Historia de los mapas")}${linea([["Babilonia", "tablilla de arcilla", COL.marron], ["año 150", "Ptolomeo", COL.azul], ["1500", "Juan de la Cosa", COL.rojo], ["hoy", "satélites", COL.verde]])}`)],
+  ],
+  ejemplos: [
+    ["Hoy la Luna se ve con forma de C. ¿Está creciendo o menguando?", ["Recuerda que la Luna es «mentirosa».", "Si parece una C, no crece: decrece.", "Es el cuarto menguante."], "Está menguando"],
+    ["En un mapa, las curvas de nivel de la ladera norte están muy juntas y las de la ladera sur, separadas. ¿Por dónde es más fácil subir?", ["Curvas juntas significa pendiente fuerte.", "Curvas separadas significa pendiente suave.", "Es más fácil subir por la pendiente suave."], "Por la ladera sur"],
+  ],
+  errores: ["Pensar que la Luna produce luz: refleja la luz del Sol."],
+  nivelesBase: "bbbmbmmmmm",
+  ejercicios: [
+    ["b", "¿Cuánto tarda la Luna en dar una vuelta alrededor de la Tierra?", "Unos 28 días."],
+    ["b", "Escribe en orden las cuatro fases de la Luna empezando por la luna nueva.", "Luna nueva, cuarto creciente, luna llena y cuarto menguante."],
+    ["b", "¿Qué son las curvas de nivel?", "Líneas que unen puntos de la misma altitud."],
+    ["b", "¿Cuál es el punto más alto de España?", "El Teide, con 3715 metros."],
+    ["b", "¿Quién dibujó el primer mapa conservado en el que aparece América?", "Juan de la Cosa, en 1500."],
+    ["m", "¿Qué indican unas curvas de nivel muy juntas?", "Una pendiente muy fuerte."],
+    ["m", "En un mapa con tintas hipsométricas, ¿qué color tendrán las zonas más altas? ¿Y las bajas?", "Las altas, marrón oscuro; las bajas, verde."],
+    ["m", "¿Qué provoca la atracción de la Luna en el mar?", "Las mareas."],
+    ["m", "¿Por qué no vemos la luna nueva?", "Porque la cara iluminada por el Sol mira hacia el Sol y no hacia la Tierra."],
+    ["m", "¿Por qué los mapas antiguos tienen errores?", "Porque reflejan lo que se sabía en su época y había tierras sin explorar."],
+    ["m", "¿Cuál es el pico más alto de la península ibérica?", "El Mulhacén, en Sierra Nevada, con 3479 metros."],
+    ["a", "¿Cuántos metros más alto es el Teide que el Mulhacén?", "3715 − 3479 = 236 metros."],
+    ["a", "Dibuja las curvas de nivel de una colina con una ladera suave y otra muy empinada.", "Respuesta abierta. Las curvas deben estar juntas en la ladera empinada y separadas en la suave."],
+    ["a", "Si hoy hay luna llena, ¿qué fase habrá dentro de una semana? ¿Y dentro de dos?", "Dentro de una semana, cuarto menguante; dentro de dos, luna nueva."],
+    ["a", "Compara un portulano medieval con una aplicación de mapas actual: escribe dos diferencias.", "Respuesta abierta. Por ejemplo: el portulano solo mostraba costas y estaba dibujado a mano; la aplicación usa imágenes de satélite y se actualiza al momento."],
+    ["a", "¿Qué distancia recorrió la luz del Sol reflejada en la Luna hasta llegar a ti, aproximadamente, en su último tramo?", "Unos 384 000 km, la distancia entre la Luna y la Tierra."],
+  ],
+  quiz: [
+    ["La Luna brilla porque…", ["Refleja la luz del Sol", "Tiene luz propia", "Está en llamas"], "Es un satélite sin luz propia."],
+    ["Cuando la Luna parece una C está en…", ["Cuarto menguante", "Cuarto creciente", "Luna llena"], "La Luna es «mentirosa»."],
+    ["Las curvas de nivel unen puntos de igual…", ["Altitud", "Temperatura", "Población"], "Muestran el relieve."],
+    ["El primer mapa conservado con América es de…", ["Juan de la Cosa", "Ptolomeo", "Gutenberg"], "Del año 1500."],
+    ["Las mareas las provoca sobre todo…", ["La Luna", "El viento", "Los ríos"], "Por su atracción."],
+  ],
+  examen: [
+    ["En un mapa de relieve, el verde suele indicar…", ["Zonas bajas", "Montañas altas", "Mar profundo"], "Tintas hipsométricas."],
+    ["Los primeros en pisar la Luna llegaron en…", ["1969", "1492", "2001"], "Con la misión Apolo 11."],
+  ],
+  tarjetas: [
+    ["Fases lunares", "Nueva, creciente, llena y menguante (unos 28 días)."],
+    ["Curvas de nivel", "Juntas: pendiente fuerte. Separadas: suave."],
+    ["Tintas hipsométricas", "Colores según la altitud: verde, amarillo, marrón."],
+    ["Juan de la Cosa", "Primer mapa conservado con América (1500)."],
+  ],
+  glosario: [
+    ["Rotación", "Giro de la Tierra sobre sí misma; produce el día y la noche."],
+    ["Traslación", "Vuelta de la Tierra alrededor del Sol; dura un año."],
+    ["Satélite", "Astro que gira alrededor de un planeta."],
+    ["Globo terráqueo", "Esfera que representa la Tierra."],
+    ["Planisferio", "Mapa plano de toda la Tierra."],
+    ["Mapa", "Representación plana, reducida y simplificada de la Tierra."],
+    ["Plano", "Representación muy detallada de un lugar pequeño."],
+    ["Leyenda", "Cuadro que explica los símbolos de un mapa."],
+    ["Escala", "Relación entre las medidas del mapa y las reales."],
+    ["Curva de nivel", "Línea que une puntos de igual altitud."],
+    ["Altitud", "Altura de un lugar sobre el nivel del mar."],
+    ["Puntos cardinales", "Norte, sur, este y oeste."],
+  ],
+  situacion: {
+    titulo: "El mapa de nuestro barrio",
+    reto: "La clase elabora un mapa del entorno del colegio con todos sus elementos y diseña una gincana de orientación.",
+    pasos: ["Recorred el entorno y anotad calles, parques, edificios importantes y desniveles.", "Dibujad el mapa con título, leyenda, rosa de los vientos y escala gráfica calculada con pasos.", "Observad la Luna durante dos semanas y añadid al mapa un calendario de sus fases.", "Preparad una gincana con pistas que usen la escala y los puntos cardinales y jugad con otro curso."],
+    producto: "Un mapa del barrio con todos sus elementos y una gincana de orientación.",
+    evaluacion: ["Incluye correctamente título, leyenda, orientación y escala.", "Calcula distancias reales con la escala.", "Se orienta con los puntos cardinales.", "Observa y registra fenómenos como las fases de la Luna."],
+  },
+});

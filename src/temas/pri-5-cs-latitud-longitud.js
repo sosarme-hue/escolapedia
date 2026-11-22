@@ -140,3 +140,87 @@ module.exports = {
   fuentes: [RD, wiki("Latitud", "Latitud"), wiki("Longitud (cartografía)", "Longitud_(cartografía)"), wiki("Huso horario", "Huso_horario")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { linea } = require("./_pri5b");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Relacionar los paralelos con las zonas climáticas de la Tierra", "Conocer cómo se resolvió el problema de medir la longitud en el mar", "Calcular las antípodas de un lugar a partir de sus coordenadas"],
+  lectura: { titulo: "Perdidos en el océano", html: `<p>Año 1707. Una flota de barcos ingleses regresa a casa con niebla espesa. Los navegantes creen saber dónde están, pero se equivocan. De noche, los barcos chocan contra las rocas de unas islas y se hunden. Mueren cientos de marineros.</p><p>¿Cómo pudo pasar? Los marinos sabían calcular la <b>latitud</b> mirando la altura del Sol a mediodía o la de la estrella Polar. Pero no sabían calcular bien la <b>longitud</b>: cuánto se habían desplazado hacia el este o el oeste. Y sin las dos coordenadas, no podían saber su posición exacta.</p><p>El gobierno inglés ofreció un enorme premio a quien resolviera el problema. Lo consiguió un carpintero y relojero llamado <b>John Harrison</b>, que dedicó casi toda su vida a construir relojes que funcionaran perfectamente en un barco que se mueve, con humedad y cambios de temperatura.</p><p>¿Qué tiene que ver un reloj con la longitud? Lo descubrirás en este tema, en el que aprenderás a localizar cualquier lugar del planeta con dos números: su <b>latitud</b> y su <b>longitud</b>.</p>` },
+  tras: {
+    "Los paralelos más importantes": [
+      ["Las zonas climáticas de la Tierra", `<p>Los paralelos principales dividen la Tierra en grandes <b>zonas climáticas</b>, porque los rayos del Sol no llegan igual a todas partes. Cerca del ecuador llegan casi verticales y calientan mucho; cerca de los polos llegan muy inclinados y calientan poco.</p><ul><li>La <b>zona cálida</b> o tropical está entre el trópico de Cáncer y el de Capricornio. Hace calor todo el año. Allí están las selvas, las sabanas y muchos desiertos.</li><li>Las dos <b>zonas templadas</b> están entre cada trópico y su círculo polar. Tienen <b>cuatro estaciones</b> bien marcadas. <b>España</b> está en la zona templada del norte.</li><li>Las dos <b>zonas frías</b> o polares están más allá de los círculos polares. Hace frío casi todo el año y hay hielo permanente. En ellas se produce el fenómeno del <b>sol de medianoche</b> en verano, cuando el Sol no llega a ponerse, y la <b>noche polar</b> en invierno.</li></ul><p>Por eso la <b>latitud</b> de un lugar nos da una pista sobre su clima: cuanto más cerca del ecuador, más cálido, y cuanto más cerca de los polos, más frío. Aunque otros factores, como la altitud o la distancia al mar, también influyen.</p>`,
+        svg("Zonas climáticas: cálida entre los trópicos, templadas y frías hacia los polos", `${tit("Zonas climáticas")}<circle cx="80" cy="102" r="66" fill="none" stroke="var(--ink)" stroke-width="2"/><clipPath id="zc"><circle cx="80" cy="102" r="66"/></clipPath><g clip-path="url(#zc)"><rect x="10" y="36" width="140" height="18" fill="${COL.azul}" fill-opacity=".35"/><rect x="10" y="54" width="140" height="28" fill="${COL.verde}" fill-opacity=".35"/><rect x="10" y="82" width="140" height="40" fill="${COL.rojo}" fill-opacity=".35"/><rect x="10" y="122" width="140" height="28" fill="${COL.verde}" fill-opacity=".35"/><rect x="10" y="150" width="140" height="18" fill="${COL.azul}" fill-opacity=".35"/></g>${filas([["zona fría", "", COL.azul], ["templada", "", COL.verde], ["zona cálida", "", COL.rojo], ["templada", "", COL.verde], ["zona fría", "", COL.azul]], 52, 26, { x: 162, wa: 86, wb: 4 })}`)],
+    ],
+    "La longitud y la hora: los husos horarios": [
+      ["El reloj que resolvió el problema de la longitud", `<p>La Tierra da una vuelta completa, 360°, en 24 horas. Por tanto, en <b>una hora gira 15°</b> (360 : 24 = 15). Esto relaciona la <b>hora</b> con la <b>longitud</b>.</p><p>Los marinos del siglo XVIII tenían una idea: llevar en el barco un reloj con la hora del puerto de salida. En alta mar, miraban cuándo era mediodía en el lugar donde estaban (el momento en que el Sol está más alto). Si en el reloj del puerto eran las 14:00, había 2 horas de diferencia, así que el barco estaba <b>30° al oeste</b> del puerto (2 × 15°).</p><p>El problema era que los relojes de péndulo no funcionaban en un barco que se balancea, y los demás se adelantaban o retrasaban con el frío, el calor y la humedad. Un error de pocos minutos significaba equivocarse en decenas de kilómetros.</p><p><b>John Harrison</b> construyó entre 1730 y 1760 varios <b>cronómetros marinos</b> cada vez más precisos. El cuarto, del tamaño de un reloj de bolsillo grande, solo se retrasó unos segundos en un viaje de casi tres meses hasta Jamaica. Desde entonces, los barcos pudieron calcular su longitud y navegar con mucha más seguridad.</p>`,
+        svg("Línea del tiempo: 1707 naufragio, 1714 premio, 1761 cronómetro de Harrison", `${tit("El problema de la longitud")}${linea([["1707", "naufragio", COL.rojo], ["1714", "se ofrece un premio", COL.sol], ["1761", "reloj de Harrison", COL.verde]])}${tx(130, 170, "1 hora = 15° de longitud", 230, { weight: 700 })}`)],
+    ],
+  },
+  final: [
+    ["Las antípodas", `<p>Las <b>antípodas</b> de un lugar son el punto exactamente opuesto de la Tierra: el lugar al que llegarías si pudieras atravesar el planeta en línea recta por su centro.</p><p>Calcular las antípodas con las coordenadas es sencillo:</p><ol><li>La <b>latitud</b> tiene el mismo número de grados, pero en el <b>hemisferio contrario</b>: 40° N pasa a ser 40° S.</li><li>La <b>longitud</b> es <b>180° menos</b> la longitud original, y también cambia de hemisferio: 4° O pasa a ser 176° E (180 − 4 = 176).</li></ol><p>Así, las antípodas de <b>Madrid</b> (40° N, 4° O) están en 40° S, 176° E, muy cerca de la ciudad de <b>Wellington</b>, en <b>Nueva Zelanda</b>. Cuando en Madrid es verano, allí es invierno; y cuando aquí es mediodía, allí es medianoche.</p><p>Como casi tres cuartas partes de la Tierra son océano, las antípodas de la mayoría de los lugares caen en el mar. Las de casi toda España están en el océano Pacífico, cerca de Nueva Zelanda. Puedes comprobarlo con un globo terráqueo y una aguja de punto imaginaria.</p>`,
+        svg("Las antípodas de Madrid, 40 grados norte 4 oeste, están en 40 grados sur 176 este, cerca de Nueva Zelanda", `${tit("Las antípodas de Madrid")}<circle cx="80" cy="102" r="62" fill="${COL.agua}" fill-opacity=".15" stroke="var(--ink)" stroke-width="2"/><path d="M18 102 H142" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 3"/><circle cx="58" cy="58" r="6" fill="${COL.rojo}"/><circle cx="102" cy="146" r="6" fill="${COL.azul}"/><path d="M58 58 L102 146" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="3 3"/>${filas([["Madrid", "40° N, 4° O", COL.rojo], ["antípodas", "40° S, 176° E", COL.azul]], 70, 50, { x: 160, wa: 70, wb: 90, dos: true })}`)],
+  ],
+  ejemplos: [
+    ["Un barco ve el Sol en lo más alto cuando su reloj con la hora del puerto (en el meridiano de Greenwich) marca las 15:00. ¿Cuál es su longitud?", ["Hay 3 horas de diferencia.", "Cada hora son 15°: 3 × 15 = 45°.", "Es más tarde en Greenwich, así que el barco está al oeste."], "45° O"],
+    ["Calcula las antípodas de Barcelona (41° N, 2° E).", ["Latitud: los mismos grados en el otro hemisferio: 41° S.", "Longitud: 180 − 2 = 178.", "Cambia de hemisferio: de este a oeste."], "41° S, 178° O"],
+  ],
+  errores: ["Pensar que las antípodas solo cambian la latitud: también cambia la longitud (180° menos la original) y su hemisferio."],
+  nivelesBase: "bbbbmmmmmm",
+  ejercicios: [
+    ["b", "¿Entre qué paralelos está la zona cálida?", "Entre el trópico de Cáncer y el de Capricornio."],
+    ["b", "¿En qué zona climática está España?", "En la zona templada del norte."],
+    ["b", "¿Cuántos grados gira la Tierra en una hora?", "15°."],
+    ["b", "¿Qué son las antípodas de un lugar?", "El punto exactamente opuesto de la Tierra."],
+    ["b", "¿Qué inventó John Harrison?", "Cronómetros marinos muy precisos para calcular la longitud."],
+    ["m", "¿Por qué hace más calor en el ecuador que en los polos?", "Porque los rayos del Sol llegan casi verticales en el ecuador y muy inclinados en los polos."],
+    ["m", "¿Qué es el sol de medianoche?", "El fenómeno de las zonas polares en el que, en verano, el Sol no llega a ponerse."],
+    ["m", "¿Por qué los marinos sabían calcular la latitud pero no la longitud?", "La latitud se calculaba con la altura del Sol o de la estrella Polar; para la longitud necesitaban saber la hora exacta de otro lugar, y los relojes no eran precisos en el mar."],
+    ["m", "Calcula las antípodas de un lugar situado en 30° N, 10° O.", "30° S, 170° E."],
+    ["m", "Si en Madrid es verano, ¿qué estación es en Nueva Zelanda?", "Invierno."],
+    ["a", "Entre dos lugares hay 4 horas de diferencia. ¿Cuántos grados de longitud los separan?", "4 × 15 = 60°."],
+    ["a", "Un barco tiene el mediodía cuando en Greenwich son las 9:00 de la mañana. ¿Está al este o al oeste? ¿Cuál es su longitud?", "Está al este (allí es mediodía antes); 3 × 15 = 45° E."],
+    ["a", "¿Por qué las antípodas de la mayoría de los lugares caen en el mar?", "Porque casi tres cuartas partes de la Tierra están cubiertas por océanos."],
+    ["a", "Explica por qué un reloj que se adelanta unos minutos podía hacer que un barco naufragara.", "Un error de minutos en la hora daba un error de grados de longitud, es decir, de decenas de kilómetros; el barco creía estar lejos de la costa y chocaba."],
+    ["a", "Busca en un atlas un país de la zona cálida, uno de la zona templada del sur y uno con zona fría, y escribe sus coordenadas aproximadas.", "Respuesta abierta. Por ejemplo: Brasil (zona cálida), Argentina (templada sur), Noruega (con zona fría)."],
+    ["m", "¿Cuántos grados tiene una vuelta completa de la Tierra y cuántas horas dura?", "360° en 24 horas."],
+  ],
+  quiz: [
+    ["España está en la zona…", ["Templada del norte", "Cálida", "Fría"], "Con cuatro estaciones."],
+    ["En una hora la Tierra gira…", ["15°", "1°", "90°"], "360 : 24 = 15."],
+    ["Las antípodas de 40° N tienen latitud…", ["40° S", "40° N", "0°"], "Mismos grados, hemisferio contrario."],
+    ["John Harrison fabricó…", ["Cronómetros marinos", "Brújulas", "Mapas de papel"], "Para calcular la longitud."],
+    ["El sol de medianoche ocurre en las zonas…", ["Polares", "Tropicales", "Desérticas"], "En verano el Sol no se pone."],
+  ],
+  examen: [
+    ["Las antípodas de Madrid están cerca de…", ["Nueva Zelanda", "Japón", "Canadá"], "En el océano Pacífico."],
+    ["La latitud se podía calcular en el mar con…", ["La altura del Sol o de la estrella Polar", "Un reloj", "El viento"], "La longitud necesitaba un buen reloj."],
+  ],
+  tarjetas: [
+    ["Zonas climáticas", "Cálida, dos templadas y dos frías."],
+    ["1 hora", "= 15° de longitud."],
+    ["Antípodas", "Mismos grados de latitud en el otro hemisferio; longitud: 180° menos."],
+    ["John Harrison", "Cronómetro marino para calcular la longitud."],
+  ],
+  glosario: [
+    ["Ecuador", "Paralelo 0°, que divide la Tierra en hemisferios norte y sur."],
+    ["Paralelo", "Círculo imaginario paralelo al ecuador."],
+    ["Meridiano", "Semicírculo imaginario que va de polo a polo."],
+    ["Meridiano de Greenwich", "Meridiano 0°, origen de la longitud."],
+    ["Hemisferio", "Cada mitad de la Tierra."],
+    ["Trópico", "Paralelo de unos 23°, límite de la zona cálida."],
+    ["Círculo polar", "Paralelo de unos 66°, límite de la zona fría."],
+    ["Latitud", "Distancia en grados de un lugar al ecuador."],
+    ["Longitud", "Distancia en grados de un lugar al meridiano de Greenwich."],
+    ["Coordenadas geográficas", "Latitud y longitud de un lugar."],
+    ["Huso horario", "Franja de la Tierra con la misma hora oficial."],
+    ["Antípodas", "Punto de la Tierra opuesto a otro."],
+  ],
+  situacion: {
+    titulo: "Viaje alrededor del mundo",
+    reto: "Por equipos, planificad un viaje alrededor del mundo pasando por cinco ciudades y preparad un cuaderno de bitácora con sus coordenadas.",
+    pasos: ["Elegid cinco ciudades de distintos continentes y buscad sus coordenadas en un atlas o en un mapa digital.", "Indicad para cada una su hemisferio, su zona climática y la diferencia horaria con España.", "Calculad las antípodas de vuestra localidad y de una de las ciudades.", "Presentad el viaje en un planisferio con las rutas y un cuaderno de bitácora."],
+    producto: "Un planisferio con la ruta y un cuaderno de bitácora con coordenadas, zonas climáticas y horarios.",
+    evaluacion: ["Localiza lugares con coordenadas geográficas.", "Relaciona la latitud con las zonas climáticas.", "Calcula diferencias horarias y antípodas.", "Presenta la información de forma ordenada y clara."],
+  },
+});
