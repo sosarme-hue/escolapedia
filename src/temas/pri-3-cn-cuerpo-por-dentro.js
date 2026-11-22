@@ -140,3 +140,91 @@ module.exports = {
   fuentes: [RD, wiki("Cuerpo humano", "Cuerpo humano"), wiki("Corazón", "Corazón"), wiki("Aparato locomotor", "Aparato locomotor")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Entender qué son los nervios y los reflejos", "Construir un modelo de pulmón", "Saber cómo se ven los huesos por dentro", "Conocer datos asombrosos del cuerpo y primeros auxilios sencillos"],
+  lectura: { titulo: "La radiografía de Leo", html: `<p>Leo se cayó del columpio y le dolía mucho la muñeca. Su madre lo llevó al hospital.</p><p>—Vamos a hacerte una radiografía —le dijo una enfermera muy simpática—. Es como una foto que ve lo que hay debajo de la piel.</p><p>Leo puso la mano sobre una placa y se quedó muy quieto. No notó nada: ni calor, ni cosquillas. Al rato, el médico le enseñó la imagen en una pantalla.</p><p>—¡Hala! ¡Son mis huesos! —exclamó Leo.</p><p>Se veían blancos y brillantes, como si fueran de tiza. Leo contó los huesecillos de sus dedos y se sorprendió de que hubiera tantos.</p><p>—Mira aquí —señaló el médico—. Este hueso tiene una pequeña raya. Es una fisura, una rotura muy pequeña. Con una férula y reposo, en unas semanas estará curado.</p><p>—¿Los huesos se arreglan solos? —preguntó Leo.</p><p>—Sí. Son tejidos vivos y fabrican hueso nuevo para cerrar la rotura. Por eso es importante comer alimentos con calcio.</p><p>Al día siguiente, Leo llevó al colegio una copia de su radiografía. Toda la clase quiso verla, y la maestra aprovechó para explicar cómo es el esqueleto por dentro.</p>` },
+  tras: {
+    "El cerebro, el gran jefe": [
+      ["Los nervios y los reflejos", `<p>El cerebro se comunica con todo el cuerpo a través de los <mark>nervios</mark>, que son como cables finísimos. Por ellos viajan mensajes a gran velocidad: del cuerpo al cerebro (por ejemplo, «esto quema») y del cerebro al cuerpo (por ejemplo, «aparta la mano»).</p><p>Algunas respuestas son tan rápidas que ni siquiera pensamos en ellas. Se llaman <mark>reflejos</mark>:</p><ul><li>Apartar la mano de algo que quema.</li><li>Cerrar los ojos cuando algo se acerca a la cara.</li><li>Estornudar o toser.</li><li>La pierna que salta cuando el médico da un golpecito en la rodilla.</li></ul><p><b>Experimento</b>: un compañero sujeta una regla por arriba, colgando entre tus dedos abiertos. Sin avisar, la suelta, y tú tienes que atraparla. Mira en qué número la has cogido: cuanto más pequeño, ¡más rápido es tu tiempo de reacción! Si practicas, mejorarás.</p>`,
+        H6.flujo("Mensaje", ["toco|algo", "nervio|avisa", "cerebro|decide", "mano|se aparta"], cMO)],
+    ],
+    "Los pulmones y la respiración": [
+      ["Construye un pulmón", `<p>Puedes fabricar un <mark>modelo de pulmón</mark> para ver cómo funciona la respiración.</p><p><b>Materiales</b>: una botella de plástico cortada por la mitad, dos globos, una pajita y plastilina.</p><ul><li><b>1.</b> Mete la pajita en un globo pequeño y sujétalo con una goma. Este globo será el pulmón.</li><li><b>2.</b> Mete el globo dentro de la botella, con la pajita saliendo por la boca, y tapa el hueco con plastilina.</li><li><b>3.</b> Corta el otro globo, haz un nudo y estíralo sobre la parte de abajo de la botella. Será el <b>diafragma</b>, un músculo que está debajo de los pulmones.</li><li><b>4.</b> Tira del nudo hacia abajo: el globo de dentro se hincha. Suéltalo: el globo se deshincha.</li></ul><p>Así funciona tu cuerpo: cuando el diafragma baja, entra aire en los pulmones; cuando sube, el aire sale. Pon la mano en la barriga y respira hondo: ¡notarás cómo se mueve!</p>`,
+        L6.filas("Modelo", [["botella", "pecho", cAZ], ["globo", "pulmón", cRO], ["pajita", "tráquea", cNA], ["globo abajo", "diafragma", cVE]]), ["dPFVRWvTucY", "¡CONSTRUYE tus propios PULMONES! | El aparato respiratorio explicado para niñas y niños", "Clowntifics, ciencia que conecta", 844678]],
+    ],
+    "Huesos, músculos y articulaciones": [
+      ["Ver por dentro: las radiografías", `<p>¿Cómo pueden los médicos ver los huesos sin abrir el cuerpo? Con las <mark>radiografías</mark>.</p><p>En <b>1895</b>, el científico alemán <b>Wilhelm Röntgen</b> descubrió unos rayos invisibles que atravesaban la piel y los músculos, pero no los huesos. Los llamó <b>rayos X</b>, porque no sabía qué eran. La primera radiografía famosa fue la de la mano de su esposa, ¡con su anillo!</p><ul><li>En la imagen, los <b>huesos</b> salen <b>blancos</b>, porque frenan los rayos.</li><li>Los <b>músculos</b> y la piel salen grises u oscuros, porque los rayos pasan mejor.</li><li>Los objetos de <b>metal</b> salen muy blancos.</li></ul><p>Las radiografías sirven para ver si un hueso está roto, cómo crecen los huesos de los niños o si hay algo raro en los pulmones. Hoy existen otras máquinas, como la <b>ecografía</b>, que usa sonidos para ver por dentro, por ejemplo, a un bebé antes de nacer.</p>`,
+        H6.dos("Rayos X", ["BLANCOS", ["huesos", "dientes", "metal"], cAZ], ["OSCUROS", ["músculos", "piel", "aire"], cMO]), ["9k1mwyBmGIs", "RX o radiografía - ¿Qué es y cómo funciona?", "FisioOnline", 189876]],
+    ],
+  },
+  final: [
+    ["Datos asombrosos del cuerpo", `<p>Tu cuerpo está lleno de <mark>récords</mark> sorprendentes:</p><ul><li>Un bebé nace con unos <b>300 huesos</b>, pero algunos se unen al crecer y un adulto tiene unos <b>206</b>.</li><li>El hueso más pequeño está en el <b>oído</b> y se llama estribo: es más pequeño que un grano de arroz.</li><li>El hueso más largo es el <b>fémur</b>, en el muslo.</li><li>Tu corazón late unas <b>100.000 veces</b> al día sin descansar nunca.</li><li>Si pusieras todos tus vasos sanguíneos en fila, darían más de dos vueltas a la Tierra.</li><li>El intestino delgado de un adulto mide unos <b>6 metros</b>, más que el largo de un coche.</li><li>Parpadeas unas 15 veces cada minuto.</li></ul><p>Y lo más asombroso: todos estos órganos trabajan juntos sin que tengas que pensar en ellos, mientras juegas, estudias o duermes.</p>`,
+      H6.rueda("Récords", "CUERPO", [["206 huesos", cAZ], ["estribo", cVE], ["fémur", cNA], ["100.000 latidos", cRO]])],
+    ["Primeros auxilios sencillos", `<p>Los <mark>primeros auxilios</mark> son la ayuda que damos a alguien que se ha hecho daño, mientras llega un adulto o el médico.</p><ul><li><b>Una herida pequeña</b>: lávala con agua y jabón, sécala y tápala con una tirita.</li><li><b>Sangre por la nariz</b>: inclina la cabeza un poco hacia delante, no hacia atrás, y aprieta la nariz unos minutos.</li><li><b>Un golpe</b>: pon frío envuelto en un paño, nunca hielo directo sobre la piel.</li><li><b>Una quemadura pequeña</b>: pon la zona bajo agua fría un buen rato.</li></ul><p>Recuerda la regla <b>PAS</b>: <b>P</b>roteger (que no haya más peligro), <b>A</b>visar (a un adulto o al 112) y <b>S</b>ocorrer (ayudar con calma).</p><p>Si algo es grave, lo más importante no es curar, sino avisar rápido a un adulto.</p>`,
+      L6.filas("PAS", [["Proteger", "sin más peligro", cAZ], ["Avisar", "adulto o 112", cRO], ["Socorrer", "con calma", cVE], ["herida", "agua y jabón", cNA]])],
+  ],
+  ejemplos: [
+    ["Un compañero sangra por la nariz. ¿Qué hacemos?", ["Inclinar la cabeza hacia delante.", "Apretar la nariz unos minutos y avisar a un adulto."], "Cabeza adelante y apretar."],
+    ["¿Por qué los huesos salen blancos en una radiografía?", ["Los rayos X atraviesan la piel y los músculos.", "Los huesos frenan los rayos."], "Porque frenan los rayos X."],
+  ],
+  errores: ["Echar la cabeza hacia atrás cuando sangra la nariz.", "Pensar que los reflejos se deciden pensando: son automáticos."],
+  ejercicios: [
+    ["b", "¿Cómo se llaman los cables que conectan el cerebro con el cuerpo?", "Nervios."],
+    ["b", "Di un reflejo.", "Estornudar, parpadear, apartar la mano…"],
+    ["b", "¿Quién descubrió los rayos X?", "Wilhelm Röntgen."],
+    ["b", "¿Cuál es el hueso más largo?", "El fémur."],
+    ["b", "¿Qué significa la A de PAS?", "Avisar."],
+    ["m", "En el modelo de pulmón, ¿qué representa el globo de abajo?", "El diafragma."],
+    ["m", "¿Qué sale oscuro en una radiografía?", "Los músculos, la piel y el aire."],
+    ["m", "¿Cuántos huesos tiene un adulto?", "Unos 206."],
+    ["m", "¿Qué haces con una quemadura pequeña?", "Ponerla bajo agua fría."],
+    ["m", "¿Para qué sirve una ecografía?", "Para ver por dentro con sonidos."],
+    ["a", "Haz el experimento de la regla tres veces y anota tus resultados.", "Respuesta abierta."],
+    ["a", "Construye el modelo de pulmón y explica cómo funciona.", "Respuesta abierta."],
+    ["a", "Prepara un cartel con la regla PAS.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿qué le pasaba al hueso de Leo?", "Tenía una fisura."],
+  ],
+  quiz: [
+    ["Los reflejos son respuestas…", ["automáticas y rápidas", "lentas y pensadas", "imposibles"], "Reflejos."],
+    ["Cuando el diafragma baja…", ["entra aire", "sale aire", "no pasa nada"], "Respiración."],
+    ["Los rayos X se descubrieron en…", ["1895", "1995", "1492"], "Radiografías."],
+    ["El hueso más pequeño está en…", ["el oído", "el pie", "la mano"], "Récords."],
+    ["Sobre un golpe ponemos…", ["frío envuelto en un paño", "hielo directo", "agua caliente"], "Primeros auxilios."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué le pusieron a Leo?", ["una férula", "una escayola en la pierna", "un vendaje en la cabeza"], "Lectura."],
+    ["La regla PAS significa…", ["Proteger, Avisar, Socorrer", "Parar, Andar, Saltar", "Pedir, Ayudar, Salir"], "PAS."],
+  ],
+  tarjetas: [
+    ["Nervios y reflejos", "Los nervios llevan mensajes; los reflejos son automáticos."],
+    ["Modelo de pulmón", "Botella, globos y pajita: el diafragma mueve el aire."],
+    ["Radiografías", "Röntgen, 1895: los huesos salen blancos."],
+    ["PAS", "Proteger, Avisar y Socorrer."],
+  ],
+  glosario: [
+    ["Nervio", "Cable que lleva mensajes entre el cerebro y el cuerpo."],
+    ["Reflejo", "Respuesta automática y rápida."],
+    ["Tiempo de reacción", "Lo que tardamos en responder a algo."],
+    ["Diafragma", "Músculo bajo los pulmones que ayuda a respirar."],
+    ["Tráquea", "Tubo por el que el aire llega a los pulmones."],
+    ["Rayos X", "Rayos invisibles que atraviesan el cuerpo."],
+    ["Radiografía", "Imagen del interior del cuerpo hecha con rayos X."],
+    ["Fisura", "Rotura muy pequeña de un hueso."],
+    ["Ecografía", "Imagen del interior hecha con sonidos."],
+    ["Fémur", "Hueso del muslo, el más largo."],
+    ["Estribo", "Hueso del oído, el más pequeño."],
+    ["Primeros auxilios", "Primera ayuda a quien se ha hecho daño."],
+  ],
+  situacion: {
+    titulo: "Exploradores del cuerpo humano",
+    reto: "La clase monta una pequeña feria científica sobre cómo funciona el cuerpo por dentro.",
+    pasos: ["Medir el tiempo de reacción con el experimento de la regla.", "Construir modelos de pulmón con botellas y globos.", "Preparar un mural de récords del cuerpo.", "Representar situaciones de primeros auxilios con la regla PAS."],
+    producto: "Una feria con experimentos, modelos y un mural.",
+    evaluacion: ["Explica nervios y reflejos.", "Construye un modelo de pulmón.", "Sabe qué es una radiografía.", "Aplica primeros auxilios sencillos."],
+  },
+});

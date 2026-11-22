@@ -149,3 +149,91 @@ module.exports = {
   fuentes: [RD, wiki("Dieta equilibrada", "Dieta equilibrada"), wiki("Dieta mediterránea", "Dieta mediterránea"), wiki("Pirámide alimenticia", "Pirámide alimenticia")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer para qué sirven algunas vitaminas y minerales", "Usar el plato saludable para preparar comidas", "Valorar el agua como la mejor bebida", "Descubrir comidas del mundo y el azúcar escondido"],
+  lectura: { titulo: "La merienda misteriosa", html: `<p>Un lunes, la maestra de Hugo propuso un juego: cada niño traería una merienda misteriosa dentro de una bolsa de papel, y los demás tendrían que adivinar a qué grupo de alimentos pertenecía tocándola con los ojos cerrados.</p><p>Hugo metió la mano en la primera bolsa.</p><p>—Es redonda, suave y huele a… ¡mandarina! Es una fruta.</p><p>En la segunda bolsa había algo crujiente y alargado.</p><p>—¡Un palito de pan! Es un cereal, da energía.</p><p>La bolsa de Marta tenía un frasquito frío.</p><p>—Un yogur —adivinó Hugo—. Es un lácteo, tiene calcio para los huesos.</p><p>Entonces llegó la bolsa de Iván. Dentro había un paquete brillante y arrugado.</p><p>—Son… ¡galletas de chocolate con crema!</p><p>Todos se rieron, pero la maestra aprovechó para hacer una pregunta:</p><p>—¿Cuántos terrones de azúcar creéis que llevan estas galletas?</p><p>Leyeron juntos la etiqueta y lo calcularon. ¡Casi cinco terrones en un solo paquete!</p><p>Iván se quedó pensativo.</p><p>—Mañana traeré un bocadillo de queso —dijo—. Las galletas, mejor para un día de fiesta.</p><p>Y desde ese día, la clase de Hugo empezó a mirar las etiquetas antes de elegir merienda.</p>` },
+  tras: {
+    "Los grupos de alimentos": [
+      ["Vitaminas y minerales", `<p>Además de energía, los alimentos nos dan unas sustancias que el cuerpo necesita en pequeñas cantidades: las <mark>vitaminas</mark> y los <mark>minerales</mark>.</p><ul><li>La <b>vitamina C</b> nos ayuda a defendernos de las enfermedades. La tienen las naranjas, los kiwis, las fresas y los pimientos.</li><li>La <b>vitamina A</b> cuida la vista y la piel. La tienen la zanahoria, la calabaza y el melón.</li><li>El <b>calcio</b> es un mineral que fortalece los huesos y los dientes. Lo tienen la leche, el yogur y el queso.</li><li>El <b>hierro</b> es un mineral que ayuda a la sangre a llevar el oxígeno. Lo tienen las lentejas, la carne y las espinacas.</li></ul><p>Ningún alimento tiene todas las vitaminas y minerales. Por eso es tan importante comer de todo y de muchos colores: cada color de fruta o verdura aporta cosas distintas.</p><p>Hace siglos, los marineros que pasaban meses en el mar sin comer fruta fresca se ponían muy enfermos. Descubrieron que llevar limones y naranjas en los barcos los curaba: ¡les faltaba vitamina C!</p>`,
+        L6.filas("Vitaminas", [["vitamina C", "naranja, kiwi", cNA], ["vitamina A", "zanahoria", cRO], ["calcio", "leche, queso", cAZ], ["hierro", "lentejas", cMO]]), ["5DRr2otjce4", "¿Qué son las vitaminas y la sales minerales? - Alimentación saludable para niños", "Smile and Learn - Español", 622804]],
+    ],
+    "La dieta equilibrada": [
+      ["El plato saludable", `<p>Una forma fácil de preparar una comida equilibrada es imaginar un <mark>plato saludable</mark> dividido en partes:</p><ul><li><b>La mitad del plato</b>: verduras, hortalizas y un poco de fruta. Cuantos más colores, mejor.</li><li><b>Un cuarto del plato</b>: cereales, mejor integrales, como arroz, pasta, pan o patata.</li><li><b>El otro cuarto</b>: proteínas, como legumbres, pescado, huevo, pollo o frutos secos.</li><li>Para beber, <b>agua</b>.</li><li>Para cocinar y aliñar, un poco de <b>aceite de oliva</b>.</li></ul><p>Por ejemplo, un plato con ensalada de tomate y lechuga, arroz y un filete de pescado sigue el modelo. En cambio, un plato de macarrones solos tiene demasiados cereales y le faltan verduras y proteínas.</p><p>No hace falta que todas las comidas sean perfectas. Lo importante es que, a lo largo del día y de la semana, haya equilibrio.</p>`,
+        H6.rueda("Plato", "EQUILIBRIO", [["½ verdura", cVE], ["¼ cereales", cNA], ["¼ proteína", cRO], ["agua", cAZ]]), ["NDELJHAU2n8", "Alimentacion Saludable Para Niños con Tito Time | ¿Que es Mi Plato?", "Tito Time en Español", 168636]],
+    ],
+    "Las comidas del día": [
+      ["El agua, la mejor bebida", `<p>Más de la mitad de nuestro cuerpo es <mark>agua</mark>. La perdemos al sudar, al respirar y al ir al baño, así que necesitamos beber todos los días.</p><ul><li>Un niño de tu edad necesita unos <b>5 o 6 vasos</b> de agua al día, además del agua que llevan la fruta, la sopa o la leche.</li><li>Hay que beber más cuando hace calor o cuando hacemos deporte.</li><li>La sed es un aviso del cuerpo: no esperes a tener mucha sed para beber.</li></ul><p>Los <b>refrescos</b> y muchos zumos envasados tienen mucho azúcar. Una lata de refresco puede llevar unos siete terrones. Por eso son bebidas para tomar solo de vez en cuando.</p><p>Una buena costumbre es llevar siempre una botella de agua reutilizable a clase y a las actividades deportivas. Así cuidas tu cuerpo y también reduces los envases de plástico.</p>`,
+        H6.dos("Bebidas", ["CADA DÍA", ["agua", "leche", "fruta"], cAZ], ["A VECES", ["refrescos", "zumos envasados", "batidos"], cRO])],
+    ],
+  },
+  final: [
+    ["Comidas del mundo", `<p>En cada lugar del mundo se come de forma diferente, según los alimentos que da la tierra y las costumbres de la gente:</p><ul><li>En <b>Japón</b> se come mucho arroz y pescado, y se usan palillos.</li><li>En <b>México</b>, el maíz es muy importante: con él se hacen las tortillas.</li><li>En <b>Italia</b> son famosas la pasta y la pizza.</li><li>En <b>la India</b> se usan muchas especias, como la cúrcuma, y se comen muchas legumbres.</li><li>En <b>Marruecos</b> se prepara el cuscús, con sémola, verduras y garbanzos.</li></ul><p>Muchos alimentos que hoy comemos en España vinieron de lejos. El tomate, la patata, el maíz y el cacao llegaron de América hace unos 500 años. ¡Antes no había tortilla de patatas!</p><p>Conocer las comidas de otros países es una forma de aprender sobre otras culturas. Si en tu clase hay compañeros de otros lugares, podéis compartir recetas de vuestras familias.</p>`,
+      L6.filas("Mundo", [["Japón", "arroz, pescado", cRO], ["México", "maíz", cNA], ["India", "especias", cVE], ["América", "tomate, patata", cAZ]])],
+    ["El azúcar escondido", `<p>A veces comemos mucho más <mark>azúcar</mark> del que creemos, porque está <b>escondido</b> en alimentos que no parecen dulces o que parecen sanos.</p><ul><li>Un vaso de zumo envasado puede llevar unos 5 terrones.</li><li>Muchos cereales de desayuno, batidos y yogures de sabores llevan bastante azúcar añadido.</li><li>Incluso el kétchup y algunas salsas tienen azúcar.</li></ul><p><b>Cómo descubrirlo</b>: mira la etiqueta y busca la palabra «azúcares». Cada 4 gramos de azúcar equivalen más o menos a un terrón. Si la etiqueta dice 20 gramos, son unos 5 terrones.</p><p>El azúcar de más puede producir caries y, si se toma mucho durante años, problemas de salud. Los médicos recomiendan tomarlo poco.</p><p>El azúcar que lleva la fruta entera es diferente, porque va acompañado de fibra, agua y vitaminas. Por eso es mejor comerse una naranja que beberse un zumo de bote.</p>`,
+      H6.flujo("Etiqueta", ["mira|etiqueta", "busca|azúcares", "4 g|1 terrón", "decide|bien"], cRO), ["v_cGnCNfrE8", "El azúcar: oculta a simple vista - Robert Lustig", "Sé Curioso — TED-Ed", 92702]],
+  ],
+  ejemplos: [
+    ["Un batido tiene 24 g de azúcar. ¿Cuántos terrones son?", ["Cada 4 g es un terrón.", "24 : 4 = 6."], "Unos 6 terrones."],
+    ["¿Qué falta en un plato de macarrones con tomate?", ["Tiene cereales y un poco de verdura.", "Faltan proteínas y más verduras."], "Proteínas (huevo, pescado…) y verduras."],
+  ],
+  errores: ["Pensar que todos los zumos son tan sanos como la fruta entera.", "Creer que solo hay que beber agua cuando se tiene mucha sed."],
+  ejercicios: [
+    ["b", "Di un alimento con vitamina C.", "Naranja, kiwi, fresa o pimiento."],
+    ["b", "¿Qué mineral fortalece los huesos?", "El calcio."],
+    ["b", "¿Qué parte del plato saludable ocupan las verduras?", "La mitad."],
+    ["b", "¿Cuál es la mejor bebida?", "El agua."],
+    ["b", "¿De qué continente llegó la patata?", "De América."],
+    ["m", "¿Por qué enfermaban los marineros antiguos?", "Les faltaba vitamina C por no comer fruta fresca."],
+    ["m", "¿Cuándo hay que beber más agua?", "Con calor o al hacer deporte."],
+    ["m", "Una etiqueta dice 12 g de azúcar. ¿Cuántos terrones?", "Unos 3."],
+    ["m", "Di un plato típico de México y de Marruecos.", "Tortillas de maíz; cuscús."],
+    ["m", "¿Por qué es mejor una naranja que un zumo de bote?", "Tiene fibra, vitaminas y nada de azúcar añadido."],
+    ["a", "Dibuja un plato saludable para tu cena.", "Respuesta abierta."],
+    ["a", "Compara las etiquetas de dos cereales de desayuno.", "Respuesta abierta."],
+    ["a", "Investiga una receta de otro país y explica sus ingredientes.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿qué decidió traer Iván al día siguiente?", "Un bocadillo de queso."],
+  ],
+  quiz: [
+    ["El hierro lo tienen sobre todo…", ["las lentejas", "los caramelos", "el agua"], "Minerales."],
+    ["En el plato saludable, un cuarto son…", ["proteínas", "dulces", "refrescos"], "Plato."],
+    ["Un niño necesita al día unos…", ["5 o 6 vasos de agua", "2 vasos de agua", "15 vasos de agua"], "Agua."],
+    ["El tomate llegó a Europa desde…", ["América", "Japón", "la India"], "Mundo."],
+    ["Cada terrón de azúcar son unos…", ["4 gramos", "40 gramos", "1 kilo"], "Etiqueta."],
+  ],
+  examen: [
+    ["En la lectura, ¿cuántos terrones llevaban las galletas?", ["casi cinco", "uno", "veinte"], "Lectura."],
+    ["La vitamina A cuida sobre todo…", ["la vista y la piel", "las uñas", "el pelo"], "Vitaminas."],
+  ],
+  tarjetas: [
+    ["Vitaminas y minerales", "Vitamina C, vitamina A, calcio y hierro: comer de colores."],
+    ["Plato saludable", "Mitad verdura, un cuarto cereales, un cuarto proteína y agua."],
+    ["El agua", "5 o 6 vasos al día; más con calor o deporte."],
+    ["Azúcar escondido", "Mira «azúcares» en la etiqueta: 4 g son un terrón."],
+  ],
+  glosario: [
+    ["Vitamina", "Sustancia que el cuerpo necesita en poca cantidad."],
+    ["Mineral", "Sustancia como el calcio o el hierro."],
+    ["Calcio", "Mineral de los huesos y los dientes."],
+    ["Hierro", "Mineral que ayuda a la sangre."],
+    ["Plato saludable", "Modelo para preparar comidas equilibradas."],
+    ["Proteína", "Nutriente de la carne, el pescado, el huevo y las legumbres."],
+    ["Integral", "Cereal que conserva su cáscara y tiene más fibra."],
+    ["Hidratación", "Mantener el cuerpo con el agua que necesita."],
+    ["Refresco", "Bebida con gas y normalmente mucho azúcar."],
+    ["Azúcar añadido", "Azúcar que se pone al fabricar un alimento."],
+    ["Terrón", "Cubito de azúcar de unos 4 gramos."],
+    ["Especia", "Planta seca que da sabor, como la cúrcuma."],
+  ],
+  situacion: {
+    titulo: "Detectives de la alimentación",
+    reto: "La clase investiga sus meriendas y prepara una guía de comidas sanas para el colegio.",
+    pasos: ["Clasificar las meriendas de una semana por grupos de alimentos.", "Leer las etiquetas y calcular los terrones de azúcar.", "Dibujar platos saludables para cada día.", "Compartir una receta de otro país o de la familia."],
+    producto: "Una guía ilustrada de meriendas y platos saludables.",
+    evaluacion: ["Reconoce vitaminas y minerales.", "Usa el plato saludable.", "Valora el agua.", "Descubre el azúcar escondido."],
+  },
+});

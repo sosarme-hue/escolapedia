@@ -106,3 +106,91 @@ module.exports = P.tema({
   saberes: "Sentido espacial: tipos de líneas; recta, semirrecta y segmento; posiciones relativas de rectas (paralelas, secantes y perpendiculares); el ángulo y sus elementos; ángulos recto, agudo y obtuso; polígonos, elementos y clasificación por el número de lados; cuadriláteros especiales",
   ideas: ["Geoplano con gomas para construir polígonos y ángulos.", "Cazadores de ángulos rectos con una escuadra de papel por el colegio.", "Mural de señales de tráfico clasificadas por su forma."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Usar la regla, la escuadra y el cartabón", "Reconocer ángulos en el reloj", "Clasificar triángulos y cuadriláteros", "Distinguir la circunferencia y el círculo, y descubrir mosaicos"],
+  lectura: { titulo: "El mapa del tesoro", html: `<p>Para la fiesta de cumpleaños de Lola, su hermano mayor, Rubén, preparó una búsqueda del tesoro por el parque. Les dio a los invitados un mapa muy raro, lleno de figuras geométricas.</p><p>—Para encontrar el tesoro, tenéis que seguir las pistas —explicó—. Y para entenderlas, ¡tenéis que saber geometría!</p><p>La primera pista decía: «Busca el banco que está en una calle perpendicular a la fuente».</p><p>—¿Perpendicular? —preguntó Bruno.</p><p>—Que forma una esquina, como una L —dijo Lola, que lo había estudiado esa semana.</p><p>Encontraron el banco. Debajo había otra nota: «Camina por el sendero paralelo al río hasta llegar a un polígono de ocho lados».</p><p>—¡Un octógono! —gritó Carla—. ¡Como la señal de STOP!</p><p>Corrieron hasta encontrar un quiosco de música con el tejado en forma de octógono. Allí había una tercera pista: «Cuenta los triángulos de la valla y busca el que tiene los tres lados iguales».</p><p>La valla estaba hecha de maderas cruzadas que formaban muchos triángulos. Todos los midieron con los palmos hasta que encontraron el único equilátero. Justo debajo, enterrada en la arena, había una caja de galletas llena de caramelos.</p><p>—¡El tesoro! —gritaron todos a la vez.</p><p>Rubén sonrió.</p><p>—La próxima vez, el mapa tendrá ángulos obtusos. Id practicando.</p>` },
+  tras: {
+    "Rectas perpendiculares": [
+      ["Instrumentos de dibujo: escuadra y cartabón", `<p>Para dibujar líneas rectas, paralelas y perpendiculares de forma precisa, usamos <mark>instrumentos de dibujo</mark>:</p><ul><li><b>La regla</b>: sirve para trazar líneas rectas y medir.</li><li><b>La escuadra</b>: es un triángulo con un ángulo recto y los otros dos iguales. Tiene forma de medio cuadrado.</li><li><b>El cartabón</b>: es otro triángulo con un ángulo recto, pero con los otros dos ángulos diferentes. Uno de sus lados es el doble de largo que otro.</li></ul><p><b>Cómo dibujar rectas paralelas</b>:</p><ul><li><b>1.</b> Coloca la escuadra junto a una regla fija.</li><li><b>2.</b> Traza una línea por un lado de la escuadra.</li><li><b>3.</b> Desliza la escuadra a lo largo de la regla, sin mover la regla.</li><li><b>4.</b> Traza otra línea. ¡Son paralelas!</li></ul><p><b>Cómo dibujar rectas perpendiculares</b>: apoya un lado de la escuadra sobre una línea y traza otra línea por el lado que forma el ángulo recto. Las dos líneas se cortan formando una esquina perfecta.</p><p>Los arquitectos, delineantes e ingenieros usaban estos instrumentos todos los días para hacer planos. Hoy muchos usan programas de ordenador, pero las ideas son las mismas.</p>`,
+        L6.filas("Instrumentos", [["regla", "rectas y medir", cAZ], ["escuadra", "medio cuadrado", cVE], ["cartabón", "ángulos distintos", cNA], ["juntas", "paralelas", cMO]]), ["Qb2QYGs5K8I", "Cómo trazar Ángulos con Escuadra y Cartabón: 15º, 75º, 45º, 60º, 30º, 90º, 165º, 105º, 135º y más.", "Educación Plástica EPVA", 216661]],
+    ],
+    "Ángulos rectos, agudos y obtusos": [
+      ["Ángulos en el reloj", `<p>Las agujas de un reloj forman <mark>ángulos</mark> que van cambiando a lo largo del día. ¡Es un buen sitio para practicar!</p><ul><li>A las <b>3 en punto</b>, la aguja larga señala el 12 y la corta el 3: forman un ángulo <b>recto</b>, como una L. A las <b>9 en punto</b>, también.</li><li>A la <b>1 en punto</b> o a las <b>2 en punto</b>, las agujas están más juntas que en un ángulo recto: forman un ángulo <b>agudo</b>.</li><li>A las <b>4</b> o a las <b>5 en punto</b>, las agujas están más separadas: forman un ángulo <b>obtuso</b>.</li><li>A las <b>6 en punto</b>, las agujas forman una línea recta: es un ángulo <b>llano</b>, el doble que un ángulo recto.</li><li>A las <b>12 en punto</b>, las dos agujas están una encima de otra.</li></ul><p><b>Truco para comprobar</b>: dobla un papel dos veces para obtener una esquina recta. Si el ángulo es más pequeño que tu esquina de papel, es agudo; si es más grande, es obtuso.</p><p>También hay ángulos en tu cuerpo: dobla el brazo por el codo y prueba a formar un ángulo recto, uno agudo y uno obtuso.</p>`,
+        H6.rueda("Reloj", "ÁNGULOS", [["3 h: recto", cAZ], ["1 h: agudo", cVE], ["5 h: obtuso", cRO], ["6 h: llano", cNA]])],
+    ],
+    "Clasificar polígonos por sus lados": [
+      ["Familias de triángulos y cuadriláteros", `<p>Los triángulos y los cuadriláteros tienen sus propias <mark>familias</mark>.</p><p><b>Triángulos según sus lados</b>:</p><ul><li><b>Equilátero</b>: los <b>3 lados iguales</b>.</li><li><b>Isósceles</b>: <b>2 lados iguales</b> y uno distinto.</li><li><b>Escaleno</b>: los <b>3 lados distintos</b>.</li></ul><p>También pueden ser <b>rectángulos</b> si tienen un ángulo recto, como la escuadra y el cartabón.</p><p><b>Cuadriláteros</b>:</p><ul><li><b>Cuadrado</b>: 4 lados iguales y 4 ángulos rectos.</li><li><b>Rectángulo</b>: 4 ángulos rectos y los lados iguales dos a dos.</li><li><b>Rombo</b>: 4 lados iguales, pero sin ángulos rectos. Parece un cuadrado «empujado».</li><li><b>Romboide</b>: lados iguales dos a dos y sin ángulos rectos.</li><li><b>Trapecio</b>: solo tiene dos lados paralelos.</li></ul><p>Fíjate en que el cuadrado es un rectángulo muy especial (con todos los lados iguales), y también un rombo muy especial (con ángulos rectos).</p><p><b>Actividad</b>: con palillos o pajitas de distintas medidas, construye un triángulo de cada familia y los cinco cuadriláteros.</p>`,
+        H6.dos("Familias", ["TRIÁNGULOS", ["equilátero", "isósceles", "escaleno"], cAZ], ["CUATRO LADOS", ["cuadrado, rombo", "rectángulo", "trapecio"], cRO])],
+    ],
+  },
+  final: [
+    ["La circunferencia y el círculo", `<p>No todas las figuras planas son polígonos. La <mark>circunferencia</mark> y el <mark>círculo</mark> no tienen lados rectos ni vértices, porque están hechos con una línea <b>curva</b>.</p><ul><li>La <b>circunferencia</b> es la <b>línea curva cerrada</b>, como el borde de una moneda o un aro.</li><li>El <b>círculo</b> es la <b>superficie</b> que queda dentro de la circunferencia, como una galleta o una pizza.</li></ul><p>Todos los puntos de la circunferencia están a la <b>misma distancia</b> de un punto del interior llamado <b>centro</b>. Esa distancia se llama <b>radio</b>. Si atraviesas la circunferencia pasando por el centro, la línea se llama <b>diámetro</b>, y mide el doble que el radio.</p><p><b>Cómo dibujar una circunferencia</b>:</p><ul><li>Con un <b>compás</b>: clavas la punta en el centro, abres el compás tanto como quieras que mida el radio y giras.</li><li>Sin compás: ata un lápiz a un hilo, sujeta el otro extremo con un dedo en el centro y da la vuelta con el hilo tenso. Así se dibujan las circunferencias grandes en el patio, con una cuerda y una tiza.</li><li>Calcando el borde de un vaso o una tapa.</li></ul><p>Las ruedas son circulares porque así ruedan sin dar saltos: todos sus puntos están a la misma distancia del eje.</p>`,
+      L6.filas("Círculo", [["circunferencia", "la línea", cAZ], ["círculo", "la superficie", cVE], ["radio", "centro-borde", cNA], ["diámetro", "dos radios", cRO]])],
+    ["Polígonos regulares y mosaicos", `<p>Un polígono es <mark>regular</mark> cuando todos sus <b>lados</b> y todos sus <b>ángulos</b> son iguales: el triángulo equilátero, el cuadrado, el pentágono regular, el hexágono regular…</p><p>Algunos polígonos regulares encajan perfectamente unos con otros, sin dejar huecos, formando un <mark>mosaico</mark>:</p><ul><li><b>Triángulos equiláteros</b>.</li><li><b>Cuadrados</b>, como las baldosas del suelo.</li><li><b>Hexágonos</b>, como las celdas de un panal de abejas.</li></ul><p>¡Los pentágonos regulares, en cambio, no encajan solos! Siempre dejan huecos.</p><p>Los artistas han usado los mosaicos durante siglos:</p><ul><li>En la <b>Alhambra</b> de Granada, los artistas andalusíes cubrieron paredes enteras con azulejos de colores que forman estrellas y figuras geométricas que se repiten.</li><li>Los <b>romanos</b> hacían mosaicos para los suelos de sus casas con miles de piedrecitas de colores llamadas teselas.</li><li>El artista holandés <b>Escher</b>, que visitó la Alhambra, inventó mosaicos con figuras de peces, pájaros y lagartos que encajaban como un rompecabezas.</li></ul><p><b>Actividad</b>: recorta muchos hexágonos o triángulos iguales de cartulina de colores y crea tu propio mosaico.</p>`,
+      H6.rueda("Mosaicos", "ENCAJAN", [["triángulos", cAZ], ["cuadrados", cVE], ["hexágonos", cNA], ["Alhambra", cRO]])],
+  ],
+  ejemplos: [
+    ["¿Qué tipo de ángulo forman las agujas a las 9 en punto?", ["La larga señala el 12 y la corta el 9.", "Forman una L."], "Un ángulo recto."],
+    ["Un triángulo tiene lados de 4, 4 y 6 cm. ¿Cómo se llama?", ["Tiene dos lados iguales.", "Los triángulos con dos lados iguales son isósceles."], "Isósceles."],
+  ],
+  errores: ["Confundir circunferencia (la línea) con círculo (la superficie).", "Pensar que el rombo es un cuadrado: el rombo no tiene ángulos rectos."],
+  ejercicios: [
+    ["b", "¿Qué instrumento tiene forma de medio cuadrado?", "La escuadra."],
+    ["b", "¿Qué ángulo forman las agujas a las 6 en punto?", "Llano."],
+    ["b", "¿Cómo se llama el triángulo con los 3 lados iguales?", "Equilátero."],
+    ["b", "¿Cuánto mide el diámetro si el radio mide 4 cm?", "8 cm."],
+    ["b", "¿Qué polígono forman las celdas de un panal?", "Hexágonos."],
+    ["m", "¿Qué tipo de ángulo forman las agujas a las 2 en punto?", "Agudo."],
+    ["m", "Diferencia entre rectángulo y cuadrado.", "El cuadrado tiene los 4 lados iguales."],
+    ["m", "¿Cómo dibujarías una circunferencia grande en el patio?", "Con una cuerda y una tiza."],
+    ["m", "¿Qué cuadrilátero tiene solo dos lados paralelos?", "El trapecio."],
+    ["m", "¿Encajan los pentágonos regulares en un mosaico?", "No, dejan huecos."],
+    ["a", "Dibuja dos rectas paralelas con regla y escuadra.", "Respuesta abierta."],
+    ["a", "Construye con pajitas un triángulo escaleno y uno isósceles.", "Respuesta abierta."],
+    ["a", "Diseña un mosaico con hexágonos de colores.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿qué forma tenía el tejado del quiosco?", "Un octógono."],
+  ],
+  quiz: [
+    ["El cartabón tiene…", ["un ángulo recto y dos distintos", "tres ángulos iguales", "cuatro lados"], "Instrumentos."],
+    ["A las 3 en punto las agujas forman un ángulo…", ["recto", "agudo", "llano"], "Reloj."],
+    ["El triángulo con 2 lados iguales es…", ["isósceles", "escaleno", "equilátero"], "Triángulos."],
+    ["El borde de una moneda es una…", ["circunferencia", "círculo", "recta"], "Círculo."],
+    ["Las piedrecitas de los mosaicos romanos se llaman…", ["teselas", "baldosas", "puntos"], "Mosaicos."],
+  ],
+  examen: [
+    ["En la lectura, ¿dónde estaba el tesoro?", ["bajo el triángulo equilátero", "en el banco", "en el río"], "Lectura."],
+    ["¿Qué artista holandés hizo mosaicos con animales?", ["Escher", "Picasso", "Van Gogh"], "Mosaicos."],
+  ],
+  tarjetas: [
+    ["Instrumentos", "Regla, escuadra y cartabón: paralelas y perpendiculares."],
+    ["Ángulos en el reloj", "3 h recto, 1 h agudo, 5 h obtuso, 6 h llano."],
+    ["Familias", "Equilátero, isósceles, escaleno; cuadrado, rectángulo, rombo, romboide, trapecio."],
+    ["Círculo y mosaicos", "Radio y diámetro; triángulos, cuadrados y hexágonos encajan."],
+  ],
+  glosario: [
+    ["Escuadra", "Triángulo de dibujo con forma de medio cuadrado."],
+    ["Cartabón", "Triángulo de dibujo con ángulos distintos."],
+    ["Ángulo llano", "Ángulo que forma una línea recta."],
+    ["Equilátero", "Triángulo de 3 lados iguales."],
+    ["Isósceles", "Triángulo de 2 lados iguales."],
+    ["Escaleno", "Triángulo de 3 lados distintos."],
+    ["Rombo", "Cuadrilátero de lados iguales sin ángulos rectos."],
+    ["Trapecio", "Cuadrilátero con solo dos lados paralelos."],
+    ["Circunferencia", "Línea curva cerrada con todos sus puntos a igual distancia del centro."],
+    ["Radio", "Distancia del centro a la circunferencia."],
+    ["Polígono regular", "Polígono con lados y ángulos iguales."],
+    ["Mosaico", "Figuras que encajan sin dejar huecos."],
+  ],
+  situacion: {
+    titulo: "Arquitectos y artistas geométricos",
+    reto: "La clase diseña un pequeño parque con figuras geométricas y decora sus suelos con mosaicos.",
+    pasos: ["Dibujar el plano del parque con calles paralelas y perpendiculares.", "Construir con pajitas las familias de triángulos y cuadriláteros.", "Trazar una fuente circular con compás o con cuerda.", "Diseñar un mosaico para el suelo con polígonos regulares."],
+    producto: "Un plano del parque y un mosaico de cartulina.",
+    evaluacion: ["Usa instrumentos de dibujo.", "Reconoce ángulos.", "Clasifica triángulos y cuadriláteros.", "Distingue circunferencia y círculo y crea mosaicos."],
+  },
+});
