@@ -137,3 +137,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Distinguir rima total y rima parcial", "Conocer las canciones de corro y las nanas", "Conocer a poetas como Gloria Fuertes", "Usar comparaciones como hacen los poetas"],
+  lectura: { titulo: "La poeta del barrio", html: `<p>En el barrio de Irene vive una señora mayor que se llama Carmen. Todo el mundo la llama «la poeta», porque siempre lleva un cuaderno lleno de versos.</p><p>Una tarde, Irene la encuentra sentada en un banco del parque, mirando las nubes.</p><p>—¿Qué escribes hoy, Carmen?</p><p>—Un poema sobre la luna. Escucha:</p><p><i>La luna es una galleta<br>que alguien mordió por la mitad;<br>la guarda la noche en su chaqueta<br>y la saca para pasear.</i></p><p>Irene se ríe.</p><p>—¡La luna no es una galleta!</p><p>—Claro que no —dice Carmen—. Pero a veces lo parece, ¿verdad? Los poetas miramos las cosas de una forma diferente.</p><p>Esa noche, Irene mira por la ventana. La luna está en cuarto creciente y, de verdad, parece una galleta mordida.</p><p>Al día siguiente, Irene se compra un cuaderno y escribe su primer verso.</p>` },
+  tras: {
+    "La rima": [
+      ["Rima total y rima parcial", `<p>Hay dos clases de <mark>rima</mark>:</p><ul><li><b>Rima total</b> (o consonante): coinciden <b>todas las letras</b> desde la última vocal que suena fuerte. Por ejemplo: g<b>ato</b> / zap<b>ato</b>; can<b>ción</b> / bal<b>ón</b>; l<b>una</b> / c<b>una</b>.</li><li><b>Rima parcial</b> (o asonante): solo coinciden las <b>vocales</b>; las consonantes cambian. Por ejemplo: p<b>e</b>l<b>o</b> / c<b>e</b>r<b>o</b>, o c<b>a</b>s<b>a</b> / m<b>a</b>p<b>a</b>.</li></ul><p>En el poema de la lectura, «galleta» rima con «chaqueta»: coinciden <b>-eta</b>. Es rima total.</p><p>«Mitad» y «pasear» solo comparten la vocal <b>a</b> final: es rima parcial.</p><p><b>Actividad</b>: busca una palabra con rima total y otra con rima parcial para «ratón».</p>`,
+        H6.dos("Rima", ["TOTAL", ["gato", "zapato", "todo igual"], cAZ], ["PARCIAL", ["pelo", "cero", "solo vocales"], cVE])],
+    ],
+    "Recitar con ritmo": [
+      ["Canciones de corro y nanas", `<p>Muchos poemas se cantan. Son poemas <mark>populares</mark>: no sabemos quién los inventó y han pasado de abuelos a nietos.</p><ul><li>Las <b>canciones de corro</b> se cantan en círculo, dados de la mano, mientras se juega. Por ejemplo, «El corro de la patata» o «Al pasar la barca».</li><li>Las canciones para <b>saltar a la comba</b> marcan el ritmo de los saltos.</li><li>Las <b>nanas</b> son canciones suaves y lentas para dormir a los bebés. Suelen repetir palabras como «ea, ea».</li></ul><p>Estas canciones tienen versos cortos, mucha rima y repeticiones, para que sea fácil recordarlas.</p><p>Hoy las seguimos cantando en el patio, ¡igual que nuestros abuelos!</p><p><b>Actividad</b>: pregunta en casa por una canción de corro o una nana y apréndela para cantarla en clase.</p>`,
+        L6.filas("Populares", [["corro", "en círculo", cNA], ["comba", "saltando", cAZ], ["nana", "para dormir", cMO], ["de memoria", "abuelos", cVE]])],
+    ],
+    "Los trabalenguas": [
+      ["Más juegos de palabras", `<p>Además de trabalenguas, hay otros <mark>juegos de palabras</mark> muy divertidos:</p><ul><li><b>Las jitanjáforas</b>: poemas con palabras inventadas que no significan nada, pero suenan muy bien. «Tumba la ramba, tumba la rumba».</li><li><b>Los pareados</b>: dos versos que riman. «Una mosca golosa / se posó en una rosa».</li><li><b>Los acrósticos</b>: las primeras letras de cada verso, leídas de arriba abajo, forman una palabra.</li><li><b>Los chistes de palabras</b>: juegan con palabras que suenan igual.</li></ul><p>Un acróstico de SOL:</p><ul><li><b>S</b>ale por la mañana,</li><li><b>O</b>scuro no está nunca,</li><li><b>L</b>uce sobre mi ventana.</li></ul><p><b>Actividad</b>: escribe un acróstico con tu nombre.</p>`,
+        H6.flujo("Acróstico", ["S|Sale…", "O|Oscuro…", "L|Luce…", "= SOL|¡palabra!"], cNA),
+        ["FGu0J1II6Uo", "Trabalenguas de animales", "Eugenia Romero", 2502221]],
+    ],
+    "Las adivinanzas": [
+      ["Comparar como los poetas", `<p>Los poetas y las adivinanzas usan mucho las <mark>comparaciones</mark>: dicen que una cosa se parece a otra.</p><p>Para comparar usamos la palabra <b>como</b>:</p><ul><li>«Tus ojos brillan <b>como</b> estrellas».</li><li>«La nieve es blanca <b>como</b> el azúcar».</li><li>«Corre <b>como</b> el viento».</li></ul><p>A veces los poetas van más allá y dicen directamente que una cosa <b>es</b> otra. En la lectura, Carmen dice: «La luna <b>es</b> una galleta». No es verdad, pero nos ayuda a imaginar cómo es la luna.</p><p>Las comparaciones hacen que los poemas sean más bonitos y sorprendentes.</p><p><b>Actividad</b>: completa: «El sol es redondo como…», «Mi gato es suave como…», «La lluvia suena como…».</p>`,
+        L6.filas("Como…", [["ojos", "como estrellas", cAZ], ["nieve", "como azúcar", cVE], ["corre", "como el viento", cNA], ["luna", "es una galleta", cRO]])],
+    ],
+  },
+  final: [
+    ["Gloria Fuertes y otros poetas", `<p>Hay poetas que escribieron especialmente para <mark>niños</mark>:</p><ul><li><b>Gloria Fuertes</b> (Madrid, 1917-1998) es la poeta de los niños más querida de España. Escribía poemas divertidos sobre animales, letras y cosas cotidianas. Salía en la televisión con su gran sonrisa y su corbata.</li><li><b>Federico García Lorca</b> escribió canciones para niños, como «El lagarto está llorando».</li><li><b>Antonio Machado</b> y <b>Juan Ramón Jiménez</b>, que escribió «Platero y yo», la historia de un burrito.</li><li><b>Carmen Gil</b> y <b>Antonio García Teijeiro</b> escriben hoy poemas para niños.</li></ul><p>En la biblioteca encontrarás libros de todos ellos. Lee sus poemas en voz alta: ¡suenan mejor!</p><p><b>Actividad</b>: busca un poema de Gloria Fuertes en la biblioteca y apréndelo para recitarlo.</p>`,
+      H6.rueda("Poetas", "POESÍA", [["G. Fuertes", cRO], ["Lorca", cAZ], ["Machado", cVE], ["C. Gil", cNA]])],
+    ["Repaso: la poeta del barrio", `<p>Repasamos con el <mark>poema</mark> de Carmen:</p><p><i>La luna es una galleta / que alguien mordió por la mitad; / la guarda la noche en su chaqueta / y la saca para pasear.</i></p><ul><li>¿Cuántos versos tiene? <b>4</b>.</li><li>¿Cuántas estrofas? <b>1</b>.</li><li>¿Qué palabras riman? <b>galleta</b> y <b>chaqueta</b> (rima total); <b>mitad</b> y <b>pasear</b> (rima parcial en a).</li><li>¿Qué comparación usa? La luna <b>es</b> una galleta.</li><li>¿Qué hace la noche? La guarda en su chaqueta: ¡como si fuera una persona!</li></ul><p>Los poetas dan vida a las cosas: la noche tiene chaqueta y sale a pasear.</p><p><b>Actividad</b>: escribe tu propio poema de cuatro versos sobre el sol, comparándolo con algo.</p>`,
+      L6.filas("Poema", [["versos", "4", cAZ], ["estrofas", "1", cVE], ["rima", "galleta-chaqueta", cNA], ["compara", "luna = galleta", cRO]])],
+  ],
+  ejemplos: [
+    ["¿«Gato» y «zapato» tienen rima total o parcial?", ["Comparo desde la última vocal fuerte: -ato / -ato.", "Coinciden todas las letras."], "Total."],
+    ["Completa la comparación: «Es dulce como…».", ["Busco algo muy dulce."], "Como la miel."],
+  ],
+  errores: ["Pensar que en la rima parcial coinciden también las consonantes.", "Creer que las comparaciones de los poemas son mentiras."],
+  ejercicios: [
+    ["b", "Di una palabra que rime con «canción».", "Melón, ratón, balón…"],
+    ["b", "¿Qué es una nana?", "Una canción para dormir a los bebés."],
+    ["b", "¿Qué es un pareado?", "Dos versos que riman."],
+    ["b", "Completa: blanco como…", "La nieve, la leche…"],
+    ["b", "Di una poeta española para niños.", "Gloria Fuertes."],
+    ["m", "¿«Pelo» y «cero» tienen rima total o parcial?", "Parcial."],
+    ["m", "Escribe un pareado sobre un perro.", "Respuesta libre."],
+    ["m", "¿Qué es un acróstico?", "Un poema donde las primeras letras forman una palabra."],
+    ["m", "Nombra una canción de corro.", "El corro de la patata…"],
+    ["m", "¿Quién escribió «Platero y yo»?", "Juan Ramón Jiménez."],
+    ["a", "En la lectura, ¿por qué dice Carmen que la luna es una galleta?", "Porque en cuarto creciente parece una galleta mordida."],
+    ["a", "Haz un acróstico con la palabra MAR.", "Respuesta libre."],
+    ["a", "Inventa una comparación para la lluvia.", "Por ejemplo: suena como un tambor."],
+    ["a", "¿Por qué las canciones populares tienen versos cortos y repeticiones?", "Para recordarlas fácilmente."],
+  ],
+  quiz: [
+    ["En la rima parcial coinciden…", ["solo las vocales", "todas las letras", "las consonantes"], "Rima."],
+    ["Una canción para dormir es una…", ["nana", "adivinanza", "fábula"], "Nanas."],
+    ["Dos versos que riman son un…", ["pareado", "acróstico", "cuento"], "Juegos."],
+    ["Para comparar usamos la palabra…", ["como", "pero", "porque"], "Comparar."],
+    ["La poeta de los niños con corbata es…", ["Gloria Fuertes", "Carmen Gil", "Lorca"], "Poetas."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué hace Irene al final?", ["escribe su primer verso", "se come una galleta", "canta una nana"], "Lectura."],
+    ["En el poema riman «galleta» y…", ["chaqueta", "mitad", "luna"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Rima", "Total: todas las letras; parcial: solo vocales."],
+    ["Comparación", "Una cosa se parece a otra: «como»."],
+  ],
+  glosario: [
+    ["Rima total", "Coinciden vocales y consonantes finales."],
+    ["Rima parcial", "Solo coinciden las vocales finales."],
+    ["Canción de corro", "Canción que se canta en círculo."],
+    ["Nana", "Canción para dormir."],
+    ["Pareado", "Dos versos que riman."],
+    ["Acróstico", "Poema cuyas primeras letras forman una palabra."],
+    ["Comparación", "Decir que algo se parece a otra cosa."],
+    ["Poeta", "Persona que escribe poemas."],
+    ["Popular", "Que es del pueblo y no tiene autor conocido."],
+    ["Recitar", "Decir un poema en voz alta."],
+  ],
+  situacion: {
+    titulo: "Nuestro libro de poemas",
+    reto: "La clase hace un libro de poemas con pareados, acrósticos, comparaciones y adivinanzas, y lo recita en un recital.",
+    pasos: ["Leer poemas de Gloria Fuertes y otros poetas.", "Escribir un pareado y un acróstico con el propio nombre.", "Inventar un poema de cuatro versos con una comparación.", "Ilustrar los poemas y recitarlos."],
+    producto: "Un libro de poemas de la clase y un recital.",
+    evaluacion: ["Distingue rima total y parcial.", "Escribe pareados y acrósticos.", "Usa comparaciones.", "Recita con ritmo y buena voz."],
+  },
+});

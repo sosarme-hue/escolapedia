@@ -137,3 +137,92 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer palabras que valen para los dos géneros", "Escribir bien el plural de palabras en z y en vocal con tilde", "Reconocer palabras que solo tienen singular o plural", "Usar el artículo adecuado"],
+  lectura: { titulo: "La granja de los plurales", html: `<p>En la granja de la tía Elena viven muchos animales. Un día, Martín la visita y quiere contarlos todos.</p><p>—Hay un gallo y cinco gallinas —dice—. Un caballo y dos yeguas. Un toro y tres vacas.</p><p>—¿Y los patos? —pregunta su tía.</p><p>—Un pato y una pata, y siete patitos amarillos.</p><p>Después llegan al estanque.</p><p>—¡Mira, tía, un pez rojo! Y otro… ¡y otro! Hay muchos pezes.</p><p>—Peces —le corrige la tía, riendo—. Cuando la palabra acaba en z, en plural se escribe con c.</p><p>Al final del día, Martín se sienta en el banco junto a su tía, que es la veterinaria de la granja.</p><p>—Tía, ¿y tú eres «la veterinaria» o «el veterinario»?</p><p>—Yo soy la veterinaria. Mi compañero Luis es el veterinario. ¡Y los dos cuidamos a todos estos animales!</p><p>Martín apunta en su cuaderno todo lo que ha aprendido sobre los nombres de la granja.</p>` },
+  tras: {
+    "Palabras muy distintas": [
+      ["Palabras que valen para los dos", `<p>Algunas palabras son <mark>iguales en masculino y en femenino</mark>. Solo cambia la palabra que va delante: el, la, un, una.</p><ul><li><b>el</b> estudiante / <b>la</b> estudiante.</li><li><b>el</b> artista / <b>la</b> artista.</li><li><b>el</b> dentista / <b>la</b> dentista.</li><li><b>el</b> cantante / <b>la</b> cantante.</li><li><b>el</b> policía / <b>la</b> policía.</li></ul><p>Con algunos animales pasa algo parecido: usamos la misma palabra para el macho y la hembra, y añadimos <b>macho</b> o <b>hembra</b>:</p><ul><li>la jirafa macho / la jirafa hembra.</li><li>el cocodrilo macho / el cocodrilo hembra.</li><li>la ballena, la hormiga, el mosquito…</li></ul><p>Antes, algunas profesiones solo se decían en masculino porque casi solo las hacían hombres. Hoy hombres y mujeres trabajan en todo, y por eso decimos la jueza, la médica o el enfermero sin problema.</p><p><b>Actividad</b>: escribe cinco profesiones que se dicen igual para hombres y mujeres.</p>`,
+        L6.filas("Iguales", [["el / la", "estudiante", cAZ], ["el / la", "artista", cVE], ["jirafa", "macho/hembra", cNA], ["ballena", "macho/hembra", cRO]])],
+    ],
+    "Plural con -es": [
+      ["Plurales especiales", `<p>Hay algunos <mark>plurales</mark> que necesitan un poco de atención:</p><ul><li>Palabras acabadas en <b>z</b>: la z cambia a c. pez → <b>peces</b>; lápiz → <b>lápices</b>; luz → <b>luces</b>.</li><li>Palabras acabadas en <b>í</b> o <b>ú</b> con tilde: añadimos -es. jabalí → <b>jabalíes</b>; bambú → <b>bambúes</b>.</li><li>Palabras que pierden la tilde: camión → <b>camiones</b>; ratón → <b>ratones</b>; autobús → <b>autobuses</b>.</li></ul><p>Esto último pasa porque, al añadir una sílaba, la palabra cambia y ya no necesita tilde. ¡Fíjate bien cuando escribas!</p><p>Un buen truco es decir la palabra en plural en voz alta y escuchar cuántas sílabas tiene: ca-mión, ca-mio-nes. ¡Una más!</p><p><b>Actividad</b>: escribe el plural de: nuez, avión, colibrí, cojín.</p>`,
+        H6.flujo("pez", ["singular|pez", "+ es|pez-es", "z → c|", "plural|peces"], cAZ)],
+    ],
+    "Todas a juego": [
+      ["Palabras con un solo número", `<p>Algunas palabras son un poco raras: siempre van en <mark>plural</mark>, aunque hablemos de una sola cosa.</p><ul><li>las <b>gafas</b>: «Me he puesto las gafas».</li><li>las <b>tijeras</b>.</li><li>los <b>pantalones</b> (aunque también se dice «el pantalón»).</li><li>las <b>vacaciones</b>.</li><li>los <b>alicates</b>.</li></ul><p>Otras no cambian: son <b>iguales en singular y en plural</b>. Solo lo sabemos por el artículo:</p><ul><li>el <b>lunes</b> / los <b>lunes</b>.</li><li>la <b>crisis</b> / las <b>crisis</b>.</li><li>el <b>paraguas</b> / los <b>paraguas</b>.</li><li>el <b>cumpleaños</b> / los <b>cumpleaños</b>.</li></ul><p>Si tienes dudas, piensa en cuántas cosas hay de verdad y mira la palabra que va delante. Ella te dará la respuesta.</p><p><b>Actividad</b>: completa con el o los: … paraguas está roto; … martes voy a natación.</p>`,
+        H6.dos("Raras", ["PLURAL", ["gafas", "tijeras", "vacaciones"], cAZ], ["IGUALES", ["el/los lunes", "paraguas", "cumpleaños"], cVE])],
+    ],
+    "¿Para qué sirve?": [
+      ["El artículo nos da la pista", `<p>Los <mark>artículos</mark> son palabras pequeñas que van delante del nombre. Nos dicen su género y su número:</p><ul><li><b>el</b>: masculino singular → el perro.</li><li><b>la</b>: femenino singular → la casa.</li><li><b>los</b>: masculino plural → los perros.</li><li><b>las</b>: femenino plural → las casas.</li></ul><p>También están <b>un, una, unos, unas</b>: un perro, una casa, unos perros, unas casas.</p><p>El artículo es como una pista: si no sabemos si una palabra es masculina o femenina, probamos con «el» y «la» y escuchamos cuál suena bien. ¿El mesa o la mesa? ¡La mesa!</p><p>Con palabras que valen para los dos, el artículo es lo único que cambia: <b>el</b> pianista, <b>la</b> pianista.</p><p>Los artículos nos ayudan mucho cuando leemos en voz alta, porque nos avisan de lo que viene después.</p><p><b>Actividad</b>: pon el artículo: … árboles, … nubes, … sol, … flor.</p>`,
+        L6.filas("Artículos", [["el", "masc. sing.", cAZ], ["la", "fem. sing.", cRO], ["los", "masc. pl.", cNA], ["las", "fem. pl.", cVE]])],
+    ],
+  },
+  final: [
+    ["Familias de animales", `<p>Muchos animales tienen un nombre para el macho, otro para la hembra y otro para la <mark>cría</mark>:</p><ul><li>caballo, yegua → <b>potro</b>.</li><li>toro, vaca → <b>ternero</b>.</li><li>carnero, oveja → <b>cordero</b>.</li><li>gallo, gallina → <b>pollito</b>.</li><li>perro, perra → <b>cachorro</b>.</li><li>cerdo, cerda → <b>cochinillo</b> o lechón.</li></ul><p>Fíjate en que algunos cambian con o/a (perro, perra) y otros son palabras muy distintas (caballo, yegua).</p><p>Conocer estos nombres nos ayuda a hablar con precisión cuando vamos a una granja o leemos un libro de animales.</p><p>¡Y hay más! La cría de la cabra es el <b>cabrito</b>, la del burro es el <b>pollino</b> y la del león es el <b>cachorro</b>, igual que la del perro.</p><p><b>Actividad</b>: haz un mural de familias de animales con el padre, la madre y la cría.</p>`,
+      L6.filas("Familias", [["caballo", "yegua → potro", cNA], ["toro", "vaca → ternero", cRO], ["carnero", "oveja → cordero", cAZ], ["gallo", "gallina → pollito", cVE]])],
+    ["Repaso: la granja de Martín", `<p>Repasamos con la <mark>lectura</mark> de la granja:</p><ul><li>gallo / gallina: palabras con <b>o/a</b>.</li><li>caballo / yegua y toro / vaca: palabras <b>muy distintas</b>.</li><li>pato / pata: con o/a. Patitos: plural con <b>-s</b>.</li><li>pez → <b>peces</b>: la z cambia a c. Martín se equivocó al escribir «pezes».</li><li>la veterinaria / el veterinario: con o/a.</li></ul><p>Más preguntas:</p><ul><li>¿Cuál es el plural de «banco»? <b>Bancos</b>.</li><li>¿Y el femenino de «tío»? <b>Tía</b>.</li><li>Concordancia: «siete patitos <b>amarillos</b>»: masculino plural.</li></ul><p><b>Actividad</b>: escribe una lista de los animales de una granja con su artículo, en singular y en plural.</p>`,
+      H6.rueda("Granja", "ANIMALES", [["gallo", cRO], ["yegua", cNA], ["pata", cAZ], ["peces", cVE]])],
+  ],
+  ejemplos: [
+    ["Plural de «ratón».", ["Añado -es.", "Ya no necesita tilde."], "Ratones."],
+    ["¿Masculino o femenino: «el / la estudiante»?", ["La palabra no cambia.", "Lo dice el artículo."], "Los dos: el estudiante y la estudiante."],
+  ],
+  errores: ["Escribir «pezes» o «luzes».", "Escribir «camiónes» con tilde."],
+  ejercicios: [
+    ["b", "Escribe el femenino de «dentista».", "La dentista."],
+    ["b", "Plural de «luz».", "Luces."],
+    ["b", "Di una palabra que siempre va en plural.", "Gafas, tijeras…"],
+    ["b", "¿Qué artículo va con «flores»?", "Las."],
+    ["b", "¿Cómo se llama la cría del caballo?", "Potro."],
+    ["m", "Plural de: avión, nuez, cojín.", "Aviones, nueces, cojines."],
+    ["m", "¿Cómo distingues «el paraguas» de «los paraguas»?", "Por el artículo."],
+    ["m", "Femenino de «carnero».", "Oveja."],
+    ["m", "Escribe dos animales que usan macho y hembra.", "Jirafa, ballena…"],
+    ["m", "Pon el artículo: … árboles, … sol.", "Los árboles, el sol."],
+    ["a", "En la lectura, ¿qué error comete Martín?", "Escribe «pezes» en lugar de «peces»."],
+    ["a", "Explica por qué «camión» pierde la tilde en plural.", "Porque al añadir una sílaba ya no la necesita."],
+    ["a", "Escribe una frase con «el cumpleaños» y otra con «los cumpleaños».", "Respuesta libre."],
+    ["a", "Haz la familia (padre, madre, cría) del toro.", "Toro, vaca, ternero."],
+  ],
+  quiz: [
+    ["El plural de «lápiz» es…", ["lápices", "lápizes", "lápiz"], "Plural."],
+    ["«Artista» es…", ["igual en los dos géneros", "solo masculino", "solo femenino"], "Iguales."],
+    ["«Gafas» va siempre en…", ["plural", "singular", "femenino singular"], "Raras."],
+    ["«Los» es…", ["masculino plural", "femenino plural", "masculino singular"], "Artículo."],
+    ["La cría de la oveja es el…", ["cordero", "potro", "ternero"], "Familias."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué es la tía Elena?", ["veterinaria", "granjera", "maestra"], "Lectura."],
+    ["¿Qué pareja es de palabras muy distintas?", ["caballo / yegua", "gallo / gallina", "pato / pata"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Plural en z", "z → c: pez, peces."],
+    ["Artículo", "el, la, los, las: dicen género y número."],
+  ],
+  glosario: [
+    ["Género", "Masculino o femenino."],
+    ["Número", "Singular o plural."],
+    ["Artículo", "Palabra que va delante del nombre."],
+    ["Macho", "Animal masculino."],
+    ["Hembra", "Animal femenino."],
+    ["Cría", "Animal recién nacido o pequeño."],
+    ["Potro", "Cría del caballo."],
+    ["Cordero", "Cría de la oveja."],
+    ["Concordancia", "Que las palabras tengan el mismo género y número."],
+    ["Veterinario", "Médico de animales."],
+  ],
+  situacion: {
+    titulo: "La granja de clase",
+    reto: "La clase crea una granja de cartulina con fichas de cada animal en masculino, femenino, singular y plural.",
+    pasos: ["Elegir un animal por pareja y dibujar su familia.", "Escribir macho, hembra y cría con su artículo.", "Escribir los plurales, con cuidado en z y tildes.", "Montar la granja y presentarla."],
+    producto: "Una granja ilustrada con fichas de animales.",
+    evaluacion: ["Forma el femenino correctamente.", "Escribe plurales especiales.", "Usa el artículo adecuado.", "Conoce nombres de crías."],
+  },
+});

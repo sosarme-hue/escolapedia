@@ -137,3 +137,92 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Reconocer sílabas directas, inversas y trabadas", "Saber que dos vocales pueden ir en la misma sílaba", "Clasificar palabras por su número de sílabas", "Jugar con sílabas para formar palabras nuevas"],
+  lectura: { titulo: "El robot que hablaba a trozos", html: `<p>En la clase de 2.º hay un robot nuevo para aprender a leer. Se llama Silabín y es muy simpático, pero tiene una forma rara de hablar.</p><p>—Bue-nos dí-as, ni-ños —dice cada mañana, con voz de lata.</p><p>Los niños se ríen. ¡Silabín habla a trozos!</p><p>—Es que yo di-go las pa-la-bras por sí-la-bas —explica el robot—. Así es más fá-cil leer-las.</p><p>Un día, Silabín se queda sin pilas a mitad de una palabra:</p><p>—Me gus-ta mu-cho el cho-co…</p><p>—¡…late! —gritan los niños.</p><p>La maestra le pone pilas nuevas y Silabín termina:</p><p>—…la-te. ¡Gra-cias, a-mi-gos!</p><p>Desde entonces, cuando alguien no sabe leer una palabra larga, los compañeros le dicen: «¡Haz como Silabín!». Y la palabra, trocito a trocito, siempre sale.</p>` },
+  tras: {
+    "Cada sílaba tiene vocal": [
+      ["Dos vocales juntas en una sílaba", `<p>A veces, en una misma sílaba hay <mark>dos vocales juntas</mark>. Se pronuncian de un solo golpe de voz:</p><ul><li><b>pie</b>: una sílaba.</li><li><b>cie</b>-lo: la primera sílaba tiene i y e.</li><li><b>bue</b>-no: la primera sílaba tiene u y e.</li><li><b>au</b>-la: a y u juntas.</li><li><b>pei</b>-ne: e e i juntas.</li></ul><p>Esto pasa normalmente cuando una de las vocales es <b>i</b> o <b>u</b>. Estas dos vocales son «débiles» y se pegan a las demás.</p><p>Pero a veces las vocales van separadas: <b>le-ón</b>, <b>pa-se-o</b>, <b>ma-íz</b>, <b>rí-o</b>. Para saberlo, damos palmadas: si oímos dos golpes, son dos sílabas.</p><p>Cuando escribimos y no cabe una palabra al final de la línea, nunca podemos separar dos vocales que van en la misma sílaba. Escribimos «cie-» en una línea y «lo» en la siguiente, pero nunca «ci-» y «elo».</p><p><b>Actividad</b>: separa en sílabas: cuento, nieve, aire, Daniel.</p>`,
+        L6.filas("Juntas", [["pie", "1 sílaba", cNA], ["cie-lo", "ie", cAZ], ["bue-no", "ue", cVE], ["au-la", "au", cRO]])],
+    ],
+    "Una sílaba y dos sílabas": [
+      ["Sílabas directas, inversas y trabadas", `<p>Las sílabas pueden tener formas diferentes:</p><ul><li><mark>Directas</mark>: consonante + vocal. <b>ma</b>, <b>pe</b>, <b>lo</b>. Son las primeras que aprendemos: <b>ma-sa</b>.</li><li><mark>Inversas</mark>: vocal + consonante. <b>al</b>, <b>en</b>, <b>es</b>, <b>ir</b>. Como en <b>ár-bol</b> o <b>es-to</b>.</li><li><mark>Trabadas</mark>: dos consonantes seguidas + vocal. <b>bra</b>, <b>cla</b>, <b>pri</b>, <b>flo</b>, <b>tre</b>. Como en <b>bra-zo</b>, <b>pla-to</b>, <b>flor</b>.</li></ul><p>Las trabadas llevan una <b>l</b> o una <b>r</b> como segunda letra: bl, cl, fl, gl, pl, br, cr, dr, fr, gr, pr, tr.</p><p>Al leer, las sílabas trabadas son las más difíciles. ¡Hay que decir las dos consonantes!</p><p>Fíjate en la palabra <b>flor</b>: tiene una sílaba trabada y, además, termina en consonante. ¡Es una sílaba muy completa!</p><p><b>Actividad</b>: busca tres palabras con sílabas trabadas: una con bl, otra con pr y otra con tr.</p>`,
+        H6.flujo("Sílabas", ["directa|ma", "inversa|al", "trabada|bra", "trabada|flo"], cAZ)],
+    ],
+    "Tres sílabas o más": [
+      ["Palabras muy largas", `<p>Algunas palabras tienen <mark>muchísimas sílabas</mark>. ¡Son un reto para leer!</p><ul><li><b>ma-ri-po-sa</b>: 4 sílabas.</li><li><b>he-li-cóp-te-ro</b>: 5 sílabas.</li><li><b>bi-ci-cle-ta</b>: 4 sílabas.</li><li><b>hi-po-pó-ta-mo</b>: 5 sílabas.</li><li><b>o-tor-ri-no-la-rin-gó-lo-go</b>: ¡9 sílabas! Es el médico de oídos, nariz y garganta.</li></ul><p>Según el número de sílabas, las palabras se llaman:</p><ul><li><b>Monosílabas</b>: 1 sílaba (sol, pan).</li><li><b>Bisílabas</b>: 2 sílabas (ca-sa).</li><li><b>Trisílabas</b>: 3 sílabas (pe-lo-ta).</li><li><b>Polisílabas</b>: 4 o más (ma-ri-po-sa).</li></ul><p>Para leer una palabra larga sin equivocarte, tápala con el dedo y ve descubriendo una sílaba cada vez. Luego léela entera de un tirón.</p><p><b>Actividad</b>: busca la palabra más larga de tu libro de lectura y cuenta sus sílabas.</p>`,
+        L6.filas("Nombres", [["mono-", "1: sol", cNA], ["bi-", "2: casa", cAZ], ["tri-", "3: pelota", cVE], ["poli-", "4+: mariposa", cRO]])],
+    ],
+    "La sílaba que suena fuerte": [
+      ["La sílaba fuerte cambia el significado", `<p>A veces, cambiar la <mark>sílaba que suena más fuerte</mark> cambia el significado de la palabra:</p><ul><li><b>pa</b>pa (el alimento) / pa<b>pá</b> (el padre).</li><li><b>ma</b>ma / ma<b>má</b>.</li><li><b>tér</b>mino (fin) / ter<b>mi</b>no (yo acabo) / termi<b>nó</b> (él acabó).</li><li><b>sá</b>bana (de la cama) / sa<b>ba</b>na (paisaje con hierba).</li></ul><p>Por eso es tan importante pronunciar bien. La sílaba que suena fuerte se llama <b>sílaba tónica</b>, y a veces lleva una tilde para avisarnos.</p><p>Para encontrarla, di la palabra como si llamaras a alguien desde lejos: «¡Ma-rí-aaa!». La sílaba que alargas es la tónica.</p><p>¡Prueba con tu propio nombre!</p><p><b>Actividad</b>: di en voz alta «papa» y «papá». ¿Qué cambia?</p>`,
+        H6.dos("Cambia", ["PAPA", ["fuerte: pa-", "alimento", "patata"], cNA], ["PAPÁ", ["fuerte: -pá", "el padre", "con tilde"], cAZ])],
+    ],
+  },
+  final: [
+    ["Jugar con sílabas", `<p>Con las sílabas podemos hacer <mark>juegos</mark> muy divertidos:</p><ul><li><b>Cambiar el orden</b>: ca-sa → sa-ca; to-ma → ma-to; lo-bo → bo-lo.</li><li><b>Quitar una sílaba</b>: pe-lo-ta → pe-lo; ma-ri-po-sa → po-sa.</li><li><b>Añadir una sílaba</b>: sa-la → sa-la-do; pa-to → za-pa-to.</li><li><b>Palabras encadenadas</b>: la última sílaba de una palabra es la primera de la siguiente. ca-<b>sa</b> → <b>sa</b>-po → <b>po</b>-llo → <b>llo</b>-ro…</li></ul><p>Estos juegos ayudan a leer y escribir mejor, porque entrenamos el oído para escuchar cada trocito.</p><p><b>Actividad</b>: jugad en clase a las palabras encadenadas. ¡Pierde quien tarde más de cinco segundos!</p>`,
+      H6.flujo("Cadena", ["ca-SA|casa", "SA-PO|sapo", "PO-LLO|pollo", "LLO-RO|lloro"], cVE)],
+    ["Repaso: el robot Silabín", `<p>Repasamos con las palabras de la <mark>lectura</mark>:</p><ul><li><b>Bue-nos</b>: 2 sílabas; «bue» tiene dos vocales juntas.</li><li><b>dí-as</b>: 2 sílabas; la í separa las vocales.</li><li><b>pa-la-bras</b>: 3 sílabas; «bras» es trabada.</li><li><b>cho-co-la-te</b>: 4 sílabas, polisílaba.</li><li><b>Si-la-bín</b>: 3 sílabas; la tónica es «bín», con tilde.</li><li><b>pi-las</b>: 2 sílabas, bisílaba.</li><li><b>es</b>: 1 sílaba inversa, monosílaba.</li></ul><p>Silabín hablaba a trozos, pero su truco es muy bueno: cuando una palabra es larga y difícil, la dividimos en sílabas y la leemos poco a poco.</p><p><b>Actividad</b>: habla como Silabín durante un minuto y di cinco palabras separadas en sílabas.</p>`,
+      L6.filas("Silabín", [["bue-nos", "ue juntas", cNA], ["pa-la-bras", "trabada", cAZ], ["cho-co-la-te", "4 sílabas", cVE], ["Si-la-bín", "tónica: bín", cRO]])],
+  ],
+  ejemplos: [
+    ["Separa «nieve» en sílabas.", ["Doy palmadas: nie-ve.", "«ie» van juntas."], "nie-ve (2 sílabas)."],
+    ["¿Qué tipo de sílaba es «tre» en «tren»?", ["Tiene dos consonantes seguidas + vocal."], "Trabada."],
+  ],
+  errores: ["Separar «bue-no» como «bu-e-no».", "No pronunciar las dos consonantes de las sílabas trabadas."],
+  ejercicios: [
+    ["b", "Separa: aula.", "au-la."],
+    ["b", "¿Cuántas sílabas tiene «mariposa»?", "4."],
+    ["b", "Di una palabra monosílaba.", "Sol, pan, mar…"],
+    ["b", "¿Qué tipo de sílaba es «al»?", "Inversa."],
+    ["b", "Escribe una palabra con «pla».", "Plato, playa…"],
+    ["m", "Separa: cuento, peine, León.", "cuen-to, pei-ne, Le-ón."],
+    ["m", "Clasifica: sol, pelota, casa, bicicleta.", "Mono, tri, bi, polisílaba."],
+    ["m", "¿Qué diferencia hay entre «papa» y «papá»?", "La sílaba fuerte y el significado."],
+    ["m", "Continúa la cadena: mesa → sapo → …", "Pollo, pomo…"],
+    ["m", "Añade una sílaba a «pato» para formar otra palabra.", "Zapato."],
+    ["a", "En la lectura, ¿qué palabra se queda a medias?", "Chocolate."],
+    ["a", "Cuenta las sílabas de «otorrinolaringólogo».", "9."],
+    ["a", "Escribe una frase con una sílaba directa, una inversa y una trabada.", "Respuesta libre."],
+    ["a", "Explica cómo encontrar la sílaba tónica.", "Diciendo la palabra como si llamaras a alguien de lejos."],
+  ],
+  quiz: [
+    ["«Bra» es una sílaba…", ["trabada", "inversa", "directa"], "Tipos."],
+    ["«Pie» tiene…", ["1 sílaba", "2 sílabas", "3 sílabas"], "Vocales juntas."],
+    ["Una palabra de 3 sílabas es…", ["trisílaba", "bisílaba", "monosílaba"], "Nombres."],
+    ["La sílaba que suena fuerte es la…", ["tónica", "trabada", "inversa"], "Tónica."],
+    ["«Papá» y «papa» se diferencian en…", ["la sílaba fuerte", "las letras", "el número"], "Significado."],
+  ],
+  examen: [
+    ["En la lectura, ¿por qué se para Silabín?", ["se queda sin pilas", "se enfada", "se rompe"], "Lectura."],
+    ["«Chocolate» es…", ["polisílaba", "trisílaba", "bisílaba"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Tipos de sílaba", "Directa (ma), inversa (al), trabada (bra)."],
+    ["Vocales juntas", "Con i o u se pegan: bue-no, au-la."],
+  ],
+  glosario: [
+    ["Sílaba", "Golpe de voz de una palabra."],
+    ["Directa", "Sílaba consonante + vocal."],
+    ["Inversa", "Sílaba vocal + consonante."],
+    ["Trabada", "Sílaba con dos consonantes y vocal."],
+    ["Monosílaba", "Palabra de una sílaba."],
+    ["Bisílaba", "Palabra de dos sílabas."],
+    ["Trisílaba", "Palabra de tres sílabas."],
+    ["Polisílaba", "Palabra de cuatro o más sílabas."],
+    ["Sílaba tónica", "La que suena más fuerte."],
+    ["Encadenar", "Unir una cosa detrás de otra."],
+  ],
+  situacion: {
+    titulo: "El tren de las sílabas",
+    reto: "La clase construye un tren de cartón con vagones para palabras de 1, 2, 3 y 4 o más sílabas.",
+    pasos: ["Recortar palabras de revistas y separarlas en sílabas.", "Colocar cada palabra en el vagón que le toca.", "Marcar con color las sílabas trabadas e inversas.", "Jugar a las palabras encadenadas con las del tren."],
+    producto: "Un tren de sílabas en el pasillo.",
+    evaluacion: ["Separa palabras en sílabas.", "Distingue sílabas directas, inversas y trabadas.", "Clasifica por número de sílabas.", "Encuentra la sílaba tónica."],
+  },
+});

@@ -136,3 +136,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Escribir r fuerte después de l, n y s", "Escribir bien palabras compuestas con rr", "Usar n antes de v y m antes de n", "Pronunciar la r y la rr con trabalenguas"],
+  lectura: { titulo: "El perro de Enrique", html: `<p>Enrique tiene un perro marrón que se llama Rufo. Rufo es muy travieso: corre, ladra y se revuelca en el barro.</p><p>Una mañana de invierno, Enrique y Rufo van al campo. Rufo ve un conejo y sale corriendo detrás de él.</p><p>—¡Rufo, para! —grita Enrique.</p><p>Pero Rufo no para. Cruza un arroyo, sube una colina y se mete entre unos arbustos.</p><p>Enrique lo busca por todas partes. Por fin oye un ladrido junto a una gran roca. ¡Rufo se ha enredado en unas ramas y no puede salir!</p><p>Enrique lo libera con mucho cuidado. Rufo le lame la cara, contento, con el rabo moviéndose de un lado a otro.</p><p>De vuelta a casa, Enrique le pone la correa.</p><p>—Esta vez no te escapas, perrito.</p><p>En casa, los dos acaban en la bañera, llenos de barro. ¡Hasta la ropa de Enrique está embarrada!</p>` },
+  tras: {
+    "La r fuerte": [
+      ["R fuerte después de l, n y s", `<p>Hay una regla especial: después de las letras <mark>l, n y s</mark>, el sonido fuerte se escribe con una sola <b>r</b>, aunque suene como rr.</p><ul><li>Después de <b>n</b>: E<b>nr</b>ique, ho<b>nr</b>a, so<b>nr</b>isa, e<b>nr</b>edar.</li><li>Después de <b>l</b>: a<b>lr</b>ededor.</li><li>Después de <b>s</b>: I<b>sr</b>ael, de<b>sr</b>izar.</li></ul><p>¿Por qué? Porque la rr solo se escribe <b>entre dos vocales</b>. Si delante hay una consonante, basta con una r.</p><p>Fíjate: en «perro», la rr está entre e y o. En «Enrique», delante de la r hay una n, así que solo lleva una r.</p><p>Recuerda la regla con la palabra «LeNoS»: l, n, s.</p><p><b>Actividad</b>: busca tres palabras con nr y escríbelas en tu cuaderno.</p>`,
+        L6.filas("Una sola r", [["n + r", "Enrique", cAZ], ["n + r", "sonrisa", cVE], ["l + r", "alrededor", cNA], ["s + r", "Israel", cRO]])],
+    ],
+    "La rr": [
+      ["Palabras compuestas con rr", `<p>Cuando juntamos dos palabras para formar una nueva y la segunda empieza por <b>r</b>, a veces hay que escribir <mark>rr</mark>.</p><ul><li>pelo + <b>r</b>ojo → peli<b>rr</b>ojo.</li><li>contra + <b>r</b>eloj → contra<b>rr</b>eloj.</li><li>auto + <b>r</b>etrato → auto<b>rr</b>etrato.</li><li>para + <b>r</b>ayos → para<b>rr</b>ayos.</li></ul><p>¿Por qué? Porque la r queda entre dos vocales, y entre vocales el sonido fuerte necesita rr. Si escribiéramos «pelirojo» con una r, sonaría suave, como «pera».</p><p>Lo mismo pasa con algunas palabras que empiezan por <b>re-</b> o <b>pre-</b>: en «prerromano» la r también se duplica.</p><p><b>Actividad</b>: dibuja un niño pelirrojo haciendo su autorretrato.</p>`,
+        H6.flujo("Unir", ["pelo|+ rojo", "r entre|vocales", "r → rr|", "pelirrojo|¡listo!"], cRO)],
+    ],
+    "m antes de b": [
+      ["n antes de v, m antes de n", `<p>Ya sabemos que antes de p y b se escribe m. Ahora, otras dos reglas:</p><ul><li>Antes de <b>v</b> siempre se escribe <mark>n</mark>: i<b>nv</b>ierno, e<b>nv</b>ase, co<b>nv</b>ento, i<b>nv</b>itar, e<b>nv</b>idia.</li><li>Antes de <b>n</b> se escribe <mark>m</mark> en palabras como alu<b>mn</b>o, hi<b>mn</b>o, colu<b>mn</b>a o gi<b>mn</b>asio.</li></ul><p>Un truco: <b>mb</b> y <b>nv</b>. Las dos parejas se oyen igual, pero se escriben distinto. La b va con su amiga la m; la v va con su amiga la n.</p><p>Ejemplos: ca<b>mb</b>iar / co<b>nv</b>ertir; ta<b>mb</b>or / i<b>nv</b>ento.</p><p><b>Actividad</b>: completa: i…vierno, ta…bor, e…vase, ho…bre.</p>`,
+        H6.dos("Parejas", ["MB", ["tambor", "cambiar", "hombre"], cAZ], ["NV", ["invierno", "envase", "invitar"], cVE]),
+        ["PuhC623vcpk", "La historia de la MP y la MB", "Maestro Mauricio", 84198]],
+    ],
+    "Una letra cambia todo": [
+      ["Trabalenguas con r", `<p>Los <mark>trabalenguas</mark> son perfectos para practicar la r y la rr. Hay que decirlos cada vez más rápido sin equivocarse.</p><ul><li>«<b>Erre con erre, cigarro; erre con erre, barril; rápido ruedan los carros cargados de azúcar del ferrocarril</b>».</li><li>«El perro de San Roque no tiene rabo, porque Ramón Ramírez se lo ha cortado».</li><li>«Tres tristes tigres tragaban trigo en un trigal».</li></ul><p>Consejos para decirlos bien:</p><ul><li>Empieza <b>despacio</b>, sílaba a sílaba.</li><li>Pon la lengua detrás de los dientes de arriba y hazla vibrar para la rr: ¡como un motor!</li><li>Ve más rápido poco a poco.</li></ul><p><b>Actividad</b>: aprende un trabalenguas con r y dilo tres veces seguidas sin equivocarte.</p>`,
+        H6.rueda("RR", "RR", [["perro", cNA], ["carro", cAZ], ["barril", cVE], ["Ramón", cRO]])],
+    ],
+  },
+  final: [
+    ["Palabras con r y rr del día a día", `<p>Muchas palabras que usamos cada día tienen <mark>r o rr</mark>. Vamos a agruparlas:</p><ul><li><b>En casa</b>: puerta, armario, cortina, alfombra, perchero, tarro.</li><li><b>En el cole</b>: regla, rotulador, pizarra, carpeta, borrador, recreo.</li><li><b>En la calle</b>: carretera, coche, farola, barrio, torre, carril.</li><li><b>Animales</b>: perro, burro, ratón, cerdo, zorro, rana, tortuga.</li></ul><p>Fíjate: en <b>r</b>egla, <b>r</b>otulador y <b>r</b>ecreo la r está al principio, así que suena fuerte con una sola letra. En pi<b>rr</b>a, bo<b>rr</b>ador y ca<b>rr</b>etera hay rr porque está entre vocales.</p><p>Cuantas más palabras leas y escribas, más fácil será recordar cómo se escriben.</p><p><b>Actividad</b>: haz cuatro listas con palabras con r y rr de tu casa, tu clase, tu calle y animales.</p>`,
+      L6.filas("Lugares", [["casa", "armario, tarro", cNA], ["cole", "pizarra, regla", cAZ], ["calle", "barrio, torre", cVE], ["animales", "perro, zorro", cRO]])],
+    ["Repaso: el perro de Enrique", `<p>Repasamos con las palabras de la <mark>lectura</mark>:</p><ul><li><b>Enrique</b>: n + r, una sola r.</li><li><b>perro</b>, <b>barro</b>, <b>arroyo</b>, <b>corre</b>: rr entre vocales.</li><li><b>Rufo</b>, <b>rabo</b>, <b>ramas</b>, <b>roca</b>, <b>ropa</b>: r fuerte al principio.</li><li><b>marrón</b>, <b>correa</b>: rr entre vocales.</li><li><b>invierno</b>: n antes de v.</li><li><b>campo</b>: m antes de p.</li><li><b>embarrada</b>: m antes de b, y además rr.</li><li><b>enredado</b>: n + r.</li><li><b>bañera</b>, <b>para</b>: r suave.</li></ul><p>¡En un cuento tan corto hay palabras de todas las reglas!</p><p><b>Actividad</b>: copia la lectura y rodea con colores distintos cada tipo de palabra.</p>`,
+      H6.dos("Reglas", ["R FUERTE", ["Rufo", "Enrique", "perro"], cRO], ["M / N", ["campo", "embarrada", "invierno"], cAZ])],
+  ],
+  ejemplos: [
+    ["¿«Enrrique» o «Enrique»?", ["Delante de la r hay una n.", "Después de n, una sola r."], "Enrique."],
+    ["¿«invierno» o «imvierno»?", ["Antes de v, siempre n."], "Invierno."],
+  ],
+  errores: ["Escribir «Enrrique» o «sonrrisa» con rr.", "Escribir «pelirojo» con una sola r."],
+  ejercicios: [
+    ["b", "¿Qué se escribe antes de v, m o n?", "N."],
+    ["b", "Escribe dos palabras con nr.", "Enrique, sonrisa…"],
+    ["b", "¿Cómo se escribe pelo + rojo?", "Pelirrojo."],
+    ["b", "Di una palabra con nv.", "Invierno, envase…"],
+    ["b", "¿Dónde se escribe rr?", "Entre dos vocales."],
+    ["m", "Completa: ta…bor, i…vitar.", "Tambor, invitar."],
+    ["m", "Une: auto + retrato.", "Autorretrato."],
+    ["m", "¿Por qué «alrededor» lleva una sola r?", "Porque va después de l."],
+    ["m", "Di un trabalenguas con r.", "Erre con erre…"],
+    ["m", "Escribe tres palabras del cole con r o rr.", "Regla, pizarra, borrador…"],
+    ["a", "En la lectura, ¿qué palabra tiene m antes de b y además rr?", "Embarrada."],
+    ["a", "Explica la diferencia entre «pero» y «perro».", "Pero tiene r suave; perro, rr fuerte. Significan cosas distintas."],
+    ["a", "Escribe una frase con nr, rr y nv.", "Respuesta libre."],
+    ["a", "¿Por qué «pararrayos» lleva rr?", "Porque al unir para + rayos, la r queda entre vocales."],
+  ],
+  quiz: [
+    ["Después de n, la r fuerte se escribe…", ["con una r", "con rr", "con d"], "Regla."],
+    ["Antes de v se escribe…", ["n", "m", "r"], "nv."],
+    ["Pelo + rojo =", ["pelirrojo", "pelirojo", "pelorojo"], "Compuestas."],
+    ["«Sonrisa» lleva…", ["una r", "rr", "ninguna r"], "nr."],
+    ["Para la rr, la lengua…", ["vibra", "se queda quieta", "sale fuera"], "Pronunciar."],
+  ],
+  examen: [
+    ["En la lectura, ¿dónde se enreda Rufo?", ["en unas ramas", "en una red", "en la correa"], "Lectura."],
+    ["¿Qué palabra de la lectura lleva n antes de v?", ["invierno", "campo", "barro"], "Repaso."],
+  ],
+  tarjetas: [
+    ["l, n, s + r", "Una sola r: Enrique, alrededor, Israel."],
+    ["mb / nv", "La b con m; la v con n."],
+  ],
+  glosario: [
+    ["R fuerte", "Sonido vibrante como en «ratón»."],
+    ["R suave", "Sonido como en «pera»."],
+    ["Compuesta", "Palabra formada por dos palabras."],
+    ["Pelirrojo", "Que tiene el pelo rojo."],
+    ["Autorretrato", "Retrato de uno mismo."],
+    ["Pararrayos", "Aparato que protege de los rayos."],
+    ["Trabalenguas", "Frase difícil de decir rápido."],
+    ["Vibrar", "Moverse muy rápido, temblando."],
+    ["Arroyo", "Río pequeño."],
+    ["Embarrado", "Lleno de barro."],
+  ],
+  situacion: {
+    titulo: "El concurso del trabalenguas",
+    reto: "La clase organiza un concurso de trabalenguas con r y rr y crea un mural con las reglas de r, rr, mb, mp y nv.",
+    pasos: ["Buscar y escribir trabalenguas con r y rr.", "Practicar por parejas, de lento a rápido.", "Clasificar palabras según cada regla.", "Hacer el concurso y elegir el trabalenguas más difícil."],
+    producto: "Un concurso de trabalenguas y un mural de reglas.",
+    evaluacion: ["Escribe r tras l, n, s.", "Escribe rr en compuestas.", "Usa mb, mp y nv.", "Pronuncia bien la r fuerte."],
+  },
+});
