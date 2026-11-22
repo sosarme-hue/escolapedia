@@ -140,3 +140,92 @@ module.exports = {
   fuentes: [RD, wiki("Sistema nervioso", "Sistema_nervioso"), wiki("Sentido (fisiología)", "Sentido_(fisiología)"), wiki("Neurona", "Neurona")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 85,
+  objetivos: ["Explicar el camino de la luz y del sonido hasta el cerebro", "Conocer problemas frecuentes de la vista y del oído y cómo se corrigen", "Valorar el braille y la lengua de signos como formas de comunicación"],
+  lectura: { titulo: "Un despertar con cinco sentidos", html: `<p>Son las siete y media. Suena el despertador y Lucía abre un ojo. Su <b>oído</b> ha captado el pitido y su cerebro ha entendido: «¡Hay que levantarse!». Alarga la mano y apaga la alarma sin mirar; el <b>tacto</b> le dice dónde está el botón.</p><p>La luz entra por la ventana y sus pupilas se hacen pequeñas. Desde la cocina llega un olor a pan tostado, y su <b>olfato</b> le abre el apetito. En el desayuno, el <b>gusto</b> le avisa de que la leche está demasiado caliente, y aparta el vaso de golpe sin pensarlo.</p><p>Todo eso ha pasado en apenas cinco minutos. Lucía no ha tenido que esforzarse: sus <b>sentidos</b> han recogido información y su <b>sistema nervioso</b> la ha interpretado y ha dado órdenes a los músculos, a veces pensando y a veces sin pensar.</p><p>Ahora imagina un día sin uno de esos sentidos. ¿Cómo te enterarías de que suena el despertador? ¿Cómo sabrías que la leche quema? En este tema descubrirás cómo funcionan los sentidos, cómo los dirige el sistema nervioso y cómo cuidarlos.</p>` },
+  tras: {
+    "La vista": [
+      ["Problemas de la vista y cómo se corrigen", `<p>Para ver nítido, el cristalino tiene que enfocar la imagen justo sobre la <b>retina</b>. Curiosamente, la imagen llega a la retina <b>al revés</b>, y es el cerebro el que le da la vuelta. Cuando el ojo no enfoca bien aparecen problemas de visión:</p><ul><li><b>Miopía</b>: se ve bien de cerca pero borroso de lejos. Por ejemplo, cuesta leer la pizarra. Se corrige con gafas o lentillas de lentes <b>divergentes</b>.</li><li><b>Hipermetropía</b>: se ve peor de cerca, y leer cansa la vista. Se corrige con lentes <b>convergentes</b>.</li><li><b>Astigmatismo</b>: las imágenes se ven algo deformadas o borrosas a cualquier distancia.</li><li><b>Daltonismo</b>: dificultad para distinguir algunos colores, sobre todo el rojo y el verde. No tiene cura, pero no impide hacer una vida normal.</li></ul><p>Si entornas los ojos para ver la pizarra, te duele la cabeza al leer o te acercas mucho a los libros, díselo a tu familia: el <b>oftalmólogo</b> o el <b>óptico</b> te revisarán la vista. Hoy en día pasamos muchas horas mirando de cerca, y los expertos recomiendan jugar al aire libre para cuidar los ojos.</p>`,
+        svg("Miopía, hipermetropía, astigmatismo y daltonismo con su descripción", `${tit("Problemas de la vista")}${fichas([["Miopía", "borroso de lejos", COL.azul], ["Hipermetropía", "cuesta ver de cerca", COL.verde], ["Astigmatismo", "imagen deformada", COL.morado], ["Daltonismo", "confunde rojo y verde", COL.rojo]])}`)],
+    ],
+    "El oído": [
+      ["El viaje del sonido", `<p>Un sonido es una <b>vibración</b> que viaja por el aire. Veamos qué le ocurre cuando alguien te llama por tu nombre:</p><ol><li>La <b>oreja</b> recoge las vibraciones y las conduce por el conducto auditivo.</li><li>Las vibraciones golpean el <b>tímpano</b> y lo hacen vibrar.</li><li>Los tres <b>huesecillos</b> (martillo, yunque y estribo) transmiten y amplifican esa vibración.</li><li>En el <b>caracol</b>, un tubo enrollado lleno de líquido, unas células con pelillos convierten la vibración en un mensaje nervioso.</li><li>El <b>nervio auditivo</b> lleva el mensaje al cerebro, que lo interpreta: «¡Me están llamando!».</li></ol><p>El volumen de un sonido se mide en <b>decibelios</b> (dB). Una conversación tiene unos 60 dB; el tráfico intenso, unos 85; un concierto o unos auriculares a tope pueden superar los 100. Escuchar durante mucho tiempo sonidos por encima de 85 dB daña las células del caracol, y esas células <b>no se recuperan</b>. Por eso se aconseja la regla del <b>60/60</b>: auriculares como mucho al 60 % del volumen y no más de 60 minutos seguidos.</p>`,
+        svg("Viaje del sonido: oreja, tímpano, huesecillos, caracol, nervio auditivo y cerebro", `${tit("El viaje del sonido")}${flujo([["oreja", COL.naranja], ["tímpano", COL.rojo], ["huese-cillos", COL.marron]], 40, 36)}${flujo([["caracol", COL.morado], ["nervio auditivo", COL.azul], ["cerebro", COL.verde]], 96, 36)}${fl(240, 78, 240, 92, "var(--muted)", 2)}${tx(130, 158, "regla 60/60: 60 % de volumen, 60 minutos", 236)}`)],
+    ],
+    "Las partes del sistema nervioso": [
+      ["El cerebro, un mapa de zonas", `<p>El <b>cerebro</b> está dividido en dos mitades llamadas <b>hemisferios</b>, el derecho y el izquierdo, unidos por un puente de fibras nerviosas. Como ya sabes, cada hemisferio controla el lado contrario del cuerpo.</p><p>Su superficie está llena de pliegues, como una nuez. Gracias a ellos cabe mucha más superficie dentro del cráneo. Los científicos han descubierto que cada zona del cerebro se encarga de un trabajo:</p><ul><li>En la parte de <b>atrás</b> se interpreta lo que vemos.</li><li>En los <b>lados</b>, junto a las orejas, lo que oímos.</li><li>En una franja de la parte de <b>arriba</b> se mandan las órdenes a los músculos y se recibe la información del tacto.</li><li>En la parte de <b>delante</b> planificamos, tomamos decisiones y controlamos nuestro comportamiento. Es la zona que más tarda en madurar: ¡sigue desarrollándose hasta pasados los 20 años!</li><li>Hay también zonas para el <b>lenguaje</b>: para entender lo que nos dicen y para hablar.</li></ul><p>Aun así, el cerebro trabaja siempre en equipo: para leer este párrafo estás usando a la vez zonas de la vista, del lenguaje y de la memoria.</p>`,
+        svg("Zonas del cerebro: delante planificar, arriba movimiento y tacto, lado oído, atrás vista", `${tit("Zonas del cerebro")}<path d="M60 120 C40 80 70 44 120 42 C170 38 206 60 206 98 C206 128 180 140 150 136 C130 150 92 146 60 120z" fill="#fbcfe8" stroke="#be185d" stroke-width="2.5"/><path d="M100 50 C104 80 98 100 104 130 M150 44 C146 70 156 90 150 120" stroke="#be185d" stroke-width="1.5" fill="none"/>${et(90, 92, "planificar", 56, { size: 10, color: COL.azul })}${et(126, 70, "mover y tocar", 90, { size: 10, color: COL.rojo })}${et(126, 120, "oír", 40, { size: 10, color: COL.morado })}${et(180, 98, "ver", 40, { size: 10, color: COL.verde })}${tx(36, 160, "delante", 60)}${tx(214, 160, "atrás", 60)}`)],
+    ],
+  },
+  final: [
+    ["Cuando un sentido falla", `<p>Algunas personas tienen una <b>discapacidad visual</b> (no ven o ven muy poco) o una <b>discapacidad auditiva</b> (no oyen o oyen muy poco). Pueden estudiar, trabajar, hacer deporte y llevar una vida plena gracias a distintas herramientas:</p><ul><li>El <b>braille</b>: un sistema de lectura y escritura con puntos en relieve que se leen con las yemas de los dedos. Lo inventó <b>Louis Braille</b>, un joven francés ciego, cuando tenía solo 15 años. Cada letra se forma con hasta seis puntos.</li><li>El <b>bastón blanco</b> y el <b>perro guía</b> ayudan a moverse por la calle con seguridad.</li><li>La <b>lengua de signos</b>: una lengua completa que se expresa con las manos, la cara y el cuerpo. En España se usan la lengua de signos española y la catalana.</li><li>Los <b>audífonos</b> y los <b>implantes cocleares</b> ayudan a oír, y los <b>subtítulos</b> permiten seguir películas y vídeos.</li></ul><p>Además, cuando falta un sentido, el cerebro aprende a aprovechar más los otros: muchas personas ciegas tienen un tacto y un oído muy entrenados. Respetar y facilitar estas herramientas es cosa de todos.</p>`,
+        svg("La letra A en braille, bastón blanco y lengua de signos", `${tit("Otras formas de comunicarse")}<rect x="24" y="44" width="56" height="80" rx="8" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>${[[42, 62, 1], [62, 62, 0], [42, 84, 0], [62, 84, 0], [42, 106, 0], [62, 106, 0]].map(([x, y, on]) => `<circle cx="${x}" cy="${y}" r="6" fill="${on ? "var(--ink)" : "none"}" stroke="var(--muted)" stroke-width="1.5"/>`).join("")}${et(52, 144, "braille: la A", 80, { size: 10.5, color: COL.marron })}<path d="M128 50 L112 136" stroke="#e5e7eb" stroke-width="6" stroke-linecap="round"/><path d="M114 128 L112 136" stroke="${COL.rojo}" stroke-width="6"/>${et(124, 156, "bastón blanco", 80, { size: 10.5, color: COL.gris })}${cj2(160, 54, 90, 64, "Signos", "manos, cara y cuerpo", COL.morado)}`)],
+    ["Los sentidos de los animales", `<p>Cada animal tiene los sentidos que mejor le sirven para sobrevivir en su ambiente, y algunos son mucho más potentes que los nuestros:</p><ul><li>El <b>perro</b> tiene un olfato unas 10 000 veces más fino que el humano. Por eso se usa para buscar personas perdidas o detectar sustancias.</li><li>El <b>águila</b> puede ver un conejo desde más de un kilómetro de altura.</li><li>Los <b>murciélagos</b> y los <b>delfines</b> usan la <b>ecolocalización</b>: emiten sonidos y escuchan el eco que rebota en los objetos para saber dónde están, incluso a oscuras.</li><li>Algunas <b>serpientes</b> detectan el calor del cuerpo de sus presas.</li><li>Las <b>abejas</b> ven la luz ultravioleta, que nosotros no vemos, y así encuentran el néctar de las flores.</li><li>Los <b>gatos</b> ven mucho mejor que nosotros con poca luz, y sus bigotes les sirven para medir si caben por un hueco.</li></ul><p>Los ingenieros copian algunos de estos sentidos: el <b>sonar</b> de los barcos funciona como el de los delfines y algunas cámaras de visión nocturna detectan el calor como las serpientes.</p>`,
+        svg("Sentidos de animales: olfato del perro, vista del águila, eco del murciélago y calor de la serpiente", `${tit("Supersentidos animales")}${filas([["Perro", "olfato 10 000 veces más fino", COL.marron], ["Águila", "ve un conejo a 1 km", COL.naranja], ["Murciélago", "ecolocalización", COL.morado], ["Serpiente", "detecta el calor", COL.rojo], ["Abeja", "ve el ultravioleta", COL.sol]], 46, 25)}`)],
+  ],
+  ejemplos: [
+    ["Laura ve bien los libros pero borroso la pizarra. ¿Qué problema puede tener y cómo se corrige?", ["Ver mal de lejos y bien de cerca es la miopía.", "Debe revisarla un oftalmólogo u óptico.", "Se corrige con gafas o lentillas de lentes divergentes."], "Miopía: gafas o lentillas"],
+    ["Escuchas música con auriculares al 90 % durante dos horas. ¿Cumples la regla 60/60? ¿Qué puede pasar?", ["La regla dice como máximo 60 % de volumen y 60 minutos seguidos.", "El 90 % y dos horas superan ambos límites.", "Los sonidos fuertes dañan las células del caracol, que no se recuperan."], "No la cumples; puedes perder audición para siempre"],
+  ],
+  errores: ["Pensar que vemos con los ojos y oímos con los oídos sin más: quien interpreta las imágenes y los sonidos es el cerebro."],
+  nivelesBase: "bbbbmbmmmm",
+  ejercicios: [
+    ["b", "¿Qué problema de la vista hace que se vea borroso de lejos?", "La miopía."],
+    ["b", "¿En qué unidad se mide el volumen de un sonido?", "En decibelios (dB)."],
+    ["b", "¿Quién inventó el braille y a qué edad?", "Louis Braille, a los 15 años."],
+    ["b", "Escribe un animal con muy buen olfato y otro que use la ecolocalización.", "El perro; el murciélago (o el delfín)."],
+    ["b", "¿Cuántos hemisferios tiene el cerebro?", "Dos: el derecho y el izquierdo."],
+    ["m", "Ordena el viaje del sonido: caracol, tímpano, oreja, nervio auditivo, huesecillos.", "Oreja, tímpano, huesecillos, caracol y nervio auditivo."],
+    ["m", "¿En qué parte del cerebro se interpreta lo que vemos?", "En la parte de atrás."],
+    ["m", "¿Por qué el cerebro tiene tantos pliegues?", "Para que quepa mucha más superficie dentro del cráneo."],
+    ["m", "Explica la regla del 60/60.", "Usar los auriculares como mucho al 60 % del volumen y no más de 60 minutos seguidos."],
+    ["m", "¿Qué es el daltonismo?", "La dificultad para distinguir algunos colores, sobre todo el rojo y el verde."],
+    ["m", "Nombra dos herramientas que ayudan a las personas con discapacidad visual y dos para la auditiva.", "Visual: braille y bastón blanco (o perro guía). Auditiva: lengua de signos y audífonos (o subtítulos, implante coclear)."],
+    ["a", "Si te pisas un clavo, apartas el pie y después dices «¡ay!». Explica qué parte es acto reflejo y cuál voluntario.", "Apartar el pie es un acto reflejo controlado por la médula; decir «¡ay!» y pensar qué hacer después son actos en los que interviene el cerebro."],
+    ["a", "Una lesión en el hemisferio izquierdo del cerebro afecta al movimiento. ¿Qué lado del cuerpo se verá afectado? ¿Por qué?", "El lado derecho, porque cada hemisferio controla el lado contrario del cuerpo."],
+    ["a", "¿Por qué el sonar de un barco se parece a la forma de orientarse de un delfín?", "Ambos emiten sonidos y escuchan el eco que rebota en los objetos para saber dónde están y a qué distancia."],
+    ["a", "Diseña un cartel con cinco consejos para cuidar la vista y el oído.", "Respuesta abierta. Por ejemplo: buena luz al leer, descansar de las pantallas, jugar al aire libre, regla 60/60 y revisiones médicas."],
+    ["a", "La imagen llega a la retina al revés. ¿Por qué entonces vemos el mundo del derecho?", "Porque el cerebro interpreta la imagen y le da la vuelta."],
+  ],
+  quiz: [
+    ["La miopía se corrige con lentes…", ["Divergentes", "Convergentes", "De colores"], "Para ver bien de lejos."],
+    ["El volumen del sonido se mide en…", ["Decibelios", "Grados", "Metros"], "Una conversación tiene unos 60 dB."],
+    ["Las células del caracol dañadas por el ruido…", ["No se recuperan", "Se curan en un día", "Crecen más"], "Por eso hay que cuidar el oído."],
+    ["El braille se lee con…", ["Las yemas de los dedos", "Los ojos", "Los oídos"], "Son puntos en relieve."],
+    ["Los murciélagos se orientan a oscuras gracias a…", ["La ecolocalización", "La vista", "El olfato"], "Escuchan el eco de sus sonidos."],
+  ],
+  examen: [
+    ["La parte del cerebro que interpreta lo que vemos está…", ["Atrás", "Delante", "En el cerebelo"], "En la parte posterior."],
+    ["Las abejas ven la luz…", ["Ultravioleta", "Infrarroja", "Solo blanca"], "Así encuentran el néctar."],
+  ],
+  tarjetas: [
+    ["Miopía", "Ver borroso de lejos; se corrige con lentes divergentes."],
+    ["Decibelio", "Unidad que mide el volumen de un sonido."],
+    ["Hemisferios", "Las dos mitades del cerebro; cada una controla el lado contrario."],
+    ["Braille", "Escritura con puntos en relieve que se lee con los dedos."],
+  ],
+  glosario: [
+    ["Estímulo", "Cambio que pueden captar los receptores."],
+    ["Receptor", "Célula u órgano que capta un estímulo."],
+    ["Retina", "Capa del fondo del ojo que capta la luz."],
+    ["Pupila", "Agujero del iris por el que entra la luz."],
+    ["Tímpano", "Membrana del oído que vibra con el sonido."],
+    ["Caracol", "Parte del oído interno que convierte la vibración en mensaje nervioso."],
+    ["Papila gustativa", "Bultito de la lengua que detecta los sabores."],
+    ["Neurona", "Célula del sistema nervioso que transmite mensajes."],
+    ["Encéfalo", "Parte del sistema nervioso central protegida por el cráneo."],
+    ["Médula espinal", "Cordón nervioso protegido por la columna; controla los reflejos."],
+    ["Acto reflejo", "Respuesta rápida y automática que no pasa por el cerebro."],
+    ["Lengua de signos", "Lengua que se expresa con las manos, la cara y el cuerpo."],
+  ],
+  situacion: {
+    titulo: "Un laboratorio de los sentidos",
+    reto: "La clase monta un laboratorio con estaciones para poner a prueba los cinco sentidos y lo enseña a otros cursos.",
+    pasos: ["Por grupos, preparad una estación para cada sentido: sabores con los ojos tapados, olores en botes, objetos en una caja de tacto, sonidos grabados e ilusiones ópticas.", "Probad las estaciones y anotad los resultados en una tabla.", "Añadid una estación inclusiva: escribid vuestro nombre en braille y aprended a saludar en lengua de signos.", "Preparad carteles que expliquen qué órgano y qué receptores intervienen en cada estación."],
+    producto: "Un laboratorio de los sentidos con carteles explicativos y una tabla de resultados.",
+    evaluacion: ["Relaciona cada sentido con su órgano y sus receptores.", "Explica el papel del sistema nervioso en la percepción.", "Registra e interpreta resultados con orden.", "Muestra respeto por las personas con discapacidad sensorial."],
+  },
+});

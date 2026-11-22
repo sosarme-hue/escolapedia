@@ -141,3 +141,90 @@ module.exports = {
   fuentes: [RD, wiki("Aparato locomotor", "Aparato_locomotor"), wiki("Esqueleto humano", "Esqueleto_humano"), wiki("Músculo", "Músculo")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Describir cómo es un hueso por dentro", "Relacionar cada tipo de articulación móvil con el movimiento que permite", "Explicar el camino de una orden desde el cerebro hasta el músculo"],
+  lectura: { titulo: "La radiografía de Marcos", html: `<p>Marcos saltó desde el columpio más alto del parque, aterrizó mal y sintió un dolor muy fuerte en el brazo. Su madre lo llevó a urgencias y allí le hicieron una <b>radiografía</b>.</p><p>Cuando la doctora la colgó delante de la luz, Marcos se quedó con la boca abierta. Su brazo se veía como una sombra gris, y dentro aparecían unos huesos blancos y alargados, como palos. En uno de ellos, el <b>radio</b>, se veía una rayita oscura: era una <b>fractura</b>.</p><p>—No te preocupes —le dijo la doctora—. Los huesos están vivos. Te pondremos una escayola para que no se mueva y, en unas semanas, tu cuerpo fabricará hueso nuevo para soldarlo.</p><p>Durante un mes, Marcos no pudo jugar al baloncesto. Pero aprendió algo: ese brazo que movía sin pensar era una máquina perfecta de <b>huesos</b>, <b>articulaciones</b> y <b>músculos</b>. Cuando le quitaron la escayola, el brazo estaba más delgado, porque los músculos se habían quedado quietos. Con ejercicio volvieron a crecer. En este tema descubrirás cómo funciona esa máquina y cómo cuidarla.</p>` },
+  tras: {
+    "Los huesos y sus funciones": [
+      ["Un hueso por dentro", `<p>Si cortáramos un hueso largo, como el fémur, veríamos que no es macizo como un ladrillo. Tiene varias capas, cada una con su trabajo:</p><ul><li><b>Periostio</b>: una piel fina que lo envuelve por fuera. Tiene vasos sanguíneos y nervios; por eso un golpe en el hueso duele tanto.</li><li><b>Hueso compacto</b>: la capa dura y pesada de fuera, que le da resistencia.</li><li><b>Hueso esponjoso</b>: en los extremos, con muchos huecos, como una esponja. Es ligero pero fuerte, porque sus pequeñas vigas están colocadas para aguantar el peso.</li><li><b>Médula ósea</b>: en el interior. La <b>médula roja</b> fabrica millones de glóbulos rojos, glóbulos blancos y plaquetas cada segundo. La <b>médula amarilla</b> guarda grasa como reserva.</li></ul><p>Los huesos crecen a lo largo por unas zonas de cartílago cerca de sus extremos, llamadas <b>cartílagos de crecimiento</b>. Cuando terminamos de crecer, hacia los 18 o 20 años, ese cartílago se convierte en hueso y ya no nos hacemos más altos.</p>`,
+        svg("Corte de un hueso largo con periostio, hueso compacto, hueso esponjoso y médula", `${tit("Un hueso por dentro")}<rect x="40" y="76" width="120" height="30" rx="4" fill="#e7e5e4" stroke="#78716c" stroke-width="2"/><rect x="48" y="84" width="104" height="14" fill="#fde68a"/><ellipse cx="38" cy="91" rx="20" ry="26" fill="#f5f5f4" stroke="#78716c" stroke-width="2"/><ellipse cx="162" cy="91" rx="20" ry="26" fill="#f5f5f4" stroke="#78716c" stroke-width="2"/>${[30, 38, 46].map((x) => `<circle cx="${x}" cy="84" r="3" fill="none" stroke="#a8a29e"/><circle cx="${x}" cy="98" r="3" fill="none" stroke="#a8a29e"/>`).join("")}${et(100, 60, "hueso compacto", 110, { size: 10.5, color: COL.marron })}${et(100, 124, "médula", 80, { size: 10.5, color: COL.sol })}${et(38, 136, "esponjoso", 70, { size: 10.5, color: COL.gris })}<path d="M186 82 H200" stroke="${COL.rojo}" stroke-width="2"/>${et(226, 86, "periostio", 60, { size: 10.5, color: COL.rojo })}${tx(130, 162, "la médula roja fabrica la sangre", 230)}`)],
+    ],
+    "Las articulaciones": [
+      ["Bisagras, rótulas y pivotes", `<p>No todas las articulaciones móviles se mueven igual. Su forma decide qué movimientos permiten, igual que pasa con las piezas de una máquina:</p><ul><li><b>En bisagra</b>: solo se doblan y se estiran en una dirección, como la puerta de un armario. Son el <b>codo</b>, la <b>rodilla</b> y las articulaciones de los dedos. Intenta doblar la rodilla hacia delante: ¡no puedes!</li><li><b>Esféricas o de rótula</b>: el extremo de un hueso es una bola que encaja en un hueco del otro. Permiten mover el brazo o la pierna en todas las direcciones y hacer círculos. Son el <b>hombro</b> y la <b>cadera</b>.</li><li><b>De pivote</b>: un hueso gira sobre otro, como una peonza sobre su punta. Es la articulación entre las dos primeras vértebras del cuello, que nos permite decir «no» con la cabeza.</li><li><b>Deslizantes</b>: huesos planos que resbalan un poco unos sobre otros, como los de la muñeca y el tobillo.</li></ul><p>Los ingenieros que diseñan robots y brazos mecánicos copian muchas de estas articulaciones.</p>`,
+        svg("Articulaciones en bisagra (codo, rodilla), esféricas (hombro, cadera), de pivote (cuello) y deslizantes (muñeca)", `${tit("Articulaciones móviles")}${fichas([["Bisagra", "codo, rodilla: una dirección", COL.verde], ["Esférica", "hombro, cadera: todas", COL.azul], ["Pivote", "cuello: girar", COL.morado], ["Deslizante", "muñeca, tobillo: resbalar", COL.naranja]])}`)],
+    ],
+    "Cómo mueven los músculos a los huesos": [
+      ["Del cerebro al músculo", `<p>¿Qué pasa exactamente cuando decides chutar un balón? En menos de un segundo ocurre una cadena de pasos:</p><ol><li>El <b>cerebro</b> decide el movimiento y prepara la orden.</li><li>La orden baja por la <b>médula espinal</b> y sale por un <b>nervio</b> hasta los músculos de la pierna.</li><li>El <b>músculo</b> (el cuádriceps) recibe la señal y se <b>contrae</b>.</li><li>Al acortarse, tira del <b>tendón</b>, que tira del <b>hueso</b>.</li><li>La <b>articulación</b> de la rodilla se estira y el pie golpea el balón.</li></ol><p>Al mismo tiempo, los músculos de detrás del muslo se relajan para no frenar el movimiento, y otros músculos del tronco y de la otra pierna se contraen para que no pierdas el equilibrio.</p><p>Por eso el aparato locomotor y el <b>sistema nervioso</b> son inseparables. Cuando una lesión en la médula espinal corta los nervios, los músculos están sanos pero no reciben órdenes y la persona no puede mover esa parte del cuerpo.</p>`,
+        svg("Cadena de una orden: cerebro, nervio, músculo se contrae, tendón tira, hueso se mueve", `${tit("Del cerebro al músculo")}${columna([["cerebro: decide", COL.morado], ["nervio: lleva la orden", COL.azul], ["músculo: se contrae", COL.rojo], ["tendón y hueso: se mueven", COL.marron]], 130, 200, 36, 24, 12)}`)],
+    ],
+  },
+  final: [
+    ["Calentar y estirar", `<p>Antes de hacer deporte, los músculos están fríos y poco elásticos, como una goma que ha estado en la nevera. Si les pedimos un gran esfuerzo de golpe, es más fácil sufrir un tirón o un esguince. Por eso hay que <b>calentar</b>:</p><ul><li>Unos minutos de <b>movimiento suave</b>, como trotar o saltar a la comba despacio, para que el corazón lleve más sangre a los músculos.</li><li><b>Movilidad articular</b>: círculos con los tobillos, las rodillas, la cadera, los hombros y el cuello.</li><li>Algunos ejercicios parecidos al deporte que vas a practicar, cada vez un poco más rápidos.</li></ul><p>Después del ejercicio toca <b>volver a la calma</b>: caminar unos minutos y hacer <b>estiramientos</b> suaves, aguantando cada uno unos 15 o 20 segundos, sin rebotes y sin llegar a sentir dolor.</p><p>Y no olvides beber agua: los músculos tienen mucha agua y funcionan peor cuando nos deshidratamos. Si algo duele de verdad, para y avisa: el dolor es una señal de alarma.</p>`,
+        svg("Antes del ejercicio calentar, después volver a la calma y estirar", `${tit("Antes y después")}${flujo([["calentar", COL.naranja], ["deporte", COL.rojo], ["estirar", COL.verde]], 50, 40)}${filas([["Antes", "trotar y mover articulaciones", COL.naranja], ["Después", "estirar 15-20 s sin rebotes", COL.verde], ["Siempre", "beber agua", COL.agua]], 120, 20, { wa: 60, wb: 160 })}`)],
+  ],
+  ejemplos: [
+    ["Mueves el brazo haciendo círculos completos, pero el codo no puede hacerlos. ¿Por qué?", ["El hombro es una articulación esférica: una bola dentro de un hueco.", "Permite moverse en todas las direcciones.", "El codo es una articulación en bisagra: solo dobla y estira."], "Hombro esférico, codo en bisagra"],
+    ["Una persona se rompe la pierna y lleva escayola seis semanas. Al quitársela, la pierna está más delgada. ¿Qué ha pasado?", ["Durante seis semanas los músculos casi no se han contraído.", "Un músculo que no trabaja pierde tamaño y fuerza.", "Con ejercicio y rehabilitación vuelve a crecer."], "Los músculos se han debilitado por falta de uso"],
+  ],
+  errores: ["Pensar que los huesos son macizos por dentro: tienen hueso esponjoso y médula.", "Creer que todas las articulaciones móviles se mueven igual: la rodilla es una bisagra y el hombro una rótula."],
+  nivelesBase: "bbbbmmbmmb",
+  ejercicios: [
+    ["b", "¿Qué fabrica la médula ósea roja?", "Las células de la sangre: glóbulos rojos, glóbulos blancos y plaquetas."],
+    ["b", "¿Cómo se llama la piel fina que envuelve el hueso?", "Periostio."],
+    ["b", "Escribe dos articulaciones en bisagra y dos esféricas.", "Bisagra: codo y rodilla. Esféricas: hombro y cadera."],
+    ["b", "¿Cuál es el tendón más fuerte del cuerpo y dónde está?", "El tendón de Aquiles, en el talón."],
+    ["b", "¿Cuál es el hueso más pequeño del cuerpo y dónde está?", "El estribo, dentro del oído."],
+    ["m", "¿Por qué dejamos de crecer en altura hacia los 18 o 20 años?", "Porque los cartílagos de crecimiento de los huesos se convierten en hueso."],
+    ["m", "¿Qué articulación nos permite decir «no» con la cabeza? ¿De qué tipo es?", "La de las dos primeras vértebras del cuello; es de pivote."],
+    ["m", "Ordena los pasos: el tendón tira del hueso, el cerebro decide, el músculo se contrae, el nervio lleva la orden.", "El cerebro decide, el nervio lleva la orden, el músculo se contrae y el tendón tira del hueso."],
+    ["m", "¿Por qué hay que calentar antes de hacer deporte?", "Para que los músculos y las articulaciones estén preparados y evitar tirones y esguinces."],
+    ["m", "Explica por qué el hueso esponjoso es útil aunque tenga huecos.", "Es ligero pero resistente, así el esqueleto pesa menos y sigue aguantando el peso del cuerpo."],
+    ["m", "¿Qué diferencia hay entre el esqueleto de un pez y el de un escarabajo?", "El pez tiene esqueleto interno de huesos; el escarabajo, un exoesqueleto duro por fuera."],
+    ["a", "Una persona con una lesión en la médula espinal no puede mover las piernas aunque sus músculos estén sanos. Explica por qué.", "Los nervios no pueden llevar las órdenes del cerebro a los músculos, así que estos no se contraen."],
+    ["a", "Si tu peso es 35 kg, ¿cuánto debería pesar como máximo tu mochila?", "El 10 % de 35 kg: 3,5 kg."],
+    ["a", "Describe qué músculos se contraen y cuáles se relajan al chutar un balón.", "Se contrae el cuádriceps (delante del muslo), que estira la rodilla; se relajan los músculos de detrás del muslo."],
+    ["a", "Diseña una rutina de calentamiento de cinco minutos para una clase de Educación Física.", "Respuesta abierta. Debe incluir movimiento suave (trote), movilidad de articulaciones y ejercicios parecidos al deporte, de menos a más intensidad."],
+    ["a", "¿Por qué los insectos tienen que mudar y nosotros no?", "Su exoesqueleto es una cubierta rígida que no crece; nuestros huesos son internos y están vivos, así que crecen con nosotros."],
+  ],
+  quiz: [
+    ["La médula ósea roja fabrica…", ["Las células de la sangre", "El calcio", "Los tendones"], "Glóbulos rojos, blancos y plaquetas."],
+    ["El hombro es una articulación…", ["Esférica", "En bisagra", "Fija"], "Una bola dentro de un hueco: se mueve en todas las direcciones."],
+    ["La orden de mover un músculo llega por…", ["Los nervios", "Los ligamentos", "Las venas"], "Desde el cerebro y la médula espinal."],
+    ["Los estiramientos después del deporte deben durar…", ["Unos 15-20 segundos", "Un segundo con rebotes", "Media hora"], "Sin rebotes ni dolor."],
+    ["La parte de los extremos del hueso con huecos se llama…", ["Hueso esponjoso", "Periostio", "Tendón"], "Ligero y resistente."],
+  ],
+  examen: [
+    ["La rodilla es una articulación…", ["En bisagra", "Esférica", "De pivote"], "Solo dobla y estira."],
+    ["Los huesos crecen a lo largo gracias a…", ["Los cartílagos de crecimiento", "Los tendones", "La médula amarilla"], "Están cerca de los extremos."],
+  ],
+  tarjetas: [
+    ["Médula ósea", "Interior del hueso; la roja fabrica la sangre."],
+    ["Periostio", "Piel fina que envuelve el hueso."],
+    ["Articulación en bisagra", "Dobla y estira en una dirección: codo, rodilla."],
+    ["Articulación esférica", "Se mueve en todas direcciones: hombro, cadera."],
+  ],
+  glosario: [
+    ["Aparato locomotor", "Conjunto de huesos, articulaciones y músculos que nos permite movernos."],
+    ["Hueso", "Órgano duro y vivo que sostiene, protege y sirve de palanca."],
+    ["Médula ósea", "Tejido del interior de los huesos; la roja fabrica las células de la sangre."],
+    ["Esqueleto", "Conjunto de los huesos del cuerpo."],
+    ["Articulación", "Unión entre dos o más huesos."],
+    ["Cartílago", "Tejido liso y elástico que cubre los extremos de los huesos."],
+    ["Ligamento", "Cordón resistente que une un hueso con otro."],
+    ["Músculo", "Órgano que se contrae y se relaja para producir movimiento."],
+    ["Tendón", "Cordón que une un músculo con un hueso."],
+    ["Fractura", "Rotura de un hueso."],
+    ["Esguince", "Lesión de los ligamentos de una articulación."],
+    ["Exoesqueleto", "Esqueleto externo de insectos, arañas y crustáceos."],
+  ],
+  situacion: {
+    titulo: "Construimos un brazo robótico",
+    reto: "Por equipos, construid un modelo de brazo que se doble y se estire como el vuestro y explicad cómo funciona.",
+    pasos: ["Recortad en cartón el brazo y el antebrazo y unidlos con un encuadernador en el codo.", "Usad dos gomas o cuerdas como bíceps y tríceps, sujetas con cinta adhesiva a modo de tendones.", "Comprobad qué «músculo» hay que acortar para doblar el brazo y cuál para estirarlo.", "Presentad el modelo a la clase nombrando huesos, articulación, músculos y tendones."],
+    producto: "Un brazo de cartón articulado y una explicación oral de su funcionamiento.",
+    evaluacion: ["Nombra correctamente los huesos, la articulación y los músculos del brazo.", "Explica que los músculos solo tiran y trabajan por parejas.", "Relaciona el tipo de articulación con el movimiento.", "Trabaja en equipo y presenta con claridad."],
+  },
+});

@@ -142,3 +142,93 @@ module.exports = {
   fuentes: [RD, wiki("Reino (biología)", "Reino_(biología)"), wiki("Fungi", "Fungi"), wiki("Protista", "Protista")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { linea } = require("./_pri5b");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Conocer el sistema de nombres científicos de Linneo", "Usar una clave dicotómica sencilla para clasificar seres vivos", "Valorar el descubrimiento de los antibióticos y saber por qué los virus no forman un reino"],
+  lectura: { titulo: "El detective de la naturaleza", html: `<p>Hace casi trescientos años, en Suecia, un joven llamado <b>Carlos Linneo</b> recorría los campos con una lupa, un cuaderno y una caja para guardar plantas. Le fascinaba la naturaleza, pero había un problema: cada planta tenía nombres distintos según el país y el pueblo. Lo que en un sitio se llamaba «amapola», en otro tenía un nombre diferente, y algunos sabios usaban descripciones larguísimas en latín, de diez o doce palabras.</p><p>Linneo pensó que así era imposible entenderse. Por eso inventó un sistema sencillo: cada ser vivo tendría un <b>nombre científico</b> de solo <b>dos palabras</b>, igual en todo el mundo. Además, lo ordenó todo en grupos cada vez más grandes, como cajas dentro de cajas.</p><p>Linneo y sus alumnos viajaron por medio planeta y describieron miles de plantas y animales. Su idea funcionó tan bien que hoy, en cualquier país, un científico sabe exactamente de qué ser vivo se habla al leer su nombre científico.</p><p>En este tema aprenderás a clasificar como Linneo y descubrirás los <b>cinco reinos</b> de los seres vivos.</p>` },
+  tras: {
+    "¿Cómo se clasifica? Los criterios": [
+      ["Linneo y el nombre científico", `<p>Los científicos ordenan a los seres vivos en grupos que van de mayor a menor, como cajas dentro de cajas: <b>reino</b>, <b>filo</b>, <b>clase</b>, <b>orden</b>, <b>familia</b>, <b>género</b> y <b>especie</b>. Cuanto más pequeño es el grupo, más se parecen sus miembros.</p><p>La <b>especie</b> es el grupo más pequeño. Una especie está formada por seres vivos tan parecidos que pueden tener crías que, a su vez, también pueden tener crías. Todos los perros, desde un chihuahua hasta un gran danés, son de la misma especie.</p><p>Gracias a Linneo, cada especie tiene un <b>nombre científico</b> de dos palabras en latín:</p><ul><li>La primera es el <b>género</b> y empieza por mayúscula.</li><li>La segunda indica la <b>especie</b> y va en minúscula.</li></ul><p>Por ejemplo, el ser humano es <i>Homo sapiens</i>, el gato es <i>Felis catus</i>, el lobo es <i>Canis lupus</i> y la encina es <i>Quercus ilex</i>. El león, <i>Panthera leo</i>, y el tigre, <i>Panthera tigris</i>, comparten género porque son parientes cercanos. Los nombres científicos se escriben en <i>cursiva</i>.</p>`,
+        svg("Categorías de clasificación de mayor a menor: reino, filo, clase, orden, familia, género y especie", `${tit("Cajas dentro de cajas")}${[["reino", COL.azul], ["filo", COL.agua], ["clase", COL.verde], ["orden", COL.sol], ["familia", COL.naranja], ["género", COL.rojo], ["especie", COL.morado]].map(([s, c], i) => cj(130 - (232 - i * 22) / 2, 32 + i * 20, 232 - i * 22, 17, s, c)).join("")}`)],
+    ],
+    "El reino de los hongos": [
+      ["Las setas: mirar sí, comer con cuidado", `<p>Lo que llamamos <b>seta</b> es solo una pequeña parte del hongo: la parte que sale del suelo para soltar las <b>esporas</b>, como una fruta suelta sus semillas. La mayor parte del hongo está bajo tierra, formando una red de hilos blancos muy finos llamada <b>micelio</b>, que puede ocupar muchos metros.</p><p>Las partes de una seta típica son:</p><ul><li>El <b>sombrero</b>, la parte de arriba.</li><li>Las <b>láminas</b>, debajo del sombrero, donde se forman las esporas.</li><li>El <b>pie</b>, que sostiene el sombrero. Algunas setas tienen un <b>anillo</b> en el pie y una especie de bolsa en la base, la <b>volva</b>.</li></ul><p>Hay setas muy apreciadas en la cocina, como el níscalo o el champiñón, pero otras son <b>muy venenosas</b>. La más peligrosa en España es la <i>Amanita phalloides</i>, que puede ser mortal y se confunde con setas comestibles. Por eso <b>nunca</b> hay que comer una seta recogida en el campo sin que la revise un experto. Al recogerlas, se usa una cesta, para que las esporas caigan y nazcan nuevas setas, y se cortan sin arrancar el micelio.</p>`,
+        svg("Partes de una seta: sombrero, láminas, pie, anillo, volva y micelio", `${tit("Partes de una seta")}<path d="M50 86 Q90 30 130 86z" fill="#fca5a5" stroke="#b91c1c" stroke-width="2"/>${[62, 74, 86, 98, 110, 122].map((x) => `<path d="M${x} 86 L90 92" stroke="#b91c1c" stroke-width="1"/>`).join("")}<rect x="82" y="88" width="16" height="56" rx="5" fill="#fef3c7" stroke="#a16207" stroke-width="2"/><path d="M78 104 h24" stroke="#a16207" stroke-width="4"/><path d="M78 150 q12 -14 24 0z" fill="#fef3c7" stroke="#a16207" stroke-width="2"/><path d="M40 160 q20 -6 30 4 M110 156 q20 -2 40 8 M60 168 q30 6 60 0" stroke="var(--muted)" stroke-width="1.5" fill="none"/>${filas([["sombrero", "arriba", COL.rojo], ["láminas", "esporas", COL.rojo], ["anillo", "en el pie", COL.marron], ["volva", "en la base", COL.marron], ["micelio", "bajo tierra", COL.gris]], 50, 24, { x: 146, wa: 50, wb: 60, dos: false })}`)],
+    ],
+    "Los microorganismos: buenos y malos": [
+      ["Fleming y el moho que salvó millones de vidas", `<p>En 1928, el científico escocés <b>Alexander Fleming</b> volvió de vacaciones a su laboratorio de Londres. Había dejado unas placas con bacterias y encontró que en una de ellas había crecido un <b>moho</b> verde, un hongo llamado <i>Penicillium</i>. Lo sorprendente era que, alrededor del moho, las bacterias habían muerto.</p><p>Fleming dedujo que el hongo fabricaba una sustancia capaz de matar bacterias. La llamó <b>penicilina</b>. Fue el primer <b>antibiótico</b>. Años después, otros científicos consiguieron fabricarla en grandes cantidades y, desde la década de 1940, ha salvado millones de vidas al curar infecciones que antes eran mortales.</p><p>Hoy existen muchos antibióticos, pero hay que usarlos bien:</p><ul><li>Solo sirven contra <b>bacterias</b>, no contra virus como el de la gripe o el resfriado.</li><li>Se toman únicamente cuando los receta el <b>médico</b>, y durante todos los días que indique.</li></ul><p>Si se usan mal, algunas bacterias se hacen <b>resistentes</b> y los antibióticos dejan de funcionar contra ellas. ¡Un pequeño moho cambió la historia de la medicina!</p>`,
+        svg("Línea del tiempo: 1928 Fleming descubre la penicilina, 1941 primeros enfermos curados, 1945 Premio Nobel", `${tit("La historia de la penicilina")}${linea([["1928", "Fleming ve el moho", COL.verde], ["1941", "primeros enfermos curados", COL.azul], ["1945", "Premio Nobel", COL.sol]])}`)],
+    ],
+  },
+  final: [
+    ["Los virus, en la frontera de la vida", `<p>Los <b>virus</b> son mucho más pequeños que las bacterias: solo se ven con microscopios electrónicos muy potentes. Causan enfermedades como la <b>gripe</b>, el <b>resfriado</b>, la <b>varicela</b> o el <b>sarampión</b>.</p><p>Sin embargo, los virus <b>no pertenecen a ningún reino</b>, porque <b>no están formados por células</b>. Son simplemente un poco de material genético envuelto en una cubierta. Fuera de un ser vivo no comen, no crecen ni se reproducen: parecen partículas inertes.</p><p>Para multiplicarse, un virus tiene que entrar en una célula y obligarla a fabricar copias de sí mismo. Al salir, las nuevas copias infectan otras células. Por eso muchos científicos dicen que los virus están en la «frontera» entre lo vivo y lo no vivo.</p><p>Los antibióticos <b>no funcionan</b> contra los virus. Para protegernos tenemos las <b>vacunas</b>, que enseñan a nuestras defensas a reconocerlos antes de que nos ataquen, y hábitos como lavarse las manos, ventilar y taparse al toser o estornudar con el codo.</p>`,
+        svg("Comparación entre bacteria y virus: la bacteria es una célula; el virus no", `${tit("Bacteria y virus")}${cj2(14, 40, 112, 70, "Bacteria", "una célula sin núcleo", COL.verde)}${cj2(134, 40, 112, 70, "Virus", "no es una célula", COL.rojo)}${tx(70, 128, "antibióticos: sí", 110, { color: COL.verde, weight: 700 })}${tx(190, 128, "antibióticos: no", 110, { color: COL.rojo, weight: 700 })}${tx(190, 146, "vacunas e higiene", 110)}${tx(70, 146, "más grande", 110)}`)],
+    ["Clasificar con una clave dicotómica", `<p>Una <b>clave dicotómica</b> es una herramienta para identificar o clasificar seres vivos. Funciona con preguntas que solo tienen <b>dos respuestas</b> posibles (sí o no). Según lo que contestes, pasas a otra pregunta, hasta llegar al nombre del grupo. «Dicotómica» significa precisamente «dividida en dos».</p><p>Aquí tienes una clave sencilla para seres vivos pluricelulares y las bacterias:</p><ol><li>¿Sus células tienen núcleo? <b>No</b>: es una <b>bacteria</b>. <b>Sí</b>: ve a la pregunta 2.</li><li>¿Hace la fotosíntesis? <b>Sí</b>: es una <b>planta</b>. <b>No</b>: ve a la pregunta 3.</li><li>¿Se desplaza y come otros seres vivos? <b>Sí</b>: es un <b>animal</b>. <b>No</b>: es un <b>hongo</b>.</li></ol><p>Pruébala con una seta: tiene núcleo (sí), no hace la fotosíntesis (no), no se desplaza (no): es un hongo. Para los protoctistas habría que añadir más preguntas, porque son muy variados.</p><p>Los naturalistas usan claves mucho más largas para identificar, por ejemplo, qué especie de árbol o de mariposa tienen delante. Tú también puedes inventar una clave para clasificar los animales de tu entorno.</p>`,
+        svg("Clave dicotómica: núcleo, fotosíntesis y desplazamiento para separar bacterias, plantas, animales y hongos", `${tit("Una clave sencilla")}${cj(80, 32, 100, 22, "¿Tiene núcleo?", COL.azul)}${fl(108, 55, 52, 70, "var(--muted)", 2)}${fl(152, 55, 186, 70, "var(--muted)", 2)}${cj(8, 72, 88, 22, "no: bacteria", COL.verde)}${cj(112, 72, 140, 22, "sí: ¿fotosíntesis?", COL.azul)}${fl(160, 95, 134, 110, "var(--muted)", 2)}${fl(206, 95, 214, 110, "var(--muted)", 2)}${cj(92, 112, 76, 22, "sí: planta", COL.verde)}${cj(172, 112, 84, 22, "¿se mueve?", COL.azul)}${fl(200, 135, 156, 150, "var(--muted)", 2)}${fl(232, 135, 232, 150, "var(--muted)", 2)}${cj(110, 152, 84, 22, "sí: animal", COL.rojo)}${cj(200, 152, 56, 22, "hongo", COL.marron)}`)],
+  ],
+  ejemplos: [
+    ["Escribe correctamente el nombre científico del lobo: «canis Lupus». ¿Qué está mal?", ["El género va con mayúscula: Canis.", "La especie va en minúscula: lupus.", "Se escribe en cursiva."], "<i>Canis lupus</i>"],
+    ["Usa la clave dicotómica con un pino.", ["¿Tiene núcleo? Sí.", "¿Hace la fotosíntesis? Sí.", "Llegamos al final de la clave."], "El pino es una planta"],
+  ],
+  errores: ["Pensar que los antibióticos curan la gripe o el resfriado: solo actúan contra bacterias; esas enfermedades las causan virus.", "Escribir los nombres científicos con las dos palabras en mayúscula: solo el género va con mayúscula."],
+  nivelesBase: "bmbbmmbmbm",
+  ejercicios: [
+    ["b", "Ordena de mayor a menor: especie, reino, familia, género, clase.", "Reino, clase, familia, género, especie."],
+    ["b", "¿Cuál es el nombre científico del ser humano?", "<i>Homo sapiens</i>."],
+    ["b", "¿Qué descubrió Alexander Fleming y en qué año?", "La penicilina, el primer antibiótico, en 1928."],
+    ["b", "Nombra tres partes de una seta.", "Sombrero, láminas y pie (también anillo y volva)."],
+    ["b", "¿Por qué los virus no pertenecen a ningún reino?", "Porque no están formados por células."],
+    ["m", "El león es <i>Panthera leo</i> y el tigre <i>Panthera tigris</i>. ¿Qué nos dice que compartan la primera palabra?", "Que pertenecen al mismo género: son parientes cercanos."],
+    ["m", "¿Qué es el micelio y dónde está?", "La red de hilos finos que forma la mayor parte del hongo; está bajo tierra o dentro de lo que el hongo descompone."],
+    ["m", "¿Por qué se recogen las setas en cesta?", "Para que las esporas caigan al suelo mientras caminamos y nazcan nuevas setas."],
+    ["m", "¿Por qué hay que tomar los antibióticos solo cuando los receta el médico?", "Porque si se usan mal las bacterias se vuelven resistentes y los antibióticos dejan de funcionar."],
+    ["m", "Usa la clave dicotómica con un champiñón y con una lombriz.", "Champiñón: núcleo sí, fotosíntesis no, se desplaza no: hongo. Lombriz: núcleo sí, fotosíntesis no, se desplaza sí: animal."],
+    ["m", "¿Qué tienen en común todos los perros, desde un chihuahua hasta un gran danés?", "Son de la misma especie: pueden tener crías que también pueden tener crías."],
+    ["a", "Inventa una clave dicotómica de tres preguntas para clasificar: águila, sardina, rana y perro.", "Respuesta abierta. Por ejemplo: ¿tiene plumas? sí: águila. ¿Vive siempre en el agua? sí: sardina. ¿Tiene pelo? sí: perro; no: rana."],
+    ["a", "Explica cómo se multiplica un virus.", "Entra en una célula y la obliga a fabricar copias de él; las copias salen e infectan otras células."],
+    ["a", "¿Qué observó Fleming en su placa y qué conclusión sacó?", "Que alrededor del moho las bacterias habían muerto; dedujo que el hongo fabricaba una sustancia que mataba bacterias."],
+    ["a", "¿Por qué Linneo eligió nombres de dos palabras en una sola lengua para todo el mundo?", "Para que todos los científicos se entendieran sin confusiones, porque los nombres comunes cambian según el país y el pueblo."],
+    ["a", "Clasifica en su reino: levadura, alga, musgo, bacteria del yogur, medusa y moho.", "Levadura y moho: hongos. Alga: protoctistas. Musgo: plantas. Bacteria del yogur: bacterias. Medusa: animales."],
+  ],
+  quiz: [
+    ["El grupo más pequeño de la clasificación es…", ["La especie", "El reino", "La familia"], "Sus miembros pueden tener crías fértiles."],
+    ["En un nombre científico, la primera palabra es…", ["El género", "La especie", "El reino"], "Y va con mayúscula."],
+    ["La penicilina se obtuvo de…", ["Un moho", "Una planta", "Una bacteria"], "El hongo <i>Penicillium</i>."],
+    ["Los antibióticos sirven contra…", ["Las bacterias", "Los virus", "Todos los microbios"], "No curan la gripe."],
+    ["Una clave dicotómica tiene preguntas con…", ["Dos respuestas", "Tres respuestas", "Ninguna respuesta"], "Sí o no."],
+  ],
+  examen: [
+    ["Las esporas de una seta se forman en…", ["Las láminas", "El pie", "La volva"], "Debajo del sombrero."],
+    ["Para protegernos de los virus tenemos…", ["Vacunas e higiene", "Antibióticos", "Nada"], "Las vacunas entrenan nuestras defensas."],
+  ],
+  tarjetas: [
+    ["Nombre científico", "Dos palabras en latín: género y especie (<i>Homo sapiens</i>)."],
+    ["Antibiótico", "Medicamento que mata bacterias; el primero fue la penicilina."],
+    ["Virus", "Partícula sin células que se multiplica dentro de las células."],
+    ["Clave dicotómica", "Preguntas de sí o no para clasificar seres vivos."],
+  ],
+  glosario: [
+    ["Clasificar", "Ordenar en grupos según sus parecidos."],
+    ["Reino", "Cada uno de los cinco grandes grupos de seres vivos."],
+    ["Especie", "Grupo de seres vivos que pueden tener crías fértiles entre sí."],
+    ["Género", "Grupo de especies muy parecidas."],
+    ["Autótrofo", "Ser vivo que fabrica su propio alimento."],
+    ["Heterótrofo", "Ser vivo que se alimenta de otros seres vivos."],
+    ["Unicelular", "Formado por una sola célula."],
+    ["Pluricelular", "Formado por muchas células."],
+    ["Espora", "Célula que sirve a los hongos para reproducirse."],
+    ["Micelio", "Red de hilos que forma la mayor parte de un hongo."],
+    ["Microorganismo", "Ser vivo que solo se ve con microscopio."],
+    ["Antibiótico", "Medicamento que mata bacterias."],
+  ],
+  situacion: {
+    titulo: "El museo de los cinco reinos",
+    reto: "La clase organiza un pequeño museo con un rincón para cada reino, con fichas y una clave para que los visitantes clasifiquen.",
+    pasos: ["Por grupos, elegid un reino y buscad cinco ejemplos con su nombre común y su nombre científico.", "Preparad una ficha de cada ejemplo con dibujo o foto, características y dónde vive.", "Haced un experimento: dejad pan húmedo en una bolsa cerrada varios días y observad el moho con lupa (sin abrir la bolsa).", "Cread una clave dicotómica para que los visitantes adivinen el reino de cada ejemplo."],
+    producto: "Un museo de los cinco reinos con fichas, un experimento de moho y una clave dicotómica.",
+    evaluacion: ["Clasifica correctamente seres vivos en los cinco reinos.", "Escribe bien los nombres científicos.", "Observa y registra un experimento con seguridad.", "Diseña una clave dicotómica que funciona."],
+  },
+});
