@@ -98,3 +98,91 @@ module.exports = P.tema({
   saberes: "Medida: masa y capacidad; instrumentos (balanza, báscula, recipientes graduados); kilogramo, gramo, medio y cuarto de kilo; litro, mililitro, medio y cuarto de litro; elección de la unidad adecuada; estimación, comparación y problemas",
   ideas: ["Balanza casera con una percha y dos vasos para comparar masas.", "Taller de trasvases de agua con recipientes de distintas formas.", "Mercadillo con productos de etiquetas reales para clasificar en masa o capacidad."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer la tonelada", "Comprender que la forma del recipiente engaña", "Construir una balanza casera", "Usar medidas en una receta y en el ahorro de agua"],
+  lectura: { titulo: "El bizcocho de los vasitos", html: `<p>Los domingos por la tarde, Daniela y su abuela Carmen hacen un bizcocho. La abuela nunca usa la báscula: lo mide todo con el vasito del yogur.</p><p>—Primero, vaciamos el yogur en el bol —dice la abuela—. Y el vasito no se tira, que es nuestra medida.</p><p>Daniela lo lava y lo seca con cuidado. Luego echa tres vasitos de harina, dos de azúcar y uno de aceite. La abuela casca tres huevos y añade un sobre de levadura.</p><p>—¿Y por qué no pesamos la harina, abuela? —pregunta Daniela.</p><p>—Porque cuando yo era pequeña, en casa no había báscula. Mi madre medía con lo que tenía: vasos, cucharas, puñados… Y los bizcochos le salían de maravilla.</p><p>Daniela tiene curiosidad. Coge la báscula de la cocina y pesa un vasito lleno de harina: 80 gramos. Luego pesa un vasito de azúcar: ¡110 gramos!</p><p>—¡El mismo vasito y pesan distinto!</p><p>—Claro —dice la abuela—. El azúcar es más pesado que la harina. Por eso, para las recetas, a veces es mejor pesar.</p><p>Meten el molde en el horno. Al cabo de cuarenta minutos, la cocina huele a gloria.</p><p>—¿Y la próxima vez lo hacemos con la báscula? —pregunta Daniela.</p><p>—La próxima vez —sonríe la abuela, partiendo el bizcocho—, lo haces tú sola.</p>` },
+  tras: {
+    "Medio kilo y cuarto de kilo": [
+      ["La tonelada", `<p>Para medir la masa de cosas <b>muy pesadas</b>, el kilogramo se queda pequeño. Entonces usamos la <mark>tonelada</mark>, que se escribe <b>t</b>.</p><p><b>1 t = 1.000 kg</b></p><p>Algunos ejemplos:</p><ul><li>Un <b>coche</b> pequeño pesa más o menos <b>1 tonelada</b>.</li><li>Un <b>elefante africano</b> adulto puede pesar <b>6 toneladas</b>.</li><li>Un <b>camión</b> cargado puede pesar <b>40 toneladas</b>.</li><li>La <b>ballena azul</b>, el animal más grande que ha existido, puede pesar más de <b>150 toneladas</b>.</li></ul><p>En los puentes y en algunas carreteras hay <b>señales de tráfico</b> con un número y una «t»: indican el peso máximo que puede tener un vehículo para pasar. Una señal de «10 t» significa que los camiones de más de 10 toneladas no pueden pasar.</p><p>Para pesar camiones se usan <b>básculas</b> enormes, del tamaño del propio camión, que están en el suelo.</p><p>Ahora ya conoces tres unidades de masa, de menor a mayor: el <b>gramo</b>, el <b>kilogramo</b> y la <b>tonelada</b>. Cada una es mil veces la anterior: 1.000 g = 1 kg y 1.000 kg = 1 t.</p>`,
+        L6.filas("Toneladas", [["coche", "≈ 1 t", cAZ], ["elefante", "≈ 6 t", cMO], ["camión", "≈ 40 t", cNA], ["ballena azul", "+150 t", cVE]]), ["4LDoGEqHr4M", "Toneladas, kilo y gramo (peso o masa)", "Ruben Sebastian", 350062]],
+    ],
+    "El litro y el mililitro": [
+      ["La forma engaña", `<p>Haz este experimento: llena dos vasos <b>iguales</b> con la misma cantidad de agua. Después, vacía uno de ellos en un vaso <b>alto y estrecho</b>, y el otro en un recipiente <b>bajo y ancho</b>, como un plato hondo.</p><p>¿Dónde hay más agua?</p><p>En el vaso alto, el agua llega mucho más arriba, y parece que hay más. En el plato, el agua apenas sube, y parece que hay menos. Pero… ¡es la <mark>misma cantidad</mark>! No hemos añadido ni quitado nada.</p><p>Un científico suizo llamado <b>Jean Piaget</b> hizo este experimento con muchos niños pequeños. Los de 4 o 5 años solían decir que había más agua en el vaso alto. Los mayores ya sabían que la cantidad no cambia aunque cambie la forma del recipiente.</p><p>Esto tiene consecuencias en la vida diaria:</p><ul><li>Algunos envases son <b>altos y estrechos</b> para parecer más grandes. Por eso, para saber cuánto contiene un envase, hay que leer la <b>etiqueta</b>: 330 ml, 1 l, 1,5 l…</li><li>Para medir bien un líquido, usamos una <b>jarra medidora</b> con marcas.</li></ul><p>Con la masa pasa lo mismo: una bola de plastilina pesa lo mismo si la aplastas como una tortita o si haces un churro con ella.</p>`,
+        H6.dos("Misma agua", ["VASO ALTO", ["sube mucho", "parece más", "250 ml"], cAZ], ["PLATO", ["sube poco", "parece menos", "250 ml"], cVE])],
+    ],
+    "Comparar y calcular": [
+      ["Construir una balanza casera", `<p>Puedes construir una <mark>balanza de platos</mark> con materiales reciclados:</p><ul><li><b>Materiales</b>: una percha de plástico con dos ganchos o muescas, dos vasos de plástico o yogur iguales, cuerda o lana, una perforadora o punzón (con ayuda de un adulto) y celo.</li><li><b>1.</b> Haz tres agujeros en el borde de cada vaso, a la misma distancia.</li><li><b>2.</b> Pasa un trozo de cuerda por cada agujero y une las tres cuerdas por arriba con un nudo. Haz lo mismo con el otro vaso. Las cuerdas de los dos vasos deben medir lo mismo.</li><li><b>3.</b> Cuelga cada vaso de un extremo de la percha.</li><li><b>4.</b> Cuelga la percha de un pomo o de un palo. Comprueba que, vacía, la balanza queda <b>equilibrada</b> (recta). Si no, mueve un poco las cuerdas.</li></ul><p><b>¡A pesar!</b></p><ul><li>Pon una goma en un vaso y un lápiz en el otro. ¿Cuál baja? Ese es el que pesa más.</li><li>Busca cuántos clips hacen falta para equilibrar una goma de borrar. Así puedes medir la masa en «clips».</li></ul><p>Las balanzas de platos se usaban en los mercados, con pesas de 1 kg, 500 g, 250 g, 100 g…</p>`,
+        H6.flujo("Balanza", ["vasos|y cuerda", "colgar|de la percha", "equilibrar|vacía", "comparar|masas"], cMO), ["UgVpOC0wEcY", "COMO HACER UNA BALANZA ESCOLAR", "K-CHIVAches", 1309591]],
+    ],
+  },
+  final: [
+    ["Medidas en la cocina: el bizcocho de yogur", `<p>Cocinar es una forma deliciosa de practicar las <mark>medidas</mark>. El bizcocho de yogur es famoso porque el propio <b>vasito del yogur</b> sirve para medir.</p><p><b>Ingredientes</b>:</p><ul><li>1 yogur natural o de limón (de unos 125 g).</li><li>3 vasitos de yogur de harina.</li><li>2 vasitos de azúcar.</li><li>1 vasito de aceite de girasol.</li><li>3 huevos.</li><li>1 sobre de levadura química (unos 16 g).</li></ul><p><b>Preparación</b> (siempre con un adulto, porque hay que usar el horno):</p><ul><li><b>1.</b> Echa el yogur en un bol y usa el vasito vacío para medir lo demás.</li><li><b>2.</b> Añade los huevos, el azúcar y el aceite, y bate bien.</li><li><b>3.</b> Añade la harina y la levadura poco a poco, mezclando.</li><li><b>4.</b> Vierte la masa en un molde untado con aceite y hornea a <b>180 grados</b> unos <b>35 o 40 minutos</b>.</li></ul><p><b>Matemáticas en la receta</b>: si quieres hacer un bizcocho el <b>doble</b> de grande, ¿cuántos vasitos de harina necesitas? (6). ¿Y cuántos huevos? (6). ¿Y si quieres hacer la mitad? Con 1 huevo y medio… ¡complicado! A veces las recetas no se pueden partir del todo.</p>`,
+      L6.filas("Receta", [["harina", "3 vasitos", cNA], ["azúcar", "2 vasitos", cAZ], ["aceite", "1 vasito", cVE], ["huevos", "3", cRO]])],
+    ["¿Cuánta agua usamos?", `<p>El agua es un bien muy valioso. Medir cuánta usamos nos ayuda a <mark>no malgastarla</mark>.</p><p>Algunos datos aproximados:</p><ul><li>Una <b>ducha</b> de 5 minutos: entre <b>50 y 100 litros</b>.</li><li>Un <b>baño</b> en la bañera llena: unos <b>150 o 200 litros</b>. ¡Hasta el doble que una ducha!</li><li>Un <b>grifo abierto</b> mientras te lavas los dientes: puede gastar más de <b>6 litros cada minuto</b>.</li><li>Una <b>cisterna</b> del váter: entre <b>6 y 9 litros</b> cada vez.</li><li>Un <b>grifo que gotea</b> puede perder decenas de litros al día.</li><li>Una persona en España usa en casa unos <b>130 litros</b> de agua cada día.</li></ul><p><b>Trucos para ahorrar</b>:</p><ul><li>Ducharse en lugar de bañarse.</li><li>Cerrar el grifo mientras te enjabonas o te lavas los dientes. Usa un <b>vaso</b> para enjuagarte.</li><li>Avisar si un grifo gotea para que lo arreglen.</li><li>Regar las plantas al atardecer, cuando el agua se evapora menos.</li></ul><p><b>Experimento</b>: pon una jarra medidora bajo el grifo abierto durante 10 segundos. ¿Cuántos mililitros caen? Multiplícalo por 6 y sabrás cuánta agua cae en un minuto.</p>`,
+      H6.rueda("Agua", "AHORRAR", [["ducha", cAZ], ["cerrar grifo", cVE], ["goteos", cRO], ["vaso", cNA]])],
+  ],
+  ejemplos: [
+    ["¿Cuántos kilos son 3 toneladas?", ["1 t = 1.000 kg.", "3 × 1.000."], "3.000 kg."],
+    ["Una ducha gasta 60 l y un baño 180 l. ¿Cuánto ahorras con la ducha?", ["Restamos: 180 − 60.", "Sale 120."], "120 litros."],
+  ],
+  errores: ["Pensar que en un vaso alto hay más líquido solo porque llega más arriba.", "Confundir toneladas y kilos: 1 t son 1.000 kg, no 100."],
+  ejercicios: [
+    ["b", "¿Cuántos kg tiene una tonelada?", "1.000."],
+    ["b", "¿Cuánto pesa más o menos un coche pequeño?", "1 tonelada."],
+    ["b", "¿Cuántos vasitos de harina lleva el bizcocho de yogur?", "3."],
+    ["b", "¿Qué gasta menos agua, una ducha o un baño?", "La ducha."],
+    ["b", "En una balanza, ¿qué plato baja?", "El que pesa más."],
+    ["m", "¿Cuántos kg son 5 t?", "5.000 kg."],
+    ["m", "¿Por qué el agua parece más en un vaso alto?", "Porque sube más, aunque sea la misma cantidad."],
+    ["m", "Para un bizcocho doble, ¿cuántos vasitos de azúcar?", "4."],
+    ["m", "Un grifo gasta 6 l por minuto. ¿Cuánto en 3 minutos?", "18 litros."],
+    ["m", "¿Qué indica una señal de tráfico con «12 t»?", "El peso máximo de los vehículos que pueden pasar."],
+    ["a", "Construye una balanza casera y equilibra una goma con clips.", "Respuesta abierta."],
+    ["a", "Calcula cuánta agua ahorra una familia de 4 si cada uno se ducha en lugar de bañarse.", "Unos 4 × 120 = 480 litros."],
+    ["a", "Investiga cuántos litros caen de tu grifo en un minuto.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿por qué pesan distinto un vasito de harina y uno de azúcar?", "Porque el azúcar es más pesado para el mismo espacio."],
+  ],
+  quiz: [
+    ["Un elefante adulto puede pesar…", ["6 t", "6 kg", "60 g"], "Tonelada."],
+    ["Si cambias el agua de vaso, la cantidad…", ["no cambia", "aumenta", "disminuye"], "Forma."],
+    ["Una balanza vacía debe estar…", ["equilibrada", "inclinada", "mojada"], "Balanza."],
+    ["El bizcocho se mide con el vasito de…", ["yogur", "agua", "zumo"], "Receta."],
+    ["Un baño gasta más o menos… que una ducha", ["el doble", "la mitad", "lo mismo"], "Agua."],
+  ],
+  examen: [
+    ["En la lectura, ¿cuánto pesaba el vasito de azúcar?", ["110 g", "80 g", "125 g"], "Lectura."],
+    ["¿Qué científico estudió el experimento de los vasos con niños?", ["Piaget", "Newton", "Einstein"], "Forma."],
+  ],
+  tarjetas: [
+    ["Tonelada", "1 t = 1.000 kg: coche, elefante, ballena."],
+    ["La forma engaña", "La cantidad no cambia con la forma del recipiente."],
+    ["Balanza casera", "Percha, vasos y cuerda; equilibrar y comparar."],
+    ["Cocina y agua", "Bizcocho de yogur; ducha mejor que baño."],
+  ],
+  glosario: [
+    ["Tonelada", "Mil kilogramos."],
+    ["Recipiente", "Objeto que contiene algo."],
+    ["Etiqueta", "Papel que indica qué contiene un envase."],
+    ["Jarra medidora", "Jarra con marcas para medir líquidos."],
+    ["Equilibrio", "Estado en que la balanza queda recta."],
+    ["Pesa", "Pieza de masa conocida."],
+    ["Percha", "Objeto para colgar la ropa."],
+    ["Ingrediente", "Cada cosa que se usa en una receta."],
+    ["Levadura", "Polvo que hace subir la masa."],
+    ["Cisterna", "Depósito de agua del váter."],
+    ["Malgastar", "Gastar sin necesidad."],
+    ["Gotear", "Caer un líquido gota a gota."],
+  ],
+  situacion: {
+    titulo: "Científicos en la cocina",
+    reto: "La clase investiga masas y capacidades en la cocina y en el baño para hacer una guía de buenos hábitos.",
+    pasos: ["Construir balanzas caseras y comparar masas de objetos.", "Repetir el experimento de los vasos con niños de infantil.", "Escribir la receta del bizcocho de yogur y calcularla para el doble.", "Medir el agua del grifo y hacer carteles de ahorro."],
+    producto: "Una guía con balanzas, recetas y consejos para ahorrar agua.",
+    evaluacion: ["Usa la tonelada.", "Sabe que la forma no cambia la cantidad.", "Construye una balanza.", "Aplica medidas en la cocina y en el ahorro."],
+  },
+});

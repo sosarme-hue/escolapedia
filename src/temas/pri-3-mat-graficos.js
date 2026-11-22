@@ -105,3 +105,91 @@ module.exports = P.tema({
   saberes: "Sentido estocástico: recogida de datos mediante encuestas y observación; recuento y tablas de frecuencias; pictogramas; gráficos de barras verticales y horizontales: elementos, lectura, construcción con escala adecuada e interpretación; comparación de datos",
   ideas: ["Encuesta de clase y gráfico gigante con cartulinas o bloques encajables.", "Gráfico del tiempo atmosférico del mes.", "Detectar errores en gráficos con escalas mal hechas."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Preparar buenas preguntas para una encuesta", "Encontrar la moda, el máximo y el mínimo", "Leer gráficos de líneas y tablas de doble entrada", "Descubrir gráficos que engañan"],
+  lectura: { titulo: "¿Qué mascota elegimos?", html: `<p>La clase de 3.º A quería tener una mascota en el aula. Pero había un problema: cada uno quería una distinta.</p><p>—¡Un hámster! —gritaba Pol.</p><p>—¡Un pez! —decía Aitana.</p><p>—¡Un perro! —insistía Gabriel.</p><p>—Un perro no cabe en clase —le recordó la tutora, Lourdes—. Vamos a hacerlo bien: haremos una <b>encuesta</b>.</p><p>Entre todos decidieron las opciones posibles: hámster, pez, tortuga y periquito. Lourdes escribió en la pizarra una tabla de recuento, y cada alumno salió a poner su palote.</p><p>Al terminar, contaron: hámster, 9; pez, 7; tortuga, 4; periquito, 5.</p><p>—Ahora vamos a hacer un gráfico de barras para colgarlo en el pasillo —dijo Lourdes.</p><p>Aitana dibujó los ejes en papel cuadriculado y Pol coloreó las barras. La del hámster era la más alta.</p><p>—¡Ganó el hámster! —celebró Pol, saltando.</p><p>—Un momento —dijo Aitana, mirando el gráfico con atención—. Si juntamos los votos del pez y la tortuga, que viven en el agua, son 11. ¡Más que el hámster!</p><p>Hubo un silencio. Lourdes sonrió.</p><p>—Eso demuestra que los datos se pueden mirar de muchas maneras. Pero la pregunta era qué animal preferíais, y la respuesta está clara.</p><p>El hámster se llamó Pitágoras.</p>` },
+  tras: {
+    "La tabla de recuento": [
+      ["Buenas preguntas para una encuesta", `<p>Una <mark>encuesta</mark> solo sirve si las preguntas están bien hechas. Estos consejos te ayudarán:</p><ul><li><b>Preguntas claras y cortas</b>: «¿Cuál es tu fruta favorita?» mejor que «¿Qué fruta te gusta más de las que se comen en el recreo?».</li><li><b>Opciones cerradas</b>: da una lista de respuestas posibles. «Elige: manzana, plátano, pera o uva». Así es más fácil contar. Si dejas la respuesta libre, cada uno dirá una cosa distinta y será difícil hacer el gráfico.</li><li><b>Una sola respuesta</b>: cada persona vota una vez. Si no, el total no coincidirá con el número de personas.</li><li><b>No influir</b>: no hagas preguntas como «¿Verdad que el fútbol es el mejor deporte?». Esa pregunta empuja a decir que sí.</li><li><b>Pregunta a todos por igual</b>: si solo preguntas a tus amigos, el resultado no representará a toda la clase.</li><li><b>Añade «Otro»</b> si alguien no encuentra su respuesta en la lista.</li></ul><p><b>Actividad</b>: en grupos, escribid tres preguntas para una encuesta sobre los gustos de la clase. Después, intercambiadlas con otro grupo y revisad si cumplen los consejos.</p>`,
+        H6.dos("Preguntas", ["BIEN", ["clara y corta", "con opciones", "un voto"], cVE], ["MAL", ["larga y liosa", "respuesta libre", "influye"], cRO]), ["HVk3UYTKCr0", "La Encuesta | Educación Primaria", "Escuela de Aprendices", 710995]],
+    ],
+    "Comparar con el gráfico": [
+      ["La moda, el máximo y el mínimo", `<p>Cuando tenemos muchos datos, hay algunas palabras que nos ayudan a <b>resumirlos</b>:</p><ul><li>La <mark>moda</mark> es el dato que <b>más se repite</b>. En un gráfico de barras, es la barra <b>más alta</b>. Si en una encuesta el plátano tiene 9 votos y es la fruta más votada, la moda es el plátano.</li><li>El <mark>máximo</mark> es el valor <b>más grande</b>. Si medimos la altura de los alumnos de la clase, el máximo es la altura del más alto.</li><li>El <mark>mínimo</mark> es el valor <b>más pequeño</b>.</li><li>La <b>diferencia</b> entre el máximo y el mínimo nos dice si los datos están muy separados o muy juntos. Si el más alto mide 140 cm y el más bajo 122 cm, la diferencia es 18 cm.</li></ul><p><b>Ejemplo</b>: temperaturas máximas de una semana: 18, 20, 21, 20, 23, 20, 19 grados.</p><ul><li>Moda: <b>20</b> grados (aparece tres veces).</li><li>Máximo: <b>23</b> grados (el jueves).</li><li>Mínimo: <b>18</b> grados (el lunes).</li><li>Diferencia: 23 − 18 = <b>5</b> grados.</li></ul><p>Fíjate en que la palabra «moda» también se usa para la ropa: lo que está de moda es lo que más gente lleva. ¡Es la misma idea!</p>`,
+        L6.filas("Resumir", [["moda", "el que más se repite", cAZ], ["máximo", "el mayor", cRO], ["mínimo", "el menor", cVE], ["diferencia", "máx − mín", cNA]])],
+    ],
+    "Gráficos de barras horizontales": [
+      ["El gráfico de líneas", `<p>Cuando queremos ver cómo <b>cambia</b> algo a lo largo del <b>tiempo</b>, usamos un <mark>gráfico de líneas</mark>.</p><p><b>Cómo se hace</b>:</p><ul><li>En el eje horizontal se ponen los <b>momentos</b>: días, meses, horas…</li><li>En el eje vertical, los <b>valores</b>: temperaturas, alturas, puntos…</li><li>Para cada momento se dibuja un <b>punto</b> a la altura de su valor.</li><li>Después, se unen los puntos con <b>líneas rectas</b>.</li></ul><p><b>Ejemplo</b>: la altura de una planta de judías que hemos sembrado en clase, medida cada lunes: 0 cm, 2 cm, 5 cm, 9 cm, 14 cm.</p><p>Al unir los puntos, la línea <b>sube</b> cada vez más deprisa: la planta crece más rápido cada semana.</p><p>¿Cómo se lee la línea?</p><ul><li>Si la línea <b>sube</b>, el valor aumenta.</li><li>Si <b>baja</b>, el valor disminuye.</li><li>Si está <b>plana</b>, el valor no cambia.</li><li>Cuanto más <b>inclinada</b>, más rápido es el cambio.</li></ul><p>En los telediarios aparecen gráficos de líneas con la temperatura de cada día o con el número de visitantes de un museo cada mes.</p>`,
+        H6.flujo("Planta", ["lunes 1|0 cm", "lunes 2|2 cm", "lunes 3|5 cm", "lunes 5|14 cm"], cVE)],
+    ],
+  },
+  final: [
+    ["La tabla de doble entrada", `<p>Una <mark>tabla de doble entrada</mark> organiza los datos según <b>dos características</b> a la vez: una en las filas y otra en las columnas.</p><p><b>Ejemplo</b>: deporte favorito de los alumnos de 3.º A y 3.º B.</p><ul><li>Fútbol: 3.º A, 8; 3.º B, 6.</li><li>Baloncesto: 3.º A, 5; 3.º B, 7.</li><li>Natación: 3.º A, 4; 3.º B, 4.</li><li>Patinaje: 3.º A, 6; 3.º B, 5.</li></ul><p>En la tabla, cada fila es un deporte y cada columna una clase. La casilla donde se cruzan una fila y una columna nos dice el dato. Por ejemplo, la casilla de «baloncesto» y «3.º B» dice <b>7</b>.</p><p>Con una tabla así podemos responder a muchas preguntas:</p><ul><li>¿Qué deporte prefiere más gente en 3.º A? <b>Fútbol</b> (8).</li><li>¿Y en 3.º B? <b>Baloncesto</b> (7).</li><li>¿Cuántos alumnos prefieren natación en total? 4 + 4 = <b>8</b>.</li><li>¿Cuántos alumnos hay en 3.º A? 8 + 5 + 4 + 6 = <b>23</b>.</li></ul><p>Las tablas de doble entrada aparecen en los horarios de clase (días y horas), en los calendarios o en las clasificaciones de las ligas.</p>`,
+      L6.filas("Doble entrada", [["filas", "deportes", cAZ], ["columnas", "clases", cVE], ["casilla", "el dato", cNA], ["ejemplo", "horario", cMO]]), ["h_smUzIDsCk", "TABLA de DOBLE ENTRADA / Aprendo en Casa", "Arte en el Cole", 337123]],
+    ["Gráficos que engañan", `<p>Los gráficos sirven para informar, pero algunos están hechos de forma que <mark>engañan</mark>, a veces sin querer y a veces a propósito. Hay que mirarlos con ojos de detective.</p><p><b>Trampa 1: el eje que no empieza en 0</b>. Imagina que la clase A tiene 20 libros y la clase B tiene 22. Si el eje vertical empieza en 19, la barra de B parece el triple de alta que la de A. ¡Pero solo tiene 2 libros más!</p><p><b>Trampa 2: los dibujos de distinto tamaño</b>. En un pictograma, si un dibujo es más grande que otro, parece que vale más, aunque valgan lo mismo.</p><p><b>Trampa 3: falta información</b>. Un gráfico sin título, sin nombres en los ejes o sin escala no se puede entender bien.</p><p><b>Trampa 4: pocos datos</b>. «Al 100 % de los niños les encanta este cereal», dice un anuncio. Pero ¿a cuántos niños preguntaron? ¿A dos?</p><p><b>Preguntas del buen detective</b>:</p><ul><li>¿Tiene título y nombres en los ejes?</li><li>¿Dónde empieza el eje vertical?</li><li>¿A cuántas personas se preguntó?</li><li>¿Quién ha hecho el gráfico y qué quiere conseguir?</li></ul>`,
+      H6.rueda("Detective", "¿ENGAÑA?", [["eje en 0", cRO], ["dibujos", cAZ], ["título", cVE], ["pocos datos", cNA]])],
+  ],
+  ejemplos: [
+    ["Votos: fútbol 7, baloncesto 4, tenis 7, natación 3. ¿Cuál es la moda?", ["La moda es lo que más se repite.", "Fútbol y tenis tienen 7."], "Hay dos modas: fútbol y tenis."],
+    ["En un gráfico de líneas la línea está plana entre martes y miércoles. ¿Qué significa?", ["Plana = no cambia.", "El valor es igual los dos días."], "Que el valor no cambió."],
+  ],
+  errores: ["Hacer preguntas de respuesta libre en una encuesta: luego es muy difícil contar.", "Fiarse de un gráfico sin mirar dónde empieza el eje."],
+  ejercicios: [
+    ["b", "¿Qué es la moda?", "El dato que más se repite."],
+    ["b", "Datos: 5, 8, 3, 8, 6. ¿Cuál es el máximo?", "8."],
+    ["b", "¿Para qué sirve un gráfico de líneas?", "Para ver cómo cambia algo con el tiempo."],
+    ["b", "En una tabla de doble entrada, ¿dónde está el dato?", "En la casilla donde se cruzan fila y columna."],
+    ["b", "¿Es buena la pregunta «¿Verdad que el verde es el mejor color?»?", "No, influye en la respuesta."],
+    ["m", "Datos: 12, 15, 12, 18, 10. Moda, máximo y mínimo.", "12, 18 y 10."],
+    ["m", "¿Cuál es la diferencia entre 140 cm y 122 cm?", "18 cm."],
+    ["m", "Si una línea sube muy inclinada, ¿qué pasa?", "Que el valor aumenta muy rápido."],
+    ["m", "En la tabla de deportes, ¿cuántos alumnos hay en 3.º B?", "22."],
+    ["m", "Escribe una pregunta de encuesta con cuatro opciones.", "Respuesta abierta."],
+    ["a", "Mide una planta cada semana y haz su gráfico de líneas.", "Respuesta abierta."],
+    ["a", "Dibuja un gráfico que engañe y explica la trampa.", "Respuesta abierta."],
+    ["a", "Haz una tabla de doble entrada con el deporte favorito de chicos y chicas.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿cuántos alumnos votaron en total?", "25."],
+  ],
+  quiz: [
+    ["En una encuesta, cada persona vota…", ["una vez", "las veces que quiera", "nunca"], "Encuesta."],
+    ["La barra más alta de un gráfico es la…", ["moda", "mínima", "media"], "Moda."],
+    ["El gráfico de líneas muestra cambios en el…", ["tiempo", "color", "sabor"], "Líneas."],
+    ["Una tabla de doble entrada usa…", ["filas y columnas", "solo una lista", "dibujos"], "Doble entrada."],
+    ["Un eje que no empieza en 0 puede…", ["engañar", "ayudar siempre", "borrar datos"], "Engañan."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué mascota ganó?", ["el hámster", "el pez", "la tortuga"], "Lectura."],
+    ["Temperaturas: 18, 20, 21, 20, 23. ¿Cuál es el mínimo?", ["18", "20", "23"], "Moda."],
+  ],
+  tarjetas: [
+    ["Encuesta", "Preguntas claras, con opciones, un voto, sin influir."],
+    ["Resumir datos", "Moda, máximo, mínimo y diferencia."],
+    ["Líneas y doble entrada", "Cambios en el tiempo; filas × columnas."],
+    ["Gráficos que engañan", "Mira el eje, los dibujos, el título y cuántos datos."],
+  ],
+  glosario: [
+    ["Encuesta", "Preguntas a varias personas para recoger datos."],
+    ["Opción", "Cada respuesta posible."],
+    ["Influir", "Empujar a alguien a responder algo."],
+    ["Moda", "Dato que más se repite."],
+    ["Máximo", "Valor más grande."],
+    ["Mínimo", "Valor más pequeño."],
+    ["Gráfico de líneas", "Gráfico de puntos unidos que muestra cambios."],
+    ["Eje", "Línea del gráfico donde se ponen nombres o valores."],
+    ["Doble entrada", "Tabla con filas y columnas."],
+    ["Casilla", "Cada hueco de una tabla."],
+    ["Engañar", "Hacer creer algo que no es verdad."],
+    ["Dato", "Información que se recoge."],
+  ],
+  situacion: {
+    titulo: "Los periodistas de datos",
+    reto: "La clase prepara un periódico mural con encuestas, gráficos y conclusiones sobre el colegio.",
+    pasos: ["Preparar buenas preguntas y hacer una encuesta a otra clase.", "Calcular la moda, el máximo y el mínimo de los resultados.", "Medir algo cada semana y dibujar un gráfico de líneas.", "Revisar los gráficos de otros grupos buscando trampas."],
+    producto: "Un periódico mural de datos del colegio.",
+    evaluacion: ["Hace buenas preguntas.", "Resume datos.", "Lee gráficos de líneas y tablas.", "Detecta gráficos que engañan."],
+  },
+});

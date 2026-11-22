@@ -100,3 +100,91 @@ module.exports = P.tema({
   saberes: "Medida: la longitud; unidades no convencionales y necesidad de unidades convencionales; metro, centímetro, milímetro y kilómetro y sus relaciones; instrumentos de medida; estimación; elección de la unidad adecuada; comparación y problemas con longitudes",
   ideas: ["Medir la clase con pasos y con cinta métrica y comparar.", "Concurso de estimación de longitudes de objetos.", "Salto de longitud en el patio midiendo en metros y centímetros."],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer la historia del metro", "Estimar longitudes con referencias", "Calcular el perímetro de figuras sencillas", "Medir el propio cuerpo y distancias en un mapa"],
+  lectura: { titulo: "La mesa del carpintero", html: `<p>El abuelo Ramón era carpintero, y aquel sábado Nico le ayudó a hacer una mesa para la casa de muñecas de su prima.</p><p>—Primero, hay que medir el hueco donde va a ir —dijo el abuelo, sacando un metro plegable de madera, de esos que se abren como un acordeón.</p><p>Nico lo desplegó. El hueco medía 35 centímetros de largo.</p><p>—Y ahora, el tablero —siguió el abuelo—. ¿Cuánto tiene que medir?</p><p>—¡35 centímetros también!</p><p>—Casi. Si lo hacemos exacto, no entrará. Le quitamos un poco: 34 centímetros y medio.</p><p>Nico marcó con un lápiz en la tabla. El abuelo serró por la línea con mucho cuidado.</p><p>—Mi padre, tu bisabuelo, no usaba metro —contó mientras serraba—. Medía con palmos y con pulgadas. Y cada carpintero tenía la mano de un tamaño… ¡Imagínate el lío!</p><p>Luego midieron las patas: cuatro trocitos de 12 centímetros cada uno. Nico se encargó de que fueran todos exactamente iguales, comprobándolos con la regla dos veces.</p><p>—Si una pata mide un milímetro más, la mesa cojeará —le advirtió el abuelo.</p><p>Al final, pintaron la mesa de azul. Cuando Nico la colocó en la casa de muñecas, encajó perfectamente.</p><p>—Medir bien —dijo el abuelo, satisfecho— es la mitad del trabajo.</p>` },
+  tras: {
+    "El metro": [
+      ["La historia del metro", `<p>Hace siglos, cada pueblo medía con sus propias unidades: <b>palmos</b>, <b>pies</b>, <b>codos</b>, <b>varas</b>, <b>leguas</b>… El problema era que no medían lo mismo en todas partes. La vara de un sitio era más larga que la de otro, y eso causaba muchas peleas en los mercados.</p><p>A finales del siglo XVIII, en <b>Francia</b>, unos científicos decidieron inventar una unidad que fuera <mark>igual para todo el mundo</mark> y que no dependiera del cuerpo de nadie. La llamaron <b>metro</b>, que en griego significa «medida».</p><ul><li>Decidieron que el metro sería una parte muy pequeña de la distancia entre el <b>Polo Norte</b> y el <b>ecuador</b>: la diezmillonésima parte.</li><li>Para calcularlo, dos astrónomos, <b>Delambre</b> y <b>Méchain</b>, midieron durante siete años la distancia entre <b>Dunkerque</b> (Francia) y <b>Barcelona</b>, subiendo a montañas y torres.</li><li>Con sus medidas se fabricó una barra de metal que medía exactamente <b>un metro</b>. Se guardó en París como modelo.</li></ul><p>España adoptó el metro en <b>1849</b>, y hoy lo usan casi todos los países. Hoy en día los científicos definen el metro con la velocidad de la <b>luz</b>, que es todavía más exacta.</p><p>Algunos países, como Estados Unidos, todavía usan pies, pulgadas y millas.</p>`,
+        H6.flujo("El metro", ["palmos|y varas", "Francia|siglo XVIII", "Dunkerque|Barcelona", "barra|patrón"], cAZ), ["v1-cQyITiZA", "¿Cómo Sabemos que un metro mide un metro? / 2. El metro", "CENTRO ESPAÑOL DE METROLOGIA", 131511]],
+    ],
+    "¿Qué unidad uso?": [
+      ["Estimar longitudes", `<p><mark>Estimar</mark> una longitud es calcularla <b>a ojo</b>, de forma aproximada, sin regla. Es muy útil cuando no tenemos con qué medir o solo queremos hacernos una idea.</p><p>Para estimar bien, conviene tener <b>referencias</b>: cosas cuya medida ya conocemos.</p><ul><li>El <b>ancho de tu dedo meñique</b>: más o menos <b>1 cm</b>.</li><li>Tu <b>palmo</b> (de la punta del pulgar a la del meñique, con la mano abierta): unos <b>15 cm</b>.</li><li>Un <b>folio</b>: casi <b>30 cm</b> de largo.</li><li>Tu <b>paso</b> normal: unos <b>50 cm</b>.</li><li>La <b>altura de una puerta</b>: unos <b>2 m</b>.</li><li>Una <b>piscina</b> olímpica: <b>50 m</b> de largo.</li></ul><p><b>Cómo estimar</b>: compara lo que quieres medir con una referencia. «La mesa del profesor es como tres folios de larga: unos 90 cm.»</p><p><b>Juego de estimación</b>: antes de medir algo, cada uno escribe su estimación. Después se mide con la regla o la cinta métrica. Gana quien más se haya acercado. Si practicas, cada vez estimarás mejor.</p><p>Los carpinteros, albañiles y costureras tienen tanta práctica que calculan a ojo con muy poco error.</p>`,
+        L6.filas("Referencias", [["dedo", "≈ 1 cm", cAZ], ["palmo", "≈ 15 cm", cVE], ["paso", "≈ 50 cm", cNA], ["puerta", "≈ 2 m", cRO]])],
+    ],
+    "Sumar y comparar longitudes": [
+      ["El perímetro", `<p>El <mark>perímetro</mark> de una figura es la longitud de su <b>borde</b>, es decir, la suma de lo que miden todos sus lados. Es como si dieras la vuelta a la figura caminando por su borde.</p><p><b>Ejemplos</b>:</p><ul><li>Un <b>triángulo</b> con lados de 3 cm, 4 cm y 5 cm: 3 + 4 + 5 = <b>12 cm</b> de perímetro.</li><li>Un <b>rectángulo</b> de 6 cm de largo y 2 cm de ancho: tiene dos lados de 6 y dos lados de 2. 6 + 2 + 6 + 2 = <b>16 cm</b>.</li><li>Un <b>cuadrado</b> de 5 cm de lado: como sus 4 lados son iguales, 5 × 4 = <b>20 cm</b>.</li></ul><p>¿Para qué sirve calcular el perímetro?</p><ul><li>Para saber cuánta <b>valla</b> hace falta para rodear un huerto.</li><li>Para saber cuánta <b>cinta</b> necesitas para decorar el borde de un cuadro.</li><li>Para saber cuánto corres si das una <b>vuelta</b> al patio.</li></ul><p><b>Actividad</b>: mide con una cinta métrica los lados de tu mesa y calcula su perímetro. Después, da una vuelta al patio contando pasos y calcula el perímetro aproximado, sabiendo que cada paso mide unos 50 cm.</p>`,
+        H6.dos("Perímetro", ["RECTÁNGULO", ["6 + 2 + 6 + 2", "= 16 cm", "dos y dos"], cAZ], ["CUADRADO", ["5 × 4", "= 20 cm", "4 iguales"], cVE]), ["d3rI0ONOMMY", "¿Qué es el perímetro? - Geometría para niños", "Smile and Learn - Español", 1019069]],
+    ],
+  },
+  final: [
+    ["Mi cuerpo en centímetros", `<p>Nuestro cuerpo esconde <mark>medidas curiosas</mark>. Con una cinta métrica y un compañero, puedes descubrirlas:</p><ul><li><b>Altura</b>: de pie, sin zapatos, contra la pared.</li><li><b>Envergadura</b>: con los brazos abiertos en cruz, de la punta de un dedo corazón a la del otro. En la mayoría de las personas, la envergadura es <b>casi igual que la altura</b>. ¡Compruébalo!</li><li><b>Palmo</b> y <b>pie</b>: el pie de un adulto suele medir algo más que su palmo.</li><li><b>Contorno de la cabeza</b>: rodea la frente con la cinta.</li></ul><p>Hace más de 500 años, <b>Leonardo da Vinci</b> dibujó el famoso <b>Hombre de Vitruvio</b>: un hombre con los brazos y las piernas abiertos, dentro de un círculo y de un cuadrado. Con él quería mostrar las proporciones del cuerpo humano: por ejemplo, que la envergadura es igual a la altura, y por eso el cuerpo cabe en un cuadrado.</p><p><b>Actividad</b>: mide a cinco compañeros y apunta en una tabla su altura y su envergadura. ¿Se cumple la regla de Leonardo? ¿Cuál es la diferencia más grande?</p><p>Recuerda: todos crecemos a ritmos distintos. ¡No hay medidas mejores ni peores!</p>`,
+      L6.filas("Mi cuerpo", [["altura", "de pie", cAZ], ["envergadura", "≈ altura", cVE], ["palmo", "mano abierta", cNA], ["cabeza", "contorno", cMO]])],
+    ["Distancias en el mapa", `<p>En un <mark>mapa</mark> las ciudades están dibujadas mucho más cerca que en la realidad. Para saber la distancia real, los mapas tienen una <b>escala</b>: una barra que dice cuántos kilómetros reales equivalen a cada centímetro del mapa.</p><p><b>Ejemplo</b>: en un mapa, la escala dice que <b>1 cm = 10 km</b>.</p><ul><li>Medimos con la regla la distancia entre dos pueblos: <b>4 cm</b>.</li><li>Calculamos: 4 × 10 = <b>40 km</b> de distancia real.</li></ul><p>Pero ¡cuidado! Esa es la distancia <b>en línea recta</b>, «a vuelo de pájaro». Las carreteras tienen curvas, así que el camino real en coche suele ser más largo.</p><p>Para medir carreteras con curvas en el mapa, se puede usar un <b>hilo</b>: se coloca siguiendo las curvas, se estira y se mide con la regla.</p><p>Hoy usamos mucho los <b>mapas del móvil</b>, que calculan las distancias solos. Los coches tienen un <b>cuentakilómetros</b> que mide cuántos kilómetros recorren, y en las carreteras hay <b>postes kilométricos</b> que indican en qué kilómetro estamos.</p><p><b>Actividad</b>: en un plano de tu barrio, mide la distancia de tu casa al colegio y calcula la distancia real con la escala.</p>`,
+      H6.flujo("Escala", ["1 cm =|10 km", "mido|4 cm", "4 × 10|", "= 40 km|en recta"], cNA)],
+  ],
+  ejemplos: [
+    ["Calcula el perímetro de un rectángulo de 8 cm por 3 cm.", ["Tiene dos lados de 8 y dos de 3.", "8 + 3 + 8 + 3."], "22 cm."],
+    ["En un mapa, 1 cm = 5 km. Dos pueblos están a 6 cm. ¿Distancia real?", ["Cada centímetro son 5 km.", "6 × 5."], "30 km en línea recta."],
+  ],
+  errores: ["Sumar solo dos lados del rectángulo para el perímetro: hay que sumar los cuatro.", "Pensar que la distancia en el mapa es igual que por carretera: la carretera suele ser más larga."],
+  ejercicios: [
+    ["b", "¿Dónde se inventó el metro?", "En Francia."],
+    ["b", "¿Cuánto mide más o menos tu paso?", "Unos 50 cm."],
+    ["b", "Calcula el perímetro de un cuadrado de 3 cm de lado.", "12 cm."],
+    ["b", "¿Qué es la envergadura?", "La distancia de un dedo a otro con los brazos abiertos."],
+    ["b", "¿Qué dibujó Leonardo para mostrar las proporciones del cuerpo?", "El Hombre de Vitruvio."],
+    ["m", "Calcula el perímetro de un triángulo de lados 6, 7 y 8 cm.", "21 cm."],
+    ["m", "Estima la longitud de tu mesa en folios y en centímetros.", "Respuesta abierta."],
+    ["m", "En un mapa 1 cm = 20 km. ¿Cuánto son 3 cm?", "60 km."],
+    ["m", "¿Por qué se inventó el metro?", "Para tener una unidad igual en todas partes."],
+    ["m", "¿Qué ciudades unía la medición de Delambre y Méchain?", "Dunkerque y Barcelona."],
+    ["a", "Un huerto cuadrado tiene 7 m de lado. ¿Cuánta valla hace falta?", "28 m."],
+    ["a", "Mide la altura y la envergadura de cinco compañeros y compáralas.", "Respuesta abierta."],
+    ["a", "Una mesa mide 120 cm por 60 cm. ¿Cuánto mide su perímetro en metros?", "360 cm = 3,6 m."],
+    ["a", "En la lectura, ¿por qué el tablero mide 34,5 cm y no 35?", "Para que quepa en el hueco."],
+  ],
+  quiz: [
+    ["Metro significa en griego…", ["medida", "metal", "largo"], "Historia."],
+    ["Un folio mide casi…", ["30 cm", "3 cm", "3 m"], "Estimar."],
+    ["El perímetro es la longitud del…", ["borde", "centro", "interior"], "Perímetro."],
+    ["Según Leonardo, la envergadura es igual a la…", ["altura", "cabeza", "pierna"], "Cuerpo."],
+    ["La escala de un mapa dice…", ["cuántos km son cada cm", "el color", "la hora"], "Mapa."],
+  ],
+  examen: [
+    ["En la lectura, ¿cuánto medía cada pata?", ["12 cm", "35 cm", "34 cm"], "Lectura."],
+    ["¿En qué año adoptó España el metro?", ["1849", "1492", "2002"], "Historia."],
+  ],
+  tarjetas: [
+    ["Historia del metro", "Francia, siglo XVIII; Dunkerque-Barcelona; España 1849."],
+    ["Estimar", "Dedo 1 cm, palmo 15 cm, paso 50 cm, puerta 2 m."],
+    ["Perímetro", "Suma de todos los lados; cuadrado: lado × 4."],
+    ["Cuerpo y mapas", "Envergadura ≈ altura; escala: cm del mapa × km."],
+  ],
+  glosario: [
+    ["Vara", "Antigua medida de longitud."],
+    ["Legua", "Antigua medida de distancias largas."],
+    ["Ecuador", "Línea imaginaria que divide la Tierra en dos mitades."],
+    ["Patrón", "Modelo que sirve de referencia."],
+    ["Estimar", "Calcular a ojo."],
+    ["Referencia", "Medida conocida para comparar."],
+    ["Perímetro", "Longitud del borde de una figura."],
+    ["Envergadura", "Distancia entre las puntas de los brazos abiertos."],
+    ["Proporción", "Relación de tamaño entre partes."],
+    ["Escala", "Relación entre el mapa y la realidad."],
+    ["Cuentakilómetros", "Aparato que mide los km recorridos."],
+    ["A vuelo de pájaro", "En línea recta."],
+  ],
+  situacion: {
+    titulo: "Los medidores del colegio",
+    reto: "La clase mide el colegio y a sí misma para hacer un plano y una ficha de medidas.",
+    pasos: ["Estimar y medir objetos de clase y comparar resultados.", "Calcular el perímetro del aula y del patio.", "Medir la altura y la envergadura de toda la clase.", "Dibujar un plano del colegio con una escala sencilla."],
+    producto: "Un plano del colegio y una tabla de medidas de la clase.",
+    evaluacion: ["Explica el origen del metro.", "Estima longitudes.", "Calcula perímetros.", "Usa la escala de un mapa."],
+  },
+});
