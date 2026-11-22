@@ -91,3 +91,91 @@ module.exports = tema({
   ideas: ["Tienda de clase con etiquetas de precio y dinero de papel.", "Inventario de una nevera dibujada: There is some… / There isn't any…", "Juego de la memoria: «I went to the shop and I bought some…»."],
   fuentes: [["British Council LearnEnglish Kids: countable and uncountable nouns", "https://learnenglishkids.britishcouncil.org/grammar-practice/countable-uncountable-nouns"], ["Cambridge Dictionary: some and any", "https://dictionary.cambridge.org/grammar/british-grammar/any"]],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Tell countable and uncountable nouns apart", "Ask How many…? and How much…?", "Order food politely in a café", "Talk about food groups and follow a simple recipe"],
+  lectura: { titulo: "Lunch at the Rainbow Café", html: `<p>On Saturday, Olivia and her dad went to the <b>Rainbow Café</b> for lunch. A friendly waiter came to their table.</p><p><b>Waiter:</b> Hello! Are you ready to order?</p><p><b>Dad:</b> Yes, please. <b>Can I have</b> the vegetable soup and a cheese sandwich?</p><p><b>Waiter:</b> Of course. And for you, young lady?</p><p><b>Olivia:</b> <b>I'd like</b> a pizza, please. Is there <b>any</b> ham on the pizza?</p><p><b>Waiter:</b> Yes, there's <b>some</b> ham, <b>some</b> cheese and <b>some</b> tomatoes.</p><p><b>Olivia:</b> Perfect! And can I have <b>some</b> orange juice, please?</p><p><b>Waiter:</b> Sorry, we haven't got <b>any</b> orange juice today. We've got apple juice or lemonade.</p><p><b>Olivia:</b> Lemonade, please.</p><p>Ten minutes later, the food arrived. It was delicious! After the main course, the waiter came back.</p><p><b>Waiter:</b> Would you like a dessert?</p><p><b>Olivia:</b> Yes! <b>How many</b> ice cream flavours have you got?</p><p><b>Waiter:</b> We've got six: chocolate, vanilla, strawberry, banana, mint and lemon.</p><p><b>Olivia:</b> Chocolate and strawberry, please!</p><p>At the end, Dad asked for the bill.</p><p><b>Dad:</b> <b>How much</b> is it, please?</p><p><b>Waiter:</b> That's twenty-four pounds fifty.</p><p><b>Dad:</b> Here you are. Thank you!</p><p><b>Olivia:</b> Thank you! Goodbye!</p>` },
+  tras: {
+    "A, an or some?": [
+      ["Countable and uncountable", `<p>In English, nouns can be <mark>countable</mark> (contables) or <mark>uncountable</mark> (incontables):</p><ul><li><b>Countable</b> nouns are things we can count: <i>one apple, two apples, three eggs, four bananas</i>. They have a singular and a plural form. We use <b>a / an</b> in the singular: <i><b>an</b> apple, <b>a</b> banana</i>.</li><li><b>Uncountable</b> nouns are things we can't count one by one: <i>water, milk, bread, rice, cheese, sugar, juice, money, homework</i>. They have <b>no plural</b> and we <b>never</b> use <i>a / an</i> with them. We say «<b>some</b> water», not «a water» or «waters».</li></ul><p>To count uncountable things, we use <b>containers</b> or <b>quantities</b>:</p><ul><li><i>a glass of</i> water, <i>a bottle of</i> milk</li><li><i>a slice of</i> bread (una rebanada), <i>a piece of</i> cheese</li><li><i>a bowl of</i> rice, <i>a cup of</i> tea</li><li><i>a kilo of</i> sugar</li></ul><p>Be careful! Some words are countable in Spanish but uncountable in English: <i>bread</i> (pan), <i>fruit</i> (fruta), <i>information</i>, <i>homework</i> (deberes), <i>hair</i> (pelo). We say «I've got <b>long hair</b>» and «I've got <b>some homework</b>», never «hairs» or «homeworks».</p>`,
+        H6.dos("Can you count it?", ["COUNT", ["an apple", "two eggs", "some bananas"], cAZ], ["NO COUNT", ["some water", "some bread", "some rice"], cNA]), ["1LjTa2Wvmm0", "Countable and uncountable nouns", "Periwinkle", 1038702]],
+    ],
+    "Any in negatives and questions": [
+      ["How many? How much?", `<p>To ask about <b>quantity</b>, we use two different questions:</p><ul><li><mark>How many</mark> + <b>countable</b> nouns in plural: «<b>How many</b> apples are there?» → «There are five apples.» «<b>How many</b> eggs do you need?» → «Three.»</li><li><mark>How much</mark> + <b>uncountable</b> nouns: «<b>How much</b> milk is there?» → «There's a litre.» «<b>How much</b> sugar do you want?» → «Just a little.»</li></ul><p>Possible answers:</p><ul><li>With countable: <i>a lot, a few</i> (unos pocos), <i>not many</i>, <i>none</i>. «There are <b>a lot of</b> oranges, but there are <b>only a few</b> lemons.»</li><li>With uncountable: <i>a lot, a little</i> (un poco), <i>not much</i>, <i>none</i>. «There's <b>a lot of</b> water, but there's <b>only a little</b> juice.»</li></ul><p>Remember that <b>How much is it?</b> also means <i>¿Cuánto cuesta?</i> because money is uncountable. «<b>How much</b> is the sandwich?» → «It's three euros.» «<b>How much</b> are the apples?» → «They're two euros a kilo.»</p><p>A trick: if you can put a number in front of the noun (<i>three eggs</i>), use <b>how many</b>. If you can't (<i>three milks</i>? No!), use <b>how much</b>.</p>`,
+        L6.filas("Many or much?", [["How many", "apples, eggs", cAZ], ["How much", "milk, sugar, rice", cVE], ["a few", "countable", cNA], ["a little", "uncountable", cMO]]), ["d7hYjIV4AF0", "How many apples?", "English Singsing", 1686448]],
+    ],
+    "At the shop: asking politely": [
+      ["At the café: ordering food", `<p>When you go to a <mark>café</mark> or a restaurant in an English-speaking country, these phrases are very useful:</p><p><b>The waiter / waitress says:</b></p><ul><li>«Are you ready to order?» (¿Están listos para pedir?)</li><li>«What would you like?» / «What can I get you?»</li><li>«Anything else?» (¿Algo más?)</li><li>«Would you like a dessert?»</li><li>«Here you are.» (Aquí tiene.)</li></ul><p><b>The customer says:</b></p><ul><li>«<b>Can I have</b> a cheese sandwich, please?»</li><li>«<b>I'd like</b> some orange juice, please.» (<i>I'd like</i> = I would like: me gustaría. It's very polite.)</li><li>«Is there any meat in this?»</li><li>«No, thank you. That's all.»</li><li>«Can I have the bill, please?» (la cuenta)</li></ul><p>Typical British food you can find in a café:</p><ul><li><b>sandwiches</b>: cheese, ham, tuna, egg</li><li><b>jacket potato</b>: a big baked potato with beans or cheese</li><li><b>scones</b>: little cakes with jam and cream</li><li><b>fish and chips</b></li><li>a <b>cup of tea</b> with milk</li></ul><p>Never say «Give me…». It sounds rude in English. Always use <i>Can I have…?</i> or <i>I'd like…</i> and don't forget <i>please</i> and <i>thank you</i>!</p>`,
+        L6.dialogo("At the café", [["Waiter", "What would you like?", cAZ], ["Olivia", "I'd like a pizza, please.", cRO], ["Waiter", "Anything else?", cAZ], ["Olivia", "No, thank you.", cRO]])],
+    ],
+  },
+  final: [
+    ["A healthy plate", `<p>To be healthy, we need to eat <mark>different types of food</mark> every day. Food is divided into <b>food groups</b>:</p><ul><li><b>Fruit and vegetables</b>: apples, oranges, carrots, lettuce, tomatoes… They give us <b>vitamins</b>. They should be about <b>half</b> of our plate!</li><li><b>Cereals</b> (cereales): bread, rice, pasta, potatoes. They give us <b>energy</b>.</li><li><b>Proteins</b> (proteínas): meat, fish, eggs, beans, lentils. They help us to <b>grow</b> and make our muscles strong.</li><li><b>Dairy</b> (lácteos): milk, cheese, yoghurt. They make our <b>bones</b> and <b>teeth</b> strong.</li><li><b>Fats</b> (grasas): olive oil, nuts. We need a little, every day.</li></ul><p>Some food is OK only <b>sometimes</b>: sweets, crisps, cakes, fizzy drinks. They have a lot of <b>sugar</b>, <b>salt</b> or <b>fat</b>.</p><p>And remember to drink <b>water</b>!</p><p>Let's describe a healthy lunch: «On my plate, there's <b>some</b> rice, <b>some</b> chicken and <b>a lot of</b> salad. There aren't <b>any</b> chips. For dessert, I have <b>an</b> orange. I drink <b>a glass of</b> water.»</p><p>Experts also say that it's a good idea to eat <b>five portions</b> of fruit and vegetables every day, and to eat food of many different <b>colours</b>: red tomatoes, green broccoli, orange carrots, purple grapes. A colourful plate is a healthy plate!</p><p>What's on your plate today? Is it a healthy plate?</p>`,
+      H6.rueda("Healthy plate", "MY PLATE", [["fruit + veg", cVE], ["cereals", cNA], ["proteins", cRO], ["dairy", cAZ]])],
+    ["A recipe: fruit salad", `<p>A <mark>recipe</mark> (receta) tells us how to cook something. It has two parts: the <b>ingredients</b> and the <b>method</b> (the steps). In the method, we use the <b>imperative</b>: the verb at the beginning, without a subject: <i>Wash</i>, <i>Cut</i>, <i>Mix</i>.</p><p><b>Fruit salad</b> (for four people)</p><p><b>Ingredients:</b></p><ul><li>two apples</li><li>two bananas</li><li>an orange</li><li>a bunch of grapes (un racimo de uvas)</li><li>some strawberries</li><li>some orange juice</li><li>a little honey (optional)</li></ul><p><b>Method:</b></p><ol><li><b>Wash</b> all the fruit carefully.</li><li><b>Peel</b> (pela) the bananas and the orange.</li><li><b>Cut</b> the fruit into small pieces. Ask an adult to help you with the knife!</li><li><b>Put</b> all the fruit in a big bowl.</li><li><b>Add</b> the orange juice and a little honey.</li><li><b>Mix</b> everything with a spoon.</li><li><b>Put</b> the bowl in the fridge for thirty minutes.</li><li><b>Serve</b> and enjoy!</li></ol><p>Did you know? Fruit salad is a perfect dessert, because it has vitamins and no added sugar, and you can use the fruit of each season.</p><p>Notice the words <i>first</i>, <i>then</i>, <i>next</i> and <i>finally</i>: we can use them to put the steps in order.</p>`,
+      H6.flujo("Fruit salad", ["wash|the fruit", "cut|into pieces", "mix|with juice", "serve|and enjoy"], cNA), ["49QFHWIky-k", "May I take your order?", "English Singsing", 4143034]],
+  ],
+  ejemplos: [
+    ["Choose: How (many / much) bread do we need?", ["Bread is uncountable.", "Uncountable → how much."], "How much bread do we need?"],
+    ["Order politely: you want a sandwich.", ["Don't say Give me.", "Use Can I have…? or I'd like… + please."], "Can I have a sandwich, please?"],
+  ],
+  errores: ["Using a / an with uncountable nouns: «a bread», «a water».", "Saying «Give me a pizza» in a café."],
+  ejercicios: [
+    ["b", "Countable or uncountable: milk?", "Uncountable."],
+    ["b", "Complete: How ___ eggs are there?", "many"],
+    ["b", "What does «I'd like» mean?", "Me gustaría."],
+    ["b", "Name two dairy products.", "For example: milk, cheese."],
+    ["b", "Complete: a ___ of water.", "glass"],
+    ["m", "Complete: How ___ sugar do you want?", "much"],
+    ["m", "Correct: I have a lot of homeworks.", "I have a lot of homework."],
+    ["m", "Write how to ask for the bill.", "Can I have the bill, please?"],
+    ["m", "Write the first three steps of the fruit salad.", "Wash the fruit, peel the bananas and the orange, cut the fruit."],
+    ["m", "Answer: How much is the sandwich? (3 €)", "It's three euros."],
+    ["a", "Write a café dialogue with four turns.", "Open answer."],
+    ["a", "Describe a healthy lunch with some, any and a lot of.", "Open answer."],
+    ["a", "Write a recipe for a sandwich with imperatives.", "Open answer."],
+    ["a", "Make a menu for a class café with prices.", "Open answer."],
+  ],
+  quiz: [
+    ["Which is uncountable?", ["rice", "apple", "egg"], "Countable / uncountable."],
+    ["How ___ apples do you want?", ["many", "much", "any"], "How many / much."],
+    ["The polite way to order is…", ["I'd like…", "Give me…", "I want it."], "At the café."],
+    ["Fruit and vegetables give us…", ["vitamins", "only fat", "sugar"], "Healthy plate."],
+    ["In a recipe, «Cut the fruit» is…", ["an imperative", "a question", "a negative"], "Recipe."],
+  ],
+  examen: [
+    ["In the reading, why couldn't Olivia have orange juice?", ["The café didn't have any.", "It was too expensive.", "She didn't like it."], "Reading."],
+    ["How many ice cream flavours did the café have?", ["six", "four", "two"], "Reading."],
+  ],
+  tarjetas: [
+    ["Countable / uncountable", "an apple, two eggs / some water, some bread."],
+    ["How many / how much", "How many eggs? How much milk? How much is it?"],
+    ["At the café", "Can I have…? I'd like… Anything else? The bill, please."],
+    ["Healthy plate and recipe", "Half fruit and veg; Wash, cut, mix, serve."],
+  ],
+  glosario: [
+    ["countable", "contable"],
+    ["uncountable", "incontable"],
+    ["slice", "rebanada"],
+    ["a few", "unos pocos"],
+    ["a little", "un poco"],
+    ["waiter", "camarero"],
+    ["bill", "cuenta"],
+    ["I'd like", "me gustaría"],
+    ["dairy", "lácteos"],
+    ["recipe", "receta"],
+    ["peel", "pelar"],
+    ["ingredients", "ingredientes"],
+  ],
+  situacion: {
+    titulo: "The class café",
+    reto: "The class opens a pretend café in English.",
+    pasos: ["Make a menu with healthy food, drinks and prices.", "Write the dialogue for waiters and customers.", "Prepare a simple recipe, like a fruit salad, with an adult.", "Role-play the café: order, ask questions and pay."],
+    producto: "A class café with menu and dialogues.",
+    evaluacion: ["Uses some, any, how many and how much correctly.", "Orders politely.", "Uses imperatives in the recipe.", "Speaks clearly in the role-play."],
+  },
+});

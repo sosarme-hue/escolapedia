@@ -91,3 +91,91 @@ module.exports = tema({
   ideas: ["Encuesta de clase con cinco preguntas y gráfico de resultados.", "Juego «Find someone who…»: buscar compañeros que respondan «Yes, I do».", "Entrevista por parejas a un personaje inventado."],
   fuentes: [["Cambridge Dictionary: questions", "https://dictionary.cambridge.org/grammar/british-grammar/questions"], ["British Council LearnEnglish Kids: grammar practice", "https://learnenglishkids.britishcouncil.org/grammar-practice"]],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Use who, which, whose, how many and why", "Choose between questions with be and questions with do", "Keep a conversation going with follow-up questions", "Write a quiz and an imaginary interview"],
+  lectura: { titulo: "Interview with a zookeeper", html: `<p>The school magazine sent <b>Lucas</b> and <b>Emma</b> to the city zoo to interview <b>Mrs Brown</b>, a zookeeper.</p><p><b>Lucas:</b> Good morning, Mrs Brown. Thank you for talking to us. <b>What do</b> you <b>do</b> at the zoo?</p><p><b>Mrs Brown:</b> I look after the big cats: the lions, the tigers and the snow leopards.</p><p><b>Emma:</b> Wow! <b>What time do</b> you <b>start</b> work?</p><p><b>Mrs Brown:</b> I start at seven o'clock. First I clean the enclosures, then I prepare the food.</p><p><b>Lucas:</b> <b>What do</b> the lions <b>eat</b>?</p><p><b>Mrs Brown:</b> They eat meat: about seven kilos every day!</p><p><b>Emma:</b> <b>How many</b> lions <b>are</b> there at the zoo?</p><p><b>Mrs Brown:</b> There are five. The oldest is called Simba. He's fifteen.</p><p><b>Lucas:</b> <b>Which</b> animal is your favourite?</p><p><b>Mrs Brown:</b> The snow leopard, Luna. She's very shy, but she's beautiful.</p><p><b>Emma:</b> <b>Do</b> you <b>like</b> your job?</p><p><b>Mrs Brown:</b> Yes, I <b>do</b>! I love it.</p><p><b>Lucas:</b> <b>Why do</b> you <b>love</b> it?</p><p><b>Mrs Brown:</b> Because every day is different, and I help animals that are in danger.</p><p><b>Emma:</b> <b>Are</b> you ever afraid of the tigers?</p><p><b>Mrs Brown:</b> No, I'm not. But I'm always very careful!</p><p><b>Lucas and Emma:</b> Thank you very much, Mrs Brown!</p>` },
+  tras: {
+    "Question words": [
+      ["Who, which, whose, how many, why", `<p>You already know <i>what</i>, <i>where</i> and <i>when</i>. Here are some more <mark>question words</mark>:</p><ul><li><b>Who</b> (quién): asks about people. «<b>Who</b> do you sit next to?» → «I sit next to Pablo.»</li><li><b>Which</b> (cuál): asks to choose between a few options. «<b>Which</b> animal do you prefer: the lion or the tiger?»</li><li><b>Whose</b> (de quién): asks about the owner. «<b>Whose</b> pencil case is this?» → «It's Marta's.»</li><li><b>How many</b> (cuántos): asks about a number. «<b>How many</b> brothers do you have?» → «I have two.»</li><li><b>How old</b> (cuántos años): «<b>How old</b> are you?» → «I'm nine.»</li><li><b>How often</b> (con qué frecuencia): «<b>How often</b> do you go swimming?» → «Twice a week.»</li><li><b>Why</b> (por qué): asks for a reason. «<b>Why</b> do you like summer?» The answer starts with <b>because</b>: «<b>Because</b> there's no school!»</li></ul><p>Be careful with <b>why</b> and <b>because</b>: in Spanish both are <i>por qué / porque</i>, but in English they are different words.</p><p>Question words go at the <b>beginning</b>, before <i>do</i> or <i>does</i>: «<b>Where do</b> you live?» «<b>What does</b> she eat?» «<b>How many</b> pets <b>do</b> you have?»</p>`,
+        L6.filas("Question words", [["Who?", "people", cAZ], ["Which?", "choose", cVE], ["Whose?", "owner", cNA], ["How many?", "number", cMO], ["Why?", "Because…", cRO]]), ["Y_E-N5y1r7g", "Who, what, when, where, why", "TheBazillions", 1915475]],
+    ],
+    "Short answers": [
+      ["Questions with be or with do?", `<p>In English, there are two main types of questions in the present. It's important to <mark>choose the right one</mark>:</p><ul><li>When the sentence has the verb <b>be</b> (am, is, are), we just <b>change the order</b>: «You <b>are</b> tired.» → «<b>Are</b> you tired?» «She <b>is</b> ten.» → «<b>Is</b> she ten?»</li><li>When the sentence has any <b>other verb</b>, we use <b>do / does</b>: «You <b>like</b> pizza.» → «<b>Do</b> you like pizza?» «He <b>plays</b> chess.» → «<b>Does</b> he play chess?»</li></ul><p>Never use <i>do</i> with <i>be</i>! We say «<b>Are</b> you happy?», not «Do you are happy?».</p><p>The short answers follow the same verb:</p><ul><li>«<b>Are</b> you hungry?» → «Yes, I <b>am</b>.» / «No, I'<b>m not</b>.»</li><li>«<b>Do</b> you like apples?» → «Yes, I <b>do</b>.» / «No, I <b>don't</b>.»</li><li>«<b>Is</b> he your brother?» → «Yes, he <b>is</b>.»</li><li>«<b>Does</b> he live here?» → «Yes, he <b>does</b>.»</li></ul><p>And <b>can</b> works like <b>be</b>: «<b>Can</b> you swim?» → «Yes, I <b>can</b>.»</p><p>A trick: look at the answer you expect. If it's an adjective or a place (<i>tired, ten, at home</i>), use <i>be</i>. If it's an action (<i>play, eat, live</i>), use <i>do</i>.</p>`,
+        H6.dos("Be or do?", ["BE", ["Are you tired?", "Is she ten?", "Yes, I am."], cAZ], ["DO / DOES", ["Do you like it?", "Does he play?", "Yes, I do."], cNA])],
+    ],
+    "Questions about you": [
+      ["Keep the conversation going", `<p>A good conversation is like a game of tennis: the ball goes from one person to the other. If you only answer «Yes» or «No», the game stops! Here are some tricks to <mark>keep the conversation going</mark>:</p><ul><li><b>Add information</b> to your answer: «Do you have pets?» → «Yes, I do. I've got a cat called Pipa. She's black and white.»</li><li><b>Ask the question back</b>: «<b>And you?</b>» or «<b>What about you?</b>» → «Yes, I do. And you? Do you have pets?»</li><li><b>Show interest</b>: «<b>Really?</b>» «<b>That's interesting!</b>» «<b>Cool!</b>» «<b>Me too!</b>» «<b>Me neither.</b>» (A mí tampoco.)</li><li><b>Ask a follow-up question</b> (una pregunta más): «I play the violin.» → «Really? <b>How often do</b> you practise?» «<b>Who</b> is your teacher?»</li></ul><p>Look at this example:</p><p><i><b>Ana:</b> What do you do after school?<br><b>Max:</b> I go to judo on Mondays and Wednesdays. What about you?<br><b>Ana:</b> I go to music school. I play the piano.<br><b>Max:</b> Cool! Do you like it?<br><b>Ana:</b> Yes, I love it. I practise every day.<br><b>Max:</b> Really? Every day? That's amazing!</i></p><p>See? Nobody stops the ball!</p>`,
+        L6.dialogo("And you?", [["Ana", "Do you have pets?", cAZ], ["Max", "Yes, a cat. And you?", cRO], ["Ana", "Me too! Two cats!", cAZ], ["Max", "Really? Cool!", cRO]])],
+    ],
+  },
+  final: [
+    ["Make a quiz", `<p>A <mark>quiz</mark> is a game of questions. It's a great way to practise questions with <i>do</i> and <i>does</i>! Here is a quiz about animals:</p><ol><li><b>Where do</b> polar bears live? (a) In the Arctic (b) In Africa (c) In the jungle</li><li><b>What do</b> pandas eat? (a) Fish (b) Bamboo (c) Meat</li><li><b>How many</b> legs <b>does</b> a spider have? (a) Six (b) Eight (c) Ten</li><li><b>Does</b> a penguin fly? (a) Yes, it does. (b) No, it doesn't.</li><li><b>Which</b> animal sleeps upside down? (a) The bat (b) The owl (c) The cat</li><li><b>Why do</b> camels have humps? (a) To store fat (b) To carry children (c) To sleep</li></ol><p><i>Answers: 1a, 2b, 3b, 4b, 5a, 6a.</i></p><p>To make your own quiz:</p><ul><li>Choose a <b>topic</b>: animals, sports, your class, food, the planets…</li><li>Write <b>six to eight questions</b>. Use different question words.</li><li>Write <b>three options</b> for each question. Only one is correct!</li><li>Check your grammar: <b>do</b> with <i>I, you, we, they</i> and plural nouns; <b>does</b> with <i>he, she, it</i> and singular nouns.</li><li>Write the answers at the bottom.</li></ul><p>Then swap quizzes with a partner. Who gets the most points?</p>`,
+      H6.flujo("My quiz", ["choose|a topic", "write|questions", "add 3|options", "swap|and play"], cVE), ["vXWK1-L41f0", "The five W's song", "Scratch Garden", 5248184]],
+    ["An imaginary interview", `<p>Imagine you can <mark>interview</mark> anybody in the world: a famous footballer, a singer, an astronaut, a character from a book… or even an animal! What questions would you ask?</p><p>Here is an imaginary interview with a <b>dolphin</b>:</p><p><i><b>Q:</b> Where do you live?<br><b>A:</b> I live in the Mediterranean Sea.<br><b>Q:</b> What do you eat?<br><b>A:</b> I eat fish and squid.<br><b>Q:</b> How do you breathe?<br><b>A:</b> I'm a mammal, so I breathe air. I go up to the surface.<br><b>Q:</b> Do you have friends?<br><b>A:</b> Yes, I do. I live in a group called a pod.<br><b>Q:</b> What do you like doing?<br><b>A:</b> I love jumping out of the water!<br><b>Q:</b> Why do you whistle?<br><b>A:</b> Because it's how we talk to each other.</i></p><p>Steps to write your interview:</p><ol><li>Choose your <b>character</b>.</li><li>Find some <b>information</b> about him, her or it.</li><li>Write <b>six questions</b> with different question words.</li><li>Write the <b>answers</b>, as if you were the character.</li><li>Act it out with a partner: one is the reporter and the other is the character!</li></ol>`,
+      L6.filas("Dolphin interview", [["Where?", "the Mediterranean", cAZ], ["What… eat?", "fish and squid", cVE], ["How… breathe?", "air: a mammal", cNA], ["Why… whistle?", "to talk", cMO]])],
+  ],
+  ejemplos: [
+    ["Make a question: «She likes chocolate.»", ["The verb is likes (not be): use does.", "Does + she + like (no -s)."], "Does she like chocolate?"],
+    ["Make a question: «They are at the park.»", ["The verb is be: change the order.", "Don't use do with be."], "Are they at the park?"],
+  ],
+  errores: ["Using do with be: «Do you are happy?».", "Answering why without because."],
+  ejercicios: [
+    ["b", "Complete: ___ is your teacher? Mrs Ruiz.", "Who"],
+    ["b", "Complete: ___ you hungry? Yes, I am.", "Are"],
+    ["b", "Complete: ___ he play football? Yes, he does.", "Does"],
+    ["b", "Write the answer word for why.", "because"],
+    ["b", "How do you say «A mí también»?", "Me too!"],
+    ["m", "Complete: ___ pencil is this? It's Pau's.", "Whose"],
+    ["m", "Make a question: You live in Madrid.", "Do you live in Madrid?"],
+    ["m", "Make a question: He is nine.", "Is he nine?"],
+    ["m", "Write a follow-up question for «I play the guitar».", "For example: How often do you practise?"],
+    ["m", "Answer the quiz: How many legs does a spider have?", "Eight."],
+    ["a", "Write a six-question quiz about your class.", "Open answer."],
+    ["a", "Write an imaginary interview with a famous person.", "Open answer."],
+    ["a", "Have a two-minute conversation without stopping the ball.", "Open answer."],
+    ["a", "Write five questions with be and five with do.", "Open answer."],
+  ],
+  quiz: [
+    ["___ animal do you prefer, the cat or the dog?", ["Which", "Who", "Whose"], "Question words."],
+    ["___ you tired?", ["Are", "Do", "Does"], "Be or do."],
+    ["___ she like music?", ["Does", "Do", "Is"], "Be or do."],
+    ["Why do you like summer? ___ there's no school.", ["Because", "Why", "So"], "Why / because."],
+    ["To show interest you can say…", ["Really?", "Goodbye.", "No."], "Conversation."],
+  ],
+  examen: [
+    ["In the reading, which animal is Mrs Brown's favourite?", ["the snow leopard", "the lion", "the tiger"], "Reading."],
+    ["How many lions are there at the zoo?", ["five", "fifteen", "seven"], "Reading."],
+  ],
+  tarjetas: [
+    ["Question words", "who, which, whose, how many, how often, why."],
+    ["Be or do?", "Are you tired? / Do you like it?"],
+    ["Conversation", "And you? Really? Me too! Follow-up questions."],
+    ["Quiz and interview", "Different question words, options and answers."],
+  ],
+  glosario: [
+    ["who", "quién"],
+    ["which", "cuál"],
+    ["whose", "de quién"],
+    ["how many", "cuántos"],
+    ["how often", "con qué frecuencia"],
+    ["why", "por qué"],
+    ["because", "porque"],
+    ["follow-up question", "pregunta de seguimiento"],
+    ["me too", "yo también"],
+    ["me neither", "yo tampoco"],
+    ["quiz", "concurso de preguntas"],
+    ["zookeeper", "cuidador de zoo"],
+  ],
+  situacion: {
+    titulo: "The class magazine interview",
+    reto: "The class interviews people at school for an English magazine.",
+    pasos: ["In pairs, choose somebody to interview: a teacher, the cook, an older pupil.", "Write eight questions with different question words and with be and do.", "Do the interview and take notes. Use follow-up questions.", "Write it up for the magazine with a photo."],
+    producto: "An interview for the class magazine.",
+    evaluacion: ["Uses question words correctly.", "Chooses be or do correctly.", "Uses follow-up questions.", "Writes the interview clearly."],
+  },
+});

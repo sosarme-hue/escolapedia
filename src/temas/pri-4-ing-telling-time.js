@@ -91,3 +91,91 @@ module.exports = tema({
   ideas: ["Juego al aire libre «What's the time, Mr Wolf?».", "Relojes de cartulina por parejas: uno dice la hora y otro la marca.", "Horario de la clase en inglés colgado en la pared."],
   fuentes: [["British Council LearnEnglish Kids: grammar practice", "https://learnenglishkids.britishcouncil.org/grammar-practice"], ["Cambridge Dictionary: o'clock", "https://dictionary.cambridge.org/dictionary/english/o-clock"]],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Say the time in the digital way: seven fifteen", "Use at, from… to and until with times", "Understand time zones around the world", "Say dates and read timetables"],
+  lectura: { titulo: "The New Year's Eve call", html: `<p>It was <b>31st December</b>. In Madrid, Marcos and his family were having dinner. It was <b>half past nine in the evening</b>.</p><p>Suddenly, the computer rang. It was Marcos's uncle, Javier, who lives in <b>Sydney</b>, in Australia.</p><p>"Happy New Year!" shouted Uncle Javier. Behind him, there were fireworks in the sky.</p><p>"What? It isn't New Year yet!" said Marcos. "It's half past nine!"</p><p>Uncle Javier laughed. "Not here! In Sydney it's <b>half past seven in the morning</b>, on <b>1st January</b>. We're ten hours ahead of you. The fireworks were at midnight… we're still celebrating!"</p><p>Marcos couldn't believe it. His uncle was already in the new year!</p><p>An hour later, his cousin Lily called from <b>New York</b>.</p><p>"Hi, Marcos! It's <b>half past three in the afternoon</b> here. We're preparing for the party."</p><p>"So you are six hours behind us!" said Marcos.</p><p>"Exactly! Our New Year comes six hours after yours."</p><p>At midnight, Marcos ate twelve grapes with his family, one for every chime of the clock. Then he looked at the clock and thought about his family around the world: some were already sleeping, and some were still waiting for the new year.</p><p>"The world is like a big clock," he said. "And every country has its own time."</p>` },
+  tras: {
+    "Five, ten, twenty, twenty-five": [
+      ["Digital time", `<p>There are two ways to say the time in English. You already know the <b>traditional</b> way: <i>a quarter past seven</i>, <i>half past eight</i>, <i>ten to nine</i>. But there is also a <mark>digital</mark> way, like the numbers on a digital clock or on a phone. It's very easy: just say the <b>hour</b> and then the <b>minutes</b>!</p><ul><li>7:15 → <i>seven fifteen</i> (= a quarter past seven)</li><li>8:30 → <i>eight thirty</i> (= half past eight)</li><li>9:45 → <i>nine forty-five</i> (= a quarter to ten)</li><li>10:20 → <i>ten twenty</i> (= twenty past ten)</li><li>11:50 → <i>eleven fifty</i> (= ten to twelve)</li></ul><p>For minutes from <b>01 to 09</b>, we say <b>«oh»</b> for the zero:</p><ul><li>6:05 → <i>six oh five</i></li><li>3:08 → <i>three oh eight</i></li></ul><p>And for exact hours, we still say <b>o'clock</b>: 4:00 → <i>four o'clock</i>.</p><p>The digital way is very common for <b>timetables</b>, trains, planes, TV programmes and cinema times: «The train leaves at <b>nine twenty-five</b>.» «The film starts at <b>six forty</b>.»</p><p>The traditional way is more common in everyday conversation, but both are correct!</p>`,
+        L6.filas("Two ways", [["7:15", "seven fifteen", cAZ], ["8:30", "eight thirty", cVE], ["9:45", "nine forty-five", cNA], ["6:05", "six oh five", cMO]])],
+    ],
+    "Morning or evening? a.m. and p.m.": [
+      ["Time zones", `<p>When it's day in Spain, it's night in Australia! This happens because the Earth <b>turns</b> and the Sun can only light one half of it at a time. That's why the world is divided into <mark>time zones</mark> (husos horarios).</p><p>Look at the time in different cities when it's <b>12 noon</b> in Madrid (in winter):</p><ul><li><b>London</b>: 11 a.m. (one hour behind)</li><li><b>Madrid</b>: 12 noon</li><li><b>Moscow</b>: 2 p.m.</li><li><b>Beijing</b>: 7 p.m.</li><li><b>Sydney</b>: 10 p.m.</li><li><b>New York</b>: 6 a.m.</li><li><b>Los Angeles</b>: 3 a.m.</li></ul><p>Useful words:</p><ul><li><b>ahead</b> (por delante): «Sydney is ten hours <b>ahead of</b> Madrid.»</li><li><b>behind</b> (por detrás): «New York is six hours <b>behind</b> Madrid.»</li></ul><p>Did you know? The <b>Canary Islands</b> are in a different time zone from the rest of Spain. When it's 12 o'clock in Madrid, it's 11 o'clock in Tenerife. That's why on the radio and TV they say «<i>una hora menos en Canarias</i>»!</p><p>Questions to ask: «<b>What time is it in</b> London now?» → «It's eleven o'clock.»</p>`,
+        L6.filas("When it's 12 in Madrid", [["London", "11 a.m.", cAZ], ["New York", "6 a.m.", cVE], ["Beijing", "7 p.m.", cNA], ["Sydney", "10 p.m.", cRO]]), ["m6gnEcMQsZg", "Time zones for kids", "Learn Bright", 245736]],
+    ],
+    "Quarter past and quarter to": [
+      ["At, from… to, until", `<p>To talk about the time of activities, we need some little words called <b>prepositions</b>:</p><ul><li><mark>at</mark> + an exact time: «School starts <b>at</b> nine o'clock.» «I have lunch <b>at</b> half past one.» «My party is <b>at</b> five.»</li><li><mark>from… to…</mark> (de… a…): for the start and the end of an activity. «I'm at school <b>from</b> nine <b>to</b> four.» «The shop is open <b>from</b> ten <b>to</b> eight.»</li><li><mark>until</mark> (hasta): «I play in the park <b>until</b> seven o'clock.» «The library is open <b>until</b> six.»</li><li><b>about</b> or <b>around</b> (sobre, más o menos): «I get home <b>at about</b> five.»</li></ul><p>We also use different prepositions with parts of the day:</p><ul><li><b>in</b> the morning, <b>in</b> the afternoon, <b>in</b> the evening</li><li><b>at</b> night, <b>at</b> noon (a mediodía), <b>at</b> midnight (a medianoche)</li></ul><p>Look at this text:</p><p><i>On Saturdays, I sleep <b>until</b> nine. I have breakfast <b>at</b> half past nine. I play football <b>from</b> eleven <b>to</b> twelve thirty. <b>In</b> the afternoon, I go to my grandma's house. I go to bed <b>at</b> ten <b>at</b> night.</i></p><p>Careful: in Spanish we say <i>a las nueve</i>, but in English we never say «to the nine». Just <b>at nine</b>!</p>`,
+        H6.flujo("My Saturday", ["until 9|sleep", "at 9:30|breakfast", "11-12:30|football", "at 10|bed"], cAZ)],
+    ],
+  },
+  final: [
+    ["Days, months and dates", `<p>To say <mark>dates</mark> in English, we need the <b>months</b> and the <b>ordinal numbers</b>.</p><p><b>The months</b> always start with a <b>capital letter</b>: January, February, March, April, May, June, July, August, September, October, November, December.</p><p><b>Ordinal numbers</b> (números ordinales): 1st <i>first</i>, 2nd <i>second</i>, 3rd <i>third</i>, 4th <i>fourth</i>, 5th <i>fifth</i>… 10th <i>tenth</i>, 12th <i>twelfth</i>, 20th <i>twentieth</i>, 21st <i>twenty-first</i>, 22nd <i>twenty-second</i>, 23rd <i>twenty-third</i>, 30th <i>thirtieth</i>, 31st <i>thirty-first</i>.</p><p>How to write and say a date:</p><ul><li>We write: <b>12th October</b> or <b>12 October</b>.</li><li>We say: <i>the twelfth of October</i>.</li></ul><p>Prepositions with time:</p><ul><li><b>at</b> + times: <i>at five o'clock</i></li><li><b>on</b> + days and dates: <i>on Monday, on 25th December, on my birthday</i></li><li><b>in</b> + months, seasons and years: <i>in July, in summer, in 2026</i></li></ul><p>Questions:</p><ul><li>«<b>When</b> is your birthday?» → «It's <b>on</b> the fifth of May.»</li><li>«<b>What's the date</b> today?» → «It's the twentieth of November.»</li></ul><p>Say these dates: Christmas Day, your birthday, the first day of school, and New Year's Day.</p>`,
+      L6.filas("Prepositions", [["at", "five o'clock", cAZ], ["on", "Monday, 25th December", cVE], ["in", "July, summer, 2026", cNA]]), ["Fe9bnYRzFvk", "Months of the year song", "The Singing Walrus", 221799791]],
+    ["Reading a timetable", `<p>A <mark>timetable</mark> (horario) shows the times of things: trains, buses, school lessons, TV programmes… To read it, look at the <b>rows</b> and the <b>columns</b>.</p><p>Look at this train timetable from Barcelona to Girona:</p><ul><li>Train 1: leaves Barcelona at <b>07:15</b> → arrives in Girona at <b>08:35</b></li><li>Train 2: leaves at <b>09:40</b> → arrives at <b>11:00</b></li><li>Train 3: leaves at <b>13:05</b> → arrives at <b>14:25</b></li><li>Train 4: leaves at <b>18:30</b> → arrives at <b>19:50</b></li></ul><p>Timetables often use the <b>24-hour clock</b>: 13:05 is <i>five past one in the afternoon</i>, and 18:30 is <i>half past six in the evening</i>. To change to the 12-hour clock, subtract 12: 18 − 12 = 6 → 6:30 p.m.</p><p>Questions and answers:</p><ul><li>«<b>What time does</b> the first train <b>leave</b>?» → «It leaves at seven fifteen.»</li><li>«<b>What time does</b> it <b>arrive</b> in Girona?» → «It arrives at eight thirty-five.»</li><li>«<b>How long does</b> the journey <b>take</b>?» (¿Cuánto dura?) → «It takes one hour and twenty minutes.»</li></ul><p>Notice: we use the <b>present simple</b> for timetables, because they are fixed: «The train <b>leaves</b> at 9:40.»</p>`,
+      L6.filas("Barcelona → Girona", [["07:15", "arrives 08:35", cAZ], ["09:40", "arrives 11:00", cVE], ["13:05", "arrives 14:25", cNA], ["18:30", "arrives 19:50", cMO]])],
+  ],
+  ejemplos: [
+    ["Say 8:45 in two ways.", ["Digital: hour + minutes: eight forty-five.", "Traditional: 15 minutes to 9: a quarter to nine."], "eight forty-five / a quarter to nine"],
+    ["It's 12 noon in Madrid. What time is it in New York?", ["New York is six hours behind.", "12 − 6 = 6."], "It's six o'clock in the morning (6 a.m.)."],
+  ],
+  errores: ["Saying «at the nine» instead of «at nine».", "Using in with dates: «in 25th December» instead of «on»."],
+  ejercicios: [
+    ["b", "Say 7:30 in the digital way.", "seven thirty"],
+    ["b", "Say 3:05 in the digital way.", "three oh five"],
+    ["b", "Complete: School starts ___ nine.", "at"],
+    ["b", "Complete: My birthday is ___ June.", "in"],
+    ["b", "Write the ordinal of 3.", "third (3rd)"],
+    ["m", "Complete: I'm at school ___ nine ___ four.", "from, to"],
+    ["m", "Write 18:30 in the 12-hour clock.", "6:30 p.m. (half past six in the evening)"],
+    ["m", "Is Sydney ahead of or behind Madrid?", "Ahead."],
+    ["m", "Say the date 21/03 in English.", "The twenty-first of March."],
+    ["m", "How long does the train journey from 07:15 to 08:35 take?", "One hour and twenty minutes."],
+    ["a", "Make a timetable of your school day and describe it.", "Open answer."],
+    ["a", "Find the time now in three cities of the world.", "Open answer."],
+    ["a", "Write the dates of five family birthdays in English.", "Open answer."],
+    ["a", "Write a dialogue at a train station using a timetable.", "Open answer."],
+  ],
+  quiz: [
+    ["9:15 in the digital way is…", ["nine fifteen", "fifteen nine", "nine and fifteen"], "Digital time."],
+    ["I play ___ seven o'clock.", ["until", "on", "in"], "Prepositions."],
+    ["When it's day in Spain, in Australia it's…", ["night", "also day", "the same time"], "Time zones."],
+    ["My birthday is ___ 5th May.", ["on", "in", "at"], "Dates."],
+    ["20:00 is…", ["8 p.m.", "8 a.m.", "10 p.m."], "Timetables."],
+  ],
+  examen: [
+    ["In the reading, where does Uncle Javier live?", ["Sydney", "New York", "London"], "Reading."],
+    ["How many hours behind Madrid is New York?", ["six", "ten", "one"], "Reading."],
+  ],
+  tarjetas: [
+    ["Digital time", "7:15 seven fifteen; 6:05 six oh five."],
+    ["Prepositions", "at nine, from 9 to 4, until 7."],
+    ["Time zones", "Ahead: Sydney. Behind: New York, London."],
+    ["Dates and timetables", "on 12th October; in July; the train leaves at 09:40."],
+  ],
+  glosario: [
+    ["clock", "reloj"],
+    ["digital", "digital"],
+    ["until", "hasta"],
+    ["from… to", "de… a"],
+    ["noon", "mediodía"],
+    ["midnight", "medianoche"],
+    ["time zone", "huso horario"],
+    ["ahead", "por delante"],
+    ["behind", "por detrás"],
+    ["date", "fecha"],
+    ["timetable", "horario"],
+    ["journey", "viaje, trayecto"],
+  ],
+  situacion: {
+    titulo: "World clock",
+    reto: "The class builds a world clock and plans a video call with a school in another country.",
+    pasos: ["Choose five cities and find their time zones.", "Make clocks showing the time in each city when it's 10 a.m. at your school.", "Decide a good time for a video call with a school in another country.", "Present your world clock and invitation in English, with dates and times."],
+    producto: "A world clock and an invitation for a video call.",
+    evaluacion: ["Says the time in two ways.", "Uses at, on, in, from… to and until.", "Explains time zones with ahead and behind.", "Writes dates correctly."],
+  },
+});
