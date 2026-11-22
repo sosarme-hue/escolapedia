@@ -135,3 +135,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Nombrar muebles y objetos de la casa", "Usar There is / There are", "Decir dónde están las cosas: next to, behind, in front of", "Nombrar las tareas de casa en inglés"],
+  lectura: { titulo: "Where is Whiskers?", html: `<p>Whiskers is a small grey cat. He lives in a big house with the Smith family.</p><p>One afternoon, Emma can't find Whiskers. "Whiskers! Where are you?"</p><p>She looks in the <b>kitchen</b>. There is a bowl of milk on the floor, but there isn't a cat.</p><p>She looks in the <b>living room</b>. There is a sofa, a TV and two armchairs. Whiskers isn't under the sofa.</p><p>She goes <b>upstairs</b> to the <b>bathroom</b>. There is a bath, but no cat.</p><p>She looks in her <b>bedroom</b>. There is a bed, a wardrobe and a lot of toys. "Whiskers?"</p><p>Then she hears a little noise: "Miaow!"</p><p>Emma opens the wardrobe. There is Whiskers, sleeping on her favourite jumper!</p><p>"You naughty cat!" laughs Emma. "This is my jumper, not your bed!"</p><p>Whiskers looks at her and closes his eyes again. Purr, purr.</p><p><i>(can't find: no encuentra · armchairs: sillones · wardrobe: armario · naughty: travieso)</i></p>` },
+  tras: {
+    "Rooms: las habitaciones": [
+      ["Furniture", `<p>Los muebles se llaman <mark>furniture</mark>. Cada habitación tiene los suyos:</p><ul><li><b>bedroom</b>: bed (cama), wardrobe (armario), desk (escritorio), lamp (lámpara).</li><li><b>living room</b>: sofa, armchair (sillón), TV, bookcase (estantería).</li><li><b>kitchen</b>: fridge (nevera), cooker (cocina), table, chairs, sink (fregadero).</li><li><b>bathroom</b>: bath (bañera), shower (ducha), toilet (váter), mirror (espejo).</li></ul><p>Para preguntar dónde está algo: «Where's the fridge?» — «It's in the <b>kitchen</b>.»</p><p>Algunas palabras se parecen al español: <i>sofa</i>, <i>lamp</i>, <i>TV</i>. ¡Así es más fácil recordarlas!</p><p><b>Actividad</b>: pega etiquetas en inglés en los muebles de tu casa: bed, door, window, table.</p>`,
+        L6.filas("Furniture", [["bedroom", "bed", cAZ], ["kitchen", "fridge", cVE], ["bathroom", "bath", cNA], ["living room", "sofa", cRO]]),
+        ["DR5qPNPGCmY", "The House Song", "Busy Beavers", 4000126]],
+    ],
+    "In the bedroom": [
+      ["There is, there are", `<p>Para decir lo que <mark>hay</mark> en un lugar usamos:</p><ul><li><b>There is</b> (hay) + una cosa: «<b>There is</b> a bed in my bedroom.»</li><li><b>There are</b> (hay) + varias cosas: «<b>There are</b> two windows.»</li></ul><p>En negativo:</p><ul><li>«<b>There isn't</b> a TV in my bedroom.» (No hay)</li><li>«<b>There aren't</b> any chairs.»</li></ul><p>Para preguntar:</p><ul><li>«<b>Is there</b> a lamp?» — «Yes, there is.» / «No, there isn't.»</li><li>«<b>How many</b> beds <b>are there</b>?» — «There are two.»</li></ul><p>Truco: si después hay <b>a</b> o <b>an</b>, usa <i>there is</i>; si hay un número o una palabra en plural, usa <i>there are</i>.</p><p><b>Actividad</b>: describe tu habitación con tres frases: There is… There are…</p>`,
+        H6.dos("Hay", ["ONE", ["There is", "a bed", "a lamp"], cAZ], ["MANY", ["There are", "two beds", "toys"], cVE])],
+    ],
+    "Where's Mum?": [
+      ["Next to, behind, in front of", `<p>Ya sabes <b>in</b>, <b>on</b> y <b>under</b>. Ahora aprendemos más <mark>prepositions</mark> (palabras de lugar):</p><ul><li><b>next to</b>: al lado de. «The lamp is <b>next to</b> the bed.»</li><li><b>behind</b>: detrás de. «The cat is <b>behind</b> the sofa.»</li><li><b>in front of</b>: delante de. «The table is <b>in front of</b> the TV.»</li><li><b>between</b>: entre. «The dog is <b>between</b> the chairs.»</li></ul><p>Recuerda las de antes:</p><ul><li><b>in</b>: dentro. «The ball is <b>in</b> the box.»</li><li><b>on</b>: encima. «The book is <b>on</b> the desk.»</li><li><b>under</b>: debajo. «The shoes are <b>under</b> the bed.»</li></ul><p><b>Actividad</b>: esconde un peluche en clase y da pistas en inglés: «It's behind the door!».</p>`,
+        H6.rueda("Where", "WHERE?", [["next to", cAZ], ["behind", cRO], ["in front", cVE], ["between", cNA]])],
+    ],
+    "Upstairs and downstairs": [
+      ["Helping at home", `<p>En casa todos ayudamos. Las <mark>chores</mark> son las tareas de casa:</p><ul><li><b>make my bed</b>: hacer mi cama.</li><li><b>tidy my room</b>: ordenar mi habitación.</li><li><b>lay the table</b>: poner la mesa.</li><li><b>clear the table</b>: quitar la mesa.</li><li><b>wash the dishes</b>: fregar los platos.</li><li><b>feed the pet</b>: dar de comer a la mascota.</li><li><b>water the plants</b>: regar las plantas.</li></ul><p>Podemos decir: «I <b>make my bed</b> every day.» «I <b>help</b> my dad in the kitchen.»</p><p>Para preguntar: «<b>Do you help at home?</b>» — «Yes, I do! I lay the table.»</p><p>Ayudar en casa es cosa de toda la familia. ¡Y terminamos antes si todos colaboramos!</p><p><b>Actividad</b>: haz una tabla con las tareas que haces cada día de la semana.</p>`,
+        H6.flujo("Chores", ["bed|make", "room|tidy", "table|lay", "plants|water"], cVE)],
+    ],
+  },
+  final: [
+    ["Houses around the world", `<p>No todas las casas son iguales. ¡Hay <mark>casas</mark> muy distintas en el mundo!</p><ul><li>A <b>flat</b>: un piso en un edificio alto. Mucha gente vive en flats en las ciudades.</li><li>A <b>cottage</b>: una casita pequeña en el campo, típica de Inglaterra.</li><li>An <b>igloo</b>: una casa de hielo, en lugares muy fríos.</li><li>A <b>houseboat</b>: una casa que flota en un río o un canal.</li><li>A <b>tree house</b>: una casa en un árbol. ¡A los niños les encantan!</li><li>A <b>tent</b>: una tienda de campaña, para ir de acampada.</li></ul><p>Para preguntar: «<b>Do you live in a house or a flat?</b>» — «I live in a flat.»</p><p>Cada casa está pensada para el lugar y el clima donde se construye.</p><p><b>Actividad</b>: diseña la casa de tus sueños y describe sus habitaciones en inglés.</p>`,
+      L6.filas("Homes", [["flat", "piso", cAZ], ["cottage", "casita", cVE], ["igloo", "de hielo", cMO], ["tree house", "en un árbol", cNA]])],
+    ["Repaso: where is Whiskers?", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Whiskers is a small <b>grey cat</b>.</li><li>In the <b>kitchen</b> there is a bowl of milk.</li><li>In the <b>living room</b> there is a sofa, a TV and two armchairs.</li><li>Emma goes <b>upstairs</b> to the <b>bathroom</b>.</li><li>In the <b>bedroom</b> there is a bed, a wardrobe and toys.</li><li>Whiskers is <b>in</b> the <b>wardrobe</b>, <b>on</b> Emma's jumper!</li></ul><p>Fíjate en cuántas veces aparece <b>there is</b> en el cuento. Es una expresión muy útil para describir lugares.</p><p>Los gatos buscan sitios calentitos y blanditos para dormir: ¡un jersey es perfecto!</p><p><b>Actividad</b>: dibuja la casa de los Smith y pon a Whiskers en un sitio. Tu compañero pregunta: «Is he in the kitchen?».</p>`,
+      H6.flujo("Search", ["kitchen|milk", "living room|sofa", "bathroom|bath", "wardrobe|cat!"], cMO)],
+  ],
+  ejemplos: [
+    ["Di que hay dos ventanas en tu habitación.", ["Varias cosas: There are."], "There are two windows in my bedroom."],
+    ["El gato está detrás del sofá.", ["detrás de = behind"], "The cat is behind the sofa."],
+  ],
+  errores: ["Decir «There is two chairs» en lugar de «There are two chairs».", "Confundir behind (detrás) con in front of (delante)."],
+  ejercicios: [
+    ["b", "How do you say «nevera»?", "Fridge."],
+    ["b", "Where's the bed?", "In the bedroom."],
+    ["b", "What is «next to»?", "Al lado de."],
+    ["b", "Translate: hacer la cama.", "Make my bed."],
+    ["b", "What is a flat?", "Un piso."],
+    ["m", "Complete: «There ___ three chairs.»", "Are."],
+    ["m", "Complete: «There ___ a lamp.»", "Is."],
+    ["m", "Translate: La pelota está debajo de la mesa.", "The ball is under the table."],
+    ["m", "Answer: Do you help at home?", "Yes, I do. I lay the table…"],
+    ["m", "Where is the mirror?", "In the bathroom."],
+    ["a", "In the reading, where is Whiskers?", "In the wardrobe, on Emma's jumper."],
+    ["a", "What is there in the living room?", "A sofa, a TV and two armchairs."],
+    ["a", "Describe your bedroom with four sentences.", "Open answer."],
+    ["a", "Describe your dream house.", "Open answer."],
+  ],
+  quiz: [
+    ["Armario is…", ["wardrobe", "fridge", "mirror"], "Furniture."],
+    ["There ___ two beds.", ["are", "is", "am"], "There is/are."],
+    ["Detrás de is…", ["behind", "next to", "in front of"], "Prepositions."],
+    ["Poner la mesa is…", ["lay the table", "make the bed", "wash the dishes"], "Chores."],
+    ["A house of ice is an…", ["igloo", "flat", "cottage"], "Homes."],
+  ],
+  examen: [
+    ["In the reading, what colour is Whiskers?", ["grey", "black", "white"], "Reading."],
+    ["Where does Emma find Whiskers?", ["in the wardrobe", "in the kitchen", "under the sofa"], "Repaso."],
+  ],
+  tarjetas: [
+    ["There is / are", "There is a bed. There are two chairs."],
+    ["Where?", "in, on, under, next to, behind, in front of, between."],
+  ],
+  glosario: [
+    ["Furniture", "Muebles."],
+    ["Wardrobe", "Armario."],
+    ["Fridge", "Nevera."],
+    ["Mirror", "Espejo."],
+    ["There is", "Hay (una cosa)."],
+    ["There are", "Hay (varias cosas)."],
+    ["Next to", "Al lado de."],
+    ["Behind", "Detrás de."],
+    ["Chores", "Tareas de casa."],
+    ["Flat", "Piso."],
+  ],
+  situacion: {
+    titulo: "My dream house",
+    reto: "Cada alumno construye una maqueta o dibujo de la casa de sus sueños y la presenta en inglés a la clase.",
+    pasos: ["Dibujar o construir la casa con cajas.", "Poner etiquetas en inglés a las habitaciones y muebles.", "Escribir frases con There is / There are y preposiciones.", "Presentar la casa y contestar preguntas: Is there a…?"],
+    producto: "Una maqueta o dibujo con descripción en inglés.",
+    evaluacion: ["Nombra habitaciones y muebles.", "Usa There is / There are.", "Usa preposiciones de lugar.", "Nombra tareas de casa."],
+  },
+});

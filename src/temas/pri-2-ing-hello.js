@@ -135,3 +135,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Contar del 1 al 20 en inglés", "Presentar a otra persona: This is my friend", "Preguntar Where are you from? y decir países", "Deletrear el nombre con el abecedario"],
+  lectura: { titulo: "The new girl", html: `<p>It's the first day of school. There is a new girl in class 2B. She is standing at the door. She looks shy.</p><p>The teacher, Miss Brown, says: "Good morning, class! This is Aiko. She's our new friend."</p><p>"Hello, Aiko!" say all the children.</p><p>"Hello," says Aiko in a small voice.</p><p>Pablo sits next to her. "Hi! I'm Pablo. How old are you?"</p><p>"I'm seven," says Aiko.</p><p>"Me too! Where are you from?"</p><p>"I'm from Japan," says Aiko, and she smiles.</p><p>"Wow! Japan is very far! Can you write your name in Japanese?"</p><p>Aiko writes her name in beautiful Japanese letters. Everybody says: "Ooooh!"</p><p>At break time, Pablo and Aiko play together. Aiko teaches Pablo to say "hello" in Japanese: <i>konnichiwa</i>.</p><p>"Konnichiwa, Aiko!"</p><p>"Hello, Pablo!"</p><p>Now Aiko isn't shy. She has got a new friend.</p><p><i>(shy: tímida · far: lejos · break time: recreo)</i></p>` },
+  tras: {
+    "Good morning!": [
+      ["Hello, goodbye", `<p>Hay muchas formas de <mark>saludar</mark> y <mark>despedirse</mark> en inglés:</p><p><b>Para saludar</b>:</p><ul><li><b>Hello!</b> / <b>Hi!</b>: ¡Hola!</li><li><b>Good morning!</b>: ¡Buenos días! (por la mañana)</li><li><b>Good afternoon!</b>: ¡Buenas tardes! (después de comer)</li><li><b>Good evening!</b>: ¡Buenas tardes/noches! (al llegar la noche)</li></ul><p><b>Para despedirse</b>:</p><ul><li><b>Goodbye!</b> / <b>Bye!</b>: ¡Adiós!</li><li><b>See you later!</b>: ¡Hasta luego!</li><li><b>See you tomorrow!</b>: ¡Hasta mañana!</li><li><b>Good night!</b>: ¡Buenas noches! (al ir a dormir)</li></ul><p>¡Ojo! <i>Good night</i> solo se dice para despedirse por la noche o al ir a la cama, no para saludar.</p><p><b>Actividad</b>: al salir de clase, despídete de tu maestro o maestra con «See you tomorrow!».</p>`,
+        H6.dos("Say", ["HELLO", ["Hi!", "Good morning", "afternoon"], cVE], ["BYE", ["Goodbye", "See you!", "Good night"], cAZ]),
+        ["pqDEwPi7vxg", "Hello Song for Children", "Miss Linky", 31867498]],
+    ],
+    "How old are you?": [
+      ["Numbers 1 to 20", `<p>Para decir la edad y contar cosas necesitamos los <mark>numbers</mark>:</p><ul><li>1 <b>one</b>, 2 <b>two</b>, 3 <b>three</b>, 4 <b>four</b>, 5 <b>five</b></li><li>6 <b>six</b>, 7 <b>seven</b>, 8 <b>eight</b>, 9 <b>nine</b>, 10 <b>ten</b></li><li>11 <b>eleven</b>, 12 <b>twelve</b>, 13 <b>thirteen</b>, 14 <b>fourteen</b>, 15 <b>fifteen</b></li><li>16 <b>sixteen</b>, 17 <b>seventeen</b>, 18 <b>eighteen</b>, 19 <b>nineteen</b>, 20 <b>twenty</b></li></ul><p>Fíjate: del 13 al 19 todos terminan en <b>-teen</b>. ¡Por eso a los chicos de 13 a 19 años los llaman <i>teenagers</i>!</p><p>Para preguntar cuántos hay: «<b>How many</b> pencils?» — «<b>Twelve</b> pencils.»</p><p>Cuidado con la pronunciación: <i>thirteen</i> (13) y <i>thirty</i> (30) se parecen mucho. En <i>thirteen</i> la fuerza va al final: «thir-<b>TEEN</b>».</p><p><b>Actividad</b>: cuenta en inglés los alumnos de tu clase, las ventanas y las sillas.</p>`,
+        L6.filas("Numbers", [["1-10", "one…ten", cAZ], ["11-12", "eleven, twelve", cVE], ["13-19", "-teen", cNA], ["20", "twenty", cRO]])],
+    ],
+    "How are you?": [
+      ["This is my friend", `<p>Para <mark>presentar</mark> a otra persona decimos <b>This is…</b> (Este es / Esta es):</p><ul><li>«<b>This is</b> my friend Tom.»</li><li>«<b>This is</b> my sister Ana.»</li><li>«<b>This is</b> my teacher, Miss Brown.»</li></ul><p>La otra persona contesta: «<b>Nice to meet you!</b>» (¡Encantado de conocerte!). Y respondemos: «<b>Nice to meet you too!</b>» (¡Igualmente!)</p><p>También podemos dar información sobre esa persona:</p><ul><li>«<b>He's</b> seven.» (Él tiene siete años.)</li><li>«<b>She's</b> my best friend.» (Ella es mi mejor amiga.)</li><li>«<b>His name is</b> Leo.» / «<b>Her name is</b> Ana.»</li></ul><p>Cuidado: <i>his</i> es «de él» y <i>her</i> es «de ella».</p><p><b>Actividad</b>: en grupos de tres, presenta a un compañero a otro.</p>`,
+        L6.dialogo("Meet", [["Ana", "This is my friend Tom.", cAZ], ["Leo", "Nice to meet you, Tom!", cRO], ["Tom", "Nice to meet you too!", cVE], ["Leo", "How old are you?", cRO]])],
+    ],
+    "Palabras de cortesía": [
+      ["Where are you from?", `<p>Para preguntar de dónde es alguien: <mark>Where are you from?</mark> (¿De dónde eres?)</p><p>Contestamos: <b>I'm from…</b> + país:</p><ul><li>«I'm from <b>Spain</b>.» (España)</li><li>«I'm from <b>England</b>.» (Inglaterra)</li><li>«I'm from <b>France</b>.» (Francia)</li><li>«I'm from <b>Italy</b>.» (Italia)</li><li>«I'm from <b>Morocco</b>.» (Marruecos)</li><li>«I'm from <b>China</b>.»</li><li>«I'm from <b>Japan</b>.» (Japón)</li><li>«I'm from <b>the USA</b>.» (Estados Unidos)</li></ul><p>Los nombres de los países siempre empiezan con <b>mayúscula</b>.</p><p>En muchas clases hay niños de distintos países. ¡Es una suerte! Podemos aprender palabras de otros idiomas y conocer otras costumbres.</p><p><b>Actividad</b>: busca en un mapa los países de la lista y pon una pegatina en cada uno.</p>`,
+        H6.rueda("From", "I'M FROM", [["Spain", cRO], ["England", cAZ], ["Japan", cMO], ["Italy", cVE]])],
+    ],
+  },
+  final: [
+    ["Spell your name", `<p>En inglés es muy común <mark>deletrear</mark> el nombre (decir letra a letra). Preguntamos: «<b>How do you spell your name?</b>» (¿Cómo se escribe tu nombre?)</p><p>Las letras en inglés suenan distinto. Algunas importantes:</p><ul><li><b>A</b> suena «ei», <b>E</b> suena «i», <b>I</b> suena «ai».</li><li><b>O</b> suena «ou», <b>U</b> suena «iu».</li><li><b>G</b> suena «yi» y <b>J</b> suena «yei».</li><li><b>H</b> suena «eich», <b>W</b> suena «dábliu», <b>Y</b> suena «uai».</li></ul><p>Example: «How do you spell your name?» — «<b>A-N-A</b>: ei, en, ei.»</p><p>«My name is Tom. <b>T-O-M</b>: ti, ou, em.»</p><p>Esto es muy útil en el teléfono, en un hotel o cuando alguien no entiende nuestro nombre.</p><p><b>Actividad</b>: deletrea tu nombre en inglés a un compañero y que él lo escriba.</p>`,
+      H6.flujo("Spell", ["T|ti", "O|ou", "M|em", "Tom|!"], cNA)],
+    ["Repaso: the new girl", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>The teacher says: «<b>This is</b> Aiko. She's our new friend.»</li><li>The children say: «<b>Hello</b>, Aiko!»</li><li>Pablo asks: «<b>How old are you?</b>» — «I'm <b>seven</b>.»</li><li>Pablo asks: «<b>Where are you from?</b>» — «I'm from <b>Japan</b>.»</li><li>At first Aiko is <b>shy</b>; at the end she is <b>happy</b>.</li><li><i>Konnichiwa</i> means <b>hello</b> in Japanese.</li></ul><p>Pablo es un buen compañero: se sienta con Aiko, le hace preguntas y juega con ella en el recreo. Cuando llega alguien nuevo a clase, podemos ayudarle a sentirse bien.</p><p>Remember: «Hello» in French is «bonjour», in Italian «ciao», and in Japanese «konnichiwa».</p><p><b>Actividad</b>: aprende a decir «hola» en tres idiomas distintos.</p>`,
+      L6.filas("Aiko", [["age", "seven", cAZ], ["from", "Japan", cRO], ["first", "shy", cMO], ["friend", "Pablo", cVE]])],
+  ],
+  ejemplos: [
+    ["Presenta a tu amigo Leo, que tiene ocho años.", ["This is…", "He's…"], "This is my friend Leo. He's eight."],
+    ["¿Cómo se dice 15?", ["Termina en -teen."], "Fifteen."],
+  ],
+  errores: ["Saludar con «Good night» al llegar.", "Confundir his (de él) y her (de ella)."],
+  ejercicios: [
+    ["b", "How do you say «¡Hasta mañana!»?", "See you tomorrow!"],
+    ["b", "Write 12 in English.", "Twelve."],
+    ["b", "What is «Nice to meet you»?", "Encantado de conocerte."],
+    ["b", "Answer: Where are you from?", "I'm from Spain."],
+    ["b", "Say «buenos días».", "Good morning."],
+    ["m", "Write 13 to 15 in English.", "Thirteen, fourteen, fifteen."],
+    ["m", "Complete: «___ is my sister. ___ name is Ana.»", "This / Her."],
+    ["m", "How do you spell «cat»?", "C-A-T: si, ei, ti."],
+    ["m", "Translate: Él es de Italia.", "He's from Italy."],
+    ["m", "How many? ●●●●●●●●●●●", "Eleven."],
+    ["a", "In the reading, where is Aiko from?", "Japan."],
+    ["a", "How does Pablo help Aiko?", "He sits with her, asks questions and plays with her."],
+    ["a", "Write a dialogue to introduce a new friend.", "Open answer."],
+    ["a", "Spell your name and your surname.", "Open answer."],
+  ],
+  quiz: [
+    ["Al irte a dormir dices…", ["Good night", "Good morning", "Hello"], "Greetings."],
+    ["Nineteen is…", ["19", "90", "9"], "Numbers."],
+    ["Presentar a alguien:", ["This is…", "Where is…", "How is…"], "Introductions."],
+    ["I'm from ___.", ["Spain", "spain", "spanish"], "Countries."],
+    ["How do you ___ your name?", ["spell", "speak", "sing"], "Spelling."],
+  ],
+  examen: [
+    ["In the reading, how old is Aiko?", ["seven", "eight", "six"], "Reading."],
+    ["What does «konnichiwa» mean?", ["hello", "goodbye", "thank you"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Numbers", "1-12 + thirteen…nineteen (-teen) + twenty."],
+    ["Introduce", "This is… Nice to meet you! Where are you from?"],
+  ],
+  glosario: [
+    ["See you later", "Hasta luego."],
+    ["Good night", "Buenas noches (al despedirse)."],
+    ["Twenty", "Veinte."],
+    ["This is", "Este es / Esta es."],
+    ["Nice to meet you", "Encantado de conocerte."],
+    ["His", "De él."],
+    ["Her", "De ella."],
+    ["Where are you from?", "¿De dónde eres?"],
+    ["Spell", "Deletrear."],
+    ["Shy", "Tímido."],
+  ],
+  situacion: {
+    titulo: "Welcome to our class",
+    reto: "La clase prepara un vídeo o mural de bienvenida en inglés para un alumno nuevo, con presentaciones de todos.",
+    pasos: ["Cada alumno escribe su presentación: nombre, edad, país.", "Practicar presentar a un compañero con This is…", "Deletrear los nombres para la lista de clase.", "Grabar o presentar la bienvenida."],
+    producto: "Un mural o vídeo de bienvenida en inglés.",
+    evaluacion: ["Saluda y se despide adecuadamente.", "Cuenta hasta 20.", "Presenta a otra persona.", "Dice de dónde es y deletrea su nombre."],
+  },
+});

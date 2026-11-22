@@ -135,3 +135,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Entender las órdenes de clase: Open your books, Sit down", "Nombrar las asignaturas en inglés", "Usar This is / These are", "Conocer los lugares del colegio"],
+  lectura: { titulo: "The magic pencil", html: `<p>Max has got a new <b>pencil case</b>. It's blue with red stars. Inside there is a <b>pencil</b>, a <b>rubber</b>, a <b>sharpener</b>, a <b>ruler</b> and some <b>crayons</b>.</p><p>But the pencil is special. It's a <b>magic pencil</b>!</p><p>In the art class, Max draws a yellow sun. Suddenly, the sun shines in the classroom! "Wow!" say his friends.</p><p>Then Max draws a green tree. A real tree grows next to the window!</p><p>Then he draws a big orange dog. "Woof, woof!" The dog runs around the classroom!</p><p>"Max!" says the teacher. "Stop, please! Use your rubber!"</p><p>Max takes his rubber and rubs out the dog. The dog disappears. Then he rubs out the tree, and the sun.</p><p>"Phew!" says the teacher.</p><p>At the end of the class, Max puts the magic pencil in his pencil case. "See you tomorrow, magic pencil," he whispers.</p><p><i>(rubber: goma · sharpener: sacapuntas · shines: brilla · rubs out: borra · whispers: susurra)</i></p>` },
+  tras: {
+    "In the classroom": [
+      ["Classroom instructions", `<p>En clase de inglés el maestro o la maestra da muchas <mark>instructions</mark> (órdenes). ¡Hay que entenderlas!</p><ul><li><b>Stand up!</b>: ¡Levantaos!</li><li><b>Sit down!</b>: ¡Sentaos!</li><li><b>Open your books.</b>: Abrid los libros.</li><li><b>Close your books.</b>: Cerrad los libros.</li><li><b>Listen!</b>: ¡Escuchad!</li><li><b>Look!</b>: ¡Mirad!</li><li><b>Be quiet, please.</b>: Silencio, por favor.</li><li><b>Put up your hand.</b>: Levantad la mano.</li><li><b>Line up!</b>: ¡Haced una fila!</li></ul><p>Y frases útiles para los alumnos:</p><ul><li>«<b>Can you repeat, please?</b>» (¿Puedes repetir?)</li><li>«<b>I don't understand.</b>» (No entiendo.)</li><li>«<b>Can I go to the toilet, please?</b>»</li></ul><p><b>Actividad</b>: jugad a «Teacher says»: uno da órdenes y los demás las hacen.</p>`,
+        H6.dos("Orders", ["BODY", ["Stand up", "Sit down", "Line up"], cAZ], ["BOOKS", ["Open", "Close", "Look"], cVE]),
+        ["ieMrDhNGREc", "School Supplies Song", "English Tree", 11320551]],
+    ],
+    "Más colores": [
+      ["School subjects", `<p>En el colegio estudiamos muchas asignaturas. En inglés se llaman <mark>subjects</mark>:</p><ul><li><b>Maths</b>: Matemáticas.</li><li><b>English</b>: Inglés.</li><li><b>Spanish</b>: Lengua castellana.</li><li><b>Science</b>: Ciencias.</li><li><b>Art</b>: Plástica.</li><li><b>Music</b>: Música.</li><li><b>PE</b>: Educación Física (Physical Education).</li></ul><p>Fíjate: los nombres de las asignaturas de idiomas llevan mayúscula: <b>English</b>, <b>Spanish</b>.</p><p>Para hablar de nuestra asignatura favorita:</p><ul><li>«<b>What's your favourite subject?</b>» — «My favourite subject is <b>Art</b>.»</li><li>«I like <b>Music</b> because I love singing.»</li><li>«I don't like Maths very much.»</li></ul><p>Cada día de la semana tenemos asignaturas distintas: «On Monday we have Maths and English. On Friday we have PE and Music.»</p><p><b>Actividad</b>: haz una encuesta en clase sobre la asignatura favorita y dibuja un gráfico de barras.</p>`,
+        L6.filas("Subjects", [["Maths", "números", cAZ], ["Science", "ciencias", cVE], ["Art", "plástica", cRO], ["PE", "deporte", cNA]])],
+    ],
+    "What's this?": [
+      ["This is, these are", `<p>Para señalar cosas que están <b>cerca</b> usamos:</p><ul><li><mark>This is</mark> + una cosa: «<b>This is</b> my pencil.» (Este es mi lápiz.)</li><li><mark>These are</mark> + varias cosas: «<b>These are</b> my crayons.» (Estos son mis lápices de colores.)</li></ul><p>Para preguntar:</p><ul><li>«<b>What's this?</b>» — «It's a ruler.»</li><li>«<b>What are these?</b>» — «They're scissors.»</li></ul><p>Recuerda que en plural casi siempre añadimos <b>-s</b>: <i>pencil → pencils</i>, <i>book → books</i>. Pero algunas cosas siempre van en plural, como <b>scissors</b> (tijeras).</p><p>Example: «<b>This is</b> my schoolbag. <b>These are</b> my books. <b>This is</b> my pencil case.»</p><p><b>Actividad</b>: enseña los objetos de tu mochila a un compañero usando This is y These are.</p>`,
+        H6.dos("Near", ["THIS", ["This is", "a pen", "It's…"], cMO], ["THESE", ["These are", "pens", "They're…"], cAZ])],
+    ],
+    "¿Para qué sirve?": [
+      ["Places at school", `<p>Un colegio tiene muchos <mark>places</mark> (lugares):</p><ul><li><b>classroom</b>: aula.</li><li><b>playground</b>: patio.</li><li><b>library</b>: biblioteca.</li><li><b>gym</b>: gimnasio.</li><li><b>dining room</b>: comedor.</li><li><b>toilets</b>: baños.</li><li><b>head teacher's office</b>: despacho del director o la directora.</li><li><b>music room</b>: aula de música.</li></ul><p>En cada lugar hacemos cosas distintas:</p><ul><li>«We play in the <b>playground</b>.»</li><li>«We read in the <b>library</b>.»</li><li>«We have lunch in the <b>dining room</b>.»</li><li>«We do PE in the <b>gym</b>.»</li></ul><p>Para preguntar: «<b>Where's the library?</b>» — «It's next to the gym.»</p><p>En el patio hay que jugar sin peleas y compartir. «Let's play together!» (¡Juguemos juntos!) es una frase perfecta para el recreo.</p><p><b>Actividad</b>: dibuja el plano de tu colegio y escribe el nombre de cada lugar en inglés.</p>`,
+        H6.rueda("School", "SCHOOL", [["playground", cVE], ["library", cAZ], ["gym", cRO], ["dining", cNA]])],
+    ],
+  },
+  final: [
+    ["Schools around the world", `<p>Los colegios no son iguales en todo el mundo. ¡Vamos a ver algunas <mark>diferencias</mark>!</p><ul><li>In <b>England</b>, many children wear a <b>school uniform</b>: jumper, shirt and tie (corbata).</li><li>In <b>Japan</b>, children <b>clean</b> their classroom every day.</li><li>In <b>Finland</b>, children don't have much homework and play outside a lot, even in the snow.</li><li>In <b>the USA</b>, many children go to school by <b>yellow school bus</b>.</li><li>In some places in <b>Africa</b>, children walk a long way to go to school.</li></ul><p>Pero en todos los colegios del mundo los niños aprenden, juegan y hacen amigos.</p><p>Do you wear a uniform? «Yes, I do.» / «No, I don't.»</p><p><b>Actividad</b>: dibuja un uniforme escolar inventado y describe sus colores en inglés.</p>`,
+      L6.filas("World", [["England", "uniform", cAZ], ["Japan", "clean", cRO], ["Finland", "play", cVE], ["USA", "yellow bus", cNA]])],
+    ["Repaso: the magic pencil", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Max's <b>pencil case</b> is blue with red stars.</li><li>Inside: a <b>pencil</b>, a <b>rubber</b>, a <b>sharpener</b>, a <b>ruler</b> and <b>crayons</b>.</li><li>The pencil is <b>magic</b>.</li><li>He draws a <b>yellow sun</b>, a <b>green tree</b> and a big <b>orange dog</b>.</li><li>The teacher says: «<b>Stop, please!</b> Use your <b>rubber</b>!»</li><li>The things <b>disappear</b> when Max rubs them out.</li></ul><p>¿Qué dibujarías tú con un lápiz mágico? Recuerda usar los colores en inglés: «I draw a <b>purple</b> elephant!»</p><p>Max is a good student: when the teacher says «Stop», he stops and uses his rubber.</p><p><b>Actividad</b>: dibuja lo que harías con un lápiz mágico y escribe: «I draw a…».</p>`,
+      H6.flujo("Magic", ["sun|yellow", "tree|green", "dog|orange", "rubber|borra"], cMO)],
+  ],
+  ejemplos: [
+    ["Señala tus lápices de colores y di que son tuyos.", ["Varias cosas cerca: These are."], "These are my crayons."],
+    ["¿Qué significa «Put up your hand»?", ["hand = mano"], "Levantad la mano."],
+  ],
+  errores: ["Decir «This are my books» en lugar de «These are my books».", "Escribir «english» con minúscula."],
+  ejercicios: [
+    ["b", "What does «Sit down» mean?", "Sentaos."],
+    ["b", "How do you say «patio»?", "Playground."],
+    ["b", "How do you say «Matemáticas»?", "Maths."],
+    ["b", "What is a «rubber»?", "Una goma."],
+    ["b", "Translate: No entiendo.", "I don't understand."],
+    ["m", "Complete: «___ are my pens.»", "These."],
+    ["m", "Answer: What's your favourite subject?", "My favourite subject is…"],
+    ["m", "Where do we have lunch?", "In the dining room."],
+    ["m", "What is PE?", "Educación Física."],
+    ["m", "Translate: ¿Puedes repetir, por favor?", "Can you repeat, please?"],
+    ["a", "In the reading, what does Max draw?", "A yellow sun, a green tree and an orange dog."],
+    ["a", "Why does the teacher say «Use your rubber»?", "To make the dog and the other things disappear."],
+    ["a", "Describe your schoolbag with This is / These are.", "Open answer."],
+    ["a", "Write about schools in Japan and England.", "In Japan children clean their classroom; in England many wear a uniform."],
+  ],
+  quiz: [
+    ["Levantaos is…", ["Stand up", "Sit down", "Line up"], "Instructions."],
+    ["Plástica is…", ["Art", "Science", "Maths"], "Subjects."],
+    ["___ are my books.", ["These", "This", "It"], "This/these."],
+    ["We read in the…", ["library", "gym", "playground"], "Places."],
+    ["In Japan, children…", ["clean the classroom", "don't go to school", "go by boat"], "World."],
+  ],
+  examen: [
+    ["In the reading, what colour is the pencil case?", ["blue", "red", "yellow"], "Reading."],
+    ["What runs around the classroom?", ["a dog", "a cat", "a horse"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Instructions", "Stand up, Sit down, Open your books, Listen!"],
+    ["This / These", "This is a pen. These are pens."],
+  ],
+  glosario: [
+    ["Stand up", "Levantarse."],
+    ["Sit down", "Sentarse."],
+    ["Subject", "Asignatura."],
+    ["PE", "Educación Física."],
+    ["These", "Estos, estas."],
+    ["Scissors", "Tijeras."],
+    ["Playground", "Patio."],
+    ["Library", "Biblioteca."],
+    ["Rubber", "Goma de borrar."],
+    ["Sharpener", "Sacapuntas."],
+  ],
+  situacion: {
+    titulo: "School tour",
+    reto: "La clase hace una visita guiada al colegio en inglés para enseñárselo a un visitante imaginario.",
+    pasos: ["Hacer un plano del colegio con los lugares en inglés.", "Escribir una frase sobre qué se hace en cada lugar.", "Practicar las órdenes de clase y las asignaturas.", "Hacer de guía: «This is the library. We read here.»"],
+    producto: "Un plano del colegio y una visita guiada en inglés.",
+    evaluacion: ["Entiende las órdenes de clase.", "Nombra las asignaturas.", "Usa This is / These are.", "Nombra los lugares del colegio."],
+  },
+});
