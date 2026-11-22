@@ -101,3 +101,90 @@ module.exports = tema({
   ideas: ["Rondó corporal: estribillo común y coplas inventadas por grupos.", "Seguir un musicograma en la pizarra mientras suena una obra.", "Crear y cantar un canon a dos voces con una melodía de la clase."],
   fuentes: [["Fundación Juan March: conciertos didácticos", "https://www.march.es/es/madrid/musica"], ["Auditorio Nacional de Música", "https://www.auditorionacional.mcu.es/"]],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { L: L5, H: H5, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 75,
+  objetivos: ["Reconocer el ostinato y su uso en el Bolero de Ravel", "Entender la fuga como un canon más complejo", "Seguir las variaciones de Mozart sobre «Estrellita»", "Conocer la suite de danzas y la forma de la sinfonía"],
+  lectura: { titulo: "La música que no paraba de repetirse", html: `<p>En 1928, una bailarina rusa, Ida Rubinstein, le pidió al compositor francés Maurice Ravel una música para un ballet. Ravel aceptó, pero tenía poco tiempo y una idea muy extraña en la cabeza.</p><p>—Voy a hacer un experimento —le dijo a un amigo—. Una sola melodía, repetida una y otra vez, sin cambiar nada, solo haciéndola cada vez más fuerte.</p><p>Así nació el <b>Bolero</b>. Empieza con una caja que toca un ritmo muy suave, casi un susurro. Encima, una flauta toca la melodía. Después la repite el clarinete, luego el fagot, luego otros instrumentos… Durante quince minutos, el ritmo de la caja no se detiene ni una sola vez, y la melodía va pasando de instrumento en instrumento mientras la orquesta crece y crece.</p><p>El día del estreno, en París, una señora del público gritó: «¡Socorro, un loco!». Cuando se lo contaron a Ravel, sonrió y dijo: «Esa señora lo ha entendido».</p><p>A pesar de que el propio Ravel pensaba que era una obra «sin música», el Bolero se convirtió en una de las piezas más interpretadas del mundo. Demuestra que, en música, repetir no es aburrido si se hace con imaginación: la forma también puede emocionar.</p>` },
+  tras: {
+    "Repetición, contraste y variación": [
+      ["El ostinato", `<p>Un <b>ostinato</b> es un pequeño fragmento musical (un ritmo o una melodía corta) que se <b>repite sin parar</b> durante toda una obra o una parte de ella. La palabra viene del italiano y significa «obstinado», «terco».</p><p>El ostinato da <b>unidad</b> y <b>energía</b> a la música. Mientras se repite debajo, otras voces o instrumentos pueden cantar melodías distintas por encima.</p><p>El ejemplo más famoso es el <b>Bolero</b> (1928) del compositor francés <b>Maurice Ravel</b>. La caja toca el mismo ritmo durante unos quince minutos, sin parar, mientras la melodía pasa de un instrumento a otro: flauta, clarinete, fagot, saxofón, trompeta… La obra es un enorme <b>crescendo</b>: empieza casi en silencio y termina con toda la orquesta tocando a la vez muy fuerte.</p><p>También hay ostinatos en la música actual: muchas canciones de pop, rock o música electrónica se construyen sobre un ritmo de batería o un riff de guitarra que se repite.</p><p>En clase podéis crear un ostinato con percusión corporal, por ejemplo «pie, pie, palmada, silencio», y mantenerlo mientras otro grupo canta una canción por encima. ¡Es más difícil de lo que parece no perder el ritmo!</p>`,
+        L5.filas("El Bolero de Ravel", [["año", "1928", cAZ], ["ostinato", "ritmo de la caja", cRO], ["melodía", "pasa por instrumentos", cVE], ["matiz", "un gran crescendo", cNA]]), ["r30D3SW4OVw", "Maurice Ravel - Bolero", "The Wicked North", 24048714]],
+    ],
+    "El canon": [
+      ["La fuga", `<p>La <b>fuga</b> es como un canon, pero mucho más elaborado. Se desarrolló sobre todo en el <b>Barroco</b>, y su gran maestro fue <b>Johann Sebastian Bach</b>.</p><p>Su nombre viene de la idea de que las voces parecen «huir» unas de otras y perseguirse. Funciona así:</p><ol><li>Una voz presenta sola una melodía corta y fácil de reconocer: el <b>sujeto</b>.</li><li>Después entra una segunda voz con el mismo sujeto, pero más agudo o más grave. Mientras tanto, la primera voz sigue con otra melodía que encaja con él.</li><li>Entran la tercera y la cuarta voz, también con el sujeto.</li><li>A partir de ahí, el sujeto va apareciendo en distintas voces y tonalidades, a veces cortado, al revés o más lento, mezclado con partes libres llamadas <b>episodios</b>.</li><li>Al final, todas las voces se juntan en un cierre brillante.</li></ol><p>La diferencia con el canon es que en el canon todas las voces repiten <b>exactamente</b> la misma melodía, mientras que en la fuga solo el sujeto se repite y las voces tienen mucha más libertad.</p><p>Escuchar una fuga es como un juego de detectives: hay que encontrar el sujeto cada vez que aparece. Bach escribió fugas para órgano, para clave y para muchos otros instrumentos.</p>`,
+        H5.flujo("Cómo empieza una fuga", ["Voz 1|sujeto", "Voz 2|sujeto", "Voz 3|sujeto", "Juego|libre"], cMO)],
+    ],
+    "Tema con variaciones": [
+      ["Mozart y «Estrellita»", `<p>Una de las melodías más conocidas por los niños de todo el mundo es la de <b>«Estrellita, ¿dónde estás?»</b> (en inglés, <i>Twinkle, twinkle, little star</i>). Pero su origen es una canción popular francesa del siglo XVIII: <i>Ah, vous dirai-je, maman</i> («Ah, ¿le diré, mamá?»).</p><p><b>Wolfgang Amadeus Mozart</b> escribió hacia <b>1781</b> un tema con <b>doce variaciones</b> para piano sobre esta melodía. Es un ejemplo perfecto para entender esta forma musical:</p><ul><li>Primero suena el <b>tema</b>, sencillo y claro.</li><li>En las primeras variaciones, la mano derecha toca notas muy rápidas alrededor de la melodía.</li><li>En otras, las notas rápidas pasan a la mano izquierda.</li><li>Hay una variación en <b>modo menor</b>, que suena triste y misteriosa.</li><li>Otra es muy <b>lenta</b> y llena de adornos (adagio).</li><li>La última es rápida, alegre y brillante, en compás de tres.</li></ul><p>En todas ellas, si escuchas con atención, la melodía de «Estrellita» sigue escondida. ¡Es como un juego de buscar a Wally musical!</p><p>Después de escucharla, intentad hacer vuestras propias variaciones de «Estrellita» con la flauta: cambiando el ritmo, el tempo, los matices o tocándola en menor.</p>`,
+        L5.filas("Variar «Estrellita»", [["tema", "la melodía sencilla", cAZ], ["ritmo", "notas muy rápidas", cVE], ["modo", "en menor", cMO], ["tempo", "muy lento, adagio", cNA], ["final", "rápido y brillante", cRO]]), ["hCKBl-TpRzc", "Mozart - Twinkle Twinkle Little Star (12 variations on Ah vous dirai-je, Maman)", "Rousseau", 5636944]],
+    ],
+  },
+  final: [
+    ["La suite de danzas", `<p>En el <b>Barroco</b>, los compositores agrupaban varias <b>danzas</b> en una obra llamada <b>suite</b>. Cada danza tenía su propio carácter, tempo y compás, y venía de un país diferente. Aunque al principio se bailaban, con el tiempo se escribieron solo para escuchar.</p><p>Las cuatro danzas básicas de la suite eran:</p><ul><li><b>Allemande</b> (alemanda): de origen alemán, tranquila, en compás de cuatro.</li><li><b>Courante</b> (corrente): de origen francés o italiano, más rápida, como si corriera.</li><li><b>Sarabande</b> (zarabanda): lenta, solemne y elegante, en compás de tres. Curiosamente, su origen está en una danza muy animada de España y América.</li><li><b>Gigue</b> (giga): muy rápida y saltarina, de origen británico, a menudo en 6/8.</li></ul><p>Entre ellas se podían añadir otras danzas, como el <b>minueto</b>, una danza francesa elegante en compás de 3/4, muy de moda en la corte de Luis XIV. Más tarde, en el Clasicismo, el minueto pasó a formar parte de las sinfonías.</p><p>Bach escribió muchas suites, por ejemplo para violonchelo solo, y Händel compuso la <i>Música acuática</i> para un paseo del rey en barco por el río Támesis.</p>`,
+      L5.filas("Danzas de la suite", [["alemanda", "tranquila, en 4", cAZ], ["corrente", "rápida", cVE], ["zarabanda", "lenta, en 3", cMO], ["giga", "muy rápida, en 6/8", cRO], ["minueto", "elegante, en 3/4", cNA]]), ["GjLTTgv5FUQ", "Baroque Dance - Sarabande à deux", "Peter Hoffmann", 505751]],
+    ["La sinfonía y la forma sonata", `<p>La <b>sinfonía</b> es una gran obra para orquesta que se divide normalmente en <b>cuatro movimientos</b>, cada uno con su propio carácter:</p><ol><li><b>Primer movimiento</b>: rápido (allegro), el más importante, en forma sonata.</li><li><b>Segundo movimiento</b>: lento y cantable (andante o adagio).</li><li><b>Tercer movimiento</b>: una danza, el <b>minueto</b> o, desde Beethoven, el <b>scherzo</b> (que significa «broma»), más rápido y juguetón.</li><li><b>Cuarto movimiento</b>: rápido y brillante, para terminar con energía, a menudo en forma de rondó.</li></ol><p>La <b>forma sonata</b>, típica del primer movimiento, tiene tres partes, parecidas a un cuento:</p><ul><li><b>Exposición</b>: se presentan dos temas distintos, como dos personajes; el primero suele ser enérgico y el segundo, más tranquilo.</li><li><b>Desarrollo</b>: los temas se transforman, se mezclan, cambian de tonalidad y aparecen conflictos. Es el «nudo».</li><li><b>Reexposición</b>: los temas vuelven, ya en paz, en la tonalidad principal. Es el «desenlace».</li></ul><p>Haydn, Mozart y Beethoven perfeccionaron esta forma, que se usa también en sonatas para piano, cuartetos de cuerda y conciertos.</p>`,
+      H5.flujo("Forma sonata", ["Exposi-|ción", "Desarro-|llo", "Reexpo-|sición"], cAZ), ["V2ZO9YUL8aI", "Forma sonata en DOS minutos. (aproximadamente)", "Jesse Strickland", 77016]],
+  ],
+  ejemplos: [
+    ["Una caja toca el mismo ritmo durante toda la obra mientras la melodía cambia de instrumento. ¿Qué recurso es?", ["Algo que se repite sin parar.", "Da unidad a toda la obra."], "Un ostinato (como en el Bolero de Ravel)."],
+    ["Ordena los movimientos de una sinfonía clásica.", ["Empieza rápido.", "Sigue lento, luego una danza y termina rápido."], "Allegro, andante, minueto o scherzo, final rápido."],
+  ],
+  errores: ["Confundir canon y fuga: en la fuga solo se repite el sujeto y las voces son más libres.", "Pensar que todas las danzas de la suite son rápidas: la zarabanda es lenta."],
+  ejercicios: [
+    ["b", "¿Qué es un ostinato?", "Un fragmento que se repite sin parar."],
+    ["b", "¿Quién compuso el Bolero?", "Maurice Ravel, en 1928."],
+    ["b", "¿Cómo se llama la melodía principal de una fuga?", "El sujeto."],
+    ["b", "¿Cuántas variaciones escribió Mozart sobre «Estrellita»?", "Doce."],
+    ["b", "¿Cuántos movimientos tiene normalmente una sinfonía?", "Cuatro."],
+    ["m", "Explica la diferencia entre canon y fuga.", "En el canon se repite toda la melodía igual; en la fuga solo el sujeto y las voces son más libres."],
+    ["m", "Nombra las cuatro danzas básicas de la suite barroca.", "Alemanda, corrente, zarabanda y giga."],
+    ["m", "¿Qué significa «scherzo»?", "Broma."],
+    ["m", "Nombra las tres partes de la forma sonata.", "Exposición, desarrollo y reexposición."],
+    ["m", "¿Qué cambia en la variación en menor de «Estrellita»?", "El modo: suena triste y misteriosa."],
+    ["a", "Crea un ostinato de percusión corporal y mantenlo mientras otros cantan.", "Respuesta abierta."],
+    ["a", "Escribe tres variaciones de «Estrellita» para flauta.", "Respuesta abierta."],
+    ["a", "Escucha el primer movimiento de una sinfonía y levanta la mano al oír el segundo tema.", "Respuesta abierta."],
+    ["a", "Inventa una coreografía sencilla para un minueto.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El Bolero de Ravel es un gran…", ["crescendo", "diminuendo", "silencio"], "Cada vez más fuerte."],
+    ["El gran maestro de la fuga fue…", ["Bach", "Ravel", "Chueca"], "Barroco."],
+    ["«Estrellita» viene de una canción…", ["francesa", "japonesa", "argentina"], "Ah, vous dirai-je, maman."],
+    ["La zarabanda es una danza…", ["lenta y solemne", "muy rápida", "en 6/8 siempre"], "Compás de tres."],
+    ["En la forma sonata, los temas se transforman en el…", ["desarrollo", "exposición", "final"], "Nudo."],
+  ],
+  examen: [
+    ["Un ostinato da a la música…", ["unidad y energía", "silencio", "letra"], "Repetición."],
+    ["La Música acuática es de…", ["Händel", "Mozart", "Beethoven"], "Río Támesis."],
+  ],
+  tarjetas: [
+    ["Ostinato", "Fragmento que se repite; Bolero de Ravel (1928)."],
+    ["Fuga", "Sujeto que entra en cada voz; Bach."],
+    ["Variaciones", "Mozart, doce variaciones sobre «Estrellita»."],
+    ["Suite y sinfonía", "Alemanda, corrente, zarabanda, giga; cuatro movimientos y forma sonata."],
+  ],
+  glosario: [
+    ["Ostinato", "Fragmento musical que se repite sin parar."],
+    ["Riff", "Frase corta que se repite en el pop y el rock."],
+    ["Fuga", "Forma en que un sujeto entra sucesivamente en varias voces."],
+    ["Sujeto", "Melodía principal de una fuga."],
+    ["Episodio", "Parte libre de una fuga entre apariciones del sujeto."],
+    ["Variación", "Repetición de un tema con cambios."],
+    ["Suite", "Conjunto de danzas en una obra."],
+    ["Minueto", "Danza francesa elegante en 3/4."],
+    ["Scherzo", "Movimiento rápido y juguetón de una sinfonía."],
+    ["Forma sonata", "Exposición, desarrollo y reexposición."],
+    ["Exposición", "Parte donde se presentan los temas."],
+    ["Reexposición", "Parte donde vuelven los temas al final."],
+  ],
+  situacion: {
+    titulo: "Arquitectos de la música",
+    reto: "La clase construye una obra musical colectiva usando varias formas: un ostinato de base, un canon, variaciones y un final en forma de rondó.",
+    pasos: ["Cread un ostinato de percusión corporal que sirva de base a toda la obra.", "Sobre el ostinato, cantad una canción conocida en canon a dos o tres voces.", "Preparad tres variaciones de la melodía cambiando ritmo, tempo y modo.", "Organizadlo todo como un rondó (A B A C A), dibujad el musicograma y presentadlo."],
+    producto: "Una obra colectiva con musicograma.",
+    evaluacion: ["Mantiene un ostinato.", "Distingue canon, fuga y variaciones.", "Reconoce las danzas de la suite.", "Explica la forma sonata."],
+  },
+});

@@ -95,3 +95,90 @@ module.exports = tema({
   ideas: ["Ficha de compositor con biografía, época y obra para escuchar.", "Línea del tiempo de clase con los compositores estudiados.", "Audición guiada de Las cuatro estaciones con un dibujo de cada estación."],
   fuentes: [["Fundación Juan March", "https://www.march.es/es/madrid/musica"], ["Archivo Manuel de Falla", "https://www.manueldefalla.com/"]],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { L: L5, H: H5, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 75,
+  objetivos: ["Conocer la música de la Edad Media y el Renacimiento", "Saber la historia del Himno de la Alegría", "Descubrir la zarzuela como género musical español", "Valorar a las compositoras y la música de cine"],
+  lectura: { titulo: "El concierto que Beethoven no oyó", html: `<p>Viena, 7 de mayo de 1824. El teatro estaba lleno hasta la última butaca. Aquella noche se estrenaba la Novena Sinfonía de Ludwig van Beethoven, el compositor más admirado de la ciudad.</p><p>Beethoven estaba en el escenario, junto al director, marcando el ritmo con los brazos. Pero había un secreto que casi todos conocían: estaba completamente sordo. Llevaba años sin poder oír su propia música. La componía imaginándola dentro de su cabeza.</p><p>En el último movimiento, por primera vez en la historia, un coro y cuatro cantantes se unieron a la orquesta en una sinfonía. Cantaban un poema de Friedrich Schiller sobre la alegría y la fraternidad entre todas las personas.</p><p>Cuando la música terminó, el público estalló en aplausos, gritos y pañuelos al aire. Beethoven, de espaldas a la sala, no se dio cuenta. Seguía mirando la partitura.</p><p>Entonces, una de las cantantes se acercó, le tomó suavemente del brazo y le hizo girarse. Beethoven vio cientos de personas de pie, aplaudiendo y llorando de emoción.</p><p>Doscientos años después, aquella melodía, el <b>Himno de la Alegría</b>, se canta en todo el mundo, en colegios, estadios y celebraciones. Y es el himno de la Unión Europea.</p>` },
+  tras: {
+    "Tres grandes épocas": [
+      ["Antes del Barroco: Edad Media y Renacimiento", `<p>La música es mucho más antigua que Vivaldi o Bach. Antes del Barroco hubo dos grandes épocas:</p><p>En la <b>Edad Media</b> (siglos V al XV), la música más importante se cantaba en los monasterios: el <b>canto gregoriano</b>. Lo cantaban los monjes a una sola voz, sin instrumentos, en latín, con melodías tranquilas. Fuera de las iglesias, los <b>trovadores</b> viajaban de castillo en castillo cantando canciones de amor y aventuras con instrumentos como el laúd o la viola.</p><p>En España, el rey <b>Alfonso X el Sabio</b> reunió en el siglo XIII las <b>Cantigas de Santa María</b>: más de cuatrocientas canciones en gallego-portugués. Los manuscritos tienen preciosas miniaturas que muestran a músicos cristianos, musulmanes y judíos tocando juntos, y gracias a ellas sabemos cómo eran los instrumentos de la época.</p><p>En el <b>Renacimiento</b> (siglos XV y XVI) se desarrolló la <b>polifonía</b>: varias voces que cantan melodías distintas a la vez. Destacan compositores españoles como <b>Tomás Luis de Victoria</b>, autor de bellísima música religiosa, y <b>Juan del Encina</b>, que compuso canciones alegres en castellano, llamadas villancicos. También se hicieron populares la <b>vihuela</b> y la música de danza.</p>`,
+        L5.filas("Antes del Barroco", [["gregoriano", "monjes, una voz", cAZ], ["trovadores", "castillos, amor", cRO], ["Cantigas", "Alfonso X", cNA], ["polifonía", "T. L. de Victoria", cVE]]), ["rBP8SuZgETk", "Cantigas de Santa Maria LIVE - Simone Sorini in \"A Madre de Jesu Cristo\" - Medieval Music", "SIMONE SORINI Cantore al Liuto ARTISTA POLIEDRICO", 661442]],
+    ],
+    "Ludwig van Beethoven": [
+      ["El Himno de la Alegría", `<p>La <b>Novena Sinfonía</b> de Beethoven se estrenó en Viena en <b>1824</b>. Fue una obra revolucionaria: por primera vez una sinfonía incluía, en su último movimiento, un <b>coro</b> y cuatro <b>solistas</b> cantando.</p><p>El texto es un poema del alemán <b>Friedrich Schiller</b>, la <i>Oda a la alegría</i>, que habla de la amistad y la fraternidad entre todas las personas del mundo. Beethoven llevaba más de treinta años queriendo ponerle música.</p><p>Lo más asombroso es que, cuando la compuso, Beethoven estaba ya <b>completamente sordo</b>. Imaginaba cada nota en su cabeza y la escribía en la partitura.</p><p>La melodía del Himno es muy fácil de cantar y de tocar con la flauta, porque se mueve casi siempre por <b>grados conjuntos</b>, es decir, de una nota a la de al lado: mi mi fa sol, sol fa mi re, do do re mi, mi re re…</p><p>En 1972, el Consejo de Europa eligió esta melodía como su himno, y desde <b>1985</b> es también el <b>himno de la Unión Europea</b>. Se interpreta sin letra, para que represente a todos los países y lenguas. Además, el manuscrito original de la Novena forma parte del registro Memoria del Mundo de la UNESCO.</p><p>Escucha el último movimiento completo: empieza con una melodía muy suave en los contrabajos, que se va pasando a otros instrumentos hasta que entra el coro con toda su fuerza.</p>`,
+        L5.filas("La Novena Sinfonía", [["estreno", "Viena, 1824", cAZ], ["texto", "Schiller", cVE], ["novedad", "coro en una sinfonía", cNA], ["hoy", "himno de la UE", cRO]]), ["sxh1Y0q4lT8", "Oda a alegria - del film Copying Beethoven", "Coro UPeU", 4742821]],
+    ],
+    "Compositores españoles": [
+      ["La zarzuela", `<p>La <b>zarzuela</b> es un género de teatro musical típicamente <b>español</b>. A diferencia de la ópera, en la que todo se canta, en la zarzuela se alternan partes <b>habladas</b> y partes <b>cantadas</b>, con números de baile y coro.</p><p>Su nombre viene del <b>palacio de la Zarzuela</b>, cerca de Madrid, donde en el siglo XVII se representaban estas obras para entretener al rey.</p><p>Su época dorada fue a finales del siglo XIX y principios del XX. Hay dos tipos:</p><ul><li>El <b>género chico</b>: obras cortas, de un acto, con historias divertidas de la vida cotidiana, a menudo en los barrios de Madrid.</li><li>La <b>zarzuela grande</b>: obras más largas, de dos o tres actos.</li></ul><p>Algunas zarzuelas muy conocidas son <i>La verbena de la Paloma</i>, de <b>Tomás Bretón</b>; <i>La Gran Vía</i>, de <b>Federico Chueca</b>; <i>La revoltosa</i>, de <b>Ruperto Chapí</b>; o <i>La tabernera del puerto</i>, de <b>Pablo Sorozábal</b>. Muchas de sus melodías, como los chotis, las mazurcas o los pasacalles, se volvieron canciones populares que la gente cantaba por la calle.</p><p>En Madrid hay un teatro dedicado a este género: el <b>Teatro de la Zarzuela</b>, que también organiza funciones para escolares.</p>`,
+        H5.dos("Ópera o zarzuela", ["Ópera", ["todo cantado", "muchos idiomas", "drama o comedia"], cAZ], ["Zarzuela", ["hablado y cantado", "en español", "baile y coro"], cRO]), ["q_uJmyKVg_8", "La Gran Vía - Mazurca De Los Marineritos - Zarzuela", "YouMoreTv - Cultura", 24394]],
+    ],
+  },
+  final: [
+    ["Compositoras a lo largo de la historia", `<p>Durante siglos, muchas mujeres compusieron música, pero lo tuvieron mucho más difícil que los hombres para estudiar, publicar y estrenar sus obras. Hoy se recupera su trabajo.</p><ul><li><b>Hildegarda de Bingen</b> (siglo XII) fue una monja alemana que compuso decenas de cantos religiosos, escribió libros de medicina y ciencias, y fue consejera de reyes y papas.</li><li><b>Barbara Strozzi</b> (siglo XVII), en Venecia, publicó ocho libros de música, algo excepcional para una mujer de su época.</li><li><b>Clara Schumann</b> y <b>Fanny Mendelssohn</b> (siglo XIX) fueron grandes pianistas y compositoras del Romanticismo.</li><li><b>María Rodrigo</b> (1888-1967), madrileña, fue la primera mujer española que estrenó una ópera, <i>Becqueriana</i>, en el Teatro de la Zarzuela en 1915.</li><li><b>Hildur Guðnadóttir</b>, compositora islandesa, ganó en 2020 el Óscar a la mejor banda sonora.</li></ul><p>Cuando busques música para escuchar, incluye obras de compositoras. Descubrirás que la historia de la música es más rica de lo que cuentan muchos libros.</p>`,
+      L5.filas("Compositoras", [["Hildegarda", "siglo XII", cMO], ["Barbara Strozzi", "siglo XVII", cRO], ["Clara Schumann", "siglo XIX", cAZ], ["María Rodrigo", "primera ópera, 1915", cNA], ["H. Guðnadóttir", "Óscar 2020", cVE]]), ["HYzPR0nwcmY", "Hildegard de Bingen: De Spiritu Sancto (Espíritu Santo, el vivificador de la Vida)", "zevnikov", 4105614]],
+    ["Los compositores de cine", `<p>Hoy, muchos de los compositores más escuchados del mundo escriben para el <b>cine</b>, la televisión y los videojuegos. Sus obras se tocan con grandes orquestas sinfónicas, igual que las de Mozart o Beethoven.</p><p>La música de cine tiene funciones muy concretas: crear <b>emoción</b>, anunciar un <b>peligro</b>, acompañar la <b>acción</b> o ayudarnos a reconocer a un personaje. Para esto último se usa el <b>leitmotiv</b>, una melodía corta que aparece cada vez que sale un personaje o una idea. La idea viene de las óperas del alemán Richard Wagner, en el siglo XIX.</p><p>Algunos compositores de cine muy conocidos:</p><ul><li><b>John Williams</b> (Estados Unidos): <i>La guerra de las galaxias</i>, <i>Tiburón</i>, <i>E.T.</i>, <i>Indiana Jones</i> o las primeras películas de <i>Harry Potter</i>. La «Marcha imperial» es el leitmotiv del villano Darth Vader.</li><li><b>Ennio Morricone</b> (Italia): famoso por las películas del oeste y por <i>Cinema Paradiso</i>.</li><li><b>Hans Zimmer</b> (Alemania): <i>El rey león</i>.</li><li><b>Alberto Iglesias</b> (España): ha compuesto la música de muchas películas españolas y ha ganado varios premios Goya.</li></ul><p>Haz la prueba: tararea la melodía de una película famosa y comprueba si tus compañeros la reconocen.</p>`,
+      L5.filas("Música de cine", [["John Williams", "Star Wars, E.T.", cAZ], ["Morricone", "Cinema Paradiso", cRO], ["Hans Zimmer", "El rey león", cNA], ["Alberto Iglesias", "cine español", cVE]]), ["vsMWVW4xtwI", "John Williams & Vienna Philharmonic – Williams: Imperial March (from “Star Wars”)", "Deutsche Grammophon - DG y John Williams", 23821139]],
+  ],
+  ejemplos: [
+    ["¿En qué época situarías una música cantada por monjes a una sola voz y en latín?", ["Una sola voz sin instrumentos.", "Religiosa y en latín."], "Edad Media: canto gregoriano."],
+    ["¿Qué diferencia una zarzuela de una ópera?", ["En la ópera todo se canta.", "En la zarzuela se alternan partes habladas y cantadas."], "La zarzuela alterna diálogo hablado y canto, y es un género español."],
+  ],
+  errores: ["Creer que Beethoven compuso el Himno de la Alegría oyéndolo: ya estaba sordo.", "Pensar que no hubo compositoras antes del siglo XX."],
+  ejercicios: [
+    ["b", "¿Qué rey reunió las Cantigas de Santa María?", "Alfonso X el Sabio."],
+    ["b", "¿De quién es el poema del Himno de la Alegría?", "De Friedrich Schiller."],
+    ["b", "¿Qué se alterna en una zarzuela?", "Partes habladas y partes cantadas."],
+    ["b", "¿Qué es un leitmotiv?", "Una melodía corta asociada a un personaje o una idea."],
+    ["b", "¿Quién compuso la música de La guerra de las galaxias?", "John Williams."],
+    ["m", "¿Qué es la polifonía?", "Varias voces cantando melodías distintas a la vez."],
+    ["m", "¿Por qué el Himno de la Alegría es fácil de cantar?", "Porque se mueve casi siempre por grados conjuntos."],
+    ["m", "Explica qué es el género chico.", "Zarzuela corta, de un acto, con historias de la vida cotidiana."],
+    ["m", "¿Por qué fue importante María Rodrigo?", "Fue la primera española en estrenar una ópera."],
+    ["m", "¿Para qué sirve la música en una película?", "Para crear emoción, anunciar peligro, acompañar la acción y reconocer personajes."],
+    ["a", "Toca con la flauta la melodía del Himno de la Alegría.", "Respuesta práctica."],
+    ["a", "Inventa un leitmotiv para un personaje de un cuento.", "Respuesta abierta."],
+    ["a", "Escucha una cantiga, un fragmento de zarzuela y una banda sonora y compáralas.", "Respuesta abierta."],
+    ["a", "Prepara una ficha sobre una compositora y preséntala a la clase.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El canto gregoriano se canta…", ["a una voz, sin instrumentos", "con orquesta", "con guitarra eléctrica"], "Edad Media."],
+    ["El Himno de la Alegría es de la…", ["Novena Sinfonía", "Quinta Sinfonía", "Primavera de Vivaldi"], "Beethoven."],
+    ["La zarzuela toma su nombre de…", ["un palacio", "un río", "un compositor"], "Palacio de la Zarzuela."],
+    ["La «Marcha imperial» es el leitmotiv de…", ["Darth Vader", "Harry Potter", "E.T."], "John Williams."],
+    ["Hildegarda de Bingen vivió en el siglo…", ["XII", "XIX", "XXI"], "Edad Media."],
+  ],
+  examen: [
+    ["Tomás Luis de Victoria fue un compositor del…", ["Renacimiento", "Romanticismo", "siglo XX"], "Polifonía."],
+    ["El himno de la UE se interpreta…", ["sin letra", "en alemán", "en latín"], "Para todos."],
+  ],
+  tarjetas: [
+    ["Antes del Barroco", "Gregoriano, trovadores, Cantigas, polifonía (Victoria)."],
+    ["Novena de Beethoven", "1824, Schiller, coro; himno de la UE."],
+    ["Zarzuela", "Hablada y cantada; Bretón, Chueca, Chapí, Sorozábal."],
+    ["Cine", "Leitmotiv; Williams, Morricone, Zimmer, Iglesias."],
+  ],
+  glosario: [
+    ["Canto gregoriano", "Canto religioso medieval a una sola voz."],
+    ["Trovador", "Poeta y músico medieval que viajaba cantando."],
+    ["Cantiga", "Canción medieval en gallego-portugués."],
+    ["Polifonía", "Música con varias voces distintas a la vez."],
+    ["Vihuela", "Instrumento de cuerda del Renacimiento español."],
+    ["Oda", "Poema que celebra algo con entusiasmo."],
+    ["Grado conjunto", "Paso de una nota a la de al lado."],
+    ["Zarzuela", "Teatro musical español hablado y cantado."],
+    ["Género chico", "Zarzuela corta de un acto."],
+    ["Banda sonora", "Música de una película."],
+    ["Leitmotiv", "Melodía que identifica a un personaje o idea."],
+    ["Manuscrito", "Documento escrito a mano."],
+  ],
+  situacion: {
+    titulo: "La máquina del tiempo musical",
+    reto: "La clase prepara un viaje musical por la historia, desde el canto gregoriano hasta la música de cine, con audiciones e interpretaciones propias.",
+    pasos: ["Repartid las épocas: Edad Media, Renacimiento, Barroco, Clasicismo, Romanticismo, zarzuela y cine.", "Cada grupo elige una obra corta, la escucha y prepara una ficha con autor, fecha y rasgos.", "Interpretad un fragmento sencillo con voz o flauta, como el Himno de la Alegría.", "Presentad el viaje en orden cronológico con un mural de línea del tiempo."],
+    producto: "Un viaje musical con audiciones, fichas e interpretaciones.",
+    evaluacion: ["Sitúa obras en su época.", "Explica la historia del Himno de la Alegría.", "Distingue la zarzuela de la ópera.", "Conoce compositoras y compositores de cine."],
+  },
+});

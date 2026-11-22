@@ -94,3 +94,90 @@ module.exports = tema({
   ideas: ["Escalera humana de la escala: los alumnos se colocan como notas y se juntan en los semitonos.", "Dictados rítmicos en 2/4, 3/4 y 4/4.", "Bailar un vals y una marcha para sentir el compás."],
   fuentes: [["Real Conservatorio Superior de Música de Madrid", "https://rcsmm.eu/"], ["Teoría musical en musictheory.net (en inglés)", "https://www.musictheory.net/lessons"]],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { L: L5, H: H5, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 75,
+  objetivos: ["Distinguir la escala mayor de la menor", "Entender qué es la armadura y leer la escala de sol mayor", "Conocer los términos de tempo y el metrónomo", "Reconocer el compás de 6/8 y leer el cifrado americano"],
+  lectura: { titulo: "La canción que cambió de humor", html: `<p>La profesora de Música se sentó al piano y tocó una melodía que todo el mundo conocía: «Cumpleaños feliz». Toda la clase empezó a cantar, contenta.</p><p>—Ahora escuchad bien —dijo.</p><p>Volvió a tocar la misma canción, con el mismo ritmo y las mismas palabras. Pero algo había cambiado. Sonaba triste, misteriosa, como la música de una película de fantasmas. Nadie se atrevió a cantar.</p><p>—¿Qué ha pasado? —preguntó Hugo—. ¡Es la misma canción!</p><p>—Casi la misma —sonrió la profesora—. La primera vez la toqué en una escala <b>mayor</b>. La segunda, en una escala <b>menor</b>. Solo he cambiado unas pocas notas, pero el carácter cambia por completo.</p><p>Después tocó la canción muy despacio, casi arrastrándola, y luego rapidísima, como una carrera. La clase se reía.</p><p>—Y esto es el <b>tempo</b>. La misma música puede ser alegre, triste, solemne o divertida según la escala que usemos y la velocidad a la que la toquemos.</p><p>Aquel día, cada alumno se llevó una tarea a casa: tocar o cantar su canción favorita en mayor y en menor, rápido y lento, y descubrir cuál de las cuatro versiones le gustaba más.</p>` },
+  tras: {
+    "Tonos y semitonos": [
+      ["Escala mayor y escala menor", `<p>Las escalas se diferencian por el <b>orden de tonos y semitonos</b> entre sus notas. Ese orden les da su carácter.</p><p>La <b>escala mayor</b> sigue siempre este orden: <b>T T s T T T s</b> (tono, tono, semitono, tono, tono, tono, semitono). La de <b>do mayor</b> es la más sencilla, porque no necesita alteraciones: do re mi fa sol la si do. Las escalas mayores suelen sonar <b>alegres, luminosas o brillantes</b>.</p><p>La <b>escala menor natural</b> tiene otro orden: <b>T s T T s T T</b>. La más sencilla es la de <b>la menor</b>, que tampoco lleva alteraciones: la si do re mi fa sol la. Fíjate en que usa las mismas notas que do mayor, pero empezando en la. Por eso se dice que son <b>tonalidades relativas</b>. Las escalas menores suelen sonar <b>tristes, misteriosas o melancólicas</b>.</p><p>La diferencia más importante está en la <b>tercera nota</b>: en do mayor, de do a mi hay dos tonos (una tercera <b>mayor</b>); en la menor, de la a do hay un tono y medio (una tercera <b>menor</b>).</p><p>Escucha canciones que conozcas e intenta adivinar si están en modo mayor o menor. ¿Qué sensación te transmiten?</p>`,
+        L5.tabla("Mayor y menor", ["escala", "notas", "carácter"], [["do mayor", "do re mi fa…", "alegre"], ["la menor", "la si do re…", "triste"]], cAZ), ["o6aOC3rERF0", "Qué son las TONALIDADES. Tonalidad mayor y menor. | Jaime Altozano", "Jaime Altozano", 2873312]],
+    ],
+    "Las alteraciones": [
+      ["La armadura", `<p>Si una canción usa muchas veces la misma nota alterada, sería muy pesado escribir el sostenido o el bemol delante de cada nota. Por eso se escriben las alteraciones al <b>principio de cada pentagrama</b>, justo después de la clave. Esto se llama <b>armadura</b>.</p><p>Las alteraciones de la armadura afectan a <b>todas</b> las notas de ese nombre durante toda la obra, en cualquier octava, salvo que aparezca un becuadro.</p><p>Por ejemplo, la escala de <b>sol mayor</b> necesita un <b>fa sostenido</b> para respetar el orden T T s T T T s: sol la si do re mi <b>fa♯</b> sol. Por eso, cuando ves un ♯ en la línea del fa al principio del pentagrama, sabes que todos los fa se tocan sostenidos y que probablemente la obra está en sol mayor.</p><p>De la misma forma, la escala de <b>fa mayor</b> necesita un <b>si bemol</b>: fa sol la si♭ do re mi fa.</p><p>Las alteraciones que aparecen solo en un momento, delante de una nota concreta, se llaman <b>accidentales</b>. Solo duran hasta el final del compás en el que aparecen.</p><p>Con la flauta dulce, prueba a tocar la escala de sol mayor con el fa♯: notarás que suena «bien», como una escala completa, mientras que con fa natural parece que le falta algo.</p>`,
+        L5.tabla("Armaduras", ["escala", "armadura", "nota alterada"], [["do mayor", "ninguna", "—"], ["sol mayor", "1 sostenido", "fa♯"], ["fa mayor", "1 bemol", "si♭"]], cVE)],
+    ],
+    "El pulso y el acento": [
+      ["El tempo y el metrónomo", `<p>El <b>tempo</b> es la velocidad a la que se toca una obra. Los compositores lo indican al principio de la partitura con palabras en <b>italiano</b>, porque durante siglos Italia fue el gran centro de la música:</p><ul><li><b>Largo</b> y <b>adagio</b>: muy lento, tranquilo.</li><li><b>Andante</b>: «andando», a paso tranquilo.</li><li><b>Moderato</b>: moderado, ni rápido ni lento.</li><li><b>Allegro</b>: rápido y alegre.</li><li><b>Presto</b>: muy rápido.</li></ul><p>También hay palabras para cambiar el tempo dentro de la obra: <b>accelerando</b> (cada vez más rápido) y <b>ritardando</b> (cada vez más lento).</p><p>Para indicar el tempo con exactitud se usa el <b>metrónomo</b>, un aparato que marca pulsos regulares con un «tic». Lo popularizó <b>Johann Maelzel</b> en 1815, y Beethoven fue uno de los primeros compositores en usarlo en sus partituras. El tempo se mide en <b>pulsos por minuto</b> (en inglés, <i>bpm</i>). Por ejemplo, ♩ = 60 significa una negra por segundo, como el segundero de un reloj.</p><p>Hoy, el metrónomo está en cualquier móvil. Tu corazón en reposo late a unos 70 u 80 pulsos por minuto: más o menos un andante.</p>`,
+        H5.barras("Pulsos por minuto", [["adagio", 70, cAZ, "≈70"], ["andante", 90, cVE, "≈90"], ["moderato", 110, cNA, "≈110"], ["allegro", 135, cRO, "≈135"], ["presto", 180, cMO, "≈180"]], 180)],
+    ],
+  },
+  final: [
+    ["El compás de 6/8", `<p>Los compases que ya conoces (2/4, 3/4 y 4/4) son <b>compases simples</b>: cada pulso se divide en <b>dos</b> partes (dos corcheas por negra).</p><p>Pero hay músicas en las que cada pulso se divide en <b>tres</b> partes. Se escriben en <b>compases compuestos</b>, y el más frecuente es el <b>6/8</b>.</p><p>En el compás de 6/8 caben seis corcheas, agrupadas de tres en tres. Aunque hay seis corcheas, se siente con <b>dos pulsos</b>, cada uno de tres corcheas:</p><p><b>UN</b>-dos-tres-<b>DOS</b>-dos-tres</p><p>Cada pulso dura una <b>negra con puntillo</b> (tres corcheas). Por eso el 6/8 tiene un balanceo característico, como el de una barca, un columpio o un caballo al trote.</p><p>Muchas canciones infantiles, nanas, tarantelas, jigas irlandesas y algunas canciones populares españolas están en 6/8. También muchas bandas sonoras de aventuras usan este compás para dar sensación de cabalgada.</p><p>Para practicarlo, di en voz alta «<b>ca</b>-ra-col, <b>ca</b>-ra-col» marcando con una palmada la primera sílaba de cada palabra. ¡Ya estás sintiendo el 6/8!</p>`,
+      H5.dos("Simple o compuesto", ["2/4", ["2 pulsos", "cada uno en 2", "ti-ti ti-ti"], cAZ], ["6/8", ["2 pulsos", "cada uno en 3", "ca-ra-col"], cRO])],
+    ["El cifrado americano", `<p>En España llamamos a las notas <b>do, re, mi, fa, sol, la, si</b>. Estos nombres vienen de un himno medieval en latín, y los usamos también en Italia, Francia o Portugal.</p><p>Pero en los países de habla inglesa, en Alemania y en buena parte de la música moderna se usan <b>letras</b>. Es el llamado <b>cifrado americano</b> o <b>anglosajón</b>, y empieza por la nota la:</p><ul><li><b>A</b> = la</li><li><b>B</b> = si</li><li><b>C</b> = do</li><li><b>D</b> = re</li><li><b>E</b> = mi</li><li><b>F</b> = fa</li><li><b>G</b> = sol</li></ul><p>Las alteraciones se escriben con el signo detrás: <b>F#</b> es fa sostenido y <b>Bb</b> es si bemol.</p><p>Lo encontrarás en los <b>cancioneros de guitarra</b> y ukelele, donde las letras encima de la canción indican los <b>acordes</b>, en las aplicaciones de afinación y en muchos teclados. Cuando un acorde lleva una <b>m</b> pequeña, es menor: <b>Am</b> es la menor.</p><p>Un truco para recordarlo: la letra A es la primera del abecedario, y el diapasón da el la (A) para afinar.</p>`,
+      L5.tabla("Cifrado americano", ["nota", "letra"], [["do", "C"], ["re", "D"], ["mi", "E"], ["fa", "F"], ["sol", "G"], ["la", "A"], ["si", "B"]], cNA), ["01iepj2khK0", "CIFRADO AMERICANO ¿Que significan las letras C, D, E, etc. en la música?", "Singer Buddy en Español", 113170]],
+  ],
+  ejemplos: [
+    ["¿Qué alteración necesita la escala de sol mayor?", ["Debe seguir el orden T T s T T T s.", "Entre mi y fa hay un semitono, pero ahí necesitamos un tono."], "Fa sostenido."],
+    ["Escribe en cifrado americano la melodía mi mi fa sol.", ["mi = E, fa = F, sol = G."], "E E F G."],
+  ],
+  errores: ["Pensar que la armadura solo afecta a una nota: afecta a todas las notas de ese nombre.", "Contar el 6/8 con seis pulsos fuertes: se siente con dos pulsos de tres corcheas."],
+  ejercicios: [
+    ["b", "Escribe el orden de tonos y semitonos de la escala mayor.", "T T s T T T s."],
+    ["b", "¿Qué escala menor no lleva alteraciones?", "La menor."],
+    ["b", "¿Qué es la armadura?", "Las alteraciones escritas al principio del pentagrama."],
+    ["b", "¿Qué significa allegro?", "Rápido y alegre."],
+    ["b", "¿Qué nota es la letra G?", "Sol."],
+    ["m", "Explica por qué do mayor y la menor son relativas.", "Usan las mismas notas, pero empiezan en notas distintas."],
+    ["m", "Escribe la escala de fa mayor.", "fa sol la si♭ do re mi fa."],
+    ["m", "Ordena del más lento al más rápido: presto, andante, adagio, allegro.", "adagio, andante, allegro, presto."],
+    ["m", "¿Cuántos pulsos se sienten en un compás de 6/8?", "Dos, cada uno de tres corcheas."],
+    ["m", "Traduce: C E G y A C E.", "do mi sol y la do mi."],
+    ["a", "Toca una canción conocida en mayor y en menor y describe la diferencia.", "Respuesta abierta."],
+    ["a", "Mide tu pulso en reposo y después de correr, y di a qué tempo equivalen.", "Respuesta abierta."],
+    ["a", "Inventa un ritmo de cuatro compases en 6/8 y tócalo con percusión corporal.", "Respuesta abierta."],
+    ["a", "Busca un cancionero de guitarra y traduce los acordes al nombre de las notas.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["La escala menor natural de la empieza en…", ["la", "do", "sol"], "Relativa de do."],
+    ["Sol mayor lleva en la armadura…", ["fa♯", "si♭", "nada"], "Un sostenido."],
+    ["Andante significa…", ["a paso tranquilo", "muy rápido", "muy fuerte"], "Andando."],
+    ["El 6/8 es un compás…", ["compuesto", "simple", "de cuatro pulsos"], "Pulso en tres."],
+    ["En cifrado americano, C es…", ["do", "la", "si"], "Letras."],
+  ],
+  examen: [
+    ["Las escalas menores suelen sonar…", ["tristes o misteriosas", "siempre alegres", "sin melodía"], "Carácter."],
+    ["Quien popularizó el metrónomo fue…", ["Maelzel", "Mozart", "Vivaldi"], "1815."],
+  ],
+  tarjetas: [
+    ["Mayor y menor", "Mayor T T s T T T s; menor T s T T s T T."],
+    ["Armadura", "Alteraciones al principio: sol mayor fa♯; fa mayor si♭."],
+    ["Tempo", "Adagio, andante, moderato, allegro, presto; bpm."],
+    ["6/8 y cifrado", "Dos pulsos de tres corcheas; A B C D E F G."],
+  ],
+  glosario: [
+    ["Escala mayor", "Escala con orden T T s T T T s."],
+    ["Escala menor", "Escala con orden T s T T s T T."],
+    ["Relativas", "Tonalidades mayor y menor con las mismas notas."],
+    ["Tercera", "Distancia entre una nota y la que está dos notas por encima."],
+    ["Armadura", "Alteraciones al inicio del pentagrama."],
+    ["Accidental", "Alteración que solo dura un compás."],
+    ["Tempo", "Velocidad de la música."],
+    ["Metrónomo", "Aparato que marca el pulso."],
+    ["Bpm", "Pulsos por minuto."],
+    ["Compás compuesto", "Compás cuyo pulso se divide en tres."],
+    ["Cifrado americano", "Sistema que nombra las notas con letras."],
+    ["Acorde", "Varias notas que suenan a la vez."],
+  ],
+  situacion: {
+    titulo: "Remix de una canción",
+    reto: "Cada grupo elige una canción sencilla y crea cuatro versiones cambiando el modo, el tempo y el compás, para presentarlas como un «remix».",
+    pasos: ["Elegid una canción y escribid su melodía con nombres de notas y en cifrado americano.", "Tocadla en modo mayor y en modo menor, y anotad qué cambia.", "Tocadla en adagio y en allegro usando el metrónomo del móvil.", "Probad a cantarla en 6/8 con balanceo y presentad las cuatro versiones a la clase."],
+    producto: "Cuatro versiones de una canción con una ficha explicativa.",
+    evaluacion: ["Distingue el modo mayor y el menor.", "Usa la armadura correctamente.", "Aplica el tempo con el metrónomo.", "Siente el 6/8 y lee el cifrado americano."],
+  },
+});
