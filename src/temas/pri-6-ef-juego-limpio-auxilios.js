@@ -139,3 +139,91 @@ module.exports = {
   fuentes: [RD, { t: "Cruz Roja Española: primeros auxilios", url: "https://www2.cruzroja.es/" }, { t: "Comité Paralímpico Español", url: "https://www.paralimpicos.es/" }, wiki("Juego limpio", "Juego_limpio")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer gestos de juego limpio que son ejemplo para todos", "Valorar el papel de las familias y del público en el deporte", "Conocer la cadena de supervivencia, la RCP y el desfibrilador", "Colocar a una persona en posición lateral de seguridad y desmontar mitos de primeros auxilios"],
+  lectura: { titulo: "El gesto de Iván", html: `<p>Diciembre de 2012. En Burlada, Navarra, se disputaba una carrera de campo a través. En cabeza iba el keniano Abel Mutai, medallista olímpico. Detrás, a unos metros, le seguía un atleta vasco, Iván Fernández Anaya.</p><p>A pocos metros de la meta, Mutai se detuvo. Creía que ya había cruzado la línea de llegada: no entendía bien los carteles ni lo que le gritaba el público. Iván llegó a su altura. Podía adelantarle y ganar la carrera.</p><p>Pero no lo hizo. Se puso a su lado y, con gestos, le indicó que siguiera hasta la meta de verdad. Mutai ganó. Iván quedó segundo.</p><p>Cuando los periodistas le preguntaron por qué, explicó que Mutai era el justo vencedor y que él no merecía ganar aprovechándose de un error.</p><p>Su gesto dio la vuelta al mundo. Muchos dijeron que había perdido una carrera, pero que había ganado algo mucho más importante.</p><p>En el colegio de Ane, el profesor de Educación Física les contó la historia y les hizo una pregunta: «¿Qué habríais hecho vosotros?». Hubo un silencio largo. Luego, Ane levantó la mano:</p><p>—Creo que lo difícil no es saber qué está bien. Lo difícil es hacerlo cuando nadie te obliga.</p>` },
+  tras: {
+    "Lo que no es juego limpio": [
+      ["Gestos que dieron la vuelta al mundo", `<p>El deporte está lleno de historias en las que los valores importaron más que el resultado:</p><ul><li><b>Iván Fernández Anaya</b> (2012): dejó ganar a Abel Mutai, que se había confundido de meta, como cuenta la lectura.</li><li><b>Tokio 2020</b>: en la final de salto de altura, Mutaz Barshim (Catar) y Gianmarco Tamberi (Italia) empataron. Podían seguir saltando para desempatar, pero preguntaron al juez si podían compartir el oro. Cuando dijo que sí, se abrazaron. Eran amigos desde hacía años.</li><li><b>Atletas que ayudan a un rival lesionado</b> a llegar a la meta en lugar de seguir corriendo, como ocurrió en los Juegos de Río 2016 en la carrera de 5 000 metros, cuando Nikki Hamblin y Abbey D'Agostino chocaron, cayeron y se ayudaron mutuamente a terminar.</li><li>Futbolistas que avisan al árbitro de que <b>no ha sido penalti</b> o que tiran el balón fuera cuando un rival está lesionado.</li></ul><p>Existen premios especiales para estos gestos, como el <b>Trofeo Fair Play</b> del Comité Internacional para el Juego Limpio. Pero el verdadero premio es el respeto de los demás… y el de uno mismo.</p>`,
+        L6.filas("Juego limpio", [["2012 Burlada", "Iván Fernández", cAZ], ["Tokio 2020", "oro compartido", cNA], ["Río 2016", "se ayudan a llegar", cVE], ["fútbol", "balón fuera", cMO]])],
+    ],
+    "Inclusión y respeto a la diversidad": [
+      ["Las familias y el público", `<p>El juego limpio no depende solo de los jugadores. Las <b>familias</b>, los <b>entrenadores</b> y el <b>público</b> también juegan su partido desde la grada, y su comportamiento influye muchísimo en los niños.</p><p>Por desgracia, a veces se ven insultos a los árbitros (muchas veces también niños o jóvenes), gritos a los jugadores rivales, presión excesiva a los propios hijos o incluso peleas entre padres. Por eso muchas federaciones y ayuntamientos han creado <b>decálogos para familias</b>. Algunas ideas:</p><ul><li><b>Animar</b> a todos los jugadores, no solo a los tuyos.</li><li><b>No dar instrucciones</b> desde la grada: eso es trabajo del entrenador.</li><li><b>Respetar</b> al árbitro y sus decisiones.</li><li>Recordar que es un <b>juego</b>: lo importante es que los niños disfruten y aprendan.</li><li>Después del partido, preguntar «¿te lo has pasado bien?» antes que «¿habéis ganado?».</li></ul><p>Algunos campeonatos de deporte base usan la «<b>tarjeta verde</b>», que premia los gestos de deportividad en lugar de solo castigar las faltas. Tú también puedes ayudar: si alguien insulta desde la grada, no le rías la gracia.</p>`,
+        H6.dos("En la grada", ["SÍ", ["animar a todos", "respetar al árbitro", "disfrutar"], cVE], ["NO", ["insultar", "dar órdenes", "presionar"], cRO])],
+    ],
+    "Pérdida de conocimiento y atragantamiento": [
+      ["La cadena de supervivencia: RCP y DEA", `<p>Cuando a una persona se le para el corazón (una <b>parada cardiorrespiratoria</b>), cada minuto cuenta. Para salvarla se sigue la <b>cadena de supervivencia</b>, con cuatro eslabones:</p><ol><li><b>Reconocer y llamar</b>: si la persona no responde y no respira con normalidad, llamar enseguida al <b>112</b> (o pedir a alguien que llame) y pedir un desfibrilador.</li><li><b>RCP precoz</b>: empezar las <b>compresiones torácicas</b>: con los brazos estirados y las manos entrelazadas en el centro del pecho, apretar fuerte y rápido, unas <b>100-120 veces por minuto</b>, sin parar. Un truco para llevar el ritmo es seguir canciones que tengan ese ritmo.</li><li><b>Desfibrilación precoz</b>: usar el <b>DEA</b> (desfibrilador externo automático) en cuanto llegue. Al encenderlo, da instrucciones con voz: dónde poner los parches y cuándo apartarse. Solo da la descarga si es necesaria.</li><li><b>Atención avanzada</b>: llegan los servicios de emergencia y continúan la atención.</li></ol><p>Muchos colegios enseñan RCP a sus alumnos, porque está demostrado que, si más personas saben hacerla, se salvan más vidas. Aunque a tu edad aún no tengas fuerza suficiente para hacerla bien, sí puedes <b>reconocer</b> la situación, <b>llamar al 112</b> y <b>buscar el DEA</b>.</p>`,
+        H6.flujo("Cadena de supervivencia", ["reconocer|y 112", "RCP|100-120/min", "DEA|desfibrilar", "emergencias|llegan"], cRO), ["56PrvOfEqHQ", "RCP DESDE MI COLE:  CANCIÓN DE LA REANIMACIÓN (presentación con fotos)", "RCP desde mi cole", 721218]],
+    ],
+  },
+  final: [
+    ["La posición lateral de seguridad", `<p>Si una persona está <b>inconsciente pero respira</b> y no sospechamos que tenga una lesión en la espalda o el cuello, hay que colocarla en <b>posición lateral de seguridad</b> (PLS). Así evitamos que se ahogue si vomita o que la lengua le tape la garganta. Se hace así:</p><ol><li>Arrodíllate a su lado. Pon el <b>brazo más cercano</b> a ti en ángulo recto con el cuerpo, con la palma hacia arriba.</li><li>Coge el <b>otro brazo</b> y coloca el dorso de su mano contra su mejilla más cercana a ti, y mantenlo ahí.</li><li>Con la otra mano, dobla la <b>pierna más lejana</b> por la rodilla, con el pie apoyado en el suelo.</li><li>Tirando de la rodilla doblada hacia ti, <b>haz girar</b> a la persona hasta que quede de lado, mirando hacia ti.</li><li>Ajusta la pierna de arriba para que la cadera y la rodilla formen un ángulo recto, y <b>inclina un poco la cabeza hacia atrás</b> para que respire bien.</li></ol><p>Después, <b>llama al 112</b> si no lo has hecho, abrígala si hace frío y <b>vigila</b> que siga respirando hasta que llegue la ayuda. Si deja de respirar, hay que empezar la RCP.</p>`,
+      L6.filas("PLS", [["1", "brazo cercano en L", cAZ], ["2", "mano a la mejilla", cVE], ["3", "doblar pierna lejana", cNA], ["4", "girar y vigilar", cMO]]), ["nUYWcEKeBZQ", "Aprende gestos de primeros auxilios - La posición lateral de seguridad", "SIKANA Español", 135148]],
+    ["Mitos de los primeros auxilios", `<p>Hay muchas costumbres que se repiten pero que son <b>incorrectas</b> o incluso peligrosas. Vamos a desmontarlas:</p><ul><li>✗ <b>Sangrado de nariz: echar la cabeza hacia atrás.</b> ✓ Hay que inclinarla <b>hacia delante</b> y apretar la parte blanda de la nariz durante unos 10 minutos. Si se echa hacia atrás, la sangre va a la garganta.</li><li>✗ <b>Quemadura: poner pasta de dientes, aceite o mantequilla.</b> ✓ Enfriarla con <b>agua del grifo</b> (no helada) durante 10-20 minutos y cubrirla con una gasa limpia.</li><li>✗ <b>Golpe: frotar o poner calor enseguida.</b> ✓ Aplicar <b>frío</b> (hielo envuelto en un paño, nunca directo sobre la piel) durante unos 15 minutos.</li><li>✗ <b>Persona desmayada: darle agua o echarle agua en la cara.</b> ✓ No darle nada por la boca; si respira, posición lateral de seguridad.</li><li>✗ <b>Atragantamiento: dar golpes en la espalda si la persona tose.</b> ✓ Si tose, <b>animarla a toser</b>; solo si no puede toser se dan golpes.</li><li>✗ <b>Mover a alguien que se ha caído de altura.</b> ✓ No moverlo salvo peligro; puede tener una lesión de columna.</li></ul><p>Ante la duda, recuerda la conducta <b>PAS</b> y llama al <b>112</b>: allí te dirán lo que debes hacer.</p>`,
+      H6.dos("Mito o verdad", ["✗ MITO", ["cabeza atrás", "pasta de dientes", "agua al desmayado"], cRO], ["✓ CORRECTO", ["cabeza adelante", "agua del grifo", "nada por la boca"], cVE])],
+  ],
+  ejemplos: [
+    ["A un compañero le sangra la nariz. ¿Qué haces?", ["Inclinar la cabeza hacia delante.", "Apretar la parte blanda de la nariz unos 10 minutos."], "Cabeza adelante y presionar; avisar al profesor."],
+    ["Una persona no responde y no respira con normalidad. ¿Cuál es el primer eslabón?", ["Reconocer la situación.", "Llamar al 112 y pedir un DEA."], "Llamar al 112 y empezar RCP (o que la empiece un adulto)."],
+  ],
+  errores: ["Echar la cabeza hacia atrás cuando sangra la nariz.", "Poner pasta de dientes en una quemadura."],
+  ejercicios: [
+    ["b", "¿Qué hizo Iván Fernández Anaya?", "Dejó ganar a Abel Mutai, que se había confundido de meta."],
+    ["b", "¿Qué significa DEA?", "Desfibrilador externo automático."],
+    ["b", "¿Cuántas compresiones por minuto se hacen en la RCP?", "Entre 100 y 120."],
+    ["b", "¿Qué se pone en una quemadura?", "Agua del grifo durante 10-20 minutos."],
+    ["b", "¿A qué número se llama en una emergencia?", "Al 112."],
+    ["m", "Ordena la cadena de supervivencia.", "Reconocer y llamar, RCP, desfibrilación, atención avanzada."],
+    ["m", "¿Cuándo se coloca a alguien en posición lateral de seguridad?", "Cuando está inconsciente pero respira y no hay sospecha de lesión de columna."],
+    ["m", "Escribe tres consejos del decálogo para familias.", "Animar a todos, respetar al árbitro, no dar instrucciones desde la grada."],
+    ["m", "¿Qué pasó en la final de salto de altura de Tokio 2020?", "Barshim y Tamberi compartieron el oro."],
+    ["m", "¿Qué quiso decir Ane con su frase?", "Que lo difícil es actuar bien cuando nadie te obliga."],
+    ["a", "Practica por parejas la posición lateral de seguridad con supervisión.", "Respuesta abierta."],
+    ["a", "Escribe un decálogo de juego limpio para las familias de tu equipo.", "Respuesta abierta."],
+    ["a", "Busca un gesto de juego limpio reciente y explícalo a la clase.", "Respuesta abierta."],
+    ["a", "Localiza dónde está el desfibrilador más cercano a tu colegio y a tu casa.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Si sangra la nariz, la cabeza va…", ["hacia delante", "hacia atrás", "de lado"], "Mitos."],
+    ["El DEA…", ["da instrucciones con voz", "solo lo usan médicos", "se usa con personas conscientes"], "Cadena de supervivencia."],
+    ["La tarjeta verde premia…", ["la deportividad", "los goles", "las faltas"], "Familias y público."],
+    ["En la PLS la persona queda…", ["de lado", "boca arriba", "sentada"], "PLS."],
+    ["A una persona desmayada…", ["no se le da nada por la boca", "se le da agua", "se le da azúcar"], "Mitos."],
+  ],
+  examen: [
+    ["¿Dónde fue la carrera de Iván Fernández Anaya?", ["Burlada (Navarra)", "Madrid", "Barcelona"], "Lectura."],
+    ["La RCP consiste en…", ["compresiones en el centro del pecho", "golpes en la espalda", "levantar las piernas"], "RCP."],
+  ],
+  tarjetas: [
+    ["Gestos de juego limpio", "Iván Fernández Anaya, oro compartido en Tokio 2020, ayudar al rival."],
+    ["En la grada", "Animar a todos, respetar al árbitro, no presionar."],
+    ["Cadena de supervivencia", "Reconocer y 112 → RCP → DEA → emergencias."],
+    ["Mitos", "Nariz: cabeza adelante. Quemadura: agua. Desmayado: nada por la boca."],
+  ],
+  glosario: [
+    ["Fair play", "Juego limpio."],
+    ["Deportividad", "Comportamiento correcto y respetuoso en el deporte."],
+    ["Decálogo", "Lista de diez normas o consejos."],
+    ["Parada cardiorrespiratoria", "Situación en la que el corazón y la respiración se detienen."],
+    ["Cadena de supervivencia", "Pasos para atender una parada cardiaca."],
+    ["RCP", "Reanimación cardiopulmonar."],
+    ["Compresiones torácicas", "Presiones fuertes y rápidas en el centro del pecho."],
+    ["DEA", "Desfibrilador externo automático."],
+    ["Desfibrilación", "Descarga eléctrica que intenta que el corazón vuelva a latir bien."],
+    ["PLS", "Posición lateral de seguridad."],
+    ["Inconsciente", "Que no responde a estímulos."],
+    ["Mito", "Creencia falsa muy extendida."],
+  ],
+  situacion: {
+    titulo: "Embajadores del juego limpio y la salud",
+    reto: "La clase se convierte en embajadora del juego limpio y de los primeros auxilios en el colegio.",
+    pasos: ["Recopilad gestos de juego limpio y preparad una exposición en el pasillo.", "Escribid un decálogo para familias y repartidlo en los partidos del colegio.", "Con ayuda de un profesional, practicad la PLS y la llamada al 112, y aprended dónde está el DEA.", "Preparad una charla para los cursos inferiores desmontando mitos de primeros auxilios."],
+    producto: "Una exposición, un decálogo para familias y una charla de primeros auxilios.",
+    evaluacion: ["Valora y difunde gestos de juego limpio.", "Conoce la cadena de supervivencia y el DEA.", "Realiza la PLS correctamente.", "Distingue mitos de actuaciones correctas."],
+  },
+});

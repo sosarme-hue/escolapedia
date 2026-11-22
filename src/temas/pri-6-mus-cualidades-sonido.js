@@ -92,3 +92,91 @@ module.exports = tema({
   ideas: ["Paisaje sonoro de un lugar con musicograma.", "Medición de decibelios en distintos espacios del colegio con una app.", "Juego del detective del sonido por parejas."],
   fuentes: [["Real Academia Española: timbre", "https://dle.rae.es/timbre"], ["Organización Mundial de la Salud: escucha segura", "https://www.who.int/es/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer la velocidad del sonido y explicar el eco", "Entender cómo funciona el oído", "Medir el sonido en hercios y decibelios y conocer los ultrasonidos", "Reconocer la contaminación acústica y crear paisajes sonoros"],
+  lectura: { titulo: "La tormenta en la casa del pueblo", html: `<p>Aquel verano, en la casa del pueblo, se fue la luz en plena tormenta. Martina y su primo Adrián se quedaron a oscuras en el salón, con un poco de miedo.</p><p>Entonces el abuelo encendió una vela y les propuso un juego.</p><p>—Cuando veáis un relámpago, empezad a contar segundos hasta que oigáis el trueno.</p><p>Un destello iluminó la ventana. «Uno, dos, tres, cuatro, cinco, seis…». ¡BRRROOOM!</p><p>—Seis segundos —dijo Adrián.</p><p>—Pues dividid entre tres —explicó el abuelo—. La tormenta está a unos dos kilómetros. La luz llega casi al instante, pero el sonido tarda unos tres segundos en recorrer cada kilómetro.</p><p>Siguieron contando. Nueve segundos. Doce. Quince.</p><p>—¡Se está alejando! —gritó Martina, aliviada.</p><p>Cuando volvió la calma, el abuelo les contó que, de joven, en la montaña, gritaba su nombre frente a una pared de roca y la montaña se lo devolvía un momento después: el eco.</p><p>A la mañana siguiente, fueron los tres de excursión al barranco. Martina gritó «¡Hola!» con todas sus fuerzas. Medio segundo después, la roca contestó: «¡Hola!». Martina sonrió. Ahora sabía exactamente por qué.</p>` },
+  tras: {
+    "¿Qué es el sonido?": [
+      ["La velocidad del sonido y el eco", `<p>El sonido viaja rápido, pero no tanto como la luz. En el <b>aire</b> recorre unos <b>340 metros por segundo</b>: aproximadamente <b>1 kilómetro cada 3 segundos</b>. La luz, en cambio, recorre unos 300 000 kilómetros por segundo, así que nos llega casi al instante.</p><p>Por eso en una tormenta <b>vemos el relámpago antes de oír el trueno</b>, aunque se producen a la vez. Si cuentas los segundos entre los dos y divides entre 3, sabrás a cuántos kilómetros está la tormenta.</p><p>El sonido viaja todavía <b>más rápido</b> en los líquidos y en los sólidos: en el <b>agua</b>, unas cuatro veces más rápido que en el aire, y en el <b>acero</b>, más de quince veces. Por eso, si pegas la oreja a una vía de tren, puedes oír llegar el tren antes que por el aire (¡no lo hagas nunca, es peligroso!). En el <b>vacío</b>, como en el espacio, el sonido <b>no puede viajar</b>, porque no hay nada que vibre.</p><p>El <b>eco</b> se produce cuando el sonido choca contra una superficie grande y dura (una montaña, una pared) y <b>rebota</b> hacia nosotros. Para que lo oigamos separado del sonido original, la pared debe estar a más de unos 17 metros. Los <b>murciélagos</b> y los <b>delfines</b> usan el eco para orientarse y cazar: es la <b>ecolocalización</b>.</p>`,
+        L6.filas("Velocidad del sonido", [["aire", "unos 340 m/s", cAZ], ["agua", "unos 1 500 m/s", cVE], ["acero", "más de 5 000 m/s", cNA], ["vacío", "no viaja", cRO]]), ["dDyW0j-uimo", "Velocidad del sonido. Calcular distancias a partir del eco.", "a tus problemas", 188322]],
+    ],
+    "El timbre: quién suena": [
+      ["Cómo oímos: el oído", `<p>El <b>oído</b> es el órgano que transforma las vibraciones del aire en señales que entiende el cerebro. Tiene tres partes:</p><ul><li><b>Oído externo</b>: la <b>oreja</b> (pabellón auditivo) recoge el sonido como un embudo y lo conduce por el <b>conducto auditivo</b> hasta el <b>tímpano</b>, una membrana fina que vibra como la piel de un tambor.</li><li><b>Oído medio</b>: tres huesecillos diminutos, el <b>martillo</b>, el <b>yunque</b> y el <b>estribo</b>, transmiten y amplifican la vibración. El estribo es el hueso más pequeño del cuerpo humano.</li><li><b>Oído interno</b>: la <b>cóclea</b> o caracol, un tubo enrollado lleno de líquido, tiene miles de <b>células ciliadas</b> que convierten la vibración en impulsos nerviosos. El <b>nervio auditivo</b> los lleva al cerebro, que los interpreta como sonidos.</li></ul><p>Las células ciliadas son muy delicadas: si se dañan por un ruido muy fuerte, <b>no se regeneran</b>. Por eso la pérdida de audición por ruido es para siempre.</p><p>Tener <b>dos oídos</b> nos permite saber de dónde viene un sonido, porque llega a uno un poquito antes que al otro.</p>`,
+        H6.flujo("El camino del sonido", ["oreja|y conducto", "tímpano|vibra", "huesecillos|amplifican", "cóclea|→ cerebro"], cMO), ["sNpaqG8ZvnI", "¿Cómo funciona el Oído? 👂🏻👨🏻‍⚕️|  Excursión al cuerpo humano 🩻 | Zamba", "Mundo Zamba", 6299420]],
+    ],
+    "Cuida tus oídos": [
+      ["La contaminación acústica", `<p>La <b>contaminación acústica</b> es el exceso de ruido en un lugar, producido sobre todo por el tráfico, los aviones, las obras, el ocio nocturno o las industrias. España es uno de los países de Europa con más ruido en sus ciudades.</p><p>El ruido no solo molesta: según la Organización Mundial de la Salud, el ruido continuado puede provocar <b>problemas de sueño</b>, <b>estrés</b>, dificultades para <b>concentrarse</b> y aprender e, incluso, problemas de corazón. También afecta a los <b>animales</b>: muchos pájaros de ciudad tienen que cantar más fuerte o más agudo para que se les oiga, y el ruido de los barcos desorienta a las ballenas.</p><p>¿Qué podemos hacer?</p><ul><li>Las ciudades hacen <b>mapas de ruido</b>, ponen pantallas acústicas en las autopistas, crean zonas peatonales y limitan la velocidad.</li><li>En el colegio: hablar en un tono adecuado, no arrastrar sillas (se pueden poner protectores en las patas), cerrar las puertas con cuidado.</li><li>En casa: bajar el volumen de la tele y la música, usar auriculares con moderación.</li></ul><p>El <b>silencio</b> también es necesario: nos ayuda a descansar, a pensar y a escuchar mejor. Cada año, en abril, se celebra el <b>Día Internacional de Concienciación sobre el Ruido</b>.</p>`,
+        H6.rueda("Ruido", "MENOS RUIDO", [["tráfico", cRO], ["obras", cNA], ["ocio", cMO], ["en clase", cAZ]])],
+    ],
+  },
+  final: [
+    ["Medir el sonido: hercios y decibelios", `<p>Para medir el sonido usamos dos unidades distintas:</p><ul><li><b>Los hercios (Hz)</b> miden la <b>frecuencia</b>, es decir, cuántas veces vibra un objeto por segundo. Están relacionados con la <b>altura</b>: cuantos más hercios, más agudo es el sonido. La nota <i>la</i> que usan las orquestas para afinar vibra 440 veces por segundo: 440 Hz.</li><li><b>Los decibelios (dB)</b> miden la <b>intensidad</b>: lo fuerte o suave que es el sonido.</li></ul><p>Los seres humanos oímos sonidos de entre unos <b>20 Hz</b> (muy graves) y <b>20 000 Hz</b> (muy agudos). Con la edad, perdemos la capacidad de oír los más agudos.</p><ul><li>Los sonidos por <b>encima de 20 000 Hz</b> se llaman <b>ultrasonidos</b>. No los oímos, pero los perros, los gatos, los murciélagos y los delfines sí. Los silbatos para perros usan ultrasonidos, y los médicos los usan para hacer <b>ecografías</b>.</li><li>Los sonidos por <b>debajo de 20 Hz</b> son los <b>infrasonidos</b>. Los elefantes y las ballenas los usan para comunicarse a muchos kilómetros de distancia. Los terremotos y los volcanes también los producen.</li></ul>`,
+      L6.filas("Lo que oímos", [["infrasonidos", "< 20 Hz", cMO], ["oído humano", "20-20 000 Hz", cVE], ["ultrasonidos", "> 20 000 Hz", cAZ], ["la de afinar", "440 Hz", cNA]])],
+    ["El paisaje sonoro", `<p>Cierra los ojos un minuto y escucha. ¿Qué oyes? Quizá un coche, unos pájaros, voces lejanas, el zumbido de una nevera… El conjunto de sonidos de un lugar se llama <b>paisaje sonoro</b>. El compositor canadiense R. Murray Schafer popularizó esta idea y animó a la gente a «limpiar los oídos» y escuchar con atención su entorno.</p><p>Cada lugar tiene su paisaje sonoro: el de un bosque (viento en las hojas, pájaros, un arroyo), el de una playa (olas, gaviotas, niños jugando), el de una ciudad (tráfico, sirenas, campanas) o el de tu colegio a la hora del recreo.</p><p>Podemos <b>analizar</b> un paisaje sonoro con lo que sabemos de las cualidades del sonido:</p><ul><li>¿Qué sonidos son <b>agudos</b> o <b>graves</b>?</li><li>¿Cuáles son <b>largos</b> o <b>cortos</b>, <b>fuertes</b> o <b>suaves</b>?</li><li>¿Qué <b>timbres</b> reconoces? ¿Son naturales, humanos o de máquinas?</li></ul><p>Y también podemos <b>crearlo</b>: con la voz, objetos e instrumentos, un grupo puede inventar el paisaje sonoro de una tormenta, de una selva o de una estación de tren. Es una forma divertida de componer música sin necesidad de partitura.</p>`,
+      H6.dos("Paisajes sonoros", ["NATURALES", ["viento", "pájaros", "olas"], cVE], ["HUMANOS", ["tráfico", "voces", "campanas"], cAZ])],
+  ],
+  ejemplos: [
+    ["Ves un relámpago y oyes el trueno 9 segundos después. ¿A qué distancia está la tormenta?", ["El sonido recorre 1 km cada 3 s.", "9 : 3 = 3."], "A unos 3 kilómetros."],
+    ["¿Puede un perro oír un sonido de 30 000 Hz? ¿Y una persona?", ["30 000 Hz es un ultrasonido.", "El oído humano llega a 20 000 Hz."], "El perro sí; la persona no."],
+  ],
+  errores: ["Pensar que el sonido viaja por el espacio vacío.", "Creer que el oído dañado por el ruido se recupera solo."],
+  ejercicios: [
+    ["b", "¿Cuántos metros recorre el sonido por segundo en el aire?", "Unos 340."],
+    ["b", "¿Qué es el eco?", "El sonido que rebota en una superficie y vuelve."],
+    ["b", "Nombra los tres huesecillos del oído.", "Martillo, yunque y estribo."],
+    ["b", "¿Qué unidad mide la intensidad del sonido?", "El decibelio."],
+    ["b", "¿Qué son los ultrasonidos?", "Sonidos de más de 20 000 Hz que no oímos."],
+    ["m", "La tormenta está a 4 km. ¿Cuántos segundos tardará el trueno?", "Unos 12 segundos."],
+    ["m", "¿Por qué vemos el relámpago antes de oír el trueno?", "Porque la luz viaja mucho más rápido que el sonido."],
+    ["m", "Explica el camino del sonido desde la oreja hasta el cerebro.", "Oreja, conducto, tímpano, huesecillos, cóclea, nervio auditivo y cerebro."],
+    ["m", "Escribe tres efectos de la contaminación acústica.", "Problemas de sueño, estrés, dificultad para concentrarse."],
+    ["m", "¿Qué animales usan la ecolocalización?", "Murciélagos y delfines."],
+    ["a", "Graba el paisaje sonoro de tu barrio y analiza sus sonidos.", "Respuesta abierta."],
+    ["a", "Diseña una campaña para reducir el ruido en el comedor del colegio.", "Respuesta abierta."],
+    ["a", "Crea en grupo el paisaje sonoro de una tormenta con la voz y objetos.", "Respuesta abierta."],
+    ["a", "Investiga cómo se comunican los elefantes con infrasonidos.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["En el vacío, el sonido…", ["no puede viajar", "viaja más rápido", "viaja igual"], "Velocidad."],
+    ["La cóclea está en el…", ["oído interno", "oído externo", "tímpano"], "Oído."],
+    ["La nota la de afinar vibra a…", ["440 Hz", "100 Hz", "20 000 Hz"], "Frecuencia."],
+    ["Los elefantes se comunican con…", ["infrasonidos", "ultrasonidos", "luz"], "Animales."],
+    ["El conjunto de sonidos de un lugar es su…", ["paisaje sonoro", "partitura", "timbre"], "Paisaje sonoro."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué indicaba que la tormenta se alejaba?", ["que cada vez tardaba más el trueno", "que llovía más", "que volvió la luz"], "Lectura."],
+    ["Los hercios miden…", ["la frecuencia", "la intensidad", "la duración"], "Medir."],
+  ],
+  tarjetas: [
+    ["Velocidad del sonido", "Aire unos 340 m/s; 1 km cada 3 s; más rápido en agua y sólidos."],
+    ["El oído", "Externo (tímpano), medio (huesecillos), interno (cóclea)."],
+    ["Hz y dB", "Hz = frecuencia (altura); dB = intensidad. Humanos: 20-20 000 Hz."],
+    ["Paisaje sonoro", "Conjunto de sonidos de un lugar; se analiza y se crea."],
+  ],
+  glosario: [
+    ["Eco", "Repetición de un sonido que rebota en una superficie."],
+    ["Ecolocalización", "Orientarse mediante el eco de los sonidos emitidos."],
+    ["Tímpano", "Membrana del oído que vibra con el sonido."],
+    ["Huesecillos", "Martillo, yunque y estribo, en el oído medio."],
+    ["Cóclea", "Parte del oído interno en forma de caracol."],
+    ["Células ciliadas", "Células del oído que convierten la vibración en señal nerviosa."],
+    ["Hercio (Hz)", "Unidad de frecuencia: vibraciones por segundo."],
+    ["Decibelio (dB)", "Unidad de intensidad del sonido."],
+    ["Ultrasonido", "Sonido demasiado agudo para el oído humano."],
+    ["Infrasonido", "Sonido demasiado grave para el oído humano."],
+    ["Contaminación acústica", "Exceso de ruido en un lugar."],
+    ["Paisaje sonoro", "Conjunto de sonidos de un entorno."],
+  ],
+  situacion: {
+    titulo: "Detectives del sonido del colegio",
+    reto: "La clase investiga los sonidos del colegio y propone mejoras para reducir el ruido.",
+    pasos: ["Grabad el paisaje sonoro de varios lugares: aula, pasillo, comedor y patio.", "Medid el ruido con una aplicación de decibelios y anotad los resultados.", "Analizad los sonidos según sus cualidades y detectad los más molestos.", "Proponed medidas y cread un paisaje sonoro relajante para el colegio."],
+    producto: "Un mapa de ruido del colegio, propuestas de mejora y un paisaje sonoro creado por la clase.",
+    evaluacion: ["Explica cómo viaja el sonido y cómo lo oímos.", "Mide e interpreta decibelios.", "Analiza sonidos según sus cualidades.", "Propone medidas contra la contaminación acústica."],
+  },
+});

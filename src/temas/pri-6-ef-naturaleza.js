@@ -143,3 +143,91 @@ module.exports = {
   fuentes: [RD, { t: "Federación Española de Deportes de Montaña y Escalada: senderos", url: "https://www.fedme.es/" }, { t: "Federación Española de Orientación", url: "https://www.fedo.org/" }, wiki("Carrera de orientación", "Carrera_de_orientación")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Orientarse de noche con la estrella polar", "Practicar con seguridad actividades en el agua y en la nieve", "Conocer la escalada y sus normas de seguridad", "Respetar los espacios naturales protegidos"],
+  lectura: { titulo: "La noche en el refugio", html: `<p>Era la primera excursión de dos días de la clase de sexto. Después de cinco horas de senderismo por la montaña, llegaron al refugio cuando empezaba a anochecer. Estaban cansados, pero felices.</p><p>Después de cenar, la monitora, Elena, los sacó a todos fuera. Apagaron las linternas y, poco a poco, sus ojos se acostumbraron a la oscuridad. Entonces lo vieron: el cielo estaba lleno de estrellas, muchas más de las que habían visto nunca en la ciudad. Se veía incluso la Vía Láctea, como una nube blanca que cruzaba el cielo.</p><p>—¿Sabéis encontrar el norte sin brújula? —preguntó Elena.</p><p>Nadie sabía. Ella les enseñó a buscar el Carro, la figura de siete estrellas de la Osa Mayor. Luego les dijo que prolongaran cinco veces la distancia entre las dos estrellas de la parte trasera.</p><p>—Esa estrella, la que no es muy brillante pero está sola, es la estrella polar. Siempre señala el norte.</p><p>Iker, que nunca había salido de la ciudad, se quedó mirándola un rato largo.</p><p>—Entonces, si me perdiera de noche, podría saber hacia dónde ir.</p><p>—Exacto —sonrió Elena—. Pero lo mejor es no perderse: no os separéis nunca del grupo.</p>` },
+  tras: {
+    "La brújula": [
+      ["Orientarse de noche: la estrella polar", `<p>En el hemisferio norte, donde está España, hay una estrella que sirve para orientarse de noche: la <b>estrella polar</b>. Está casi exactamente encima del polo norte de la Tierra, así que, mientras el resto de estrellas parecen girar durante la noche, ella se queda <b>casi quieta</b>. Si miras hacia ella, estás mirando al <b>norte</b>.</p><p>Para encontrarla:</p><ol><li>Busca la constelación de la <b>Osa Mayor</b>, en concreto el <b>Carro</b>: siete estrellas brillantes con forma de cazo o de carro.</li><li>Fíjate en las dos estrellas de la parte trasera del «cazo».</li><li>Imagina una línea que las une y prolóngala unas <b>cinco veces</b> esa distancia.</li><li>Llegarás a una estrella no muy brillante y bastante sola: es la <b>estrella polar</b>, que es además el extremo de la cola de la Osa Menor.</li></ol><p>Una vez sabes dónde está el norte, a tu espalda queda el sur, a tu derecha el este y a tu izquierda el oeste.</p><p>Para ver bien las estrellas, aléjate de las luces de las ciudades. La <b>contaminación lumínica</b> hace que en muchas ciudades solo se vean unas pocas estrellas.</p>`,
+        H6.flujo("Encontrar el norte", ["busca|el Carro", "dos estrellas|traseras", "prolonga|×5", "estrella|polar = N"], cAZ), ["-QURWUxWkf8", "Localizando la Estrella Polar | Museo de la Ciencia CosmoCaixa", "Fundación \"la Caixa\"", 107093]],
+    ],
+    "Seguridad en la naturaleza": [
+      ["En el agua y en la nieve", `<p>El agua y la nieve son lugares estupendos para hacer actividad física, pero tienen sus propios riesgos.</p><p><b>En el agua</b> (playa, río, lago, piscina):</p><ul><li>Báñate siempre en <b>zonas vigiladas</b> y con un adulto cerca. Nunca te bañes solo.</li><li>En la playa, fíjate en las <b>banderas</b>: <b>verde</b>, baño permitido; <b>amarilla</b>, precaución; <b>roja</b>, prohibido bañarse.</li><li>No te tires de cabeza en lugares donde no conoces la profundidad.</li><li>En ríos y lagos, cuidado con las corrientes, las rocas resbaladizas y el agua muy fría.</li><li>Si te arrastra una corriente, no nades contra ella: nada en paralelo a la orilla y pide ayuda levantando el brazo.</li><li>En kayak, piragua o vela, lleva siempre <b>chaleco salvavidas</b>.</li></ul><p><b>En la nieve</b> (esquí, raquetas, trineo):</p><ul><li>Usa <b>casco</b>, gafas de sol o de ventisca y protección solar: la nieve refleja mucho el sol.</li><li>Abrígate por <b>capas</b> y protege manos, pies y orejas.</li><li>Esquía por las pistas de tu nivel y respeta las señales.</li><li>No salgas de las zonas señalizadas: hay riesgo de <b>aludes</b>.</li></ul>`,
+        L6.filas("Banderas de playa", [["verde", "baño permitido", cVE], ["amarilla", "precaución", cNA], ["roja", "prohibido", cRO], ["en la nieve", "casco y capas", cAZ]])],
+    ],
+    "Preparar una excursión": [
+      ["La acampada", `<p>Dormir en la naturaleza, en una <b>tienda de campaña</b> o en un <b>refugio</b>, es una experiencia inolvidable. Para que salga bien, hay que tener en cuenta algunas cosas:</p><ul><li><b>Dónde acampar</b>: solo en <b>zonas autorizadas</b> (campings, áreas de acampada). En muchos espacios naturales la acampada libre está prohibida.</li><li><b>Elegir el sitio</b>: un terreno llano, sin piedras, lejos del cauce de ríos y barrancos (puede haber crecidas), y nunca debajo de árboles con ramas secas.</li><li><b>Montar la tienda</b>: con la puerta en dirección contraria al viento, bien tensada y sujeta con piquetas.</li><li><b>El saco de dormir y la esterilla</b>: la esterilla aísla del frío y la humedad del suelo.</li><li><b>El fuego</b>: está prohibido hacer hogueras en el monte casi todo el año por el riesgo de incendio. Se cocina solo en zonas preparadas o con hornillos permitidos.</li><li><b>La basura</b>: todo lo que llevas, te lo llevas de vuelta.</li></ul><p>Por la noche, lleva siempre una <b>linterna frontal</b>, y recuerda que el silencio también es una forma de respetar a los animales que viven allí.</p>`,
+        H6.rueda("Acampar bien", "TIENDA", [["zona autorizada", cVE], ["terreno llano", cAZ], ["sin hogueras", cRO], ["sin basura", cMO]])],
+    ],
+  },
+  final: [
+    ["La escalada", `<p>La <b>escalada</b> consiste en subir por paredes de roca o por <b>rocódromos</b> (paredes artificiales con presas de colores). Es un deporte muy completo: trabaja la fuerza, la flexibilidad, el equilibrio, la coordinación y, sobre todo, la <b>concentración</b> y la <b>confianza</b>. Desde los Juegos de Tokio 2020 es deporte olímpico.</p><p>Hay varias modalidades:</p><ul><li><b>Búlder</b>: paredes bajas, sin cuerda, con colchonetas gruesas debajo. Es la más adecuada para empezar en el colegio, siempre a poca altura.</li><li><b>Escalada con cuerda</b>: en paredes altas. El escalador lleva un <b>arnés</b> atado a una cuerda y un compañero, el <b>asegurador</b>, la controla desde abajo para frenar una caída.</li><li><b>Escalada de velocidad</b>: subir una pared estándar lo más rápido posible.</li></ul><p>Normas de seguridad: escalar siempre con supervisión de un adulto formado, usar <b>casco</b> en roca, revisar el arnés y los nudos antes de subir (el nudo más usado es el <b>ocho</b>), y comunicarse con el asegurador con órdenes claras.</p><p>En la escalada, la confianza en el compañero es fundamental: tu seguridad está en sus manos, y la suya en las tuyas.</p>`,
+      L6.filas("Escalada", [["búlder", "baja, sin cuerda", cVE], ["con cuerda", "arnés y asegurador", cAZ], ["velocidad", "contra el reloj", cRO], ["nudo", "el ocho", cMO]])],
+    ["Los espacios naturales protegidos", `<p>Algunos lugares tienen un valor natural tan grande que se <b>protegen por ley</b>. En España hay muchas figuras de protección: <b>parques nacionales</b>, parques naturales, reservas, monumentos naturales…</p><p>Los <b>parques nacionales</b> son los de máxima protección. España tiene <b>16</b>, entre ellos:</p><ul><li><b>Picos de Europa</b> (Asturias, Cantabria y Castilla y León), el primero, de 1918 (entonces llamado Montaña de Covadonga).</li><li><b>Ordesa y Monte Perdido</b> (Aragón), también de 1918.</li><li><b>Doñana</b> (Andalucía), uno de los humedales más importantes de Europa.</li><li><b>El Teide</b> (Tenerife), con el pico más alto de España.</li><li><b>Sierra de Guadarrama</b> (Madrid y Castilla y León) y <b>Sierra de las Nieves</b> (Málaga), de los más recientes.</li></ul><p>Cuando visitamos un espacio protegido hay que cumplir sus <b>normas</b>: ir por los senderos marcados, no coger plantas, piedras ni animales, no dar de comer a la fauna, no hacer ruido, no llevar perros sueltos y llevarse toda la basura. A veces hay que pedir permiso para ciertas actividades o el número de visitantes está limitado.</p><p>Disfrutar de la naturaleza es un derecho, pero cuidarla es una responsabilidad de todos.</p>`,
+      H6.dos("Espacios protegidos", ["PARQUES", ["Picos de Europa", "Doñana", "Teide"], cVE], ["NORMAS", ["por el sendero", "sin coger nada", "sin ruido"], cAZ])],
+  ],
+  ejemplos: [
+    ["Encuentras la estrella polar delante de ti. ¿Dónde está el este?", ["Delante = norte.", "El este queda a la derecha."], "A tu derecha."],
+    ["En la playa ondea la bandera amarilla. ¿Qué haces?", ["Amarilla = precaución.", "Puedes bañarte con cuidado y cerca de la orilla."], "Bañarse con mucha precaución, en zona vigilada."],
+  ],
+  errores: ["Hacer una hoguera en el monte para cocinar.", "Bañarse solo o en zonas sin vigilancia."],
+  ejercicios: [
+    ["b", "¿Qué estrella señala el norte?", "La estrella polar."],
+    ["b", "¿Qué significa la bandera roja en la playa?", "Prohibido bañarse."],
+    ["b", "¿Qué es un rocódromo?", "Una pared artificial para escalar."],
+    ["b", "¿Cuántos parques nacionales tiene España?", "16."],
+    ["b", "¿Para qué sirve la esterilla en una acampada?", "Para aislar del frío y la humedad del suelo."],
+    ["m", "Explica cómo encontrar la estrella polar.", "Buscar el Carro, prolongar cinco veces la distancia entre las dos estrellas traseras."],
+    ["m", "¿Qué hay que hacer si te arrastra una corriente?", "Nadar en paralelo a la orilla y pedir ayuda levantando el brazo."],
+    ["m", "¿Dónde no hay que montar una tienda y por qué?", "Junto a ríos y barrancos, por las crecidas; bajo árboles con ramas secas."],
+    ["m", "¿Qué hace el asegurador en escalada?", "Controla la cuerda desde abajo para frenar una caída."],
+    ["m", "¿Por qué Iker no había visto tantas estrellas?", "Por la contaminación lumínica de la ciudad."],
+    ["a", "Prepara la lista de material para una acampada de dos días.", "Respuesta abierta."],
+    ["a", "Investiga un parque nacional y presenta sus normas y sus valores naturales.", "Respuesta abierta."],
+    ["a", "Diseña un cartel de seguridad para la playa o la nieve.", "Respuesta abierta."],
+    ["a", "Una noche despejada, encuentra la estrella polar con tu familia y dibuja el Carro.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["La estrella polar…", ["casi no se mueve en el cielo", "es la más brillante", "señala el sur"], "Orientación."],
+    ["En la nieve conviene abrigarse…", ["por capas", "con una sola prenda gorda", "con ropa de verano"], "Nieve."],
+    ["El búlder se escala…", ["sin cuerda y a poca altura", "con cuerda a 50 metros", "en el agua"], "Escalada."],
+    ["Doñana es un parque nacional de…", ["Andalucía", "Galicia", "Aragón"], "Espacios protegidos."],
+    ["En el monte, las hogueras…", ["están prohibidas casi todo el año", "son siempre libres", "se hacen bajo los árboles"], "Acampada."],
+  ],
+  examen: [
+    ["¿Qué figura buscaron para encontrar el norte?", ["el Carro", "Orión", "la Cruz del Sur"], "Lectura."],
+    ["El nudo más usado en escalada es el…", ["ocho", "lazo", "as de guía doble"], "Escalada."],
+  ],
+  tarjetas: [
+    ["Estrella polar", "Carro de la Osa Mayor → prolongar ×5 → norte."],
+    ["Agua y nieve", "Bandera verde, amarilla, roja; chaleco; casco y capas en la nieve."],
+    ["Acampada", "Zona autorizada, terreno llano, sin hogueras, sin basura."],
+    ["Espacios protegidos", "16 parques nacionales; sendero, no coger nada, no hacer ruido."],
+  ],
+  glosario: [
+    ["Estrella polar", "Estrella que señala el norte."],
+    ["Osa Mayor", "Constelación que contiene el Carro."],
+    ["Contaminación lumínica", "Exceso de luz artificial que impide ver el cielo."],
+    ["Corriente", "Movimiento del agua que puede arrastrar a un bañista."],
+    ["Alud", "Gran masa de nieve que cae por una ladera."],
+    ["Refugio", "Edificio de montaña para dormir y protegerse."],
+    ["Piqueta", "Clavo para sujetar la tienda al suelo."],
+    ["Rocódromo", "Pared artificial para escalar."],
+    ["Búlder", "Escalada de poca altura sin cuerda."],
+    ["Arnés", "Equipo que une al escalador con la cuerda."],
+    ["Asegurador", "Persona que controla la cuerda del escalador."],
+    ["Parque nacional", "Espacio natural con la máxima protección."],
+  ],
+  situacion: {
+    titulo: "Nuestra salida a la naturaleza",
+    reto: "La clase planifica con detalle una salida de dos días a un espacio natural cercano.",
+    pasos: ["Elegid el destino, informaos de sus normas y trazad la ruta en un mapa.", "Preparad la lista de material, el menú y el plan de seguridad (agua, calor, frío).", "Organizad actividades: orientación de día, observación de estrellas de noche y juegos.", "Tras la salida, haced una memoria con fotos y una valoración del respeto al entorno."],
+    producto: "Un plan de salida completo y una memoria de la experiencia.",
+    evaluacion: ["Se orienta de día y de noche.", "Conoce y aplica normas de seguridad.", "Prepara el material adecuado.", "Respeta el medio natural y sus normas."],
+  },
+});
