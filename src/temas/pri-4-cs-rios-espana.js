@@ -140,3 +140,91 @@ module.exports = {
   fuentes: [RD, { t: "Ministerio para la Transición Ecológica: el agua", url: "https://www.miteco.gob.es/es/agua.html" }, wiki("Ríos de España", "Anexo:Ríos_de_España"), wiki("Vertiente hidrográfica", "Vertiente_hidrográfica")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Reconocer meandros, deltas y estuarios", "Describir el recorrido del Tajo", "Valorar Doñana como humedal protegido", "Proponer hábitos para ahorrar agua"],
+  lectura: { titulo: "El viaje de una gota", html: `<p>Soy una gota de agua. Hace unas semanas caí como copo de nieve sobre la sierra de Albarracín, en Teruel. Pasé el invierno quieta, helada, con miles de hermanas.</p><p>Con el sol de la primavera me derretí y me escurrí entre las piedras hasta un pequeño manantial. Allí, junto a otras gotas, empecé a correr: había nacido el <b>río Tajo</b>.</p><p>Al principio bajaba saltando por la montaña, rápida y fría, entre rocas y pinos. Luego el río se hizo más ancho y tranquilo. Pasé bajo el viejo puente de Alcántara, que construyeron los romanos, y rodeé la ciudad de Toledo, que se asoma a mí desde lo alto de una roca.</p><p>Algunas de mis compañeras se quedaron por el camino. Unas regaron huertas; otras se detuvieron en un gran embalse y salieron por un grifo en una casa; otras movieron las turbinas de una central y se convirtieron en electricidad.</p><p>Yo seguí. Crucé la frontera y entré en Portugal, donde ya no me llamaban Tajo, sino <b>Tejo</b>. Al final, después de más de mil kilómetros, llegué a Lisboa, y allí me fundí con el océano Atlántico.</p><p>Ahora floto en el mar. Cuando el sol me caliente, subiré al cielo como vapor y, quién sabe, quizá vuelva a caer como nieve en una montaña.</p>` },
+  tras: {
+    "Las partes de un río": [
+      ["Meandros, deltas y estuarios", `<p>A lo largo de su recorrido, el río va dando forma al paisaje:</p><ul><li>En el <b>curso alto</b>, el agua baja con fuerza y excava <b>valles en forma de V</b>, con cascadas y rápidos.</li><li>En el <b>curso medio</b> y bajo, el río va más despacio y forma <mark>meandros</mark>: grandes curvas que el río dibuja en las llanuras, como una serpiente. Con el tiempo, el agua desgasta la orilla de fuera de la curva y deposita arena en la de dentro, así que los meandros cambian de forma.</li></ul><p>En la <b>desembocadura</b> hay dos formas principales:</p><ul><li>El <mark>delta</mark>: cuando el río lleva muchos sedimentos y el mar es tranquilo, deposita la tierra y forma una llanura en forma de triángulo que avanza hacia el mar. El río se divide en brazos. El ejemplo más famoso en España es el <b>delta del Ebro</b>, en Tarragona, con arrozales y lagunas llenas de aves.</li><li>El <mark>estuario</mark>: cuando las mareas son fuertes, el mar entra en la desembocadura y se lleva los sedimentos. La desembocadura es ancha y el agua dulce se mezcla con la salada. Ejemplo: el estuario del <b>Guadalquivir</b>.</li></ul><p>En Galicia, el mar inundó antiguos valles de río y formó las <b>rías</b>.</p>`,
+        H6.dos("Desembocaduras", ["DELTA", ["deposita tierra", "forma de triángulo", "delta del Ebro"], cVE], ["ESTUARIO", ["entra el mar", "boca ancha", "Guadalquivir"], cAZ]), ["X5mgHu2bMvI", "Meandros, delta, erosión y sedimentación en una mesa de flujo", "metfan869", 43395]],
+    ],
+    "La vertiente atlántica": [
+      ["El Tajo, el río más largo", `<p>El <mark>Tajo</mark> es el <b>río más largo de la península ibérica</b>: mide unos <b>1007 kilómetros</b>, de los que unos 800 discurren por España y el resto por Portugal.</p><p>Su recorrido:</p><ul><li><b>Nace</b> en los Montes Universales, en la sierra de Albarracín (Teruel), a unos 1600 metros de altitud.</li><li>Atraviesa Castilla-La Mancha, Madrid y Extremadura, pasando por <b>Aranjuez</b>, <b>Toledo</b> y <b>Talavera de la Reina</b>.</li><li>Entra en Portugal, donde se llama <b>Tejo</b>.</li><li><b>Desemboca</b> en el océano Atlántico, en <b>Lisboa</b>, formando un amplio estuario.</li></ul><p>Sus principales afluentes son el <b>Jarama</b> (con el Manzanares, que pasa por Madrid), el <b>Alberche</b> y el <b>Alagón</b>.</p><p>El Tajo tiene muchos <b>embalses</b>, como los de Entrepeñas y Buendía, y parte de su agua se lleva por un canal hasta el sureste, a la cuenca del Segura: es el <b>trasvase Tajo-Segura</b>.</p><p>Toledo, Patrimonio de la Humanidad, está rodeada casi por completo por un gran meandro del Tajo, que la protegía como un foso natural.</p>`,
+        L6.filas("El Tajo", [["longitud", "unos 1007 km", cAZ], ["nace", "Montes Universales", cVE], ["pasa por", "Aranjuez, Toledo", cNA], ["desemboca", "Lisboa", cMO]])],
+    ],
+    "Cuidar los ríos": [
+      ["Ahorrar agua en casa", `<p>España es uno de los países de Europa con más <b>sequías</b>. El agua dulce es un recurso escaso y valioso, y todos podemos ayudar a ahorrarla con pequeños gestos:</p><ul><li><b>Cerrar el grifo</b> mientras te cepillas los dientes: puedes ahorrar unos 10 litros cada vez.</li><li><b>Ducharse</b> en lugar de bañarse: una bañera gasta unos 200 litros; una ducha corta, unos 50.</li><li>No usar el váter como papelera y, si tiene doble botón, usar el pequeño cuando sea posible.</li><li>Poner la lavadora y el lavavajillas solo cuando estén <b>llenos</b>.</li><li><b>Avisar</b> si un grifo gotea: un grifo que gotea puede perder decenas de litros al día.</li><li>Regar las plantas al <b>atardecer</b>, cuando el sol no evapora el agua.</li><li>Reutilizar el agua de lavar la fruta para regar.</li></ul><p>Y no solo cuenta el agua del grifo. Para producir lo que comemos y usamos también se gasta mucha agua: fabricar unos vaqueros necesita miles de litros. Por eso <b>no desperdiciar</b> comida ni ropa también ahorra agua.</p><p>Además, no tires aceite, medicinas ni productos químicos por el fregadero o el váter: contaminan los ríos.</p>`,
+        L6.filas("Ahorro de agua", [["bañera", "unos 200 litros", cRO], ["ducha corta", "unos 50 litros", cAZ], ["cerrar el grifo", "ahorra unos 10 l", cVE], ["grifo que gotea", "decenas de l/día", cNA]]), ["WGe8WbOKXJg", "¿Qué podemos hacer para cuidar el agua?", "Magic Maestra", 1065714]],
+    ],
+  },
+  final: [
+    ["Doñana, un humedal único", `<p>Los <mark>humedales</mark> son zonas cubiertas de agua poco profunda, como marismas, lagunas y pantanos. Son lugares llenos de vida y muy importantes para las aves.</p><p>El humedal más famoso de España es <mark>Doñana</mark>, en la desembocadura del <b>Guadalquivir</b>, entre Huelva, Sevilla y Cádiz. Es Parque Nacional desde 1969 y Patrimonio de la Humanidad desde 1994.</p><p>En Doñana hay varios paisajes:</p><ul><li>Las <b>marismas</b>, que se inundan en invierno y se secan en verano.</li><li>Las <b>dunas móviles</b>, que avanzan empujadas por el viento.</li><li>Los <b>cotos</b>, zonas de matorral y pinares.</li></ul><p>Cada invierno llegan cientos de miles de <b>aves migratorias</b> del norte de Europa: patos, gansos, flamencos, garzas… Doñana es como un gran aeropuerto en su viaje hacia África.</p><p>Allí viven también especies en peligro, como el <b>lince ibérico</b> y el <b>águila imperial ibérica</b>.</p><p>Doñana está amenazada: la extracción de agua subterránea para regar cultivos y la sequía están secando sus lagunas. Protegerla depende de usar el agua con responsabilidad.</p>`,
+      H6.rueda("Doñana", "DOÑANA", [["marismas", cAZ], ["dunas", cNA], ["lince ibérico", cMO], ["aves", cVE]]), ["m39JJ2-NSWk", "El Parque Nacional de Doñana y el águila imperial", "Planet Doc", 7867]],
+    ["Los ríos y la historia", `<p>Desde la Prehistoria, las personas se han instalado junto a los ríos. El agua era necesaria para beber, cocinar, lavar, regar los campos y dar de beber a los animales. Además, los ríos daban pesca y servían de camino.</p><p>Por eso muchas de nuestras ciudades crecieron a orillas de un río: <b>Sevilla</b> y <b>Córdoba</b> junto al Guadalquivir, <b>Zaragoza</b> junto al Ebro, <b>Toledo</b> junto al Tajo, <b>Valladolid</b> junto al Pisuerga o <b>Salamanca</b> junto al Tormes.</p><p>Las personas inventaron muchas formas de aprovechar el río:</p><ul><li>Los <mark>puentes</mark>, para cruzarlos. Algunos romanos, como el de Alcántara o el de Mérida, siguen en pie.</li><li>Los <mark>molinos</mark> de agua, que usaban la fuerza de la corriente para moler el trigo y hacer harina.</li><li>Las <mark>norias</mark> y las <b>acequias</b>, que los andalusíes perfeccionaron para regar las huertas.</li><li>Los <b>batanes</b>, para golpear y preparar las telas.</li><li>Hoy, los <b>embalses</b> y las <b>centrales hidroeléctricas</b>.</li></ul><p>El Guadalquivir es el único gran río navegable de España: barcos de mercancías llegan hasta el puerto de Sevilla. En el siglo XVI, de allí salían los barcos hacia América.</p>`,
+      H6.flujo("El río y las personas", ["beber|y regar", "molinos|harina", "puentes|cruzar", "embalses|energía"], cAZ)],
+  ],
+  ejemplos: [
+    ["Una ducha corta gasta 50 litros y un baño 200. ¿Cuánto ahorra a la semana quien se ducha en vez de bañarse cada día?", ["200 − 50 = 150 litros al día.", "150 × 7."], "1050 litros a la semana."],
+    ["El río Ebro forma una llanura triangular en el mar. ¿Es un delta o un estuario?", ["Deposita sedimentos: delta.", "Entra el mar: estuario."], "Un delta."],
+  ],
+  errores: ["Pensar que el Ebro es el río más largo de la península; lo es el Tajo.", "Creer que el agua dulce no se acaba porque llueve."],
+  ejercicios: [
+    ["b", "¿Qué es un meandro?", "Una gran curva de un río."],
+    ["b", "¿Dónde nace el Tajo?", "En los Montes Universales (Teruel)."],
+    ["b", "¿En qué ciudad desemboca el Tajo?", "En Lisboa."],
+    ["b", "¿En qué río está Doñana?", "En la desembocadura del Guadalquivir."],
+    ["b", "Escribe dos gestos para ahorrar agua.", "Cerrar el grifo, ducharse…"],
+    ["m", "Explica la diferencia entre delta y estuario.", "El delta deposita tierra; en el estuario entra el mar."],
+    ["m", "¿Cómo se llama el Tajo en Portugal?", "Tejo."],
+    ["m", "¿Por qué Doñana es importante para las aves?", "Es parada de las aves migratorias."],
+    ["m", "¿Qué amenaza a Doñana?", "La extracción de agua y la sequía."],
+    ["m", "¿Para qué servían los molinos de agua?", "Para moler trigo y hacer harina."],
+    ["a", "Durante un día, apunta el agua que usa tu familia y propón ahorros.", "Respuesta abierta."],
+    ["a", "Dibuja el recorrido del Tajo con sus ciudades.", "Respuesta abierta."],
+    ["a", "Haz un póster sobre las aves de Doñana.", "Respuesta abierta."],
+    ["a", "Investiga qué río pasa por tu localidad o la más cercana y su historia.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El delta del Ebro está en…", ["Tarragona", "Sevilla", "Lugo"], "Delta."],
+    ["El río más largo de la península es el…", ["Tajo", "Ebro", "Duero"], "Tajo."],
+    ["Una ducha corta gasta unos…", ["50 litros", "500 litros", "5 litros"], "Ahorro."],
+    ["En Doñana vive el…", ["lince ibérico", "oso polar", "canguro"], "Doñana."],
+    ["El único gran río navegable de España es el…", ["Guadalquivir", "Miño", "Júcar"], "Historia."],
+  ],
+  examen: [
+    ["En la lectura, ¿dónde nació la gota como río?", ["en la sierra de Albarracín", "en Lisboa", "en Toledo"], "Lectura."],
+    ["Un humedal es…", ["una zona con agua poco profunda", "un desierto", "una montaña"], "Doñana."],
+  ],
+  tarjetas: [
+    ["Formas del río", "Meandros; delta (Ebro) y estuario (Guadalquivir)."],
+    ["El Tajo", "1007 km; Montes Universales → Toledo → Lisboa."],
+    ["Ahorrar agua", "Grifo cerrado, ducha corta, lavadora llena, avisar de goteos."],
+    ["Doñana", "Humedal del Guadalquivir; aves migratorias, lince; amenazado."],
+  ],
+  glosario: [
+    ["Meandro", "Curva grande que forma un río."],
+    ["Delta", "Desembocadura en forma de triángulo formada por sedimentos."],
+    ["Estuario", "Desembocadura ancha donde entra el mar."],
+    ["Ría", "Valle de río inundado por el mar."],
+    ["Afluente", "Río que desemboca en otro río."],
+    ["Trasvase", "Paso de agua de una cuenca a otra."],
+    ["Sequía", "Largo periodo sin lluvia."],
+    ["Humedal", "Zona cubierta de agua poco profunda."],
+    ["Marisma", "Terreno bajo que se inunda con agua."],
+    ["Ave migratoria", "Ave que viaja según la estación."],
+    ["Molino de agua", "Máquina que usa la corriente para moler."],
+    ["Noria", "Rueda que saca agua para regar."],
+  ],
+  situacion: {
+    titulo: "Guardianes del agua",
+    reto: "La clase lanza una campaña para ahorrar agua en el colegio y en casa.",
+    pasos: ["Medid cuánta agua se gasta en algunas tareas del colegio.", "Detectad gotas, grifos abiertos y malos hábitos.", "Diseñad carteles y un decálogo del ahorro de agua.", "Comprobad después de un mes si ha mejorado."],
+    producto: "Una campaña con carteles, decálogo y resultados.",
+    evaluacion: ["Mide y calcula el consumo de agua.", "Propone medidas realistas.", "Comunica con carteles claros.", "Valora el agua como recurso escaso."],
+  },
+});

@@ -139,3 +139,91 @@ module.exports = {
   fuentes: [RD, { t: "Instituto Geográfico Nacional (IGN)", url: "https://www.ign.es/" }, wiki("Relieve de España", "Relieve_de_España"), wiki("Meseta Central", "Meseta_Central")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Explicar cómo los agentes externos modelan el relieve", "Leer los colores y las curvas de nivel de un mapa físico", "Conocer los Picos de Europa y el Teide", "Identificar las cumbres más altas de España"],
+  lectura: { titulo: "Subir al Mulhacén", html: `<p>Lucía y su padre salieron del refugio a las cinco de la mañana, cuando todavía era de noche. Llevaban linternas en la frente, agua, bocadillos y ropa de abrigo, aunque era agosto.</p><p>—En la montaña el tiempo cambia muy deprisa —le había explicado su padre—. Arriba puede hacer frío aunque abajo haga calor.</p><p>Caminaban por la <b>Sierra Nevada</b>, en Granada. Su meta era el <b>Mulhacén</b>, la montaña más alta de la península ibérica: 3479 metros.</p><p>Al principio el sendero era suave. Después se volvió empinado y lleno de piedras sueltas. Lucía respiraba más deprisa: a esa altura hay menos oxígeno y cuesta más caminar.</p><p>Cuando amaneció, el cielo se puso rosa y naranja. Desde allí veían valles profundos, lagunas de agua helada y, a lo lejos, una línea azul.</p><p>—¿Eso es el mar? —preguntó Lucía.</p><p>—El Mediterráneo. Y si el día está muy claro, dicen que se ven las montañas de África.</p><p>A las nueve llegaron a la cima. Lucía se sentó junto al montón de piedras que marca la cumbre y se comió el bocadillo más rico de su vida.</p><p>—Desde aquí arriba —dijo—, España parece un mapa de verdad.</p>` },
+  tras: {
+    "¿Qué es el relieve?": [
+      ["El relieve cambia: los agentes externos", `<p>El relieve parece que no cambia nunca, pero en realidad se transforma poco a poco, durante miles y millones de años. Unas fuerzas que vienen del interior de la Tierra levantan las montañas, y otras que actúan desde fuera las van desgastando. Estas últimas se llaman <mark>agentes externos</mark>:</p><ul><li>El <b>agua de los ríos</b> excava valles y arrastra piedras y tierra.</li><li>El <b>mar</b> golpea la costa con las olas, forma acantilados y deposita arena en las playas.</li><li>El <b>viento</b> arrastra la arena y lima las rocas, formando dunas y rocas con formas curiosas.</li><li>El <b>hielo</b> de los glaciares excava valles en forma de U. Además, cuando el agua se congela dentro de las grietas, se expande y rompe las rocas.</li><li>Los <b>cambios de temperatura</b> agrietan las piedras.</li><li>Los <b>seres vivos</b>: las raíces de las plantas rompen las rocas, y las personas construimos carreteras, túneles y embalses.</li></ul><p>Los agentes externos hacen tres trabajos: <b>erosionan</b> (desgastan), <b>transportan</b> (llevan los materiales) y <b>sedimentan</b> (los depositan en otro lugar).</p><p>Por eso las montañas viejas, como las de Galicia, son más bajas y redondeadas, y las jóvenes, como los Pirineos, son altas y afiladas.</p>`,
+        H6.flujo("Agentes externos", ["erosionar|desgastar", "transportar|llevar", "sedimentar|depositar", "nuevo relieve|cambia"], cMO)],
+    ],
+    "Las montañas que rodean la Meseta": [
+      ["Picos de Europa, el primer parque nacional", `<p>Los <mark>Picos de Europa</mark> son un macizo de la Cordillera Cantábrica repartido entre <b>Asturias, Cantabria y Castilla y León</b>. Son montañas de roca caliza, muy escarpadas, con picos afilados, gargantas profundas y lagos de montaña.</p><p>Se dice que su nombre viene de los marineros que volvían de América: eran lo primero que veían de Europa al acercarse a la costa.</p><p>Fue el <b>primer parque nacional de España</b>, creado en <b>1918</b> con el nombre de Parque Nacional de la Montaña de Covadonga. Hoy es uno de los más grandes del país.</p><p>Algunos lugares famosos:</p><ul><li>El <b>Naranjo de Bulnes</b> o Picu Urriellu, una gran torre de roca muy apreciada por los escaladores.</li><li>Los <b>Lagos de Covadonga</b>, Enol y Ercina, de origen glaciar.</li><li>La <b>ruta del Cares</b>, un camino excavado en la roca a lo largo de una garganta del río Cares.</li></ul><p>En sus bosques y prados viven el <b>oso pardo</b>, el lobo, el rebeco, el águila real y el quebrantahuesos. También es tierra de pastores y de quesos famosos, como el Cabrales, que madura en cuevas.</p>`,
+        L6.filas("Picos de Europa", [["dónde", "Asturias, Cantabria, CyL", cVE], ["parque", "el primero, 1918", cAZ], ["pico famoso", "Naranjo de Bulnes", cNA], ["fauna", "oso pardo, rebeco", cMO]]), ["FHgKpk1SyAM", "Parque Nacional de los Picos de Europa", "Turismo Asturias", 126764]],
+    ],
+    "El relieve de las islas": [
+      ["El Teide", `<p>El <mark>Teide</mark>, en la isla de <b>Tenerife</b>, es la montaña más alta de España: mide <b>3715 metros</b>. Es un <b>volcán</b>, y si contamos desde el fondo del océano, donde empieza, supera los 7000 metros: es uno de los volcanes más altos del mundo.</p><p>Su última erupción fue en 1909, en un cráter de su ladera, el Chinyero. Hoy está tranquilo, pero los científicos lo vigilan constantemente. Cerca de su cima salen <b>fumarolas</b>, gases calientes que huelen a azufre.</p><p>El Teide se alza en medio de <b>Las Cañadas</b>, una enorme caldera volcánica de unos 16 kilómetros de ancho. El paisaje parece de otro planeta: coladas de lava negra, rocas de colores y piedras con formas extrañas, como el <b>Roque Cinchado</b>.</p><p>En sus laderas crecen plantas que solo existen allí, como el <b>tajinaste rojo</b>, una flor que puede medir más de dos metros.</p><p>El Parque Nacional del Teide es el parque nacional más visitado de España y es <b>Patrimonio de la Humanidad</b> desde 2007. Se puede subir en teleférico hasta cerca de la cima, aunque para llegar al cráter hace falta un permiso especial.</p>`,
+        L6.filas("El Teide", [["altura", "3715 m", cRO], ["isla", "Tenerife", cAZ], ["tipo", "volcán", cNA], ["Patrimonio", "desde 2007", cVE]]), ["w0k0al2uOqI", "Formación del Teide en 3D", "TelevisionCanaria", 54637]],
+    ],
+  },
+  final: [
+    ["Leer un mapa físico", `<p>Un <mark>mapa físico</mark> representa el relieve, los ríos y las costas. Para mostrar la altitud de cada zona utiliza dos recursos:</p><ul><li>Los <b>colores</b> (tintas hipsométricas): cada color indica un rango de altitud. Normalmente, el <b>verde</b> son las tierras bajas, cerca del nivel del mar; el <b>amarillo</b> y el <b>naranja</b>, alturas medias; el <b>marrón</b>, las montañas; y el <b>blanco</b> o el morado, las cumbres más altas. El <b>azul</b> representa el mar, más oscuro cuanto más profundo. Los colores se explican en la <b>leyenda</b>.</li><li>Las <b>curvas de nivel</b>: líneas que unen puntos que están a la <b>misma altitud</b>. Si las curvas están muy <b>juntas</b>, la pendiente es fuerte; si están <b>separadas</b>, el terreno es suave.</li></ul><p>Otras pistas del mapa físico: un <b>triángulo</b> marca una cumbre con su altura, y los ríos se dibujan con líneas azules que se hacen más gruesas hacia la desembocadura.</p><p>Si miras un mapa físico de España, verás enseguida el gran color amarillo-naranja de la Meseta en el centro, rodeado de marrones (las montañas) y con manchas verdes junto a la costa y en los valles del Ebro y del Guadalquivir.</p>`,
+      L6.filas("Colores del mapa", [["verde", "tierras bajas", cVE], ["amarillo/naranja", "alturas medias", cNA], ["marrón", "montañas", cMO], ["azul", "mar y ríos", cAZ]])],
+    ["Las cumbres más altas", `<p>¿Cuáles son las montañas más altas de España? Aquí tienes las cumbres principales de cada gran sistema montañoso:</p><ul><li><b>Teide</b> (Tenerife): <mark>3715 m</mark>. La más alta de España.</li><li><b>Mulhacén</b> (Sierra Nevada, Sistemas Béticos): <b>3479 m</b>. La más alta de la península.</li><li><b>Aneto</b> (Pirineos, Huesca): <b>3404 m</b>. La más alta de los Pirineos; tiene un glaciar que se está reduciendo por el calentamiento global.</li><li><b>Almanzor</b> (Sierra de Gredos, Sistema Central): <b>2591 m</b>.</li><li><b>Torre Cerredo</b> (Picos de Europa, Cordillera Cantábrica): <b>2648 m</b>.</li><li><b>Moncayo</b> (Sistema Ibérico): <b>2313 m</b>.</li></ul><p>Fíjate en que las montañas más altas de la península están en el sur (Sierra Nevada) y en el norte (Pirineos), es decir, en las <b>montañas exteriores</b> a la Meseta.</p><p>Subir a una montaña es una gran aventura, pero hay que hacerlo con <b>seguridad</b>: ir acompañado de adultos, consultar el tiempo, llevar agua, ropa de abrigo y protección solar, y no salirse de los senderos.</p>`,
+      L6.filas("Cumbres", [["Teide", "3715 m", cRO], ["Mulhacén", "3479 m", cNA], ["Aneto", "3404 m", cAZ], ["Almanzor", "2591 m", cMO]])],
+  ],
+  ejemplos: [
+    ["¿Cuántos metros más alto es el Teide que el Mulhacén?", ["3715 − 3479.", "Restamos."], "236 metros."],
+    ["En un mapa, las curvas de nivel de la ladera norte están muy juntas y las de la sur, separadas. ¿Por qué ladera subirías más cómodo?", ["Juntas: pendiente fuerte.", "Separadas: pendiente suave."], "Por la ladera sur."],
+  ],
+  errores: ["Pensar que el relieve no cambia nunca.", "Creer que el Mulhacén es la montaña más alta de España; es la más alta de la península."],
+  ejercicios: [
+    ["b", "Escribe tres agentes externos que modelan el relieve.", "Agua, viento, hielo…"],
+    ["b", "¿Cuál fue el primer parque nacional de España?", "Picos de Europa (Covadonga)."],
+    ["b", "¿Cuánto mide el Teide?", "3715 m."],
+    ["b", "¿Qué color indica en un mapa las tierras bajas?", "El verde."],
+    ["b", "¿Cuál es la montaña más alta de los Pirineos?", "El Aneto."],
+    ["m", "¿Qué tres trabajos hacen los agentes externos?", "Erosionar, transportar y sedimentar."],
+    ["m", "¿Por qué las montañas viejas son más bajas?", "Porque llevan más tiempo desgastándose."],
+    ["m", "¿Qué son las fumarolas?", "Salidas de gases calientes de un volcán."],
+    ["m", "¿Qué indican las curvas de nivel juntas?", "Una pendiente fuerte."],
+    ["m", "Ordena de mayor a menor: Aneto, Teide, Mulhacén.", "Teide, Mulhacén, Aneto."],
+    ["a", "Haz un modelo de montaña con plastilina y dibuja sus curvas de nivel.", "Respuesta abierta."],
+    ["a", "Haz un gráfico de barras con las cinco cumbres más altas.", "Respuesta abierta."],
+    ["a", "Prepara la mochila para subir a una montaña y justifica cada objeto.", "Respuesta abierta."],
+    ["a", "Busca la montaña más alta de tu comunidad.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El hielo de los glaciares excava valles en forma de…", ["U", "V", "O"], "Agentes."],
+    ["Los Picos de Europa son parque nacional desde…", ["1918", "2018", "1800"], "Picos."],
+    ["El Teide es un…", ["volcán", "glaciar", "río"], "Teide."],
+    ["Las curvas de nivel unen puntos de igual…", ["altitud", "temperatura", "población"], "Mapa."],
+    ["La montaña más alta de la península es el…", ["Mulhacén", "Moncayo", "Almanzor"], "Cumbres."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué mar ve Lucía desde la cima?", ["el Mediterráneo", "el Cantábrico", "el Atlántico"], "Lectura."],
+    ["El tajinaste rojo crece en…", ["el Teide", "los Pirineos", "la Meseta"], "Teide."],
+  ],
+  tarjetas: [
+    ["Agentes externos", "Agua, mar, viento, hielo, seres vivos: erosionan, transportan, sedimentan."],
+    ["Picos de Europa", "Primer parque nacional (1918); Naranjo de Bulnes; oso pardo."],
+    ["Teide", "3715 m, volcán de Tenerife; Patrimonio 2007."],
+    ["Mapa físico", "Colores por altitud y curvas de nivel."],
+  ],
+  glosario: [
+    ["Agente externo", "Fuerza que desgasta y cambia el relieve desde fuera."],
+    ["Erosión", "Desgaste del relieve."],
+    ["Sedimentación", "Depósito de materiales transportados."],
+    ["Glaciar", "Gran masa de hielo que se mueve lentamente."],
+    ["Macizo", "Grupo de montañas."],
+    ["Garganta", "Valle estrecho y profundo entre montañas."],
+    ["Caliza", "Tipo de roca que el agua disuelve poco a poco."],
+    ["Caldera", "Gran hundimiento en forma de olla en un volcán."],
+    ["Fumarola", "Salida de gases de un volcán."],
+    ["Mapa físico", "Mapa que representa el relieve, ríos y costas."],
+    ["Curva de nivel", "Línea que une puntos de igual altitud."],
+    ["Cumbre", "Parte más alta de una montaña."],
+  ],
+  situacion: {
+    titulo: "Maqueta del relieve",
+    reto: "La clase construye una gran maqueta del relieve de España.",
+    pasos: ["Dibujad el contorno de España sobre un cartón grande.", "Modelad la Meseta y las montañas con plastilina o pasta de papel.", "Pintad con los colores del mapa físico y marcad cumbres con banderitas.", "Explicad la maqueta a otra clase."],
+    producto: "Una maqueta del relieve de España con leyenda.",
+    evaluacion: ["Sitúa correctamente las unidades del relieve.", "Usa los colores de altitud.", "Señala las cumbres principales.", "Explica la maqueta con vocabulario geográfico."],
+  },
+});

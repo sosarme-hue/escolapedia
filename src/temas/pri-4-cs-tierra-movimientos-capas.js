@@ -136,3 +136,91 @@ module.exports = {
   fuentes: [RD, wiki("Rotación de la Tierra", "Rotación_de_la_Tierra"), wiki("Estación del año", "Estación_del_año"), wiki("Estructura interna de la Tierra", "Estructura_interna_de_la_Tierra")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Explicar los husos horarios a partir de la rotación", "Describir los eclipses de Sol y de Luna", "Localizar lugares con paralelos y meridianos", "Conocer la erupción de La Palma y cómo actuar ante un terremoto"],
+  lectura: { titulo: "El volcán de mi isla", html: `<p>Me llamo Aday y vivo en La Palma. El 19 de septiembre de 2021 era domingo. Estaba en el jardín de mi abuela cuando la tierra empezó a temblar otra vez; llevaba días haciéndolo.</p><p>De repente, se oyó un estruendo enorme, como un trueno que no terminaba. Al mirar hacia la montaña vi una columna de humo negro que subía hacia el cielo y, debajo, fuentes de fuego rojo.</p><p>—¡Es el volcán! —gritó mi abuela.</p><p>Esa misma tarde nos fuimos de casa con lo imprescindible. Los vecinos ayudaban a sacar muebles, fotos y animales. Por la noche, desde casa de mis tíos, veíamos el río de lava bajar brillando por la ladera.</p><p>El volcán estuvo en erupción <b>85 días</b>. La lava cubrió casas, plantaciones de plátanos, carreteras y hasta un colegio. La ceniza negra lo llenaba todo: teníamos que barrer los tejados cada día y salir con mascarilla.</p><p>La casa de mi abuela se salvó por poco. Otras familias lo perdieron todo, pero nadie murió, porque los científicos vigilaban el volcán y se evacuó a tiempo.</p><p>Hoy, donde antes había campos, hay una montaña nueva. Mi isla es un poco más grande: la lava llegó al mar y creó tierra nueva. Y yo quiero ser vulcanóloga.</p>` },
+  tras: {
+    "El movimiento de rotación": [
+      ["Los husos horarios", `<p>Como la Tierra gira sobre sí misma, el Sol no ilumina todos los lugares a la vez. Cuando en España es mediodía, en otros países es de noche o está amaneciendo. Por eso cada lugar tiene su propia hora.</p><p>Para organizarlo, la Tierra se dividió en <mark>24 husos horarios</mark>, como los gajos de una naranja, uno por cada hora del día. Al pasar de un huso al siguiente hacia el <b>este</b>, se suma una hora; hacia el <b>oeste</b>, se resta.</p><p>El punto de partida es el <b>meridiano de Greenwich</b>, que pasa por Londres… ¡y también por Castellón, en España!</p><p>En España hay <b>dos horas distintas</b>:</p><ul><li>En la península, Baleares, Ceuta y Melilla.</li><li>En <b>Canarias</b> es <b>una hora menos</b>. Por eso en las noticias se dice: «son las ocho, una menos en Canarias».</li></ul><p>Algunos ejemplos: cuando en Madrid son las 12 del mediodía, en Nueva York son las 6 de la mañana y en Tokio, las 8 de la tarde.</p><p>Cuando viajamos en avión a lugares muy lejanos, el cuerpo nota el cambio de horario: tenemos sueño o hambre a horas raras. Es el llamado <b>jet lag</b>.</p>`,
+        L6.filas("Si en Madrid son las 12", [["Canarias", "las 11", cNA], ["Londres", "las 11", cAZ], ["Nueva York", "las 6", cMO], ["Tokio", "las 20", cRO]]), ["i3IVqSq5R7M", "Husos horarios explicados de forma sencilla", "MindMachineTV", 378949]],
+    ],
+    "El movimiento de traslación": [
+      ["Los eclipses", `<p>Mientras la Tierra gira alrededor del Sol, la Luna gira alrededor de la Tierra. A veces los tres astros quedan <b>alineados</b>, y entonces se produce un <mark>eclipse</mark>.</p><ul><li><b>Eclipse de Sol</b>: la <b>Luna</b> se pone entre el Sol y la Tierra y tapa el Sol. Si lo tapa entero, es un eclipse <b>total</b>: durante unos minutos se hace de noche en pleno día, baja la temperatura y los pájaros se callan. Solo se ve desde una franja estrecha de la Tierra.</li><li><b>Eclipse de Luna</b>: la <b>Tierra</b> se pone entre el Sol y la Luna, y su sombra cubre la Luna. La Luna no desaparece: se vuelve de color <b>rojizo</b>. Se ve desde toda la mitad de la Tierra donde es de noche.</li></ul><p><b>¡Atención!</b> Nunca mires directamente al Sol, ni siquiera durante un eclipse: puede dañar los ojos para siempre. Hay que usar <b>gafas especiales homologadas</b> o un proyector casero hecho con una caja de cartón con un agujerito.</p><p>España está de suerte: el <b>12 de agosto de 2026</b> hubo un eclipse total de Sol visible en buena parte de la península, en agosto de 2027 habrá otro total en el sur, y en enero de 2028, uno anular. Hacía más de un siglo que no se veía uno total en España.</p>`,
+        H6.dos("Eclipses", ["DE SOL", ["la Luna en medio", "tapa el Sol", "¡gafas especiales!"], cNA], ["DE LUNA", ["la Tierra en medio", "le da sombra", "Luna rojiza"], cRO]), ["LORLGccN93Y", "Los eclipses para niños", "Smile and Learn - Español", 4319936]],
+    ],
+    "Volcanes y terremotos": [
+      ["La erupción de La Palma", `<p>El <mark>19 de septiembre de 2021</mark> comenzó una erupción volcánica en la isla de <b>La Palma</b>, en Canarias, en la zona de Cumbre Vieja. Fue la erupción más larga de la que se tiene registro en la isla: duró <b>85 días</b>, hasta el 13 de diciembre.</p><p>Algunas cifras:</p><ul><li>Las coladas de lava cubrieron más de <b>1200 hectáreas</b>, como unos 1700 campos de fútbol.</li><li>Destruyeron cerca de <b>3000 edificios</b>, carreteras y muchas plantaciones de plátanos.</li><li>Más de <b>7000 personas</b> tuvieron que ser evacuadas.</li><li>La lava llegó al mar y formó dos nuevas plataformas de tierra, llamadas <b>fajanas</b>.</li></ul><p>Gracias a la <b>vigilancia de los científicos</b>, que detectaron miles de pequeños terremotos en los días anteriores, se pudo avisar y evacuar a tiempo a la población.</p><p>El volcán se llama hoy <b>Tajogaite</b>. Canarias es una región volcánica: todas sus islas se formaron por erupciones bajo el mar a lo largo de millones de años, y el Teide, en Tenerife, es un volcán que también se vigila.</p>`,
+        L6.filas("La Palma 2021", [["duración", "85 días", cRO], ["lava", "más de 1200 ha", cNA], ["evacuados", "más de 7000", cMO], ["nombre", "Tajogaite", cAZ]]), ["hmQyNFDAL5I", "Así ha cambiado La Palma tras tres meses de erupción", "EL PAÍS", 1456931]],
+    ],
+  },
+  final: [
+    ["Paralelos y meridianos", `<p>Para localizar cualquier lugar de la Tierra, los geógrafos dibujaron sobre el globo una <b>red de líneas imaginarias</b>, como una cuadrícula:</p><ul><li>Los <mark>paralelos</mark> son círculos que rodean la Tierra de este a oeste, paralelos al ecuador. El más importante es el <b>ecuador</b>, que divide la Tierra en hemisferio norte y hemisferio sur. Otros paralelos famosos son los <b>trópicos</b> de Cáncer y de Capricornio y los <b>círculos polares</b>.</li><li>Los <mark>meridianos</mark> son semicírculos que van de un polo al otro. El más importante es el <b>meridiano de Greenwich</b>, o meridiano 0, que divide la Tierra en hemisferio este y hemisferio oeste.</li></ul><p>Con estas líneas se miden dos datos:</p><ul><li>La <b>latitud</b>: lo lejos que está un lugar del ecuador, hacia el norte o hacia el sur.</li><li>La <b>longitud</b>: lo lejos que está del meridiano de Greenwich, hacia el este o hacia el oeste.</li></ul><p>Juntas forman las <b>coordenadas geográficas</b>. Es como en el juego de los barcos: con una letra y un número encuentras una casilla. El GPS de los móviles usa coordenadas para saber dónde estás.</p><p>España está en el hemisferio norte y, casi toda, en el hemisferio oeste.</p>`,
+      H6.dos("Líneas imaginarias", ["PARALELOS", ["de este a oeste", "el ecuador", "miden la latitud"], cAZ], ["MERIDIANOS", ["de polo a polo", "el de Greenwich", "miden la longitud"], cNA])],
+    ["Qué hacer en un terremoto", `<p>En España hay terremotos todos los días, pero casi todos son tan pequeños que no se notan. Las zonas con más actividad son el <b>sureste</b> (Granada, Murcia, Almería, Alicante) y los <b>Pirineos</b>, además de Canarias. Por eso conviene saber cómo actuar.</p><p><b>Durante el terremoto</b>, sigue la regla <mark>«agáchate, cúbrete y agárrate»</mark>:</p><ul><li>Si estás dentro de un edificio, <b>no salgas corriendo</b>. Métete debajo de una mesa fuerte, protégete la cabeza y agárrate a la pata.</li><li>Aléjate de ventanas, espejos, estanterías y objetos que puedan caer.</li><li>No uses el ascensor.</li><li>Si estás en la calle, aléjate de edificios, árboles, farolas y cables.</li></ul><p><b>Después del terremoto</b>:</p><ul><li>Sal con calma, por las escaleras, siguiendo las indicaciones de los adultos.</li><li>Puede haber <b>réplicas</b>: temblores más pequeños.</li><li>Escucha la radio y sigue las instrucciones de Protección Civil.</li></ul><p>En los colegios se hacen <b>simulacros</b> para practicar. Tómatelos en serio: practicar ayuda a no tener miedo y a actuar bien.</p>`,
+      H6.flujo("En un terremoto", ["agáchate|al suelo", "cúbrete|bajo la mesa", "agárrate|y espera", "sal|con calma"], cRO)],
+  ],
+  ejemplos: [
+    ["En Madrid son las 9 de la mañana. ¿Qué hora es en Las Palmas de Gran Canaria?", ["Canarias tiene una hora menos.", "9 − 1."], "Las 8 de la mañana."],
+    ["Durante un eclipse, la Luna se ve rojiza. ¿Qué tipo de eclipse es y qué astro está en medio?", ["Si la Luna se oscurece, es de Luna.", "La Tierra tapa la luz del Sol."], "Eclipse de Luna; la Tierra está en medio."],
+  ],
+  errores: ["Pensar que en un eclipse de Sol se puede mirar al Sol sin protección porque está tapado.", "Salir corriendo del edificio durante un terremoto."],
+  ejercicios: [
+    ["b", "¿En cuántos husos horarios se divide la Tierra?", "En 24."],
+    ["b", "¿Qué astro tapa al Sol en un eclipse de Sol?", "La Luna."],
+    ["b", "¿Cómo se llama el paralelo más importante?", "El ecuador."],
+    ["b", "¿En qué isla fue la erupción de 2021?", "En La Palma."],
+    ["b", "Escribe la regla para actuar en un terremoto.", "Agáchate, cúbrete y agárrate."],
+    ["m", "Si en Madrid son las 15, ¿qué hora es en Tenerife?", "Las 14."],
+    ["m", "¿Por qué no se puede mirar el Sol durante un eclipse?", "Puede dañar los ojos para siempre."],
+    ["m", "¿Qué mide la latitud? ¿Y la longitud?", "Distancia al ecuador; distancia al meridiano de Greenwich."],
+    ["m", "¿Por qué no murió nadie en la erupción de La Palma?", "Se vigiló el volcán y se evacuó a tiempo."],
+    ["m", "¿Qué son las réplicas?", "Temblores más pequeños tras un terremoto."],
+    ["a", "Construye un visor de eclipses con una caja de cartón.", "Respuesta abierta."],
+    ["a", "Busca las coordenadas de tu colegio con un mapa digital.", "Respuesta abierta."],
+    ["a", "Escribe la noticia del primer día de la erupción de La Palma.", "Respuesta abierta."],
+    ["a", "Diseña un cartel para el simulacro de terremoto del colegio.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["En Canarias es…", ["una hora menos", "una hora más", "la misma hora"], "Husos."],
+    ["En un eclipse de Luna, la Luna se ve…", ["rojiza", "verde", "más brillante"], "Eclipses."],
+    ["El meridiano de Greenwich pasa por…", ["Castellón", "Sevilla", "Bilbao"], "Meridianos."],
+    ["La erupción de La Palma duró…", ["85 días", "2 días", "5 años"], "La Palma."],
+    ["En un terremoto, dentro de casa debes…", ["meterte bajo una mesa fuerte", "usar el ascensor", "asomarte a la ventana"], "Terremoto."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué quiere ser Aday?", ["vulcanóloga", "astronauta", "bombera"], "Lectura."],
+    ["La latitud mide la distancia al…", ["ecuador", "Sol", "mar"], "Paralelos."],
+  ],
+  tarjetas: [
+    ["Husos horarios", "24 husos; Greenwich; Canarias una hora menos."],
+    ["Eclipses", "De Sol: Luna en medio. De Luna: Tierra en medio. ¡Gafas!"],
+    ["Coordenadas", "Paralelos (latitud) y meridianos (longitud)."],
+    ["Riesgos", "La Palma 2021, 85 días; agáchate, cúbrete y agárrate."],
+  ],
+  glosario: [
+    ["Huso horario", "Zona de la Tierra con la misma hora."],
+    ["Jet lag", "Malestar por cambiar de huso horario al viajar."],
+    ["Eclipse", "Ocultación de un astro por otro."],
+    ["Paralelo", "Línea imaginaria paralela al ecuador."],
+    ["Meridiano", "Línea imaginaria de polo a polo."],
+    ["Latitud", "Distancia de un lugar al ecuador."],
+    ["Longitud", "Distancia de un lugar al meridiano de Greenwich."],
+    ["Coordenadas", "Datos que sitúan un punto en el mapa."],
+    ["Colada", "Río de lava que baja de un volcán."],
+    ["Evacuar", "Sacar a la gente de un lugar peligroso."],
+    ["Réplica", "Temblor menor que sigue a un terremoto."],
+    ["Simulacro", "Ensayo de lo que hay que hacer en una emergencia."],
+  ],
+  situacion: {
+    titulo: "Planeta en movimiento",
+    reto: "La clase crea un programa de radio sobre los movimientos y los riesgos de la Tierra.",
+    pasos: ["Repartid secciones: husos horarios, eclipses, coordenadas, volcanes y terremotos.", "Preparad el guion con datos y una pregunta para los oyentes.", "Grabad o representad el programa.", "Incluid un anuncio con consejos de seguridad."],
+    producto: "Un programa de radio grabado o representado.",
+    evaluacion: ["Explica correctamente los fenómenos.", "Usa vocabulario geográfico.", "Incluye medidas de seguridad.", "Se expresa con claridad oral."],
+  },
+});
