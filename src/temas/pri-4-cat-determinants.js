@@ -88,3 +88,91 @@ module.exports = P.tema({
   saberes: "Coneixement de la llengua: el determinant; articles definits i indefinits; apostrofació; contraccions; demostratius; possessius; numerals cardinals i ordinals (dos/dues); indefinits (cap, diversos); concordança amb el nom",
   ideas: ["Cartolines de colors per a cada classe de determinant i frases per completar.", "Joc de distàncies al pati amb aquest i aquell.", "Cursa d'ordinals: cada alumne diu la seva posició en arribar."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Fer servir l'article personal davant dels noms de persona", "Escriure els números en lletres amb la regla del DUC", "Reconèixer els interrogatius i els exclamatius", "Escriure bé els ordinals i les seves abreviatures"],
+  lectura: { titulo: "La cursa de la Marta", html: `<p>Diumenge al matí, <b>la</b> Marta i <b>en</b> Pol es van llevar ben d'hora. Era el dia de <b>la</b> cursa del barri!</p><p>A <b>la</b> sortida hi havia <b>cent vint-i-dos</b> corredors, tots amb <b>el seu</b> dorsal. <b>La</b> Marta portava el número <b>trenta-quatre</b> i en Pol, el <b>quaranta-u</b>.</p><p>—<b>Quina</b> gentada! —va dir en Pol—. <b>Quants</b> corredors hi ha?</p><p>—Més de cent! —va respondre <b>la</b> Marta—. I <b>quin</b> premi donen al guanyador?</p><p>—Una copa i <b>una</b> samarreta.</p><p>Va sonar <b>el</b> tret de sortida. <b>Aquells</b> primers metres van ser molt ràpids. <b>La</b> Marta anava <b>desena</b>, després <b>setena</b>, després <b>cinquena</b>… En Pol es va quedar una mica enrere, però no es va rendir.</p><p>Quan faltaven <b>dos-cents</b> metres, <b>la</b> Marta va avançar <b>dues</b> corredores més. Va arribar a <b>la</b> meta en <b>tercera</b> posició!</p><p>—<b>Quina</b> cursa més bona! —li va dir <b>la</b> seva àvia, que l'esperava amb <b>la</b> càmera.</p><p>En Pol va arribar <b>vint-i-sisè</b>, cansat però content.</p><p>—<b>L'any</b> que ve —va dir— entrenaré <b>cada</b> dia.</p><p>I tots <b>dos</b> van anar a celebrar-ho amb <b>uns</b> entrepans i <b>unes</b> llimonades ben fresques.</p>` },
+  tras: {
+    "L'article i l'apostrofació": [
+      ["L'article personal", `<p>En català, davant dels <b>noms de persona</b> posem un article especial: l'<mark>article personal</mark>. És molt característic de la nostra llengua!</p><ul><li><b>En</b>: davant de noms masculins que comencen per <b>consonant</b>: <i>en Pol</i>, <i>en Jordi</i>, <i>en Marc</i>.</li><li><b>Na</b>: davant de noms femenins que comencen per consonant. Es fa servir sobretot a les <b>Balears</b>: <i>na Maria</i>, <i>na Catalina</i>. A Catalunya s'acostuma a dir <i>la Maria</i>.</li><li><b>L'</b>: davant de noms masculins o femenins que comencen per <b>vocal</b> o <b>h</b>: <i>l'Arnau</i>, <i>l'Anna</i>, <i>l'Helena</i>, <i>l'Oriol</i>.</li></ul><p>A Catalunya, amb els noms femenins es fa servir l'article normal <b>la</b>: <i>la Marta</i>, <i>la Júlia</i>.</p><p>Fixa't en aquestes particularitats:</p><ul><li>Davant de noms de persona que comencen per <b>i</b> o <b>u</b> àtones femenines, <b>no</b> s'apostrofa: <i>la Irene</i>, <i>la Isabel</i>. En canvi, sí que s'apostrofa si la vocal és tònica: <i>l'Íngrid</i>.</li><li>L'article personal també es fa servir davant de <b>cognoms</b>: <i>en Puig</i>, <i>la Serra</i>.</li><li>Al País Valencià, en canvi, se sol dir el nom sense article: <i>Pau ha vingut</i>.</li></ul><p>Recorda: l'article personal <b>en</b> és diferent de la preposició <i>en</i>. Si va davant d'un nom de persona, és article.</p>`,
+        L6.filas("Article personal", [["en", "en Pol, en Marc", cAZ], ["na", "na Maria (Balears)", cNA], ["la", "la Marta", cVE], ["l'", "l'Arnau, l'Anna", cMO]])],
+    ],
+    "Els numerals": [
+      ["Escriure números en lletres", `<p>Per escriure els <mark>números en lletres</mark>, hi ha una regla molt fàcil de recordar: la <b>regla del DUC</b>. Ens diu on posem el <b>guionet</b>:</p><ul><li><b>D-U</b>: entre les <b>desenes</b> i les <b>unitats</b> hi va guionet: <i>trenta-dos</i>, <i>quaranta-cinc</i>, <i>noranta-nou</i>.</li><li><b>U-C</b>: entre les <b>unitats</b> i les <b>centenes</b> també hi va guionet: <i>dos-cents</i>, <i>tres-centes</i>, <i>nou-cents</i>.</li></ul><p>En canvi, entre les centenes i les desenes <b>no</b> hi ha guionet: <i>dos-cents trenta</i>, <i>cent quaranta-u</i>.</p><p>Els números entre el 21 i el 29 porten <b>-i-</b> entre guionets: <i>vint-i-u</i>, <i>vint-i-dos</i>, <i>vint-i-nou</i>. A partir del 31, ja no: <i>trenta-u</i>, <i>quaranta-dos</i>.</p><p>Altres coses a recordar:</p><ul><li><b>Dos</b> té femení: <i>dues</i>. I també <b>u</b>: <i>una</i>. <i>Vint-i-una nenes</i>, <i>dues-centes pàgines</i>.</li><li>Les <b>centenes</b> concorden amb el nom: <i>tres-cents nens</i>, <i>tres-centes nenes</i>.</li><li><b>Mil</b> no porta guionet ni canvia: <i>dos mil</i>, <i>tres mil vint</i>.</li><li><b>Cent</b> sol, sense <i>u</i> davant: <i>cent nens</i>, no «un cent».</li></ul><p>Un truc per no equivocar-te: llegeix el número en veu alta a poc a poc i pensa en quina part ets. Si passes de les desenes a les unitats, posa-hi guionet. Si passes de les unitats a les centenes, també. I si saltes de les centenes a les desenes, deixa-hi un espai. Quan escrius l'import d'un xec, un rebut o una data, és molt important escriure bé els números en lletres, perquè així ningú no els pot canviar.</p><p>Exemple complet: 1.234 → <i>mil dos-cents trenta-quatre</i>.</p>`,
+        H6.flujo("Regla del DUC", ["D-U|trenta-dos", "U-C|dos-cents", "C D|sense guió", "21-29|vint-i-u"], cAZ), ["GuUt-R2bFnc", "Regla del DUC: escriure els nombres", "Ruben Sebastian", 46522]],
+    ],
+    "Els indefinits": [
+      ["Interrogatius i exclamatius", `<p>Hi ha determinants que serveixen per <b>preguntar</b> o per <b>exclamar</b>, és a dir, per expressar emoció o sorpresa:</p><ul><li>Els <mark>interrogatius</mark> van en preguntes: <i><b>Quin</b> llibre llegeixes?</i> <i><b>Quina</b> hora és?</i> <i><b>Quants</b> germans tens?</i> <i><b>Quantes</b> pomes vols?</i></li><li>Els <mark>exclamatius</mark> van en exclamacions: <i><b>Quina</b> calor!</i> <i><b>Quin</b> gol més bonic!</i> <i><b>Quanta</b> gent!</i></li></ul><p>Les formes són les mateixes:</p><ul><li><b>Quin, quina, quins, quines</b>: per identificar.</li><li><b>Quant, quanta, quants, quantes</b>: per a la quantitat.</li></ul><p>Totes concorden amb el nom que acompanyen: <i>quin<b>s</b> llibre<b>s</b></i>, <i>quant<b>es</b> cadir<b>es</b></i>.</p><p>Fixa't en l'<b>ortografia</b>:</p><ul><li>En català, els interrogatius i exclamatius <b>no porten accent</b>: <i>quin</i>, <i>quant</i>. (En castellà, sí: <i>cuál</i>, <i>cuánto</i>.)</li><li>En català, el signe d'interrogació i d'exclamació es posa només al <b>final</b>: <i>Quin dia és?</i> No cal posar el d'obrir.</li><li>No confonguis <b>quant</b> (quantitat) amb <b>quan</b> (temps): <i>Quant costa?</i> / <i>Quan vindràs?</i></li></ul>`,
+        H6.dos("Quin/quant", ["PREGUNTAR", ["Quin llibre?", "Quants anys?", "Quina hora?"], cAZ], ["EXCLAMAR", ["Quina calor!", "Quin gol!", "Quanta gent!"], cNA])],
+    ],
+  },
+  final: [
+    ["Els ordinals", `<p>Els <mark>numerals ordinals</mark> indiquen l'<b>ordre</b> o la posició: qui arriba primer, segon, tercer… Són també determinants: <i>la <b>tercera</b> posició</i>, <i>el <b>quart</b> pis</i>.</p><p>Els quatre primers són especials:</p><ul><li><b>primer</b>, primera</li><li><b>segon</b>, segona</li><li><b>tercer</b>, tercera</li><li><b>quart</b>, quarta</li></ul><p>A partir del cinquè, es formen afegint <b>-è, -ena</b> al número: <i>cinquè, sisè, setè, vuitè, novè, desè, onzè, dotzè, vintè, centè</i>. En femení: <i>cinquena, sisena, desena</i>.</p><p>Les <b>abreviatures</b> s'escriuen amb el número i la darrera lletra de l'ordinal:</p><ul><li>1r (primer), 1a (primera)</li><li>2n (segon), 2a (segona)</li><li>3r (tercer), 3a (tercera)</li><li>4t (quart), 4a (quarta)</li><li>5è (cinquè), 5a (cinquena)</li></ul><p>Compte amb no confondre els ordinals amb els <b>partitius</b>, que indiquen parts d'una unitat: <i>un terç</i>, <i>un quart</i>, <i>una desena part</i>. A la cursa, la Marta va arribar <i>tercera</i> (ordinal), però si et menges <i>un terç</i> del pastís, en menges una part (partitiu).</p><p>Fixa't que en plural s'afegeix la <b>s</b>: <i>1rs</i>, <i>2ns</i>, <i>1es</i>.</p><p>Els ordinals es fan servir per als <b>pisos</b> d'un edifici (<i>visc al 3r 2a</i>), per als <b>cursos</b> (<i>som a 4t de primària</i>), per a les <b>posicions</b> d'una cursa i per als <b>segles</b> (<i>el segle <span style="font-variant:small-caps">xxi</span></i>, que es llegeix «vint-i-u»).</p>`,
+      L6.filas("Abreviatures", [["1r / 1a", "primer / primera", cAZ], ["2n / 2a", "segon / segona", cVE], ["3r / 3a", "tercer / tercera", cNA], ["4t / 4a", "quart / quarta", cMO], ["5è / 5a", "cinquè / cinquena", cRO]])],
+    ["Articles en altres llengües", `<p>Comparar el català amb altres llengües ens ajuda a entendre-les totes millor. Mira com són els <mark>articles</mark> en algunes de les llengües que estudies o que pots sentir a l'escola:</p><ul><li><b>Català</b>: <i>el, la, els, les</i> (determinats); <i>un, una, uns, unes</i> (indeterminats). I l'article personal <i>en, na</i>.</li><li><b>Castellà</b>: <i>el, la, los, las</i>; <i>un, una, unos, unas</i>. També té el neutre <i>lo</i>.</li><li><b>Anglès</b>: només <i>the</i> per a tot: <i>the boy</i>, <i>the girls</i>. I <i>a / an</i>: <i>a cat</i>, <i>an apple</i>. No canvia ni de gènere ni de nombre!</li><li><b>Francès</b>: <i>le, la, les</i>; <i>un, une, des</i>. També s'apostrofa davant de vocal, com en català: <i>l'école</i>, <i>l'ami</i>.</li><li><b>Italià</b>: <i>il, lo, la, i, gli, le</i>. En té molts!</li></ul><p>Hi ha llengües, com el <b>xinès</b> o el <b>rus</b>, que <b>no tenen articles</b>.</p><p>Si a la teva classe hi ha companys que parlen altres llengües, com l'àrab, el romanès o l'amazic, pregunteu-los com diuen «el gat» o «la casa». Descobrireu coses molt curioses!</p>`,
+      H6.rueda("L'article", "EL GAT", [["CAT el", cAZ], ["ANG the", cVE], ["FRA le", cNA], ["ITA il", cMO]]), ["p15WtIdb9zU", "Los números en catalán (1-20)", "OK CATALÀ", 138824]],
+  ],
+  ejemplos: [
+    ["Escriu en lletres el número 342.", ["300: tres-cents (guionet U-C).", "42: quaranta-dos (guionet D-U).", "Entre centenes i desenes no hi ha guionet."], "tres-cents quaranta-dos"],
+    ["Posa l'article personal: ___ Pol, ___ Anna, ___ Marta.", ["Pol: masculí amb consonant → en.", "Anna: comença per vocal → l'.", "Marta: femení → la."], "en Pol, l'Anna, la Marta"],
+  ],
+  errores: ["Oblidar el guionet: «vint i dos» en lloc de «vint-i-dos».", "Posar accent a quin o quant, o el signe d'obrir: «¿Quín?»."],
+  ejercicios: [
+    ["b", "Posa l'article personal: ___ Jordi.", "En Jordi."],
+    ["b", "Escriu en lletres: 25.", "Vint-i-cinc."],
+    ["b", "Escriu l'abreviatura de tercer.", "3r."],
+    ["b", "Completa: ___ calor fa avui!", "Quina."],
+    ["b", "Escriu l'ordinal de 5 en masculí.", "Cinquè."],
+    ["m", "Escriu en lletres: 200 pàgines.", "Dues-centes pàgines."],
+    ["m", "Escriu en lletres: 47.", "Quaranta-set."],
+    ["m", "Corregeix: «¿Quànts anys tens?».", "Quants anys tens?"],
+    ["m", "Escriu l'abreviatura de quarta i de segon.", "4a i 2n."],
+    ["m", "Posa l'article personal: ___ Helena, ___ Oriol.", "L'Helena, l'Oriol."],
+    ["a", "Escriu en lletres: 1.578.", "Mil cinc-cents setanta-vuit."],
+    ["a", "Escriu cinc preguntes amb quin, quina, quants i quantes.", "Resposta oberta."],
+    ["a", "Explica la regla del DUC amb exemples teus.", "Resposta oberta."],
+    ["a", "Pregunta a companys com es diu «el gat» en altres llengües.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["Davant de «Pol» posem…", ["en", "na", "l'"], "Article personal."],
+    ["Com s'escriu 32?", ["trenta-dos", "trenta i dos", "trentados"], "Regla del DUC."],
+    ["Com s'escriu 22?", ["vint-i-dos", "vint-dos", "vint i dos"], "Regla del DUC."],
+    ["L'abreviatura de quart és…", ["4t", "4r", "4n"], "Ordinals."],
+    ["En català, «quin» porta accent?", ["no", "sí, quín", "només en preguntes"], "Interrogatius."],
+  ],
+  examen: [
+    ["A la lectura, en quina posició va arribar la Marta?", ["tercera", "desena", "primera"], "Lectura."],
+    ["Com s'escriu 600 nenes?", ["sis-centes nenes", "sis-cents nenes", "siscentes nenes"], "Numerals."],
+  ],
+  tarjetas: [
+    ["Article personal", "en Pol, na Maria, l'Anna, la Marta."],
+    ["Regla del DUC", "Guionet entre desenes i unitats i entre unitats i centenes."],
+    ["Quin i quant", "Interrogatius i exclamatius, sense accent i sense signe d'obrir."],
+    ["Ordinals", "1r, 2n, 3r, 4t, 5è; femení 1a, 2a…"],
+  ],
+  glosario: [
+    ["Determinant", "Paraula que va davant del nom i el concreta."],
+    ["Article personal", "En, na, l' davant de noms de persona."],
+    ["Apostrofació", "Escurçar l'article davant de vocal: l'."],
+    ["Numeral cardinal", "Indica quantitat: un, dos, tres."],
+    ["Numeral ordinal", "Indica ordre: primer, segon."],
+    ["Regla del DUC", "Regla per posar guionets als números."],
+    ["Guionet", "Signe (-) que uneix parts d'un número."],
+    ["Interrogatiu", "Determinant per preguntar: quin, quant."],
+    ["Exclamatiu", "Determinant per exclamar: quina calor!"],
+    ["Abreviatura", "Forma curta d'una paraula: 1r, 2n."],
+    ["Concordança", "Coincidència de gènere i nombre."],
+    ["Centena", "Grup de cent unitats."],
+  ],
+  situacion: {
+    titulo: "La cursa de la classe",
+    reto: "La classe organitza una cursa i en fa la crònica amb resultats.",
+    pasos: ["Feu una cursa curta al pati i apunteu l'ordre d'arribada.", "Escriviu la classificació amb ordinals i abreviatures (1r, 2a, 3r…).", "Redacteu una crònica amb números en lletres, article personal i exclamacions.", "Llegiu la crònica en veu alta i pengeu-la al suro."],
+    producto: "Una crònica esportiva amb la classificació.",
+    evaluacion: ["Escriu bé els ordinals i les abreviatures.", "Aplica la regla del DUC.", "Fa servir l'article personal.", "Usa interrogatius i exclamatius sense accent."],
+  },
+});

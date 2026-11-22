@@ -88,3 +88,91 @@ module.exports = P.tema({
   saberes: "Coneixement de la llengua: l'adjectiu qualificatiu; concordança de gènere i nombre; adjectius d'una i dues terminacions; formació del femení i del plural; graus positiu, comparatiu i superlatiu; comparatius especials; gentilicis; l'adjectiu en la descripció",
   ideas: ["Bossa misteriosa: tocar un objecte sense veure'l i descriure'l amb adjectius.", "Rànquing d'objectes de la classe amb comparatius i superlatius.", "Retrat escrit d'un personatge de conte amb adjectius físics i de caràcter."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conèixer els gentilicis dels territoris de parla catalana", "Escriure bé els superlatius acabats en -íssim", "Fer servir adjectius dels cinc sentits per descriure", "Descobrir com s'usen els adjectius a la publicitat"],
+  lectura: { titulo: "La carta de l'Arnau", html: `<p>L'Arnau havia anat de colònies a la muntanya i va escriure una carta a la seva àvia.</p><p><i>Estimada àvia:</i></p><p><i>Som en una casa <b>vella</b> i <b>enorme</b>, de pedra <b>grisa</b>, enmig d'un bosc <b>frondós</b>. Les habitacions són <b>petites</b> però <b>acollidores</b>, i des de la finestra es veuen unes muntanyes <b>altíssimes</b> amb la punta <b>blanca</b> de neu.</i></p><p><i>Al matí, l'aire és <b>fresc</b> i fa olor de pi. L'aigua del riu és <b>gelada</b> i <b>transparent</b>: s'hi veuen les pedres del fons, <b>llises</b> i <b>rodones</b>. Ahir vam veure un esquirol <b>vermellós</b> i <b>espavilat</b> que saltava d'arbre en arbre.</i></p><p><i>Els monitors són molt <b>simpàtics</b>. Un és <b>gironí</b>, una altra és <b>mallorquina</b> i el cuiner és <b>valencià</b>: fa una paella <b>boníssima</b>!</i></p><p><i>Estic <b>cansat</b> però <b>feliç</b>. Et trobo a faltar.</i></p><p><i>Molts petons,</i></p><p><i>Arnau</i></p><p>Quan l'àvia va llegir la carta, va somriure. Gràcies a tots aquells adjectius, gairebé li semblava que també ella era a la muntanya, respirant aquell aire fresc i tastant aquella paella boníssima.</p>` },
+  tras: {
+    "Què ens expliquen els adjectius": [
+      ["Els gentilicis", `<p>Els <mark>gentilicis</mark> són adjectius que indiquen <b>d'on és</b> una persona o una cosa. S'escriuen sempre amb <b>minúscula</b>: <i>un noi <b>català</b></i>, <i>una cançó <b>valenciana</b></i>.</p><p>Aquests són els gentilicis dels territoris on es parla català:</p><ul><li><b>Catalunya</b>: català, catalana.</li><li><b>País Valencià</b>: valencià, valenciana.</li><li><b>Illes Balears</b>: balear. I de cada illa: <b>mallorquí</b>, <b>menorquí</b>, <b>eivissenc</b>, <b>formenterer</b>.</li><li><b>Andorra</b>: andorrà, andorrana.</li><li><b>L'Alguer</b> (a Sardenya): alguerès, algueresa.</li><li><b>Catalunya Nord</b> (a França): rossellonès, rossellonesa.</li><li><b>La Franja</b> (a l'Aragó): franjolí, franjolina.</li></ul><p>També les ciutats tenen gentilici. Alguns són fàcils: <i>Barcelona → barceloní</i>, <i>Tarragona → tarragoní</i>, <i>Girona → gironí</i>. D'altres són més curiosos: <i>Lleida → lleidatà</i>, <i>Vic → vigatà</i>, <i>Reus → reusenc</i>, <i>Sabadell → sabadellenc</i>, <i>Alacant → alacantí</i>, <i>Palma → palmesà</i>, <i>Manresa → manresà</i>.</p><p>Els gentilicis acaben sovint en <b>-à</b>, <b>-í</b>, <b>-enc</b> o <b>-ès</b>. Fixa't que el femení dels acabats en vocal tònica afegeix <b>-na</b> i perd l'accent: <i>valencià → valenciana</i>, <i>gironí → gironina</i>.</p><p>Hi ha persones que tenen més d'un gentilici: una nena de Vic és <i>vigatana</i>, però també és <i>osonenca</i> (de la comarca d'Osona) i <i>catalana</i>.</p><p>Saps quin és el gentilici del teu poble o de la teva ciutat?</p>`,
+        L6.filas("Gentilicis", [["Catalunya", "català", cAZ], ["País Valencià", "valencià", cNA], ["Mallorca", "mallorquí", cVE], ["Andorra", "andorrà", cMO], ["Lleida", "lleidatà", cRO]]), ["eJbJbmpg6Ic", "Gentilicios: uso y significado", "eduboom es", 8018]],
+    ],
+    "El grau superlatiu": [
+      ["Com s'escriu -íssim", `<p>El <mark>superlatiu</mark> amb el sufix <b>-íssim, -íssima</b> diu que una qualitat és molt i molt intensa. Per escriure'l bé, has de fixar-te en com acaba l'adjectiu:</p><ul><li>Si acaba en <b>vocal</b>, la perd: <i>alt<b>a</b> → altíssima</i>, <i>ampl<b>e</b> → ampl<b>íssim</b></i>, <i>trist<b>e</b> → tristíssim</i>.</li><li>Si acaba en <b>-c</b>, canvia a <b>-qu-</b> per mantenir el so: <i>ric → riquíssim</i>, <i>poc → poquíssim</i>, <i>sec → sequíssim</i>.</li><li>Si acaba en <b>-g</b>, canvia a <b>-gu-</b>: <i>llarg → llarguíssim</i>, <i>amarg → amarguíssim</i>.</li><li>Si acaba en <b>-ç</b> o en <b>-z</b> amb so de essa, canvia a <b>-c-</b>: <i>feliç → felicíssim</i>, <i>capaç → capacíssim</i>.</li><li>Els acabats en <b>-ble</b> fan <b>-bilíssim</b>: <i>amable → amabilíssim</i>, <i>agradable → agradabilíssim</i>.</li><li>Els que acaben en vocal tònica recuperen la <b>-n</b>: <i>bo → boníssim</i>, <i>fi → finíssim</i>, <i>pla → planíssim</i>.</li></ul><p>Recorda que <b>-íssim</b> porta sempre <b>accent</b> a la <i>í</i>: <i>al-<b>tís</b>-sim</i> és una paraula plana acabada en <i>-m</i>, i <i>al-<b>tís</b>-si-ma</i> és esdrúixola. Les dues s'accentuen segons les regles.</p><p>I compte: no diguis «molt boníssim». El superlatiu ja vol dir «molt»!</p>`,
+        L6.filas("-íssim", [["ric", "riquíssim", cAZ], ["llarg", "llarguíssim", cVE], ["feliç", "felicíssim", cNA], ["amable", "amabilíssim", cMO], ["bo", "boníssim", cRO]])],
+    ],
+    "L'adjectiu a les descripcions": [
+      ["Adjectius dels cinc sentits", `<p>Per fer una descripció viva, has de fer servir <mark>els cinc sentits</mark>. Hi ha adjectius per a cada sentit:</p><ul><li><b>Vista</b>: colors (<i>blau, verd, vermellós</i>), formes (<i>rodó, quadrat, punxegut</i>), mides (<i>enorme, minúscul</i>) i llum (<i>brillant, fosc, transparent</i>).</li><li><b>Oïda</b>: <i>sorollós, silenciós, agut, greu, estrident, suau, melodiós</i>. <i>Una veu <b>dolça</b></i>, <i>un tro <b>eixordador</b></i>.</li><li><b>Olfacte</b>: <i>perfumat, aromàtic, pudent, fresc</i>. <i>Un jardí <b>perfumat</b></i>, <i>un formatge <b>pudent</b></i>.</li><li><b>Gust</b>: <i>dolç, salat, àcid, amarg, picant, gustós, insípid</i>. <i>Una llimona <b>àcida</b></i>.</li><li><b>Tacte</b>: <i>suau, aspre, llis, rugós, calent, fred, tou, dur, enganxós</i>. <i>Un gat <b>suau</b></i>, <i>una pedra <b>rugosa</b></i>.</li></ul><p>Quan descriguis un lloc, tanca els ulls i pregunta't: què veig? Què sento? Quina olor fa? Si toco les coses, com són? Si en tasto alguna, quin gust té?</p><p>A la carta de la lectura, l'Arnau no només diu el que veu: també diu que l'aire és <i>fresc</i>, que fa olor de pi i que l'aigua és <i>gelada</i>. Per això l'àvia s'ho imaginava tan bé.</p>`,
+        H6.rueda("Sentits", "DESCRIURE", [["VISTA", cAZ], ["OÏDA", cVE], ["GUST", cNA], ["TACTE", cMO]])],
+    ],
+  },
+  final: [
+    ["Descriure un animal", `<p>Per <mark>descriure un animal</mark>, segueix un ordre i tria bé els adjectius:</p><ol><li><b>Presentació</b>: quin animal és i on viu. <i>El linx ibèric és un felí <b>salvatge</b> que viu als boscos <b>mediterranis</b>.</i></li><li><b>Aspecte físic</b>: mida, pelatge, cap, ulls, potes, cua. <i>És <b>mitjà</b>, té el pelatge <b>clar</b> amb taques <b>fosques</b>, les orelles <b>punxegudes</b> amb uns plomalls <b>negres</b> i una cua <b>curta</b>.</i></li><li><b>Caràcter i costums</b>: com es comporta, què menja. <i>És <b>solitari</b>, <b>àgil</b> i molt <b>sigilós</b>. S'alimenta sobretot de conills.</i></li><li><b>Opinió</b>: què et sembla. <i>Em sembla un animal <b>preciós</b> i <b>fascinant</b>.</i></li></ol><p>Consells:</p><ul><li>Evita els adjectius massa generals com <i>bonic</i> o <i>maco</i>. Busca'n de més precisos: <i>elegant</i>, <i>esvelt</i>, <i>peludet</i>, <i>majestuós</i>.</li><li>Fes <b>comparacions</b>: <i>té els ulls grocs <b>com</b> l'or</i>, <i>és <b>tan</b> ràpid <b>com</b> el vent</i>.</li><li>Comprova la <b>concordança</b>: <i>les orelles punxegud<b>es</b></i>, <i>el pelatge clar</i>.</li></ul><p>Abans d'escriure, fes una <b>pluja d'adjectius</b>: mira una fotografia de l'animal i apunta tots els adjectius que se t'acudeixin, sense pensar-hi gaire. Després tria els més precisos i els més originals, i descarta els que es repeteixen. Si un adjectiu no t'acaba de convèncer, busca'n un sinònim al diccionari. Finalment, llegeix la descripció en veu alta per comprovar que sona bé i que no hi ha cap adjectiu repetit.</p><p>Una bona descripció fa que el lector vegi l'animal sense haver-lo vist mai.</p>`,
+      H6.flujo("Descripció", ["què és|i on viu", "com és|per fora", "caràcter|i costums", "la meva|opinió"], cVE)],
+    ["Els adjectius a la publicitat", `<p>La <mark>publicitat</mark> vol convèncer-nos perquè comprem un producte. Per aconseguir-ho, fa servir molts adjectius, sobretot <b>positius</b> i <b>superlatius</b>:</p><ul><li><i>Galetes <b>cruixents</b> i <b>delicioses</b>.</i></li><li><i>El detergent <b>més eficaç</b>: roba <b>blanquíssima</b>!</i></li><li><i>Unes vambes <b>lleugeres</b>, <b>còmodes</b> i <b>resistents</b>.</i></li><li><i>Suc <b>natural</b>, <b>fresc</b> i <b>sa</b>.</i></li><li><i>La joguina <b>més divertida</b> de l'any.</i></li></ul><p>També hi trobem adjectius com <i>nou</i>, <i>únic</i>, <i>especial</i>, <i>exclusiu</i>, <i>increïble</i> o <i>perfecte</i>. Fixa't que gairebé mai no diuen res negatiu del producte!</p><p>Per això, quan vegis un anunci, has de ser un <b>consumidor crític</b> i fer-te preguntes:</p><ul><li>De debò és <i>el millor</i>? Comparat amb què?</li><li>Què vol dir exactament <i>natural</i>?</li><li>Si és tan <i>barat</i>, quant costa realment?</li></ul><p>Un bon exercici és agafar un anunci i separar els adjectius que expliquen com és el producte (<i>de xocolata</i>, <i>de cotó</i>) dels que només volen que ens agradi (<i>meravellós</i>, <i>fantàstic</i>).</p>`,
+      L6.filas("Anuncis", [["positius", "deliciós, còmode", cVE], ["superlatius", "blanquíssim", cAZ], ["el més…", "el més divertit", cNA], ["pregunta't", "és veritat?", cRO]]), ["pXNE4aax1VI", "Los anuncios publicitarios para niños", "Educatoon", 514472]],
+  ],
+  ejemplos: [
+    ["Escriu el superlatiu en -íssim de poc, llarg i amable.", ["poc: c → qu", "llarg: g → gu", "amable: -ble → -bilíssim"], "poquíssim, llarguíssim, amabilíssim"],
+    ["Escriu el gentilici femení de Girona, València i Mallorca.", ["gironí → gironina", "valencià → valenciana", "mallorquí → mallorquina"], "gironina, valenciana, mallorquina"],
+  ],
+  errores: ["Escriure els gentilicis amb majúscula: «un noi Català».", "Dir «molt boníssim»: el superlatiu ja vol dir molt."],
+  ejercicios: [
+    ["b", "Quin és el gentilici d'Andorra?", "Andorrà, andorrana."],
+    ["b", "Escriu el superlatiu de alt.", "Altíssim."],
+    ["b", "A quin sentit pertany l'adjectiu «salat»?", "Al gust."],
+    ["b", "Escriu tres adjectius del tacte.", "Per exemple: suau, aspre, rugós."],
+    ["b", "Corregeix: «una cançó Valenciana».", "Una cançó valenciana."],
+    ["m", "Escriu el superlatiu de ric i de feliç.", "Riquíssim, felicíssim."],
+    ["m", "Escriu el gentilici de Lleida i de Vic.", "Lleidatà, vigatà."],
+    ["m", "Troba quatre adjectius a la carta de l'Arnau.", "Per exemple: vella, enorme, fresc, gelada."],
+    ["m", "Corregeix: «Aquesta paella és molt boníssima».", "Aquesta paella és boníssima."],
+    ["m", "Troba els adjectius: «Galetes cruixents i delicioses».", "Cruixents, delicioses."],
+    ["a", "Descriu el teu animal preferit amb els quatre passos.", "Resposta oberta."],
+    ["a", "Descriu la teva cuina amb un adjectiu per a cada sentit.", "Resposta oberta."],
+    ["a", "Inventa un anunci per a un producte imaginari.", "Resposta oberta."],
+    ["a", "Analitza un anunci real: quins adjectius fa servir i per què?", "Resposta oberta."],
+  ],
+  quiz: [
+    ["El gentilici de Mallorca és…", ["mallorquí", "mallorquès", "mallorcà"], "Gentilicis."],
+    ["El superlatiu de llarg és…", ["llarguíssim", "llargíssim", "llarjíssim"], "-íssim."],
+    ["«Rugós» és un adjectiu del…", ["tacte", "gust", "oïda"], "Cinc sentits."],
+    ["Els gentilicis s'escriuen…", ["amb minúscula", "amb majúscula", "entre cometes"], "Gentilicis."],
+    ["La publicitat fa servir sobretot adjectius…", ["positius", "negatius", "de color"], "Publicitat."],
+  ],
+  examen: [
+    ["A la lectura, d'on era el cuiner?", ["valencià", "gironí", "mallorquí"], "Lectura."],
+    ["El superlatiu de amable és…", ["amabilíssim", "amablíssim", "amableíssim"], "-íssim."],
+  ],
+  tarjetas: [
+    ["Gentilicis", "Diuen d'on és algú; minúscula: català, valencià, mallorquí."],
+    ["-íssim", "ric → riquíssim, llarg → llarguíssim, bo → boníssim."],
+    ["Cinc sentits", "Vista, oïda, olfacte, gust i tacte: un adjectiu per a cada un."],
+    ["Publicitat", "Molts adjectius positius i superlatius: sigues crític."],
+  ],
+  glosario: [
+    ["Adjectiu", "Paraula que diu com és un nom."],
+    ["Gentilici", "Adjectiu que diu d'on és algú."],
+    ["Superlatiu", "Grau que expressa una qualitat al màxim."],
+    ["Sufix", "Final que s'afegeix a una paraula."],
+    ["Concordança", "Coincidència de gènere i nombre."],
+    ["Descripció", "Text que explica com és algú o alguna cosa."],
+    ["Sentits", "Vista, oïda, olfacte, gust i tacte."],
+    ["Rugós", "Que té la superfície irregular."],
+    ["Sigilós", "Que es mou sense fer soroll."],
+    ["Publicitat", "Missatges per convèncer de comprar."],
+    ["Consumidor crític", "Qui pensa abans de creure un anunci."],
+    ["Comparació", "Relació entre dues coses amb com o tan."],
+  ],
+  situacion: {
+    titulo: "L'àlbum dels animals",
+    reto: "La classe prepara un àlbum amb descripcions d'animals dels territoris de parla catalana.",
+    pasos: ["Trieu cada un un animal (linx, cabra salvatge, voltor, tortuga mediterrània…).", "Busqueu informació i preneu nota d'on viu i com és.", "Escriviu la descripció en quatre parts amb adjectius dels sentits.", "Il·lustreu-la i ajunteu totes les fitxes en un àlbum."],
+    producto: "Un àlbum il·lustrat d'animals.",
+    evaluacion: ["Segueix l'ordre de la descripció.", "Fa servir adjectius precisos i variats.", "Respecta la concordança.", "Presenta la fitxa amb cura."],
+  },
+});

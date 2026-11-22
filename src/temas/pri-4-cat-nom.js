@@ -88,3 +88,91 @@ module.exports = P.tema({
   saberes: "Coneixement de la llengua: el nom; comuns i propis; article personal; individuals i col·lectius; concrets i abstractes; gènere i formació del femení; nombre i formació del plural (-es, -ns, -os); concordança; noms de gènere diferent del castellà",
   ideas: ["Capsa d'objectes per classificar noms concrets; papers per als abstractes.", "Bingo de plurals (-ques, -ges, -ssos, -ns).", "Mural de «falsos amics» de gènere entre català i castellà."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Escriure amb majúscula els noms propis i amb minúscula els dies i els mesos", "Conèixer col·lectius d'animals i de coses", "Recordar noms que tenen un gènere diferent del castellà", "Formar diminutius, augmentatius i noms compostos"],
+  lectura: { titulo: "El mercat de les paraules", html: `<p>Cada dissabte, a la plaça del poble de la Júlia, s'hi feia un mercat molt especial: el <b>mercat de les paraules</b>.</p><p>A la primera parada, una senyora venia noms de coses: <i>taula</i>, <i>cadira</i>, <i>finestra</i>, <i>llapis</i>. Els tenia ben ordenats en cistells.</p><p>A la segona, un home amb barret venia noms de persones i de llocs, tots amb majúscula: <i>Pau</i>, <i>Mireia</i>, <i>Montserrat</i>, <i>Ebre</i>, <i>Mallorca</i>.</p><p>—Aquests són més cars —deia—, perquè són únics. Només n'hi ha un de cada!</p><p>A la tercera parada venien noms que no es poden tocar: <i>alegria</i>, <i>por</i>, <i>amistat</i>, <i>valentia</i>. Eren invisibles, però la gent els comprava igualment i se n'anava somrient.</p><p>La Júlia va arribar a la darrera parada. Allà, un avi venia noms molt curiosos.</p><p>—Aquest és <b>ramat</b> —li va explicar—. Si te'l quedes, tindràs moltes ovelles en una sola paraula. I aquest és <b>eixam</b>: moltes abelles juntes.</p><p>—I aquest tan llarg? —va preguntar la Júlia.</p><p>—<b>Gratacel</b>. Està fet de dues paraules: <i>grata</i> i <i>cel</i>. És un edifici tan alt que sembla que pessigui el cel.</p><p>La Júlia es va comprar un <i>eixam</i>, un <i>gratacel</i> i una mica d'<i>alegria</i>. I se'n va anar cap a casa amb la motxilla plena de paraules noves.</p>` },
+  tras: {
+    "Comuns i propis": [
+      ["Les majúscules", `<p>Els <mark>noms propis</mark> s'escriuen sempre amb <b>majúscula inicial</b>. Porten majúscula:</p><ul><li>Els noms i cognoms de <b>persones</b>: <i>Martina Puig</i>, <i>Jordi</i>.</li><li>Els noms d'<b>animals</b> concrets: <i>Llamp</i>, <i>Pelut</i>.</li><li>Els noms de <b>llocs</b>: països, ciutats, rius, muntanyes, mars: <i>Catalunya</i>, <i>Girona</i>, <i>Ebre</i>, <i>Pirineus</i>, <i>Mediterrani</i>.</li><li>Els noms de <b>festes</b>: <i>Nadal</i>, <i>Sant Joan</i>, <i>la Diada</i>.</li><li>Els títols de <b>llibres</b> i pel·lícules, només a la primera paraula: <i>El petit príncep</i>.</li></ul><p>En canvi, s'escriuen amb <b>minúscula</b>:</p><ul><li>Els <b>dies</b> de la setmana: <i>dilluns, dimarts, dimecres, dijous, divendres, dissabte, diumenge</i>.</li><li>Els <b>mesos</b>: <i>gener, febrer, març, abril…</i></li><li>Les <b>estacions</b>: <i>primavera, estiu, tardor, hivern</i>.</li><li>Els <b>gentilicis</b>: <i>els catalans</i>, <i>una nena francesa</i>.</li><li>Les paraules que acompanyen un nom de lloc: <i>el riu Ter</i>, <i>la serra de Collserola</i>, <i>el carrer Major</i>.</li></ul><p>Fixa't que les <b>majúscules</b> també porten <b>accent</b> si els toca: <i>Àfrica</i>, <i>Òscar</i>, <i>Èlia</i>.</p>`,
+        H6.dos("Majúscula?", ["SÍ", ["Martina, Llamp", "Girona, Ebre", "Nadal"], cAZ], ["NO", ["dilluns, gener", "primavera", "catalans"], cRO])],
+    ],
+    "Individuals i col·lectius": [
+      ["Col·lectius d'animals i de coses", `<p>Els <mark>noms col·lectius</mark> són els que, en <b>singular</b>, anomenen un <b>grup</b> d'éssers o de coses iguals. El català en té molts, sobretot per a grups d'animals:</p><ul><li><b>Ramat</b>: d'ovelles o de cabres.</li><li><b>Eixam</b>: d'abelles.</li><li><b>Bandada</b> o <b>estol</b>: d'ocells.</li><li><b>Banc</b>: de peixos.</li><li><b>Manada</b>: de llops, d'elefants o de cavalls.</li><li><b>Gossada</b>: de gossos.</li><li><b>Porcada</b>: de porcs.</li></ul><p>I també per a grups de coses i de persones:</p><ul><li><b>Bosc</b> o <b>arbreda</b>: d'arbres. <b>Pineda</b>: de pins. <b>Oliverar</b>: d'oliveres.</li><li><b>Arxipèlag</b>: d'illes. Les Balears i les Canàries són arxipèlags.</li><li><b>Serralada</b>: de muntanyes.</li><li><b>Biblioteca</b>: de llibres.</li><li><b>Vaixella</b>: de plats, gots i tasses.</li><li><b>Orquestra</b>: de músics. <b>Equip</b>: de jugadors. <b>Públic</b>: d'espectadors. <b>Colla</b>: d'amics.</li></ul><p>Compte amb la <b>concordança</b>! Encara que anomeni molts éssers, el col·lectiu és singular i el verb va en singular: <i>El ramat <b>pastura</b></i> (no «pasturen»). <i>La colla <b>ha arribat</b></i>.</p>`,
+        L6.filas("Col·lectius", [["ovelles", "ramat", cVE], ["abelles", "eixam", cNA], ["illes", "arxipèlag", cAZ], ["muntanyes", "serralada", cMO]]), ["Az0Ayk5pwtY", "Sustantivo individual y colectivo", "Profe Chévere", 238947]],
+    ],
+    "El gènere: masculí i femení": [
+      ["Noms amb gènere diferent del castellà", `<p>Hi ha alguns noms que en català tenen un <mark>gènere diferent</mark> que en castellà. Com que s'assemblen molt, és fàcil equivocar-se. Fixa-t'hi bé:</p><p>Són <b>femenins</b> en català (i masculins en castellà):</p><ul><li><b>les dents</b> (los dientes): <i>Em rento les dents</i>.</li><li><b>la suor</b> (el sudor).</li><li><b>la calor</b> (el calor): <i>Avui fa molta calor</i>.</li><li><b>l'olor</b> femení: <i>una olor agradable</i> (un olor).</li><li><b>la remor</b> (el rumor).</li><li><b>les postres</b> (el postre): <i>De postres, maduixes</i>.</li><li><b>la síndria</b>, <b>l'anàlisi</b>…</li></ul><p>Són <b>masculins</b> en català (i femenins en castellà):</p><ul><li><b>el dubte</b> (la duda): <i>Tinc un dubte</i>.</li><li><b>el costum</b> (la costumbre).</li><li><b>el front</b> (la frente).</li><li><b>el senyal</b> (la señal).</li><li><b>el llegum</b> (la legumbre).</li><li><b>el compte</b> (la cuenta): <i>Fes el compte</i>.</li></ul><p>Un truc: quan dubtis, prova de posar-hi un adjectiu davant o darrere i escolta com sona: <i>un dubte <b>petit</b></i>, <i>unes dents <b>blanques</b></i>. Si encara dubtes, mira-ho al <b>diccionari</b>: al costat de cada nom hi diu <i>m.</i> (masculí) o <i>f.</i> (femení).</p>`,
+        L6.filas("Compte amb el gènere", [["les dents", "los dientes", cRO], ["la calor", "el calor", cNA], ["el dubte", "la duda", cAZ], ["el senyal", "la señal", cVE]])],
+    ],
+  },
+  final: [
+    ["Diminutius i augmentatius", `<p>Si afegim un final, anomenat <b>sufix</b>, a molts noms, en podem canviar el significat:</p><ul><li>Els <mark>diminutius</mark> indiquen que una cosa és <b>petita</b> o expressen <b>afecte</b>. Es formen sobretot amb <b>-et, -eta</b> i <b>-ó, -ona</b>, i també amb <b>-ic, -ica</b> o <b>-í, -ina</b>: <i>caseta</i>, <i>gatet</i>, <i>llibret</i>, <i>carretó</i>, <i>noiet</i>, <i>bracet</i>, <i>petitó</i>, <i>xiquet</i>.</li><li>Els <mark>augmentatius</mark> indiquen que una cosa és <b>gran</b>. Es formen amb <b>-às, -assa</b> i <b>-ot, -ota</b>: <i>gossàs</i>, <i>cotxàs</i>, <i>casassa</i>, <i>grandot</i>, <i>noiot</i>.</li><li>Alguns sufixos són <b>despectius</b>: expressen que una cosa és lletja o de poca qualitat: <i>caseta</i> no, però <i>casota</i> o <i>cosota</i> a vegades sí.</li></ul><p>Compte amb l'ortografia: de vegades la lletra final canvia per mantenir el so: <i>poc → poquet</i>, <i>boca → boqueta</i>, <i>amic → amiguet</i>, <i>peix → peixet</i>.</p><p>També hi ha paraules que semblen diminutius però tenen un significat propi: una <i>cadireta</i> és una cadira petita, però una <i>tauleta</i> de nit és un moble concret, i una <i>bombeta</i> no és una bomba petita!</p><p>Cada territori té els seus preferits: al País Valencià es diu molt <i>-et</i> i <i>-eta</i> (<i>xiquet</i>), i a les Balears <i>-et</i> i <i>-ó</i> (<i>al·lotet</i>).</p>`,
+      L6.filas("Sufixos", [["diminutiu", "caseta, gatet", cVE], ["augmentatiu", "gossàs, grandot", cNA], ["canvi de lletra", "poc → poquet", cAZ], ["fals", "bombeta", cMO]])],
+    ["Els noms compostos", `<p>Els <mark>noms compostos</mark> es formen ajuntant <b>dues paraules</b> en una de sola, amb un significat nou:</p><ul><li><b>Verb + nom</b>: <i>para + aigua = paraigua</i>, <i>grata + cel = gratacel</i>, <i>lleva + taps = llevataps</i>, <i>eixuga + mans = eixugamans</i>, <i>renta + plats = rentaplats</i>, <i>trenca + closques = trencaclosques</i>, <i>gira + sol = gira-sol</i>.</li><li><b>Nom + nom</b>: <i>coliflor</i>, <i>aiguardent</i>.</li><li><b>Nom + adjectiu</b>: <i>aiguamoll</i> (aigua + moll), <i>camp + sant = camposant</i>.</li><li><b>Adjectiu + nom</b>: <i>migdia</i>, <i>altaveu</i>.</li></ul><p>Fixa't en el <b>guionet</b>: alguns compostos s'escriuen amb guionet, sobretot quan la segona paraula comença per <i>r</i>, <i>s</i> o <i>x</i> i el primer element acaba en vocal, per no haver de doblar la lletra: <i>gira-sol</i>, <i>para-sol</i>, <i>pica-soques</i>. També els que tenen els punts cardinals: <i>nord-est</i>, <i>sud-oest</i>.</p><p>Molts compostos de verb i nom acaben en <b>-s</b> i són iguals en singular i en plural: <i>un llevataps / dos llevataps</i>, <i>un trencaclosques / molts trencaclosques</i>. El nombre el marca el determinant.</p><p>Els compostos són molt útils perquè, amb una sola paraula, anomenen un objecte que faria falta descriure amb moltes. Pensa-hi: en lloc de dir «l'aparell que serveix per treure els taps de les ampolles», diem simplement <i>llevataps</i>. I en lloc de dir «l'eina que serveix per protegir-nos de la pluja», diem <i>paraigua</i>. Per això, quan inventen objectes nous, sovint els donen un nom compost.</p><p>Joc: quants compostos amb <i>porta-</i> se t'acudeixen? <i>Portaavions, portallapis, portaequipatges…</i></p>`,
+      H6.flujo("Formar compostos", ["para|+ aigua", "grata|+ cel", "renta|+ plats", "= paraula|nova"], cAZ), ["igujD3MUH3k", "Les paraules compostes", "maria marin", 10991]],
+  ],
+  ejemplos: [
+    ["Corregeix: «L'Eixam d'abelles van volar fins al Rusc el Dilluns».", ["Eixam és col·lectiu singular: va volar.", "Rusc és comú: minúscula. Dilluns: minúscula."], "L'eixam d'abelles va volar fins al rusc el dilluns."],
+    ["Escriu el diminutiu de boca, amic i peix.", ["Afegim -eta, -et.", "c → qu, c → gu per mantenir el so."], "boqueta, amiguet, peixet"],
+  ],
+  errores: ["Dir «el calor» o «els dents» en català: és la calor i les dents.", "Escriure els mesos o els dies amb majúscula: «el 3 de Maig»."],
+  ejercicios: [
+    ["b", "Escriu amb majúscula on calgui: «la núria viu a lleida, a prop del riu segre».", "La Núria viu a Lleida, a prop del riu Segre."],
+    ["b", "Com es diu un grup d'abelles?", "Eixam."],
+    ["b", "És masculí o femení «dubte» en català?", "Masculí: el dubte."],
+    ["b", "Quines dues paraules formen «paraigua»?", "Para + aigua."],
+    ["b", "Escriu el diminutiu de casa.", "Caseta."],
+    ["m", "Escriu el col·lectiu d'illes i el de muntanyes.", "Arxipèlag; serralada."],
+    ["m", "Corregeix: «Avui fa un calor terrible».", "Avui fa una calor terrible."],
+    ["m", "Escriu el plural de «llevataps».", "Els llevataps."],
+    ["m", "Corregeix: «El ramat pasturen al prat».", "El ramat pastura al prat."],
+    ["m", "Per què «gira-sol» porta guionet?", "Per no haver de doblar la s."],
+    ["a", "Inventa cinc noms compostos nous i explica què serien.", "Resposta oberta."],
+    ["a", "Escriu un text breu amb cinc col·lectius.", "Resposta oberta."],
+    ["a", "Fes una llista de deu noms amb gènere diferent del castellà.", "Resposta oberta."],
+    ["a", "Pregunta quins diminutius es fan servir a casa teva.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["S'escriu amb minúscula…", ["gener", "Girona", "Ebre"], "Majúscules."],
+    ["Un grup de llops és una…", ["manada", "porcada", "bandada"], "Col·lectius."],
+    ["En català es diu…", ["les dents", "els dents", "el dent"], "Gènere."],
+    ["«Gatet» és un…", ["diminutiu", "augmentatiu", "compost"], "Diminutius."],
+    ["«Gratacel» és un nom…", ["compost", "col·lectiu", "abstracte"], "Compostos."],
+  ],
+  examen: [
+    ["A la lectura, què li va vendre l'avi a la Júlia?", ["un eixam i un gratacel", "una taula", "un cotxe"], "Lectura."],
+    ["El plural de «un trencaclosques» és…", ["dos trencaclosques", "dos trencaclosqueses", "dos trencaclosca"], "Compostos."],
+  ],
+  tarjetas: [
+    ["Majúscules", "Noms de persones, llocs i festes; dies i mesos en minúscula."],
+    ["Col·lectius", "Ramat, eixam, banc, arxipèlag, serralada; verb en singular."],
+    ["Gènere", "les dents, la calor, la suor; el dubte, el costum, el senyal."],
+    ["Diminutius i compostos", "caseta, gossàs; paraigua, gratacel, gira-sol."],
+  ],
+  glosario: [
+    ["Nom propi", "Nom d'un ésser concret, amb majúscula."],
+    ["Majúscula", "Lletra més gran a l'inici dels noms propis."],
+    ["Col·lectiu", "Nom que en singular anomena un grup."],
+    ["Eixam", "Grup d'abelles."],
+    ["Arxipèlag", "Grup d'illes."],
+    ["Serralada", "Grup de muntanyes."],
+    ["Gènere", "Masculí o femení."],
+    ["Sufix", "Final que s'afegeix a una paraula."],
+    ["Diminutiu", "Paraula que indica petitesa o afecte."],
+    ["Augmentatiu", "Paraula que indica gran mida."],
+    ["Compost", "Paraula formada per dues paraules."],
+    ["Guionet", "Signe (-) que uneix algunes paraules compostes."],
+  ],
+  situacion: {
+    titulo: "El diccionari de la classe",
+    reto: "La classe crea un diccionari il·lustrat de noms curiosos.",
+    pasos: ["Recolliu col·lectius, compostos, diminutius i noms amb gènere diferent del castellà.", "Escriviu cada entrada amb la definició, el gènere (m. o f.) i un exemple.", "Il·lustreu les entrades.", "Ordeneu-les alfabèticament i enquaderneu el diccionari."],
+    producto: "Un diccionari il·lustrat de la classe.",
+    evaluacion: ["Classifica correctament els noms.", "Escriu definicions clares.", "Fa servir bé les majúscules i el gènere.", "Ordena alfabèticament."],
+  },
+});
