@@ -138,3 +138,87 @@ module.exports = {
   fuentes: [RD, wiki("Municipio", "Municipio (España)"), wiki("Ayuntamiento", "Ayuntamiento"), wiki("Elecciones municipales", "Elecciones municipales de España")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer los servicios de emergencia", "Saber qué es la Constitución y los derechos de la infancia", "Descubrir municipios curiosos de España", "Participar en la vida del municipio"],
+  lectura: { titulo: "El parque que quería Leire", html: `<p>En el barrio de Leire había un solar vacío, lleno de hierbajos y botellas rotas. Un día, en clase, la maestra les contó que el ayuntamiento tenía un Consejo de la Infancia, donde los niños podían dar ideas para mejorar el pueblo.</p><p>—¿Y si pedimos un parque en el solar? —propuso Leire.</p><p>A todos les pareció una idea estupenda. Durante varias semanas trabajaron en el proyecto. Hicieron una encuesta en el barrio para saber qué querían los vecinos: columpios, bancos a la sombra, una fuente, árboles y una pista para patinar. Dibujaron un plano con todo y calcularon cuántos árboles cabían.</p><p>Leire y Omar fueron elegidos para presentar el proyecto en el Consejo. Estaban muy nerviosos, pero la alcaldesa los escuchó con atención y les hizo preguntas.</p><p>—Es un proyecto muy bien pensado —dijo al final—. Lo estudiaremos en el próximo pleno.</p><p>Pasaron los meses. Un día de primavera, al volver del colegio, Leire vio máquinas trabajando en el solar. Un cartel decía: «Nuevo parque infantil. Proyecto propuesto por el Consejo de la Infancia».</p><p>Leire sonrió. Había aprendido que, aunque sea pequeña, su voz también cuenta.</p>` },
+  tras: {
+    "Los servicios públicos": [
+      ["Los servicios de emergencia", `<p>Algunos servicios públicos nos ayudan cuando hay un <mark>peligro</mark> o un accidente. Son los <mark>servicios de emergencia</mark>:</p><ul><li>Los <b>bomberos</b> apagan incendios, rescatan a personas atrapadas y ayudan en inundaciones.</li><li>La <b>policía local</b> cuida la seguridad en las calles, ordena el tráfico y ayuda a quien lo necesita.</li><li>Los <b>servicios sanitarios</b>, con ambulancias, médicos y enfermeros, atienden a los heridos y enfermos.</li><li><b>Protección Civil</b> organiza a voluntarios para ayudar en fiestas, nevadas o catástrofes.</li></ul><p>Para llamarlos, en toda Europa se usa el mismo número: el <b>112</b>. Es gratis y funciona aunque el móvil no tenga saldo.</p><p><b>Cómo llamar al 112</b>: mantén la calma, di qué pasa, dónde estás y responde a las preguntas. No cuelgues hasta que te lo digan. Y recuerda: nunca hay que llamar de broma, porque podrías ocupar la línea cuando otra persona necesita ayuda de verdad.</p>`,
+        L6.filas("112", [["bomberos", "fuego, rescates", cRO], ["policía local", "seguridad", cAZ], ["sanitarios", "heridos", cVE], ["Protección Civil", "voluntarios", cNA]])],
+    ],
+    "Normas para convivir": [
+      ["La Constitución y los derechos de la infancia", `<p>Igual que en clase y en el ayuntamiento hay normas, España tiene una gran ley que está por encima de todas: la <mark>Constitución</mark>. Se aprobó en <b>1978</b> y dice cómo se organiza el país y cuáles son los derechos y deberes de todas las personas. Cada 6 de diciembre se celebra el Día de la Constitución.</p><p>Los niños y las niñas también tienen derechos especiales, recogidos en la <mark>Convención sobre los Derechos del Niño</mark>, que firmaron casi todos los países del mundo en 1989. Algunos son:</p><ul><li>Derecho a la <b>educación</b>.</li><li>Derecho a la <b>salud</b> y a una buena alimentación.</li><li>Derecho a <b>jugar</b> y descansar.</li><li>Derecho a tener un <b>nombre</b> y una nacionalidad.</li><li>Derecho a ser <b>protegidos</b> y a no ser discriminados.</li><li>Derecho a <b>opinar</b> y a ser escuchados.</li></ul><p>El 20 de noviembre se celebra el Día Universal de la Infancia. Tener derechos también significa respetar los derechos de los demás.</p>`,
+        H6.rueda("Derechos", "INFANCIA", [["educación", cAZ], ["salud", cVE], ["jugar", cNA], ["opinar", cRO]]), ["UAV1TrQ3cDA", "Los Derechos de los niños", "El Show del Castillo Mágico", 2450644]],
+    ],
+  },
+  final: [
+    ["Municipios curiosos", `<p>En España hay más de <b>8.000 municipios</b>, y algunos son muy <mark>especiales</mark>:</p><ul><li><b>Madrid</b> es el municipio con más habitantes: más de tres millones de personas.</li><li>Algunos pueblos pequeños tienen <b>menos de diez habitantes</b>. Aun así, tienen su propio ayuntamiento y su alcalde.</li><li>El municipio con <b>más territorio</b> es <b>Cáceres</b>: es más grande que algunas provincias pequeñas.</li><li><b>Valdelinares</b>, en Teruel, es uno de los municipios <b>más altos</b> de España, a casi 1.700 metros.</li><li>Algunos municipios tienen nombres muy curiosos, como <b>Rascafría</b>, <b>Matamala de Almazán</b> o <b>Villanueva de las Manzanas</b>.</li></ul><p>Muchos pueblos pequeños del interior están perdiendo habitantes, porque los jóvenes se van a las ciudades. A este problema se le llama la <b>España vaciada</b>. Algunos ayuntamientos ofrecen casas o trabajo para que lleguen nuevos vecinos.</p>`,
+      L6.filas("Récords", [["Madrid", "más habitantes", cRO], ["Cáceres", "más territorio", cVE], ["Valdelinares", "muy alto", cAZ], ["pueblos", "pocos vecinos", cNA]])],
+    ["Participamos en el municipio", `<p>No hace falta ser mayor para <mark>participar</mark> en la vida del municipio. Hay muchas formas:</p><ul><li>En algunos ayuntamientos hay un <b>Consejo de la Infancia</b>, donde niños y niñas elegidos por sus compañeros dan ideas al alcalde y a los concejales.</li><li>Los <b>presupuestos participativos</b> permiten a los vecinos votar en qué gastar una parte del dinero del municipio: un parque, una biblioteca, un carril bici…</li><li>Las <b>asociaciones</b> de vecinos, de madres y padres o deportivas organizan actividades.</li><li>El <b>voluntariado</b>: ayudar en la recogida de alimentos, limpiar un río o acompañar a personas mayores.</li></ul><p>También participamos con pequeños gestos: cuidar el mobiliario urbano, reciclar, respetar a los vecinos y usar las papeleras.</p><p>Cuando las personas participan, el municipio mejora para todos.</p>`,
+      H6.flujo("Participar", ["idea|propuesta", "consejo|presenta", "pleno|decide", "obra|se hace"], cVE)],
+  ],
+  ejemplos: [
+    ["Ves humo saliendo de una casa. ¿A qué número llamas?", ["Es una emergencia.", "El número de emergencias en Europa es el 112."], "Al 112."],
+    ["¿Qué derecho se cumple cuando vas al colegio?", ["En el colegio aprendes.", "Es el derecho a la educación."], "El derecho a la educación."],
+  ],
+  errores: ["Llamar al 112 de broma: puede quitar la línea a alguien que lo necesita.", "Pensar que los niños no pueden participar en el municipio."],
+  ejercicios: [
+    ["b", "¿Cuál es el número de emergencias?", "El 112."],
+    ["b", "¿Quién apaga los incendios?", "Los bomberos."],
+    ["b", "¿En qué año se aprobó la Constitución?", "En 1978."],
+    ["b", "Di un derecho de los niños.", "Educación, salud, jugar, opinar…"],
+    ["b", "¿Qué municipio tiene más habitantes?", "Madrid."],
+    ["m", "¿Qué hay que decir al llamar al 112?", "Qué pasa y dónde estás."],
+    ["m", "¿Cuándo se celebra el Día de la Infancia?", "El 20 de noviembre."],
+    ["m", "¿Qué es la España vaciada?", "Pueblos que pierden habitantes."],
+    ["m", "¿Qué son los presupuestos participativos?", "Los vecinos votan en qué gastar dinero."],
+    ["m", "¿Qué hace Protección Civil?", "Organiza voluntarios para emergencias y eventos."],
+    ["a", "Representa una llamada al 112 con un compañero.", "Respuesta abierta."],
+    ["a", "Haz un mural con los derechos de la infancia.", "Respuesta abierta."],
+    ["a", "Propón una mejora para tu barrio y explica cómo hacerla.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿qué había en el solar al principio?", "Hierbajos y botellas rotas."],
+  ],
+  quiz: [
+    ["El 112 funciona…", ["en toda Europa", "solo en Madrid", "solo de día"], "Emergencias."],
+    ["El Día de la Constitución es el…", ["6 de diciembre", "1 de enero", "20 de noviembre"], "Constitución."],
+    ["El municipio con más territorio es…", ["Cáceres", "Madrid", "Valencia"], "Curiosos."],
+    ["Ayudar sin cobrar en una recogida de alimentos es…", ["voluntariado", "un impuesto", "una multa"], "Participar."],
+    ["Los niños tienen derecho a…", ["jugar", "conducir", "votar en elecciones"], "Derechos."],
+  ],
+  examen: [
+    ["En la lectura, ¿dónde presentaron el proyecto?", ["en el Consejo de la Infancia", "en el colegio", "en la tele"], "Lectura."],
+    ["La Convención sobre los Derechos del Niño es de…", ["1989", "1978", "2020"], "Derechos."],
+  ],
+  tarjetas: [
+    ["Emergencias", "Bomberos, policía, sanitarios y Protección Civil: 112."],
+    ["Constitución", "Ley más importante de España, de 1978."],
+    ["Derechos de la infancia", "Educación, salud, juego, nombre, protección y opinión."],
+    ["Participar", "Consejo de la Infancia, presupuestos, asociaciones y voluntariado."],
+  ],
+  glosario: [
+    ["Emergencia", "Situación de peligro que necesita ayuda urgente."],
+    ["Bombero", "Persona que apaga incendios y rescata."],
+    ["Protección Civil", "Servicio con voluntarios para ayudar en emergencias."],
+    ["112", "Número único de emergencias."],
+    ["Constitución", "Ley más importante de un país."],
+    ["Derecho", "Lo que toda persona puede tener o hacer."],
+    ["Deber", "Lo que toda persona debe cumplir."],
+    ["Discriminar", "Tratar peor a alguien por ser diferente."],
+    ["España vaciada", "Zonas que pierden habitantes."],
+    ["Consejo de la Infancia", "Grupo de niños que dan ideas al ayuntamiento."],
+    ["Presupuesto", "Dinero previsto para gastar."],
+    ["Voluntariado", "Ayuda a los demás sin cobrar."],
+  ],
+  situacion: {
+    titulo: "Pequeños concejales",
+    reto: "La clase prepara propuestas para mejorar el municipio y las presenta como en un consejo.",
+    pasos: ["Practicar cómo llamar al 112.", "Elaborar un mural de derechos y deberes.", "Investigar datos curiosos del propio municipio.", "Preparar y votar una propuesta de mejora."],
+    producto: "Una propuesta presentada en un consejo de clase.",
+    evaluacion: ["Conoce los servicios de emergencia.", "Explica la Constitución y los derechos.", "Investiga su municipio.", "Participa con propuestas."],
+  },
+});

@@ -139,3 +139,91 @@ module.exports = {
   fuentes: [RD, wiki("Historia", "Historia"), wiki("Fuente histórica", "Fuente histórica"), wiki("Línea de tiempo", "Línea de tiempo")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer el trabajo de los arqueólogos", "Construir un árbol genealógico", "Descubrir Atapuerca y Altamira", "Conocer relojes antiguos y la historia oral"],
+  lectura: { titulo: "El tesoro del desván", html: `<p>Un domingo lluvioso, Marcos y su abuela Carmen subieron al desván a buscar los adornos de Navidad. Entre cajas y mantas viejas, Marcos encontró un baúl de madera con las esquinas de metal.</p><p>—¿Qué hay aquí, abuela?</p><p>—Ábrelo y lo verás.</p><p>Dentro había un montón de tesoros: fotos en blanco y negro con los bordes ondulados, cartas escritas a mano con letra muy bonita, un cuaderno escolar con tapas de cartón y una pequeña llave dorada.</p><p>Marcos cogió una foto. Una niña con trenzas sonreía delante de una escuela.</p><p>—¿Quién es?</p><p>—Soy yo, con tu edad —rio la abuela—. En aquella escuela estábamos niños de todas las edades en la misma clase, y escribíamos con pluma y tintero.</p><p>Abrieron el cuaderno. Había cuentas, dictados y un dibujo de un tren de vapor. En la primera página ponía una fecha: 1962.</p><p>—Abuela, ¡esto es historia de verdad! —exclamó Marcos.</p><p>—Claro que sí. Cada familia guarda un trocito de historia.</p><p>Esa tarde no buscaron más adornos. Se sentaron en el suelo del desván y la abuela le contó historias hasta que se hizo de noche.</p>` },
+  tras: {
+    "Las fuentes históricas": [
+      ["El trabajo de los arqueólogos", `<p>Los <mark>arqueólogos</mark> son los detectives del pasado. Buscan restos que dejaron las personas que vivieron hace mucho tiempo: herramientas, vasijas, monedas, huesos, casas…</p><p><b>Cómo trabajan</b>:</p><ul><li><b>1.</b> Eligen un lugar donde creen que hay restos, llamado <b>yacimiento</b>.</li><li><b>2.</b> Dividen el terreno en cuadrados con cuerdas, como una cuadrícula.</li><li><b>3.</b> Excavan muy despacio, con paletas pequeñas y pinceles, para no romper nada.</li><li><b>4.</b> Fotografían, dibujan y apuntan dónde aparece cada objeto.</li><li><b>5.</b> En el laboratorio, limpian, estudian y calculan la edad de los restos.</li></ul><p>Después, muchos objetos se exponen en los <b>museos</b>, para que todo el mundo pueda verlos.</p><p>Si alguna vez encuentras algo que parece muy antiguo, no te lo lleves: avisa a un adulto para que informe a las autoridades. Fuera de su sitio, un objeto pierde mucha información.</p>`,
+        H6.flujo("Excavar", ["elegir|yacimiento", "cuadrícula|cuerdas", "excavar|despacio", "estudiar|museo"], cNA), ["W_tOmDCRfbQ", "¿Qué es la Arqueología? - Educatina", "Flex Flix Teens en Español", 158998]],
+    ],
+    "Las fuentes de mi historia": [
+      ["Mi árbol genealógico", `<p>Un <mark>árbol genealógico</mark> es un dibujo que muestra a los miembros de una familia y cómo están relacionados. Se llama así porque se parece a un árbol con ramas.</p><ul><li>En la parte de abajo, o en el tronco, te pones <b>tú</b> y tus hermanos.</li><li>Encima, tus <b>padres</b> o las personas que te cuidan.</li><li>Más arriba, tus <b>abuelos</b>.</li><li>Y en lo más alto, tus <b>bisabuelos</b>, si sabes sus nombres.</li></ul><p>Junto a cada nombre se puede poner una foto, la fecha y el lugar de nacimiento.</p><p>Para hacerlo, tendrás que <b>investigar</b>: preguntar a tus familiares y buscar en fotos y documentos. Seguro que descubres cosas que no sabías: dónde nacieron tus abuelos, en qué trabajaban o cómo se conocieron.</p><p>Todas las familias son diferentes, y todas tienen su propia historia. No hay un árbol igual a otro.</p>`,
+        L6.filas("Árbol", [["arriba", "bisabuelos", cMO], ["luego", "abuelos", cNA], ["después", "padres", cVE], ["abajo", "yo", cAZ]])],
+    ],
+    "Las etapas de la historia": [
+      ["Atapuerca y Altamira", `<p>En España hay dos lugares muy famosos en todo el mundo para conocer la <mark>Prehistoria</mark>.</p><p><b>Atapuerca</b> es una sierra de Burgos llena de cuevas. Allí los científicos han encontrado restos de seres humanos de hace cientos de miles de años, entre los más antiguos de Europa. Encontraron huesos, dientes y herramientas de piedra. Uno de esos grupos de humanos recibió un nombre especial: <i>Homo antecessor</i>, que significa «el que va delante». Es Patrimonio de la Humanidad.</p><p><b>La cueva de Altamira</b> está en Cantabria. En su techo, personas de la Prehistoria pintaron bisontes, caballos y ciervos con colores rojos y negros hechos con tierra y carbón. Las pinturas tienen más de 14.000 años. La descubrió en 1879 una niña, María, mientras acompañaba a su padre. Al mirar al techo, dijo: «¡Mira, papá, bueyes pintados!».</p><p>Para protegerla, la cueva original casi no se visita, pero hay una copia exacta en el museo.</p>`,
+        H6.dos("Prehistoria", ["ATAPUERCA", ["Burgos", "huesos", "herramientas"], cNA], ["ALTAMIRA", ["Cantabria", "pinturas", "bisontes"], cRO]), ["IiHq1w9OVbE", "Atapuerca, más cerca que nunca", "Academia Play", 149907]],
+    ],
+  },
+  final: [
+    ["Relojes de antes", `<p>Antes de que existieran los relojes que conocemos, las personas inventaron muchas formas de <mark>medir el tiempo</mark>:</p><ul><li>El <b>reloj de sol</b>: un palo o una varilla proyecta una sombra que se mueve a lo largo del día. Según dónde cae la sombra, se sabe la hora. Muchas iglesias antiguas tienen uno en la pared.</li><li>El <b>reloj de agua</b> o clepsidra: un recipiente que se vacía gota a gota. El nivel del agua marca el tiempo que ha pasado.</li><li>El <b>reloj de arena</b>: la arena pasa de un lado a otro por un agujerito. Todavía se usa en juegos o para cocer huevos.</li><li>Las <b>velas</b> con marcas: cada marca que se consume es una hora.</li></ul><p>Más tarde llegaron los <b>relojes mecánicos</b> de las torres, con campanas que avisaban a todo el pueblo. Hoy tenemos relojes digitales muy precisos.</p>`,
+      H6.rueda("Relojes", "TIEMPO", [["de sol", cNA], ["de agua", cAZ], ["de arena", cMO], ["de vela", cRO]]), ["O4R-pD1y1TY", "El que inventó el reloj ¿Cómo sabía qué hora era?", "CuriosaMente", 1388323]],
+    ["Entrevistamos a los mayores", `<p>Las personas mayores son una <mark>fuente oral</mark> de historia: nos cuentan con sus palabras cómo era la vida cuando eran pequeñas.</p><p><b>Cómo preparar una entrevista</b>:</p><ul><li><b>1.</b> Elige a una persona mayor: un abuelo, una vecina o alguien de una residencia.</li><li><b>2.</b> Prepara las preguntas: ¿Cómo era tu escuela? ¿A qué jugabas? ¿Qué comías? ¿Había televisión? ¿Cómo te comunicabas con tus amigos?</li><li><b>3.</b> Escucha con atención y respeto, sin interrumpir.</li><li><b>4.</b> Apunta las respuestas o grábalas, si te da permiso.</li><li><b>5.</b> Agradece su tiempo y comparte lo que has aprendido.</li></ul><p>Después, compara su infancia con la tuya: ¿qué ha cambiado y qué sigue igual? Seguramente descubrirás que algunas cosas han cambiado mucho, como los aparatos y el transporte, y otras casi nada, como las ganas de jugar con los amigos.</p>`,
+      L6.filas("Entrevista", [["elegir", "persona mayor", cAZ], ["preguntar", "escuela, juegos", cVE], ["escuchar", "con respeto", cNA], ["comparar", "antes y ahora", cMO]])],
+  ],
+  ejemplos: [
+    ["¿Qué tipo de fuente es la entrevista a tu abuela?", ["Nos cuenta el pasado con sus palabras.", "Las fuentes que se escuchan son orales."], "Una fuente oral."],
+    ["¿Cuántos años tienen las pinturas de Altamira?", ["Se pintaron en la Prehistoria.", "Los científicos calcularon su edad."], "Más de 14.000 años."],
+  ],
+  errores: ["Llevarse un objeto antiguo encontrado: hay que avisar a las autoridades.", "Pensar que la historia solo está en los libros: también en las familias."],
+  ejercicios: [
+    ["b", "¿Quiénes excavan para encontrar restos del pasado?", "Los arqueólogos."],
+    ["b", "¿Qué es un árbol genealógico?", "Un dibujo de los miembros de una familia."],
+    ["b", "¿En qué provincia está Atapuerca?", "En Burgos."],
+    ["b", "¿Qué animales hay pintados en Altamira?", "Bisontes, caballos y ciervos."],
+    ["b", "Di un reloj antiguo.", "De sol, de agua, de arena o de vela."],
+    ["m", "¿Por qué los arqueólogos excavan despacio?", "Para no romper los restos."],
+    ["m", "¿Quién descubrió las pinturas de Altamira?", "Una niña, María."],
+    ["m", "¿Cómo funciona un reloj de sol?", "La sombra se mueve y marca la hora."],
+    ["m", "Di tres preguntas para entrevistar a un mayor.", "Escuela, juegos, comida…"],
+    ["m", "¿Qué significa Homo antecessor?", "El que va delante."],
+    ["a", "Haz tu árbol genealógico con fotos.", "Respuesta abierta."],
+    ["a", "Entrevista a una persona mayor y escribe un resumen.", "Respuesta abierta."],
+    ["a", "Construye un reloj de sol con un palo en el patio.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿de qué año era el cuaderno?", "De 1962."],
+  ],
+  quiz: [
+    ["El lugar donde excavan los arqueólogos se llama…", ["yacimiento", "biblioteca", "laboratorio"], "Arqueología."],
+    ["En lo más alto del árbol genealógico están…", ["los bisabuelos", "los hermanos", "los primos"], "Árbol."],
+    ["Altamira está en…", ["Cantabria", "Andalucía", "Cataluña"], "Prehistoria."],
+    ["La clepsidra es un reloj de…", ["agua", "arena", "sol"], "Relojes."],
+    ["Una entrevista es una fuente…", ["oral", "material", "escrita"], "Entrevista."],
+  ],
+  examen: [
+    ["En la lectura, ¿dónde encontró Marcos el baúl?", ["en el desván", "en el sótano", "en el colegio"], "Lectura."],
+    ["Altamira se descubrió en…", ["1879", "1979", "1492"], "Altamira."],
+  ],
+  tarjetas: [
+    ["Arqueólogos", "Yacimiento, cuadrícula, excavación lenta, laboratorio y museo."],
+    ["Árbol genealógico", "Yo, padres, abuelos y bisabuelos."],
+    ["Atapuerca y Altamira", "Huesos muy antiguos en Burgos; pinturas en Cantabria."],
+    ["Relojes y entrevistas", "Sol, agua, arena y vela; los mayores como fuente oral."],
+  ],
+  glosario: [
+    ["Arqueólogo", "Persona que estudia el pasado a partir de sus restos."],
+    ["Yacimiento", "Lugar donde hay restos del pasado."],
+    ["Excavar", "Quitar tierra con cuidado para encontrar algo."],
+    ["Museo", "Lugar donde se guardan y exponen objetos valiosos."],
+    ["Árbol genealógico", "Dibujo de la familia y sus relaciones."],
+    ["Bisabuelo", "Padre de un abuelo."],
+    ["Prehistoria", "Etapa más antigua de la humanidad."],
+    ["Pintura rupestre", "Pintura hecha en las paredes de una cueva."],
+    ["Bisonte", "Animal parecido a un toro grande con joroba."],
+    ["Clepsidra", "Reloj de agua."],
+    ["Fuente oral", "Testimonio que se escucha."],
+    ["Entrevista", "Conversación con preguntas para obtener información."],
+  ],
+  situacion: {
+    titulo: "Historiadores de mi familia",
+    reto: "Cada alumno investiga la historia de su familia y la clase monta un pequeño museo.",
+    pasos: ["Hacer un árbol genealógico con fotos.", "Entrevistar a una persona mayor.", "Traer objetos antiguos de casa y escribir su ficha.", "Hacer una línea del tiempo con Atapuerca, Altamira y la historia familiar."],
+    producto: "Un museo de clase con árboles, entrevistas y objetos.",
+    evaluacion: ["Explica el trabajo arqueológico.", "Construye su árbol.", "Conoce Atapuerca y Altamira.", "Usa fuentes orales."],
+  },
+});

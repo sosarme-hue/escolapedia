@@ -138,3 +138,87 @@ module.exports = {
   fuentes: [RD, wiki("Mapa", "Mapa"), wiki("Escala cartográfica", "Escala (cartografía)"), wiki("Punto cardinal", "Punto cardinal")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Reconocer pictogramas y señales", "Localizar lugares con una cuadrícula", "Conocer cómo se hacían los mapas antiguos", "Dar y seguir indicaciones de un itinerario"],
+  lectura: { titulo: "Perdidos en el museo", html: `<p>La clase de Inés fue de excursión a un museo enorme de ciencias. Al entrar, la guía les dio a cada grupo un plano del edificio.</p><p>—Tenéis que encontrar tres tesoros —explicó—: el esqueleto de una ballena, un meteorito y un péndulo gigante. Nos vemos aquí en una hora.</p><p>El grupo de Inés miró el plano. Estaba lleno de símbolos: una taza para la cafetería, un muñequito para los aseos, unas escaleras, un ascensor…</p><p>—La ballena está en la casilla C2 —leyó Hugo, siguiendo con el dedo las letras de arriba y los números del lado.</p><p>—Y nosotros estamos aquí, en el punto rojo que dice «Usted está aquí» —añadió Inés.</p><p>Siguieron el pasillo, giraron a la derecha en la tienda y subieron por las escaleras. ¡Allí estaba la ballena, colgada del techo!</p><p>El meteorito les costó más. Se equivocaron de piso y acabaron en la sala de dinosaurios. Pero Inés se dio cuenta de que el plano tenía una flecha con una N, y giraron el papel para orientarlo bien.</p><p>Llegaron al punto de encuentro con los tres tesoros apuntados y dos minutos de sobra. La guía sonrió:</p><p>—Sois unos auténticos exploradores.</p>` },
+  tras: {
+    "La leyenda y los símbolos": [
+      ["Pictogramas y señales", `<p>No solo los mapas usan símbolos. A nuestro alrededor hay muchos <mark>pictogramas</mark>: dibujos sencillos que todo el mundo entiende, hable el idioma que hable.</p><ul><li>En los <b>aeropuertos</b> y las <b>estaciones</b>: un avión para las salidas, una maleta para el equipaje, una taza para la cafetería.</li><li>En los <b>edificios</b>: un muñeco corriendo hacia una puerta verde indica la salida de emergencia. Un extintor rojo señala dónde está.</li><li>En la <b>calle</b>: las señales de tráfico avisan de un paso de peatones, un colegio o una curva.</li><li>En el <b>metro</b>: cada línea tiene un color y un número.</li></ul><p>Para que un pictograma funcione, debe ser <b>simple</b>, <b>claro</b> y fácil de ver de lejos.</p><p>Los pictogramas también ayudan a las personas que no saben leer o que tienen dificultades para comunicarse. Por eso muchos colegios ponen pictogramas en las puertas de las aulas y del comedor.</p>`,
+        H6.rueda("Pictogramas", "SÍMBOLOS", [["salida", cVE], ["extintor", cRO], ["aseos", cAZ], ["cafetería", cNA]])],
+    ],
+    "Los puntos cardinales": [
+      ["La cuadrícula: encontrar un lugar", `<p>Muchos planos y mapas tienen una <mark>cuadrícula</mark>: unas líneas que los dividen en casillas. Arriba, cada columna tiene una <b>letra</b>, y en el lado, cada fila tiene un <b>número</b>.</p><ul><li>Para encontrar un lugar, se buscan su letra y su número, por ejemplo, <b>B3</b>.</li><li>Se baja con el dedo por la columna B y se cruza con la fila 3. ¡Ahí está!</li></ul><p>Así se encuentran calles en los planos de las ciudades y lugares en los mapas de carreteras. El índice del plano dice, por ejemplo: «Calle Mayor, D4».</p><p>Funciona igual que en el juego de los barquitos, donde dices «A5» para disparar a una casilla, o que en el ajedrez, donde cada casilla tiene su letra y su número.</p><p>Los mapas del mundo usan una cuadrícula parecida, pero con líneas imaginarias llamadas <b>paralelos</b> y <b>meridianos</b>. Las estudiarás en cursos más adelante.</p>`,
+        L6.filas("Cuadrícula", [["letra", "columna", cAZ], ["número", "fila", cRO], ["B3", "cruce", cVE], ["índice", "calle y casilla", cNA]])],
+    ],
+  },
+  final: [
+    ["Mapas antiguos", `<p>Hace siglos no había aviones ni satélites para ver la Tierra desde arriba. Aun así, las personas hacían <mark>mapas</mark>.</p><ul><li>Los primeros mapas se dibujaban en tablillas de barro, en pieles o en papel. Muchos eran muy imperfectos.</li><li>Los marineros y los exploradores apuntaban lo que veían en sus viajes: costas, ríos, montañas… Con esas notas, los <b>cartógrafos</b> dibujaban los mapas.</li><li>Medían las distancias contando los pasos o el tiempo que tardaban, y se orientaban con las estrellas y la brújula.</li><li>En los lugares que no conocían, a veces dibujaban monstruos marinos o escribían «aquí hay dragones».</li></ul><p>En el año 1500, el marino <b>Juan de la Cosa</b>, que viajó con Colón, dibujó uno de los primeros mapas en los que aparece América.</p><p>Hoy los mapas se hacen con fotos de satélites y ordenadores, y son mucho más exactos. Pero los mapas antiguos nos enseñan cómo veía el mundo la gente de cada época.</p>`,
+      H6.dos("Mapas", ["ANTES", ["pasos y estrellas", "pieles, papel", "zonas vacías"], cNA], ["AHORA", ["satélites", "ordenador", "muy exactos"], cAZ]), ["nTWayftpqFo", "¿Cómo se Hacían los Mapas Antiguamente si no Había Satélites?", "El Robot de Platón", 884141]],
+    ["Itinerarios: dar indicaciones", `<p>Un <mark>itinerario</mark> es el camino que hay que seguir para ir de un lugar a otro. Saber explicarlo bien es muy útil.</p><p><b>Para dar buenas indicaciones</b>:</p><ul><li>Di el <b>punto de partida</b>: «Sal por la puerta del colegio».</li><li>Usa palabras de dirección: <b>sigue recto</b>, <b>gira a la derecha</b>, <b>gira a la izquierda</b>, <b>cruza</b>.</li><li>Nombra <b>referencias</b> fáciles de ver: una farmacia, una fuente, un semáforo.</li><li>Indica <b>distancias</b>: «Pasa dos calles», «a unos cien pasos».</li><li>Di cómo reconocer el <b>destino</b>: «Es el edificio con la puerta azul».</li></ul><p>En un plano, el itinerario se puede marcar con una línea de color y flechas.</p><p>Los navegadores GPS de los coches y los móviles hacen lo mismo: calculan el itinerario y nos dicen «En 200 metros, gire a la derecha».</p><p><b>Actividad</b>: escribe el itinerario de tu casa al colegio y dibújalo en un plano sencillo.</p>`,
+      H6.flujo("Itinerario", ["salida|colegio", "recto|dos calles", "derecha|farmacia", "llegada|puerta azul"], cVE)],
+  ],
+  ejemplos: [
+    ["En el plano, el parque está en C2. ¿Cómo lo encuentro?", ["Busco la columna C arriba.", "Bajo hasta la fila 2."], "En el cruce de C y 2."],
+    ["Explica cómo ir de la clase al comedor.", ["Sal de clase y gira a la izquierda.", "Sigue recto hasta las escaleras y baja."], "Itinerario con direcciones y referencias."],
+  ],
+  errores: ["Confundir la letra (columna) con el número (fila) en la cuadrícula.", "Dar indicaciones sin referencias: «ve por ahí» no sirve."],
+  ejercicios: [
+    ["b", "¿Qué es un pictograma?", "Un dibujo sencillo que todos entienden."],
+    ["b", "¿De qué color es la señal de salida de emergencia?", "Verde."],
+    ["b", "En la cuadrícula, ¿qué indica la letra?", "La columna."],
+    ["b", "¿Quién dibujó uno de los primeros mapas con América?", "Juan de la Cosa."],
+    ["b", "¿Qué es un itinerario?", "El camino de un lugar a otro."],
+    ["m", "¿Por qué los pictogramas deben ser simples?", "Para entenderlos rápido y de lejos."],
+    ["m", "¿Qué juego usa casillas con letra y número?", "Los barquitos o el ajedrez."],
+    ["m", "¿Cómo medían las distancias los antiguos?", "Con pasos o con el tiempo de viaje."],
+    ["m", "Di tres palabras de dirección.", "Recto, derecha, izquierda, cruza."],
+    ["m", "¿Qué dibujaban en los lugares desconocidos?", "Monstruos o dragones."],
+    ["a", "Inventa pictogramas para cinco lugares del colegio.", "Respuesta abierta."],
+    ["a", "Dibuja un plano con cuadrícula y escribe su índice.", "Respuesta abierta."],
+    ["a", "Escribe el itinerario de tu casa al colegio.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿en qué casilla estaba la ballena?", "En C2."],
+  ],
+  quiz: [
+    ["Un muñeco corriendo hacia una puerta verde indica…", ["salida de emergencia", "aseos", "cafetería"], "Pictogramas."],
+    ["En B3, el 3 es…", ["la fila", "la columna", "la escala"], "Cuadrícula."],
+    ["Las personas que hacen mapas se llaman…", ["cartógrafos", "arqueólogos", "geólogos"], "Mapas antiguos."],
+    ["«Gira a la derecha» es una indicación de…", ["dirección", "tiempo", "tamaño"], "Itinerario."],
+    ["Hoy los mapas se hacen con…", ["satélites y ordenadores", "tablillas de barro", "pieles"], "Mapas."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué hizo Inés para orientar el plano?", ["lo giró según la flecha N", "lo dobló", "lo tiró"], "Lectura."],
+    ["En el año 1500, Juan de la Cosa dibujó un mapa con…", ["América", "la Luna", "Marte"], "Mapas antiguos."],
+  ],
+  tarjetas: [
+    ["Pictogramas", "Dibujos simples que todos entienden: salida, extintor, aseos."],
+    ["Cuadrícula", "Letra de columna y número de fila: B3."],
+    ["Mapas antiguos", "Pasos, estrellas, brújula; Juan de la Cosa, 1500."],
+    ["Itinerario", "Partida, dirección, referencias, distancias y destino."],
+  ],
+  glosario: [
+    ["Pictograma", "Dibujo sencillo que representa algo."],
+    ["Señal", "Aviso con símbolos o colores."],
+    ["Cuadrícula", "Red de líneas que divide en casillas."],
+    ["Columna", "Fila vertical de casillas."],
+    ["Fila", "Línea horizontal de casillas."],
+    ["Índice", "Lista que dice dónde está cada cosa."],
+    ["Cartógrafo", "Persona que hace mapas."],
+    ["Explorador", "Persona que viaja a lugares desconocidos."],
+    ["Satélite", "Aparato que gira alrededor de la Tierra."],
+    ["Itinerario", "Camino para ir de un lugar a otro."],
+    ["Referencia", "Algo fácil de ver que ayuda a orientarse."],
+    ["Navegador", "Aparato que calcula el camino."],
+  ],
+  situacion: {
+    titulo: "Guías del colegio",
+    reto: "La clase prepara un plano para que los alumnos nuevos encuentren cada lugar del colegio.",
+    pasos: ["Diseñar pictogramas para cada sala.", "Dibujar el plano con una cuadrícula e índice.", "Escribir itinerarios desde la entrada a cada lugar.", "Probar el plano con alumnos de otra clase."],
+    producto: "Un plano-guía del colegio con pictogramas.",
+    evaluacion: ["Crea pictogramas claros.", "Usa la cuadrícula.", "Conoce los mapas antiguos.", "Da indicaciones precisas."],
+  },
+});
