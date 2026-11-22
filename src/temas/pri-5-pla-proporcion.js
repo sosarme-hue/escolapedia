@@ -93,3 +93,92 @@ module.exports = tema({
   ideas: ["Medición de alumnos en cabezas con cordones.", "Sesión de dibujo del natural con un compañero como modelo en posturas de 2 minutos.", "Galería de autorretratos antes y después del tema."],
   fuentes: [["Gallerie dell'Accademia: el Hombre de Vitruvio", "https://www.gallerieaccademia.it/en"], ["Museo del Prado: El Greco", "https://www.museodelprado.es/coleccion/artista/el-greco/"]],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { L: L5, H: H5, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 75,
+  objetivos: ["Medir proporciones del natural con el lápiz", "Dibujar las expresiones básicas de la cara", "Hacer croquis rápidos de figuras en movimiento", "Exagerar con intención en caricaturas y ampliar dibujos con cuadrícula"],
+  lectura: { titulo: "La apuesta del caballo", html: `<p>En el año 1872, en California, un rico empresario llamado Leland Stanford tenía una duda que no le dejaba dormir: cuando un caballo galopa, ¿hay algún momento en que tiene las cuatro patas en el aire a la vez?</p><p>Nadie podía responder con seguridad. El galope es tan rápido que el ojo humano no alcanza a verlo. Los pintores solían dibujar los caballos al galope con las patas delanteras estiradas hacia delante y las traseras hacia atrás, como si volaran.</p><p>Stanford contrató a un fotógrafo, Eadweard Muybridge, para resolver el misterio. Muybridge tardó años en conseguirlo. Al final, en 1878, colocó doce cámaras en fila a lo largo de una pista. De cada cámara salía un hilo que cruzaba la pista. Al pasar, el caballo rompía los hilos uno tras otro y cada cámara disparaba una foto.</p><p>Cuando revelaron las imágenes, todos se quedaron boquiabiertos: sí, había un momento en que el caballo tenía las cuatro patas en el aire… pero ¡recogidas bajo el cuerpo, no estiradas! Los pintores llevaban siglos dibujándolo mal.</p><p>Muybridge siguió fotografiando personas y animales en movimiento: corriendo, saltando, subiendo escaleras. Sus fotos sirvieron a muchos artistas para aprender cómo se mueve el cuerpo de verdad. Y, al pasarlas rápido, las imágenes se movían: era el principio del cine.</p>` },
+  tras: {
+    "Las medidas del cuerpo": [
+      ["Medir con el lápiz", `<p>Cuando dibujamos del natural, es decir, mirando a un modelo, a un objeto o un paisaje real, los artistas usan un truco muy sencillo para comprobar las proporciones: <b>medir con el lápiz</b>.</p><ol><li>Estira el brazo del todo, con el codo bloqueado, y sujeta el lápiz en vertical. Es importante que el brazo esté siempre igual de estirado para que las medidas sean comparables.</li><li>Cierra un ojo. Haz coincidir la punta del lápiz con la parte de arriba de la cabeza del modelo y baja el pulgar hasta la barbilla. Esa medida es tu <b>unidad</b>: una cabeza.</li><li>Sin mover el pulgar, comprueba cuántas cabezas caben en el cuerpo, en el brazo o en la pierna.</li><li>Traslada esas proporciones a tu papel.</li></ol><p>El lápiz también sirve para comprobar <b>ángulos</b>: ponlo en horizontal o en vertical delante de una línea inclinada (un brazo, un tejado) y fíjate en cuánto se separa.</p><p>Otro truco es la <b>plomada</b>: imagina una línea vertical que baja desde la cabeza del modelo. ¿Qué toca al llegar al suelo? ¿El pie, el talón, el espacio entre los pies? Así sabrás dónde se apoya el peso del cuerpo.</p><p>Al principio cuesta, pero con práctica tus dibujos ganarán mucho en realismo.</p>`,
+        H5.flujo("Medir con el lápiz", ["Brazo|estirado", "Un ojo|cerrado", "Medir la|cabeza", "Comparar"], cAZ)],
+    ],
+    "La cara bien proporcionada": [
+      ["Las expresiones de la cara", `<p>Una cara bien proporcionada puede expresar muchas emociones con solo cambiar unas pocas líneas. Las partes que más cambian son las <b>cejas</b>, los <b>ojos</b> y la <b>boca</b>.</p><ul><li><b>Alegría</b>: la boca se curva hacia arriba, las mejillas suben y los ojos se achinan un poco.</li><li><b>Tristeza</b>: las comisuras de la boca bajan y la parte interior de las cejas sube, formando una especie de tejado inclinado.</li><li><b>Enfado</b>: las cejas bajan hacia el centro y se juntan, la boca se aprieta o enseña los dientes.</li><li><b>Sorpresa</b>: las cejas suben mucho, los ojos se abren redondos y la boca forma una «o».</li><li><b>Miedo</b>: cejas arriba y juntas, ojos muy abiertos y boca estirada hacia los lados.</li></ul><p>Un buen ejercicio es mirarse en un <b>espejo</b> mientras se pone cada cara y dibujar lo que se ve. Fíjate también en las <b>arrugas</b> que aparecen en la frente y alrededor de los ojos.</p><p>Los dibujantes de cómic y los animadores estudian las expresiones con mucho detalle, porque un personaje sin expresión no transmite nada. Con las mismas proporciones de la cara, solo moviendo cejas y boca, puedes crear un personaje que ríe, llora o se asusta.</p>`,
+        L5.filas("Cejas y boca", [["alegría", "boca arriba", cNA], ["tristeza", "boca abajo", cAZ], ["enfado", "cejas al centro", cRO], ["sorpresa", "cejas arriba, boca en o", cVE], ["miedo", "ojos muy abiertos", cMO]]), ["3iXJ6I0SGGc", "APRENDE A DIBUJAR DISTINTAS EXPRESIONES CON IVANEVSKY", "IVANEVSKY tutoriales de Dibujo Cartoon", 441119]],
+    ],
+    "El maniquí articulado": [
+      ["Croquis rápidos y movimiento", `<p>Un <b>croquis</b> es un dibujo rápido que capta lo esencial de una figura en pocos segundos: su postura, su movimiento y su energía. No importa el detalle, sino el <b>gesto</b>.</p><p>Para practicar, pide a un compañero que adopte posturas distintas (lanzar una pelota, agacharse, bailar, estirarse) y cambia de postura cada <b>30 segundos</b>. En tan poco tiempo no da tiempo a dibujar la cara ni la ropa, y eso es justamente lo que buscamos:</p><ol><li>Empieza por la <b>línea de acción</b>, la curva que recorre todo el cuerpo.</li><li>Añade un óvalo para la cabeza y líneas para hombros y caderas, fijándote en cómo se inclinan.</li><li>Termina con líneas sueltas para brazos y piernas.</li></ol><p>Después de muchos croquis de 30 segundos, prueba con poses de 2 minutos y añade algo más de volumen.</p><p>La <b>fotografía</b> ayudó mucho a entender el movimiento. El fotógrafo <b>Eadweard Muybridge</b> hizo en 1878 una serie de fotos de un caballo al galope con doce cámaras y demostró cómo se mueven de verdad las patas. Sus series de personas corriendo, saltando o subiendo escaleras siguen siendo muy útiles para dibujantes y animadores.</p>`,
+        L5.filas("Croquis por tiempo", [["30 segundos", "línea de acción", cRO], ["1 minuto", "hombros y caderas", cNA], ["2 minutos", "volumen", cVE], ["Muybridge", "fotos en serie", cAZ]]), ["A9R5_TjrAQY", "Eadweard Muybridge « El caballo en movimiento »  ( 1887 )", "Marvinrax", 124191]],
+    ],
+    "Proporción y arte": [
+      ["Caricaturas y personajes de cómic", `<p>Una <b>caricatura</b> es un retrato que <b>exagera</b> los rasgos más característicos de una persona para que se reconozca enseguida y, a menudo, para hacer reír. Para hacer una buena caricatura, primero hay que conocer las proporciones normales; así sabremos qué es lo que sale de lo normal en esa persona:</p><ul><li>Si alguien tiene la frente ancha, la hacemos aún más ancha.</li><li>Si tiene una gran sonrisa, la estiramos de oreja a oreja.</li><li>Si tiene el pelo rizado, lo convertimos en una nube enorme.</li></ul><p>La regla de oro es exagerar <b>uno o dos rasgos</b> y mantener el resto parecido. Y siempre con respeto: una caricatura debe hacer gracia también a la persona dibujada.</p><p>Los personajes de <b>cómic</b> y <b>animación</b> también juegan con las proporciones:</p><ul><li>Los personajes muy tiernos o de estilo <b>«chibi»</b> japonés miden solo <b>dos o tres cabezas</b>: cabeza enorme y cuerpo pequeño.</li><li>Los personajes infantiles miden unas <b>cuatro o cinco cabezas</b>.</li><li>Los <b>superhéroes</b> suelen medir <b>nueve cabezas o más</b>, con hombros anchos y piernas largas, para parecer poderosos.</li></ul><p>Elegir cuántas cabezas mide un personaje es decidir su personalidad.</p>`,
+        H5.barras("Altura en cabezas", [["chibi", 2.5, cNA, "2-3"], ["infantil", 4.5, cVE, "4-5"], ["adulto real", 8, cAZ, "8"], ["superhéroe", 9, cRO, "9+"]], 9)],
+    ],
+  },
+  final: [
+    ["Ampliar un dibujo con cuadrícula", `<p>¿Cómo pintaban los artistas murales gigantes a partir de un dibujo pequeño sin que se deformaran las proporciones? Con el <b>método de la cuadrícula</b>, que ya se usaba en el antiguo Egipto y que siguen usando hoy los muralistas.</p><ol><li>Dibuja sobre el dibujo original (o sobre una copia, o sobre un papel transparente) una <b>cuadrícula</b> de cuadrados iguales, por ejemplo de 1 cm.</li><li>En el papel grande, dibuja con lápiz suave una cuadrícula con el <b>mismo número</b> de cuadrados, pero más grandes, por ejemplo de 3 cm. Así el dibujo será tres veces más grande.</li><li>Numera las filas y las columnas en los dos papeles.</li><li>Copia el dibujo <b>cuadrado a cuadrado</b>: fíjate en por dónde entra y por dónde sale cada línea de cada cuadrado.</li><li>Cuando termines, borra la cuadrícula.</li></ol><p>El secreto es olvidarse de lo que estás dibujando y fijarse solo en las líneas dentro de cada cuadrado. Así el cerebro no «corrige» lo que ve y la copia sale más fiel.</p><p>El método también sirve para <b>reducir</b>: basta con hacer los cuadrados del papel nuevo más pequeños.</p><p>A la relación entre el tamaño del original y el de la copia se le llama <b>escala</b>. Si los cuadrados pasan de 1 cm a 3 cm, la escala es 3 : 1.</p>`,
+      L5.tabla("Cuadrícula y escala", ["original", "copia", "escala"], [["1 cm", "2 cm", "2 : 1"], ["1 cm", "3 cm", "3 : 1"], ["2 cm", "1 cm", "1 : 2"]], cVE), ["V5vJeZN-itU", "Dibuja lo que tu quieras usando una Cuadricula", "Dibujando con Delein", 249565]],
+  ],
+  ejemplos: [
+    ["Mides con el lápiz y la cabeza de tu modelo cabe 6 veces en su cuerpo. ¿Es un adulto o un niño?", ["Un adulto mide unas 8 cabezas.", "Un niño de unos 6-8 años mide unas 6 cabezas."], "Probablemente es un niño."],
+    ["Quieres copiar un dibujo de 10 × 10 cm al doble de tamaño. ¿Qué cuadrícula usas?", ["Original con cuadrados de 1 cm.", "Copia con cuadrados de 2 cm."], "Cuadrados de 1 cm en el original y de 2 cm en el papel grande: escala 2 : 1."],
+  ],
+  errores: ["Doblar el brazo al medir con el lápiz: las medidas cambian y no se pueden comparar.", "Exagerar todos los rasgos en una caricatura: se pierde el parecido."],
+  ejercicios: [
+    ["b", "¿Qué parte del cuerpo usamos como unidad al medir con el lápiz?", "La cabeza."],
+    ["b", "¿Qué hacen las cejas en una cara enfadada?", "Bajan y se juntan hacia el centro."],
+    ["b", "¿Qué es un croquis?", "Un dibujo rápido que capta la postura y el movimiento."],
+    ["b", "¿Cuántas cabezas suele medir un superhéroe de cómic?", "Nueve o más."],
+    ["b", "¿Qué descubrió Muybridge con sus fotos?", "Cómo se mueven de verdad las patas del caballo al galope."],
+    ["m", "Explica para qué sirve la plomada al dibujar una figura.", "Para ver dónde se apoya el peso del cuerpo."],
+    ["m", "Describe cómo dibujarías una cara de sorpresa.", "Cejas muy altas, ojos redondos y boca en forma de o."],
+    ["m", "¿Por qué los croquis se hacen tan rápido?", "Para captar el gesto sin entretenerse en detalles."],
+    ["m", "Si los cuadrados pasan de 2 cm a 6 cm, ¿cuál es la escala?", "3 : 1."],
+    ["m", "¿Qué rasgos exagerarías en una caricatura de alguien con orejas grandes y pelo de punta?", "Las orejas y el pelo."],
+    ["a", "Haz diez croquis de 30 segundos de compañeros en movimiento.", "Respuesta abierta."],
+    ["a", "Dibuja la misma cara con cinco expresiones diferentes.", "Respuesta abierta."],
+    ["a", "Crea un personaje en tres versiones: chibi, infantil y superhéroe.", "Respuesta abierta."],
+    ["a", "Amplía con cuadrícula un dibujo pequeño para un mural de clase.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Al medir con el lápiz, el brazo debe estar…", ["estirado", "doblado", "en el bolsillo"], "Siempre igual."],
+    ["En la tristeza, las comisuras de la boca…", ["bajan", "suben", "desaparecen"], "Expresión."],
+    ["Un croquis de 30 segundos empieza por…", ["la línea de acción", "los ojos", "la ropa"], "Gesto."],
+    ["Un personaje chibi mide unas…", ["dos o tres cabezas", "ocho cabezas", "doce cabezas"], "Tierno."],
+    ["El método para ampliar un dibujo es la…", ["cuadrícula", "plomada", "caricatura"], "Escala."],
+  ],
+  examen: [
+    ["Muybridge fotografió el caballo con…", ["doce cámaras", "una cámara de vídeo", "un móvil"], "1878."],
+    ["Una escala 1 : 2 significa que la copia es…", ["la mitad", "el doble", "igual"], "Reducir."],
+  ],
+  tarjetas: [
+    ["Medir con el lápiz", "Brazo estirado, un ojo cerrado, cabeza como unidad."],
+    ["Expresiones", "Cejas, ojos y boca cambian la emoción."],
+    ["Croquis", "Poses de 30 s: línea de acción, hombros, caderas."],
+    ["Cuadrícula", "Copiar cuadrado a cuadrado; escala original : copia."],
+  ],
+  glosario: [
+    ["Del natural", "Dibujo hecho mirando un modelo real."],
+    ["Unidad de medida", "Medida que se usa para comparar las demás."],
+    ["Plomada", "Línea vertical imaginaria para comprobar apoyos."],
+    ["Expresión", "Gesto de la cara que muestra una emoción."],
+    ["Comisura", "Extremo de los labios."],
+    ["Croquis", "Dibujo rápido que capta lo esencial."],
+    ["Gesto", "Postura y movimiento de una figura."],
+    ["Caricatura", "Retrato que exagera los rasgos característicos."],
+    ["Chibi", "Estilo japonés de personajes con cabeza muy grande."],
+    ["Cuadrícula", "Red de cuadrados iguales para copiar un dibujo."],
+    ["Escala", "Relación entre el tamaño de la copia y el original."],
+    ["Muralista", "Artista que pinta murales."],
+  ],
+  situacion: {
+    titulo: "El mural de las emociones",
+    reto: "La clase diseña un mural con personajes que muestran distintas emociones y lo amplía con cuadrícula a una pared del colegio.",
+    pasos: ["Haced croquis de compañeros en posturas que expresen alegría, tristeza, enfado, sorpresa y miedo.", "Convertid los croquis en personajes con la expresión de la cara adecuada y decidid cuántas cabezas mide cada uno.", "Dibujad el boceto del mural en un papel pequeño con cuadrícula.", "Ampliadlo cuadrado a cuadrado sobre papel continuo y pintadlo entre todos."],
+    producto: "Un mural de gran tamaño con personajes y emociones.",
+    evaluacion: ["Mide proporciones del natural.", "Dibuja expresiones reconocibles.", "Capta el movimiento en croquis.", "Amplía un dibujo con cuadrícula manteniendo las proporciones."],
+  },
+});

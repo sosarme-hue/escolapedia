@@ -93,3 +93,90 @@ module.exports = tema({
   ideas: ["Taller de modelado de animales en arcilla.", "Escultura de construcción con materiales reciclados.", "Paseo escultórico por el barrio con fotografías desde varios puntos de vista."],
   fuentes: [["Museo Nacional de Escultura (Valladolid)", "https://www.culturaydeporte.gob.es/mnescultura/inicio.html"], ["Museo Chillida Leku", "https://www.museochillidaleku.com/"]],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { L: L5, H: H5, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 75,
+  objetivos: ["Distinguir altorrelieve, bajorrelieve y hueco relieve", "Conocer la imaginería policromada y la escultura antigua de España", "Valorar el arte efímero, como las Fallas", "Crear esculturas con elementos naturales al estilo del land art"],
+  lectura: { titulo: "La dama que salió de la tierra", html: `<p>En el verano de 1897, en una finca cerca de Elche, un joven jornalero cavaba la tierra para preparar un campo de cultivo. De repente, su azada chocó con algo duro. Apartó la tierra con las manos y vio aparecer un rostro de piedra: una mujer de ojos tranquilos que lo miraba desde hacía más de dos mil años.</p><p>Era una escultura de piedra caliza, con un tocado extraordinario: dos grandes ruedas a los lados de la cara, collares, pendientes y una especie de diadema. En su espalda tenía un hueco, como si hubiera servido para guardar algo.</p><p>La noticia corrió por el pueblo. Poco después, un investigador francés la compró y se la llevó al Museo del Louvre, en París. Allí estuvo durante más de cuarenta años, hasta que regresó a España en 1941.</p><p>Hoy la Dama de Elche se puede visitar en el Museo Arqueológico Nacional, en Madrid. Nadie sabe con seguridad a quién representa: ¿una diosa?, ¿una sacerdotisa?, ¿una mujer importante de su pueblo? Los íberos que la tallaron no nos dejaron la respuesta.</p><p>Y ese es uno de los poderes de la escultura: hablar con nosotros a través de los siglos, aunque no sepamos exactamente qué quiso decir quien la hizo.</p>` },
+  tras: {
+    "Bulto redondo y relieve": [
+      ["Tipos de relieve", `<p>Un relieve es una escultura que sale de un fondo, como una pared o una placa. Según cuánto sobresalen las figuras, distinguimos tres tipos:</p><ul><li><b>Altorrelieve</b>: las figuras sobresalen <b>más de la mitad</b> de su volumen. Casi parecen de bulto redondo pegadas a la pared. Se ven mucho en las portadas de las catedrales y en los retablos.</li><li><b>Bajorrelieve</b>: las figuras sobresalen <b>menos de la mitad</b>. Son más planas, como las escenas de los templos egipcios o los frisos griegos.</li><li><b>Hueco relieve</b>: las figuras <b>no sobresalen</b>, sino que se excavan dentro del fondo. Los egipcios lo usaban en paredes al sol, porque las sombras dentro de los surcos dibujan muy bien las figuras.</li></ul><p>Tienes relieves en el bolsillo: las <b>monedas</b> y las <b>medallas</b> son bajorrelieves. Fíjate en una moneda de euro: la cara, los números y las estrellas sobresalen un poquito para que se puedan reconocer al tacto.</p><p>Puedes hacer un relieve en clase con una plancha de plastilina o de arcilla: dibuja una figura con un palillo, quita material alrededor para que sobresalga (bajorrelieve) o hunde las líneas (hueco relieve).</p>`,
+        L5.filas("Tipos de relieve", [["altorrelieve", "sale más de la mitad", cRO], ["bajorrelieve", "sale menos de la mitad", cAZ], ["hueco relieve", "se hunde en el fondo", cVE], ["ejemplo", "monedas, medallas", cNA]])],
+    ],
+    "Técnica 2: tallar": [
+      ["La imaginería policromada", `<p>En España hay una tradición escultórica muy especial: la <b>imaginería</b>, es decir, la talla de imágenes religiosas en <b>madera policromada</b>, que significa «pintada de muchos colores». Vivió su época de oro en los siglos XVI y XVII, durante el Barroco.</p><p>El proceso tenía varias fases y trabajaban varios artesanos:</p><ol><li>El <b>escultor</b> tallaba la figura en madera, a menudo en varias piezas que luego se unían.</li><li>Se cubría con una capa de <b>yeso</b> fino para dejar la superficie lisa.</li><li>Se aplicaba <b>pan de oro</b> en los vestidos y, encima, se pintaban dibujos que luego se rascaban para que brillara el oro: la técnica del <b>estofado</b>.</li><li>Las caras y las manos se pintaban con colores de piel muy realistas: es la <b>encarnación</b>.</li></ol><p>Para que parecieran aún más reales, algunos escultores añadían <b>ojos de cristal</b>, lágrimas de vidrio, dientes de marfil o incluso pelo natural.</p><p>Los imagineros más famosos fueron <b>Gregorio Fernández</b> en Valladolid, <b>Juan Martínez Montañés</b> en Sevilla y <b>Alonso Cano</b> en Granada. Muchas de sus obras salen hoy en los <b>pasos</b> de Semana Santa, y otras se guardan en museos como el Museo Nacional de Escultura de Valladolid.</p>`,
+        H5.flujo("De la madera a la imagen", ["Tallar", "Yeso", "Oro y|estofado", "Encar-|nación"], cNA)],
+    ],
+    "Esculturas en la historia": [
+      ["Escultura antigua en España", `<p>Mucho antes de los romanos, los pueblos que vivían en la península ya hacían esculturas de gran calidad.</p><p>Los <b>íberos</b>, que habitaban la costa mediterránea y el sur, tallaron en piedra figuras de mujeres ricamente vestidas, como la <b>Dama de Elche</b>, la <b>Dama de Baza</b> o la <b>Gran Dama Oferente</b> del Cerro de los Santos. También esculpieron animales fantásticos, como la <b>Bicha de Balazote</b>, un toro con cabeza humana.</p><p>En el centro de la península, los <b>vetones</b> tallaron en granito grandes esculturas de toros y cerdos llamadas <b>verracos</b>. Los más famosos son los <b>Toros de Guisando</b>, en Ávila: cuatro toros de piedra puestos en fila en medio del campo. Se cree que protegían el ganado o marcaban territorios.</p><p>Después llegaron los <b>romanos</b>, que llenaron las ciudades de Hispania de estatuas de emperadores, dioses y ciudadanos importantes, muchas en mármol. Puedes verlas en el Museo Nacional de Arte Romano de Mérida.</p><p>Estas esculturas nos ayudan a conocer cómo vestían, en qué creían y qué animales eran importantes para los pueblos antiguos.</p>`,
+        L5.filas("Escultura antigua", [["íberos", "Dama de Elche", cNA], ["íberos", "Bicha de Balazote", cRO], ["vetones", "Toros de Guisando", cMO], ["romanos", "estatuas de Mérida", cAZ]]), ["uekBXEIg91M", "DAMA DE ELCHE *La Pieza Arqueológica más Importante de España* || Museo Virtual #3", "Rubén Villalobos", 180785]],
+    ],
+  },
+  final: [
+    ["Escultura efímera: las Fallas", `<p>Casi todas las esculturas se hacen para durar siglos. Pero hay un arte que se crea para <b>desaparecer</b>: es el <b>arte efímero</b>. Las esculturas de arena en la playa, las de hielo o las de flores son ejemplos de arte efímero.</p><p>El ejemplo más espectacular son las <b>Fallas de Valencia</b>. Cada barrio construye un monumento enorme, la <b>falla</b>, formado por figuras llamadas <b>ninots</b>, que muchas veces critican con humor temas de actualidad. Algunas fallas miden más de veinte metros.</p><p>Los <b>artistas falleros</b> trabajan durante todo el año en grandes talleres:</p><ul><li>Dibujan el boceto y hacen una maqueta.</li><li>Modelan las figuras y sacan moldes.</li><li>Antes se usaban cartón y madera; hoy se usa mucho el poliestireno expandido, aunque cada vez se buscan materiales más ecológicos.</li><li>Lijan, pintan y montan el monumento en la calle.</li></ul><p>La noche del <b>19 de marzo</b>, la <b>cremà</b>, todas las fallas se queman. Solo se salva un ninot por votación popular: el <b>ninot indultat</b>, que va al Museo Fallero.</p><p>En 2016, la UNESCO declaró las Fallas <b>Patrimonio Cultural Inmaterial de la Humanidad</b>.</p>`,
+      L5.filas("Arte efímero", [["arena", "castillos y figuras", cNA], ["hielo", "festivales de invierno", cAZ], ["flores", "alfombras de flores", cVE], ["Fallas", "se queman el 19 de marzo", cRO]]), ["QhpC0XCeCmA", "Como hacer un ninot de falla - parte 1/2", "Xavier Herrero Falles i Decoració", 125121]],
+    ["Land art: esculpir con la naturaleza", `<p>En los años sesenta y setenta, algunos artistas decidieron salir de los museos y hacer sus obras directamente en la <b>naturaleza</b>, con materiales del propio lugar. Lo llamaron <b>land art</b>, que en inglés significa «arte de la tierra».</p><p>El estadounidense <b>Robert Smithson</b> construyó en 1970 la <b>Spiral Jetty</b>, una enorme espiral de rocas que se adentra en un lago salado de Utah. A veces queda cubierta por el agua y a veces vuelve a aparecer.</p><p>El británico <b>Andy Goldsworthy</b> crea obras delicadas con lo que encuentra en el paseo: hojas ordenadas por colores, piedras en equilibrio, ramas entrelazadas, carámbanos de hielo pegados entre sí. Muchas de sus obras duran solo unas horas, hasta que el viento, el agua o el sol las deshacen. Por eso las <b>fotografía</b>: la foto se convierte en el recuerdo de la obra.</p><p>El land art nos enseña a mirar la naturaleza con otros ojos y a respetarla. Las reglas son sencillas: usar solo materiales caídos o sueltos, no arrancar plantas, no molestar a los animales y dejar el lugar como estaba.</p><p>En una salida al campo o en el patio, prueba a hacer un círculo de hojas del claro al oscuro o una torre de piedras planas.</p>`,
+      H5.rueda("Materiales del land art", "NATURA", [["hojas", cVE], ["piedras", cMO], ["ramas", cNA], ["hielo", cAZ]]), ["FPDH8yCnlk0", "Andy Goldsworthy - Land Art", "ZCZ Films", 415936]],
+  ],
+  ejemplos: [
+    ["En una moneda, la cara del rey sobresale muy poco del fondo. ¿Qué tipo de relieve es?", ["Sobresale menos de la mitad.", "No está hundida en el fondo."], "Un bajorrelieve."],
+    ["¿Por qué un ninot de falla es arte efímero?", ["Se construye para una fiesta.", "Se quema la noche de la cremà."], "Porque está hecho para durar poco y desaparece al quemarse."],
+  ],
+  errores: ["Confundir bajorrelieve con hueco relieve: en el hueco relieve la figura se hunde en el fondo.", "Arrancar plantas o flores para hacer land art: solo se usan materiales caídos."],
+  ejercicios: [
+    ["b", "Nombra los tres tipos de relieve.", "Altorrelieve, bajorrelieve y hueco relieve."],
+    ["b", "¿Qué significa «policromada»?", "Pintada de muchos colores."],
+    ["b", "¿Dónde se encontró la Dama de Elche y en qué año?", "Cerca de Elche, en 1897."],
+    ["b", "¿Qué día es la cremà?", "El 19 de marzo."],
+    ["b", "¿Qué es el land art?", "Arte hecho en la naturaleza con sus materiales."],
+    ["m", "Explica qué es el estofado.", "Pintar sobre pan de oro y rascar para que el oro brille en los dibujos."],
+    ["m", "¿Qué son los Toros de Guisando?", "Esculturas de piedra de los vetones en Ávila."],
+    ["m", "¿Qué es el ninot indultat?", "El ninot que se salva del fuego por votación popular."],
+    ["m", "¿Por qué Andy Goldsworthy fotografía sus obras?", "Porque duran poco y la foto guarda su recuerdo."],
+    ["m", "Nombra dos imagineros barrocos y su ciudad.", "Gregorio Fernández (Valladolid) y Martínez Montañés (Sevilla)."],
+    ["a", "Haz un bajorrelieve en plastilina de tu animal favorito.", "Respuesta abierta."],
+    ["a", "Diseña el boceto de un ninot que critique con humor un problema de tu barrio.", "Respuesta abierta."],
+    ["a", "Crea una obra de land art en el patio y fotografíala.", "Respuesta abierta."],
+    ["a", "Inventa la historia de quién era la Dama de Elche.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Si las figuras sobresalen más de la mitad, es un…", ["altorrelieve", "bajorrelieve", "hueco relieve"], "Casi bulto redondo."],
+    ["Dar color a la cara y las manos de una talla se llama…", ["encarnación", "estofado", "fundición"], "Imaginería."],
+    ["La Dama de Elche la tallaron los…", ["íberos", "romanos", "egipcios"], "Prerromanos."],
+    ["Las Fallas son Patrimonio de la Humanidad desde…", ["2016", "1916", "1997"], "UNESCO."],
+    ["La Spiral Jetty es una obra de…", ["land art", "imaginería", "trencadís"], "Smithson."],
+  ],
+  examen: [
+    ["Las monedas son…", ["bajorrelieves", "esculturas de bulto redondo", "altorrelieves"], "Sobresalen poco."],
+    ["Los verracos son esculturas de…", ["toros y cerdos", "mujeres", "emperadores"], "Vetones."],
+  ],
+  tarjetas: [
+    ["Relieves", "Alto (más de la mitad), bajo (menos), hueco (hundido)."],
+    ["Imaginería", "Madera policromada: talla, yeso, estofado, encarnación."],
+    ["Escultura antigua", "Dama de Elche, Bicha de Balazote, Toros de Guisando."],
+    ["Efímero y land art", "Fallas, arena, hielo; Goldsworthy y Smithson."],
+  ],
+  glosario: [
+    ["Altorrelieve", "Relieve cuyas figuras sobresalen más de la mitad."],
+    ["Bajorrelieve", "Relieve cuyas figuras sobresalen menos de la mitad."],
+    ["Hueco relieve", "Relieve con las figuras excavadas en el fondo."],
+    ["Imaginería", "Talla de imágenes religiosas."],
+    ["Policromía", "Pintura de varios colores sobre una escultura."],
+    ["Estofado", "Técnica de rascar la pintura para dejar ver el oro."],
+    ["Encarnación", "Pintura de las partes de piel de una talla."],
+    ["Íberos", "Pueblos prerromanos del este y sur de la península."],
+    ["Verraco", "Escultura vetona de un toro o un cerdo."],
+    ["Efímero", "Que dura poco tiempo."],
+    ["Ninot", "Figura que forma parte de una falla."],
+    ["Land art", "Arte hecho en la naturaleza con sus materiales."],
+  ],
+  situacion: {
+    titulo: "Museo de escultura de la clase",
+    reto: "La clase monta un pequeño museo con tres salas: relieves, escultura antigua y arte efímero, con obras hechas por los alumnos.",
+    pasos: ["Sala de relieves: cada alumno hace una medalla o placa en bajorrelieve o hueco relieve.", "Sala antigua: reproducid en arcilla una pieza íbera o romana con su cartela.", "Sala efímera: haced una obra de land art en el patio y exponed sus fotografías.", "Preparad visitas guiadas para las familias explicando cada técnica."],
+    producto: "Un museo de aula con relieves, reproducciones y fotos de land art.",
+    evaluacion: ["Distingue los tipos de relieve.", "Conoce la imaginería y la escultura antigua de España.", "Explica qué es el arte efímero.", "Respeta la naturaleza al crear."],
+  },
+});

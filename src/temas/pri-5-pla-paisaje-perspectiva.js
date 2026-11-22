@@ -100,3 +100,90 @@ module.exports = tema({
   ideas: ["Salida al patio o a la calle para dibujar del natural un pasillo o una calle en perspectiva.", "Collage de paisaje en tres planos con papeles superpuestos.", "Comparar paisajes de Sorolla, Monet y Antonio López."],
   fuentes: [["Museo del Prado: el paisaje", "https://www.museodelprado.es/coleccion"], ["Museo Sorolla", "https://www.culturaydeporte.gob.es/msorolla/inicio.html"]],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { L: L5, H: H5, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 75,
+  objetivos: ["Elegir el encuadre y el formato de un paisaje", "Dibujar objetos con perspectiva de dos puntos de fuga", "Conocer cómo se descubrió la perspectiva en el Renacimiento", "Comparar el paisaje occidental con el paisaje tradicional chino"],
+  lectura: { titulo: "El espejo de Brunelleschi", html: `<p>Florencia, hace unos seiscientos años. Un arquitecto llamado Filippo Brunelleschi se colocó en la puerta de la catedral con un extraño invento en las manos: una tablilla de madera con un pequeño agujero en el centro y un espejo.</p><p>En la tablilla había pintado el baptisterio, el edificio de ocho lados que tenía justo enfrente. Pero lo había pintado de una manera nueva: las líneas de los tejados y las cornisas se acercaban unas a otras a medida que se alejaban, como ocurre cuando miramos de verdad.</p><p>Brunelleschi pedía a los curiosos que miraran por el agujero desde detrás de la tablilla. Lo que veían era el reflejo de su pintura en el espejo. Luego quitaba el espejo de golpe… ¡y aparecía el baptisterio real, exactamente igual, en el mismo lugar!</p><p>La gente no daba crédito. Aquella pintura parecía una ventana abierta a la realidad.</p><p>Brunelleschi había descubierto las reglas de la <b>perspectiva lineal</b>. Poco después, su amigo Leon Battista Alberti las explicó en un libro para que todos los pintores pudieran usarlas.</p><p>Desde entonces, los artistas saben cómo dibujar calles, edificios y paisajes que parecen tener profundidad. Hoy tú también puedes hacerlo con una regla, un lápiz y un punto de fuga.</p>` },
+  tras: {
+    "La línea de horizonte": [
+      ["Encuadre y formato", `<p>Antes de empezar un paisaje, hay que decidir dos cosas: el <b>formato</b> del papel y el <b>encuadre</b>, es decir, qué parte del paisaje vamos a incluir.</p><p>El <b>formato</b> puede ser:</p><ul><li><b>Horizontal</b> o apaisado: más ancho que alto. Es el más usado en los paisajes, porque nuestra vista es más ancha que alta. Por eso, en las impresoras, la opción horizontal se llama «paisaje».</li><li><b>Vertical</b>: más alto que ancho. Va bien para árboles altos, cascadas, torres o calles estrechas. Las impresoras lo llaman «retrato».</li><li><b>Panorámico</b>: muy alargado. Sirve para cordilleras, playas o vistas de ciudades.</li></ul><p>Para elegir el <b>encuadre</b>, puedes hacer un <b>visor</b>: recorta un rectángulo en el centro de una cartulina y mira el paisaje a través de él. Acércalo o aléjalo de los ojos hasta encontrar la vista que más te guste.</p><p>Un consejo: no pongas la línea de horizonte justo en el centro. Colócala a un <b>tercio</b> de la altura, más arriba si quieres destacar el suelo o el mar, o más abajo si quieres destacar el cielo. La composición quedará más interesante.</p>`,
+        L5.filas("Formatos", [["horizontal", "paisajes, playas", cAZ], ["vertical", "árboles, torres", cVE], ["panorámico", "cordilleras, ciudades", cNA]])],
+    ],
+    "La perspectiva lineal: el punto de fuga": [
+      ["Perspectiva con dos puntos de fuga", `<p>La perspectiva de un punto de fuga sirve cuando miramos algo <b>de frente</b>: una calle, un pasillo o unas vías de tren. Pero si miramos un edificio <b>desde una esquina</b>, vemos dos de sus lados a la vez, y cada lado se aleja hacia un punto distinto. Entonces necesitamos <b>dos puntos de fuga</b>.</p><p>Así se dibuja una caja o una casa en perspectiva de dos puntos:</p><ol><li>Traza la <b>línea de horizonte</b> y marca un punto de fuga en cada extremo.</li><li>Dibuja una <b>línea vertical</b> entre los dos puntos: será la esquina más cercana del edificio.</li><li>Une los extremos de esa línea con los dos puntos de fuga.</li><li>Dibuja dos <b>verticales</b> más, una a cada lado, para marcar dónde acaba cada pared.</li><li>Une los extremos de esas verticales con el punto de fuga contrario para cerrar el tejado o la base.</li><li>Borra las líneas que sobran y añade puertas y ventanas, que también se dirigen hacia los puntos de fuga.</li></ol><p>Recuerda: las líneas verticales siempre siguen siendo verticales; solo las horizontales se dirigen hacia los puntos de fuga.</p><p>Con esta técnica puedes dibujar un barrio entero visto desde un cruce de calles.</p>`,
+        H5.dos("Uno o dos puntos", ["Un punto", ["de frente", "calle, pasillo", "vías del tren"], cAZ], ["Dos puntos", ["desde la esquina", "casa, caja", "cruce de calles"], cRO]), ["IREoh0PkgTw", "Perspectiva de 2 puntos para artistas - Muy fácil", "Arte Divierte", 1009012]],
+    ],
+    "Grandes paisajistas": [
+      ["El descubrimiento de la perspectiva", `<p>Durante la Edad Media, los pintores no buscaban que sus cuadros parecieran reales. Las figuras importantes se pintaban más grandes, aunque estuvieran lejos, y los edificios parecían de juguete. Lo importante era el mensaje, no la profundidad.</p><p>Todo cambió en Florencia, a principios del siglo XV, en el <b>Renacimiento</b>. El arquitecto <b>Filippo Brunelleschi</b> hizo hacia 1415 su famoso experimento con una tablilla y un espejo y demostró que las líneas paralelas que se alejan parecen juntarse en un punto. Había descubierto el <b>punto de fuga</b>.</p><p>En 1435, <b>Leon Battista Alberti</b> escribió el libro <i>De la pintura</i>, donde explicaba cómo construir la perspectiva paso a paso. Decía que un cuadro debía ser como una <b>ventana abierta</b> por la que miramos el mundo.</p><p>Muy pronto, pintores como <b>Masaccio</b>, <b>Piero della Francesca</b> o <b>Leonardo da Vinci</b> usaron la perspectiva para crear espacios muy realistas. En <i>La Última Cena</i> de Leonardo, todas las líneas del techo y las paredes se dirigen hacia la cabeza de Jesús, que está en el centro: así el punto de fuga guía nuestra mirada hacia lo más importante.</p><p>Cinco siglos después, los videojuegos en 3D siguen usando las mismas reglas.</p>`,
+        L5.filas("Pioneros de la perspectiva", [["Brunelleschi", "experimento, 1415", cAZ], ["Alberti", "De la pintura, 1435", cVE], ["Leonardo", "La Última Cena", cRO]]), ["bkNMM8uiMww", "Linear Perspective: Brunelleschi's Experiment", "Smarthistory", 617793]],
+    ],
+  },
+  final: [
+    ["Pintar al aire libre", `<p>Hasta el siglo XIX, la mayoría de los paisajes se pintaban en el <b>taller</b>, a partir de bocetos tomados al aire libre. Pero en ese siglo ocurrieron dos cosas que lo cambiaron todo.</p><p>En 1841 se inventaron los <b>tubos de pintura</b> de metal, como los de la pasta de dientes. Antes, los pintores tenían que moler los pigmentos y guardar la pintura en vejigas de animal que se secaban enseguida. Con los tubos, podían llevarse los colores a cualquier sitio. También se popularizaron los <b>caballetes plegables</b>.</p><p>Así nació la pintura <b>al aire libre</b> (en francés, <i>en plein air</i>). Los <b>impresionistas</b>, como Claude Monet, salían al campo, a la orilla del río o a la playa para pintar la luz tal como la veían en ese momento. Tenían que pintar rápido, porque la luz cambia cada pocos minutos. En España, <b>Joaquín Sorolla</b> pintaba en la playa de Valencia, a pleno sol, con lienzos enormes sujetos contra el viento.</p><p>Si quieres probar, prepara un <b>cuaderno de campo</b>, unos lápices de colores o acuarelas y un taburete. Elige un lugar, observa durante unos minutos y pinta solo lo esencial. Anota la hora y el tiempo que hace: si vuelves otro día a otra hora, el paisaje será distinto.</p>`,
+      H5.flujo("Pintar al aire libre", ["Elegir|lugar", "Observar", "Pintar|rápido", "Anotar|hora"], cVE)],
+    ["El paisaje en la pintura china", `<p>En China, el paisaje fue durante siglos el género más importante de la pintura. Se llama <b>shan shui</b>, que significa «montaña y agua», porque esos son sus dos protagonistas.</p><p>Tiene características muy diferentes de la pintura occidental:</p><ul><li>Se pinta con <b>tinta negra</b> y pincel sobre papel o seda, a veces con toques suaves de color.</li><li>No usa un único punto de fuga. El espectador recorre el cuadro con la mirada como si <b>paseara</b> por las montañas, de abajo arriba.</li><li>Los formatos suelen ser <b>rollos</b> muy alargados: verticales, que se cuelgan, u horizontales, que se van desenrollando poco a poco.</li><li>Los <b>espacios vacíos</b> son muy importantes: representan la niebla, el cielo o el agua, y dejan respirar la obra.</li><li>Las figuras humanas son muy <b>pequeñas</b>: un pescador en una barca o un sabio en un puente, para mostrar que el ser humano es una parte diminuta de la naturaleza.</li></ul><p>Muchos cuadros incluyen también un <b>poema</b> escrito con caligrafía y el <b>sello rojo</b> del artista.</p><p>Prueba a pintar un paisaje con tinta china y un pincel, usando solo negros y grises y dejando mucho papel en blanco para la niebla.</p>`,
+      H5.dos("Dos maneras de pintar paisaje", ["Occidental", ["punto de fuga", "óleo, color", "lienzo"], cAZ], ["Chino", ["mirada que pasea", "tinta y vacío", "rollo"], cMO]), ["Yr_ffhwztUE", "Hermosos paisajes en pintura de tinta china // Wan Shanhong", "Traditional Chinese Paintings", 48504]],
+  ],
+  ejemplos: [
+    ["Quieres dibujar una cascada muy alta. ¿Qué formato eliges?", ["La cascada es más alta que ancha.", "Necesitamos espacio vertical."], "Formato vertical."],
+    ["Dibujas una casa vista desde la esquina. ¿Cuántos puntos de fuga necesitas?", ["Se ven dos paredes a la vez.", "Cada pared se aleja hacia un lado distinto."], "Dos puntos de fuga."],
+  ],
+  errores: ["Poner la línea de horizonte justo en el centro del papel: la composición queda partida en dos.", "Inclinar las líneas verticales en la perspectiva de dos puntos: siempre siguen siendo verticales."],
+  ejercicios: [
+    ["b", "¿Cómo se llama el formato más ancho que alto?", "Horizontal o apaisado."],
+    ["b", "¿Para qué sirve un visor de cartulina?", "Para elegir el encuadre."],
+    ["b", "¿Cuántos puntos de fuga se usan para dibujar un edificio desde la esquina?", "Dos."],
+    ["b", "¿Quién hizo el experimento del espejo?", "Filippo Brunelleschi."],
+    ["b", "¿Qué significa «shan shui»?", "Montaña y agua."],
+    ["m", "¿Por qué los tubos de pintura cambiaron la pintura de paisaje?", "Permitieron llevar los colores fuera del taller y pintar al aire libre."],
+    ["m", "¿Hacia dónde se dirigen las líneas en La Última Cena de Leonardo?", "Hacia la cabeza de Jesús, en el centro."],
+    ["m", "¿Qué representan los espacios vacíos en la pintura china?", "La niebla, el cielo o el agua."],
+    ["m", "Dibuja una caja en perspectiva de dos puntos.", "Respuesta abierta."],
+    ["m", "¿Dónde colocarías el horizonte para destacar un cielo de tormenta?", "Bajo, a un tercio de la altura desde abajo."],
+    ["a", "Pinta el mismo lugar a dos horas distintas del día y compara.", "Respuesta abierta."],
+    ["a", "Dibuja un cruce de calles de tu barrio con dos puntos de fuga.", "Respuesta abierta."],
+    ["a", "Haz un paisaje con tinta en formato de rollo vertical.", "Respuesta abierta."],
+    ["a", "Construye un visor y fotografía tres encuadres del patio.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Las impresoras llaman «paisaje» al formato…", ["horizontal", "vertical", "cuadrado"], "Apaisado."],
+    ["En la perspectiva de dos puntos, las verticales…", ["siguen verticales", "van al punto de fuga", "se curvan"], "No cambian."],
+    ["Alberti escribió…", ["De la pintura", "La Última Cena", "El Quijote"], "1435."],
+    ["Pintar al aire libre se llama en francés…", ["en plein air", "trompe l'oeil", "collage"], "Impresionistas."],
+    ["La pintura china de paisaje se pinta con…", ["tinta y pincel", "óleo y espátula", "espray"], "Shan shui."],
+  ],
+  examen: [
+    ["Los tubos de pintura se inventaron en…", ["1841", "1441", "1941"], "Siglo XIX."],
+    ["En el shan shui, las figuras humanas son…", ["muy pequeñas", "enormes", "inexistentes siempre"], "Parte de la naturaleza."],
+  ],
+  tarjetas: [
+    ["Formato y encuadre", "Horizontal, vertical, panorámico; horizonte a un tercio."],
+    ["Dos puntos de fuga", "Para ver desde la esquina; las verticales no cambian."],
+    ["Renacimiento", "Brunelleschi (espejo), Alberti (libro), Leonardo."],
+    ["Shan shui", "Montaña y agua: tinta, vacío, rollos, figuras pequeñas."],
+  ],
+  glosario: [
+    ["Formato", "Forma y orientación del soporte."],
+    ["Encuadre", "Parte de la realidad que se incluye en la imagen."],
+    ["Visor", "Cartulina con un hueco para elegir el encuadre."],
+    ["Panorámico", "Formato muy alargado."],
+    ["Punto de fuga", "Punto donde parecen juntarse las líneas que se alejan."],
+    ["Perspectiva lineal", "Sistema para representar la profundidad con líneas."],
+    ["Baptisterio", "Edificio donde se bautizaba, junto a una catedral."],
+    ["En plein air", "Pintura hecha al aire libre."],
+    ["Cuaderno de campo", "Libreta para dibujar y anotar fuera de casa."],
+    ["Shan shui", "Pintura china de paisaje: montaña y agua."],
+    ["Rollo", "Pintura alargada que se enrolla para guardarla."],
+    ["Caballete", "Soporte para sujetar el cuadro mientras se pinta."],
+  ],
+  situacion: {
+    titulo: "Paisajes de mi barrio",
+    reto: "La clase hace una exposición de paisajes del barrio usando diferentes formatos, perspectivas y técnicas.",
+    pasos: ["Salid a la calle con un visor y elegid encuadres: una calle de frente, una esquina y una vista amplia.", "Dibujad la calle con un punto de fuga y la esquina con dos puntos de fuga.", "Pintad la vista amplia al aire libre o en estilo de tinta china, en formato de rollo.", "Montad la exposición con una cartela que explique el formato y la técnica de cada obra."],
+    producto: "Una exposición de paisajes del barrio con cartelas.",
+    evaluacion: ["Elige formato y encuadre con intención.", "Aplica la perspectiva de uno y dos puntos.", "Explica el origen renacentista de la perspectiva.", "Compara la pintura occidental y la china."],
+  },
+});
