@@ -113,3 +113,91 @@ module.exports = tema({
   ideas: ["Mosaico colectivo de la clase con módulos individuales.", "Concurso de logotipos para una actividad del colegio.", "Visita virtual a la Alhambra para buscar polígonos y estrellas."],
   fuentes: [["Patronato de la Alhambra y Generalife", "https://www.alhambra-patronato.es/"], ["Real Academia Española: simetría", "https://dle.rae.es/simetr%C3%ADa"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Reconocer la proporción áurea y la sucesión de Fibonacci en la naturaleza y el arte", "Distinguir tipos de simetría: axial, radial y de traslación", "Diseñar pictogramas claros y universales", "Conocer las figuras imposibles y la geometría del arte andalusí"],
+  lectura: { titulo: "El misterio del girasol", html: `<p>En la huerta del colegio, los girasoles habían crecido más que la profesora. Valeria se acercó a uno con una lupa y empezó a contar las semillas.</p><p>—¡Están colocadas en espirales! —gritó—. Unas giran hacia un lado y otras hacia el otro.</p><p>El profesor de Matemáticas, que pasaba por allí, se agachó a mirar.</p><p>—Cuenta cuántas espirales hay en cada sentido.</p><p>Valeria y Óscar tardaron casi media hora, porque se perdían todo el rato. Al final, apuntaron: 34 en un sentido y 55 en el otro.</p><p>—Ahora escribid esta serie —dijo el profesor—: 1, 1, 2, 3, 5, 8… Cada número es la suma de los dos anteriores.</p><p>Siguieron sumando: 13, 21, 34, 55. Valeria se quedó con la boca abierta.</p><p>—¡Nuestros números están en la serie!</p><p>—Es la sucesión de Fibonacci —sonrió el profesor—. Aparece en las piñas, en las margaritas y en muchas conchas. La naturaleza es una gran matemática.</p><p>Esa tarde, en Plástica, la clase dibujó espirales con compás. Y Óscar se fue a casa a contar las escamas de una piña.</p>` },
+  tras: {
+    "Polígonos regulares": [
+      ["La proporción áurea y la espiral", `<p>Hay una proporción que aparece tantas veces en la naturaleza y el arte que la llamaron <mark>proporción áurea</mark> o número de oro. Su valor es aproximadamente <b>1,618</b> y se representa con la letra griega <b>φ</b> (fi).</p><p>Un <b>rectángulo áureo</b> es aquel en el que el lado largo mide 1,618 veces el lado corto. Si le quitas un cuadrado, ¡el rectángulo que queda vuelve a ser áureo! Repitiendo esto y uniendo las esquinas con arcos de circunferencia, se dibuja una bonita <b>espiral</b>.</p><p>Esta proporción está relacionada con la <mark>sucesión de Fibonacci</mark>: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55… en la que cada número es la suma de los dos anteriores. Si divides un número entre el anterior (55 ÷ 34, por ejemplo), el resultado se acerca cada vez más a 1,618.</p><p>La encontramos en la naturaleza: en las espirales de las semillas del girasol, en las escamas de las piñas, en la colocación de las hojas en algunos tallos y en conchas como la del nautilus.</p><p>Muchos artistas y arquitectos la han usado para buscar armonía. El arquitecto <b>Le Corbusier</b> creó un sistema de medidas basado en ella, el Modulor. Aunque se dice que también la usaron los griegos en el Partenón o Leonardo da Vinci, los expertos no se ponen de acuerdo.</p>`,
+        L6.filas("Número de oro", [["valor", "≈ 1,618 (φ)", cNA], ["Fibonacci", "1, 1, 2, 3, 5, 8…", cAZ], ["naturaleza", "girasol, piña", cVE], ["arte", "Le Corbusier", cMO]]), ["B6ztvqvZTsk", "Qué es la serie de Fibonacci y qué tiene que ver con el número áureo | BBC Mundo", "BBC News Mundo", 2658570]],
+    ],
+    "La simetría": [
+      ["Tipos de simetría", `<p>La simetría que ya conoces, con un eje que divide la figura en dos mitades como un espejo, se llama <mark>simetría axial</mark> o bilateral. Pero hay otras:</p><ul><li><b>Simetría radial</b> (o central): las partes se repiten <b>alrededor de un centro</b>, como los radios de una rueda. Una estrella de mar tiene cinco brazos iguales; una margarita, muchos pétalos. En el arte la vemos en los <b>rosetones</b> de las catedrales góticas o en los <b>mandalas</b>. Si giras la figura un poco, coincide consigo misma.</li><li><b>Simetría de traslación</b>: un motivo se repite <b>desplazándose</b> en línea recta, como las huellas de unos pasos, los dibujos de una cenefa o el estampado de una tela.</li><li><b>Asimetría</b>: cuando no hay simetría. No es un defecto: muchas composiciones son asimétricas pero <b>equilibradas</b>, porque un elemento grande a un lado se compensa con varios pequeños al otro, como en una balanza.</li></ul><p>Un juguete perfecto para explorar la simetría es el <b>caleidoscopio</b>, inventado en 1816 por el escocés David Brewster: con espejos colocados en ángulo, unos pocos cristalitos de colores se multiplican y forman dibujos radiales que cambian al girarlo.</p>`,
+        H6.rueda("Simetrías", "SIMETRÍA", [["axial", cAZ], ["radial", cRO], ["traslación", cVE], ["asimetría", cNA]])],
+    ],
+    "Diseñar un logotipo": [
+      ["Pictogramas y señales", `<p>Un <mark>pictograma</mark> es un dibujo muy simplificado que comunica una idea <b>sin palabras</b>: un servicio, un peligro, una dirección. Su gran ventaja es que lo entiende gente de cualquier idioma.</p><p>Para diseñar pictogramas hay que <b>quitar todo lo que sobra</b>: figuras humanas hechas con un círculo y unos pocos palitos, siluetas sin detalles, un solo color. El diseñador alemán <b>Otl Aicher</b> creó para los Juegos Olímpicos de Múnich de 1972 unos pictogramas de deportes basados en una cuadrícula y en líneas a 45° y 90° que influyeron en el diseño de todo el mundo.</p><p>Las <b>señales</b> combinan pictograma, <b>forma</b> y <b>color</b> con significados fijos:</p><ul><li><b>Triángulo</b> con borde rojo: peligro, precaución.</li><li><b>Círculo</b> con borde rojo: prohibición. Círculo azul: obligación.</li><li><b>Cuadrado o rectángulo</b>: información (azul) o salvamento y emergencias (verde, como las salidas de emergencia).</li><li><b>Amarillo con negro</b>: advertencia en trabajos y fábricas.</li></ul><p>Un buen pictograma se entiende <b>en un segundo</b>, se ve bien de lejos y en tamaño pequeño, y es <b>accesible</b>: no depende solo del color, para que lo entiendan también las personas con daltonismo.</p>`,
+        L6.filas("Formas de las señales", [["triángulo", "peligro", cNA], ["círculo rojo", "prohibición", cRO], ["círculo azul", "obligación", cAZ], ["cuadrado", "información", cVE]])],
+    ],
+  },
+  final: [
+    ["Escher y las figuras imposibles", `<p>El artista neerlandés <b>Maurits Cornelis Escher</b> (1898-1972) fue un mago de la geometría. Tras visitar la <b>Alhambra</b> de Granada, se obsesionó con los mosaicos y empezó a crear teselados en los que las piezas eran <b>animales</b>: peces que encajan con pájaros, lagartos que forman un suelo perfecto.</p><p>Pero también es famoso por sus <mark>figuras imposibles</mark>: dibujos que parecen correctos, pero que no podrían existir en la realidad. En su grabado <i>Cascada</i>, el agua baja por un canal y, sin subir nunca, vuelve al punto de partida para caer otra vez. En <i>Relatividad</i>, unas escaleras están pensadas para personas con la gravedad en direcciones diferentes.</p><p>Un ejemplo sencillo que puedes dibujar es el <b>triángulo imposible</b> o triángulo de Penrose: tres barras que forman ángulos rectos entre sí y, sin embargo, se cierran en un triángulo. Cada esquina por separado es correcta, pero el conjunto es imposible.</p><p>Estas obras juegan con cómo nuestro cerebro interpreta las líneas y la perspectiva. Matemáticos y científicos admiran a Escher porque convirtió ideas muy complejas en imágenes que cualquiera puede disfrutar.</p>`,
+      H6.dos("El mundo de Escher", ["TESELADOS", ["animales que encajan", "sin huecos", "Alhambra"], cVE], ["IMPOSIBLES", ["Cascada", "Relatividad", "Penrose"], cMO]), ["r9TfNdUn8DU", "Escher y sus dibujos imposibles", "Muy Interesante", 106459]],
+    ["Geometría en el arte andalusí", `<p>Durante casi ocho siglos, en al-Ándalus se desarrolló un arte de enorme riqueza decorativa. En los espacios religiosos islámicos se evita representar personas y animales, así que los artistas llenaron muros, techos y suelos de <b>geometría</b>, <b>vegetación</b> y <b>escritura</b>:</p><ul><li><b>Lacería</b>: líneas que se cruzan y entrelazan como cintas, formando estrellas de 8, 12 o 16 puntas. Se construían solo con regla y compás, partiendo de una circunferencia dividida en partes iguales.</li><li><b>Ataurique</b>: decoración con hojas, tallos y flores muy estilizados que se repiten.</li><li><b>Epigrafía</b>: inscripciones en caligrafía árabe, que se convierten en parte del dibujo.</li><li><b>Mocárabes</b>: pequeños prismas de yeso apilados que cuelgan de techos y arcos como estalactitas.</li><li><b>Alicatados</b>: mosaicos de piezas de cerámica vidriada cortadas a mano.</li></ul><p>La <b>Alhambra</b> de Granada y la <b>Mezquita</b> de Córdoba son los mejores ejemplos. Este arte influyó después en el <b>arte mudéjar</b>, creado en los reinos cristianos por artesanos musulmanes, con sus artesonados de madera y sus torres de ladrillo, como las de Teruel.</p><p>Prueba a construir una estrella de ocho puntas con dos cuadrados girados 45°: es el inicio de muchas lacerías.</p>`,
+      H6.flujo("Una estrella de lacería", ["circunferencia|base", "8 partes|iguales", "2 cuadrados|giro 45°", "entrelazar|cintas"], cNA)],
+  ],
+  ejemplos: [
+    ["¿Cuál es el siguiente número de la serie 1, 1, 2, 3, 5, 8, 13…?", ["Cada número es la suma de los dos anteriores.", "8 + 13."], "21."],
+    ["Una señal tiene forma circular con borde rojo y una bicicleta dentro. ¿Qué significa?", ["Círculo con borde rojo: prohibición.", "El pictograma es una bicicleta."], "Prohibido circular en bicicleta."],
+  ],
+  errores: ["Pensar que todas las composiciones bonitas tienen que ser simétricas.", "Diseñar señales que solo se entienden por el color."],
+  ejercicios: [
+    ["b", "¿Cuánto vale aproximadamente el número de oro?", "1,618."],
+    ["b", "¿Qué es la simetría radial?", "Repetición de partes alrededor de un centro."],
+    ["b", "¿Qué es un pictograma?", "Un dibujo simplificado que comunica sin palabras."],
+    ["b", "¿Qué monumento inspiró a Escher?", "La Alhambra de Granada."],
+    ["b", "¿Qué es la lacería?", "Decoración de líneas entrelazadas que forman estrellas."],
+    ["m", "Escribe los diez primeros números de Fibonacci.", "1, 1, 2, 3, 5, 8, 13, 21, 34, 55."],
+    ["m", "Pon un ejemplo de simetría de traslación.", "Una cenefa o unas huellas de pasos."],
+    ["m", "¿Qué significan el triángulo, el círculo rojo y el círculo azul en las señales?", "Peligro, prohibición y obligación."],
+    ["m", "Explica qué tiene de imposible el triángulo de Penrose.", "Cada esquina es correcta, pero el conjunto no podría existir."],
+    ["m", "¿Qué es el arte mudéjar?", "Arte de artesanos musulmanes en reinos cristianos."],
+    ["a", "Dibuja un rectángulo áureo y su espiral con compás.", "Respuesta abierta."],
+    ["a", "Diseña cuatro pictogramas para los espacios del colegio.", "Respuesta abierta."],
+    ["a", "Construye una estrella de lacería de ocho puntas.", "Respuesta abierta."],
+    ["a", "Crea un mandala con simetría radial.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["En la sucesión de Fibonacci, cada número es…", ["la suma de los dos anteriores", "el doble del anterior", "siempre par"], "Fibonacci."],
+    ["Un rosetón gótico tiene simetría…", ["radial", "de traslación", "ninguna"], "Simetría."],
+    ["Otl Aicher diseñó pictogramas para…", ["los Juegos de Múnich 1972", "la Alhambra", "Toy Story"], "Pictogramas."],
+    ["Los mocárabes parecen…", ["estalactitas", "estrellas", "hojas"], "Andalusí."],
+    ["El caleidoscopio lo inventó…", ["David Brewster", "Escher", "Le Corbusier"], "Simetría."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué números de espirales contó Valeria?", ["34 y 55", "10 y 20", "8 y 12"], "Lectura."],
+    ["Las señales de salida de emergencia son…", ["verdes", "rojas", "amarillas"], "Señales."],
+  ],
+  tarjetas: [
+    ["Número de oro", "φ ≈ 1,618; Fibonacci 1, 1, 2, 3, 5, 8…; girasol, nautilus."],
+    ["Simetrías", "Axial, radial, traslación; asimetría equilibrada."],
+    ["Pictogramas", "Sin palabras; forma y color de las señales; Otl Aicher."],
+    ["Escher y al-Ándalus", "Figuras imposibles; lacería, ataurique, mocárabes."],
+  ],
+  glosario: [
+    ["Proporción áurea", "Relación de aproximadamente 1,618 considerada armoniosa."],
+    ["Sucesión de Fibonacci", "Serie en la que cada número suma los dos anteriores."],
+    ["Simetría axial", "Simetría respecto a un eje, como un espejo."],
+    ["Simetría radial", "Repetición alrededor de un centro."],
+    ["Simetría de traslación", "Repetición desplazando un motivo en línea."],
+    ["Mandala", "Composición circular con simetría radial."],
+    ["Pictograma", "Signo gráfico que comunica sin palabras."],
+    ["Figura imposible", "Dibujo que no podría existir en tres dimensiones."],
+    ["Lacería", "Decoración de líneas entrelazadas en forma de estrella."],
+    ["Ataurique", "Decoración vegetal estilizada del arte andalusí."],
+    ["Mocárabe", "Decoración de prismas de yeso como estalactitas."],
+    ["Mudéjar", "Arte de musulmanes en los reinos cristianos."],
+  ],
+  situacion: {
+    titulo: "Señalética para el colegio",
+    reto: "La clase diseña un sistema de pictogramas y un mural geométrico para el colegio.",
+    pasos: ["Haced una lista de espacios y normas que necesitan señal.", "Diseñad pictogramas con una cuadrícula común, forma y color adecuados.", "Probad que se entienden con alumnado de otros cursos.", "Cread un mural con lacerías o mosaicos para la entrada."],
+    producto: "Un sistema de señales y un mural geométrico.",
+    evaluacion: ["Simplifica las formas con claridad.", "Aplica el código de formas y colores.", "Usa instrumentos de dibujo con precisión.", "Diseña pensando en todas las personas."],
+  },
+});

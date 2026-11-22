@@ -94,3 +94,91 @@ module.exports = tema({
   ideas: ["Árbol de texturas con rotulador negro.", "Colección de frottages de la clase y juego de adivinar el objeto.", "Dibujar con un único tipo de línea para expresar una emoción."],
   fuentes: [["Museo Nacional Centro de Arte Reina Sofía: educación", "https://www.museoreinasofia.es/educacion"], ["Fundació Joan Miró: actividades educativas", "https://www.fmirobcn.org/es/educacion/"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Practicar el dibujo de contorno, el dibujo a ciegas y el apunte rápido", "Dar volumen a las formas con luz, sombra y claroscuro", "Experimentar con el collage y la pintura matérica", "Conocer el puntillismo y el land art"],
+  lectura: { titulo: "Dibujar sin mirar", html: `<p>—Hoy vamos a dibujar sin mirar el papel —anunció la profesora de Plástica.</p><p>La clase protestó en bloque. ¿Cómo se iba a dibujar sin mirar?</p><p>—Coged un lápiz, mirad vuestra mano izquierda y dibujadla con la derecha. Los ojos, siempre en la mano. El lápiz no se puede levantar del papel. Tenéis dos minutos.</p><p>Durante dos minutos solo se oyó el roce de los lápices. Iván seguía con la mirada cada arruga de sus dedos, cada uña, cada pliegue de los nudillos. Al terminar, miró su dibujo y soltó una carcajada: parecía una mano de extraterrestre, con dedos que salían por todas partes.</p><p>Pero la profesora se acercó y le dijo algo que no esperaba:</p><p>—Fíjate en estas líneas de los nudillos. Son las mejores que has hecho en todo el curso.</p><p>Iván miró otra vez. Era verdad: las líneas eran vivas, temblorosas, llenas de detalles que nunca había visto en su propia mano.</p><p>—Cuando miras el papel, dibujas lo que crees que es una mano —explicó ella—. Cuando miras la mano, dibujas lo que de verdad ves.</p><p>Esa semana, Iván llenó un cuaderno entero de dibujos a ciegas: su gato, sus zapatillas, la cara de su abuela.</p>` },
+  tras: {
+    "Tipos de línea": [
+      ["Dibujar con la línea: contorno, a ciegas y apunte", `<p>La línea es la herramienta más directa para dibujar. Los artistas la entrenan con varios ejercicios:</p><ul><li><b>Dibujo de contorno</b>: seguir con el lápiz, despacio, el borde exterior e interior de un objeto, como si la punta del lápiz tocara de verdad su superficie.</li><li><b>Dibujo a ciegas</b>: dibujar un objeto <b>sin mirar el papel</b>, solo el modelo, y sin levantar el lápiz. El resultado es raro, pero entrena muchísimo la observación y la coordinación entre ojo y mano.</li><li><b>Línea continua</b>: hacer todo el dibujo de un solo trazo, sin levantar el lápiz, aunque esta vez mirando el papel.</li><li><b>Apunte rápido</b> o <b>gesto</b>: dibujar en 30 segundos o un minuto a una persona en movimiento, captando solo la postura y la dirección del cuerpo, sin detalles.</li></ul><p>También importa la <b>calidad de la línea</b>: una línea puede ser fina o gruesa, clara u oscura, firme o temblorosa. Las líneas más gruesas y oscuras parecen más cerca; las finas y claras, más lejos o en la luz.</p><p>En 1949, el fotógrafo Gjon Mili fotografió a <b>Picasso</b> dibujando en el aire con una linterna en una habitación a oscuras. Con una exposición larga, la luz dejó en la foto dibujos de un solo trazo: centauros, toros, flores. Puedes probarlo con un móvil en modo nocturno.</p>`,
+        L6.filas("Ejercicios de línea", [["contorno", "despacio, borde", cAZ], ["a ciegas", "sin mirar el papel", cRO], ["continua", "sin levantar", cVE], ["apunte", "30 segundos", cNA]])],
+    ],
+    "La forma": [
+      ["Del plano al volumen: luz y sombra", `<p>Un círculo es plano; una esfera tiene <b>volumen</b>. Para que una forma dibujada parezca tener volumen usamos la <b>luz</b> y la <b>sombra</b>. Fíjate en una pelota iluminada por una lámpara:</p><ul><li>El <b>brillo</b>: el punto más claro, donde la luz da de lleno.</li><li>La <b>zona iluminada</b>: la parte que mira hacia la luz.</li><li>Los <b>medios tonos</b>: la zona de transición, que se va oscureciendo poco a poco.</li><li>La <b>sombra propia</b>: la parte del objeto que no recibe luz.</li><li>La <b>luz reflejada</b>: una zona algo más clara dentro de la sombra, por la luz que rebota en la mesa.</li><li>La <b>sombra arrojada</b>: la sombra que el objeto proyecta sobre el suelo o la mesa, en dirección contraria a la luz.</li></ul><p>Para sombrear podemos usar el <b>degradado</b> con lápiz blando (2B, 4B, 6B), el <b>rayado</b>, el <b>tramado</b> o el <b>difuminado</b> con el dedo o con un difumino.</p><p>El contraste fuerte entre luces y sombras se llama <mark>claroscuro</mark>. Pintores como Caravaggio o Ribera lo llevaron al extremo: figuras muy iluminadas que salen de un fondo totalmente oscuro, como si un foco las alumbrara en un escenario.</p>`,
+        H6.flujo("Una esfera con volumen", ["brillo|más claro", "medios|tonos", "sombra|propia", "sombra|arrojada"], cMO)],
+    ],
+    "La textura": [
+      ["Collage y pintura matérica", `<p>Hasta principios del siglo XX, los cuadros se hacían con pintura. En 1912, <b>Picasso</b> y <b>Braque</b> empezaron a pegar en sus obras trozos de papel de periódico, papel pintado, partituras o tela de rejilla. Había nacido el <mark>collage</mark> (del francés <i>coller</i>, «pegar»).</p><p>El collage permite crear texturas <b>reales</b> y combinar materiales distintos: revistas, papel de seda, cartón, tela, hojas secas, envoltorios. Más tarde, <b>Henri Matisse</b> creó grandes obras recortando papeles que antes había pintado con gouache: decía que «dibujaba con las tijeras».</p><p>Otros artistas llevaron la textura todavía más lejos. El catalán <b>Antoni Tàpies</b> (1923-2012) mezclaba la pintura con <b>arena</b>, polvo de mármol, barniz y hasta objetos, y rascaba, hacía surcos o marcas en la superficie. Es la llamada <b>pintura matérica</b>: la materia del cuadro se vuelve protagonista y casi se puede tocar.</p><p>Cuando una obra mezcla varias técnicas (lápiz, acuarela, collage, cera) decimos que es de <b>técnica mixta</b>.</p><p>Consejo práctico: para un collage, prepara primero los papeles por colores y texturas, prueba la composición sin pegar y, cuando te guste, pega desde el fondo hacia las figuras.</p>`,
+        H6.dos("Textura real", ["COLLAGE", ["pegar papeles", "Picasso, Braque", "Matisse"], cAZ], ["MATÉRICA", ["arena, mármol", "Tàpies", "surcos y marcas"], cNA]), ["sdYw8CuD2V8", "¿Qué es el Collage? Teoría y práctica. 1/4. -Arte y Creatividad-", "Antonio García Villarán", 379128]],
+    ],
+  },
+  final: [
+    ["Pintar con puntos: el puntillismo", `<p>A finales del siglo XIX, el pintor francés <b>Georges Seurat</b> tuvo una idea basada en la ciencia del color: en lugar de mezclar los colores en la paleta, pintaría <b>pequeños puntos de colores puros</b> uno junto a otro. Al mirar el cuadro desde lejos, el ojo los mezcla solo. Es la <mark>mezcla óptica</mark>, y la técnica se llamó <mark>puntillismo</mark>.</p><p>Por ejemplo, muchos puntos azules y amarillos juntos se ven, de lejos, como un verde muy luminoso. Su cuadro más famoso, <i>Tarde de domingo en la isla de la Grande Jatte</i>, le llevó unos dos años de trabajo. Su amigo <b>Paul Signac</b> siguió la misma técnica.</p><p>El punto ha seguido muy presente en el arte:</p><ul><li>Las imágenes de las <b>pantallas</b> y de las <b>revistas impresas</b> están hechas de puntos (píxeles o tramas de tinta).</li><li>El estadounidense <b>Roy Lichtenstein</b> pintó enormes viñetas de cómic imitando los puntitos de la impresión barata.</li><li>La japonesa <b>Yayoi Kusama</b> ha llenado salas enteras, calabazas y hasta personas de <b>lunares</b>.</li></ul><p>Para practicar, dibuja un paisaje sencillo y coloréalo solo con puntos usando bastoncillos de algodón y témperas de colores primarios. Después, aléjate dos metros y observa la magia.</p>`,
+      L6.filas("El punto en el arte", [["Seurat", "puntillismo", cAZ], ["mezcla óptica", "el ojo mezcla", cVE], ["Lichtenstein", "puntos de cómic", cRO], ["Kusama", "lunares", cNA]]), ["92xAbYyeask", "Puntillismo para niños", "Profe Patricia Quintero", 89226]],
+    ["Land art: dibujar en la naturaleza", `<p>En los años 60 y 70, algunos artistas decidieron salir de los museos y crear sus obras <b>en la naturaleza y con la naturaleza</b>. Nació el <mark>land art</mark> o arte de la tierra.</p><p>Usan los elementos del lenguaje visual que conoces: <b>líneas</b> trazadas en la arena o en un campo, <b>formas</b> como círculos y espirales, <b>texturas</b> de piedras, hojas o hielo y <b>colores</b> naturales.</p><ul><li>El estadounidense <b>Robert Smithson</b> construyó en 1970 la <i>Spiral Jetty</i>, una enorme espiral de rocas que se adentra en un lago salado de Utah.</li><li>El británico <b>Andy Goldsworthy</b> crea obras delicadas con lo que encuentra: hojas ordenadas por colores, piedras apiladas en equilibrio, carámbanos de hielo unidos. Muchas duran solo unas horas, hasta que el viento, el agua o el sol las deshacen. Por eso las fotografía.</li></ul><p>El land art enseña que el arte puede ser <b>efímero</b> (que dura poco) y que el paisaje también es un lienzo.</p><p>Normas para hacerlo en una excursión: usa solo materiales naturales caídos (no arranques plantas), no muevas piedras de ríos donde viven animales, no dejes nada que no sea natural y fotografía tu obra antes de irte.</p>`,
+      H6.rueda("Land art", "NATURALEZA", [["líneas", cNA], ["espirales", cAZ], ["texturas", cVE], ["efímero", cMO]])],
+  ],
+  ejemplos: [
+    ["Una pelota iluminada desde la izquierda, ¿hacia dónde proyecta su sombra arrojada?", ["La sombra va en dirección contraria a la luz.", "La luz viene de la izquierda."], "Hacia la derecha."],
+    ["Un cuadro de puntos azules y amarillos se ve verde desde lejos. ¿Por qué?", ["Los colores no están mezclados en la paleta.", "El ojo los mezcla."], "Por la mezcla óptica del puntillismo."],
+  ],
+  errores: ["Pensar que un dibujo a ciegas «mal hecho» no sirve para nada.", "Dibujar la sombra arrojada en el mismo lado de donde viene la luz."],
+  ejercicios: [
+    ["b", "¿Qué es el dibujo a ciegas?", "Dibujar mirando el modelo y no el papel."],
+    ["b", "¿Qué es la sombra arrojada?", "La sombra que el objeto proyecta sobre otra superficie."],
+    ["b", "¿Qué significa collage?", "Pegar, en francés."],
+    ["b", "¿Quién inventó el puntillismo?", "Georges Seurat."],
+    ["b", "¿Qué es el land art?", "Arte creado en y con la naturaleza."],
+    ["m", "Ordena de claro a oscuro: sombra propia, brillo, medios tonos.", "Brillo, medios tonos, sombra propia."],
+    ["m", "¿Qué es el claroscuro?", "Contraste fuerte entre luces y sombras."],
+    ["m", "¿Qué es la pintura matérica?", "Pintura con materiales como arena o mármol que da textura real."],
+    ["m", "Explica la mezcla óptica.", "Los colores puros juntos se mezclan en el ojo al mirarlos de lejos."],
+    ["m", "¿Por qué Goldsworthy fotografía sus obras?", "Porque son efímeras y desaparecen."],
+    ["a", "Haz tres dibujos a ciegas de tu mano y compáralos con uno mirando.", "Respuesta abierta."],
+    ["a", "Dibuja una esfera con sus seis zonas de luz y sombra.", "Respuesta abierta."],
+    ["a", "Crea un collage con al menos cinco materiales distintos.", "Respuesta abierta."],
+    ["a", "Diseña una obra de land art en el patio y fotografíala.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Picasso dibujó con una linterna en…", ["1949", "1912", "1880"], "Línea."],
+    ["La luz reflejada aparece…", ["dentro de la sombra propia", "en el brillo", "fuera del objeto"], "Volumen."],
+    ["Tàpies mezclaba la pintura con…", ["arena y polvo de mármol", "agua solo", "nada"], "Textura."],
+    ["Yayoi Kusama es famosa por sus…", ["lunares", "espirales de roca", "collages de periódico"], "Puntos."],
+    ["Spiral Jetty es de…", ["Robert Smithson", "Seurat", "Matisse"], "Land art."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué descubre Iván con el dibujo a ciegas?", ["que dibuja lo que de verdad ve", "que no sabe dibujar", "que es mejor no mirar nunca"], "Lectura."],
+    ["Matisse decía que dibujaba con…", ["las tijeras", "el pie", "una linterna"], "Collage."],
+  ],
+  tarjetas: [
+    ["Ejercicios de línea", "Contorno, a ciegas, línea continua, apunte rápido."],
+    ["Volumen", "Brillo, medios tonos, sombra propia, luz reflejada, sombra arrojada."],
+    ["Textura real", "Collage (Picasso, Braque, Matisse) y pintura matérica (Tàpies)."],
+    ["Punto y naturaleza", "Puntillismo (Seurat); land art (Smithson, Goldsworthy)."],
+  ],
+  glosario: [
+    ["Dibujo de contorno", "Dibujo que sigue lentamente los bordes del objeto."],
+    ["Dibujo a ciegas", "Dibujo hecho sin mirar el papel."],
+    ["Apunte", "Dibujo rápido que capta lo esencial."],
+    ["Brillo", "Zona más clara de un objeto iluminado."],
+    ["Sombra propia", "Parte del objeto que no recibe luz."],
+    ["Sombra arrojada", "Sombra que un objeto proyecta sobre otra superficie."],
+    ["Claroscuro", "Contraste fuerte entre luces y sombras."],
+    ["Collage", "Técnica de pegar materiales sobre un soporte."],
+    ["Técnica mixta", "Obra que combina varias técnicas."],
+    ["Puntillismo", "Técnica de pintar con pequeños puntos de color."],
+    ["Mezcla óptica", "Mezcla de colores que hace el ojo a distancia."],
+    ["Efímero", "Que dura poco tiempo."],
+  ],
+  situacion: {
+    titulo: "Cuaderno de artista",
+    reto: "Cada alumno crea un cuaderno de artista con experimentos de línea, volumen, textura y punto.",
+    pasos: ["Llenad una doble página con ejercicios de contorno, a ciegas y apuntes.", "Dibujad objetos con luz y sombra a partir de una lámpara.", "Cread un collage y una textura matérica con arena o papel.", "Haced una obra puntillista y una de land art fotografiada."],
+    producto: "Un cuaderno de artista con experimentos y obras.",
+    evaluacion: ["Usa la línea con intención.", "Representa el volumen con luz y sombra.", "Experimenta con texturas y materiales.", "Explica qué ha aprendido en cada técnica."],
+  },
+});

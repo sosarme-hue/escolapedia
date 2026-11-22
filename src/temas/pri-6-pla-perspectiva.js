@@ -108,3 +108,91 @@ module.exports = tema({
   ideas: ["Dibujo de una calle con un punto de fuga.", "Buscar el punto de fuga en reproducciones de cuadros renacentistas.", "Fotografías del colegio con distintas alturas de horizonte."],
   fuentes: [["Museo Nacional del Prado: Las Meninas", "https://www.museodelprado.es/coleccion/obra-de-arte/las-meninas/9fdc7800-9ade-48b0-ab8b-edee94ea877f"], ["Real Academia Española: perspectiva", "https://dle.rae.es/perspectiva"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Representar objetos en escorzo", "Dibujar edificios altos con tres puntos de fuga", "Conocer el trampantojo, la anamorfosis y la perspectiva isométrica", "Medir y encajar del natural con el lápiz y el visor"],
+  lectura: { titulo: "El agujero en el suelo", html: `<p>El lunes por la mañana, el patio del colegio amaneció con un agujero enorme en el suelo, junto a la fuente. Desde la puerta se veían las grietas, los bordes rotos y, al fondo, un río de lava naranja.</p><p>Nadie se atrevía a acercarse. La conserje puso unas sillas alrededor para que nadie se cayera. Algunos pequeños lloraban.</p><p>Entonces apareció el profesor de Plástica con una sonrisa traviesa.</p><p>—Acercaos sin miedo —dijo—. Pero no os pongáis aquí: id al otro lado.</p><p>Los de 6.º cruzaron con cuidado. Desde el otro lado, el agujero se convirtió en una mancha alargadísima y deformada de colores. ¡Era un dibujo con tizas!</p><p>—Se llama anamorfosis —explicó el profesor—. Solo parece real desde un punto exacto. Lo he dibujado este fin de semana con ayuda de unos amigos.</p><p>Toda la mañana, el patio fue una fila de alumnos haciéndose fotos «a punto de caer» al volcán. Por la tarde llovió y el agujero desapareció.</p><p>—Bueno —dijo Martina—, al menos ya sabemos que la perspectiva puede engañar a todo un colegio.</p>` },
+  tras: {
+    "Superposición y perspectiva aérea": [
+      ["El escorzo", `<p>Cuando un objeto alargado <b>apunta hacia nosotros</b>, lo vemos mucho más corto de lo que es. Un brazo estirado hacia la cámara parece una mano enorme pegada a un hombro; un lápiz que apunta a tus ojos se ve casi como un círculo. Representar esta reducción se llama <mark>escorzo</mark>.</p><p>El escorzo es una de las partes más difíciles del dibujo, porque nuestro cerebro «sabe» cuánto mide un brazo y tiende a dibujarlo largo. Para conseguirlo hay que dibujar <b>lo que ves</b>, no lo que sabes:</p><ul><li>Lo más cercano se ve <b>más grande</b> (la mano, el pie).</li><li>Las partes se <b>superponen</b>: la mano tapa parte del brazo.</li><li>Los contornos se acortan y las formas se vuelven más redondas.</li></ul><p>Uno de los escorzos más famosos de la historia es la <i>Lamentación sobre Cristo muerto</i>, del pintor italiano <b>Andrea Mantegna</b> (hacia 1480): el cuerpo tumbado se ve desde los pies, que están en primer plano. En los cómics de superhéroes y en el manga, el escorzo se usa constantemente para dar fuerza: un puño que sale de la viñeta hacia el lector.</p><p>Prueba: pide a un compañero que extienda la mano hacia ti y dibújalo en un minuto. Luego compara con su brazo de perfil.</p>`,
+        H6.dos("Un brazo", ["DE PERFIL", ["se ve largo", "mano pequeña", "sin solapes"], cAZ], ["EN ESCORZO", ["se ve corto", "mano enorme", "partes solapadas"], cRO])],
+    ],
+    "Dos puntos de fuga": [
+      ["Tres puntos de fuga: mirar hacia arriba", `<p>Con dos puntos de fuga, las líneas verticales de los edificios se dibujan siempre <b>verticales y paralelas</b>. Pero si estás al pie de un rascacielos y miras hacia arriba, notarás que sus lados parecen <b>juntarse</b> en lo alto, como si el edificio se estrechara. Para dibujarlo añadimos un <b>tercer punto de fuga</b>.</p><p>Así se hace:</p><ol><li>Traza la línea de horizonte con <b>dos puntos de fuga</b> a los lados, como ya sabes.</li><li>Marca un <b>tercer punto</b> muy arriba, fuera del horizonte, si miras hacia arriba (vista de <b>hormiga</b>, en contrapicado), o muy abajo si miras desde lo alto hacia el suelo (vista de <b>pájaro</b>, en picado).</li><li>Las aristas horizontales del edificio van a los dos puntos laterales.</li><li>Las aristas verticales van ahora al tercer punto.</li></ol><p>El efecto es espectacular: los edificios parecen gigantescos y la escena gana dramatismo. Se usa mucho en el cómic, en el cine y en los videojuegos para mostrar ciudades enormes o la sensación de vértigo.</p><p>Consejo: coloca el tercer punto <b>lejos</b>, aunque tengas que pegar una tira de papel extra a la hoja. Si está demasiado cerca, el edificio se deforma demasiado.</p>`,
+        H6.flujo("Tres puntos", ["horizonte|2 puntos", "3.er punto|arriba", "horizontales|a los lados", "verticales|al 3.º"], cNA), ["b_X7zlMvdBU", "Aprende a dibujar perspectiva a tres puntos de fuga", "entivoo", 152817]],
+    ],
+    "La perspectiva en el arte": [
+      ["Engañar al ojo: trampantojo y anamorfosis", `<p>Algunos artistas usan la perspectiva no solo para representar el mundo, sino para <b>engañar</b> al espectador:</p><ul><li>El <mark>trampantojo</mark> (de «trampa ante el ojo») es una pintura tan realista que parece un objeto o un espacio de verdad: una ventana pintada en una pared ciega, una estantería con libros que no existe, un techo que parece abrirse al cielo. En la iglesia de San Ignacio, en Roma, el pintor <b>Andrea Pozzo</b> pintó a finales del siglo XVII una <b>falsa cúpula</b> sobre un techo plano: desde el punto marcado en el suelo, parece real. Hoy muchas fachadas de ciudades españolas tienen trampantojos que simulan balcones, personas asomadas o edificios antiguos.</li><li>La <mark>anamorfosis</mark> es una imagen deformada que solo se ve correctamente desde un <b>punto concreto</b> o con un espejo especial. En el cuadro <i>Los embajadores</i> (1533), de Hans Holbein, aparece en el suelo una mancha alargada extraña: si te colocas a un lado del cuadro, se convierte en una calavera.</li></ul><p>Los artistas callejeros que pintan con tiza en el suelo agujeros, cascadas o precipicios usan la anamorfosis: el dibujo está muy alargado y solo «funciona» desde donde se coloca la cámara.</p>`,
+        L6.filas("Engaños visuales", [["trampantojo", "parece real", cVE], ["falsa cúpula", "Andrea Pozzo", cMO], ["anamorfosis", "desde un punto", cRO], ["Holbein", "calavera oculta", cNA]]), ["pAN70WEDeI4", "Anamorfosis, trampantojos y otras formas de engañar a tu vista", "Canal ComoYe", 44324]],
+    ],
+  },
+  final: [
+    ["Perspectiva isométrica", `<p>No todas las perspectivas tienen puntos de fuga. En la <mark>perspectiva isométrica</mark>, las líneas que son paralelas en la realidad <b>siguen siendo paralelas</b> en el dibujo, y los objetos no se hacen más pequeños al alejarse.</p><p>Se basa en tres <b>ejes</b> que forman ángulos iguales de 120° entre sí: uno vertical y dos inclinados 30° respecto a la horizontal, uno hacia cada lado. Sobre esos ejes se miden las tres dimensiones: <b>alto</b>, <b>ancho</b> y <b>fondo</b>, con sus medidas reales.</p><p>Para dibujar en isométrica es muy útil una <b>trama isométrica</b>: un papel con puntos o líneas colocados en triángulos. Basta con unir los puntos para construir cubos, escaleras o casas.</p><p>¿Dónde se usa?</p><ul><li>En el <b>dibujo técnico</b>, porque permite medir las piezas directamente sobre el dibujo.</li><li>En las <b>instrucciones</b> de montaje de muebles o juguetes de construcción.</li><li>En muchos <b>videojuegos</b> de construcción y estrategia, donde el mundo se ve desde una esquina y desde arriba.</li><li>En mapas e infografías de ciudades.</li></ul><p>No es tan realista como la perspectiva cónica (la de los puntos de fuga), pero es clara, ordenada y fácil de medir.</p>`,
+      H6.dos("Dos perspectivas", ["CÓNICA", ["puntos de fuga", "lo lejano, pequeño", "realista"], cAZ], ["ISOMÉTRICA", ["sin puntos de fuga", "paralelas siempre", "se puede medir"], cVE])],
+    ["Dibujar del natural: medir y encajar", `<p>Cuando dibujamos lo que tenemos delante, un objeto, un paisaje o una persona, es fácil equivocarse en las <b>proporciones</b>. Los artistas usan trucos sencillos:</p><ul><li><b>Medir con el lápiz</b>: estira el brazo del todo, con el lápiz vertical, cierra un ojo y haz coincidir la punta con un extremo del objeto. Marca con el pulgar el otro extremo. Así puedes comparar: «la botella es tres veces más alta que ancha».</li><li><b>Comprobar ángulos</b>: con el lápiz horizontal o vertical delante del modelo, observa qué inclinación tienen los bordes de un tejado o de una mesa.</li><li><b>El visor</b>: un cartón con un agujero rectangular, como una ventanita. Te ayuda a elegir el encuadre y a ver la escena como una imagen plana.</li><li><b>La cuadrícula</b>: en el siglo XVI, el artista alemán <b>Alberto Durero</b> mostró en un grabado a un dibujante mirando a su modelo a través de un marco con hilos cuadriculados, y copiando lo que veía en cada casilla sobre un papel con la misma cuadrícula.</li></ul><p>Encajar consiste en dibujar primero, con líneas suaves, las formas generales y sus proporciones (como cajas y óvalos), y solo después añadir detalles. Si el encaje está bien, el dibujo final saldrá bien.</p>`,
+      H6.rueda("Dibujar del natural", "ENCAJAR", [["medir", cNA], ["ángulos", cAZ], ["visor", cMO], ["cuadrícula", cRO]])],
+  ],
+  ejemplos: [
+    ["Dibujas un rascacielos desde la acera mirando hacia arriba. ¿Dónde colocas el tercer punto de fuga?", ["Miras hacia arriba (contrapicado).", "Las verticales convergen en lo alto."], "Muy arriba, por encima del edificio."],
+    ["En un dibujo, las vías del tren siguen paralelas y no se juntan al alejarse. ¿Qué perspectiva es?", ["No hay punto de fuga.", "Las paralelas se mantienen."], "Perspectiva isométrica."],
+  ],
+  errores: ["Dibujar un brazo en escorzo con su longitud real.", "Colocar el tercer punto de fuga demasiado cerca del edificio."],
+  ejercicios: [
+    ["b", "¿Qué es el escorzo?", "La reducción aparente de un objeto que apunta hacia nosotros."],
+    ["b", "¿Para qué sirve el tercer punto de fuga?", "Para dibujar objetos altos vistos desde abajo o desde arriba."],
+    ["b", "¿Qué significa trampantojo?", "Trampa ante el ojo."],
+    ["b", "¿Qué ángulo forman los ejes isométricos?", "120°."],
+    ["b", "¿Qué es un visor?", "Un cartón con un agujero para encuadrar."],
+    ["m", "¿Qué esconde Los embajadores de Holbein?", "Una calavera en anamorfosis."],
+    ["m", "Explica cómo se mide con el lápiz.", "Brazo estirado, un ojo cerrado, comparar medidas marcando con el pulgar."],
+    ["m", "Compara perspectiva cónica e isométrica.", "La cónica tiene puntos de fuga y es realista; la isométrica mantiene paralelas y se puede medir."],
+    ["m", "¿Qué pintó Andrea Pozzo en San Ignacio?", "Una falsa cúpula sobre un techo plano."],
+    ["m", "¿Qué es encajar un dibujo?", "Trazar primero las formas generales y proporciones."],
+    ["a", "Dibuja una calle de rascacielos con tres puntos de fuga.", "Respuesta abierta."],
+    ["a", "Diseña tu habitación en perspectiva isométrica con trama.", "Respuesta abierta."],
+    ["a", "Dibuja la mano de un compañero en escorzo.", "Respuesta abierta."],
+    ["a", "Crea un trampantojo pequeño para una pared de clase.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["La Lamentación sobre Cristo muerto es famosa por su…", ["escorzo", "color", "puntillismo"], "Escorzo."],
+    ["La vista de hormiga es…", ["desde abajo", "desde arriba", "de frente"], "Tres puntos."],
+    ["Una anamorfosis se ve bien…", ["desde un punto concreto", "desde cualquier lugar", "solo de noche"], "Engaños."],
+    ["La perspectiva isométrica se usa en…", ["instrucciones de montaje", "retratos realistas", "paisajes al óleo"], "Isométrica."],
+    ["Durero dibujaba con un marco…", ["cuadriculado", "de espejos", "de colores"], "Del natural."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué era el agujero del patio?", ["una anamorfosis con tiza", "una obra real", "un charco"], "Lectura."],
+    ["En perspectiva con tres puntos, las aristas verticales van…", ["al tercer punto", "a ningún punto", "al horizonte"], "Tres puntos."],
+  ],
+  tarjetas: [
+    ["Escorzo", "Lo que apunta hacia ti se acorta; Mantegna."],
+    ["Tres puntos", "Vista de hormiga o de pájaro; verticales al tercer punto."],
+    ["Engaños", "Trampantojo (Pozzo) y anamorfosis (Holbein)."],
+    ["Isométrica y del natural", "Ejes a 120°; medir con el lápiz, visor, cuadrícula."],
+  ],
+  glosario: [
+    ["Escorzo", "Representación acortada de lo que apunta hacia el espectador."],
+    ["Vista de hormiga", "Vista desde abajo hacia arriba."],
+    ["Vista de pájaro", "Vista desde arriba hacia abajo."],
+    ["Tercer punto de fuga", "Punto donde convergen las verticales."],
+    ["Trampantojo", "Pintura que engaña haciendo creer que algo es real."],
+    ["Anamorfosis", "Imagen deformada que solo se ve bien desde un punto."],
+    ["Perspectiva cónica", "Perspectiva con puntos de fuga."],
+    ["Perspectiva isométrica", "Perspectiva con ejes a 120° y paralelas que se mantienen."],
+    ["Trama isométrica", "Papel con puntos en triángulos para dibujar en isométrica."],
+    ["Encajar", "Trazar las formas generales antes de los detalles."],
+    ["Visor", "Marco que ayuda a encuadrar."],
+    ["Proporción", "Relación de tamaño entre las partes."],
+  ],
+  situacion: {
+    titulo: "Ciudad imposible",
+    reto: "La clase crea una gran ciudad dibujada combinando distintas perspectivas y un trampantojo.",
+    pasos: ["Dibujad del natural un edificio del barrio, encajando con el lápiz.", "Cread rascacielos con tres puntos de fuga y casas en isométrica.", "Añadid un trampantojo o una anamorfosis en el suelo del patio.", "Montad la ciudad en un mural y fotografiad la anamorfosis desde su punto."],
+    producto: "Un mural de ciudad en perspectiva y una anamorfosis fotografiada.",
+    evaluacion: ["Aplica distintos tipos de perspectiva.", "Mide y encaja con proporción.", "Comprende los engaños visuales.", "Colabora en un proyecto de grupo."],
+  },
+});
