@@ -101,3 +101,91 @@ module.exports = P.tema({
   saberes: "Sentido de la medida: masa y capacidad; kilogramo, gramo, tonelada y miligramo; litro y sus submúltiplos; equivalencias, cambios de unidad, estimación y problemas de la vida cotidiana",
   ideas: ["Taller de cocina pesando y midiendo ingredientes.", "Rellenar recipientes de distinta forma con la misma capacidad.", "Estimación de masas con una báscula de cocina en el aula."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Distinguir la masa del tamaño de los objetos", "Leer la masa y la capacidad en las etiquetas y comparar precios", "Relacionar el litro con el decímetro cúbico y el kilogramo", "Calcular el agua que gastamos y proponer cómo ahorrarla"],
+  lectura: { titulo: "Las magdalenas de Candela", html: `<p>El sábado, Candela y su tío Raúl decidieron hacer magdalenas. La receta de la abuela decía:</p><p><i>250 g de harina, 200 g de azúcar, 3 huevos, 125 ml de aceite y 1/4 de litro de leche.</i></p><p>Candela sacó la báscula de la cocina. Puso un bol encima y la báscula marcó 300 g.</p><p>—¡Pero si todavía no he echado nada!</p><p>—Es lo que pesa el bol —explicó su tío—. Pulsa este botón para poner la báscula a cero, y así solo pesarás la harina.</p><p>Candela lo hizo y fue echando harina hasta que la pantalla marcó 250.</p><p>Luego vino la leche. En la jarra medidora había rayitas: 100, 200, 250, 500 ml…</p><p>—Un cuarto de litro… ¿dónde está? —preguntó.</p><p>—Un litro son 1 000 mililitros. La cuarta parte es…</p><p>—¡250 ml! —gritó Candela, y llenó la jarra justo hasta esa raya.</p><p>Media hora después, la cocina olía de maravilla. Salieron doce magdalenas doradas.</p><p>—Si las hubiéramos hecho «a ojo» —dijo el tío Raúl—, quizá no habrían subido tanto. En la cocina, medir bien es la mitad del secreto.</p><p>Candela se comió una todavía caliente y pensó que las matemáticas, a veces, saben a limón.</p>` },
+  tras: {
+    "La masa y cómo se mide": [
+      ["Masa y tamaño no son lo mismo", `<p>Una adivinanza muy antigua dice: <i>¿Qué pesa más, un kilo de paja o un kilo de hierro?</i> Mucha gente responde «el hierro», pero la respuesta correcta es que <mark>pesan lo mismo</mark>: un kilo es un kilo.</p><p>Lo que ocurre es que el kilo de paja ocupa muchísimo más <b>espacio</b> que el kilo de hierro. Por eso nos confunde.</p><p>La <b>masa</b> no depende del tamaño, sino de la cantidad de materia y de cómo de «apretada» esté:</p><ul><li>Un <b>globo</b> grande lleno de aire tiene muy poca masa.</li><li>Una <b>canica</b> de cristal, pequeña, pesa más que muchas bolitas de corcho del mismo tamaño.</li><li>Una <b>almohada</b> de plumas es grande pero ligera; un <b>libro</b> gordo, más pequeño, pesa más.</li><li>Una <b>pelota de playa</b> y una <b>bola de petanca</b>: la de playa es mayor, pero la de petanca pesa mucho más.</li></ul><p>Por eso no podemos saber cuánto pesa algo solo mirándolo. Hay que <b>cogerlo</b> para estimarlo, o mejor, <b>medirlo con la báscula</b>.</p><p>Esta propiedad, cuánta masa hay en un espacio, la estudiarás más adelante en Ciencias con el nombre de <b>densidad</b>. Por ella, unas cosas flotan en el agua y otras se hunden.</p>`,
+        H6.dos("1 kilo", ["PAJA", ["1 kg", "mucho", "espacio"], cNA], ["HIERRO", ["1 kg", "poco", "espacio"], cAZ])],
+    ],
+    "Submúltiplos del litro": [
+      ["Leer etiquetas", `<p>Todos los productos envasados deben indicar en la etiqueta <b>cuánto contienen</b>. Fíjate la próxima vez que vayas a la compra:</p><ul><li>Los <b>sólidos</b> indican la masa: «<b>peso neto</b> 500 g», «1 kg».</li><li>Los <b>líquidos</b> indican la capacidad: «1 L», «33 cl», «750 ml».</li><li>Algunos alimentos que vienen en líquido, como las aceitunas o el atún, indican también el <b>peso escurrido</b>: lo que pesa el alimento sin el líquido.</li><li>A veces aparece una <b>e</b> pequeña junto a la cantidad. Indica que el envase cumple las normas europeas sobre la cantidad que contiene.</li></ul><p>En las tiendas también hay que fijarse en el <mark>precio por kilo o por litro</mark>, que suele aparecer en letra pequeña en la etiqueta de la estantería. Así podemos comparar envases de distinto tamaño.</p><p>Ejemplo: una botella de zumo de 1 L cuesta 2 €; otra de 500 ml cuesta 1,20 €. ¿Cuál sale más barata?</p><ul><li>500 ml es medio litro: dos botellas pequeñas hacen 1 L y cuestan 2,40 €.</li><li>La grande sale más barata: 2 € el litro frente a 2,40 €.</li></ul><p>¡No siempre el envase grande es más barato! Por eso conviene comparar.</p>`,
+        L6.filas("Etiquetas", [["peso neto", "500 g", cAZ], ["escurrido", "sin líquido", cVE], ["capacidad", "33 cl", cNA], ["precio", "por kilo o litro", cRO]])],
+    ],
+    "Problemas de masa y capacidad": [
+      ["Problemas de varios pasos", `<p>En la vida real los problemas de masa y capacidad suelen mezclar <b>unidades</b> y <b>precios</b>. Lee bien y resuelve paso a paso.</p><p><b>Problema 1.</b> <i>Las manzanas cuestan 2 € el kilo. Compro 1 kg y 500 g. ¿Cuánto pago?</i></p><ol><li>500 g es medio kilo, que cuesta 1 €.</li><li>Pago 2 € + 1 € = <b>3 €</b>.</li></ol><p><b>Problema 2.</b> <i>Una garrafa tiene 5 L de agua. Lleno 8 vasos de 25 cl. ¿Cuánta agua queda?</i></p><ol><li>Paso todo a centilitros: 5 L = 500 cl.</li><li>Los vasos: 8 × 25 = 200 cl.</li><li>Quedan 500 − 200 = <b>300 cl</b>, es decir, <b>3 L</b>.</li></ol><p><b>Problema 3.</b> <i>Un camión puede cargar 3 toneladas. Lleva 40 sacos de 50 kg. ¿Cuántos kilos más puede cargar?</i></p><ol><li>3 t = 3 000 kg.</li><li>Los sacos: 40 × 50 = 2 000 kg.</li><li>Puede cargar 3 000 − 2 000 = <b>1 000 kg</b> más.</li></ol><p>Recuerda: <mark>primero, todo a la misma unidad</mark>; después, opera; y al final, escribe la respuesta con la unidad.</p>`,
+        H6.flujo("Resolver", ["unidad|la misma", "operar|por pasos", "responder|con unidad", "revisar|¿sentido?"], cVE)],
+    ],
+  },
+  final: [
+    ["El litro, el decímetro cúbico y el kilo", `<p>Hay una relación muy curiosa entre la capacidad, el volumen y la masa, que inventaron los mismos científicos que crearon el metro.</p><p>Imagina una caja con forma de cubo cuyos lados miden <b>10 cm</b> (es decir, 1 decímetro). Su espacio interior es un <b>decímetro cúbico</b> (dm³). Si la llenas de agua, cabe exactamente <mark>1 litro</mark>.</p><p style="text-align:center">1 L = 1 dm³</p><p>Y ese litro de agua pura tiene una masa de <b>1 kilogramo</b>. De hecho, al principio el kilogramo se definió así: la masa de un litro de agua.</p><p>Otra relación útil: un cubito de <b>1 cm</b> de lado (1 cm³) contiene <b>1 mililitro</b>, y si es de agua, pesa <b>1 gramo</b>.</p><ul><li>1 L de agua → 1 dm³ → 1 kg</li><li>1 ml de agua → 1 cm³ → 1 g</li></ul><p>¡Ojo! Esto solo funciona con el agua. Un litro de aceite pesa menos de un kilo (por eso el aceite flota en el agua) y un litro de miel pesa más.</p><p>Gracias a esta relación, si una piscina tiene 50 000 litros, sabemos que el agua pesa unos 50 000 kg, ¡como diez elefantes!</p>`,
+      L6.filas("Agua", [["1 L", "1 dm³", cAZ], ["1 L de agua", "1 kg", cVE], ["1 ml", "1 cm³", cNA], ["1 ml de agua", "1 g", cRO]])],
+    ["¿Cuánta agua gastamos?", `<p>El agua es un recurso valioso y en muchas zonas de España escasea, sobre todo en épocas de <b>sequía</b>. Saber cuánta gastamos es el primer paso para ahorrarla.</p><p>Algunos gastos aproximados:</p><ul><li><b>Ducha</b> de 5 minutos: entre 50 y 100 litros.</li><li><b>Bañera</b> llena: unos 200 litros.</li><li><b>Cisterna</b> del váter: entre 6 y 10 litros cada vez.</li><li><b>Grifo abierto</b>: puede salir más de 10 litros por minuto.</li><li><b>Lavadora</b>: unos 50 litros por lavado.</li></ul><p>En España, cada persona gasta en casa unos <mark>130 litros al día</mark>. ¡Son 130 botellas grandes de agua!</p><p>Ideas para ahorrar:</p><ul><li>Ducharse en lugar de bañarse, y no muy largo.</li><li>Cerrar el grifo mientras te lavas los dientes o te enjabonas: si tardas 2 minutos, ahorras unos 20 litros cada vez.</li><li>Poner la lavadora y el lavavajillas solo cuando estén llenos.</li><li>Arreglar los grifos que gotean: un goteo puede desperdiciar muchos litros al día.</li><li>Regar las plantas al atardecer, cuando el agua se evapora menos.</li></ul><p>Calcula con tu familia cuánta agua gastáis un día. Te sorprenderá.</p>`,
+      L6.filas("Gasto de agua", [["ducha 5 min", "50-100 L", cAZ], ["bañera", "unos 200 L", cRO], ["cisterna", "6-10 L", cNA], ["por persona", "130 L al día", cVE]]), ["EhfLMKOd8J0", "Uso del agua - Explicado para niños: Planeta Darwin", "CNTV Infantil", 761911]],
+  ],
+  ejemplos: [
+    ["El aceite cuesta 8 € el litro. ¿Cuánto cuesta una botella de 750 ml?", ["1 L = 1 000 ml; 250 ml cuestan 2 €.", "750 ml = 3 × 250 ml."], "6 €."],
+    ["¿Cuántos kilos pesa el agua de un acuario de 60 litros?", ["1 L de agua pesa 1 kg.", "60 × 1."], "60 kg."],
+  ],
+  errores: ["Pensar que un objeto grande siempre pesa más que uno pequeño.", "Operar con medidas en unidades distintas sin pasarlas antes a la misma."],
+  ejercicios: [
+    ["b", "¿Qué pesa más, 1 kg de plumas o 1 kg de piedras?", "Pesan lo mismo."],
+    ["b", "¿Cuántos litros caben en 1 dm³?", "1 litro."],
+    ["b", "¿Cuánto pesa 1 litro de agua?", "1 kg."],
+    ["b", "¿Qué significa «peso neto» en una etiqueta?", "La masa del producto sin el envase."],
+    ["b", "¿Cuántos litros de agua gasta en casa cada persona al día en España?", "Unos 130 litros."],
+    ["m", "Las peras cuestan 3 € el kilo. ¿Cuánto cuestan 2 kg y medio?", "7,50 €."],
+    ["m", "Una botella de 1,5 L. ¿Cuántos vasos de 25 cl se llenan?", "150 : 25 = 6 vasos."],
+    ["m", "¿Qué sale más barato: 1 kg de arroz por 1,80 € o 2 paquetes de 500 g a 0,95 € cada uno?", "El de 1 kg (1,80 € frente a 1,90 €)."],
+    ["m", "Si te duchas 5 minutos y salen 12 L por minuto, ¿cuánta agua gastas?", "60 L."],
+    ["m", "¿Cuántos gramos pesan 250 ml de agua?", "250 g."],
+    ["a", "Compara en el supermercado el precio por kilo de tres envases de un mismo producto.", "Respuesta abierta."],
+    ["a", "Calcula el agua que gasta tu familia en una semana y propón cómo reducirla.", "Respuesta abierta."],
+    ["a", "Construye un cubo de cartulina de 10 cm de lado y comprueba que cabe 1 L de arroz o arena.", "Respuesta abierta."],
+    ["a", "Un camión de 5 t lleva 60 cajas de 75 kg. ¿Puede cargar 10 cajas más?", "60 × 75 = 4 500 kg; quedan 500 kg; 10 cajas son 750 kg: no."],
+  ],
+  quiz: [
+    ["Un kilo de paja y un kilo de hierro…", ["pesan lo mismo", "pesa más el hierro", "pesa más la paja"], "Masa y tamaño."],
+    ["1 L de agua pesa…", ["1 kg", "1 g", "10 kg"], "Relación."],
+    ["El peso escurrido es…", ["lo que pesa el alimento sin el líquido", "lo que pesa el envase", "el peso del agua"], "Etiquetas."],
+    ["3 t son…", ["3 000 kg", "300 kg", "30 kg"], "Problemas."],
+    ["Una ducha de 5 minutos gasta…", ["entre 50 y 100 L", "1 L", "1 000 L"], "Agua."],
+  ],
+  examen: [
+    ["En la lectura, ¿por qué la báscula marcaba 300 g antes de echar harina?", ["por el peso del bol", "porque estaba rota", "por la harina"], "Lectura."],
+    ["1 cm³ de agua pesa…", ["1 g", "1 kg", "100 g"], "Relación."],
+  ],
+  tarjetas: [
+    ["Masa y tamaño", "Un kilo es un kilo: la paja ocupa más espacio que el hierro."],
+    ["Etiquetas", "Peso neto, peso escurrido, capacidad y precio por kilo o litro."],
+    ["Problemas", "Misma unidad, operar paso a paso, respuesta con unidad."],
+    ["Agua", "1 L = 1 dm³ = 1 kg de agua; unos 130 L por persona al día."],
+  ],
+  glosario: [
+    ["Masa", "Cantidad de materia de un objeto."],
+    ["Báscula", "Aparato para medir la masa."],
+    ["Capacidad", "Cantidad que cabe en un recipiente."],
+    ["Volumen", "Espacio que ocupa un cuerpo."],
+    ["Decímetro cúbico", "Cubo de 10 cm de lado; en él cabe 1 litro."],
+    ["Peso neto", "Masa del producto sin envase."],
+    ["Peso escurrido", "Masa del alimento sin el líquido."],
+    ["Precio por kilo", "Lo que cuesta un kilogramo de un producto."],
+    ["Tonelada", "Mil kilogramos."],
+    ["Densidad", "Cuánta masa hay en un espacio determinado."],
+    ["Sequía", "Largo periodo sin lluvias suficientes."],
+    ["Jarra medidora", "Recipiente con marcas para medir líquidos."],
+  ],
+  situacion: {
+    titulo: "Detectives del agua",
+    reto: "La clase calcula cuánta agua se gasta en el colegio y en casa y propone medidas de ahorro.",
+    pasos: ["Medid con una jarra cuánta agua sale de un grifo en un minuto.", "Calculad el gasto de lavarse las manos, la cisterna y la fuente del patio.", "Registrad durante una semana el gasto de agua en casa con ayuda de la familia.", "Elaborad carteles con datos y consejos para ahorrar."],
+    producto: "Un informe con mediciones y carteles de ahorro de agua.",
+    evaluacion: ["Mide capacidades con precisión.", "Cambia de unidad correctamente.", "Resuelve problemas de varios pasos.", "Propone acciones responsables."],
+  },
+});

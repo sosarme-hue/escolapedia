@@ -94,3 +94,93 @@ module.exports = P.tema({
   saberes: "Sentido estocástico: recogida y organización de datos en tablas de frecuencias; pictogramas, gráficos de barras y lineales; moda y media; sucesos seguros, posibles e imposibles y comparación de probabilidades",
   ideas: ["Encuesta real en el centro y gráfico mural de resultados.", "Registro meteorológico diario con gráfico lineal en la pizarra.", "Experimentos con bolsas de bolas de colores para predecir y comprobar."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+// Gráfico de barras dobles: grupos [etiqueta, a, b], escala de 0 a 10.
+const dobles = (grupos) => `<path d="M34 24 V 140 H 246" stroke="var(--ink)" stroke-width="1.6" fill="none"/>${[0, 5, 10].map((v) => `${t(26, 144 - v * 11, String(v), { s: 10, a: "end", c: "var(--muted)" })}<path d="M34 ${140 - v * 11} H 246" stroke="var(--line)" stroke-width=".8"/>`).join("")}${grupos.map(([n, a, b], i) => { const x = 50 + i * 64; return `<rect x="${x}" y="${140 - a * 11}" width="20" height="${a * 11}" fill="${cAZ}" fill-opacity=".75"/><rect x="${x + 22}" y="${140 - b * 11}" width="20" height="${b * 11}" fill="${cRO}" fill-opacity=".75"/>${t(x + 21, 158, n, { s: 11 })}`; }).join("")}<rect x="160" y="10" width="10" height="10" fill="${cAZ}"/>${t(174, 19, "4.º A", { s: 10, a: "start" })}<rect x="206" y="10" width="10" height="10" fill="${cRO}"/>${t(220, 19, "4.º B", { s: 10, a: "start" })}`;
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Leer y construir gráficos de barras dobles", "Calcular el rango de un conjunto de datos", "Hacer experimentos de azar y comparar con lo que esperábamos", "Detectar gráficos engañosos y juegos injustos"],
+  lectura: { titulo: "La encuesta del patio", html: `<p>La directora del colegio quería cambiar los juegos pintados en el suelo del patio y pidió ayuda a 4.º.</p><p>—Vosotros sabéis hacer encuestas —les dijo—. Averiguad qué prefieren los alumnos.</p><p>La clase se dividió en grupos. Cada grupo fue a una clase con una hoja y preguntó lo mismo: «¿Qué juego te gustaría tener en el patio: rayuela, circuito de carreras, tres en raya gigante o mapa de España?».</p><p>Hicieron el recuento con palitos y luego una tabla. Pero cuando lo juntaron todo, Héctor levantó la mano.</p><p>—Los pequeños quieren casi todos la rayuela, y los mayores el circuito. Si solo miramos el total, gana el circuito porque somos más mayores que pequeños.</p><p>La profesora sonrió.</p><p>—Muy bien visto. ¿Cómo podríamos enseñar las dos cosas a la vez?</p><p>Lucía propuso un gráfico de barras con dos colores: azul para los cursos pequeños y naranja para los mayores. Lo dibujaron en una cartulina grande.</p><p>Al verlo, la directora decidió pintar la rayuela cerca de las clases de los pequeños y el circuito al fondo del patio. Todos quedaron contentos.</p><p>—Los datos sirven para tomar decisiones —dijo—, pero hay que saber mirarlos.</p>` },
+  tras: {
+    "El gráfico de barras": [
+      ["Gráficos de barras dobles", `<p>A veces queremos <b>comparar dos grupos</b> a la vez: chicos y chicas, dos clases, este año y el año pasado. Para eso usamos un <mark>gráfico de barras dobles</mark>.</p><p>En cada opción se dibujan <b>dos barras juntas</b>, una de cada color. Una <b>leyenda</b> indica qué color corresponde a cada grupo.</p><p>Por ejemplo, 4.º A y 4.º B han votado su fruta favorita:</p><ul><li>Manzana: 4.º A, 6 votos; 4.º B, 4 votos.</li><li>Plátano: 4.º A, 8 votos; 4.º B, 9 votos.</li><li>Fresa: 4.º A, 5 votos; 4.º B, 7 votos.</li></ul><p>Mirando el gráfico podemos responder preguntas muy distintas:</p><ul><li>¿Qué fruta gusta más en cada clase? En las dos, el plátano.</li><li>¿En qué fruta hay más diferencia entre las clases? En la fresa y en la manzana, con 2 votos de diferencia.</li><li>¿Cuántos votos tiene el plátano en total? 8 + 9 = 17.</li></ul><p>Para construirlo: dibuja los ejes, elige una escala, pon las opciones abajo y dibuja las dos barras de cada opción, sin olvidar la leyenda y el título.</p>`,
+        svg("Gráfico de barras dobles: fruta favorita en 4.º A y 4.º B", dobles([["manzana", 6, 4], ["plátano", 8, 9], ["fresa", 5, 7]]))],
+    ],
+    "La moda y la media": [
+      ["El rango: cuánto cambian los datos", `<p>La moda y la media nos dicen cómo son los datos «en general». Pero también interesa saber si los datos son <b>parecidos entre sí</b> o muy distintos. Para eso calculamos el <mark>rango</mark>.</p><p>El <b>rango</b> es la diferencia entre el dato <b>mayor</b> y el dato <b>menor</b>:</p><p style="text-align:center">rango = dato mayor − dato menor</p><p>Ejemplo: las temperaturas máximas de una semana fueron 18, 21, 19, 25, 22, 20 y 23 grados.</p><ul><li>Dato mayor: 25. Dato menor: 18.</li><li>Rango: 25 − 18 = <b>7 grados</b>.</li></ul><p>Comparemos dos jugadoras de baloncesto que tienen la misma media de puntos, 10 por partido:</p><ul><li>Irene: 9, 10, 11, 10 puntos. Rango: 11 − 9 = <b>2</b>. Es muy <b>regular</b>.</li><li>Alba: 2, 18, 5, 15 puntos. Rango: 18 − 2 = <b>16</b>. Unos días juega muy bien y otros muy mal.</li></ul><p>Con la misma media, ¡son jugadoras muy distintas! Por eso, para conocer bien unos datos, no basta con un número: conviene mirar la media, la moda y también el rango.</p>`,
+        L6.filas("Dos jugadoras", [["Irene", "media 10", cAZ], ["rango", "2: regular", cVE], ["Alba", "media 10", cNA], ["rango", "16: cambia", cRO]])],
+    ],
+    "Más probable y menos probable": [
+      ["Experimentos de azar", `<p>Los científicos hacen <b>experimentos</b> para comprobar sus ideas. Nosotros también podemos hacerlo con el azar.</p><p><b>Experimento: lanzar una moneda 20 veces.</b></p><ol><li><b>Predice</b>: ¿cuántas caras crees que saldrán? Como cara y cruz son igual de probables, lo esperable es más o menos la mitad: unas 10.</li><li><b>Experimenta</b>: lanza la moneda 20 veces y apunta los resultados con palitos en una tabla.</li><li><b>Compara</b>: quizá te salgan 8 caras, o 12. ¡Es normal! El azar no reparte exacto en pocas tiradas.</li><li><b>Repite</b> con más tiradas: si juntáis los resultados de toda la clase (por ejemplo, 500 lanzamientos), veréis que el número de caras se acerca mucho a la <mark>mitad</mark>.</li></ol><p>Lo mismo pasa con un <b>dado</b>: cada número tiene la misma probabilidad. En 6 tiradas no siempre sale cada número una vez, pero en 600 tiradas cada número saldrá más o menos 100 veces.</p><p>Esto nos enseña algo importante: el azar es <b>impredecible</b> en una sola tirada, pero cuando repetimos muchas veces, aparece un orden. Por eso las compañías de seguros o los meteorólogos usan muchísimos datos para hacer sus previsiones.</p>`,
+        H6.flujo("Experimento", ["predecir|unas 10", "lanzar|20 veces", "anotar|en tabla", "comparar|con todos"], cVE), ["qs_UCrZ7fZA", "PROBABILIDAD Super fácil - Nociones de probabilidad para principiantes", "Daniel Carreón", 681440]],
+    ],
+  },
+  final: [
+    ["Gráficos que engañan", `<p>Los gráficos sirven para informar, pero a veces se dibujan de forma que <b>engañan</b>, a propósito o sin querer. Un buen lector de gráficos sabe detectarlo.</p><p>Trampas frecuentes:</p><ul><li><b>El eje no empieza en 0</b>. Si una marca de zumos vende 100 botellas y otra 105, pero el eje vertical empieza en 95, parece que una vende el triple que la otra. ¡Y la diferencia es muy pequeña!</li><li><b>Dibujos de distinto tamaño</b>. En un pictograma, si para representar el doble se dibuja una figura el doble de alta y también el doble de ancha, parece cuatro veces más grande.</li><li><b>Sin escala ni números</b>. Si no sabemos cuánto vale cada rayita, no podemos comparar.</li><li><b>Pocos datos</b>. «El 100 % de los niños prefiere nuestro cereal»… pero solo preguntaron a 3 niños.</li><li><b>Mezclar cosas</b>: comparar las ventas de un mes con las de un año.</li></ul><p>Antes de creerte un gráfico, hazte estas preguntas: <mark>¿dónde empieza el eje?, ¿a cuántas personas se preguntó?, ¿quién ha hecho el gráfico y qué quiere demostrar?</mark></p><p>La publicidad usa a menudo gráficos para convencernos. ¡No te dejes engañar!</p>`,
+      H6.dos("Eje vertical", ["DESDE 95", ["100 y 105", "parece", "el triple"], cRO], ["DESDE 0", ["100 y 105", "casi", "iguales"], cVE])],
+    ["Juegos justos e injustos", `<p>Un juego de azar es <b>justo</b> cuando todos los jugadores tienen la <mark>misma probabilidad de ganar</mark>. Si no, es <b>injusto</b>.</p><p>Veamos ejemplos con un dado:</p><ul><li>Ana gana si sale <b>par</b> (2, 4, 6) y Bruno si sale <b>impar</b> (1, 3, 5). Cada uno tiene 3 resultados de 6: es <b>justo</b>.</li><li>Ana gana si sale un <b>6</b> y Bruno si sale <b>cualquier otro número</b>. Ana tiene 1 posibilidad y Bruno 5: es <b>injusto</b>.</li><li>Ana gana si sale <b>1 o 2</b>, Bruno si sale <b>3 o 4</b> y Carla si sale <b>5 o 6</b>. Cada uno tiene 2 de 6: es <b>justo</b>.</li></ul><p>Con una bolsa de bolas: si hay 5 rojas y 5 azules y un jugador gana con roja y otro con azul, el juego es justo. Si hay 7 rojas y 3 azules, el de las rojas tiene ventaja.</p><p>Para comprobar si un juego es justo, <b>cuenta los casos</b> que hacen ganar a cada jugador. Si son iguales, el juego es justo.</p><p>Inventa un juego con un dado o una ruleta y pide a tus compañeros que descubran si es justo o no.</p>`,
+      L6.filas("¿Es justo?", [["par / impar", "3 y 3: justo", cVE], ["6 / otro", "1 y 5: injusto", cRO], ["5 y 5 bolas", "justo", cAZ], ["7 y 3 bolas", "injusto", cNA]])],
+  ],
+  ejemplos: [
+    ["Las edades de un grupo son 8, 9, 9, 10 y 12 años. ¿Cuál es el rango?", ["Dato mayor: 12. Dato menor: 8.", "Resto: 12 − 8."], "4 años."],
+    ["Gana Marta si sale 1, 2, 3 o 4 en un dado y Pedro si sale 5 o 6. ¿Es justo?", ["Marta: 4 casos.", "Pedro: 2 casos."], "No: Marta tiene el doble de posibilidades."],
+  ],
+  errores: ["Olvidar la leyenda en un gráfico de barras dobles.", "Creer que si una moneda ha salido cara tres veces, la siguiente tiene que salir cruz."],
+  ejercicios: [
+    ["b", "Calcula el rango de 3, 7, 5 y 10.", "10 − 3 = 7."],
+    ["b", "¿Para qué sirve la leyenda de un gráfico?", "Para saber qué representa cada color o dibujo."],
+    ["b", "Al lanzar una moneda 100 veces, ¿cuántas caras esperas más o menos?", "Unas 50."],
+    ["b", "¿Es justo un juego en el que uno gana con par y otro con impar en un dado?", "Sí."],
+    ["b", "¿Qué trampa hay si el eje vertical no empieza en 0?", "Exagera las diferencias."],
+    ["m", "Dos clases: 4.º A tiene 12 votos para cine y 4.º B, 9. ¿Cuántos en total y cuál es la diferencia?", "21 votos; 3 de diferencia."],
+    ["m", "Las notas de Luis son 6, 6, 6 y 6; las de Eva, 2, 10, 4 y 8. Calcula media y rango de cada uno.", "Luis: media 6, rango 0. Eva: media 6, rango 8."],
+    ["m", "En una bolsa hay 4 bolas verdes y 4 amarillas. ¿Es justo ganar con verde frente a amarilla?", "Sí, 4 y 4."],
+    ["m", "Una encuesta a 4 personas dice que «el 75 % prefiere el verde». ¿Qué problema tiene?", "Muy pocos datos."],
+    ["m", "Si lanzas un dado 60 veces, ¿cuántas veces esperas que salga el 3?", "Unas 10."],
+    ["a", "Lanza una moneda 20 veces, anota los resultados y compáralos con los de la clase.", "Respuesta abierta."],
+    ["a", "Haz una encuesta en dos clases y represéntala en un gráfico de barras dobles.", "Respuesta abierta."],
+    ["a", "Busca un gráfico en un periódico o anuncio y analiza si engaña.", "Respuesta abierta."],
+    ["a", "Inventa un juego de dado injusto y transfórmalo en justo.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El rango es…", ["el mayor menos el menor", "el que más se repite", "la suma entre el número de datos"], "Rango."],
+    ["En un gráfico de barras dobles, cada opción tiene…", ["dos barras", "una barra", "un dibujo"], "Barras dobles."],
+    ["Si lanzas una moneda muchas veces, las caras serán…", ["más o menos la mitad", "todas", "ninguna"], "Experimentos."],
+    ["Un juego es justo si…", ["todos tienen la misma probabilidad de ganar", "gana siempre el mismo", "se juega con dado"], "Juegos."],
+    ["Un eje que no empieza en 0 puede…", ["exagerar diferencias", "hacer el gráfico más exacto", "no cambiar nada"], "Gráficos engañosos."],
+  ],
+  examen: [
+    ["En la lectura, ¿por qué propusieron un gráfico de dos colores?", ["para comparar pequeños y mayores", "porque era más bonito", "porque faltaban datos"], "Lectura."],
+    ["El rango de 15, 20 y 12 es…", ["8", "20", "47"], "Rango."],
+  ],
+  tarjetas: [
+    ["Barras dobles", "Dos barras por opción, dos colores y una leyenda para comparar grupos."],
+    ["Rango", "Mayor − menor. Con la misma media, el rango dice si los datos son regulares."],
+    ["Experimentos", "Predecir, lanzar, anotar y comparar; con muchas tiradas aparece el orden."],
+    ["Cuidado", "Eje desde 0, pocos datos, dibujos inflados; juego justo = mismos casos."],
+  ],
+  glosario: [
+    ["Encuesta", "Preguntar lo mismo a un grupo de personas."],
+    ["Frecuencia", "Número de veces que se repite un dato."],
+    ["Leyenda", "Explicación de colores o símbolos de un gráfico."],
+    ["Barras dobles", "Gráfico que compara dos grupos con dos barras por opción."],
+    ["Rango", "Diferencia entre el dato mayor y el menor."],
+    ["Media", "Valor que se obtiene al repartir por igual el total."],
+    ["Moda", "Dato que más se repite."],
+    ["Azar", "Lo que ocurre sin que se pueda saber de antemano."],
+    ["Experimento", "Prueba que se hace para comprobar algo."],
+    ["Predicción", "Lo que pensamos que pasará."],
+    ["Juego justo", "Juego en el que todos tienen la misma probabilidad de ganar."],
+    ["Escala", "Valor de cada división de un eje."],
+  ],
+  situacion: {
+    titulo: "Periodistas de datos",
+    reto: "La clase elabora un pequeño periódico con datos reales del colegio.",
+    pasos: ["Elegid una pregunta y haced una encuesta en dos cursos.", "Organizad los datos en una tabla de frecuencias.", "Representadlos en un gráfico de barras dobles y calculad moda, media y rango.", "Escribid una noticia que explique los resultados sin engañar."],
+    producto: "Una página de periódico con gráfico y noticia.",
+    evaluacion: ["Recoge y organiza datos.", "Construye gráficos correctos.", "Calcula y explica moda, media y rango.", "Comunica con honestidad."],
+  },
+});

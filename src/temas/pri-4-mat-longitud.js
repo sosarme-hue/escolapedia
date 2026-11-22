@@ -97,3 +97,91 @@ module.exports = P.tema({
   saberes: "Sentido de la medida: la longitud; el metro, sus múltiplos y submúltiplos; equivalencias y cambios de unidad; elección de la unidad adecuada; estimación, medición con instrumentos y perímetro",
   ideas: ["Medir el aula y el pasillo con pasos y con cinta métrica y comparar.", "Concurso de estimaciones de longitudes de objetos del aula.", "Escalera de unidades en el suelo para practicar los cambios saltando."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer medidas antiguas de longitud y la historia del metro", "Conocer instrumentos de medida para distintas longitudes", "Interpretar la escala de planos y mapas", "Comparar grandes longitudes del mundo y de España"],
+  lectura: { titulo: "El palmo de la abuela", html: `<p>Daniel estaba ayudando a su abuela Pilar a hacer una cortina para la ventana de su cuarto.</p><p>—¿Cuánto mide la ventana? —preguntó la abuela.</p><p>Daniel extendió la mano sobre el marco y empezó a contar palmos.</p><p>—Siete palmos.</p><p>La abuela midió con su mano: le salieron seis palmos y medio.</p><p>—¿Ves? —rio ella—. Tu palmo y el mío no son iguales. Si le digo a la tienda que quiero tela para siete palmos, ¿qué palmo usarán? ¿El del dependiente?</p><p>—Por eso se inventó el metro, ¿no? —dijo Daniel.</p><p>—Exacto. Cuando yo era pequeña, mi abuela todavía medía la tela en varas. Cada pueblo tenía la suya y los comerciantes discutían todo el día.</p><p>Daniel fue a buscar la cinta métrica. Puso el cero en un extremo del marco, estiró la cinta hasta el otro y leyó: <b>1 metro y 24 centímetros</b>.</p><p>—Pues entonces pedimos 1,30 m —dijo la abuela—, que siempre hay que dejar un poco para el dobladillo.</p><p>Esa tarde, Daniel dibujó en su cuaderno su palmo, su pie y su paso, y al lado escribió cuánto medía cada uno en centímetros. «Por si un día me olvido la cinta», pensó.</p>` },
+  tras: {
+    "¿Qué es la longitud?": [
+      ["Medidas antiguas", `<p>Antes de que existiera el metro, cada lugar usaba sus propias medidas, casi siempre basadas en el cuerpo humano o en cosas cotidianas:</p><ul><li><b>El dedo</b> y <b>la pulgada</b>: el ancho de un dedo o del pulgar. La pulgada todavía se usa para medir pantallas de televisión y ruedas de bicicleta: equivale a unos <b>2,5 cm</b>.</li><li><b>El palmo</b>: la distancia entre la punta del pulgar y la del meñique con la mano abierta, unos 20 cm.</li><li><b>El pie</b>: el largo del pie, unos 28 cm en Castilla. En los aviones, la altura se sigue midiendo en pies.</li><li><b>El codo</b>: desde el codo hasta la punta de los dedos, aproximadamente medio metro. Aparece en textos muy antiguos.</li><li><b>La vara</b>: muy usada en España para medir telas y terrenos. La vara de Castilla medía unos <b>84 cm</b>.</li><li><b>La legua</b>: la distancia que se podía recorrer andando en una hora, unos <b>5 km</b>. Por eso decimos «se nota a la legua».</li></ul><p>El problema era que estas medidas <mark>cambiaban de un sitio a otro</mark>: la vara de Burgos no era igual que la de Valencia. Esto causaba confusiones y engaños en los mercados, y por eso se buscó una medida igual para todos.</p>`,
+        L6.filas("Medidas antiguas", [["pulgada", "unos 2,5 cm", cAZ], ["pie", "unos 28 cm", cVE], ["vara", "unos 84 cm", cNA], ["legua", "unos 5 km", cRO]])],
+    ],
+    "Medir con la regla y la cinta métrica": [
+      ["Otros instrumentos de medida", `<p>Además de la regla y la cinta métrica, hay muchos instrumentos para medir longitudes. Cada uno sirve para un tamaño:</p><ul><li><b>Metro plegable</b>: el de los carpinteros, hecho de piezas que se doblan. Mide hasta 2 metros.</li><li><b>Flexómetro</b>: una cinta metálica que se enrolla dentro de una caja. Lo usan albañiles y electricistas.</li><li><b>Calibre</b> o <b>pie de rey</b>: mide cosas pequeñas con mucha precisión, como el grosor de un tornillo, hasta décimas de milímetro.</li><li><b>Rueda de medir</b>: una rueda con un contador. Al hacerla rodar por el suelo, cuenta los metros. Se usa para medir pistas, calles o campos.</li><li><b>Medidor láser</b>: lanza un rayo de luz y calcula la distancia hasta una pared en un segundo.</li><li><b>Cuentakilómetros</b>: en coches y bicicletas, indica los kilómetros recorridos.</li><li><b>GPS</b>: usando satélites, calcula la distancia que recorremos al caminar o correr.</li></ul><p>Elegir el instrumento adecuado es tan importante como elegir la unidad: no medirías tu goma de borrar con una rueda de medir, ni la distancia a otra ciudad con una regla.</p>`,
+        H6.rueda("Instrumentos", "MEDIR", [["calibre", cAZ], ["flexómetro", cVE], ["rueda", cNA], ["láser", cRO]])],
+    ],
+    "Problemas de longitud y perímetro": [
+      ["Planos y mapas: la escala", `<p>Un <b>plano</b> dibuja un lugar pequeño visto desde arriba: tu casa, tu clase o tu barrio. Un <b>mapa</b> dibuja lugares más grandes: una ciudad, un país o el mundo. Como no caben de verdad en un papel, se dibujan <b>reducidos</b>, todos en la misma proporción. Esa proporción se llama <mark>escala</mark>.</p><p>La escala nos dice cuánto mide en la realidad cada centímetro del dibujo. Por ejemplo:</p><ul><li>En el plano de una casa: <b>1 cm = 1 m</b>. Si el salón mide 5 cm en el plano, en la realidad mide 5 m.</li><li>En el mapa de una ciudad: <b>1 cm = 100 m</b>. Si del colegio al parque hay 7 cm, en la realidad hay 700 m.</li><li>En el mapa de España: <b>1 cm = 50 km</b>. Si entre dos ciudades hay 6 cm, en la realidad hay unos 300 km.</li></ul><p>Para calcular la distancia real: <b>mide con la regla</b> en el mapa y <b>multiplica</b> por lo que vale cada centímetro.</p><p>Muchos mapas tienen una <b>escala gráfica</b>: una barrita dividida en trozos que indica cuántos kilómetros representa cada trozo. Así puedes medir sin hacer cuentas.</p>`,
+        L6.filas("Escala 1 cm = 50 km", [["2 cm", "100 km", cAZ], ["4 cm", "200 km", cVE], ["6 cm", "300 km", cNA], ["10 cm", "500 km", cRO]]), ["j-sfWyneNoI", "Los mapas y las escalas", "VIDEOS EDUCATIVOS DE HISTORIA", 275991]],
+    ],
+  },
+  final: [
+    ["La historia del metro", `<p>A finales del siglo XVIII, durante la Revolución francesa, unos científicos franceses decidieron crear una medida que fuera <b>igual para todo el mundo</b> y que no dependiera del cuerpo de nadie. Pensaron en usar el tamaño de la propia Tierra.</p><p>En 1791 decidieron que el <b>metro</b> sería la <mark>diezmillonésima parte</mark> de la distancia entre el Polo Norte y el ecuador. Para calcularla, dos científicos, Delambre y Méchain, midieron durante siete años, de 1792 a 1798, la distancia entre las ciudades de <b>Dunkerque</b>, en el norte de Francia, y <b>Barcelona</b>. Subieron a montañas y torres de iglesias, como la montaña de Montjuïc en Barcelona, para hacer sus mediciones en plena guerra.</p><p>Con sus resultados se fabricó una <b>barra de platino</b> que medía exactamente un metro y se guardó en París.</p><p>España adoptó el metro de forma oficial con una ley de <b>1849</b>, aunque durante muchos años la gente siguió usando varas y leguas.</p><p>Hoy el metro ya no depende de ninguna barra: desde 1983 se define con la <b>velocidad de la luz</b>, que es igual en todo el universo. Un metro es la distancia que recorre la luz en una fracción pequeñísima de segundo.</p><p>Casi todos los países del mundo usan el metro. Una excepción conocida es Estados Unidos, donde en la vida diaria se siguen usando pies, pulgadas y millas.</p>`,
+      H6.flujo("El metro", ["1791|se crea", "1792-98|medición", "1849|España", "1983|la luz"], cAZ), ["UO1upe8Txlo", "Importancia del sistema métrico - Matt Anticole", "Sé Curioso — TED-Ed", 101294]],
+    ["Récords de longitud", `<p>Con lo que has aprendido puedes entender algunos récords de nuestro planeta:</p><ul><li><b>La montaña más alta</b> del mundo es el <b>Everest</b>, en el Himalaya: 8 849 metros. ¡Casi 9 km hacia arriba! En España, la más alta es el <b>Teide</b>, en Tenerife, con 3 715 m; en la península, el <b>Mulhacén</b>, con 3 479 m.</li><li><b>El río más largo</b> del mundo es el <b>Nilo</b> o el <b>Amazonas</b> (los científicos no se ponen de acuerdo): ambos superan los 6 000 km. En la península ibérica, el más largo es el <b>Tajo</b>, con unos 1 000 km.</li><li><b>El animal más largo</b> es la <b>ballena azul</b>: puede medir unos 30 m, como tres autobuses en fila.</li><li><b>El árbol más alto</b> es una secuoya de California que mide más de 115 m.</li><li><b>La carrera de maratón</b> mide 42,195 km.</li></ul><p>Y en lo pequeño: una <b>hormiga</b> mide unos pocos milímetros; un <b>cabello</b> es tan fino que necesitaríamos poner muchos juntos para llegar a 1 mm.</p><p>Comparar ayuda a imaginar: el Everest mide más de 8 km de altura, más o menos la distancia que recorres en dos horas andando.</p>`,
+      L6.filas("Récords", [["Everest", "8 849 m", cAZ], ["Teide", "3 715 m", cVE], ["Tajo", "unos 1 000 km", cNA], ["ballena azul", "unos 30 m", cRO]])],
+  ],
+  ejemplos: [
+    ["En un plano a escala 1 cm = 2 m, una habitación mide 3 cm de largo. ¿Cuánto mide en realidad?", ["Cada centímetro son 2 m.", "3 × 2."], "6 m."],
+    ["¿Cuántos centímetros mide aproximadamente una pantalla de 40 pulgadas?", ["1 pulgada ≈ 2,5 cm.", "40 × 2,5."], "Unos 100 cm (1 m)."],
+  ],
+  errores: ["Olvidar multiplicar por la escala al calcular distancias en un mapa.", "Pensar que las medidas antiguas eran iguales en todas partes."],
+  ejercicios: [
+    ["b", "¿Qué instrumento usarías para medir el grosor de un tornillo?", "El calibre o pie de rey."],
+    ["b", "¿Cuántos metros mide el Teide?", "3 715 m."],
+    ["b", "¿En qué año adoptó España el metro por ley?", "En 1849."],
+    ["b", "Con escala 1 cm = 1 m, ¿cuánto mide una pared de 4 cm en el plano?", "4 m."],
+    ["b", "¿Qué medida antigua se usa todavía para las pantallas?", "La pulgada."],
+    ["m", "Con escala 1 cm = 100 m, ¿cuántos cm hay en el mapa para 900 m?", "9 cm."],
+    ["m", "¿Cuántos kilómetros son 3 leguas aproximadamente?", "Unos 15 km."],
+    ["m", "¿Entre qué dos ciudades se midió para crear el metro?", "Dunkerque y Barcelona."],
+    ["m", "¿Cuántos metros más alto es el Teide que el Mulhacén?", "3 715 − 3 479 = 236 m."],
+    ["m", "Una maratón mide 42,195 km. ¿Cuántos metros son?", "42 195 m."],
+    ["a", "Dibuja el plano de tu habitación a escala 1 cm = 50 cm.", "Respuesta abierta."],
+    ["a", "Mide tu palmo, tu pie y tu paso en centímetros y compáralos con los de un adulto.", "Respuesta abierta."],
+    ["a", "Busca en un mapa de España la distancia entre tu ciudad y Madrid usando la escala.", "Respuesta abierta."],
+    ["a", "Investiga cuánto mide el río más largo de tu comunidad y compáralo con el Tajo.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["La vara de Castilla medía unos…", ["84 cm", "8 m", "8 mm"], "Medidas antiguas."],
+    ["El metro se creó en…", ["Francia", "Japón", "Egipto"], "Historia."],
+    ["Con escala 1 cm = 50 km, 3 cm son…", ["150 km", "53 km", "15 km"], "Escala."],
+    ["La rueda de medir sirve para…", ["medir distancias en el suelo", "pesar", "medir la temperatura"], "Instrumentos."],
+    ["La montaña más alta del mundo es…", ["el Everest", "el Teide", "el Mulhacén"], "Récords."],
+  ],
+  examen: [
+    ["En la lectura, ¿por qué no coincidían los palmos?", ["porque cada mano es distinta", "porque midieron mal", "porque la ventana creció"], "Lectura."],
+    ["Desde 1983 el metro se define con…", ["la velocidad de la luz", "una barra de hierro", "el pie del rey"], "Historia."],
+  ],
+  tarjetas: [
+    ["Medidas antiguas", "Pulgada 2,5 cm; pie 28 cm; vara 84 cm; legua 5 km; cambiaban según el lugar."],
+    ["Instrumentos", "Calibre, flexómetro, metro plegable, rueda de medir, láser, GPS."],
+    ["Escala", "Mide en el mapa y multiplica: 1 cm = 50 km → 6 cm = 300 km."],
+    ["Historia y récords", "1791, Dunkerque-Barcelona, 1849, luz; Everest 8 849 m, Teide 3 715 m."],
+  ],
+  glosario: [
+    ["Longitud", "Lo que mide algo de un extremo a otro."],
+    ["Metro", "Unidad principal de longitud."],
+    ["Pulgada", "Medida antigua de unos 2,5 cm."],
+    ["Vara", "Medida antigua española de unos 84 cm."],
+    ["Legua", "Distancia que se recorría andando en una hora."],
+    ["Calibre", "Instrumento para medir cosas pequeñas con precisión."],
+    ["Flexómetro", "Cinta métrica metálica enrollable."],
+    ["Plano", "Dibujo de un lugar pequeño visto desde arriba."],
+    ["Mapa", "Dibujo reducido de un territorio."],
+    ["Escala", "Relación entre la medida del dibujo y la real."],
+    ["Meridiano", "Línea imaginaria que va de polo a polo."],
+    ["Sistema métrico decimal", "Sistema de medidas que va de diez en diez."],
+  ],
+  situacion: {
+    titulo: "El plano de la clase",
+    reto: "La clase dibuja un plano a escala de su aula y lo usa para reorganizar el mobiliario.",
+    pasos: ["Medid el aula, las mesas, la pizarra y las puertas con cinta métrica.", "Elegid una escala, por ejemplo 1 cm = 50 cm.", "Dibujad el plano en papel cuadriculado con todos los elementos.", "Proponed una nueva distribución y comprobad en el plano que cabe."],
+    producto: "Un plano a escala del aula con una propuesta de distribución.",
+    evaluacion: ["Mide con precisión.", "Cambia de unidades correctamente.", "Aplica la escala.", "Trabaja en equipo y argumenta la propuesta."],
+  },
+});
