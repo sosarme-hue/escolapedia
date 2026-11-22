@@ -95,3 +95,97 @@ module.exports = P.tema({
   saberes: "Sentido espacial y de la medida: circunferencia y círculo; centro, radio, diámetro, cuerda y arco; figuras circulares; posiciones relativas de rectas y circunferencias; trazado con compás; aproximación de la longitud de la circunferencia con el número π",
   ideas: ["Medir objetos redondos con cuerda y regla para descubrir π.", "Trazar circunferencias en el patio con una cuerda y una tiza.", "Diseño de mandalas o rosetones con compás."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { caja, arco } = P;
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Reconocer el ángulo central y los sectores circulares", "Distinguir las posiciones de dos circunferencias", "Construir un hexágono regular con el compás y conocer la historia del número π"],
+  lectura: { titulo: "La noria del parque", html: `<p>Las fiestas del barrio han traído una noria gigante. Desde abajo, Pablo la observa girar: las cabinas de colores suben y bajan lentamente, siempre a la misma distancia del eje central. «¿Cuánto recorre una cabina en una vuelta?», le pregunta a su tía, que es ingeniera.</p><p>Ella le explica que la noria es una <b>circunferencia</b> gigante. El eje es el <b>centro</b> y cada brazo que llega a una cabina es un <b>radio</b>. Todos los radios miden lo mismo: por eso las cabinas giran tan suaves. «Esta noria tiene 20 metros de diámetro», le dice. «Para saber cuánto recorre una cabina en una vuelta, multiplicamos el diámetro por un número muy especial, que vale un poco más de 3: el número <b>pi</b>».</p><p>Pablo hace la cuenta: 20 × 3,14 = 62,8 metros en cada vuelta. «¡Y si damos diez vueltas, recorremos más de 600 metros sin movernos del sitio!».</p><p>Las ruedas, los relojes, las monedas, las pizzas y las norias son circulares. En este tema conocerás los elementos de la circunferencia y el círculo y aprenderás a usar el compás como un auténtico dibujante.</p>` },
+  tras: {
+    "Diámetro, cuerda y arco": [
+      ["El ángulo central y los sectores", `<p>Un <b>ángulo central</b> es el que tiene su vértice en el <b>centro</b> de la circunferencia y sus lados son dos radios. Cada ángulo central «abre» un trozo del círculo llamado <b>sector circular</b>, como una porción de pizza.</p><p>La vuelta completa alrededor del centro mide <b>360°</b>. Por eso:</p><ul><li>Medio círculo (semicírculo) tiene un ángulo central de <b>180°</b>.</li><li>Un cuarto de círculo (cuadrante) tiene <b>90°</b>.</li><li>Si cortamos una pizza en 8 porciones iguales, cada una tiene un ángulo central de 360° : 8 = <b>45°</b>.</li></ul><p>El ángulo central también nos ayuda a repartir la circunferencia en partes iguales. Para dividirla en 6 partes iguales, trazamos radios cada 360° : 6 = <b>60°</b> con el transportador. Así se dibujan los gráficos de sectores, las esferas de los relojes (cada hora está a 30°) o las ruedas de una bicicleta con sus radios.</p>`,
+        svg("Ángulo central de cuarenta y cinco grados: una porción de pizza cortada en ocho", `<circle cx="80" cy="90" r="64" fill="${SO}" fill-opacity=".2" stroke="${NA}" stroke-width="2.5"/>${[...Array(8)].map((_, i) => seg([80, 90], pt(80, 90, 64, i * 45), NA, 1.5)).join("")}<path d="M80 90 L ${pt(80, 90, 64, 0).join(" ")} A 64 64 0 0 0 ${pt(80, 90, 64, 45).join(" ")} Z" fill="${RO}" fill-opacity=".45" stroke="${RO}" stroke-width="2"/>${arco(80, 90, 20, 0, 45, "var(--ink)")}${t(200, 60, "360° : 8", { s: 14 })}${t(200, 88, "= 45°", { s: 18, d: true, c: RO })}${t(200, 124, "sector circular", { s: 12, c: RO })}`)],
+    ],
+    "Posiciones de una recta y una circunferencia": [
+      ["Posiciones de dos circunferencias", `<p>Dos circunferencias también pueden estar colocadas de distintas formas:</p><ul><li><b>Exteriores</b>: están separadas, no se tocan.</li><li><b>Tangentes</b>: se tocan en un solo punto (por fuera o por dentro).</li><li><b>Secantes</b>: se cortan en dos puntos. Dejan una zona en común con forma de lente.</li><li><b>Interiores</b>: una está dentro de la otra sin tocarla.</li><li><b>Concéntricas</b>: una dentro de la otra y con el <b>mismo centro</b>. Entre las dos se forma una <b>corona circular</b>, como en una diana, un CD o los anillos de un árbol.</li></ul><p>Fíjate en los logotipos de algunas marcas de coches o en el símbolo de los Juegos Olímpicos: ¡cinco circunferencias secantes entrelazadas!</p><p>Con el compás puedes dibujar todas estas posiciones. Para dibujar dos circunferencias tangentes exteriores, por ejemplo, la distancia entre los centros debe ser igual a la suma de los dos radios.</p>`,
+        svg("Posiciones de dos circunferencias: exteriores, tangentes, secantes y concéntricas", `<circle cx="30" cy="50" r="18" fill="none" stroke="${AZ}" stroke-width="2"/><circle cx="82" cy="50" r="18" fill="none" stroke="${AZ}" stroke-width="2"/>${t(56, 88, "exteriores", { s: 11 })}<circle cx="160" cy="50" r="20" fill="none" stroke="${VE}" stroke-width="2"/><circle cx="200" cy="50" r="20" fill="none" stroke="${VE}" stroke-width="2"/>${t(180, 88, "tangentes", { s: 11 })}<circle cx="44" cy="128" r="22" fill="none" stroke="${RO}" stroke-width="2"/><circle cx="74" cy="128" r="22" fill="none" stroke="${RO}" stroke-width="2"/>${t(59, 168, "secantes", { s: 11 })}<circle cx="180" cy="128" r="26" fill="${MO}" fill-opacity=".25" stroke="${MO}" stroke-width="2"/><circle cx="180" cy="128" r="13" fill="var(--paper)" stroke="${MO}" stroke-width="2"/>${t(180, 170, "concéntricas", { s: 11 })}`)],
+    ],
+    "Trazar circunferencias con el compás": [
+      ["Un hexágono con el compás", `<p>Con el compás se puede dibujar un <b>hexágono regular</b> perfecto sin necesidad de medir ángulos. ¡Parece magia!</p><ol><li>Traza una circunferencia con el compás. <b>No cierres el compás</b>: deja la misma abertura (el radio).</li><li>Pincha en cualquier punto de la circunferencia y marca un pequeño arco que la corte.</li><li>Pincha en ese nuevo punto y marca otro arco. Repite hasta dar la vuelta: saldrán exactamente <b>6 puntos</b>.</li><li>Une los puntos seguidos con la regla: ¡ya tienes un hexágono regular!</li></ol><p>¿Por qué funciona? Porque el lado de un hexágono regular mide lo mismo que el <b>radio</b> de la circunferencia en la que está dibujado (se dice que está <b>inscrito</b>). Si unes los puntos de dos en dos, obtendrás un <b>triángulo equilátero</b>. Y si con el mismo radio trazas arcos desde cada punto, aparece una preciosa <b>flor de seis pétalos</b>, un dibujo que ya hacían los artistas romanos.</p>`,
+        svg("Hexágono regular inscrito en una circunferencia: el lado mide lo mismo que el radio", `<circle cx="90" cy="90" r="64" fill="none" stroke="var(--muted)" stroke-width="2"/><polygon points="${[...Array(6)].map((_, i) => pt(90, 90, 64, i * 60).join(",")).join(" ")}" fill="${AZ}" fill-opacity=".15" stroke="${AZ}" stroke-width="2.5"/>${seg([90, 90], pt(90, 90, 64, 0), RO, 2.4)}${seg([90, 90], pt(90, 90, 64, 60), RO, 2.4, 'stroke-dasharray="4 3"')}<circle cx="90" cy="90" r="3.5" fill="var(--ink)"/>${t(124, 102, "r", { s: 13, c: RO, d: true })}${t(206, 70, "lado = radio", { s: 13, d: true, c: AZ })}${t(206, 100, "6 arcos", { s: 12 })}${t(206, 116, "con la misma", { s: 11 })}${t(206, 130, "abertura", { s: 11 })}`)],
+    ],
+    "La longitud de la circunferencia": [
+      ["La historia del número π", `<p>Hace miles de años, los constructores de Babilonia y Egipto ya sabían que, en cualquier rueda, la longitud de la circunferencia es <b>un poco más de tres veces</b> su diámetro. Ese «un poco más de tres» es el número <b>π</b> (se lee «pi»).</p><p>El sabio griego <b>Arquímedes</b>, hace unos 2 250 años, fue el primero en calcularlo con mucha precisión. Dibujó polígonos de muchísimos lados dentro y fuera de una circunferencia y demostró que π estaba entre 3,140 y 3,142.</p><p>π es un número muy curioso: tiene <b>infinitas cifras decimales</b> que nunca se repiten de forma ordenada: 3,14159265358979… Hoy los ordenadores han calculado billones de cifras, pero para la vida diaria basta con <b>3,14</b>.</p><p>Se celebra el <b>Día de π</b> cada <b>14 de marzo</b>, porque en inglés esa fecha se escribe 3/14. ¡Y casualmente es el cumpleaños de Albert Einstein!</p><p>Puedes comprobar π tú mismo: rodea un bote con una cuerda, mide la cuerda y divídela entre el diámetro del bote. ¡Te saldrá algo muy cercano a 3,14!</p>`,
+        svg("El número pi: la circunferencia mide un poco más de tres diámetros", `<circle cx="56" cy="64" r="34" fill="${SO}" fill-opacity=".2" stroke="${NA}" stroke-width="2.5"/>${seg([22, 64], [90, 64], RO, 2.5)}${t(56, 58, "d", { s: 12, c: RO, d: true })}${[0, 1, 2].map((i) => `<rect x="${110 + i * 44}" y="56" width="44" height="14" fill="${RO}" fill-opacity=".35" stroke="${RO}" stroke-width="1.5"/>`).join("")}<rect x="242" y="56" width="6" height="14" fill="${MO}" fill-opacity=".6"/>${t(180, 46, "3 diámetros y un poco más", { s: 10 })}${t(130, 130, "π = 3,14159…", { s: 20, d: true, c: MO })}${t(130, 160, "Día de π: 14 de marzo", { s: 12, c: "var(--muted)" })}`)],
+    ],
+  },
+  final: [
+    ["La rueda y los engranajes", `<p>La <b>rueda</b> es uno de los inventos más importantes de la historia. Apareció hace unos 5 500 años en Mesopotamia, primero para hacer cerámica (el torno de alfarero) y después para los carros. Funciona porque todos los puntos del borde están a la misma distancia del eje: así la rueda gira suave, sin saltos.</p><p>Si unimos varias ruedas dentadas tenemos <b>engranajes</b>, que están dentro de relojes, bicicletas, batidoras o coches. Cuando dos engranajes encajan, sus dientes avanzan a la vez:</p><ul><li>Si una rueda de 40 dientes mueve otra de <b>20 dientes</b>, la pequeña da <b>2 vueltas</b> por cada vuelta de la grande.</li><li>En una bicicleta, el plato de los pedales es grande y el piñón de la rueda trasera, pequeño: por cada pedalada, la rueda da varias vueltas.</li></ul><p>Y cada vuelta de la rueda avanza tanto como mide su circunferencia. Una rueda de bici de 70 cm de diámetro avanza unos 70 × 3,14 = 219,8 cm, ¡más de dos metros por vuelta!</p>`,
+      svg("Dos engranajes: una rueda grande de cuarenta dientes mueve una pequeña de veinte que da dos vueltas", `${[[78, 90, 52, 40, AZ], [176, 90, 28, 20, VE]].map(([x, y, r, n, c]) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${c}" fill-opacity=".2" stroke="${c}" stroke-width="2.5"/>${[...Array(n)].map((_, i) => `<path d="M${pt(x, y, r, (i * 360) / n).join(" ")} L ${pt(x, y, r + 8, (i * 360) / n).join(" ")}" stroke="${c}" stroke-width="4"/>`).join("")}<circle cx="${x}" cy="${y}" r="5" fill="${c}"/>`).join("")}${t(78, 166, "40 dientes", { s: 11, c: AZ })}${t(176, 140, "20 dientes", { s: 11, c: VE })}${t(220, 40, "×2", { s: 18, d: true, c: VE })}`)],
+  ],
+  ejemplos: [
+    ["Una pizza se corta en 6 porciones iguales. ¿Cuánto mide el ángulo central de cada porción?", ["La vuelta completa mide 360°.", "Hay 6 porciones iguales.", "360° : 6 = 60°."], "60°"],
+    ["Una rueda de bicicleta tiene 60 cm de diámetro. ¿Cuántos metros avanza en 100 vueltas?", ["Una vuelta: 3,14 × 60 = 188,4 cm.", "100 vueltas: 188,4 × 100 = 18 840 cm.", "18 840 cm = 188,4 m."], "188,4 m"],
+  ],
+  errores: ["Pensar que π vale exactamente 3,14: es un número con infinitas cifras decimales; 3,14 es una aproximación."],
+  nivelesBase: "bbbbbbbmmm",
+  ejercicios: [
+    ["b", "¿Cuánto mide el ángulo central de un semicírculo? ¿Y de un cuadrante?", "180° y 90°."],
+    ["b", "Escribe tres objetos con forma de corona circular.", "Por ejemplo: un CD, un donut y una diana."],
+    ["b", "¿Qué día se celebra el Día de π y por qué?", "El 14 de marzo, porque en inglés se escribe 3/14, como las primeras cifras de π."],
+    ["b", "¿Cómo se llaman dos circunferencias que se tocan en un solo punto?", "Tangentes."],
+    ["m", "Una tarta se divide en 12 porciones iguales. ¿Qué ángulo central tiene cada una?", "360 : 12 = 30°."],
+    ["m", "Dibuja con el compás un hexágono regular inscrito en una circunferencia de 4 cm de radio. ¿Cuánto mide su perímetro?", "Cada lado mide 4 cm (igual que el radio). Perímetro: 6 × 4 = 24 cm."],
+    ["m", "Dos circunferencias tangentes exteriores tienen radios de 3 cm y 5 cm. ¿A qué distancia están sus centros?", "3 + 5 = 8 cm."],
+    ["m", "Un engranaje de 30 dientes mueve otro de 10. Si el grande da 5 vueltas, ¿cuántas da el pequeño?", "Cada vuelta del grande son 3 del pequeño: 5 × 3 = 15 vueltas."],
+    ["a", "Una noria de 30 m de diámetro da 4 vueltas. ¿Cuántos metros recorre una cabina?", "3,14 × 30 = 94,2 m por vuelta; × 4 = 376,8 m."],
+    ["a", "¿Entre qué dos números demostró Arquímedes que estaba π?", "Entre 3,140 y 3,142 (aproximadamente)."],
+    ["a", "Un reloj tiene las 12 horas repartidas en la esfera. ¿Qué ángulo hay entre dos horas seguidas? ¿Y entre las 12 y las 4?", "360 : 12 = 30°. De 12 a 4 hay 4 horas: 120°."],
+    ["a", "Mide con una cuerda el contorno de un bote y su diámetro. Divide. ¿Qué número obtienes?", "Respuesta abierta. Ejemplo: 25,1 cm : 8 cm ≈ 3,14."],
+    ["a", "Si unes de dos en dos los vértices de un hexágono inscrito, ¿qué figura obtienes? ¿Cuánto miden sus ángulos?", "Un triángulo equilátero; cada ángulo mide 60°."],
+    ["m", "¿En qué posición están los anillos olímpicos entre sí?", "Son circunferencias secantes (se cortan en dos puntos)."],
+    ["a", "Una rueda de 50 cm de diámetro avanza 157 m. ¿Cuántas vueltas ha dado?", "Una vuelta: 3,14 × 50 = 157 cm = 1,57 m. 157 : 1,57 = 100 vueltas."],
+    ["b", "¿Dónde y para qué se usó la rueda por primera vez?", "En Mesopotamia, hace unos 5 500 años, para el torno de alfarero y después para los carros."],
+  ],
+  quiz: [
+    ["El ángulo central de un semicírculo mide…", ["180°", "90°", "360°"], "Es media vuelta."],
+    ["Dos circunferencias con el mismo centro son…", ["Concéntricas", "Tangentes", "Secantes"], "Entre ellas forman una corona circular."],
+    ["El lado de un hexágono regular inscrito mide lo mismo que…", ["El radio", "El diámetro", "La cuerda mayor"], "Por eso se dibuja con el compás sin cambiar la abertura."],
+    ["El número π vale aproximadamente…", ["3,14", "3", "2,14"], "Tiene infinitas cifras decimales."],
+    ["Si un engranaje de 20 dientes mueve uno de 10, el pequeño gira…", ["El doble de vueltas", "La mitad de vueltas", "Las mismas vueltas"], "Tiene la mitad de dientes."],
+  ],
+  examen: [
+    ["Una pizza en 8 porciones iguales tiene ángulos centrales de…", ["45°", "8°", "60°"], "360 : 8."],
+    ["El sabio griego que calculó π con gran precisión fue…", ["Arquímedes", "Euclides", "Pitágoras"], "Usó polígonos de muchos lados."],
+    ["Dos circunferencias que se cortan en dos puntos son…", ["Secantes", "Exteriores", "Concéntricas"], "Como los aros olímpicos."],
+    ["Una rueda de 1 m de diámetro avanza en una vuelta unos…", ["3,14 m", "1 m", "6,28 m"], "π × diámetro."],
+  ],
+  tarjetas: [
+    ["Ángulo central", "Vértice en el centro; la vuelta entera mide 360°."],
+    ["Corona circular", "Zona entre dos circunferencias concéntricas."],
+    ["Hexágono con compás", "Lado = radio; 6 arcos con la misma abertura."],
+    ["Número π", "≈ 3,14. Longitud = π × diámetro. Día de π: 14 de marzo."],
+  ],
+  glosario: [
+    ["Circunferencia", "Línea curva cerrada cuyos puntos están a la misma distancia del centro."],
+    ["Círculo", "Superficie que queda dentro de una circunferencia."],
+    ["Centro", "Punto que está a la misma distancia de todos los puntos de la circunferencia."],
+    ["Radio", "Segmento que une el centro con un punto de la circunferencia."],
+    ["Diámetro", "Cuerda que pasa por el centro; mide dos radios."],
+    ["Cuerda", "Segmento que une dos puntos de la circunferencia."],
+    ["Arco", "Trozo de circunferencia entre dos puntos."],
+    ["Ángulo central", "Ángulo con el vértice en el centro de la circunferencia."],
+    ["Sector circular", "Parte del círculo entre dos radios."],
+    ["Corona circular", "Parte entre dos circunferencias concéntricas."],
+    ["Polígono inscrito", "Polígono cuyos vértices están sobre una circunferencia."],
+    ["Número π", "Número de veces que cabe el diámetro en la circunferencia, ≈ 3,14."],
+  ],
+  situacion: {
+    titulo: "El Día de π en el colegio",
+    reto: "Organizamos una pequeña feria matemática para celebrar el Día de π, con experimentos y dibujos hechos con el compás.",
+    pasos: ["Medid con una cuerda el contorno y el diámetro de objetos circulares (botes, platos, ruedas) y calculad el cociente de cada uno.", "Anotad los resultados en una tabla y calculad la media: ¿se parece a 3,14?", "Diseñad con el compás rosetones y flores de seis pétalos para decorar la feria.", "Preparad un póster sobre la historia de π y presentadlo a otra clase."],
+    producto: "Una tabla de mediciones, un póster sobre π y una exposición de rosetones dibujados con compás.",
+    evaluacion: ["Identifica y mide los elementos de la circunferencia.", "Calcula la longitud de la circunferencia con π.", "Usa el compás con precisión para construir figuras.", "Comunica los resultados y la historia de π con claridad."],
+  },
+});

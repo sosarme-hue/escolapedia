@@ -95,3 +95,96 @@ module.exports = P.tema({
   saberes: "Sentido espacial: polígonos y sus elementos; clasificación por el número de lados; polígonos regulares e irregulares, cóncavos y convexos; clasificación de triángulos y cuadriláteros; suma de ángulos; perímetro",
   ideas: ["Geoplanos con gomas para construir polígonos y contar diagonales.", "Mosaicos con polígonos regulares de cartulina.", "Clasificar señales de tráfico según su forma."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { caja } = P;
+const vert = (x, y, r, n, g = -90) => [...Array(n)].map((_, i) => [+(x + r * Math.cos(((g + (360 * i) / n) * Math.PI) / 180)).toFixed(1), +(y + r * Math.sin(((g + (360 * i) / n) * Math.PI) / 180)).toFixed(1)]);
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Contar las diagonales de un polígono y reconocer sus ejes de simetría", "Comprobar si tres segmentos pueden formar un triángulo", "Calcular la suma de los ángulos de un polígono y reconocer mosaicos"],
+  lectura: { titulo: "La ciudad de las abejas", html: `<p>Un día de primavera, Martina visita con su clase una granja de miel. El apicultor abre con cuidado una colmena y saca un panal lleno de celdillas. «¿Os habéis fijado en su forma?», pregunta. Todas las celdillas son <b>hexágonos</b> iguales, colocados unos junto a otros sin dejar ni un solo hueco.</p><p>«¿Por qué no hacen celdillas redondas?», pregunta Martina. El apicultor sonríe: «Los círculos dejan huecos entre ellos y se desperdicia espacio. Con hexágonos, las abejas aprovechan todo el sitio y gastan la menor cantidad posible de cera».</p><p>De vuelta al colegio, Martina se fija en otras formas: el suelo del pasillo tiene baldosas cuadradas, las señales de stop son octógonos, la portería de fútbol forma un rectángulo y el tejado de la casita del patio, un triángulo. Las figuras planas cerradas con lados rectos se llaman <b>polígonos</b>, y están por todas partes.</p><p>En este tema aprenderás a reconocerlos, a clasificarlos y a descubrir sus secretos: cuántas diagonales tienen, cuánto suman sus ángulos y cuáles encajan para formar mosaicos.</p>` },
+  tras: {
+    "Polígonos regulares e irregulares": [
+      ["¿Cuántas diagonales tiene un polígono?", `<p>Una <b>diagonal</b> es un segmento que une dos vértices <b>no consecutivos</b>. Contarlas es un buen reto matemático:</p><ul><li>El <b>triángulo</b> no tiene diagonales: todos sus vértices están unidos por lados.</li><li>El <b>cuadrilátero</b> tiene <b>2</b>.</li><li>El <b>pentágono</b> tiene <b>5</b>, y forman una estrella.</li><li>El <b>hexágono</b> tiene <b>9</b>.</li></ul><p>¿Hay una regla? Desde cada vértice salen diagonales hacia todos los vértices <b>menos tres</b>: él mismo y sus dos vecinos. En un hexágono, desde cada vértice salen 6 − 3 = 3 diagonales. Como hay 6 vértices, serían 6 × 3 = 18, pero así cada diagonal se cuenta dos veces (una desde cada extremo). Por eso hay 18 : 2 = <b>9 diagonales</b>.</p><p>Con la misma idea, un octógono tiene 8 × 5 : 2 = <b>20 diagonales</b>. ¡Compruébalo dibujándolas con dos colores!</p>`,
+        svg("Diagonales del pentágono, cinco, que forman una estrella, y del hexágono, nueve", `${pol(vert(66, 84, 52, 5), AZ, 0.12)}${vert(66, 84, 52, 5).map((p, i, a) => `<path d="M${p[0]} ${p[1]} L ${a[(i + 2) % 5][0]} ${a[(i + 2) % 5][1]}" stroke="${RO}" stroke-width="1.8"/>`).join("")}${t(66, 160, "pentágono: 5", { s: 12, c: RO })}${pol(vert(194, 84, 52, 6), VE, 0.12)}${(() => { const v = vert(194, 84, 52, 6); let o = ""; for (let a = 0; a < 6; a++) for (let b = a + 2; b < 6; b++) if (!(a === 0 && b === 5)) o += `<path d="M${v[a][0]} ${v[a][1]} L ${v[b][0]} ${v[b][1]}" stroke="${MO}" stroke-width="1.6"/>`; return o; })()}${t(194, 160, "hexágono: 9", { s: 12, c: MO })}`)],
+      ["Los ejes de simetría de los polígonos", `<p>Un <b>eje de simetría</b> es una línea que divide una figura en dos mitades exactamente iguales, como si una fuera el reflejo de la otra en un espejo. Si doblas la figura por el eje, las dos mitades coinciden.</p><p>Los polígonos <b>regulares</b> tienen tantos ejes de simetría como lados:</p><ul><li>Triángulo equilátero: <b>3</b> ejes.</li><li>Cuadrado: <b>4</b> ejes (dos que pasan por los puntos medios de los lados y dos diagonales).</li><li>Hexágono regular: <b>6</b> ejes.</li></ul><p>Los polígonos irregulares pueden tener algunos ejes o ninguno:</p><ul><li>El rectángulo tiene <b>2</b>; sus diagonales <b>no</b> son ejes.</li><li>El triángulo isósceles tiene <b>1</b>.</li><li>El triángulo escaleno no tiene <b>ninguno</b>.</li></ul><p>Busca la simetría a tu alrededor: en las letras (A, H, M, O), en las señales de tráfico, en las alas de una mariposa o en los rosetones de las catedrales.</p>`,
+        svg("Ejes de simetría: el cuadrado tiene cuatro, el rectángulo dos y el triángulo isósceles uno", `<rect x="16" y="40" width="64" height="64" fill="${AZ}" fill-opacity=".15" stroke="${AZ}" stroke-width="2.4"/><path d="M48 32 V 112 M8 72 H 88 M10 34 L 86 110 M86 34 L 10 110" stroke="${RO}" stroke-width="1.5" stroke-dasharray="4 3"/>${t(48, 134, "4 ejes", { s: 12, c: RO })}<rect x="100" y="50" width="80" height="44" fill="${VE}" fill-opacity=".15" stroke="${VE}" stroke-width="2.4"/><path d="M140 40 V 104 M92 72 H 188" stroke="${RO}" stroke-width="1.5" stroke-dasharray="4 3"/>${t(140, 134, "2 ejes", { s: 12, c: RO })}${pol([[198, 104], [250, 104], [224, 40]], MO)}<path d="M224 32 V 112" stroke="${RO}" stroke-width="1.5" stroke-dasharray="4 3"/>${t(224, 134, "1 eje", { s: 12, c: RO })}`)],
+    ],
+    "Los triángulos según sus ángulos": [
+      ["¿Se puede construir el triángulo?", `<p>Con tres palitos cualesquiera, ¿siempre se puede formar un triángulo? ¡No! Prueba con palitos de 3 cm, 4 cm y 10 cm: los dos cortos no llegan a juntarse.</p><p>Existe una regla, llamada <b>desigualdad triangular</b>:</p><p style="text-align:center"><b>Cada lado debe ser menor que la suma de los otros dos.</b></p><p>Un truco rápido: basta con comprobar que el lado <b>más largo</b> es menor que la suma de los otros dos.</p><ul><li>3, 4 y 5: 5 &lt; 3 + 4 = 7. <b>Sí</b> se puede.</li><li>3, 4 y 10: 10 &gt; 3 + 4 = 7. <b>No</b> se puede.</li><li>3, 4 y 7: 7 = 3 + 4. <b>No</b>: los palitos quedarían tumbados en línea recta.</li></ul><p>Esta propiedad explica por qué el camino más corto entre dos puntos es la línea recta: dar un rodeo por un tercer punto siempre es más largo.</p><p>El triángulo de lados 3, 4 y 5 es muy famoso: tiene un ángulo recto. Los constructores del antiguo Egipto usaban cuerdas con 12 nudos para formar ángulos rectos.</p>`,
+        svg("Desigualdad triangular: con tres, cuatro y cinco se forma un triángulo; con tres, cuatro y diez no", `${pol([[20, 110], [100, 110], [20, 50]], VE)}${t(60, 128, "4", { s: 12 })}${t(10, 84, "3", { s: 12 })}${t(70, 74, "5", { s: 12 })}${t(60, 150, "5 < 3 + 4 ✓", { s: 12, d: true, c: VE })}<path d="M136 110 H 246" stroke="${RO}" stroke-width="3"/><path d="M136 110 L 150 72 M246 110 L 222 82" stroke="${RO}" stroke-width="3"/>${t(191, 128, "10", { s: 12 })}${t(191, 150, "10 > 3 + 4 ✗", { s: 12, d: true, c: RO })}`)],
+    ],
+    "Los cuadriláteros": [
+      ["La suma de los ángulos de un polígono", `<p>Ya sabes que los tres ángulos de un <b>triángulo</b> suman <b>180°</b>. Con esta idea podemos calcular la suma de los ángulos de cualquier polígono: basta con dividirlo en triángulos trazando todas las diagonales desde un mismo vértice.</p><ul><li><b>Cuadrilátero</b>: se divide en 2 triángulos → 2 × 180° = <b>360°</b>.</li><li><b>Pentágono</b>: 3 triángulos → 3 × 180° = <b>540°</b>.</li><li><b>Hexágono</b>: 4 triángulos → 4 × 180° = <b>720°</b>.</li></ul><p>¿Ves la regla? Siempre salen <b>dos triángulos menos que lados</b>. Un polígono de 10 lados se divide en 8 triángulos: 8 × 180° = 1 440°.</p><p>En los polígonos <b>regulares</b>, todos los ángulos son iguales, así que se divide la suma entre el número de ángulos. Cada ángulo de un hexágono regular mide 720° : 6 = <b>120°</b>; cada ángulo de un cuadrado, 360° : 4 = <b>90°</b>.</p>`,
+        svg("Un pentágono dividido en tres triángulos desde un vértice: sus ángulos suman quinientos cuarenta grados", `${pol(vert(80, 88, 62, 5), AZ, 0.1)}${(() => { const v = vert(80, 88, 62, 5); return [2, 3].map((k) => `<path d="M${v[0][0]} ${v[0][1]} L ${v[k][0]} ${v[k][1]}" stroke="${RO}" stroke-width="2"/>`).join("") + t(52, 104, "1", { s: 14, d: true, c: MO }) + t(80, 124, "2", { s: 14, d: true, c: MO }) + t(108, 104, "3", { s: 14, d: true, c: MO }); })()}${t(200, 64, "3 × 180°", { s: 15 })}${t(200, 92, "= 540°", { s: 18, d: true, c: RO })}${t(200, 130, "lados − 2", { s: 12, c: "var(--muted)" })}${t(200, 146, "= triángulos", { s: 12, c: "var(--muted)" })}`)],
+    ],
+  },
+  final: [
+    ["Mosaicos: polígonos que encajan", `<p>Un <b>mosaico</b> (o teselado) es un dibujo hecho con figuras que cubren una superficie <b>sin dejar huecos ni montarse unas sobre otras</b>. Lo vemos en suelos, paredes, colchas y en los panales de las abejas.</p><p>Solo hay <b>tres polígonos regulares</b> que forman un mosaico ellos solos: el <b>triángulo equilátero</b>, el <b>cuadrado</b> y el <b>hexágono regular</b>. ¿Por qué? Porque en cada punto donde se juntan los vértices, los ángulos tienen que sumar exactamente <b>360°</b>:</p><ul><li>6 triángulos: 6 × 60° = 360° ✓</li><li>4 cuadrados: 4 × 90° = 360° ✓</li><li>3 hexágonos: 3 × 120° = 360° ✓</li><li>Pentágonos: sus ángulos miden 108°, y 3 × 108° = 324°. ¡Sobra un hueco! ✗</li></ul><p>Combinando polígonos distintos (por ejemplo, octógonos y cuadrados) se consiguen mosaicos muy bonitos. Los artistas de <b>al-Ándalus</b> fueron maestros en este arte: en la <b>Alhambra de Granada</b> hay mosaicos con formas geométricas asombrosas. Y el artista neerlandés <b>M. C. Escher</b> se inspiró en ellos para crear mosaicos con figuras de pájaros, peces y lagartos.</p>`,
+      svg("Mosaico de hexágonos regulares como un panal: tres hexágonos se juntan en cada vértice", `${[[0, 0], [1, 0], [2, 0], [0.5, 1], [1.5, 1], [2.5, 1], [0, 2], [1, 2], [2, 2]].map(([i, j]) => pol(vert(54 + i * 52, 40 + j * 45, 30, 6, 30), [SO, NA, SO][j], 0.4)).join("")}${t(130, 172, "3 × 120° = 360°", { s: 13, d: true, c: NA })}`)],
+  ],
+  ejemplos: [
+    ["¿Cuántas diagonales tiene un heptágono?", ["Desde cada vértice salen 7 − 3 = 4 diagonales.", "7 vértices × 4 = 28.", "Cada diagonal se ha contado dos veces: 28 : 2 = 14."], "14 diagonales"],
+    ["¿Cuánto mide cada ángulo de un octógono regular?", ["El octógono se divide en 8 − 2 = 6 triángulos.", "Suma de ángulos: 6 × 180° = 1 080°.", "Cada ángulo: 1 080° : 8 = 135°."], "135°"],
+  ],
+  errores: [],
+  nivelesBase: "bbbbmbmmma",
+  ejercicios: [
+    ["b", "¿Cuántas diagonales tienen un triángulo y un cuadrilátero?", "El triángulo, 0; el cuadrilátero, 2."],
+    ["b", "¿Cuántos ejes de simetría tiene un cuadrado? ¿Y un rectángulo?", "El cuadrado, 4; el rectángulo, 2."],
+    ["b", "¿Cuánto suman los ángulos de un cuadrilátero?", "360°."],
+    ["b", "Escribe los tres polígonos regulares que forman mosaicos ellos solos.", "Triángulo equilátero, cuadrado y hexágono regular."],
+    ["m", "¿Se puede construir un triángulo con lados de 5, 6 y 12 cm? ¿Y con 5, 6 y 10 cm?", "5, 6 y 12: no (12 > 11). 5, 6 y 10: sí (10 < 11)."],
+    ["m", "Calcula la suma de los ángulos de un heptágono.", "7 − 2 = 5 triángulos; 5 × 180° = 900°."],
+    ["m", "¿Cuántas diagonales tiene un octógono?", "8 × 5 : 2 = 20."],
+    ["m", "Tres ángulos de un cuadrilátero miden 80°, 100° y 70°. ¿Cuánto mide el cuarto?", "360 − 250 = 110°."],
+    ["a", "¿Por qué los pentágonos regulares no forman un mosaico?", "Sus ángulos miden 108°. Tres suman 324° (queda hueco) y cuatro suman 432° (se montan). Nunca suman 360°."],
+    ["a", "¿Cuánto mide cada ángulo de un hexágono regular? Compruébalo con el mosaico del panal.", "720° : 6 = 120°. En cada vértice del panal se juntan 3 hexágonos: 3 × 120° = 360°."],
+    ["a", "Un polígono regular tiene ángulos de 90°. ¿Qué polígono es?", "El cuadrado: 4 ángulos de 90° suman 360°."],
+    ["a", "Escribe cuatro letras mayúsculas con un eje de simetría vertical y dos con eje horizontal.", "Vertical: A, H, M, T (también O, U, V…). Horizontal: B, C, D, E (también H, O)."],
+    ["a", "Con una cuerda de 12 nudos igualmente separados, ¿cómo formaban los egipcios un ángulo recto?", "Formaban un triángulo de lados 3, 4 y 5 espacios; el ángulo entre los lados de 3 y 4 es recto."],
+    ["m", "¿Qué triángulo no tiene ningún eje de simetría?", "El triángulo escaleno."],
+    ["a", "Un polígono tiene 1 080° de suma de ángulos. ¿Cuántos lados tiene?", "1 080 : 180 = 6 triángulos; 6 + 2 = 8 lados (octógono)."],
+    ["b", "Busca en tu casa o en el colegio un mosaico y di qué polígonos lo forman.", "Respuesta abierta. Ejemplo: el suelo del baño, con cuadrados."],
+  ],
+  quiz: [
+    ["¿Cuántas diagonales tiene un pentágono?", ["5", "2", "10"], "Forman una estrella de cinco puntas."],
+    ["Los ángulos de un pentágono suman…", ["540°", "360°", "180°"], "Se divide en 3 triángulos."],
+    ["¿Se puede formar un triángulo con lados 2, 3 y 6?", ["No", "Sí", "Solo si es rectángulo"], "6 es mayor que 2 + 3."],
+    ["¿Qué polígono regular NO forma mosaicos él solo?", ["El pentágono", "El cuadrado", "El hexágono"], "Sus ángulos de 108° no completan 360°."],
+    ["Un triángulo equilátero tiene…", ["3 ejes de simetría", "1 eje de simetría", "Ningún eje"], "Uno por cada vértice."],
+  ],
+  examen: [
+    ["Un hexágono tiene…", ["9 diagonales", "6 diagonales", "3 diagonales"], "6 × 3 : 2 = 9."],
+    ["Cada ángulo de un hexágono regular mide…", ["120°", "90°", "60°"], "720° : 6."],
+    ["En la Alhambra de Granada hay famosos…", ["Mosaicos geométricos", "Rascacielos", "Molinos"], "Obra de los artistas de al-Ándalus."],
+    ["Un rectángulo tiene…", ["2 ejes de simetría", "4 ejes de simetría", "Ninguno"], "Sus diagonales no son ejes."],
+  ],
+  tarjetas: [
+    ["Diagonales", "Vértices × (vértices − 3) : 2. Hexágono: 9."],
+    ["Desigualdad triangular", "El lado mayor debe ser menor que la suma de los otros dos."],
+    ["Suma de ángulos", "(lados − 2) × 180°."],
+    ["Mosaicos regulares", "Solo triángulos, cuadrados y hexágonos: suman 360° en cada vértice."],
+  ],
+  glosario: [
+    ["Polígono", "Figura plana cerrada formada por segmentos rectos."],
+    ["Lado", "Cada segmento que forma un polígono."],
+    ["Vértice", "Punto donde se unen dos lados."],
+    ["Diagonal", "Segmento que une dos vértices no consecutivos."],
+    ["Perímetro", "Suma de las longitudes de los lados."],
+    ["Polígono regular", "El que tiene todos los lados y ángulos iguales."],
+    ["Eje de simetría", "Línea que divide una figura en dos mitades iguales y reflejadas."],
+    ["Triángulo escaleno", "El que tiene los tres lados distintos."],
+    ["Triángulo isósceles", "El que tiene dos lados iguales."],
+    ["Paralelogramo", "Cuadrilátero con los lados opuestos paralelos."],
+    ["Desigualdad triangular", "Regla que dice si tres segmentos pueden formar un triángulo."],
+    ["Mosaico", "Figuras que cubren una superficie sin huecos ni solapamientos."],
+  ],
+  situacion: {
+    titulo: "Diseñamos el mosaico del colegio",
+    reto: "El colegio quiere decorar una pared con un gran mosaico geométrico. Cada grupo diseña una propuesta y explica sus matemáticas.",
+    pasos: ["Observad mosaicos reales (suelos, la Alhambra, obras de Escher) y anotad qué polígonos usan.", "Recortad polígonos regulares en cartulina y comprobad cuáles encajan alrededor de un punto sumando sus ángulos.", "Diseñad un mosaico en papel cuadriculado o isométrico con uno o varios polígonos, sin huecos.", "Presentad el diseño explicando los ángulos que se juntan en cada vértice y los ejes de simetría."],
+    producto: "Un diseño de mosaico en cartulina con su ficha explicativa.",
+    evaluacion: ["Reconoce y clasifica polígonos y sus elementos.", "Usa la suma de ángulos para justificar por qué el mosaico no deja huecos.", "Identifica ejes de simetría en su diseño.", "Expone su trabajo con vocabulario geométrico preciso."],
+  },
+});

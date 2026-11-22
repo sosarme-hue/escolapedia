@@ -108,3 +108,97 @@ module.exports = P.tema({
   saberes: "Sentido espacial: cuerpos geométricos; poliedros y sus elementos; prismas y pirámides; poliedros regulares; cuerpos redondos: cilindro, cono y esfera; desarrollos planos y relación de Euler",
   ideas: ["Construcción de poliedros con palillos y plastilina o con desarrollos de cartulina.", "Museo de cuerpos geométricos con envases traídos de casa.", "Tabla de Euler: contar caras, vértices y aristas y descubrir la regla."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { caja, rejilla } = P;
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Contar caras, aristas y vértices de prismas y pirámides con una regla", "Reconocer cuerpos de revolución y dibujar las vistas de un cuerpo", "Aproximarse al volumen contando cubos"],
+  lectura: { titulo: "El misterio de las pirámides", html: `<p>Hace unos 4 500 años, en Egipto, miles de trabajadores levantaron la <b>Gran Pirámide de Guiza</b>. Tardaron unos veinte años en colocar más de dos millones de bloques de piedra, algunos tan pesados como un elefante. Durante casi 4 000 años fue el edificio más alto del mundo.</p><p>Su forma no es casualidad. Una <b>pirámide</b> tiene una base ancha y se va estrechando hasta terminar en un punto, la <b>cúspide</b>. Así es muy estable: el peso se reparte hacia abajo y no se derrumba. Por eso ha resistido terremotos, tormentas de arena y el paso de los siglos.</p><p>Si miras a tu alrededor, descubrirás muchas más formas en tres dimensiones: la caja de cereales es un <b>prisma</b>, la lata de refresco un <b>cilindro</b>, el cucurucho de helado un <b>cono</b> y la pelota una <b>esfera</b>. A todas ellas las llamamos <b>cuerpos geométricos</b>.</p><p>En este tema aprenderás a reconocerlos, a contar sus elementos, a construirlos con desarrollos planos y a mirarlos desde distintos puntos de vista.</p>` },
+  tras: {
+    "Las pirámides": [
+      ["Una regla para contar caras, aristas y vértices", `<p>No hace falta contar uno a uno los elementos de un prisma o una pirámide: si sabes cuántos lados tiene la <b>base</b>, puedes calcularlos. Llamemos <b>n</b> al número de lados de la base.</p><p><b>Prisma</b> (dos bases iguales):</p><ul><li>Caras: n + 2 (las laterales y las dos bases).</li><li>Aristas: n × 3 (las de arriba, las de abajo y las laterales).</li><li>Vértices: n × 2.</li></ul><p><b>Pirámide</b> (una base y una cúspide):</p><ul><li>Caras: n + 1.</li><li>Aristas: n × 2.</li><li>Vértices: n + 1.</li></ul><p>Ejemplo: un prisma hexagonal (n = 6) tiene 8 caras, 18 aristas y 12 vértices. Una pirámide hexagonal tiene 7 caras, 12 aristas y 7 vértices.</p><p>Comprueba siempre con la <b>fórmula de Euler</b>: caras + vértices = aristas + 2. En el prisma hexagonal: 8 + 12 = 18 + 2 ✓.</p>`,
+        svg("Prisma hexagonal con ocho caras, dieciocho aristas y doce vértices, y pirámide hexagonal con siete caras, doce aristas y siete vértices", `${prisma(64, 130, 6, 42, 70, AZ)}${t(64, 32, "prisma (n = 6)", { s: 11, c: AZ })}${t(64, 166, "8 C · 18 A · 12 V", { s: 11, d: true })}${piramide(192, 130, 6, 42, 90, RO)}${t(192, 166, "7 C · 12 A · 7 V", { s: 11, d: true })}`)],
+    ],
+    "Los poliedros regulares": [
+      ["Poliedros cóncavos y convexos", `<p>Los poliedros se pueden clasificar también por su forma:</p><ul><li>Un poliedro es <b>convexo</b> si, al apoyarlo sobre cualquiera de sus caras, se queda bien apoyado y estable. No tiene «entrantes». Los prismas, las pirámides y los cinco poliedros regulares son convexos.</li><li>Un poliedro es <b>cóncavo</b> si tiene alguna parte hundida: al apoyarlo sobre alguna cara, se tambalea o queda inclinado. Por ejemplo, un cuerpo con forma de letra L o de estrella.</li></ul><p>Una prueba sencilla: si puedes unir dos puntos cualesquiera del poliedro con un segmento que se quede siempre <b>dentro</b> del cuerpo, es convexo. Si alguna vez el segmento se «sale», es cóncavo.</p><p>Las piezas de construcción, los edificios modernos y algunas esculturas tienen formas cóncavas. Los dados, las cajas y los envases suelen ser convexos, porque así se apilan y se guardan mejor.</p>`,
+        svg("Un poliedro convexo, un cubo, y otro cóncavo con forma de ele", `${cubo(30, 62, 56, AZ)}${t(70, 150, "convexo", { s: 12, c: AZ, d: true })}<path d="M150 120 H 230 V 90 H 180 V 40 H 150 Z" fill="${RO}" fill-opacity=".18" stroke="${RO}" stroke-width="2"/><path d="M150 40 l 18 -14 h 30 l -18 14 M180 90 l 18 -14 V 26 M230 90 l 18 -14 h -50 M230 120 l 18 -14 V 76" fill="none" stroke="${RO}" stroke-width="2"/>${t(196, 150, "cóncavo", { s: 12, c: RO, d: true })}`)],
+    ],
+    "Los cuerpos redondos": [
+      ["Cuerpos de revolución: girar una figura", `<p>Los cuerpos redondos se llaman también <b>cuerpos de revolución</b> porque se pueden obtener haciendo <b>girar una figura plana</b> alrededor de una línea, llamada <b>eje de giro</b>.</p><ul><li>Si giras un <b>rectángulo</b> alrededor de uno de sus lados, obtienes un <b>cilindro</b>.</li><li>Si giras un <b>triángulo rectángulo</b> alrededor de uno de sus lados del ángulo recto, obtienes un <b>cono</b>.</li><li>Si giras un <b>semicírculo</b> alrededor de su diámetro, obtienes una <b>esfera</b>.</li></ul><p>Puedes comprobarlo con un experimento: pega una figura de cartulina a un lápiz o a una pajita y hazla girar muy rápido entre las manos. ¡Verás aparecer el cuerpo en el aire!</p><p>Los alfareros usan esta idea en el <b>torno</b>: el barro gira y, al darle forma con las manos, salen jarrones, cuencos y vasijas, que son cuerpos de revolución. También los torneros que hacen patas de mesas o peones de ajedrez.</p><p>Fíjate en que los cuerpos de revolución no tienen aristas ni vértices como los poliedros: sus superficies son curvas, y por eso pueden rodar con facilidad por una mesa o por el suelo inclinado. El cono es especial, porque tiene un punto en la punta llamado <b>vértice</b>, aunque no tenga aristas.</p>`,
+        svg("Cuerpos de revolución: un rectángulo que gira da un cilindro y un triángulo rectángulo da un cono", `<path d="M40 30 V 140" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="5 3"/><rect x="40" y="50" width="34" height="80" fill="${VE}" fill-opacity=".35" stroke="${VE}" stroke-width="2"/>${P.flecha(84, 90, 104, 90)}${cilindro(140, 130, 26, 80, VE)}<path d="M180 30 V 140" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="5 3"/><path d="M180 50 L 180 130 L 212 130 Z" fill="${NA}" fill-opacity=".35" stroke="${NA}" stroke-width="2"/>${t(130, 164, "rectángulo → cilindro · triángulo → cono", { s: 10 })}`)],
+    ],
+    "Los desarrollos planos": [
+      ["Las vistas de un cuerpo", `<p>Un mismo cuerpo se ve diferente según desde dónde lo miremos. Los arquitectos y los ingenieros dibujan siempre tres <b>vistas</b>:</p><ul><li><b>Alzado</b>: lo que se ve de <b>frente</b>.</li><li><b>Perfil</b>: lo que se ve de <b>lado</b>.</li><li><b>Planta</b>: lo que se ve desde <b>arriba</b>.</li></ul><p>Por ejemplo, un <b>cilindro</b> de pie se ve como un rectángulo de frente y de lado, pero como un círculo desde arriba. Un <b>cono</b> se ve como un triángulo de frente y como un círculo con un punto en el centro desde arriba. Una <b>esfera</b> se ve siempre como un círculo, la mires desde donde la mires.</p><p>Con construcciones de cubitos se practica muy bien: monta una figura con cubos encajables y dibuja en papel cuadriculado su alzado, su perfil y su planta. Después, pide a un compañero que la construya solo mirando tus tres dibujos. ¡Así trabajan los arquitectos!</p>`,
+        svg("Vistas de un cilindro: de frente y de lado es un rectángulo, desde arriba es un círculo", `${cilindro(54, 136, 30, 90, VE)}${t(54, 164, "cilindro", { s: 11 })}<rect x="118" y="46" width="44" height="60" fill="${VE}" fill-opacity=".25" stroke="${VE}" stroke-width="2"/>${t(140, 124, "alzado", { s: 11 })}${t(140, 138, "y perfil", { s: 11 })}<circle cx="214" cy="76" r="24" fill="${VE}" fill-opacity=".25" stroke="${VE}" stroke-width="2"/>${t(214, 124, "planta", { s: 11 })}${t(214, 138, "(desde arriba)", { s: 10 })}`)],
+    ],
+  },
+  final: [
+    ["¿Cuánto cabe dentro? Una primera idea del volumen", `<p>Los cuerpos geométricos ocupan un lugar en el espacio. La cantidad de espacio que ocupan se llama <b>volumen</b>. Una forma sencilla de medirlo es contar cuántos <b>cubitos</b> iguales caben dentro.</p><p>Imagina una caja con forma de prisma rectangular. Si en el fondo caben 4 cubitos a lo largo y 3 a lo ancho, en la primera capa hay 4 × 3 = 12 cubitos. Si caben 2 capas, en total hay 12 × 2 = <b>24 cubitos</b>.</p><p>Es decir, el volumen de un prisma rectangular se calcula <b>multiplicando sus tres medidas</b>: largo × ancho × alto.</p><p>Esto explica por qué casi todas las cajas y envases tienen forma de prisma: se apilan sin dejar huecos y aprovechan muy bien el espacio en camiones, almacenes y estanterías. Las latas cilíndricas, en cambio, dejan huecos entre ellas al juntarlas.</p><p>En 6º de Primaria aprenderás las unidades de volumen, como el centímetro cúbico, y descubrirás su sorprendente relación con el litro y con la capacidad de los envases./p>`,
+      svg("Una caja con cuatro por tres cubitos en cada capa y dos capas: veinticuatro cubitos", `${[0, 1].map((k) => [...Array(12)].map((_, i) => { const x = 30 + (i % 4) * 24 + Math.floor(i / 4) * 10, y = 110 - k * 24 - Math.floor(i / 4) * 10; return `<rect x="${x}" y="${y}" width="24" height="24" fill="${[AZ, MO][k]}" fill-opacity=".3" stroke="${[AZ, MO][k]}" stroke-width="1.3"/>`; }).join("")).join("")}${t(206, 60, "4 × 3 = 12", { s: 13 })}${t(206, 80, "por capa", { s: 11 })}${t(206, 112, "× 2 capas", { s: 13 })}${t(206, 142, "= 24", { s: 18, d: true, c: MO })}`)],
+  ],
+  ejemplos: [
+    ["¿Cuántas caras, aristas y vértices tiene una pirámide octogonal?", ["La base tiene n = 8 lados.", "Caras: 8 + 1 = 9; aristas: 8 × 2 = 16; vértices: 8 + 1 = 9.", "Euler: 9 + 9 = 16 + 2 ✓."], "9 caras, 16 aristas y 9 vértices"],
+    ["¿Cuántos cubitos caben en una caja de 5 de largo, 3 de ancho y 4 de alto?", ["Una capa: 5 × 3 = 15 cubitos.", "Hay 4 capas.", "15 × 4 = 60 cubitos."], "60 cubitos"],
+  ],
+  errores: ["Confundir las vistas: la planta es lo que se ve desde arriba, no de frente."],
+  nivelesBase: "bbbmbmbmma",
+  ejercicios: [
+    ["b", "¿Qué figura plana tienes que girar para obtener un cilindro?", "Un rectángulo, alrededor de uno de sus lados."],
+    ["b", "¿Cómo se llaman las tres vistas de un cuerpo?", "Alzado (de frente), perfil (de lado) y planta (desde arriba)."],
+    ["b", "¿Cómo se ve una esfera desde arriba? ¿Y de frente?", "Como un círculo en los dos casos."],
+    ["b", "¿Es convexo o cóncavo un dado? ¿Por qué?", "Convexo: se apoya bien sobre cualquier cara y no tiene entrantes."],
+    ["m", "Calcula caras, aristas y vértices de un prisma pentagonal sin dibujarlo.", "Caras 5 + 2 = 7; aristas 5 × 3 = 15; vértices 5 × 2 = 10."],
+    ["m", "Comprueba la fórmula de Euler en una pirámide cuadrangular.", "Caras 5, vértices 5, aristas 8: 5 + 5 = 8 + 2 ✓."],
+    ["m", "¿Qué cuerpo se obtiene al girar un semicírculo alrededor de su diámetro?", "Una esfera."],
+    ["m", "Dibuja la planta, el alzado y el perfil de un cono apoyado en su base.", "Planta: un círculo con un punto en el centro. Alzado y perfil: un triángulo isósceles."],
+    ["a", "Un prisma tiene 24 aristas. ¿Qué polígono es su base?", "n × 3 = 24 → n = 8: un octógono."],
+    ["a", "Una pirámide tiene 11 caras. ¿Cuántos lados tiene su base? ¿Cuántas aristas?", "n + 1 = 11 → n = 10 (decágono). Aristas: 20."],
+    ["a", "¿Cuántos cubitos de 1 cm caben en una caja de 6 cm × 4 cm × 3 cm?", "6 × 4 × 3 = 72 cubitos."],
+    ["a", "¿Por qué los envases suelen ser prismas y no cilindros?", "Porque los prismas se apilan sin dejar huecos y aprovechan mejor el espacio."],
+    ["a", "Construye con 6 cubitos una figura y dibuja sus tres vistas en papel cuadriculado. Pide a un compañero que la reproduzca.", "Respuesta abierta. Se valora que las tres vistas correspondan a la figura."],
+    ["m", "¿Cuántos vértices tiene un prisma triangular? ¿Y una pirámide triangular?", "Prisma: 6. Pirámide: 4."],
+    ["a", "Dos cajas: A de 4 × 4 × 4 cubos y B de 8 × 4 × 2. ¿Cuál tiene más volumen?", "A: 64 cubos. B: 64 cubos. Tienen el mismo volumen."],
+    ["b", "Escribe un objeto hecho en un torno de alfarero.", "Por ejemplo, un jarrón, un cuenco o una vasija."],
+  ],
+  quiz: [
+    ["Un prisma con base de n lados tiene…", ["n × 3 aristas", "n + 1 aristas", "n × 2 aristas"], "Las de arriba, las de abajo y las laterales."],
+    ["Si giras un triángulo rectángulo sobre un lado del ángulo recto, obtienes…", ["Un cono", "Un cilindro", "Una esfera"], "Es un cuerpo de revolución."],
+    ["La vista desde arriba de un cuerpo se llama…", ["Planta", "Alzado", "Perfil"], "El alzado es de frente y el perfil, de lado."],
+    ["Una caja de 3 × 2 × 2 cubitos tiene…", ["12 cubitos", "7 cubitos", "10 cubitos"], "Largo × ancho × alto."],
+    ["Un poliedro con alguna parte hundida es…", ["Cóncavo", "Convexo", "Regular"], "No se apoya bien en todas sus caras."],
+  ],
+  examen: [
+    ["Una pirámide hexagonal tiene…", ["7 vértices", "12 vértices", "6 vértices"], "n + 1 = 7."],
+    ["La Gran Pirámide de Guiza está en…", ["Egipto", "Grecia", "México"], "Tiene unos 4 500 años."],
+    ["El alzado de un cilindro de pie es…", ["Un rectángulo", "Un círculo", "Un triángulo"], "De frente se ve rectangular."],
+    ["El volumen es…", ["El espacio que ocupa un cuerpo", "La suma de sus aristas", "El área de su base"], "Se puede medir contando cubitos."],
+  ],
+  tarjetas: [
+    ["Elementos del prisma", "Caras n + 2, aristas 3n, vértices 2n."],
+    ["Elementos de la pirámide", "Caras n + 1, aristas 2n, vértices n + 1."],
+    ["Cuerpos de revolución", "Rectángulo → cilindro; triángulo → cono; semicírculo → esfera."],
+    ["Vistas", "Alzado (frente), perfil (lado) y planta (arriba)."],
+  ],
+  glosario: [
+    ["Cuerpo geométrico", "Figura de tres dimensiones que ocupa un lugar en el espacio."],
+    ["Poliedro", "Cuerpo limitado solo por caras planas que son polígonos."],
+    ["Cara", "Cada polígono que limita un poliedro."],
+    ["Arista", "Segmento donde se unen dos caras."],
+    ["Vértice", "Punto donde se unen varias aristas."],
+    ["Prisma", "Poliedro con dos bases iguales y paralelas y caras laterales rectangulares."],
+    ["Pirámide", "Poliedro con una base y caras laterales triangulares que se unen en la cúspide."],
+    ["Cuerpo de revolución", "Cuerpo que se obtiene al girar una figura plana alrededor de un eje."],
+    ["Desarrollo plano", "Figura plana que, al doblarse, forma un cuerpo geométrico."],
+    ["Alzado", "Vista de frente de un cuerpo."],
+    ["Planta", "Vista desde arriba de un cuerpo."],
+    ["Volumen", "Espacio que ocupa un cuerpo."],
+  ],
+  situacion: {
+    titulo: "Diseñamos un envase",
+    reto: "Una empresa de galletas nos pide diseñar un envase original que se pueda apilar bien en las estanterías del supermercado.",
+    pasos: ["Analizad envases reales: qué cuerpo geométrico son y cuántas caras, aristas y vértices tienen.", "Elegid un cuerpo (prisma, pirámide, cilindro…) y dibujad su desarrollo plano en cartulina con regla y compás.", "Recortad, doblad y pegad el envase. Dibujad sus tres vistas.", "Comprobad cuántas galletas (o cubitos) caben dentro y si los envases se apilan sin huecos. Presentad el diseño."],
+    producto: "Un envase de cartulina con su desarrollo plano, sus vistas y una ficha técnica.",
+    evaluacion: ["Identifica cuerpos geométricos y cuenta sus elementos.", "Construye correctamente un desarrollo plano.", "Dibuja las vistas de un cuerpo.", "Justifica la elección del diseño con argumentos geométricos."],
+  },
+});
