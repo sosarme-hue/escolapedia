@@ -91,3 +91,91 @@ module.exports = tema({
   ideas: ["Coreografía en corro A-B con una música binaria.", "Mapa del mundo con las danzas estudiadas.", "Por grupos, investigar y enseñar a la clase un paso de una danza de otro país."],
   fuentes: [["Diccionario de la RAE: folclore", "https://dle.rae.es/folclore"], ["UNESCO: patrimonio cultural inmaterial", "https://ich.unesco.org/es/RL/el-flamenco-00363"]],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer los bailes de salón y su compás", "Descubrir danzas con historia como el haka", "Acercarse al ballet y a las danzas urbanas", "Aprender una danza paso a paso escuchando la música"],
+  lectura: { titulo: "El haka del recreo", html: `<p>Aquel curso llegó a la clase un alumno nuevo, Tane. Había nacido en Nueva Zelanda y su familia era maorí, el pueblo que vivía en aquellas islas mucho antes de que llegaran los europeos.</p><p>Al principio, Tane hablaba poco. Pero un día, en clase de Música, la profesora preguntó si alguien conocía una danza de su familia. Tane levantó la mano tímidamente.</p><p>—En mi país hay una danza que se llama <b>haka</b> —dijo—. Se baila con mucha fuerza.</p><p>Se puso de pie, separó las piernas, flexionó las rodillas y empezó a golpearse los muslos y el pecho con las palmas mientras gritaba palabras en maorí. Abría mucho los ojos y sacaba la lengua. Toda la clase se quedó con la boca abierta.</p><p>Cuando terminó, hubo un silencio y luego un aplauso enorme.</p><p>—¿Es una danza de guerra? —preguntó Nerea.</p><p>—Antes se bailaba antes de las batallas —explicó Tane—. Pero ahora se baila para dar la bienvenida, en las bodas, en los funerales o para mostrar respeto. Los jugadores de rugby de mi país la bailan antes de cada partido.</p><p>Esa semana, Tane enseñó a toda la clase los movimientos básicos. En la fiesta de fin de curso, veinticinco niños y niñas bailaron el haka con todas sus fuerzas. Tane sonreía de oreja a oreja.</p>` },
+  tras: {
+    "Danzas de Europa": [
+      ["Los bailes de salón", `<p>Los <mark>bailes de salón</mark> son danzas que se bailan en <b>pareja</b>, normalmente agarrados. Nacieron en los salones de baile de las ciudades y hoy se bailan en fiestas, bodas y competiciones. Los más conocidos son:</p><ul><li>El <b>vals</b>: nació en Austria y Alemania. Es de compás <b>ternario</b> (se cuenta «un, dos, tres») y las parejas giran y giran por la sala. El vals más famoso es <b>«El Danubio azul»</b>, de <b>Johann Strauss hijo</b>, que se toca cada Año Nuevo en el concierto de Viena.</li><li>La <b>polca</b>: nació en Bohemia (hoy República Checa). Es muy alegre, rápida y de compás <b>binario</b>, con saltitos.</li><li>El <b>tango</b>: nació en Buenos Aires (Argentina) y Montevideo (Uruguay). Es elegante y apasionado, y se acompaña con el <b>bandoneón</b>, un instrumento parecido al acordeón.</li><li>El <b>chachachá</b>, la <b>salsa</b> y la <b>rumba</b>: bailes latinos muy rítmicos, nacidos en Cuba y el Caribe.</li><li>El <b>pasodoble</b>: muy español, de compás binario, que se toca en las fiestas y las plazas de toros.</li></ul><p>Para bailar en pareja hay que escuchar el <b>pulso</b>, coordinarse con el compañero y respetar su espacio.</p>`,
+        L6.filas("Salón", [["vals", "Austria · 3 tiempos", cAZ], ["polca", "Bohemia · 2 tiempos", cRO], ["tango", "Argentina", cMO], ["pasodoble", "España", cNA]]), ["4FcTYF0OBSg", "Johann Strauss: El Danubio azul", "ClassicMusicVals", 21436987]],
+    ],
+    "Danzas de África, Asia y Oceanía": [
+      ["El haka y otras danzas con historia", `<p>Algunas danzas tienen una <mark>historia</mark> muy especial y un significado profundo para su pueblo:</p><ul><li>El <b>haka</b> es una danza tradicional de los <b>maoríes</b> de Nueva Zelanda. Se baila con las rodillas flexionadas, golpeándose el cuerpo con las palmas, gritando y haciendo gestos con la cara, como abrir mucho los ojos o sacar la lengua. Antes se bailaba antes de las batallas; hoy se baila para dar la bienvenida, honrar a alguien o mostrar unión. El equipo de rugby de Nueva Zelanda, los <b>All Blacks</b>, la baila antes de cada partido.</li><li>El <b>bharatanatyam</b> es una danza clásica de la <b>India</b>, con más de dos mil años de historia. Las bailarinas cuentan historias con posiciones de las manos llamadas <b>mudras</b>, con los ojos y con los pies, que llevan cascabeles.</li><li>La <b>danza del león</b> china se baila en el Año Nuevo chino: dos bailarines dentro de un disfraz de león saltan y se mueven al ritmo de tambores y platillos para traer buena suerte.</li><li>Los <b>derviches</b> de Turquía giran sobre sí mismos durante mucho tiempo con sus faldas blancas: es una danza religiosa y meditativa.</li></ul><p>Cuando bailamos danzas de otros pueblos, debemos hacerlo con <b>respeto</b>, conociendo su significado.</p>`,
+        H6.rueda("Con historia", "RESPETO", [["haka", cAZ], ["India", cNA], ["león", cRO], ["derviches", cVE]]), ["O0p9voWUU6A", "¿Sabías qué es el haka?", "Sabías qué?", 82837]],
+    ],
+    "La coreografía": [
+      ["Cómo se aprende una danza", `<p>Aprender una danza es como aprender una canción: se hace <mark>poco a poco</mark> y repitiendo. Estos pasos te ayudarán:</p><ul><li><b>1. Escuchar la música</b>: antes de moverte, escúchala varias veces. Marca el <b>pulso</b> con palmas y descubre si es binaria (un-dos) o ternaria (un-dos-tres).</li><li><b>2. Descubrir las partes</b>: busca dónde cambia la música. Cada parte (A, B…) suele tener su propio paso. Normalmente cada frase dura 8 pulsos.</li><li><b>3. Aprender los pasos por separado</b>: primero despacio y contando en voz alta, sin música.</li><li><b>4. Unir los pasos</b>: practica el paso de la parte A y luego el de la B, y después enlázalos.</li><li><b>5. Añadir la música</b>: al principio puede ir más lenta. Luego, a su velocidad.</li><li><b>6. Cuidar la formación</b>: fíjate en tus compañeros para mantener el corro, la fila o la pareja.</li><li><b>7. Expresar</b>: cuando ya no tienes que pensar los pasos, puedes disfrutar y transmitir el carácter de la danza.</li></ul><p>Para recordar una coreografía, se puede escribir con <b>dibujos</b>, <b>flechas</b> y números, una especie de partitura del baile. Inventa tus propios símbolos: una flecha para avanzar, un círculo para girar, una mano para dar palmadas…</p>`,
+        H6.flujo("Aprender una danza", ["escuchar|el pulso", "partes|A y B", "pasos|despacio", "con música|y expresar"], cVE)],
+    ],
+  },
+  final: [
+    ["La danza clásica: el ballet", `<p>El <mark>ballet</mark> o danza clásica nació en las cortes de <b>Italia</b> y <b>Francia</b> hace unos cuatrocientos años. El rey francés <b>Luis XIV</b>, al que le encantaba bailar, creó la primera escuela de danza. Por eso los nombres de los pasos están en <b>francés</b>: <i>plié</i> (doblar las rodillas), <i>pirouette</i> (giro), <i>jeté</i> (salto)…</p><p>Algunas características del ballet:</p><ul><li>Los bailarines se mueven con gran <b>elegancia</b>, como si no pesaran.</li><li>Las bailarinas bailan muchas veces de <b>puntillas</b>, con unas zapatillas especiales llamadas <b>zapatillas de punta</b>.</li><li>Existen <b>cinco posiciones</b> básicas de los pies.</li><li>Las bailarinas suelen llevar un <b>tutú</b>, una falda de tul.</li><li>Los ballets cuentan <b>historias</b> sin palabras, solo con la música y el baile.</li></ul><p>Los ballets más famosos tienen música del compositor ruso <b>Piotr Chaikovski</b>: <b>«El lago de los cisnes»</b>, <b>«El cascanueces»</b> (que se representa mucho en Navidad) y <b>«La bella durmiente»</b>.</p><p>El ballet exige muchos años de práctica diaria, fuerza, flexibilidad y equilibrio. ¡Los bailarines son verdaderos atletas!</p>`,
+      L6.filas("Chaikovski", [["El lago de los cisnes", "1877", cAZ], ["La bella durmiente", "1890", cMO], ["El cascanueces", "1892", cRO], ["posiciones", "cinco básicas", cNA]]), ["0GsajWIF3ws", "El lago de los cisnes: danza de los pequeños cisnes", "Royal Ballet and Opera", 23558641]],
+    ["Danzas urbanas", `<p>Las <mark>danzas urbanas</mark> nacieron en las <b>calles</b> de las ciudades, sobre todo en Estados Unidos, a partir de los años setenta. Hoy se bailan en todo el mundo:</p><ul><li>El <b>hip hop</b>: nació en Nueva York junto a la música rap. Tiene muchos estilos y mucha libertad para improvisar.</li><li>El <b>breaking</b> (o breakdance): los bailarines, llamados <b>b-boys</b> y <b>b-girls</b>, hacen giros en el suelo, sobre la espalda o la cabeza, y figuras congeladas llamadas <i>freezes</i>. Fue deporte olímpico por primera vez en los <b>Juegos de París 2024</b>.</li><li>El <b>popping</b> y el <b>locking</b>: movimientos que parecen de robot, contrayendo los músculos de golpe o «bloqueando» las posturas.</li><li>El <b>krump</b>, muy enérgico, y el <b>voguing</b>, que imita las poses de las modelos.</li></ul><p>Una costumbre típica de las danzas urbanas son las <b>batallas</b>: dos bailarines o grupos se turnan para improvisar delante del otro y del público, que decide quién lo ha hecho mejor. Lo importante es la <b>creatividad</b> y el respeto: al terminar, los rivales se saludan.</p><p>Muchas de estas danzas se aprenden mirando y practicando con amigos, como las danzas tradicionales de los pueblos. ¡Las danzas urbanas son el folclore de las ciudades de hoy!</p>`,
+      H6.dos("Ballet y urbana", ["BALLET", ["cortes de Francia", "pasos en francés", "puntillas"], cMO], ["URBANAS", ["calles de EE. UU.", "improvisación", "batallas"], cNA]), ["w7rs_6duQ-0", "Breaking: el deporte nuevo de París 2024", "FRANCE 24 Español", 79106]],
+  ],
+  ejemplos: [
+    ["Escuchas un vals y quieres marcar el pulso con palmas. ¿Cómo cuentas?", ["El vals es de compás ternario.", "Se cuenta de tres en tres, con el acento en el uno."], "UN, dos, tres; UN, dos, tres."],
+    ["¿Por qué los pasos de ballet tienen nombres en francés?", ["El ballet se desarrolló en la corte francesa.", "Luis XIV creó la primera escuela de danza."], "Porque se desarrolló en Francia."],
+  ],
+  errores: ["Pensar que el haka es solo una danza de guerra: hoy se baila para dar la bienvenida y mostrar respeto.", "Intentar bailar una danza entera sin escuchar antes la música y sus partes."],
+  ejercicios: [
+    ["b", "¿Quién compuso «El Danubio azul»?", "Johann Strauss hijo."],
+    ["b", "¿De qué pueblo es el haka?", "De los maoríes de Nueva Zelanda."],
+    ["b", "Nombra un ballet de Chaikovski.", "Por ejemplo, «El cascanueces»."],
+    ["b", "¿Dónde nació el tango?", "En Buenos Aires y Montevideo."],
+    ["b", "¿En qué Juegos Olímpicos se estrenó el breaking?", "En París 2024."],
+    ["m", "¿De qué compás es el vals?", "Ternario."],
+    ["m", "¿Qué son los mudras?", "Posiciones de las manos en la danza india."],
+    ["m", "¿Qué es una batalla de danza urbana?", "Un enfrentamiento en el que se improvisa por turnos."],
+    ["m", "¿Qué significa «plié»?", "Doblar las rodillas."],
+    ["m", "Explica tres pasos para aprender una danza.", "Escuchar el pulso, descubrir las partes y aprender los pasos despacio."],
+    ["a", "Inventa símbolos para escribir una coreografía y escribe una.", "Respuesta abierta."],
+    ["a", "Baila un vals sencillo por parejas contando un-dos-tres.", "Respuesta abierta."],
+    ["a", "Investiga una danza de otro país y preséntala.", "Respuesta abierta."],
+    ["a", "Prepara con tu grupo una pequeña batalla de baile respetuosa.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El vals se cuenta…", ["un, dos, tres", "un, dos", "un, dos, tres, cuatro, cinco"], "Salón."],
+    ["El tango se acompaña con el…", ["bandoneón", "violín eléctrico", "didgeridoo"], "Salón."],
+    ["Los All Blacks bailan el…", ["haka", "sirtaki", "vals"], "Haka."],
+    ["El ballet nació en las cortes de…", ["Italia y Francia", "Japón", "México"], "Ballet."],
+    ["El breaking nació en…", ["las calles de EE. UU.", "los palacios rusos", "la India"], "Urbanas."],
+  ],
+  examen: [
+    ["En la lectura, ¿para qué se baila hoy el haka según Tane?", ["para dar la bienvenida y mostrar respeto", "solo para la guerra", "para dormir a los bebés"], "Lectura."],
+    ["¿Qué ballet se representa mucho en Navidad?", ["El cascanueces", "El lago de los cisnes", "La bella durmiente"], "Ballet."],
+  ],
+  tarjetas: [
+    ["Bailes de salón", "Vals (ternario), polca, tango, salsa, pasodoble."],
+    ["Danzas con historia", "Haka maorí, bharatanatyam, danza del león, derviches."],
+    ["Ballet", "Luis XIV, pasos en francés, puntillas; Chaikovski."],
+    ["Danzas urbanas", "Hip hop, breaking (París 2024), popping; batallas."],
+  ],
+  glosario: [
+    ["Baile de salón", "Danza que se baila en pareja, agarrados."],
+    ["Vals", "Baile de compás ternario con giros."],
+    ["Bandoneón", "Instrumento de fuelle del tango."],
+    ["Haka", "Danza tradicional maorí."],
+    ["Mudra", "Posición de las manos en la danza india."],
+    ["Derviche", "Bailarín que gira en una danza religiosa."],
+    ["Ballet", "Danza clásica nacida en las cortes europeas."],
+    ["Tutú", "Falda de tul de las bailarinas."],
+    ["Zapatillas de punta", "Calzado para bailar de puntillas."],
+    ["Breaking", "Danza urbana con giros en el suelo."],
+    ["Freeze", "Figura congelada en el breaking."],
+    ["Batalla", "Competición de improvisación por turnos."],
+  ],
+  situacion: {
+    titulo: "La vuelta al mundo bailando",
+    reto: "La clase prepara un espectáculo que recorre el mundo a través de sus danzas.",
+    pasos: ["Formar grupos y elegir una danza: vals, haka, danza del león, ballet o hip hop.", "Investigar su origen y su significado.", "Aprenderla paso a paso y escribir su coreografía con símbolos.", "Presentarla con una breve explicación al público."],
+    producto: "Un espectáculo de danzas del mundo con presentaciones.",
+    evaluacion: ["Reconoce el compás de la danza.", "Explica su origen con respeto.", "Sigue la coreografía con su grupo.", "Expresa el carácter de la danza."],
+  },
+});

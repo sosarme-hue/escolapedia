@@ -98,3 +98,91 @@ module.exports = tema({
   ideas: ["Juego de audición «¿quién suena?» con grabaciones.", "Taller de instrumentos con material reciclado.", "Visita virtual a un concierto didáctico."],
   fuentes: [["Diccionario de la RAE: orquesta", "https://dle.rae.es/orquesta"], ["Orquesta y Coro Nacionales de España", "https://www.ocne.mcu.es/"]],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Descubrir cómo funciona un piano por dentro", "Conocer las bandas de música y sus instrumentos", "Distinguir los instrumentos electrónicos", "Reconocer instrumentos de otras culturas y fabricar los tuyos"],
+  lectura: { titulo: "El piano de la abuela", html: `<p>Cuando la abuela Carmen se mudó a un piso más pequeño, el viejo piano de pared llegó a casa de Álex. Lo subieron cuatro hombres por la escalera, resoplando, y lo colocaron en el salón.</p><p>Álex levantó la tapa y pulsó una tecla. Sonó un «do» un poco desafinado.</p><p>Al día siguiente vino el <b>afinador</b>, un señor mayor con una maleta de herramientas. Quitó la tapa de delante del piano y Álex se quedó asombrado: dentro había un montón de cuerdas metálicas, unas gruesas y largas, otras finas y cortas, y una fila de pequeños martillos de madera forrados de fieltro.</p><p>—Mira —le dijo el afinador—. Cuando pulsas una tecla, este martillo golpea la cuerda y la hace vibrar. Las cuerdas largas y gruesas dan los sonidos graves; las cortas y finas, los agudos.</p><p>Con una llave especial, fue tensando las cuerdas una por una mientras escuchaba con mucha atención. Al tensar una cuerda, el sonido subía; al aflojarla, bajaba.</p><p>—¿Cuántas cuerdas tiene? —preguntó Álex.</p><p>—Más de doscientas. Muchas notas tienen dos o tres cuerdas iguales para sonar más fuerte.</p><p>Cuando terminó, tocó una melodía y el piano sonó limpio y brillante. Álex decidió que ese mismo año empezaría a aprender a tocarlo.</p>` },
+  tras: {
+    "Cuerda pulsada y percutida": [
+      ["El piano por dentro", `<p>El <mark>piano</mark> es uno de los instrumentos más completos, porque puede tocar a la vez la melodía y el acompañamiento, notas graves y agudas.</p><p>Lo inventó el italiano <b>Bartolomeo Cristofori</b> hacia el año <b>1700</b>. Lo llamó «gravicémbalo col piano e forte», porque, a diferencia del clave que había antes, podía sonar <b>suave</b> (piano) o <b>fuerte</b> (forte) según la fuerza con la que se pulsaba la tecla. De ahí viene su nombre: <b>pianoforte</b>, y luego, simplemente, piano.</p><p>Sus partes principales son:</p><ul><li>El <b>teclado</b>: tiene <b>88 teclas</b>, 52 blancas y 36 negras.</li><li>Los <b>macillos</b>: pequeños martillos forrados de fieltro que golpean las cuerdas.</li><li>Las <b>cuerdas</b>: más de 200, de metal.</li><li>La <b>tabla armónica</b>: una gran lámina de madera que amplifica el sonido.</li><li>Los <b>pedales</b>: el de la derecha hace que el sonido dure más; el de la izquierda lo hace más suave.</li></ul><p>Hay dos tipos principales: el <b>piano de pared</b> (vertical), con las cuerdas en vertical, y el <b>piano de cola</b>, con las cuerdas en horizontal, más grande y potente, que se usa en los conciertos.</p>`,
+        L6.filas("El piano", [["inventor", "Cristofori, 1700", cAZ], ["teclas", "88", cVE], ["macillos", "golpean", cRO], ["pedales", "largo y suave", cNA]]), ["NDvS2V7HbnY", "¿Cómo funciona un piano de cola?", "Jared Owen", 1938547]],
+    ],
+    "Viento metal": [
+      ["Las bandas de música", `<p>Una <mark>banda de música</mark> es una agrupación formada por instrumentos de <b>viento</b> (madera y metal) y de <b>percusión</b>. A diferencia de la orquesta, normalmente <b>no tiene cuerda frotada</b> (violines), porque nació para tocar al aire libre y desfilando.</p><p>En España hay una enorme tradición de bandas. Casi todos los pueblos tienen la suya, y en la <b>Comunidad Valenciana</b> hay más de quinientas. Tocan en las fiestas patronales, en las procesiones, en los desfiles y en conciertos.</p><p>Sus instrumentos más habituales son:</p><ul><li><b>Viento madera</b>: flautas, clarinetes (los más numerosos), saxofones, oboes y fagotes.</li><li><b>Viento metal</b>: trompetas, trompas, trombones, bombardinos y tubas.</li><li><b>Percusión</b>: caja, bombo, platos, timbales y lira.</li></ul><p>Un tipo de música muy típico de las bandas españolas es el <b>pasodoble</b>: alegre, de compás binario, perfecto para desfilar.</p><p>Otras agrupaciones de viento son la <b>charanga</b> (pequeña y festiva, que anima las calles en las fiestas), la <b>big band</b> de jazz y la <b>fanfarria</b>.</p><p>Muchos músicos profesionales empezaron en la escuela de música de la banda de su pueblo. ¿Hay una banda en tu localidad?</p>`,
+        H6.dos("Orquesta y banda", ["ORQUESTA", ["cuerda", "viento", "percusión"], cAZ], ["BANDA", ["viento", "percusión", "sin violines"], cNA]), ["g3CXKf6NMUI", "Pasodoble Valencia. Unión Musical de Llíria", "Nuestras Bandas de Música", 1000716]],
+    ],
+    "Percusión": [
+      ["Los instrumentos electrónicos", `<p>Además de cuerda, viento y percusión, hay una familia más moderna: los <mark>instrumentos electrónicos</mark> o <b>electrófonos</b>. En ellos el sonido se produce o se transforma con <b>electricidad</b> y se escucha a través de <b>altavoces</b>.</p><p>Podemos distinguir dos tipos:</p><ul><li><b>Instrumentos eléctricos</b>: el sonido se produce de forma normal, por ejemplo, con cuerdas, pero se recoge y se amplifica con electricidad. Es el caso de la <b>guitarra eléctrica</b> y el <b>bajo eléctrico</b>, que necesitan un <b>amplificador</b>. Sin él apenas se oyen.</li><li><b>Instrumentos electrónicos</b>: el sonido se crea directamente con circuitos electrónicos. Por ejemplo, el <b>sintetizador</b>, el <b>teclado electrónico</b>, la <b>batería electrónica</b> o los programas de música del ordenador.</li></ul><p>Uno de los primeros instrumentos electrónicos fue el <b>theremín</b>, inventado en 1920 por el ruso <b>Lev Termen</b>. ¡Se toca sin tocarlo! El músico mueve las manos en el aire cerca de dos antenas: una cambia la altura y otra el volumen. Suena como una voz misteriosa y se usó mucho en películas de ciencia ficción.</p><p>Hoy, gran parte de la música que escuchamos en la radio se hace con instrumentos electrónicos y ordenadores.</p>`,
+        L6.filas("Electrófonos", [["guitarra eléctrica", "amplificador", cRO], ["sintetizador", "circuitos", cAZ], ["batería electrónica", "pads", cVE], ["theremín", "sin tocarlo", cMO]])],
+    ],
+  },
+  final: [
+    ["Instrumentos del mundo", `<p>En cada rincón del planeta hay <mark>instrumentos</mark> propios, hechos con los materiales del lugar. Aunque parezcan muy distintos, todos pertenecen a las mismas familias:</p><ul><li><b>Didgeridoo</b> (Australia): un tubo largo de madera vaciado por las termitas, que tocan los pueblos aborígenes. Suena grave y continuo. Es de <b>viento</b>.</li><li><b>Sitar</b> (India): de cuerda pulsada, con un mástil muy largo y muchas cuerdas que vibran «por simpatía».</li><li><b>Kora</b> (África occidental): un arpa hecha con una calabaza gigante y 21 cuerdas. Es de <b>cuerda pulsada</b>.</li><li><b>Djembé</b> (África occidental): un tambor de madera con piel de cabra que se toca con las manos. Es de <b>percusión</b>.</li><li><b>Balalaica</b> (Rusia): una guitarra con caja triangular y tres cuerdas.</li><li><b>Koto</b> (Japón): una cítara larga que se toca en el suelo.</li><li><b>Steel drum</b> (Trinidad y Tobago): un bidón de petróleo convertido en un instrumento que da notas.</li><li><b>Quena</b> y <b>charango</b> (Andes): flauta y guitarrita.</li></ul><p>Conocer estos instrumentos nos muestra que la música es un <b>lenguaje universal</b>: en todas las culturas la gente ha buscado la forma de hacer vibrar algo para expresarse.</p>`,
+      L6.filas("Del mundo", [["didgeridoo", "Australia · viento", cNA], ["sitar", "India · cuerda", cRO], ["kora", "África · cuerda", cVE], ["djembé", "África · percusión", cAZ]]), ["YnktYuRU6K4", "Didgeridoo: instrumento australiano", "Planet Doc Express", 340512]],
+    ["Taller: instrumentos reciclados", `<p>Con materiales de desecho se pueden <mark>fabricar instrumentos</mark> de todas las familias. ¡Así comprobarás cómo funciona cada una!</p><ul><li><b>Cuerda: la guitarra de caja</b>. Haz un agujero redondo en la tapa de una caja de zapatos y coloca varias gomas elásticas de distinto grosor alrededor. Pon un lápiz debajo de las gomas como «puente». Las gomas gruesas suenan más graves y las finas, más agudas.</li><li><b>Viento: la flauta de pajitas</b>. Corta varias pajitas a distintas longitudes y pégalas en fila con cinta adhesiva, como una flauta de Pan. Sopla por encima: las largas suenan graves y las cortas, agudas.</li><li><b>Viento: el kazoo</b>. Tapa un extremo de un tubo de cartón con papel encerado y una goma. Haz un agujerito en el lateral y canta «u-u-u» por el otro extremo.</li><li><b>Percusión: las maracas</b>. Mete arroz, lentejas o garbanzos en botellas pequeñas o huevos de plástico y ciérralos bien. Cada relleno tiene un timbre distinto.</li><li><b>Percusión: el tambor</b>. Tensa un globo cortado sobre una lata o un bote y sujétalo con gomas.</li><li><b>Percusión: el güiro</b>. Frota con un palito una botella de plástico con estrías.</li></ul><p>Cuando los tengáis, formad una <b>orquesta reciclada</b> y acompañad una canción.</p>`,
+      H6.rueda("Reciclados", "ORQUESTA", [["guitarra", cAZ], ["flauta", cVE], ["maracas", cRO], ["tambor", cNA]])],
+  ],
+  ejemplos: [
+    ["¿A qué familia pertenece la guitarra eléctrica?", ["Sus cuerdas se pulsan, pero el sonido se amplifica con electricidad.", "Es un instrumento eléctrico."], "A los electrófonos (de cuerda pulsada amplificada)."],
+    ["En tu flauta de pajitas, ¿qué pajita suena más grave?", ["En el viento, más tubo es más aire vibrando.", "Más largo vibra más despacio."], "La más larga."],
+  ],
+  errores: ["Creer que una banda de música tiene violines: está formada por viento y percusión.", "Pensar que el piano es de cuerda pulsada: sus cuerdas se golpean con macillos (cuerda percutida)."],
+  ejercicios: [
+    ["b", "¿Cuántas teclas tiene un piano?", "88."],
+    ["b", "¿Quién inventó el piano?", "Bartolomeo Cristofori."],
+    ["b", "Nombra tres instrumentos de una banda de música.", "Por ejemplo, clarinete, trompeta y bombo."],
+    ["b", "¿De qué país es el didgeridoo?", "De Australia."],
+    ["b", "¿Qué necesita una guitarra eléctrica para oírse bien?", "Un amplificador."],
+    ["m", "¿Por qué se llama piano al piano?", "Porque puede sonar suave (piano) y fuerte (forte)."],
+    ["m", "¿Qué diferencia hay entre una banda y una orquesta?", "La banda no tiene cuerda frotada."],
+    ["m", "¿Cómo se toca el theremín?", "Moviendo las manos cerca de dos antenas, sin tocarlo."],
+    ["m", "¿A qué familia pertenece el djembé?", "A la percusión."],
+    ["m", "¿Qué hace el pedal derecho del piano?", "Que el sonido dure más."],
+    ["a", "Fabrica un instrumento reciclado y explica a qué familia pertenece.", "Respuesta abierta."],
+    ["a", "Busca si hay una banda de música en tu localidad y qué toca.", "Respuesta abierta."],
+    ["a", "Escucha un instrumento del mundo y descríbelo.", "Respuesta abierta."],
+    ["a", "Compara el sonido de una guitarra española y una eléctrica.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El piano tiene…", ["88 teclas", "52 teclas", "100 teclas"], "Piano."],
+    ["Las bandas de música no suelen tener…", ["violines", "clarinetes", "trompetas"], "Bandas."],
+    ["El theremín se toca…", ["sin tocarlo", "con arco", "soplando"], "Electrónicos."],
+    ["La kora es un arpa de…", ["África", "Japón", "Rusia"], "Mundo."],
+    ["En la flauta de pajitas, la corta suena…", ["más aguda", "más grave", "igual"], "Taller."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué hace el afinador para que suba el sonido?", ["tensar la cuerda", "aflojar la cuerda", "pintar la tecla"], "Lectura."],
+    ["¿Qué música típica tocan las bandas españolas para desfilar?", ["el pasodoble", "el tango", "el sitar"], "Bandas."],
+  ],
+  tarjetas: [
+    ["Piano", "Cristofori, 1700; 88 teclas, macillos, pedales; de pared y de cola."],
+    ["Banda", "Viento madera, viento metal y percusión; pasodoble; charanga."],
+    ["Electrófonos", "Guitarra eléctrica, sintetizador, theremín."],
+    ["Del mundo y reciclados", "Didgeridoo, sitar, kora, djembé; guitarra de caja, maracas."],
+  ],
+  glosario: [
+    ["Macillo", "Martillo forrado de fieltro del piano."],
+    ["Tabla armónica", "Lámina de madera que amplifica el sonido del piano."],
+    ["Afinador", "Persona que ajusta la altura de las cuerdas."],
+    ["Banda", "Agrupación de viento y percusión."],
+    ["Charanga", "Pequeña banda festiva de calle."],
+    ["Pasodoble", "Música española de compás binario."],
+    ["Electrófono", "Instrumento que usa electricidad."],
+    ["Amplificador", "Aparato que aumenta el volumen."],
+    ["Sintetizador", "Instrumento que crea sonidos con circuitos."],
+    ["Theremín", "Instrumento electrónico que se toca sin contacto."],
+    ["Didgeridoo", "Tubo de viento aborigen australiano."],
+    ["Djembé", "Tambor africano que se toca con las manos."],
+  ],
+  situacion: {
+    titulo: "La orquesta reciclada",
+    reto: "La clase forma una orquesta con instrumentos fabricados con material reciclado.",
+    pasos: ["Repartir las familias: cuerda, viento y percusión.", "Fabricar cada instrumento y comprobar qué sonidos graves y agudos da.", "Clasificarlo en su familia y compararlo con un instrumento real del mundo.", "Ensayar una canción y tocarla en un concierto."],
+    producto: "Una orquesta de instrumentos reciclados y un concierto.",
+    evaluacion: ["Clasifica los instrumentos en familias.", "Explica cómo se produce el sonido.", "Conoce instrumentos de otras culturas.", "Toca su instrumento con el grupo."],
+  },
+});

@@ -95,3 +95,91 @@ module.exports = tema({
   ideas: ["Dado de ritmos y composición colectiva de cuatro compases.", "Lectura rítmica con sílabas (ta, ti-ti) y percusión corporal.", "Fichas de equivalencias como «cambio de monedas»."],
   fuentes: [["Diccionario de la RAE: compás", "https://dle.rae.es/compás"], ["Chrome Music Lab", "https://musiclab.chromeexperiments.com/"]],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer la semicorchea y su silencio", "Usar el puntillo y la ligadura para alargar sonidos", "Descubrir cómo se inventó la escritura musical", "Tocar ritmos con percusión corporal y objetos"],
+  lectura: { titulo: "El mensaje secreto", html: `<p>Lucía y su amigo Omar habían inventado un código secreto para pasarse mensajes en clase sin que nadie los entendiera. Pero un día la profesora de Música, Rocío, les pilló con un papelito lleno de rayas y puntos.</p><p>—A ver qué es esto —dijo, levantando las cejas.</p><p>Lucía se puso roja. Pero Rocío, en vez de enfadarse, sonrió.</p><p>—¿Sabéis que los músicos llevamos siglos usando un código secreto? Con unos pocos signos, cualquier persona del mundo puede saber exactamente qué notas tocar y cuánto tiempo debe durar cada una.</p><p>Dibujó en la pizarra cuatro figuras: una negra, dos corcheas, cuatro semicorcheas y un silencio de negra.</p><p>—Esto es un mensaje. ¿Quién lo descifra?</p><p>Omar lo intentó dando palmadas: «ta, ti-ti, tiri-tiri, chis». La clase se rio, pero era correcto.</p><p>—¡Exacto! Un músico en Japón, otro en Brasil y otro en Noruega leerían este mensaje igual que tú.</p><p>Desde ese día, Lucía y Omar cambiaron su código. Ahora se pasan mensajes rítmicos: cada uno escribe un compás y el otro tiene que tocarlo con los dedos sobre la mesa. Y en clase de Música son los más rápidos leyendo ritmos.</p>` },
+  tras: {
+    "Negra y corchea": [
+      ["La semicorchea", `<p>Si dividimos una corchea por la mitad, obtenemos la <mark>semicorchea</mark>. Es una figura muy rápida: dura un <b>cuarto de tiempo</b>.</p><p>Se dibuja como una negra con <b>dos corchetes</b> en la plica. Cuando hay varias juntas, se unen con <b>dos barras</b>.</p><p>Sus equivalencias son:</p><ul><li><b>2 semicorcheas</b> = 1 corchea.</li><li><b>4 semicorcheas</b> = 1 negra = 1 tiempo.</li><li><b>16 semicorcheas</b> = 1 redonda.</li></ul><p>Para leerlas con el lenguaje rítmico, cuatro semicorcheas se dicen <b>«ti-ri-ti-ri»</b>, en un solo tiempo. ¡Hay que decirlo rápido!</p><p>Las semicorcheas también se pueden combinar con corcheas dentro de un tiempo:</p><ul><li>Una corchea y dos semicorcheas: «ti-tiri».</li><li>Dos semicorcheas y una corchea: «tiri-ti».</li></ul><p>Las semicorcheas dan sensación de <b>velocidad</b> y <b>movimiento</b>. Se usan mucho en música de baile, en los redobles de tambor y en piezas que imitan el galope de un caballo o la lluvia.</p><p>Su silencio, el <b>silencio de semicorchea</b>, se parece al de corchea pero con dos ganchitos.</p>`,
+        L6.filas("Lenguaje rítmico", [["negra", "ta", cAZ], ["2 corcheas", "ti-ti", cVE], ["4 semicorcheas", "ti-ri-ti-ri", cRO], ["silencio", "chis", cNA]]), ["Vx9YihLfR2Q", "La corchea, la semicorchea y la negra", "Smile and Learn", 1205303]],
+    ],
+    "Los silencios": [
+      ["El puntillo y la ligadura", `<p>A veces necesitamos que un sonido dure un tiempo que no corresponde a ninguna figura, por ejemplo, <b>tres tiempos</b>. Para eso hay dos signos de <mark>prolongación</mark>:</p><ul><li>El <b>puntillo</b> es un punto que se coloca a la <b>derecha</b> de la figura. Le añade <b>la mitad</b> de su valor:<ul><li>Blanca con puntillo: 2 + 1 = <b>3 tiempos</b>. Es muy usada en el compás de 3/4, como en los valses.</li><li>Negra con puntillo: 1 + ½ = <b>1 tiempo y medio</b>.</li><li>Redonda con puntillo: 4 + 2 = <b>6 tiempos</b>.</li></ul></li><li>La <b>ligadura</b> es una línea curva que une <b>dos notas iguales</b> (de la misma altura). La segunda no se toca: se suma su duración a la primera. Por ejemplo, una blanca ligada a una negra dura 3 tiempos. La ligadura sirve sobre todo para alargar un sonido de un compás al siguiente, por encima de la barra divisoria.</li></ul><p>¡Cuidado! Si la línea curva une dos notas <b>distintas</b>, no es una ligadura de prolongación, sino de <b>expresión</b>: indica que se toquen unidas, sin cortar el sonido.</p><p>Otro signo curioso es el <b>calderón</b>, un semicírculo con un punto encima: indica que esa nota se alarga todo lo que quiera el músico o el director.</p>`,
+        H6.dos("Alargar", ["PUNTILLO", ["a la derecha", "suma la mitad", "blanca = 3"], cMO], ["LIGADURA", ["une notas iguales", "suma valores", "entre compases"], cAZ])],
+    ],
+    "Leer ritmos con figuras y silencios": [
+      ["Dictados rítmicos", `<p>Leer ritmos es pasar de lo escrito al sonido. El <mark>dictado rítmico</mark> es justo lo contrario: escuchar un ritmo y <b>escribirlo</b> con figuras. Es un ejercicio muy bueno para entrenar el oído.</p><p>Sigue estos pasos:</p><ul><li><b>1. Escucha</b> el ritmo entero sin escribir. Fíjate en cuántos compases tiene y en qué compás está (por ejemplo, 4 tiempos).</li><li><b>2. Marca el pulso</b> con el pie mientras lo escuchas otra vez.</li><li><b>3. Divide</b> el ritmo en tiempos. En cada tiempo pregúntate: ¿hay un sonido, dos, cuatro o ninguno?</li><li><b>4. Escribe</b> la figura correspondiente: un sonido en un tiempo es una negra; dos, dos corcheas; cuatro, cuatro semicorcheas; ninguno, un silencio de negra. Si un sonido dura dos tiempos, es una blanca.</li><li><b>5. Comprueba</b> que cada compás suma los tiempos correctos.</li><li><b>6. Lee</b> tu dictado en voz alta y compáralo con el original.</li></ul><p>Podéis jugar por parejas: uno toca un ritmo de cuatro tiempos con palmas y el otro lo escribe. Si acierta, se cambian los papeles. Empezad con negras, corcheas y silencios, y añadid semicorcheas y blancas cuando lo dominéis.</p>`,
+        H6.flujo("Dictado", ["escuchar|entero", "pulso|con el pie", "dividir|en tiempos", "escribir|y comprobar"], cNA)],
+    ],
+  },
+  final: [
+    ["Cómo se inventó la escritura musical", `<p>Durante miles de años, la música se aprendía solo de <b>oído</b>, de memoria. Pero ¿cómo se podía guardar una melodía para que no se olvidara? Así nació la <mark>notación musical</mark>, poco a poco:</p><ul><li>Hace más de mil años, los monjes que cantaban en los monasterios empezaron a escribir unos signos encima de las palabras de los cantos, llamados <b>neumas</b>. Indicaban si la voz subía o bajaba, pero no exactamente cuánto.</li><li>Después se añadió una <b>línea</b> horizontal como referencia, luego otra, luego más…</li><li>Hacia el año <b>1025</b>, el monje italiano <b>Guido de Arezzo</b> perfeccionó un sistema de <b>cuatro líneas</b> (tetragrama) y dio nombre a las notas usando las sílabas iniciales de un himno a san Juan: <i>UT queant laxis, REsonare fibris, MIra gestorum, FAmuli tuorum, SOLve polluti, LAbii reatum</i>. ¡De ahí vienen <b>ut, re, mi, fa, sol, la</b>!</li><li>Más tarde, el <i>ut</i> se cambió por <b>do</b>, más fácil de cantar, y se añadió el <b>si</b> (de <i>Sancte Iohannes</i>).</li><li>Con los siglos, las notas cuadradas se volvieron redondas, apareció el <b>pentagrama</b> de cinco líneas y se inventaron las figuras para indicar la <b>duración</b>.</li></ul><p>Gracias a este invento podemos tocar hoy música compuesta hace cientos de años.</p>`,
+      L6.filas("Historia", [["neumas", "suben o bajan", cMO], ["Guido de Arezzo", "hacia 1025", cAZ], ["ut, re, mi…", "un himno", cVE], ["pentagrama", "cinco líneas", cRO]]), ["KPdmhUvC1V0", "El origen de las notas musicales", "TikTak Draw", 457458]],
+    ["Ritmos con el cuerpo y con objetos", `<p>No hace falta un instrumento para tocar ritmos: el propio <mark>cuerpo</mark> es un instrumento de percusión. A esto se le llama <b>percusión corporal</b>. Los cuatro sonidos básicos, de más grave a más agudo, son:</p><ul><li><b>Pies</b>: golpe en el suelo (pisotón).</li><li><b>Rodillas</b> o muslos: palmadas sobre las piernas.</li><li><b>Palmas</b>: palmada con las manos.</li><li><b>Pitos</b>: chasquido de los dedos.</li></ul><p>Con ellos se puede tocar cualquier ritmo escrito. Por ejemplo, prueba este compás de cuatro tiempos: pie (negra), rodillas (dos corcheas), palmas (negra), silencio de negra.</p><p>Hay grupos que han convertido esto en espectáculo. El más famoso es <b>Stomp</b>, un grupo británico que hace música con escobas, cubos de basura, cajas de cerillas, periódicos o bolsas de plástico. ¡Todo puede sonar!</p><p>Otros objetos con los que podéis hacer ritmos en clase:</p><ul><li><b>Vasos</b> de plástico: golpeando, pasándolos y dándoles la vuelta, como en el famoso «juego de los vasos».</li><li><b>Lápices</b> sobre la mesa.</li><li><b>Botellas</b> rellenas, como maracas.</li><li><b>Libros</b> que se cierran de golpe.</li></ul><p>Escribid un ritmo de cuatro compases con figuras y silencios y tocadlo en grupo con objetos de clase.</p>`,
+      H6.rueda("Mi cuerpo suena", "RITMO", [["pies", cAZ], ["rodillas", cVE], ["palmas", cRO], ["pitos", cNA]]), ["tZ7aYQtIldg", "Stomp: escobas", "WorldMusic", 10668901]],
+  ],
+  ejemplos: [
+    ["¿Cuánto dura una blanca con puntillo?", ["La blanca vale 2 tiempos.", "El puntillo suma la mitad: 1 tiempo más."], "3 tiempos."],
+    ["¿Cuántas semicorcheas caben en una blanca?", ["Una negra = 4 semicorcheas.", "Una blanca = 2 negras = 8 semicorcheas."], "8 semicorcheas."],
+  ],
+  errores: ["Tocar la segunda nota de una ligadura de prolongación: solo se suma su duración.", "Poner el puntillo a la izquierda de la figura: va siempre a la derecha."],
+  ejercicios: [
+    ["b", "¿Cuánto dura una semicorchea?", "Un cuarto de tiempo."],
+    ["b", "¿Cuántas semicorcheas equivalen a una negra?", "Cuatro."],
+    ["b", "¿Cómo se leen cuatro semicorcheas?", "Ti-ri-ti-ri."],
+    ["b", "¿Dónde se coloca el puntillo?", "A la derecha de la figura."],
+    ["b", "Nombra los cuatro sonidos básicos de la percusión corporal.", "Pies, rodillas, palmas y pitos."],
+    ["m", "¿Cuánto dura una negra con puntillo?", "Un tiempo y medio."],
+    ["m", "¿Qué diferencia hay entre una ligadura de prolongación y una de expresión?", "La de prolongación une notas iguales y suma; la de expresión une notas distintas para tocarlas unidas."],
+    ["m", "¿Quién dio nombre a las notas musicales?", "Guido de Arezzo."],
+    ["m", "¿De dónde vienen los nombres de las notas?", "De las sílabas iniciales de un himno a san Juan."],
+    ["m", "¿Qué indica el calderón?", "Que la nota se alarga a voluntad."],
+    ["a", "Haz un dictado rítmico con un compañero de cuatro compases.", "Respuesta abierta."],
+    ["a", "Escribe un ritmo con una blanca con puntillo en un compás de 3/4.", "Respuesta abierta."],
+    ["a", "Crea una pieza de percusión corporal de ocho compases.", "Respuesta abierta."],
+    ["a", "Inventa tus propios neumas para una canción conocida.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["La semicorchea tiene…", ["dos corchetes", "un corchete", "ninguno"], "Semicorchea."],
+    ["El puntillo añade…", ["la mitad del valor", "el doble", "un tiempo siempre"], "Puntillo."],
+    ["Una blanca con puntillo dura…", ["3 tiempos", "2 tiempos", "4 tiempos"], "Puntillo."],
+    ["Guido de Arezzo fue un…", ["monje italiano", "rey francés", "pianista ruso"], "Historia."],
+    ["El sonido más grave de la percusión corporal es…", ["los pies", "los pitos", "las palmas"], "Cuerpo."],
+  ],
+  examen: [
+    ["En la lectura, ¿cómo leyó Omar las cuatro semicorcheas?", ["tiri-tiri", "ta", "ti-ti"], "Lectura."],
+    ["¿Cuántas semicorcheas tiene una redonda?", ["16", "8", "4"], "Equivalencias."],
+  ],
+  tarjetas: [
+    ["Semicorchea", "Un cuarto de tiempo; 4 = 1 negra; ti-ri-ti-ri."],
+    ["Puntillo y ligadura", "Puntillo suma la mitad; ligadura une notas iguales."],
+    ["Historia", "Neumas, Guido de Arezzo (ut, re, mi…), pentagrama."],
+    ["Percusión corporal", "Pies, rodillas, palmas, pitos; Stomp."],
+  ],
+  glosario: [
+    ["Semicorchea", "Figura que dura un cuarto de tiempo."],
+    ["Puntillo", "Punto que añade la mitad del valor."],
+    ["Ligadura", "Línea curva que une dos notas."],
+    ["Calderón", "Signo que alarga una nota a voluntad."],
+    ["Dictado rítmico", "Escribir un ritmo que se escucha."],
+    ["Lenguaje rítmico", "Sílabas para leer ritmos: ta, ti-ti…"],
+    ["Neuma", "Signo antiguo que indicaba subidas y bajadas."],
+    ["Tetragrama", "Pauta de cuatro líneas."],
+    ["Guido de Arezzo", "Monje que dio nombre a las notas."],
+    ["Percusión corporal", "Hacer música con sonidos del cuerpo."],
+    ["Pitos", "Chasquidos de los dedos."],
+    ["Stomp", "Grupo que hace música con objetos cotidianos."],
+  ],
+  situacion: {
+    titulo: "Mensajes rítmicos",
+    reto: "La clase crea un sistema de mensajes rítmicos y una pieza final de percusión corporal y objetos.",
+    pasos: ["Repasar figuras, silencios, semicorcheas, puntillo y ligadura.", "Por parejas, hacer dictados rítmicos de cuatro compases.", "Escribir en grupo una pieza de ocho compases.", "Interpretarla con percusión corporal y objetos de clase."],
+    producto: "Una partitura rítmica y su interpretación en grupo.",
+    evaluacion: ["Lee ritmos con semicorcheas.", "Usa el puntillo y la ligadura correctamente.", "Escribe ritmos escuchados.", "Mantiene el pulso en grupo."],
+  },
+});
