@@ -145,3 +145,91 @@ module.exports = {
   fuentes: [RD, { t: "AEMET: Agencia Estatal de Meteorología", url: "https://www.aemet.es/" }, wiki("Clima de España", "Clima_de_España"), wiki("Clima de Europa", "Clima_de_Europa")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Medir la lluvia y conocer los vientos de España", "Construir e interpretar un climograma con datos reales", "Reconocer fenómenos meteorológicos extremos y los avisos", "Explicar cómo se adaptan las casas y las costumbres al clima"],
+  lectura: { titulo: "La gran nevada", html: `<p>El viernes 8 de enero de 2021, Irene miraba por la ventana de su casa, en Madrid, sin poder creérselo. Nevaba, y nevaba, y no paraba de nevar. Una gran borrasca, a la que se había puesto el nombre de <b>Filomena</b>, estaba dejando sobre el centro de España la mayor nevada en muchas décadas.</p><p>Al día siguiente, la ciudad amaneció completamente blanca. En algunas calles había más de medio metro de nieve. No circulaban coches ni autobuses, el aeropuerto cerró y muchos árboles se rompieron por el peso de la nieve. La gente salió a la calle con esquís, trineos y hasta tablas de planchar para deslizarse por las cuestas.</p><p>Después llegó lo más duro: una ola de frío muy intensa. La nieve se convirtió en hielo y las temperaturas bajaron mucho por debajo de cero. Los colegios estuvieron cerrados varios días y hubo que retirar toneladas de nieve helada.</p><p>Irene nunca olvidará aquellos días. En clase aprendió que una nevada así es un <b>fenómeno meteorológico extremo</b>: algo que pasa pocas veces, pero que puede tener grandes consecuencias. Y que el tiempo de un día no es lo mismo que el clima de un lugar.</p>` },
+  tras: {
+    "Los elementos del clima": [
+      ["Medir la lluvia y el viento", `<p>La lluvia se mide con el <b>pluviómetro</b>, un recipiente graduado que recoge el agua que cae. Se expresa en <b>litros por metro cuadrado</b> (L/m²), que es lo mismo que <b>milímetros</b> (mm): si cae 1 litro sobre un metro cuadrado, el agua alcanzaría 1 mm de altura. Puedes fabricar un pluviómetro con una botella de plástico cortada, de paredes rectas, y una regla pegada.</p><p>El viento tiene dos características:</p><ul><li>La <b>dirección</b>, que indica la <b>veleta</b>. Los vientos se nombran por el lugar <b>de donde vienen</b>: un viento del norte sopla desde el norte. Para orientarse se usa la <b>rosa de los vientos</b>.</li><li>La <b>velocidad</b>, que mide el <b>anemómetro</b>, en km/h. La escala de <b>Beaufort</b> la clasifica de 0 (calma) a 12 (huracán) según sus efectos: hojas que se mueven, ramas que se agitan, árboles que se rompen.</li></ul><p>En España, algunos vientos tienen nombre propio: el <b>cierzo</b>, frío y seco, sopla en el valle del Ebro; la <b>tramontana</b>, del norte, en Cataluña y Baleares; el <b>levante</b> y el <b>poniente</b>, en el estrecho de Gibraltar; y el <b>siroco</b>, cálido, viene del Sáhara y a veces trae polvo, la llamada calima.</p>`,
+        L6.filas("Vientos de España", [["cierzo", "valle del Ebro", cAZ], ["tramontana", "Cataluña y Baleares", cMO], ["levante", "Estrecho", cNA], ["siroco", "del Sáhara", cRO]])],
+    ],
+    "El climograma": [
+      ["Construir y leer un climograma paso a paso", `<p>Para hacer un climograma necesitas las <b>temperaturas medias</b> y las <b>precipitaciones</b> de cada mes de un lugar. Estos datos los publica la Agencia Estatal de Meteorología (AEMET).</p><ol><li>Dibuja el eje horizontal con los 12 meses, de enero a diciembre.</li><li>A la izquierda, el eje de las <b>precipitaciones</b> en mm. A la derecha, el de las <b>temperaturas</b> en °C. Lo habitual es que cada grado ocupe lo mismo que 2 mm.</li><li>Dibuja las precipitaciones con <b>barras azules</b> y las temperaturas con una <b>línea roja</b>.</li></ol><p>Para interpretarlo, calcula:</p><ul><li>La <b>temperatura media anual</b>: suma las 12 temperaturas y divide entre 12.</li><li>La <b>amplitud térmica</b>: temperatura del mes más cálido menos la del más frío. Si en julio hay 26 °C y en enero 6 °C, la amplitud es de 20 °C.</li><li>Las <b>precipitaciones totales</b>: suma las de los 12 meses.</li><li>Los <b>meses secos</b>: aquellos en los que la barra queda por debajo de la línea, es decir, cuando las precipitaciones en mm son menos del doble de la temperatura.</li></ul><p>Con estos datos puedes averiguar de qué clima se trata.</p>`,
+        H6.flujo("Leer un climograma", ["Media|anual", "Amplitud|térmica", "Total|lluvias", "Meses|secos"], cAZ), ["TBHdJl-pcss", "¿Cómo analizar un climograma?", "Mañana sin falta", 332875]],
+    ],
+    "Los climas de España (II)": [
+      ["Fenómenos meteorológicos extremos", `<p>Además del clima habitual, en España se producen a veces fenómenos extremos, que pueden ser peligrosos:</p><ul><li>Las <b>DANA</b> (depresión aislada en niveles altos), conocidas antes como gota fría, suelen formarse en otoño, cuando el aire frío en altura se encuentra con el mar Mediterráneo todavía caliente. Pueden descargar en pocas horas más lluvia que en meses. En octubre de 2024, una DANA causó en la provincia de Valencia inundaciones catastróficas con más de doscientas víctimas.</li><li>Las <b>olas de calor</b> son varios días seguidos con temperaturas muy altas. En algunas zonas del sur se han superado los 45 °C.</li><li>Las <b>sequías</b> son largos periodos con muy poca lluvia. Bajan los embalses, sufren los cultivos y aumenta el riesgo de incendios.</li><li>Las <b>grandes nevadas</b> y las <b>olas de frío</b>, como la de Filomena en 2021.</li><li>Los <b>temporales</b> de viento y oleaje en las costas.</li></ul><p>Los científicos explican que, con el cambio climático, algunos de estos fenómenos, como las olas de calor y las lluvias torrenciales, se están volviendo más frecuentes e intensos. Por eso es tan importante conocerlos y prepararse.</p>`,
+        L6.filas("Fenómenos extremos", [["DANA", "lluvias torrenciales", cAZ], ["ola de calor", "más de 45 °C", cRO], ["sequía", "embalses bajos", cNA], ["nevada", "Filomena, 2021", cMO]])],
+    ],
+  },
+  final: [
+    ["Las previsiones del tiempo", `<p>Hoy podemos saber con bastante acierto el tiempo que hará en los próximos días. ¿Cómo lo hacen los meteorólogos?</p><ul><li>Reúnen datos de miles de <b>estaciones meteorológicas</b>, boyas en el mar, globos sonda y aviones.</li><li>Los <b>satélites</b> fotografían las nubes desde el espacio y los <b>radares</b> detectan dónde está lloviendo y con qué intensidad.</li><li>Potentes <b>superordenadores</b> calculan cómo evolucionará la atmósfera.</li></ul><p>En los mapas del tiempo aparecen las <b>isobaras</b>, líneas que unen lugares con la misma presión. Las <b>borrascas</b> (B), con presión baja, suelen traer nubes, lluvia y viento. Los <b>anticiclones</b> (A), con presión alta, traen tiempo estable y despejado. Cuanto más juntas están las isobaras, más fuerte sopla el viento.</p><p>Cuando se prevé un fenómeno peligroso, la AEMET emite <b>avisos</b> por colores:</p><ul><li><b>Amarillo</b>: riesgo para actividades al aire libre; hay que estar atentos.</li><li><b>Naranja</b>: riesgo importante; hay que tomar precauciones.</li><li><b>Rojo</b>: riesgo extraordinario; hay que seguir las instrucciones de las autoridades.</li></ul><p>Las previsiones de 1 a 3 días son muy fiables; más allá de una semana, mucho menos.</p>`,
+      L6.filas("Avisos de la AEMET", [["amarillo", "estar atentos", cNA], ["naranja", "tomar precauciones", cNA], ["rojo", "seguir instrucciones", cRO], ["fiable", "de 1 a 3 días", cAZ]])],
+    ["Adaptarse al clima", `<p>Durante siglos, las personas han construido sus casas y organizado su vida según el clima, mucho antes de que existieran la calefacción y el aire acondicionado:</p><ul><li>En el <b>sur de España</b>, las casas encaladas de <b>blanco</b> reflejan el sol, tienen muros gruesos, ventanas pequeñas y <b>patios</b> con plantas y fuentes que refrescan. Los toldos dan sombra a las calles estrechas.</li><li>En el <b>norte húmedo</b>, los tejados son muy inclinados para que escurra la lluvia, y en Galicia y Asturias los <b>hórreos</b> y paneras, levantados del suelo, protegen el grano de la humedad y de los ratones.</li><li>En la <b>montaña</b>, las casas son de piedra con tejados de pizarra muy inclinados para que la nieve no se acumule, y antiguamente el ganado vivía en la planta baja para dar calor.</li><li>En la <b>Meseta</b>, de inviernos fríos y veranos calurosos, se construía con adobe y gruesos muros que mantienen la temperatura.</li></ul><p>También las costumbres se adaptan: el horario de comidas, la vida en la calle en las noches de verano o la ropa típica. Hoy, la <b>arquitectura bioclimática</b> recupera estas ideas para construir edificios que gasten menos energía.</p>`,
+      L6.filas("Casas y clima", [["sur", "casas blancas, patios", cNA], ["norte", "tejados inclinados, hórreos", cVE], ["montaña", "piedra y pizarra", cMO], ["Meseta", "adobe, muros gruesos", cRO]])],
+  ],
+  ejemplos: [
+    ["En un lugar, julio tiene 26 °C de media y enero 6 °C. ¿Cuál es la amplitud térmica?", ["Amplitud = mes más cálido − mes más frío.", "26 − 6."], "20 °C."],
+    ["En agosto caen 10 mm y la temperatura media es de 25 °C. ¿Es un mes seco?", ["El doble de la temperatura es 50.", "10 es menor que 50."], "Sí, es un mes seco."],
+  ],
+  errores: ["Pensar que un viento del norte va hacia el norte: viene del norte.", "Confundir un fenómeno extremo de un día con el clima de un lugar."],
+  ejercicios: [
+    ["b", "¿Con qué instrumento se mide la lluvia?", "Con el pluviómetro."],
+    ["b", "¿A cuántos milímetros equivale 1 L/m²?", "A 1 mm."],
+    ["b", "¿Dónde sopla el cierzo?", "En el valle del Ebro."],
+    ["b", "¿Qué significa un aviso rojo de la AEMET?", "Riesgo extraordinario: hay que seguir las instrucciones de las autoridades."],
+    ["b", "¿Qué es un hórreo?", "Un granero levantado del suelo típico de Galicia y Asturias."],
+    ["m", "¿Qué indica la escala de Beaufort?", "La fuerza del viento, de 0 (calma) a 12 (huracán)."],
+    ["m", "¿Cuándo es seco un mes en un climograma?", "Cuando las precipitaciones son menos del doble de la temperatura."],
+    ["m", "¿Por qué las casas del sur se pintan de blanco?", "Para reflejar el sol y mantenerse frescas."],
+    ["m", "¿Qué tiempo suele traer un anticiclón?", "Tiempo estable y despejado."],
+    ["m", "¿Qué es una DANA y en qué época es más frecuente?", "Una masa de aire frío en altura que provoca lluvias torrenciales; en otoño."],
+    ["a", "Las temperaturas de un lugar suman 180 °C en los 12 meses. ¿Cuál es la media anual?", "15 °C."],
+    ["a", "¿Por qué el Mediterráneo caliente en otoño favorece las lluvias torrenciales?", "Porque aporta mucha humedad que, al chocar con aire frío en altura, forma tormentas."],
+    ["a", "¿Por qué las previsiones a más de una semana son poco fiables?", "Porque la atmósfera cambia mucho y los pequeños errores crecen con el tiempo."],
+    ["a", "¿Qué es la arquitectura bioclimática?", "La que aprovecha el clima para gastar menos energía."],
+  ],
+  quiz: [
+    ["La dirección del viento la indica la…", ["veleta", "pluviómetro", "termómetro"], "Viento."],
+    ["La tramontana sopla del…", ["norte", "sur", "este"], "Vientos."],
+    ["En un climograma, las precipitaciones se dibujan con…", ["barras", "una línea", "puntos"], "Climograma."],
+    ["Las borrascas suelen traer…", ["nubes y lluvia", "sol y calma", "calima siempre"], "Previsión."],
+    ["La gran nevada de 2021 se llamó…", ["Filomena", "Gloria", "Dana"], "Lectura."],
+  ],
+  examen: [
+    ["Los vientos se nombran por el lugar…", ["de donde vienen", "hacia donde van", "donde paran"], "Viento."],
+    ["El aviso naranja indica…", ["riesgo importante", "ningún riesgo", "riesgo extraordinario"], "Avisos."],
+  ],
+  tarjetas: [
+    ["Lluvia y viento", "Pluviómetro: 1 L/m² = 1 mm. Veleta (dirección) y anemómetro (velocidad)."],
+    ["Climograma", "Media anual, amplitud, total de lluvias y meses secos (P < 2T)."],
+    ["Fenómenos extremos", "DANA, olas de calor, sequías, nevadas y temporales."],
+    ["Avisos", "Amarillo, naranja y rojo según el riesgo."],
+  ],
+  glosario: [
+    ["Pluviómetro", "Instrumento que mide la lluvia."],
+    ["Veleta", "Instrumento que indica la dirección del viento."],
+    ["Anemómetro", "Instrumento que mide la velocidad del viento."],
+    ["Escala de Beaufort", "Escala de 0 a 12 de la fuerza del viento."],
+    ["Calima", "Polvo en suspensión que trae el aire del desierto."],
+    ["Amplitud térmica", "Diferencia entre el mes más cálido y el más frío."],
+    ["Mes seco", "Mes en que las precipitaciones son menos del doble de la temperatura."],
+    ["DANA", "Depresión aislada en niveles altos que causa lluvias torrenciales."],
+    ["Isobara", "Línea que une puntos de igual presión."],
+    ["Borrasca", "Zona de bajas presiones con mal tiempo."],
+    ["Anticiclón", "Zona de altas presiones con tiempo estable."],
+    ["Hórreo", "Granero elevado típico del noroeste de España."],
+  ],
+  situacion: {
+    titulo: "Nuestra estación meteorológica",
+    reto: "La clase construye instrumentos sencillos, registra el tiempo durante un mes y lo compara con el clima de la localidad.",
+    pasos: ["Construid un pluviómetro, una veleta y un anemómetro con materiales reciclados.", "Registrad cada día a la misma hora la temperatura, la lluvia, el viento y el estado del cielo.", "Buscad en la AEMET los datos del clima de vuestra localidad y elaborad su climograma.", "Comparad vuestros registros con el climograma y presentad un parte del tiempo grabado en vídeo."],
+    producto: "Un diario meteorológico, un climograma y un parte del tiempo en vídeo.",
+    evaluacion: ["Construye y usa instrumentos de medida.", "Registra datos con constancia.", "Elabora e interpreta un climograma.", "Comunica la información con claridad."],
+  },
+});

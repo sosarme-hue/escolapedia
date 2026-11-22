@@ -144,3 +144,91 @@ module.exports = {
   fuentes: [RD, { t: "INE: Instituto Nacional de Estadística", url: "https://www.ine.es/" }, wiki("Demografía de España", "Demografía_de_España"), wiki("Demografía de Europa", "Demografía_de_Europa")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Calcular densidades y tasas de natalidad y mortalidad", "Explicar por qué ha aumentado tanto la esperanza de vida", "Conocer la historia de la emigración y la inmigración en España", "Describir el crecimiento de la población mundial"],
+  lectura: { titulo: "El ministro que quiso contarnos a todos", html: `<p>En el año 1787, el rey Carlos III quería saber algo que nadie sabía con exactitud: ¿cuántas personas vivían en España? Sin ese dato era muy difícil gobernar, cobrar impuestos o saber cuántos soldados se podían reunir.</p><p>Su ministro, el <b>conde de Floridablanca</b>, organizó un gran recuento. Envió a todos los pueblos y ciudades unos formularios iguales. Los párrocos y las autoridades de cada lugar tenían que anotar cuántos habitantes había, separados por sexo y por edades, si estaban casados o solteros, y a qué se dedicaban: labradores, artesanos, comerciantes, religiosos…</p><p>Reunir y sumar toda aquella información, escrita a mano en miles de papeles, llevó muchísimo trabajo. El resultado fue que en España vivían unos <b>10,4 millones de personas</b>.</p><p>Aquel recuento, conocido como el <b>censo de Floridablanca</b>, está considerado uno de los primeros censos modernos de España, porque contó a las personas una por una y con el mismo método en todo el territorio.</p><p>Hoy, el Instituto Nacional de Estadística sigue contando a la población, pero con ordenadores y registros. Y el resultado es muy diferente: en España vivimos casi cinco veces más personas que en tiempos de Floridablanca.</p>` },
+  tras: {
+    "La densidad de población": [
+      ["Calcular la densidad", `<p>La densidad de población se calcula <b>dividiendo el número de habitantes entre la superficie</b> en kilómetros cuadrados:</p><p style="text-align:center"><b>densidad = habitantes : km²</b></p><p>El resultado se expresa en <b>habitantes por kilómetro cuadrado</b> (hab/km²) e indica cuántas personas vivirían en cada kilómetro cuadrado si estuvieran repartidas por igual.</p><ul><li><b>España</b> tiene unos 49 millones de habitantes y unos 506 000 km². Su densidad es 49 000 000 : 506 000 ≈ <b>97 hab/km²</b>.</li><li>La <b>Comunidad de Madrid</b> tiene unos 7 millones de habitantes en unos 8 000 km²: alrededor de <b>870 hab/km²</b>, una de las densidades más altas del país.</li><li>La provincia de <b>Soria</b> tiene unos 90 000 habitantes en más de 10 000 km²: menos de <b>10 hab/km²</b>, una de las más bajas de Europa.</li></ul><p>La densidad es una media: no dice cómo se reparte la población dentro de cada territorio. En una provincia puede haber una ciudad muy poblada y comarcas casi vacías.</p><p>En el mundo hay contrastes enormes: Mónaco, un pequeño país junto a Francia, supera los 15 000 hab/km², mientras que Mongolia no llega a 3.</p>`,
+        H6.barras("Densidad (hab/km²)", [["Soria", 9, cRO, "< 10"], ["España", 97, cNA, "97"], ["Madrid", 870, cAZ, "870"]], 870)],
+    ],
+    "La esperanza de vida": [
+      ["¿Por qué vivimos más años?", `<p>A principios del siglo XX, la esperanza de vida al nacer en España era de unos <b>35 años</b>. Eso no significa que la gente muriera a los 35: muchos llegaban a viejos, pero morían muchísimos bebés y niños pequeños, y eso bajaba mucho la media. Hoy la esperanza de vida en España es de unos <b>84 años</b>, una de las más altas del mundo. ¿Qué ha cambiado?</p><ul><li><b>Agua potable y alcantarillado</b>: el agua sucia transmitía enfermedades muy graves, como el cólera o el tifus.</li><li><b>Vacunas</b>: han hecho desaparecer o casi desaparecer enfermedades como la viruela, la polio o la difteria.</li><li><b>Antibióticos</b>: desde mediados del siglo XX curan infecciones que antes eran mortales.</li><li><b>Mejor alimentación</b>: ya no hay hambrunas y la dieta es más variada.</li><li><b>Sanidad pública</b>: hospitales, centros de salud y cuidados durante el embarazo y el parto, al alcance de toda la población.</li></ul><p>Las mujeres viven de media algunos años más que los hombres. Los científicos creen que influyen causas biológicas y también hábitos, como el tabaco o los accidentes, que han afectado más a los hombres.</p>`,
+        L6.filas("Esperanza de vida en España", [["hacia 1900", "unos 35 años", cRO], ["hacia 1950", "unos 62 años", cNA], ["hoy", "unos 84 años", cVE], ["clave", "agua, vacunas, sanidad", cAZ]])],
+    ],
+    "Las migraciones": [
+      ["Historias de ida y vuelta", `<p>España ha sido, a lo largo de su historia, tierra de <b>emigrantes</b> y tierra de <b>inmigrantes</b>.</p><ul><li>Entre finales del siglo XIX y comienzos del XX, <b>millones</b> de españoles, sobre todo gallegos, asturianos, cántabros y canarios, emigraron a <b>América</b>: Argentina, Cuba, Uruguay, México, Venezuela… Algunos volvieron ricos y construyeron en sus pueblos grandes casas de colores con jardines y palmeras: las <b>casas de indianos</b>, que todavía se pueden ver.</li><li>Tras la Guerra Civil, muchas personas tuvieron que exiliarse por motivos políticos.</li><li>En los años sesenta y setenta, cientos de miles de españoles emigraron a <b>Europa</b>, a Alemania, Francia o Suiza, para trabajar en fábricas, y enviaban dinero a sus familias.</li><li>Al mismo tiempo, millones de personas se trasladaron del campo a las ciudades: el <b>éxodo rural</b>.</li><li>Desde finales del siglo XX, España se ha convertido en un país que recibe <b>inmigrantes</b> de América Latina, África, Europa y Asia. Hoy, una parte importante de la población ha nacido en otro país.</li></ul><p>Conocer estas historias ayuda a comprender a quienes hoy llegan buscando una vida mejor, como lo hicieron antes nuestros abuelos y bisabuelos.</p>`,
+        L6.filas("España en movimiento", [["1880-1930", "a América", cNA], ["1960-1975", "a Europa", cAZ], ["siglo XX", "del campo a la ciudad", cVE], ["hoy", "llegan inmigrantes", cMO]])],
+    ],
+  },
+  final: [
+    ["Las tasas: medir nacimientos y muertes", `<p>Para comparar países o épocas no basta con saber cuántos niños nacen: un país grande tendrá siempre más nacimientos que uno pequeño. Por eso se usan las <b>tasas</b>, que indican cuántos casos hay por cada <b>1 000 habitantes</b>. Se expresan con el símbolo <b>‰</b> (por mil).</p><ul><li><b>Tasa de natalidad</b> = nacimientos : población × 1 000.</li><li><b>Tasa de mortalidad</b> = defunciones : población × 1 000.</li><li><b>Crecimiento natural</b> = tasa de natalidad − tasa de mortalidad.</li></ul><p>Veamos un ejemplo sencillo: en una ciudad de 50 000 habitantes nacen en un año 400 niños y mueren 450 personas.</p><ul><li>Natalidad: 400 : 50 000 × 1 000 = <b>8 ‰</b>.</li><li>Mortalidad: 450 : 50 000 × 1 000 = <b>9 ‰</b>.</li><li>Crecimiento natural: 8 − 9 = <b>−1 ‰</b>. Es negativo: la población disminuye, salvo que lleguen personas de fuera.</li></ul><p>En España, desde hace unos años mueren más personas de las que nacen: en 2023 hubo unos 320 000 nacimientos y más de 430 000 defunciones. Si la población sigue creciendo es gracias a la <b>inmigración</b>.</p>`,
+      H6.flujo("Crecimiento natural", ["Natalidad|8 ‰", "− Mortalidad|9 ‰", "= −1 ‰"], cNA)],
+    ["La población del mundo", `<p>La población mundial ha crecido de forma espectacular en los últimos dos siglos:</p><ul><li>Hacia el año <b>1800</b> había en el mundo unos <b>1 000 millones</b> de personas.</li><li>Hacia <b>1960</b>, unos 3 000 millones.</li><li>El 15 de noviembre de <b>2022</b>, según Naciones Unidas, la humanidad alcanzó los <b>8 000 millones</b>.</li></ul><p>Este crecimiento se debe sobre todo a que la mortalidad bajó mucho gracias a los avances en medicina, higiene y alimentación, mientras que en muchos países seguían naciendo muchos niños.</p><p>La población no se reparte por igual. <b>Asia</b> concentra más de la mitad de los habitantes del planeta. Desde 2023, el país más poblado del mundo es <b>India</b>, que ha superado a <b>China</b>; los dos tienen más de 1 400 millones de habitantes. <b>África</b> es el continente que más rápido crece, con una población muy joven. <b>Europa</b>, en cambio, tiene una población envejecida y casi no crece.</p><p>Los expertos calculan que la población mundial seguirá aumentando durante unas décadas más y que después se estabilizará. El gran reto es que haya alimentos, agua, educación y trabajo para todos sin agotar los recursos del planeta.</p>`,
+      H6.barras("Población mundial (millones)", [["1800", 1000, cNA, "1 000"], ["1960", 3000, cAZ, "3 000"], ["2022", 8000, cRO, "8 000"]], 8000), ["IAIe3nOSj3Y", "Especial 8000 millones de habitantes", "Un Mundo Inmenso", 530172]],
+  ],
+  ejemplos: [
+    ["Una comarca tiene 12 000 habitantes y 600 km². ¿Cuál es su densidad?", ["12 000 : 600."], "20 hab/km²."],
+    ["En un pueblo de 2 000 habitantes nacen 16 niños en un año. ¿Cuál es la tasa de natalidad?", ["16 : 2 000 × 1 000."], "8 ‰."],
+  ],
+  errores: ["Pensar que una esperanza de vida de 35 años significaba que todos morían a esa edad.", "Comparar el número de nacimientos de países de distinto tamaño en lugar de sus tasas."],
+  ejercicios: [
+    ["b", "¿Cómo se calcula la densidad de población?", "Habitantes : superficie en km²."],
+    ["b", "¿Cuántos habitantes tenía España según el censo de Floridablanca?", "Unos 10,4 millones."],
+    ["b", "¿Cuál es la esperanza de vida en España hoy, aproximadamente?", "Unos 84 años."],
+    ["b", "¿Qué son las casas de indianos?", "Casas construidas por emigrantes que volvieron ricos de América."],
+    ["b", "¿Cuándo alcanzó la humanidad los 8 000 millones de personas?", "En noviembre de 2022."],
+    ["m", "Calcula la densidad de una provincia con 300 000 habitantes y 10 000 km².", "30 hab/km²."],
+    ["m", "Di tres causas del aumento de la esperanza de vida.", "Agua potable, vacunas y antibióticos (también alimentación y sanidad)."],
+    ["m", "¿A qué países emigraron muchos españoles en los años sesenta?", "A Alemania, Francia y Suiza."],
+    ["m", "¿Qué país es el más poblado del mundo desde 2023?", "India."],
+    ["m", "¿Qué continente concentra más de la mitad de la población mundial?", "Asia."],
+    ["a", "En una ciudad de 50 000 habitantes nacen 400 personas y mueren 450 en un año. Calcula el crecimiento natural.", "8 ‰ − 9 ‰ = −1 ‰."],
+    ["a", "Si en España mueren más personas de las que nacen, ¿por qué sigue creciendo la población?", "Por la llegada de inmigrantes."],
+    ["a", "¿Por qué la densidad media puede engañar?", "Porque es una media y no muestra cómo se reparte la población."],
+    ["a", "¿Por qué crece tan rápido la población de África?", "Porque la natalidad sigue siendo alta y la población es muy joven."],
+  ],
+  quiz: [
+    ["La densidad de España es de unos…", ["97 hab/km²", "9 hab/km²", "970 hab/km²"], "Densidad."],
+    ["Las tasas se expresan por cada…", ["1 000 habitantes", "10 habitantes", "millón de km²"], "‰."],
+    ["Hacia 1900, la esperanza de vida en España era de unos…", ["35 años", "65 años", "84 años"], "Esperanza de vida."],
+    ["Muchos gallegos y asturianos emigraron a finales del siglo XIX a…", ["América", "Asia", "Oceanía"], "Migraciones."],
+    ["Hacia 1800 el mundo tenía unos…", ["1 000 millones de habitantes", "8 000 millones", "100 millones"], "Población mundial."],
+  ],
+  examen: [
+    ["El censo de 1787 lo organizó…", ["el conde de Floridablanca", "Felipe II", "Isabel II"], "Lectura."],
+    ["Si la natalidad es 7 ‰ y la mortalidad 9 ‰, el crecimiento natural es…", ["−2 ‰", "16 ‰", "2 ‰"], "Resta."],
+  ],
+  tarjetas: [
+    ["Densidad", "Habitantes : km². España ≈ 97; Madrid ≈ 870; Soria < 10 hab/km²."],
+    ["Esperanza de vida", "De unos 35 años hacia 1900 a unos 84 hoy: agua, vacunas, sanidad."],
+    ["Migraciones", "Emigración a América y Europa; hoy llegan inmigrantes."],
+    ["Población mundial", "1 000 millones en 1800; 8 000 millones en 2022; India la más poblada."],
+  ],
+  glosario: [
+    ["Censo", "Recuento oficial de la población."],
+    ["Densidad de población", "Habitantes por kilómetro cuadrado."],
+    ["Tasa", "Número de casos por cada 1 000 habitantes."],
+    ["Tasa de natalidad", "Nacimientos por cada 1 000 habitantes en un año."],
+    ["Tasa de mortalidad", "Defunciones por cada 1 000 habitantes en un año."],
+    ["Crecimiento natural", "Diferencia entre natalidad y mortalidad."],
+    ["Esperanza de vida", "Años que se espera que viva de media una persona al nacer."],
+    ["Emigrante", "Persona que se va de su país o región."],
+    ["Inmigrante", "Persona que llega a un país o región para vivir."],
+    ["Indiano", "Emigrante que volvió de América con fortuna."],
+    ["Éxodo rural", "Traslado masivo de población del campo a la ciudad."],
+    ["Exilio", "Salida obligada del propio país, a menudo por motivos políticos."],
+  ],
+  situacion: {
+    titulo: "El censo de la clase",
+    reto: "La clase hace un pequeño censo de sus familias para descubrir cómo ha cambiado la población en tres generaciones.",
+    pasos: ["Diseñad una encuesta anónima: dónde nacieron los alumnos, sus padres y sus abuelos, cuántos hermanos tenían…", "Recoged las respuestas y organizadlas en tablas.", "Calculad medias y porcentajes y haced gráficos y un mapa de lugares de nacimiento.", "Sacad conclusiones sobre migraciones, tamaño de las familias y esperanza de vida, y presentadlas."],
+    producto: "Un informe del censo de la clase con tablas, gráficos y un mapa.",
+    evaluacion: ["Diseña una encuesta respetuosa y anónima.", "Organiza y representa datos.", "Calcula medias y porcentajes.", "Relaciona los resultados con los cambios de la población española."],
+  },
+});

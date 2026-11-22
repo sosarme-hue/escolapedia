@@ -141,3 +141,91 @@ module.exports = {
   fuentes: [RD, { t: "Instituto Geográfico Nacional: Atlas Nacional de España", url: "https://www.ign.es/web/ign/portal/ane-area-ane" }, wiki("Relieve de España", "Relieve_de_España"), wiki("Geografía de Europa", "Geografía_de_Europa")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Explicar las fuerzas que forman y modelan el relieve", "Valorar la importancia de los embalses y los problemas del agua en España", "Localizar fiordos, lagos y glaciares del norte de Europa", "Interpretar curvas de nivel y escalas en un mapa topográfico"],
+  lectura: { titulo: "Ochenta y cinco días de volcán", html: `<p>El 19 de septiembre de 2021, Ayoze estaba jugando en la plaza de su pueblo, en la isla de La Palma, cuando escuchó un estruendo enorme. Al mirar hacia la montaña vio una columna de humo negro que subía hacia el cielo. Acababa de nacer un <b>volcán</b> en la Cumbre Vieja.</p><p>Durante los días siguientes, la lava avanzó lentamente ladera abajo, como un río de fuego, hasta llegar al mar. Muchas familias tuvieron que dejar sus casas en pocas horas. La ceniza lo cubría todo: los coches, los tejados, las plataneras. Ayoze y sus compañeros iban al colegio con mascarilla y gafas, y por las tardes ayudaban a barrer la ceniza de las calles.</p><p>El volcán, al que se llamó <b>Tajogaite</b>, estuvo en erupción <b>85 días</b>. Las coladas de lava cubrieron más de mil hectáreas y destruyeron más de mil quinientas construcciones, entre ellas casas, colegios y carreteras. Gracias a que la población fue evacuada a tiempo, la lava no causó víctimas.</p><p>Cuando por fin se apagó, en diciembre, la isla era un poco más grande: la lava había creado tierra nueva en el mar. Ayoze comprendió que el relieve no es algo quieto: la Tierra sigue cambiando, a veces delante de nuestros ojos.</p>` },
+  tras: {
+    "Las montañas que rodean la Meseta": [
+      ["¿Cómo se formó el relieve?", `<p>El relieve que vemos hoy es el resultado de dos tipos de fuerzas que actúan durante millones de años:</p><p><b>Las fuerzas internas</b> vienen del interior de la Tierra. La corteza terrestre está dividida en grandes trozos llamados <b>placas tectónicas</b>, que se mueven muy despacio, unos pocos centímetros al año, más o menos lo que crecen tus uñas.</p><ul><li>Cuando dos placas chocan, los terrenos se arrugan y se levantan, formando <b>cordilleras</b>. Así se formaron los Pirineos, por el choque de la placa de la península ibérica contra la del resto de Europa, y los Alpes.</li><li>Por las grietas entre placas puede salir magma: se forman <b>volcanes</b>, como los de Canarias.</li><li>Los movimientos bruscos de las placas producen <b>terremotos</b>.</li></ul><p><b>Las fuerzas externas</b> desgastan y modelan ese relieve:</p><ul><li>Los <b>ríos</b> excavan valles y arrastran materiales que depositan en las llanuras y en las desembocaduras.</li><li>Los <b>glaciares</b>, enormes masas de hielo, excavaron en el pasado valles en forma de U y los circos donde hoy hay lagos de montaña, como en los Pirineos.</li><li>El <b>viento</b>, el <b>mar</b> y los cambios de temperatura rompen y desgastan las rocas.</li></ul>`,
+        H6.dos("Fuerzas del relieve", ["Internas", ["placas que chocan", "volcanes", "terremotos"], cRO], ["Externas", ["ríos y glaciares", "viento y mar", "desgastan y modelan"], cAZ])],
+    ],
+    "Los ríos de España": [
+      ["Embalses y trasvases: guardar el agua", `<p>En gran parte de España llueve poco y de forma irregular: hay años muy secos y otros con lluvias torrenciales. Además, la mayoría de los ríos llevan mucha agua en invierno y primavera y muy poca en verano, justo cuando más se necesita para regar y para el turismo.</p><p>Para guardar el agua se construyen <b>presas</b>, unos muros que cierran el valle de un río. El agua retenida detrás forma un <b>embalse</b> o pantano. España es uno de los países del mundo con más grandes presas: más de mil.</p><p>Los embalses sirven para:</p><ul><li>Abastecer de <b>agua potable</b> a las ciudades.</li><li><b>Regar</b> los cultivos, que es el uso que más agua consume.</li><li>Producir <b>electricidad</b> en las centrales hidroeléctricas.</li><li>Evitar <b>inundaciones</b>, guardando el agua de las crecidas.</li></ul><p>Algunas zonas, como el sureste, tienen poca agua. Por eso se construyeron <b>trasvases</b>, canales que llevan agua de una cuenca a otra. El más conocido es el <b>trasvase Tajo-Segura</b>, que funciona desde 1979. Los trasvases generan debates, porque los territorios de donde sale el agua también la necesitan.</p><p>Cuando hay sequía, las noticias hablan de la <b>reserva hídrica</b>: el porcentaje de agua que tienen los embalses respecto a su capacidad total.</p>`,
+        L6.filas("Para qué sirve un embalse", [["agua potable", "ciudades", cAZ], ["regadío", "el mayor uso", cVE], ["electricidad", "centrales hidráulicas", cNA], ["inundaciones", "frena crecidas", cRO]])],
+    ],
+    "Penínsulas, islas y ríos de Europa": [
+      ["Fiordos, lagos y glaciares del norte", `<p>El norte de Europa tiene paisajes muy distintos a los de España, modelados por el <b>hielo</b>. Hace unos 20 000 años, durante la última glaciación, gruesas capas de hielo cubrían Escandinavia y buena parte del norte del continente. Al moverse, los glaciares excavaron el terreno, y al derretirse dejaron formas muy características:</p><ul><li>Los <b>fiordos</b> de Noruega son antiguos valles glaciares que hoy ha invadido el mar. Son brazos de mar largos, estrechos y profundos, rodeados de paredes de roca altísimas. El fiordo de Sogne mide unos 200 km de largo.</li><li><b>Finlandia</b> es llamada «el país de los mil lagos», aunque en realidad tiene muchísimos más: decenas de miles. Muchos se formaron en huecos excavados por el hielo.</li><li>En <b>Islandia</b>, una isla volcánica, hay a la vez volcanes, géiseres y enormes glaciares.</li><li>En los <b>Alpes</b> todavía quedan glaciares, como el de Aletsch, en Suiza, el más grande de la cordillera.</li></ul><p>Hoy, a causa del calentamiento global, casi todos los glaciares de Europa están <b>retrocediendo</b>. En los Pirineos, los pocos glaciares que quedan son cada vez más pequeños, y algunos ya han desaparecido.</p>`,
+        L6.filas("Paisajes del hielo", [["fiordos", "Noruega", cAZ], ["lagos", "Finlandia", cVE], ["volcanes y hielo", "Islandia", cRO], ["glaciares", "Alpes y Pirineos", cMO]])],
+    ],
+  },
+  final: [
+    ["Leer un mapa topográfico", `<p>Un <b>mapa topográfico</b> representa con detalle el relieve de un territorio. Para mostrar las alturas sobre un papel plano usa varios recursos:</p><ul><li>Las <b>curvas de nivel</b> son líneas que unen puntos que están a la <b>misma altitud</b>. Si caminaras siguiendo una, ni subirías ni bajarías. Suelen dibujarse cada 10, 20 o 50 metros.</li><li>Cuando las curvas están muy <b>juntas</b>, la pendiente es <b>fuerte</b>: es un terreno muy empinado. Cuando están <b>separadas</b>, el terreno es <b>suave</b>.</li><li>Unas curvas cerradas, una dentro de otra, con la altitud aumentando hacia el centro, indican una montaña o un cerro.</li><li>Los <b>colores</b> también ayudan: verde para las zonas bajas, amarillo y marrón para las altas y blanco para las cumbres. El azul, para el agua.</li></ul><p>La <b>escala</b> indica cuántas veces se ha reducido la realidad. En un mapa a escala <b>1:50 000</b>, 1 cm del mapa equivale a 50 000 cm de la realidad, es decir, a <b>500 m</b>. Si dos pueblos están a 6 cm en el mapa, en la realidad hay 3 km en línea recta.</p><p>Los excursionistas y los equipos de rescate usan estos mapas para planificar rutas y calcular lo que tendrán que subir.</p>`,
+      H6.dos("Curvas de nivel", ["Juntas", ["mucha pendiente", "terreno empinado", "cuesta dura"], cRO], ["Separadas", ["poca pendiente", "terreno suave", "fácil de andar"], cVE]), ["csp0jm5zahI", "introducción a las curvas de nivel", "Jose M. Sánchez", 218818]],
+    ["El relieve y la vida de las personas", `<p>El relieve influye mucho en dónde y cómo vivimos:</p><ul><li>Las grandes <b>ciudades</b> suelen estar en llanuras, valles de ríos o costas, donde es fácil construir, cultivar y comunicarse. Madrid está en el centro de la Meseta, y muchas ciudades importantes son puertos.</li><li>En las <b>montañas</b> la vida es más difícil: hace más frío, hay menos tierra llana para cultivar y las comunicaciones son complicadas. Por eso muchos pueblos de montaña han perdido población. A cambio, se dedican a la ganadería, al turismo rural, al senderismo o al esquí.</li><li>El relieve condiciona las <b>comunicaciones</b>. Para cruzar las sierras hay que construir puertos de montaña, viaductos y túneles. El túnel de Guadarrama, por el que pasa el tren de alta velocidad entre Madrid y Valladolid, mide unos 28 km.</li><li>En las <b>costas</b> se concentran el turismo de sol y playa y la pesca.</li></ul><p>Las personas también modificamos el relieve: allanamos terrenos para construir, hacemos terrazas en las laderas para cultivar, levantamos presas o ganamos tierra al mar. Hay que hacerlo con cuidado para no dañar el medio ambiente ni aumentar riesgos como las inundaciones.</p>`,
+      L6.filas("Relieve y vida", [["llanuras", "ciudades y cultivos", cVE], ["montañas", "ganadería y turismo", cMO], ["sierras", "túneles y viaductos", cNA], ["costas", "puertos y playas", cAZ]])],
+  ],
+  ejemplos: [
+    ["En un mapa 1:50 000, dos pueblos están a 6 cm. ¿Qué distancia real hay?", ["1 cm = 50 000 cm = 500 m.", "6 × 500 m."], "3 000 m = 3 km."],
+    ["En un mapa, unas curvas de nivel están muy juntas al norte de un monte y muy separadas al sur. ¿Por dónde subirías?", ["Juntas: pendiente fuerte.", "Separadas: pendiente suave."], "Por el sur, más suave."],
+  ],
+  errores: ["Pensar que el relieve no cambia: las placas, los ríos y los volcanes lo transforman continuamente.", "Creer que las curvas de nivel juntas indican terreno llano: indican mucha pendiente."],
+  ejercicios: [
+    ["b", "¿Qué son las placas tectónicas?", "Grandes trozos en que se divide la corteza terrestre."],
+    ["b", "¿Qué es un embalse?", "El agua retenida detrás de una presa."],
+    ["b", "¿Qué país es famoso por sus fiordos?", "Noruega."],
+    ["b", "¿Qué son las curvas de nivel?", "Líneas que unen puntos a la misma altitud."],
+    ["b", "¿Cuántos días duró la erupción del volcán de La Palma?", "85 días."],
+    ["m", "¿Cómo se formaron los Pirineos?", "Por el choque de la placa ibérica con la del resto de Europa."],
+    ["m", "Di tres usos de los embalses.", "Agua potable, regadío y electricidad (también evitar inundaciones)."],
+    ["m", "¿Qué es un trasvase? Pon un ejemplo.", "Un canal que lleva agua de una cuenca a otra; el Tajo-Segura."],
+    ["m", "¿Qué formas de relieve dejaron los glaciares?", "Valles en U, circos y lagos, fiordos."],
+    ["m", "En un mapa 1:50 000, ¿a cuántos metros equivale 1 cm?", "500 m."],
+    ["a", "¿Por qué en España hacen falta tantos embalses?", "Porque la lluvia es escasa e irregular y los ríos llevan poca agua en verano."],
+    ["a", "¿Por qué los glaciares de los Pirineos están desapareciendo?", "Por el calentamiento global."],
+    ["a", "Dos lugares están a 8 cm en un mapa 1:25 000. ¿Qué distancia real hay?", "8 × 250 m = 2 km."],
+    ["a", "¿Por qué muchos pueblos de montaña pierden población?", "Por el clima duro, la falta de tierras llanas y de servicios y las malas comunicaciones."],
+  ],
+  quiz: [
+    ["Las cordilleras se forman sobre todo cuando…", ["chocan placas tectónicas", "llueve mucho", "sopla el viento"], "Fuerzas internas."],
+    ["El trasvase Tajo-Segura funciona desde…", ["1979", "1879", "2019"], "Trasvases."],
+    ["Finlandia es conocida como el país de los…", ["mil lagos", "mil volcanes", "mil fiordos"], "Norte."],
+    ["Si las curvas de nivel están muy juntas, el terreno es…", ["muy empinado", "llano", "un lago"], "Mapas."],
+    ["El volcán de La Palma de 2021 se llamó…", ["Tajogaite", "Teide", "Etna"], "Lectura."],
+  ],
+  examen: [
+    ["El uso que más agua consume en España es…", ["el regadío", "beber", "las piscinas"], "Embalses."],
+    ["En un mapa 1:50 000, 4 cm son en la realidad…", ["2 km", "200 m", "20 km"], "4 × 500 m."],
+  ],
+  tarjetas: [
+    ["Formación del relieve", "Fuerzas internas (placas, volcanes, terremotos) y externas (ríos, glaciares, viento, mar)."],
+    ["Embalses", "Más de mil grandes presas: agua potable, riego, electricidad y control de crecidas."],
+    ["Norte de Europa", "Fiordos noruegos, lagos finlandeses, glaciares de Islandia y los Alpes."],
+    ["Mapa topográfico", "Curvas de nivel; juntas = pendiente fuerte. 1:50 000 → 1 cm = 500 m."],
+  ],
+  glosario: [
+    ["Placa tectónica", "Gran fragmento de la corteza terrestre que se mueve."],
+    ["Glaciar", "Gran masa de hielo que se desplaza lentamente."],
+    ["Circo glaciar", "Hueco excavado por un glaciar en la montaña."],
+    ["Presa", "Muro que cierra un río para retener el agua."],
+    ["Embalse", "Lago artificial formado detrás de una presa."],
+    ["Trasvase", "Conducción de agua de una cuenca a otra."],
+    ["Reserva hídrica", "Agua almacenada en los embalses."],
+    ["Fiordo", "Valle glaciar invadido por el mar."],
+    ["Mapa topográfico", "Mapa que representa el relieve con detalle."],
+    ["Curva de nivel", "Línea que une puntos de igual altitud."],
+    ["Escala", "Relación entre las medidas del mapa y las reales."],
+    ["Colada de lava", "Río de lava que sale de un volcán."],
+  ],
+  situacion: {
+    titulo: "Diseñamos una ruta de montaña",
+    reto: "La clase planifica una excursión a una sierra cercana usando mapas topográficos reales.",
+    pasos: ["Buscad en el visor del Instituto Geográfico Nacional un mapa topográfico de una sierra cercana.", "Trazad una ruta y calculad su distancia con la escala y el desnivel con las curvas de nivel.", "Identificad las formas de relieve, los ríos y los pueblos que atraviesa.", "Presentad la ruta con un perfil dibujado y recomendaciones de seguridad."],
+    producto: "Una guía de la ruta con mapa, perfil y recomendaciones.",
+    evaluacion: ["Usa la escala para calcular distancias.", "Interpreta curvas de nivel.", "Reconoce formas del relieve.", "Presenta la información con claridad."],
+  },
+});
