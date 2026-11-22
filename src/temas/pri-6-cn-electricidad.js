@@ -146,3 +146,91 @@ module.exports = {
   fuentes: [RD, wiki("Electricidad", "Electricidad"), wiki("Magnetismo", "Magnetismo"), { t: "Museo Nacional de Ciencia y Tecnología (MUNCYT)", url: "https://www.muncyt.es/" }],
   revisado: REV,
 };
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Distinguir voltaje, intensidad y resistencia con la analogía del agua", "Dibujar circuitos con símbolos eléctricos", "Construir un electroimán y explicar cómo funciona un motor", "Conocer la historia de la electricidad y el uso responsable de pilas y baterías"],
+  lectura: { titulo: "Las ancas de rana", html: `<p>Hacia 1780, en la ciudad italiana de Bolonia, el médico <b>Luigi Galvani</b> estaba estudiando ranas en su laboratorio. Un día observó algo asombroso: al tocar los nervios de unas patas de rana con dos metales distintos, las patas se movían bruscamente, como si estuvieran vivas.</p><p>Galvani pensó que dentro de los animales había una «electricidad animal» que salía de los músculos.</p><p>Otro científico italiano, <b>Alessandro Volta</b>, no estaba de acuerdo. Pensaba que la electricidad no venía de la rana, sino de los <b>dos metales</b> diferentes unidos por una sustancia húmeda. La rana solo servía para notarla.</p><p>Para demostrarlo, Volta construyó en 1800 una torre con discos de cinc y de cobre, separados por trozos de cartón empapados en agua salada. Al unir con un cable la parte de arriba y la de abajo, ¡salía una corriente eléctrica continua! Sin ninguna rana. Había inventado la <b>pila eléctrica</b>.</p><p>Los dos tenían parte de razón: hoy sabemos que nuestros nervios funcionan con pequeñas señales eléctricas. En honor a Volta, la unidad del voltaje se llama <b>voltio</b>, y de Galvani viene la palabra «galvanizar».</p>` },
+  tras: {
+    "La corriente eléctrica": [
+      ["Voltaje, intensidad y resistencia", `<p>Para entender la corriente eléctrica, compárala con el agua que circula por unas tuberías:</p><ul><li>El <b>voltaje</b> es como la <b>presión</b> que empuja el agua. Lo da la pila o el enchufe. Se mide en <b>voltios (V)</b>. Una pila normal tiene 1,5 V, una pila de petaca 4,5 V, y los enchufes de las casas en España, 230 V.</li><li>La <b>intensidad</b> es la <b>cantidad de agua</b> que pasa cada segundo. Es la cantidad de electricidad que circula. Se mide en <b>amperios (A)</b>.</li><li>La <b>resistencia</b> es lo <b>estrecha</b> que es la tubería: cuanto más estrecha, más le cuesta pasar al agua. Cada material y cada aparato tiene su resistencia. Se mide en <b>ohmios (Ω)</b>.</li></ul><p>Las tres magnitudes están relacionadas. Si aumentamos el voltaje, pasa más corriente: por eso una bombilla brilla más con dos pilas que con una. Si aumentamos la resistencia, pasa menos corriente.</p><p>Esta relación la descubrió el alemán Georg Ohm en el siglo XIX. Una advertencia muy importante: el voltaje de los enchufes es <b>peligroso</b>. Los experimentos se hacen siempre con pilas, nunca con la corriente de casa.</p>`,
+        L6.filas("Como el agua", [["voltaje (V)", "presión que empuja", cRO], ["intensidad (A)", "cantidad que pasa", cAZ], ["resistencia (Ω)", "tubería estrecha", cNA], ["enchufe", "230 V: ¡peligro!", cMO]])],
+    ],
+    "Circuitos en serie y en paralelo": [
+      ["Dibujar circuitos con símbolos", `<p>Los electricistas y los ingenieros no dibujan las bombillas y las pilas como son en realidad, porque tardarían mucho. Usan <b>símbolos</b> sencillos que todo el mundo entiende. Un dibujo de un circuito con símbolos se llama <b>esquema eléctrico</b>.</p><p>Los símbolos más usados son:</p><ul><li><b>Pila</b>: dos rayas paralelas, una larga (polo positivo) y otra corta (polo negativo).</li><li><b>Bombilla</b>: un círculo con una cruz dentro.</li><li><b>Interruptor</b>: una línea interrumpida con un trocito inclinado; si está abierto, la corriente no pasa.</li><li><b>Motor</b>: un círculo con una letra M.</li><li><b>Cables</b>: líneas rectas que unen los elementos, dibujadas con regla y con esquinas en ángulo recto.</li></ul><p>Con estos símbolos se puede dibujar cualquier circuito en pocos segundos y comprobar si funcionará: el camino de la corriente debe salir de un polo de la pila, pasar por los receptores y volver al otro polo, sin interrupciones.</p><p>Un consejo para dibujarlos: empieza siempre por la pila, sigue el camino de la corriente con el dedo y coloca los elementos por orden. Si es en paralelo, dibuja una rama para cada bombilla.</p>`,
+        H6.flujo("Recorrido de la corriente", ["Pila|polo +", "Interruptor|cerrado", "Bombilla", "Pila|polo −"], cNA)],
+    ],
+    "Electricidad y magnetismo, unidos": [
+      ["El electroimán y el motor eléctrico", `<p>Gracias al descubrimiento de Ørsted podemos fabricar un <b>electroimán</b>: un imán que funciona solo cuando pasa la corriente. Es muy fácil:</p><ol><li>Enrolla un cable fino con funda muchas veces alrededor de un clavo grande de hierro, formando una bobina.</li><li>Conecta los extremos del cable a una pila de 4,5 V, siempre con la ayuda de un adulto.</li><li>Acerca el clavo a unos clips: ¡los atrae! Al desconectar la pila, los clips caen.</li></ol><p>Cuantas más vueltas tenga el cable, más fuerte es el electroimán. Los electroimanes se usan en las <b>grúas</b> que levantan chatarra en los desguaces, en los <b>timbres</b>, en las cerraduras eléctricas y en los <b>altavoces</b>.</p><p>El <b>motor eléctrico</b> también funciona gracias al magnetismo. Dentro tiene imanes y una bobina que puede girar. Al pasar la corriente, la bobina se convierte en un electroimán que es atraído y empujado por los imanes, y empieza a girar sin parar. Así transforma la energía eléctrica en <b>movimiento</b>.</p><p>Hay motores eléctricos en los ventiladores, las lavadoras, los juguetes, los trenes y los coches eléctricos.</p>`,
+        H6.dos("Magnetismo útil", ["Electroimán", ["cable + clavo", "solo con corriente", "grúas, timbres"], cAZ], ["Motor", ["bobina e imanes", "electricidad → giro", "trenes, lavadoras"], cVE]), ["0MlujhiwMEU", "Cómo hacer un electroimán casero (Experimentos Caseros)", "ExpCaseros", 1661521]],
+    ],
+  },
+  final: [
+    ["Una breve historia de la electricidad", `<p>La electricidad ha cambiado la forma de vivir en solo unos doscientos años:</p><ul><li>Hace unos 2 600 años, el griego <b>Tales de Mileto</b> observó que el ámbar frotado atraía plumas y pelusas. En griego, ámbar se dice <i>élektron</i>: de ahí viene la palabra electricidad.</li><li>En el siglo XVIII, el estadounidense <b>Benjamin Franklin</b> estudió los rayos y demostró que eran electricidad. Inventó el <b>pararrayos</b>, que protege los edificios.</li><li>En <b>1800</b>, Alessandro <b>Volta</b> inventó la pila: por primera vez se podía tener corriente continua.</li><li>En <b>1831</b>, el inglés <b>Michael Faraday</b> descubrió cómo producir electricidad moviendo un imán dentro de una bobina. Así funcionan hoy las dinamos y los generadores de todas las centrales.</li><li>En <b>1879</b>, <b>Thomas Edison</b> y su equipo fabricaron una bombilla práctica que duraba muchas horas, y después construyó centrales para llevar la luz a las casas.</li></ul><p>Desde entonces, la electricidad mueve trenes, ordenadores, hospitales y teléfonos. Es difícil imaginar un día sin ella.</p>`,
+      L6.filas("Línea del tiempo", [["siglo VI a. C.", "Tales: el ámbar", cNA], ["1800", "pila de Volta", cAZ], ["1831", "Faraday: inducción", cVE], ["1879", "bombilla de Edison", cRO]]), ["QhK9x5HI-Os", "Alessandro Volta y la Batería", "GRIMTEC_Investigación", 35726]],
+    ["Pilas, baterías y coches eléctricos", `<p>Una <b>pila</b> transforma energía química en energía eléctrica. Cuando las sustancias de su interior se gastan, la pila deja de funcionar. Las <b>baterías recargables</b>, en cambio, se pueden volver a cargar muchas veces conectándolas a la corriente: las llevan los móviles, las tabletas, los patinetes y los coches eléctricos.</p><p>Las baterías más usadas hoy son las de <b>ion-litio</b>, porque guardan mucha energía y pesan poco. Gracias a ellas existen los <b>coches eléctricos</b>, que no echan humo por el tubo de escape. Si además se cargan con electricidad renovable, contaminan mucho menos.</p><p>Pero las pilas y las baterías contienen metales que pueden contaminar el suelo y el agua si se tiran a la basura normal. Por eso:</p><ul><li>Las pilas gastadas se llevan a los <b>contenedores específicos de pilas</b> que hay en tiendas, supermercados y puntos limpios.</li><li>Conviene usar <b>pilas recargables</b>: una sola puede sustituir a cientos de pilas normales.</li><li>Las baterías de móviles y aparatos viejos se llevan al <b>punto limpio</b>.</li><li>Nunca hay que abrir, pinchar ni calentar una batería: puede arder.</li></ul><p>Reciclarlas permite recuperar metales valiosos como el litio, el níquel o el cobalto.</p>`,
+      H6.dos("Pilas", ["Normal", ["se gasta", "un solo uso", "contenedor de pilas"], cRO], ["Recargable", ["se recarga", "cientos de usos", "móviles, coches"], cVE])],
+  ],
+  ejemplos: [
+    ["Una linterna funciona con 3 pilas de 1,5 V en serie. ¿Qué voltaje recibe la bombilla?", ["En serie, los voltajes se suman.", "1,5 + 1,5 + 1,5."], "4,5 V."],
+    ["Un electroimán con 20 vueltas de cable levanta 4 clips. ¿Qué harías para que levante más?", ["La fuerza aumenta con el número de vueltas.", "También con más voltaje (con cuidado)."], "Dar más vueltas al cable."],
+  ],
+  errores: ["Confundir voltaje con intensidad: el voltaje empuja y la intensidad es lo que pasa.", "Tirar las pilas gastadas a la basura normal."],
+  ejercicios: [
+    ["b", "¿En qué unidades se miden el voltaje, la intensidad y la resistencia?", "Voltios, amperios y ohmios."],
+    ["b", "¿Qué voltaje tienen los enchufes de las casas en España?", "230 V."],
+    ["b", "¿Qué inventó Volta en 1800?", "La pila eléctrica."],
+    ["b", "Describe el símbolo de una bombilla en un esquema.", "Un círculo con una cruz dentro."],
+    ["b", "¿Dónde se tiran las pilas gastadas?", "En contenedores específicos de pilas o en el punto limpio."],
+    ["m", "Explica qué es el voltaje usando la comparación con el agua.", "Es como la presión que empuja el agua por la tubería."],
+    ["m", "¿Qué materiales necesitas para construir un electroimán?", "Un clavo de hierro, cable con funda y una pila."],
+    ["m", "¿Qué transformación de energía hace un motor eléctrico?", "De energía eléctrica a movimiento."],
+    ["m", "¿De dónde viene la palabra electricidad?", "Del griego élektron, que significa ámbar."],
+    ["m", "¿Por qué los coches eléctricos contaminan menos?", "No echan humo al circular; si se cargan con renovables, aún menos."],
+    ["a", "Dibuja el esquema de un circuito con una pila, un interruptor y dos bombillas en paralelo.", "Respuesta abierta: una rama para cada bombilla."],
+    ["a", "¿Qué discutían Galvani y Volta? ¿Quién tenía razón?", "El origen de la electricidad de las ranas; los dos en parte."],
+    ["a", "¿Qué descubrió Faraday y para qué sirve hoy?", "Producir electricidad moviendo imanes y bobinas; generadores de las centrales."],
+    ["a", "¿Por qué no se debe experimentar con los enchufes de casa?", "Porque 230 V es un voltaje peligroso que puede causar descargas graves."],
+  ],
+  quiz: [
+    ["La intensidad se mide en…", ["amperios", "voltios", "ohmios"], "Magnitudes."],
+    ["Una pila normal tiene…", ["1,5 V", "230 V", "15 V"], "Pilas."],
+    ["Un electroimán funciona…", ["solo cuando pasa corriente", "siempre", "solo con agua"], "Electroimán."],
+    ["El pararrayos lo inventó…", ["Benjamin Franklin", "Volta", "Edison"], "Historia."],
+    ["Las baterías de los móviles suelen ser de…", ["ion-litio", "cartón", "cobre puro"], "Baterías."],
+  ],
+  examen: [
+    ["En el símil del agua, la resistencia es como…", ["lo estrecha que es la tubería", "la presión", "el agua"], "Resistencia."],
+    ["Faraday descubrió en 1831 cómo producir electricidad con…", ["imanes y bobinas", "ranas", "ámbar"], "Inducción."],
+  ],
+  tarjetas: [
+    ["V, A y Ω", "Voltaje empuja (V), intensidad circula (A), resistencia frena (Ω)."],
+    ["Esquemas", "Pila: dos rayas; bombilla: círculo con cruz; motor: círculo con M."],
+    ["Electroimán y motor", "Cable enrollado en hierro + corriente = imán; el motor convierte electricidad en giro."],
+    ["Historia", "Tales, Franklin, Volta 1800, Faraday 1831, Edison 1879."],
+  ],
+  glosario: [
+    ["Voltaje", "Empuje que hace circular la corriente; se mide en voltios."],
+    ["Intensidad", "Cantidad de corriente que circula; se mide en amperios."],
+    ["Resistencia", "Dificultad que pone un material al paso de la corriente."],
+    ["Ohmio", "Unidad de resistencia eléctrica (Ω)."],
+    ["Esquema eléctrico", "Dibujo de un circuito con símbolos."],
+    ["Bobina", "Cable enrollado en muchas vueltas."],
+    ["Electroimán", "Imán que funciona cuando pasa corriente."],
+    ["Motor eléctrico", "Máquina que transforma electricidad en movimiento."],
+    ["Pararrayos", "Barra metálica que protege los edificios de los rayos."],
+    ["Generador", "Máquina que produce electricidad a partir de movimiento."],
+    ["Batería recargable", "Pila que se puede volver a cargar."],
+    ["Punto limpio", "Lugar donde se depositan residuos especiales."],
+  ],
+  situacion: {
+    titulo: "La feria de los circuitos",
+    reto: "Por equipos, la clase diseña y construye un juego eléctrico (un laberinto con timbre, un tablero de preguntas con luces o una grúa con electroimán) para una feria de ciencias.",
+    pasos: ["Elegid el juego y dibujad su esquema eléctrico con símbolos.", "Construid el circuito con pilas, cables, bombillas, zumbadores o un electroimán.", "Probadlo, encontrad los fallos y mejoradlo.", "Presentadlo en la feria explicando cómo funciona y qué magnitudes eléctricas intervienen."],
+    producto: "Un juego eléctrico que funciona y su ficha técnica con el esquema.",
+    evaluacion: ["Dibuja esquemas eléctricos correctos.", "Construye circuitos seguros que funcionan.", "Resuelve problemas técnicos.", "Explica el funcionamiento con vocabulario científico."],
+  },
+});

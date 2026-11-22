@@ -140,3 +140,91 @@ module.exports = {
   fuentes: [RD, { t: "Scratch, MIT Media Lab", url: "https://scratch.mit.edu/" }, wiki("Máquina simple", "Máquina_simple"), wiki("Robot", "Robot")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Aplicar la ley de la palanca para calcular fuerzas", "Explicar cómo la polea móvil y el polipasto ahorran fuerza", "Comprender qué es la inteligencia artificial y sus límites", "Conocer a grandes inventores de máquinas y reflexionar sobre la ética de los robots"],
+  lectura: { titulo: "El artificio de Juanelo", html: `<p>En el siglo XVI, la ciudad de Toledo tenía un problema: estaba construida sobre un cerro, y el agua del río Tajo corría muy abajo, a casi cien metros de altura por debajo del Alcázar. Los aguadores subían el agua a lomos de burros por cuestas empinadas. Era lento y caro.</p><p>Muchos ingenieros lo intentaron sin éxito, hasta que llegó <b>Juanelo Turriano</b>, un relojero nacido en Italia que había trabajado para el emperador Carlos V. Juanelo construía relojes y autómatas maravillosos, y tuvo una idea genial.</p><p>Hacia 1569 terminó su <b>artificio</b>: una enorme máquina de madera y metal movida por la fuerza del propio río. Una rueda hidráulica movía una serie de brazos y cazos de latón que se balanceaban y se pasaban el agua unos a otros, como en una cadena, subiéndola poco a poco por la ladera hasta lo alto de la ciudad.</p><p>El artificio funcionó y asombró a toda Europa. Pero Juanelo no recibió todo el dinero prometido y murió pobre. Toledo aún lo recuerda: según la leyenda, Juanelo construyó también un autómata de madera que caminaba por la calle, y hoy existe en la ciudad la calle del Hombre de Palo.</p>` },
+  tras: {
+    "La palanca": [
+      ["La ley de la palanca", `<p>¿Por qué un niño pequeño puede levantar a un adulto en un balancín? La respuesta está en la <b>ley de la palanca</b>, que el sabio griego Arquímedes estudió hace más de 2 200 años:</p><p style="text-align:center"><b>fuerza × su brazo = resistencia × su brazo</b></p><p>El <b>brazo</b> es la distancia desde el punto de apoyo hasta donde se aplica cada fuerza.</p><ul><li>En un balancín, una niña de 30 kg sentada a 2 m del centro equilibra a un adulto de 60 kg sentado a 1 m: 30 × 2 = 60 × 1 = 60.</li><li>Para levantar una piedra de 100 kg con una barra, si la piedra está a 0,5 m del apoyo y empujamos a 2 m, basta con hacer la fuerza de unos 25 kg: 25 × 2 = 100 × 0,5 = 50.</li></ul><p>La conclusión es clara: <b>cuanto más lejos del punto de apoyo hagamos la fuerza, menos fuerza necesitamos</b>. Por eso las llaves de las tuercas tienen el mango largo y por eso es más fácil abrir una puerta empujando lejos de las bisagras.</p><p>Según se cuenta, Arquímedes llegó a decir: «Dadme un punto de apoyo y moveré el mundo».</p>`,
+        L6.filas("Equilibrio en el balancín", [["niña", "30 kg × 2 m = 60", cAZ], ["adulto", "60 kg × 1 m = 60", cNA], ["barra", "25 × 2 = 100 × 0,5", cVE], ["regla", "más brazo, menos fuerza", cRO]])],
+    ],
+    "Ruedas, poleas y engranajes": [
+      ["Polea móvil y polipasto", `<p>Una polea fija no ahorra fuerza, solo cambia su dirección. Pero hay otras combinaciones que sí la ahorran:</p><ul><li>En la <b>polea móvil</b>, la polea está unida a la carga y sube con ella. La cuerda tiene un extremo atado arriba y tiramos del otro. Como la carga queda colgada de <b>dos tramos de cuerda</b>, cada uno soporta la mitad: necesitamos <b>la mitad de fuerza</b>. A cambio, hay que tirar el doble de cuerda.</li><li>El <b>polipasto</b> combina varias poleas fijas y móviles. Cuantos más tramos de cuerda sostengan la carga, menos fuerza hace falta. Con un polipasto de cuatro tramos, para subir un saco de 80 kg basta con hacer la fuerza de unos 20 kg, aunque hay que tirar de cuatro veces más cuerda.</li></ul><p>Esto ocurre con todas las máquinas simples: <b>lo que se gana en fuerza se pierde en distancia</b>. Nada es gratis.</p><p>Los polipastos se usan en las grúas de construcción, en los talleres para levantar motores, en los barcos de vela para izar las velas y en los gimnasios, en algunas máquinas de musculación.</p>`,
+        H6.barras("Fuerza para subir 80 kg", [["polea fija", 80, cRO, "80 kg"], ["polea móvil", 40, cNA, "40 kg"], ["polipasto ×4", 20, cVE, "20 kg"]], 80), ["u4ZaMC5L_Cs", "COMPARACIÓN ENTRE POLEA FIJA SIMPLE Y POLEA MÓVIL SIMPLE", "7activestudio", 231210]],
+    ],
+    "¿Qué es un robot?": [
+      ["Máquinas que aprenden: la inteligencia artificial", `<p>Los robots tradicionales siguen al pie de la letra un programa escrito por personas. Pero hoy existen programas que pueden <b>aprender a partir de ejemplos</b>: es la <b>inteligencia artificial</b> (IA).</p><p>Imagina que queremos que un ordenador distinga fotos de gatos y de perros. En lugar de escribirle todas las reglas, le enseñamos <b>miles de fotos</b> ya etiquetadas. El programa busca patrones por sí mismo y, al final, es capaz de reconocer gatos y perros en fotos nuevas.</p><p>La IA se usa ya en muchos lugares: en los traductores automáticos, en los asistentes de voz, en los coches que frenan solos ante un peligro, en los hospitales para ayudar a detectar enfermedades en radiografías o en las recomendaciones de vídeos y música.</p><p>Pero tiene límites importantes:</p><ul><li>Solo sabe lo que ha aprendido de sus datos. Si los ejemplos estaban mal o incompletos, se equivoca.</li><li>Puede dar respuestas que suenan muy convincentes y son falsas.</li><li>No siente ni entiende el mundo como las personas.</li></ul><p>Por eso hay que <b>comprobar</b> lo que dice una IA en otras fuentes y no compartir con ella datos personales.</p>`,
+        H6.flujo("Cómo aprende una IA", ["Miles de|ejemplos", "Busca|patrones", "Reconoce|lo nuevo"], cMO)],
+    ],
+  },
+  final: [
+    ["Leonardo da Vinci, inventor de máquinas", `<p><b>Leonardo da Vinci</b> (1452-1519) es famoso por pintar la Gioconda, pero también fue un inventor incansable. En sus cuadernos, escritos al revés para leerlos con un espejo, dibujó miles de máquinas, muchas siglos antes de que se pudieran construir:</p><ul><li>Un <b>tornillo aéreo</b>, una especie de hélice gigante que muchos consideran un antepasado del helicóptero.</li><li>Máquinas voladoras con alas que imitaban a los pájaros y a los murciélagos.</li><li>Un <b>caballero mecánico</b>: una armadura movida por poleas y cables que podía sentarse y mover los brazos. Es uno de los primeros diseños de robot de la historia.</li><li>Puentes que se montaban rápidamente, grúas, bombas de agua y engranajes de todo tipo.</li></ul><p>Leonardo observaba con muchísima atención la naturaleza: cómo vuelan las aves, cómo corre el agua, cómo se mueven los músculos. Luego intentaba copiar esos mecanismos en sus máquinas.</p><p>Muchos de sus inventos nunca se construyeron en su época, pero en los últimos años se han fabricado modelos a partir de sus dibujos, y algunos funcionan. Su lema podría ser el de cualquier ingeniero: observar, imaginar, dibujar y probar.</p>`,
+      L6.filas("Inventos de Leonardo", [["tornillo aéreo", "como un helicóptero", cAZ], ["alas", "imitan a los pájaros", cNA], ["caballero", "robot de poleas", cMO], ["puentes", "de montaje rápido", cVE]]), ["Sm84wLGZbjA", "Los GENIALES inventos de Leonardo da Vinci", "Lost in Time", 1854260]],
+    ["Robots con responsabilidad", `<p>En 1942, el escritor de ciencia ficción <b>Isaac Asimov</b> imaginó tres leyes que deberían cumplir todos los robots:</p><ol><li>Un robot no debe hacer daño a una persona ni permitir, por no actuar, que una persona sufra daño.</li><li>Un robot debe obedecer las órdenes de las personas, salvo si contradicen la primera ley.</li><li>Un robot debe protegerse a sí mismo, salvo si eso contradice las dos primeras leyes.</li></ol><p>Eran leyes de una novela, pero hoy son más actuales que nunca. A medida que los robots y la inteligencia artificial hacen más tareas, surgen preguntas importantes:</p><ul><li>Si un coche autónomo tiene un accidente, ¿quién es el responsable?</li><li>¿Qué pasará con los trabajos que hagan las máquinas? ¿Qué nuevos trabajos aparecerán?</li><li>¿Cómo protegemos nuestra privacidad si los aparatos escuchan y graban?</li><li>¿Cómo evitamos que una IA trate injustamente a algunas personas por haber aprendido de datos injustos?</li></ul><p>Por eso muchos países, también la Unión Europea, están creando <b>normas</b> para que la tecnología respete los derechos de las personas. Las máquinas deben estar siempre al servicio de las personas, y no al revés.</p>`,
+      H6.rueda("Preguntas éticas", "ROBOTS", [["Seguridad", cRO], ["Trabajo", cNA], ["Privacidad", cAZ], ["Justicia", cVE]])],
+  ],
+  ejemplos: [
+    ["En un balancín, Ana (35 kg) se sienta a 2 m del centro. ¿A qué distancia debe sentarse su padre (70 kg) para equilibrarlo?", ["35 × 2 = 70.", "70 × distancia = 70."], "A 1 m del centro."],
+    ["¿Qué fuerza hace falta para subir 60 kg con una polea móvil?", ["La carga cuelga de dos tramos de cuerda.", "60 : 2."], "Unos 30 kg (tirando el doble de cuerda)."],
+  ],
+  errores: ["Pensar que las máquinas crean fuerza de la nada: lo que se gana en fuerza se pierde en distancia.", "Creer que la inteligencia artificial nunca se equivoca."],
+  ejercicios: [
+    ["b", "Escribe la ley de la palanca.", "Fuerza × su brazo = resistencia × su brazo."],
+    ["b", "¿Qué ventaja tiene la polea móvil sobre la fija?", "Necesita la mitad de fuerza."],
+    ["b", "¿Qué es la inteligencia artificial?", "Programas que aprenden a partir de ejemplos."],
+    ["b", "¿Qué construyó Juanelo Turriano en Toledo?", "Un artificio para subir el agua del Tajo hasta la ciudad."],
+    ["b", "¿Quién dibujó un caballero mecánico?", "Leonardo da Vinci."],
+    ["m", "Un niño de 30 kg está a 2 m del apoyo de un balancín. ¿Dónde debe sentarse una persona de 60 kg para equilibrarlo?", "A 1 m."],
+    ["m", "¿Por qué las llaves para tuercas tienen el mango largo?", "Porque a más brazo, menos fuerza."],
+    ["m", "Con un polipasto de 4 tramos, ¿cuánta fuerza hace falta para subir 80 kg?", "Unos 20 kg."],
+    ["m", "Di dos usos actuales de la inteligencia artificial.", "Traductores y detección de enfermedades en radiografías, por ejemplo."],
+    ["m", "¿Qué dice la primera ley de Asimov?", "Un robot no debe dañar a una persona ni permitir que sufra daño."],
+    ["a", "Para mover una piedra de 100 kg a 0,5 m del apoyo, empujas a 2 m. ¿Qué fuerza necesitas?", "25 kg."],
+    ["a", "Explica por qué «lo que se gana en fuerza se pierde en distancia» con la polea móvil.", "Se hace la mitad de fuerza pero hay que tirar el doble de cuerda."],
+    ["a", "¿Por qué hay que comprobar lo que dice una IA?", "Porque puede equivocarse o dar respuestas convincentes pero falsas."],
+    ["a", "Plantea una pregunta ética sobre los robots y da tu opinión razonada.", "Respuesta abierta (responsabilidad, trabajo, privacidad o justicia)."],
+  ],
+  quiz: [
+    ["Con más brazo de fuerza, la fuerza necesaria es…", ["menor", "mayor", "igual"], "Ley de la palanca."],
+    ["La polea móvil reduce la fuerza a…", ["la mitad", "el doble", "la décima parte"], "Dos tramos."],
+    ["La inteligencia artificial aprende…", ["a partir de muchos ejemplos", "sin ningún dato", "solo de memoria"], "IA."],
+    ["El artificio de Juanelo subía agua del río…", ["Tajo", "Ebro", "Guadalquivir"], "Toledo."],
+    ["Las tres leyes de la robótica las imaginó…", ["Isaac Asimov", "Leonardo da Vinci", "Arquímedes"], "1942."],
+  ],
+  examen: [
+    ["En un balancín, 30 kg a 2 m equilibran 60 kg a…", ["1 m", "2 m", "4 m"], "30 × 2 = 60 × 1."],
+    ["Leonardo escribía sus cuadernos…", ["al revés, para leerlos en un espejo", "en código binario", "solo con números"], "Leonardo."],
+  ],
+  tarjetas: [
+    ["Ley de la palanca", "F × bF = R × bR: más brazo, menos fuerza."],
+    ["Polea móvil y polipasto", "Más tramos de cuerda, menos fuerza; más cuerda que tirar."],
+    ["Inteligencia artificial", "Aprende de ejemplos; útil pero puede equivocarse."],
+    ["Inventores", "Arquímedes, Leonardo, Juanelo Turriano; leyes de Asimov."],
+  ],
+  glosario: [
+    ["Brazo", "Distancia del punto de apoyo a donde se aplica una fuerza."],
+    ["Ley de la palanca", "Fuerza × su brazo = resistencia × su brazo."],
+    ["Polea móvil", "Polea que sube y baja con la carga."],
+    ["Polipasto", "Combinación de poleas fijas y móviles."],
+    ["Inteligencia artificial", "Programas capaces de aprender a partir de datos."],
+    ["Patrón", "Algo que se repite y permite reconocer cosas."],
+    ["Coche autónomo", "Vehículo que circula sin conductor."],
+    ["Privacidad", "Derecho a proteger la información personal."],
+    ["Artificio", "Máquina ingeniosa."],
+    ["Autómata", "Máquina que imita los movimientos de un ser vivo."],
+    ["Rueda hidráulica", "Rueda movida por la fuerza del agua."],
+    ["Ética", "Reflexión sobre lo que está bien y lo que está mal."],
+  ],
+  situacion: {
+    titulo: "Inventores por un día",
+    reto: "Por equipos, la clase diseña y construye una máquina con materiales reciclados que use al menos una palanca y una polea para resolver un problema del colegio.",
+    pasos: ["Elegid un problema real: subir material a un estante alto, abrir una caja, levantar una papelera…", "Dibujad el diseño como Leonardo, con medidas y explicaciones.", "Construid la máquina y comprobad con la ley de la palanca cuánta fuerza se ahorra.", "Presentad el invento y debatid si se podría automatizar con un robot y qué problemas éticos tendría."],
+    producto: "Una máquina construida con su cuaderno de diseño.",
+    evaluacion: ["Aplica la ley de la palanca y el uso de poleas.", "Diseña y construye con creatividad.", "Comprueba y mejora su invento.", "Reflexiona sobre la tecnología con criterio."],
+  },
+});
