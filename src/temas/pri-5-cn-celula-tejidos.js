@@ -141,3 +141,93 @@ module.exports = {
   fuentes: [RD, wiki("Célula", "Célula"), wiki("Tejido (biología)", "Tejido_(biología)"), wiki("Órgano (biología)", "Órgano_(biología)")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { linea } = require("./_pri5b");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Conocer las partes del microscopio y cómo se usa", "Valorar el papel de las bacterias beneficiosas y perjudiciales", "Conocer la aportación de Santiago Ramón y Cajal al estudio de las células"],
+  lectura: { titulo: "Un mundo dentro de una gota", html: `<p>En el laboratorio del colegio, la profesora Irene pone una gota de agua de un charco sobre un cristal y la coloca bajo el microscopio. «Mirad con un solo ojo y girad la rueda muy despacio», dice.</p><p>Cuando le toca a Samuel, se queda con la boca abierta. ¡La gota está llena de vida! Unos seres transparentes se mueven agitando pelitos diminutos; otros, verdes, flotan como pequeñas hojas; y uno parece una mancha que cambia de forma al avanzar. «Son seres vivos formados por una sola célula», explica la profesora. «En una sola gota puede haber miles».</p><p>Luego miran una capa finísima de cebolla: parece una pared de ladrillos alargados, todos pegados. Y, al final, unas células de su propia mejilla, que han rascado con un palillo y teñido de azul.</p><p>«Todo lo que está vivo, desde la bacteria más pequeña hasta una ballena o vosotros mismos, está formado por <b>células</b>», concluye Irene. En este tema descubrirás cómo son, qué partes tienen y cómo se organizan para formar tejidos, órganos y aparatos.</p>` },
+  tras: {
+    "Todos los seres vivos tienen células": [
+      ["El microscopio: cómo se usa", `<p>El <b>microscopio óptico</b> usa lentes y luz para que veamos objetos cientos de veces más grandes. Sus partes principales son:</p><ul><li><b>Ocular</b>: la lente por la que miramos.</li><li><b>Objetivos</b>: lentes de distintos aumentos (por ejemplo, 4×, 10× y 40×) que se cambian girando el revólver.</li><li><b>Platina</b>: la plataforma donde se coloca la muestra, sujeta con pinzas.</li><li><b>Foco o espejo</b>: da la luz que atraviesa la muestra.</li><li><b>Tornillos</b>: sirven para enfocar hasta ver la imagen nítida.</li></ul><p>Los aumentos se multiplican: con un ocular de 10× y un objetivo de 40×, vemos la muestra <b>400 veces</b> más grande.</p><p>Para observar, la muestra debe ser muy <b>fina</b> para que la luz pase a través. Se coloca sobre un cristal (portaobjetos) y se tapa con otro más pequeño (cubreobjetos). Hay que empezar siempre con el objetivo de menos aumento y tratar el microscopio con mucho cuidado: ¡es un instrumento delicado!</p>`,
+        svg("Partes del microscopio óptico: ocular, objetivos, platina, foco y tornillos", `${tit("Partes del microscopio")}${filas([["Ocular", "lente para mirar", COL.azul], ["Objetivos", "4×, 10×, 40×", COL.verde], ["Platina", "aquí va la muestra", COL.naranja], ["Foco", "da la luz", COL.sol], ["Tornillos", "para enfocar", COL.morado]], 50, 25)}`)],
+    ],
+    "Uno o muchos: unicelulares y pluricelulares": [
+      ["Bacterias: amigas y enemigas", `<p>Las <b>bacterias</b> son seres vivos <b>unicelulares</b> muy pequeños: en la punta de un alfiler caben miles. Sus células son más sencillas que las nuestras, porque no tienen un núcleo con membrana.</p><p>Mucha gente piensa que todas las bacterias son malas, pero no es así:</p><ul><li><b>Bacterias beneficiosas</b>: en nuestro intestino viven billones de bacterias que nos ayudan a digerir los alimentos y nos protegen. Otras se usan para fabricar <b>yogur</b> y <b>queso</b>, y algunas descomponen los restos de seres vivos y devuelven nutrientes al suelo.</li><li><b>Bacterias perjudiciales</b>: algunas causan enfermedades, como ciertas anginas o infecciones de oído. Contra ellas, los médicos recetan <b>antibióticos</b>, que solo se deben tomar cuando el médico lo indica.</li></ul><p>Para protegernos de las bacterias dañinas, el mejor hábito es muy sencillo: <b>lavarse bien las manos</b> con agua y jabón, sobre todo antes de comer y después de ir al baño.</p>`,
+        svg("Bacterias beneficiosas, en el intestino y el yogur, y perjudiciales, que causan enfermedades", `${tit("Bacterias")}${fichas([["Amigas", "yogur, queso, digestión", COL.verde], ["Enemigas", "anginas, infecciones", COL.rojo], ["Antibióticos", "solo si lo dice el médico", COL.azul], ["Prevención", "lavarse las manos", COL.agua]])}`)],
+    ],
+    "Cada célula, un trabajo": [
+      ["Células que se renuevan", `<p>Nuestro cuerpo no deja de fabricar células nuevas. Cada célula vive un tiempo y después se sustituye por otra:</p><ul><li>Las células de la <b>piel</b> se renuevan cada pocas semanas. Las que mueren se desprenden en forma de polvo fino: ¡buena parte del polvo de casa son células de piel!</li><li>Los <b>glóbulos rojos</b> de la sangre viven unos cuatro meses. Cada segundo, la médula de los huesos fabrica millones de glóbulos nuevos.</li><li>Las células del <b>intestino</b> se renuevan en pocos días.</li><li>En cambio, la mayoría de las <b>neuronas</b> nos acompañan toda la vida. Por eso es tan importante cuidar el cerebro.</li></ul><p>Las células se multiplican <b>dividiéndose</b>: una célula crece y se parte en dos células hijas iguales. Así crecemos de pequeños y así se curan las heridas: cuando te haces un corte, las células de alrededor se dividen hasta cerrar la piel.</p><p>Para fabricar células nuevas, el cuerpo necesita una <b>alimentación variada</b> y <b>descanso</b>, sobre todo mientras dormimos.</p>`,
+        svg("Una célula se divide en dos células hijas iguales", `${tit("La división celular")}${flujo([["1 célula", COL.azul], ["crece", COL.verde], ["2 células", COL.morado]], 70, 44)}${tx(130, 150, "Así crecemos y se curan las heridas", 220)}`)],
+    ],
+  },
+  final: [
+    ["Santiago Ramón y Cajal, el padre de la neurociencia", `<p><b>Santiago Ramón y Cajal</b> (1852-1934) fue un médico y científico español nacido en Petilla de Aragón (Navarra). De niño era travieso y le encantaba dibujar; su padre, médico, le enseñó anatomía.</p><p>Con su microscopio, Cajal estudió durante años el <b>sistema nervioso</b>. Descubrió que el cerebro no es una red continua, como se pensaba, sino que está formado por <b>células independientes</b>, las <b>neuronas</b>, que se comunican entre sí sin llegar a tocarse. Dibujó miles de neuronas con tanto detalle que sus dibujos todavía se usan en las universidades.</p><p>En <b>1906</b> recibió el <b>Premio Nobel de Medicina</b>, el primer Nobel de ciencias de un español. Hoy se le considera el padre de la <b>neurociencia</b>, la ciencia que estudia el sistema nervioso.</p><p>Su ejemplo nos enseña el valor de la <b>observación paciente</b>, de la curiosidad y del esfuerzo. Él mismo decía que la constancia era más importante que el talento.</p>`,
+      svg("Santiago Ramón y Cajal descubrió que el cerebro está formado por neuronas; Premio Nobel en 1906", `${tit("Ramón y Cajal")}${linea([["1852", "nace en Navarra", COL.azul], ["1888", "descubre las neuronas", COL.verde], ["1906", "Premio Nobel", COL.sol]])}`)],
+  ],
+  ejemplos: [
+    ["Un microscopio tiene un ocular de 10× y un objetivo de 40×. ¿Cuántas veces se ve aumentada la muestra?", ["Los aumentos se multiplican.", "10 × 40 = 400.", "La muestra se ve 400 veces más grande."], "400 aumentos"],
+    ["Clasifica en célula, tejido, órgano o aparato: neurona, corazón, músculo, aparato digestivo.", ["Neurona: una sola célula.", "Músculo: tejido (muchas células iguales).", "Corazón: órgano; aparato digestivo: aparato."], "Célula, órgano, tejido y aparato"],
+  ],
+  errores: ["Pensar que todas las bacterias son malas: muchas nos ayudan a digerir o sirven para hacer yogur y queso."],
+  nivelesBase: "bbbmbmmmma",
+  ejercicios: [
+    ["b", "Nombra cuatro partes del microscopio y su función.", "Ocular (para mirar), objetivos (aumentan), platina (sostiene la muestra), foco (da luz) y tornillos (enfocan)."],
+    ["b", "Escribe dos alimentos que se hacen con ayuda de bacterias.", "El yogur y el queso."],
+    ["b", "¿Quién fue Santiago Ramón y Cajal y qué premio recibió?", "Un científico español que descubrió las neuronas; recibió el Premio Nobel de Medicina en 1906."],
+    ["b", "¿Cada cuánto tiempo, aproximadamente, se renuevan los glóbulos rojos?", "Viven unos cuatro meses."],
+    ["m", "¿Por qué la muestra que se observa al microscopio debe ser muy fina?", "Porque la luz tiene que atravesarla para que podamos verla."],
+    ["m", "¿Por qué no se deben tomar antibióticos sin receta?", "Porque solo sirven contra bacterias, pueden tener efectos secundarios y su mal uso hace que las bacterias se vuelvan resistentes."],
+    ["m", "Explica cómo se cierra una herida a nivel de las células.", "Las células de alrededor se dividen y forman células nuevas que cierran la piel."],
+    ["m", "Con un ocular de 10× y un objetivo de 4×, ¿cuántos aumentos hay?", "10 × 4 = 40 aumentos."],
+    ["a", "¿Qué descubrió Cajal sobre el cerebro que contradecía lo que se pensaba?", "Que está formado por células independientes (neuronas) que se comunican sin tocarse, y no por una red continua."],
+    ["a", "Diseña un cartel con cinco consejos para evitar las bacterias perjudiciales.", "Respuesta abierta. Ejemplo: lavarse las manos, cubrirse al toser, no compartir vasos, lavar la fruta, guardar los alimentos en la nevera."],
+    ["a", "¿Por qué es importante cuidar las neuronas más que otras células?", "Porque la mayoría no se renuevan: nos acompañan toda la vida."],
+    ["a", "Ordena de menor a mayor: órgano, célula, aparato, tejido, organismo.", "Célula, tejido, órgano, aparato, organismo."],
+    ["a", "Observa una capa de cebolla al microscopio y dibuja lo que ves. Señala la pared y el núcleo.", "Respuesta abierta. Se ven células alargadas como ladrillos con pared gruesa y un núcleo."],
+    ["m", "¿Qué hacen las bacterias del intestino?", "Nos ayudan a digerir los alimentos y nos protegen de otros microbios."],
+    ["a", "¿Qué tienen en común una bacteria y una ameba? ¿En qué se diferencian sus células?", "Las dos son seres unicelulares. La bacteria no tiene un núcleo con membrana; la ameba sí."],
+    ["b", "¿Con qué empiezas a observar: con el objetivo de más aumento o con el de menos?", "Con el de menos aumento."],
+  ],
+  quiz: [
+    ["La lente por la que miramos en un microscopio es…", ["El ocular", "La platina", "El foco"], "Los objetivos están cerca de la muestra."],
+    ["Las bacterias del yogur son…", ["Beneficiosas", "Perjudiciales", "Inexistentes"], "Transforman la leche en yogur."],
+    ["Ramón y Cajal recibió el Premio Nobel en…", ["1906", "1852", "2006"], "Fue el primer Nobel de ciencias de un español."],
+    ["Las células se multiplican…", ["Dividiéndose en dos", "Uniéndose de dos en dos", "Creciendo sin parar"], "Una célula da dos células hijas."],
+    ["Un ocular de 10× y un objetivo de 10× dan…", ["100 aumentos", "20 aumentos", "10 aumentos"], "Se multiplican: 10 × 10."],
+  ],
+  examen: [
+    ["La mejor forma de protegernos de bacterias dañinas es…", ["Lavarse bien las manos", "Tomar antibióticos siempre", "No comer yogur"], "Es un hábito sencillo y eficaz."],
+    ["¿Qué células nos acompañan casi toda la vida?", ["La mayoría de las neuronas", "Las células de la piel", "Los glóbulos rojos"], "Por eso hay que cuidar el cerebro."],
+    ["En la platina del microscopio se coloca…", ["La muestra", "El ojo", "La luz"], "Sujeta con pinzas."],
+    ["Cajal descubrió que el cerebro está formado por…", ["Neuronas independientes", "Una red continua", "Huesos pequeños"], "Se comunican sin tocarse."],
+  ],
+  tarjetas: [
+    ["Aumentos del microscopio", "Ocular × objetivo: 10 × 40 = 400."],
+    ["Bacterias", "Unicelulares; unas beneficiosas (yogur) y otras perjudiciales."],
+    ["División celular", "Una célula crece y se divide en dos."],
+    ["Ramón y Cajal", "Descubrió las neuronas. Nobel de Medicina, 1906."],
+  ],
+  glosario: [
+    ["Célula", "Unidad más pequeña de un ser vivo."],
+    ["Membrana", "Capa fina que rodea la célula."],
+    ["Citoplasma", "Interior de la célula, donde están los orgánulos."],
+    ["Núcleo", "Parte de la célula que la dirige y guarda la información."],
+    ["Unicelular", "Ser vivo formado por una sola célula."],
+    ["Pluricelular", "Ser vivo formado por muchas células."],
+    ["Tejido", "Conjunto de células iguales que hacen el mismo trabajo."],
+    ["Órgano", "Conjunto de tejidos que realizan una función."],
+    ["Microscopio", "Instrumento que permite ver objetos muy pequeños."],
+    ["Bacteria", "Ser vivo unicelular sin núcleo con membrana."],
+    ["Antibiótico", "Medicamento que combate algunas bacterias."],
+    ["Neurona", "Célula del sistema nervioso."],
+  ],
+  situacion: {
+    titulo: "Exploradores del microscopio",
+    reto: "Organizamos una exposición de fotografías y dibujos de células observadas en clase para enseñar a otros cursos el mundo invisible.",
+    pasos: ["Preparad muestras sencillas: epidermis de cebolla, hoja de elodea, células de la mejilla y agua de un charco.", "Observadlas al microscopio empezando por el menor aumento y dibujad lo que veis indicando los aumentos.", "Identificad en los dibujos las partes de la célula (membrana, núcleo, pared, cloroplastos).", "Montad la exposición con fichas que expliquen cada muestra y una ficha sobre Ramón y Cajal."],
+    producto: "Una exposición de dibujos científicos con sus fichas explicativas.",
+    evaluacion: ["Usa el microscopio con cuidado y de forma correcta.", "Distingue células animales, vegetales y seres unicelulares.", "Dibuja y rotula con rigor lo que observa.", "Explica a otros sus observaciones con vocabulario científico."],
+  },
+});

@@ -98,3 +98,97 @@ module.exports = P.tema({
   saberes: "Sentido estocástico: recogida y organización de datos en tablas de frecuencias; gráficos de barras, de líneas y de sectores; media aritmética, moda y rango; sucesos seguros, posibles e imposibles; estimación y cálculo sencillo de probabilidades",
   ideas: ["Encuesta real en el colegio con presentación de resultados en gráficos.", "Experimento de lanzar dados y monedas por equipos para comparar frecuencias.", "Analizar gráficos de periódicos o del parte meteorológico."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { caja } = P;
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Distinguir población y muestra en un estudio estadístico", "Calcular la mediana y detectar gráficos engañosos", "Comparar la probabilidad calculada con los resultados de un experimento"],
+  lectura: { titulo: "¿Qué comedor queremos?", html: `<p>El consejo escolar quiere cambiar los menús del comedor y pide ayuda a la clase de 5.º. «Preguntad a los alumnos qué platos prefieren», les dicen. Pero el colegio tiene 450 alumnos. ¿Hay que preguntar a todos?</p><p>Lía propone repartir una encuesta solo a algunos alumnos de cada curso: veinte de cada nivel, elegidos al azar. Así no tardarán semanas. Leo recoge las respuestas en una tabla y las cuenta. Nora dibuja un gráfico de barras para el tablón del pasillo. Al final, descubren que la pasta gana con diferencia, seguida de las croquetas, y que casi nadie elige la coliflor.</p><p>Cuando presentan los resultados, la directora pregunta: «¿Y cuántas veces a la semana comemos pescado de media?». La clase revisa los menús del último mes y calcula la media: 1,5 días a la semana.</p><p>Sin saberlo, han hecho un verdadero <b>estudio estadístico</b>: elegir una pregunta, recoger datos, organizarlos, representarlos y sacar conclusiones. En este tema aprenderás a hacerlo y a calcular cuánta probabilidad tiene que ocurra algo.</p>` },
+  tras: {
+    "¿Qué es la estadística?": [
+      ["Población y muestra", `<p>En un estudio estadístico, la <b>población</b> es el grupo completo sobre el que queremos saber algo: todos los alumnos del colegio, todos los habitantes de un pueblo, todas las tortugas de una playa…</p><p>A menudo la población es tan grande que no se puede preguntar a todos. Entonces se elige una <b>muestra</b>: una parte de la población. Para que los resultados sirvan, la muestra debe ser:</p><ul><li><b>Suficientemente grande</b>: preguntar a 3 alumnos no basta para saber lo que piensan 450.</li><li><b>Variada y elegida al azar</b>: si solo preguntas a los de 6.º, no sabrás qué piensan los de 1.º. Si preguntas solo a tus amigos, sus gustos se parecerán a los tuyos.</li></ul><p>Las empresas de encuestas hacen esto antes de unas elecciones: preguntan a unos pocos miles de personas y, con ellas, intentan adivinar lo que votarán millones. Por eso a veces aciertan y a veces se equivocan un poco.</p><p>Cuando sí se pregunta a toda la población, como en el <b>censo</b> de habitantes de un país, se habla de un estudio completo.</p>`,
+        svg("Población y muestra: de cuatrocientos cincuenta alumnos se elige al azar una muestra de cien", `<rect x="16" y="24" width="132" height="132" rx="12" fill="${AZ}" fill-opacity=".08" stroke="${AZ}" stroke-width="2"/>${[...Array(64)].map((_, i) => `<circle cx="${28 + (i % 8) * 15.5}" cy="${36 + Math.floor(i / 8) * 15.5}" r="5" fill="${[1, 6, 13, 20, 27, 30, 38, 45, 51, 58, 62].includes(i) ? RO : AZ}" fill-opacity="${[1, 6, 13, 20, 27, 30, 38, 45, 51, 58, 62].includes(i) ? 1 : 0.35}"/>`).join("")}${t(82, 172, "población: 450", { s: 11, c: AZ })}${t(206, 74, "muestra", { s: 14, d: true, c: RO })}${t(206, 96, "100 al azar", { s: 12, c: RO })}${t(206, 132, "de todos", { s: 11 })}${t(206, 146, "los cursos", { s: 11 })}`)],
+    ],
+    "El gráfico de sectores": [
+      ["Gráficos que engañan", `<p>Un gráfico debe ayudar a entender los datos, pero a veces se dibuja de forma que <b>engaña</b>, a propósito o sin querer. Aprende a detectar estos trucos:</p><ul><li><b>El eje que no empieza en 0</b>: si el eje vertical empieza en 90, una diferencia entre 92 y 95 parece enorme, aunque sea muy pequeña.</li><li><b>Dibujos que crecen en todas direcciones</b>: si para representar el doble de algo se dibuja un muñeco el doble de alto y el doble de ancho, ¡parece cuatro veces mayor!</li><li><b>Falta de datos importantes</b>: un gráfico sin título, sin unidades o sin decir de dónde salen los datos no es fiable.</li><li><b>Sectores que no suman 100 %</b>: si los quesitos suman 120 %, alguien se ha equivocado.</li></ul><p>Antes de creerte un gráfico de un anuncio o una noticia, mira siempre los <b>ejes</b>, las <b>unidades</b> y la <b>fuente</b> de los datos.</p>`,
+        svg("Gráfico engañoso: con el eje empezando en noventa, noventa y dos y noventa y cinco parecen muy distintos", `${t(66, 22, "eje desde 90", { s: 11, c: RO })}<path d="M24 150 H 110 M24 150 V 34" stroke="var(--muted)" stroke-width="2"/>${t(16, 154, "90", { s: 9 })}<rect x="36" y="110" width="26" height="40" fill="${RO}" fill-opacity=".5"/><rect x="74" y="44" width="26" height="106" fill="${RO}" fill-opacity=".5"/>${t(49, 104, "92", { s: 10 })}${t(87, 38, "95", { s: 10 })}${t(196, 22, "eje desde 0", { s: 11, c: VE })}<path d="M154 150 H 240 M154 150 V 34" stroke="var(--muted)" stroke-width="2"/>${t(146, 154, "0", { s: 9 })}<rect x="166" y="57" width="26" height="93" fill="${VE}" fill-opacity=".5"/><rect x="204" y="54" width="26" height="96" fill="${VE}" fill-opacity=".5"/>${t(130, 172, "¡mira siempre los ejes!", { s: 11, d: true })}`)],
+    ],
+    "La moda y el rango": [
+      ["La mediana: el valor del medio", `<p>Además de la media y la moda, hay otro dato que resume un conjunto de números: la <b>mediana</b>. Es el valor que queda <b>justo en el centro</b> cuando ordenamos los datos de menor a mayor.</p><ul><li>Datos: 3, 8, 5, 9, 4. Ordenados: 3, 4, <b>5</b>, 8, 9. La mediana es <b>5</b>.</li><li>Si hay un número par de datos, la mediana es la media de los dos del centro: 2, 4, 6, 10 → (4 + 6) : 2 = <b>5</b>.</li></ul><p>¿Para qué sirve si ya tenemos la media? La mediana no se deja «engañar» por un dato muy raro. Imagina las pagas semanales de cinco amigos: 5, 5, 6, 7 y 77 € (uno tiene un abuelo muy generoso). La media es 100 : 5 = 20 €, ¡pero nadie salvo uno cobra tanto! La mediana es <b>6 €</b>, que describe mucho mejor lo que cobra la mayoría.</p><p>Por eso, cuando las noticias hablan de sueldos o del precio de las casas, a menudo usan la mediana en lugar de la media.</p>`,
+        svg("Mediana: con los datos ordenados tres, cuatro, cinco, ocho y nueve, el del medio es cinco", `${[3, 4, 5, 8, 9].map((v, i) => caja(20 + i * 46, 40, 38, 40, String(v), i === 2 ? RO : AZ, { s: 16 })).join("")}${P.flecha(130, 112, 130, 86, RO)}${t(130, 132, "mediana = 5", { s: 16, d: true, c: RO })}${t(130, 160, "pagas: 5, 5, 6, 7, 77 → mediana 6, media 20", { s: 10, c: "var(--muted)" })}`)],
+    ],
+    "La probabilidad": [
+      ["Experimentos aleatorios: ¿qué pasa en la realidad?", `<p>Un <b>experimento aleatorio</b> es aquel cuyo resultado depende del <b>azar</b>: lanzar una moneda, tirar un dado, sacar una bola de una bolsa sin mirar… Podemos saber qué resultados son <b>posibles</b>, pero no cuál saldrá.</p><p>La probabilidad de sacar cara con una moneda es 1/2. ¿Significa eso que si la lanzamos 10 veces saldrán exactamente 5 caras? ¡No! Pueden salir 4, 6 o incluso 8. Pero si la lanzamos <b>muchas</b> veces (100, 1 000…), el número de caras se irá acercando a la mitad.</p><p>Esto se llama <b>frecuencia relativa</b>: número de veces que sale un resultado dividido entre el número de lanzamientos. Por ejemplo, si en 50 lanzamientos sale cara 27 veces, la frecuencia relativa es 27/50 = 0,54, muy cerca de 0,5.</p><p>Haz la prueba en clase: cada alumno lanza un dado 20 veces y anota los resultados. Al juntar los datos de toda la clase, cada número del 1 al 6 habrá salido aproximadamente 1/6 de las veces.</p>`,
+        svg("Al lanzar una moneda muchas veces, la frecuencia de caras se acerca a un medio", `<path d="M30 150 H 240 M30 150 V 30" stroke="var(--muted)" stroke-width="2"/><path d="M30 90 H 240" stroke="${VE}" stroke-width="1.5" stroke-dasharray="5 4"/>${t(24, 94, "1/2", { s: 10, a: "end", c: VE })}<polyline points="34,60 54,120 74,70 94,104 114,82 134,98 154,86 174,94 194,88 214,92 236,90" fill="none" stroke="${RO}" stroke-width="2.5"/>${t(135, 168, "número de lanzamientos →", { s: 10 })}${t(150, 30, "frecuencia de caras", { s: 11, c: RO })}`)],
+    ],
+  },
+  final: [
+    ["La estadística en la vida diaria", `<p>La estadística está mucho más presente de lo que crees:</p><ul><li><b>El tiempo</b>: cuando dicen «70 % de probabilidad de lluvia», los meteorólogos han estudiado miles de días con condiciones parecidas y en 7 de cada 10 llovió.</li><li><b>El deporte</b>: los entrenadores analizan datos de cada jugador: goles, pases, kilómetros recorridos, porcentaje de tiros acertados… Un jugador de baloncesto que mete 8 de cada 10 tiros libres tiene un 80 % de acierto.</li><li><b>La salud</b>: los médicos comparan tu altura y tu peso con los de muchos niños de tu edad en unas tablas llamadas <b>percentiles</b>.</li><li><b>Internet</b>: las aplicaciones cuentan qué vídeos ves y cuánto tiempo, para recomendarte otros parecidos.</li></ul><p>Entender los datos te ayuda a tomar mejores decisiones y a no dejarte engañar. Por eso la estadística es una herramienta imprescindible para cualquier ciudadano.</p>`,
+      svg("La estadística en la vida: el tiempo, el deporte, la salud e internet", `${[["Tiempo", "70 % de lluvia", AZ], ["Deporte", "80 % de acierto", VE], ["Salud", "tablas de percentiles", RO], ["Internet", "vídeos recomendados", MO]].map(([a, b, c], i) => `${caja(14, 16 + i * 40, 90, 32, a, c, { s: 12 })}${t(118, 37 + i * 40, b, { s: 11, a: "start" })}`).join("")}`)],
+  ],
+  ejemplos: [
+    ["Calcula la mediana de las notas: 7, 5, 9, 6, 8, 10.", ["Ordeno: 5, 6, 7, 8, 9, 10.", "Hay 6 datos (número par): los del centro son 7 y 8.", "(7 + 8) : 2 = 7,5."], "Mediana = 7,5"],
+    ["Lanzamos un dado 60 veces y el 3 sale 13 veces. ¿Cuál es su frecuencia relativa? ¿Y su probabilidad?", ["Frecuencia relativa: 13/60 ≈ 0,22.", "Probabilidad teórica: 1/6 ≈ 0,17.", "Son parecidas; con más lanzamientos se acercarían más."], "≈ 0,22 frente a 1/6"],
+  ],
+  errores: [],
+  nivelesBase: "bbbbbmbmma",
+  ejercicios: [
+    ["b", "En un estudio sobre los alumnos de tu colegio, ¿cuál es la población? Si preguntas a 50, ¿qué son esos 50?", "Población: todos los alumnos del colegio. Los 50 son la muestra."],
+    ["b", "Calcula la mediana de 4, 9, 2, 7, 5.", "Ordenados: 2, 4, 5, 7, 9. Mediana: 5."],
+    ["b", "Escribe tres experimentos aleatorios.", "Por ejemplo: lanzar una moneda, tirar un dado y sacar una carta de una baraja sin mirar."],
+    ["b", "¿Qué tres cosas debes mirar siempre en un gráfico para que no te engañe?", "Los ejes (si empiezan en 0), las unidades y la fuente de los datos."],
+    ["m", "Calcula la mediana de 12, 15, 10, 18.", "Ordenados: 10, 12, 15, 18. (12 + 15) : 2 = 13,5."],
+    ["m", "¿Por qué no sería buena muestra preguntar solo a los alumnos del equipo de fútbol cuál es su deporte favorito?", "Porque no representa a todos: la mayoría dirá fútbol y los resultados estarían sesgados."],
+    ["m", "Un jugador mete 18 de 20 tiros libres. ¿Qué porcentaje de acierto tiene?", "18/20 = 90/100 = 90 %."],
+    ["m", "Lanzas una moneda 40 veces y sale cruz 22 veces. Calcula la frecuencia relativa de cruz.", "22/40 = 0,55."],
+    ["a", "Las pagas de cinco amigos son 4, 5, 5, 6 y 30 €. Calcula la media y la mediana. ¿Cuál describe mejor lo que cobra la mayoría?", "Media: 50 : 5 = 10 €. Mediana: 5 €. Describe mejor la mediana."],
+    ["a", "Un gráfico muestra las ventas de dos tiendas con barras de 100 y 105, pero el eje empieza en 95. ¿Qué impresión da? ¿Es correcta?", "Parece que una vende el doble o más, pero solo vende un 5 % más. Es engañoso."],
+    ["a", "Diseña una encuesta de tres preguntas para saber cómo vienen al colegio los alumnos. ¿A quién preguntarías?", "Respuesta abierta. Debe incluir una muestra variada de todos los cursos, elegida al azar."],
+    ["a", "Lanza un dado 30 veces, anota los resultados en una tabla y compara la frecuencia de cada número con 1/6.", "Respuesta abierta. Cada número debería salir unas 5 veces, aunque habrá diferencias."],
+    ["a", "Si la previsión dice «30 % de probabilidad de lluvia», ¿es más probable que llueva o que no llueva?", "Es más probable que no llueva (70 %)."],
+    ["m", "La media de 5 números es 8. Cuatro de ellos son 6, 7, 9 y 10. ¿Cuál es el quinto?", "Suma total: 5 × 8 = 40. 40 − 32 = 8."],
+    ["a", "Escribe un conjunto de 5 datos cuya media sea 6 y cuya mediana sea 5.", "Por ejemplo: 3, 4, 5, 8, 10 (suma 30, media 6, mediana 5)."],
+    ["b", "¿Qué es un censo?", "Un estudio en el que se pregunta a toda la población, como el recuento de habitantes de un país."],
+  ],
+  quiz: [
+    ["Una parte de la población que se elige para un estudio es…", ["Una muestra", "Una moda", "Un rango"], "Se elige cuando la población es muy grande."],
+    ["La mediana de 2, 5, 7, 9, 11 es…", ["7", "5", "6,8"], "El valor del centro de los datos ordenados."],
+    ["Un gráfico cuyo eje empieza en 90 en vez de en 0…", ["Exagera las diferencias", "Es siempre más exacto", "No cambia nada"], "Las barras parecen mucho más distintas."],
+    ["Si lanzas una moneda 10 veces…", ["Pueden salir más o menos de 5 caras", "Saldrán exactamente 5 caras", "Nunca saldrán 5 caras"], "La probabilidad se cumple con muchos lanzamientos."],
+    ["Un jugador que mete 7 de cada 10 tiros tiene un acierto del…", ["70 %", "7 %", "17 %"], "7/10 = 70/100."],
+  ],
+  examen: [
+    ["Preguntar a todos los habitantes de un país es un…", ["Censo", "Muestreo", "Gráfico"], "Se estudia a toda la población."],
+    ["La mediana de 4, 6, 8, 10 es…", ["7", "6", "8"], "(6 + 8) : 2 = 7."],
+    ["Si en 50 lanzamientos sale cara 26 veces, la frecuencia relativa es…", ["0,52", "0,26", "26"], "26 : 50."],
+    ["¿Qué medida no se deja engañar por un dato muy raro?", ["La mediana", "La media", "La suma"], "Solo mira el valor central."],
+  ],
+  tarjetas: [
+    ["Población y muestra", "Todo el grupo / la parte que se pregunta."],
+    ["Mediana", "Valor central de los datos ordenados."],
+    ["Gráficos engañosos", "Mira ejes, unidades y fuente."],
+    ["Frecuencia relativa", "Veces que sale ÷ veces que se repite el experimento."],
+  ],
+  glosario: [
+    ["Estadística", "Ciencia que recoge, organiza y analiza datos."],
+    ["Población", "Grupo completo que se quiere estudiar."],
+    ["Muestra", "Parte de la población que se estudia."],
+    ["Frecuencia absoluta", "Número de veces que aparece un dato."],
+    ["Frecuencia relativa", "Frecuencia absoluta dividida entre el total de datos."],
+    ["Media", "Suma de los datos dividida entre el número de datos."],
+    ["Mediana", "Dato central cuando están ordenados."],
+    ["Moda", "Dato que más se repite."],
+    ["Rango", "Diferencia entre el dato mayor y el menor."],
+    ["Experimento aleatorio", "Experimento cuyo resultado depende del azar."],
+    ["Probabilidad", "Número que indica lo fácil que es que ocurra un suceso."],
+    ["Censo", "Estudio de toda una población, como el recuento de habitantes."],
+  ],
+  situacion: {
+    titulo: "Somos una empresa de encuestas",
+    reto: "Investigamos un tema del colegio (comedor, recreo, transporte o lectura) con una encuesta y presentamos los resultados a la dirección.",
+    pasos: ["Elegid la pregunta de investigación y decidid la muestra: cuántos alumnos y de qué cursos, elegidos al azar.", "Pasad la encuesta y organizad las respuestas en una tabla de frecuencias.", "Representad los datos con el gráfico más adecuado (barras, sectores o líneas) sin trucos engañosos.", "Calculad la media, la mediana y la moda cuando tenga sentido, y escribid tres conclusiones."],
+    producto: "Un informe con la tabla, el gráfico y las conclusiones, presentado oralmente a la dirección.",
+    evaluacion: ["Diseña una muestra adecuada y variada.", "Organiza y representa los datos correctamente.", "Calcula e interpreta media, mediana y moda.", "Comunica conclusiones con claridad y espíritu crítico."],
+  },
+});

@@ -145,3 +145,92 @@ module.exports = {
   fuentes: [RD, wiki("Aparato digestivo", "Aparato_digestivo"), wiki("Aparato respiratorio", "Aparato_respiratorio"), wiki("Aparato circulatorio", "Aparato_circulatorio")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Planificar una dieta equilibrada con el modelo del plato saludable", "Entender para qué usan las células el oxígeno y los nutrientes", "Adoptar hábitos que cuidan los aparatos de la nutrición"],
+  lectura: { titulo: "Un bocadillo de viaje", html: `<p>Son las once de la mañana y Rocío se come su bocadillo de tortilla en el recreo. Lo mastica, lo traga… y se olvida de él. Pero el bocadillo no se ha olvidado de ella: acaba de empezar un viaje increíble por su cuerpo.</p><p>Primero baja por un tubo hasta el estómago, donde se convierte en una papilla. Después recorre varios metros de intestino, donde los <b>nutrientes</b> pasan a la sangre. La sangre, empujada por el <b>corazón</b>, los lleva hasta cada rincón del cuerpo: los músculos de las piernas con las que Rocío salta a la comba, el cerebro con el que piensa en clase de Matemáticas…</p><p>Mientras tanto, cada vez que respira, sus pulmones toman <b>oxígeno</b> del aire, que también viaja por la sangre. En cada célula, el oxígeno y los nutrientes se combinan para producir la <b>energía</b> que necesita para vivir. Y los desechos se eliminan con la orina y con el aire que expulsa.</p><p>Todo esto, que ocurre sin que nos demos cuenta, es la <b>función de nutrición</b>. En este tema conocerás los cuatro aparatos que trabajan juntos para que funcione.</p>` },
+  tras: {
+    "Nutrirse no es lo mismo que alimentarse": [
+      ["La dieta equilibrada: el plato saludable", `<p>Una <b>dieta equilibrada</b> es la que nos da todos los nutrientes que necesitamos, en la cantidad adecuada. Un modelo sencillo para conseguirlo es el <b>plato saludable</b>:</p><ul><li><b>La mitad del plato</b>: verduras, hortalizas y frutas, de colores variados. Aportan vitaminas, minerales y <b>fibra</b>, que ayuda al intestino.</li><li><b>Un cuarto</b>: cereales integrales, pan, pasta, arroz o patata. Dan energía.</li><li><b>Un cuarto</b>: alimentos con proteínas, como legumbres, pescado, huevos, carne o frutos secos. Sirven para crecer y reparar el cuerpo.</li><li>Para beber, <b>agua</b>. Y para cocinar, un poco de <b>aceite de oliva</b>.</li></ul><p>Los dulces, la bollería, los refrescos y los alimentos ultraprocesados deben tomarse solo de vez en cuando, porque tienen mucho azúcar, sal o grasas poco saludables.</p><p>La <b>dieta mediterránea</b>, típica de España, se parece mucho a este modelo y es una de las más sanas del mundo. ¡Y recuerda desayunar bien: es la primera comida del día!</p>`,
+        svg("Plato saludable: la mitad verduras y frutas, un cuarto cereales y un cuarto proteínas, con agua", `${tit("El plato saludable")}<circle cx="104" cy="104" r="62" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/><path d="M104 104 L 104 42 A 62 62 0 0 0 104 166 Z" fill="${COL.verde}" fill-opacity=".35"/><path d="M104 104 L 104 42 A 62 62 0 0 1 166 104 Z" fill="${COL.sol}" fill-opacity=".35"/><path d="M104 104 L 166 104 A 62 62 0 0 1 104 166 Z" fill="${COL.rojo}" fill-opacity=".3"/>${tx(72, 108, "verduras y frutas", 56)}${tx(130, 82, "cereales", 50)}${tx(130, 132, "proteínas", 50)}<rect x="198" y="70" width="28" height="64" rx="6" fill="${COL.agua}" fill-opacity=".35" stroke="${COL.agua}" stroke-width="2"/>${tx(212, 152, "agua", 50)}`)],
+    ],
+    "Cómo respiramos": [
+      ["¿Para qué queremos el oxígeno?", `<p>Respiramos para conseguir <b>oxígeno</b>, pero ¿qué hace el cuerpo con él? La respuesta está dentro de cada <b>célula</b>.</p><p>En las células hay unas pequeñas «centrales de energía» llamadas <b>mitocondrias</b>. Allí, el oxígeno que llega de los pulmones se combina con los nutrientes que vienen del aparato digestivo (sobre todo, la glucosa de los azúcares). Esta reacción libera la <b>energía</b> que la célula necesita para moverse, crecer, reparar o pensar. A este proceso se le llama <b>respiración celular</b>.</p><p>Como resultado se producen también <b>desechos</b>: el <b>dióxido de carbono</b>, que la sangre lleva a los pulmones para expulsarlo al espirar, y agua.</p><p>Por eso, cuando corremos, respiramos más deprisa y el corazón late más rápido: los músculos necesitan mucha energía, y para producirla hacen falta más oxígeno y más nutrientes. Todo el cuerpo trabaja en equipo para que no les falte.</p>`,
+        svg("Respiración celular: oxígeno más nutrientes en la mitocondria dan energía y dióxido de carbono", `${tit("Respiración celular")}${flujo([["oxígeno + nutrientes", COL.azul], ["mitocondria", COL.verde], ["energía + CO₂", COL.rojo]], 70, 46)}${tx(130, 150, "Ocurre dentro de cada célula", 220)}`)],
+    ],
+    "El aparato circulatorio": [
+      ["El corazón, una bomba incansable", `<p>El <b>corazón</b> es un músculo del tamaño de un puño que está en el centro del pecho, un poco hacia la izquierda. Funciona como una <b>bomba</b>: se contrae y se relaja sin parar para empujar la sangre por todo el cuerpo.</p><p>Está dividido en <b>cuatro cavidades</b>: dos <b>aurículas</b> arriba, que reciben la sangre, y dos <b>ventrículos</b> abajo, que la expulsan. Unas válvulas hacen que la sangre circule siempre en el mismo sentido; su cierre produce el sonido «pum-pum» que escucha el médico con el fonendoscopio.</p><p>En reposo, el corazón de un niño late unas <b>80 o 90 veces por minuto</b>; el de un adulto, unas 70. En un día late más de <b>100 000 veces</b> y bombea miles de litros de sangre. ¡Y nunca descansa!</p><p>Puedes tomarte el <b>pulso</b> en la muñeca o en el cuello con dos dedos: cuenta los latidos durante 15 segundos y multiplica por 4. Hazlo en reposo y después de saltar un minuto: verás cómo aumenta.</p>`,
+        svg("El corazón tiene cuatro cavidades: dos aurículas arriba y dos ventrículos abajo", `${tit("Las cuatro cavidades")}${fichas([["Aurícula derecha", "recibe sangre del cuerpo", COL.azul], ["Aurícula izquierda", "recibe sangre de los pulmones", COL.rojo], ["Ventrículo derecho", "envía a los pulmones", COL.azul], ["Ventrículo izquierdo", "envía a todo el cuerpo", COL.rojo]])}`)],
+    ],
+  },
+  final: [
+    ["Hábitos para cuidar los aparatos de la nutrición", `<p>Los cuatro aparatos de la nutrición trabajan sin descanso para nosotros. Estos hábitos los mantienen sanos:</p><ul><li><b>Aparato digestivo</b>: come variado y despacio, masticando bien. Toma fibra (fruta, verdura, legumbres) y bebe agua. Lávate los dientes después de cada comida.</li><li><b>Aparato respiratorio</b>: respira por la nariz, que filtra y calienta el aire. Haz ejercicio al aire libre y evita los ambientes con humo. Nunca empieces a fumar: el <b>tabaco</b> daña los pulmones y el corazón.</li><li><b>Aparato circulatorio</b>: muévete cada día (al menos una hora de actividad para tu edad) y toma poca sal y pocas grasas poco saludables.</li><li><b>Aparato excretor</b>: bebe suficiente agua, unos 6 u 8 vasos al día, más si hace calor o haces deporte, y no aguantes las ganas de orinar.</li></ul><p>Y, sobre todo, <b>duerme</b> lo suficiente: entre 9 y 11 horas a tu edad. Mientras dormimos, el cuerpo repara y renueva sus células.</p>`,
+      svg("Hábitos saludables para los cuatro aparatos de la nutrición", `${tit("Hábitos saludables")}${filas([["Digestivo", "comer variado y despacio", COL.naranja], ["Respiratorio", "aire libre, sin humo", COL.agua], ["Circulatorio", "una hora de ejercicio", COL.rojo], ["Excretor", "beber agua", COL.azul], ["Todos", "dormir 9-11 horas", COL.morado]], 50, 25)}`)],
+  ],
+  ejemplos: [
+    ["Tomas tu pulso y cuentas 22 latidos en 15 segundos. ¿Cuántas pulsaciones por minuto tienes?", ["Un minuto tiene 4 veces 15 segundos.", "22 × 4 = 88.", "Es un valor normal para un niño en reposo."], "88 pulsaciones por minuto"],
+    ["Comida: macarrones con tomate, filete de pollo y un refresco. ¿Cómo la mejorarías con el plato saludable?", ["Faltan verduras y frutas, que deberían ser la mitad del plato.", "Añadiría una ensalada y una pieza de fruta de postre.", "Cambiaría el refresco por agua."], "Más verdura y fruta, y agua en lugar de refresco"],
+  ],
+  errores: ["Pensar que respiramos solo para los pulmones: el oxígeno lo usan todas las células para obtener energía."],
+  nivelesBase: "bbbmbmbbmm",
+  ejercicios: [
+    ["b", "¿Qué parte del plato saludable deben ocupar las verduras y frutas?", "La mitad."],
+    ["b", "¿Cuántas cavidades tiene el corazón? Nómbralas.", "Cuatro: dos aurículas y dos ventrículos."],
+    ["b", "¿Cómo se llaman las «centrales de energía» de las células?", "Mitocondrias."],
+    ["b", "Escribe tres hábitos saludables para el aparato respiratorio.", "Respirar por la nariz, hacer ejercicio al aire libre y evitar el humo del tabaco."],
+    ["m", "¿Qué desecho produce la respiración celular y cómo sale del cuerpo?", "Dióxido de carbono; la sangre lo lleva a los pulmones y se expulsa al espirar."],
+    ["m", "Cuentas 30 latidos en 15 segundos después de correr. ¿Cuántas pulsaciones por minuto son? ¿Por qué ha subido?", "30 × 4 = 120. Ha subido porque los músculos necesitan más oxígeno y nutrientes."],
+    ["m", "¿Para qué sirve la fibra de los alimentos? Escribe dos alimentos con fibra.", "Ayuda al intestino a funcionar bien. Por ejemplo, las legumbres y la fruta."],
+    ["m", "¿Por qué la dieta mediterránea se considera saludable?", "Porque tiene muchas frutas, verduras, legumbres, cereales, pescado y aceite de oliva, y pocos ultraprocesados."],
+    ["a", "Diseña el menú de un día (desayuno, comida y cena) siguiendo el plato saludable.", "Respuesta abierta. Cada comida principal debe tener verduras o fruta, cereales y proteínas, con agua."],
+    ["a", "¿Por qué respiramos más deprisa cuando hacemos ejercicio?", "Porque los músculos necesitan más energía; para producirla hace falta más oxígeno, y también hay que expulsar más dióxido de carbono."],
+    ["a", "Si el corazón late 80 veces por minuto, ¿cuántas veces late en una hora? ¿Y en un día?", "80 × 60 = 4 800 en una hora; 4 800 × 24 = 115 200 en un día."],
+    ["a", "Explica qué relación hay entre los cuatro aparatos de la nutrición usando el viaje de un nutriente.", "El digestivo lo obtiene del alimento, el circulatorio lo lleva a las células junto al oxígeno del respiratorio, y los desechos se eliminan por el excretor y el respiratorio."],
+    ["a", "¿Por qué es peligroso fumar para la función de nutrición?", "El humo daña los pulmones (peor intercambio de oxígeno) y el corazón y los vasos sanguíneos."],
+    ["m", "¿Qué produce el sonido «pum-pum» del corazón?", "El cierre de las válvulas del corazón."],
+    ["a", "Toma tu pulso en reposo y después de saltar un minuto. Anota los dos valores y explica la diferencia.", "Respuesta abierta. El pulso sube tras el ejercicio porque el corazón bombea más deprisa."],
+    ["b", "¿Cuántas horas debe dormir un niño de tu edad?", "Entre 9 y 11 horas."],
+  ],
+  quiz: [
+    ["En el plato saludable, la mitad deben ser…", ["Verduras y frutas", "Pasta y arroz", "Carne y pescado"], "Aportan vitaminas, minerales y fibra."],
+    ["La energía de las células se produce en…", ["Las mitocondrias", "Los pulmones", "El estómago"], "Allí se combinan oxígeno y nutrientes."],
+    ["El corazón de un niño en reposo late unas…", ["80-90 veces por minuto", "10 veces por minuto", "300 veces por minuto"], "Al hacer ejercicio aumenta."],
+    ["Para tomarte el pulso cuentas 15 segundos y…", ["Multiplicas por 4", "Divides entre 4", "Sumas 15"], "Un minuto son 4 × 15 s."],
+    ["¿Cuál es la bebida más saludable?", ["El agua", "Los refrescos", "Los zumos azucarados"], "Hidrata sin azúcar."],
+  ],
+  examen: [
+    ["Las cavidades del corazón que expulsan la sangre son…", ["Los ventrículos", "Las aurículas", "Las válvulas"], "Están en la parte de abajo."],
+    ["El dióxido de carbono sale del cuerpo por…", ["Los pulmones", "El estómago", "La piel"], "Se expulsa al espirar."],
+    ["La dieta típica de España, muy saludable, se llama…", ["Mediterránea", "Atlántica", "Tropical"], "Con aceite de oliva, verduras, legumbres y pescado."],
+    ["La fibra ayuda sobre todo al…", ["Intestino", "Corazón", "Pulmón"], "Facilita el tránsito intestinal."],
+  ],
+  tarjetas: [
+    ["Plato saludable", "½ verduras y frutas, ¼ cereales, ¼ proteínas, y agua."],
+    ["Respiración celular", "Oxígeno + nutrientes → energía + CO₂ (en las mitocondrias)."],
+    ["El corazón", "4 cavidades: 2 aurículas y 2 ventrículos."],
+    ["Tomar el pulso", "Latidos en 15 s × 4."],
+  ],
+  glosario: [
+    ["Nutrición", "Función por la que el cuerpo obtiene materia y energía."],
+    ["Nutriente", "Sustancia de los alimentos que usa el cuerpo."],
+    ["Digestión", "Transformación de los alimentos en nutrientes."],
+    ["Absorción", "Paso de los nutrientes del intestino a la sangre."],
+    ["Alvéolo", "Saco diminuto del pulmón donde se intercambian los gases."],
+    ["Respiración celular", "Proceso que produce energía en las células."],
+    ["Mitocondria", "Orgánulo de la célula donde se produce energía."],
+    ["Aurícula", "Cavidad superior del corazón que recibe la sangre."],
+    ["Ventrículo", "Cavidad inferior del corazón que expulsa la sangre."],
+    ["Pulso", "Latido que se nota en las arterias de la muñeca o el cuello."],
+    ["Excreción", "Eliminación de los desechos del cuerpo."],
+    ["Dieta equilibrada", "Alimentación variada que da todos los nutrientes necesarios."],
+  ],
+  situacion: {
+    titulo: "Nuestro menú saludable",
+    reto: "La clase diseña una semana de menús saludables para proponerla al comedor y una campaña de hábitos para todo el colegio.",
+    pasos: ["Analizad el menú actual del comedor con el modelo del plato saludable.", "Diseñad por grupos los menús de cinco días, equilibrados y variados.", "Medid vuestro pulso en reposo y tras el ejercicio y registrad los datos en una tabla.", "Preparad carteles de hábitos saludables para cada aparato y presentadlos a otros cursos."],
+    producto: "Una propuesta de menú semanal y una campaña de carteles de hábitos saludables.",
+    evaluacion: ["Explica la función de los cuatro aparatos de la nutrición y cómo se relacionan.", "Diseña menús equilibrados según el plato saludable.", "Registra e interpreta datos del pulso.", "Promueve hábitos saludables con argumentos científicos."],
+  },
+});
