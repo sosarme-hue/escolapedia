@@ -137,3 +137,88 @@ module.exports = {
   fuentes: [RD, wiki("Energía", "Energía"), wiki("Energía renovable", "Energía_renovable"), { t: "IDAE: ahorro y eficiencia energética", url: "https://www.idae.es/" }],
   revisado: REV,
 };
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Explicar el intercambio entre energía cinética y potencial", "Describir el camino de la electricidad desde la central hasta casa", "Distinguir calor y temperatura y reconocer conductores y aislantes térmicos"],
+  lectura: { titulo: "Un día sin electricidad", html: `<p>Un martes por la mañana, en el barrio de Nora se fue la luz. Al principio fue divertido: no había clase de informática y en el comedor hubo bocadillos. Pero pronto empezaron los problemas.</p><p>Los semáforos se apagaron y en los cruces se formaron atascos. El ascensor del edificio de Nora se quedó parado. En el supermercado, los congeladores dejaron de enfriar y tuvieron que tapar los alimentos con mantas. Por la tarde no había televisión, ni internet, y los móviles se iban quedando sin batería. Cuando oscureció, la familia cenó a la luz de unas velas.</p><p>—Antes de la electricidad, la gente vivía así todos los días —dijo su abuelo—. Se acostaban al ponerse el sol y calentaban la casa con leña.</p><p>A las diez de la noche, la luz volvió y todo el barrio aplaudió desde las ventanas. Nora se dio cuenta de lo mucho que dependemos de la <b>energía</b>. En este tema aprenderás qué es, qué formas tiene, de dónde la obtenemos y cómo ahorrarla.</p>` },
+  tras: {
+    "La energía mecánica": [
+      ["Una montaña rusa de energía", `<p>Una montaña rusa es un ejemplo perfecto de cómo la energía mecánica cambia de forma sin parar.</p><ol><li>Al principio, una cadena con motor sube los vagones hasta la cima más alta. Allí están casi parados, pero tienen mucha <b>energía potencial</b>, porque están muy arriba.</li><li>Al bajar, pierden altura y ganan velocidad: la energía potencial se transforma en <b>energía cinética</b>. En el punto más bajo van a toda velocidad.</li><li>Al subir la siguiente cuesta, ocurre lo contrario: pierden velocidad y ganan altura. La cinética se transforma otra vez en potencial.</li></ol><p>¿Por qué cada cuesta es más baja que la anterior? Porque en cada tramo una parte de la energía se transforma en <b>calor</b> y <b>sonido</b> por el rozamiento de las ruedas con los raíles y del aire. Esa energía no desaparece, pero ya no sirve para mover los vagones.</p><p>Lo mismo pasa con un columpio: en lo más alto se para un instante (máxima potencial) y en lo más bajo va más rápido (máxima cinética). Si nadie lo empuja, cada vez sube menos, hasta que se para.</p>`,
+        svg("Columpio: en los extremos máxima energía potencial y abajo máxima cinética", `${tit("El columpio")}<circle cx="130" cy="36" r="4" fill="var(--ink)"/>${[[-80, 124], [0, 146], [80, 124]].map(([dx, y]) => `<path d="M130 36 L${130 + dx} ${y}" stroke="var(--muted)" stroke-width="2" stroke-dasharray="${dx ? "4 3" : "0"}"/><rect x="${118 + dx}" y="${y}" width="24" height="8" rx="2" fill="${COL.rojo}"/>`).join("")}${et(50, 112, "potencial máxima", 80, { size: 10.5, color: COL.azul })}${et(210, 112, "potencial máxima", 80, { size: 10.5, color: COL.azul })}${et(130, 172, "abajo: cinética máxima", 160, { size: 10.5, color: COL.naranja })}`)],
+    ],
+    "Las energías renovables": [
+      ["Cómo llega la electricidad a casa", `<p>La electricidad que usas al encender una lámpara ha hecho un largo viaje:</p><ol><li><b>Central eléctrica</b>: puede ser un parque eólico, una central solar, una hidroeléctrica en una presa, una central térmica o una nuclear. En casi todas, algo hace girar un <b>generador</b>, que transforma energía de movimiento en <b>energía eléctrica</b>. (Las placas solares fotovoltaicas producen electricidad directamente con la luz.)</li><li><b>Transformador</b>: eleva la tensión de la electricidad para que viaje lejos perdiendo poca energía.</li><li><b>Líneas de alta tensión</b>: grandes torres metálicas llevan la electricidad por cables a cientos de kilómetros. Son muy peligrosas: nunca hay que acercarse ni volar cometas cerca.</li><li><b>Subestación</b>: baja la tensión para repartirla por los pueblos y ciudades.</li><li><b>Tu casa</b>: llega por cables a un cuadro eléctrico con interruptores de seguridad y, desde allí, a los enchufes y las lámparas.</li></ol><p>Todo esto ocurre casi a la velocidad de la luz. La electricidad apenas se puede guardar en grandes cantidades, así que las centrales tienen que producir en cada momento lo que se está consumiendo.</p>`,
+        svg("Camino de la electricidad: central, transformador, alta tensión, subestación y casa", `${tit("El viaje de la electricidad")}${flujo([["central", COL.verde], ["transformador", COL.sol], ["alta tensión", COL.rojo]], 40, 36)}${flujo([["subestación", COL.naranja], ["cuadro eléctrico", COL.morado], ["enchufe", COL.azul]], 100, 36)}${fl(240, 78, 240, 96, "var(--muted)", 2)}${tx(130, 162, "¡nunca te acerques a las torres!", 230, { color: COL.rojo, weight: 700 })}`)],
+    ],
+  },
+  final: [
+    ["Calor y temperatura", `<p>Aunque en la vida diaria los usamos como si fueran lo mismo, en ciencia son cosas distintas:</p><ul><li>La <b>temperatura</b> indica lo caliente o frío que está un cuerpo. Se mide con el <b>termómetro</b>, en <b>grados Celsius</b> (°C). El agua se congela a 0 °C y hierve a 100 °C; nuestro cuerpo está a unos 36,5 °C.</li><li>El <b>calor</b> es la energía que pasa de un cuerpo caliente a otro más frío, hasta que los dos tienen la misma temperatura. Por eso un chocolate caliente se enfría en la mesa y un helado se derrite en la mano.</li></ul><p>Algunos materiales dejan pasar el calor con facilidad: son <b>conductores térmicos</b>, como los metales. Por eso las cazuelas son de metal. Otros lo dejan pasar muy mal: son <b>aislantes térmicos</b>, como la madera, el plástico, la lana, el corcho o el aire. Por eso los mangos de las sartenes son de plástico o madera, y un abrigo de lana te mantiene caliente: no te da calor, sino que impide que el tuyo se escape.</p><p>Con el calor, casi todos los cuerpos se <b>dilatan</b> (aumentan un poco de tamaño). Por eso las vías del tren y los puentes tienen pequeñas juntas.</p>`,
+      svg("Conductores térmicos (metales) y aislantes térmicos (madera, plástico, lana, aire)", `${tit("Conductores y aislantes")}${cj2(14, 40, 112, 70, "Conductores", "metales: cazuelas", COL.rojo)}${cj2(134, 40, 112, 70, "Aislantes", "madera, plástico, lana, aire", COL.azul)}${tx(130, 132, "el calor pasa de lo caliente a lo frío", 236)}${tx(130, 152, "el agua hierve a 100 °C y se congela a 0 °C", 236)}`)],
+    ["La energía de nuestro cuerpo", `<p>Las personas también necesitamos energía para vivir: para movernos, pensar, respirar, crecer y mantener el cuerpo a unos 36,5 °C. La obtenemos de los <b>alimentos</b>, que contienen <b>energía química</b>.</p><p>La energía de los alimentos se mide en <b>kilocalorías</b> (kcal). Un niño de tu edad necesita alrededor de 1800 o 2000 kcal al día, según lo activo que sea. Cada alimento aporta una cantidad distinta: un plátano, unas 90 kcal; un vaso de leche, unas 120; un bollo industrial, más de 350.</p><p>El cuerpo transforma esa energía química en:</p><ul><li><b>Energía mecánica</b>, al movernos con los músculos.</li><li><b>Energía térmica</b>, que mantiene nuestra temperatura (por eso sudamos al correr: sobra calor).</li><li><b>Energía eléctrica</b> diminuta, en los mensajes de los nervios.</li></ul><p>Y toda esa energía viene, en el fondo, del <b>Sol</b>: las plantas la captan con la fotosíntesis, y nosotros la obtenemos al comer plantas o animales que han comido plantas. Una dieta equilibrada nos da la energía justa; si comemos mucho más de lo que gastamos, el cuerpo la guarda como grasa.</p>`,
+      svg("Energía de algunos alimentos: plátano 90 kcal, vaso de leche 120 kcal y bollo 350 kcal", `${tit("Kilocalorías de algunos alimentos")}${barras([["plátano", 90, COL.sol], ["vaso de leche", 120, COL.azul], ["bollo", 350, COL.rojo]], { unidad: " kcal", y0: 150, alto: 100 })}`)],
+  ],
+  ejemplos: [
+    ["Un columpio sube y baja. ¿En qué punto tiene más energía cinética y en cuál más potencial?", ["La cinética depende de la velocidad: es máxima en el punto más bajo.", "La potencial depende de la altura: es máxima en los extremos, donde se para un instante.", "Ambas se van transformando una en otra."], "Cinética abajo; potencial en lo más alto"],
+    ["Tocas una cuchara de metal y una de madera que llevan una hora en la misma mesa. La de metal parece más fría. ¿Están a distinta temperatura?", ["Llevan una hora en la misma habitación: tienen la misma temperatura.", "El metal es buen conductor y se lleva rápido el calor de tu mano.", "La madera es aislante y casi no se lo lleva."], "No; están a la misma temperatura, pero el metal conduce mejor el calor"],
+  ],
+  errores: ["Pensar que la ropa de abrigo da calor: es aislante e impide que se escape el calor del cuerpo."],
+  nivelesBase: "bbbmbmmmmm",
+  ejercicios: [
+    ["b", "¿Con qué aparato se mide la temperatura y en qué unidad?", "Con el termómetro, en grados Celsius (°C)."],
+    ["b", "Escribe dos conductores térmicos y dos aislantes.", "Conductores: hierro y cobre. Aislantes: madera y lana."],
+    ["b", "¿En qué unidad se mide la energía de los alimentos?", "En kilocalorías (kcal)."],
+    ["b", "¿Qué aparato de una central transforma movimiento en electricidad?", "El generador."],
+    ["b", "¿Por qué no se deben volar cometas cerca de las torres de alta tensión?", "Porque los cables llevan electricidad muy peligrosa y podría producirse una descarga."],
+    ["m", "En una montaña rusa, ¿qué energía se transforma en cuál al bajar?", "La energía potencial se transforma en cinética."],
+    ["m", "¿Por qué cada cuesta de la montaña rusa es más baja que la anterior?", "Porque con el rozamiento parte de la energía se transforma en calor y sonido."],
+    ["m", "¿Qué diferencia hay entre calor y temperatura?", "La temperatura indica lo caliente que está algo; el calor es energía que pasa del cuerpo caliente al frío."],
+    ["m", "¿Por qué las vías del tren tienen pequeñas juntas?", "Porque con el calor el metal se dilata y necesita espacio para no deformarse."],
+    ["m", "Ordena el viaje de la electricidad: subestación, central, casa, alta tensión, transformador.", "Central, transformador, alta tensión, subestación y casa."],
+    ["m", "¿Por qué sudamos al correr?", "Porque los músculos producen mucho calor y el sudor ayuda a eliminar el que sobra."],
+    ["a", "Un niño necesita 2000 kcal al día. Si desayuna un vaso de leche (120 kcal) y un plátano (90 kcal), ¿qué parte de la energía diaria ha tomado?", "210 kcal; algo más de la décima parte (200 sería exactamente la décima)."],
+    ["a", "Explica por qué toda la energía de nuestro cuerpo viene, en el fondo, del Sol.", "Las plantas captan la energía del Sol con la fotosíntesis; nosotros comemos plantas o animales que han comido plantas."],
+    ["a", "¿Por qué una cazuela tiene el cuerpo de metal y el mango de plástico?", "El metal conduce bien el calor para cocinar; el plástico es aislante para no quemarnos."],
+    ["a", "Las centrales deben producir en cada momento lo que se consume. ¿Qué problema tienen la solar y la eólica? ¿Qué solución propondrías?", "Dependen del sol y del viento. Se pueden combinar varias fuentes y guardar energía en baterías o en presas."],
+    ["a", "Diseña un experimento para comprobar qué material aísla mejor: lana, papel de aluminio o papel de periódico.", "Respuesta abierta. Envolver vasos iguales con agua caliente con cada material y medir la temperatura cada 5 minutos; aísla mejor el que se enfría más despacio."],
+  ],
+  quiz: [
+    ["En lo más alto de una montaña rusa hay mucha energía…", ["Potencial", "Cinética", "Eléctrica"], "Por la altura."],
+    ["El generador transforma energía de movimiento en…", ["Energía eléctrica", "Energía química", "Luz solar"], "Está en las centrales."],
+    ["La temperatura se mide con…", ["El termómetro", "La balanza", "El metro"], "En grados Celsius."],
+    ["Un buen aislante térmico es…", ["La lana", "El cobre", "El hierro"], "Deja pasar muy mal el calor."],
+    ["La energía de los alimentos se mide en…", ["Kilocalorías", "Litros", "Metros"], "kcal."],
+  ],
+  examen: [
+    ["El calor pasa siempre…", ["Del cuerpo caliente al frío", "Del frío al caliente", "No pasa nunca"], "Hasta igualar temperaturas."],
+    ["La subestación sirve para…", ["Bajar la tensión", "Producir electricidad", "Guardar petróleo"], "Para repartirla por las ciudades."],
+  ],
+  tarjetas: [
+    ["Potencial ↔ cinética", "Al bajar se gana velocidad; al subir, altura."],
+    ["Generador", "Transforma movimiento en electricidad."],
+    ["Calor", "Energía que pasa de lo caliente a lo frío."],
+    ["Kilocaloría", "Unidad de energía de los alimentos."],
+  ],
+  glosario: [
+    ["Energía", "Capacidad de los cuerpos para producir cambios."],
+    ["Energía cinética", "Energía del movimiento."],
+    ["Energía potencial", "Energía por la altura o la deformación."],
+    ["Energía química", "Energía guardada en alimentos y combustibles."],
+    ["Fuente renovable", "Fuente de energía que no se agota."],
+    ["Fuente no renovable", "Fuente que se agota porque tarda millones de años en formarse."],
+    ["Generador", "Aparato que transforma movimiento en electricidad."],
+    ["Temperatura", "Medida de lo caliente o frío que está un cuerpo."],
+    ["Calor", "Energía que pasa de un cuerpo caliente a uno frío."],
+    ["Conductor térmico", "Material que deja pasar bien el calor."],
+    ["Aislante térmico", "Material que deja pasar mal el calor."],
+    ["Dilatación", "Aumento de tamaño de un cuerpo al calentarse."],
+  ],
+  situacion: {
+    titulo: "Patrulla del ahorro energético",
+    reto: "La clase se convierte en una patrulla que estudia el consumo de energía del colegio y propone un plan de ahorro.",
+    pasos: ["Recorred el colegio y anotad los aparatos que gastan energía, cuáles se quedan encendidos sin necesidad y si hay ventanas abiertas con la calefacción puesta.", "Haced el experimento de los aislantes con vasos de agua caliente para decidir qué material conviene en ventanas y puertas.", "Investigad de qué fuentes procede la electricidad en España y cuáles son renovables.", "Elaborad un plan de diez medidas de ahorro y presentadlo a la dirección y a otros cursos."],
+    producto: "Un informe de consumo del colegio y un plan de ahorro energético con carteles.",
+    evaluacion: ["Identifica formas y transformaciones de la energía en situaciones reales.", "Distingue fuentes renovables y no renovables.", "Diseña y realiza un experimento controlado.", "Propone medidas de ahorro realistas y argumentadas."],
+  },
+});

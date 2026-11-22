@@ -137,3 +137,90 @@ module.exports = {
   fuentes: [RD, wiki("Luz", "Luz"), wiki("Sonido", "Sonido"), wiki("Refracción", "Refracción")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 85,
+  objetivos: ["Explicar cómo funcionan las lentes y algunos aparatos ópticos", "Explicar cómo se forma el arcoíris", "Calcular la distancia de una tormenta con la velocidad del sonido"],
+  lectura: { titulo: "La tormenta de verano", html: `<p>Era una tarde calurosa de agosto y Hugo estaba en la terraza del pueblo con su prima Inés. De pronto, el cielo se puso gris oscuro y, a lo lejos, un <b>relámpago</b> iluminó las montañas.</p><p>—¡Cuenta! —dijo Inés—. Uno, dos, tres, cuatro, cinco, seis…</p><p>Al llegar a nueve sonó el <b>trueno</b>, un estruendo largo que retumbó en el valle.</p><p>—Está a unos tres kilómetros —explicó Inés—. La luz llega casi al instante, pero el sonido es mucho más lento: tarda unos tres segundos en recorrer un kilómetro.</p><p>Siguieron contando. Seis segundos. Tres segundos. La tormenta se acercaba. Entonces entraron en casa. Desde la ventana vieron la lluvia caer con fuerza y, media hora después, la tormenta se alejó. Salió el sol por detrás de ellos y, en el cielo todavía mojado, apareció un enorme <b>arcoíris</b> con todos sus colores.</p><p>En una sola tarde, Hugo había visto en acción la <b>luz</b> y el <b>sonido</b>, las dos formas de energía que estudiarás en este tema.</p>` },
+  tras: {
+    "La refracción de la luz": [
+      ["Lentes y aparatos ópticos", `<p>Las <b>lentes</b> son piezas de vidrio o plástico transparente con forma curvada que aprovechan la refracción para desviar la luz. Hay dos tipos:</p><ul><li><b>Convergentes</b>: más gruesas en el centro que en los bordes. Juntan los rayos de luz en un punto y hacen que los objetos se vean <b>más grandes</b>. Una lupa es una lente convergente.</li><li><b>Divergentes</b>: más finas en el centro. Separan los rayos y hacen que los objetos se vean más pequeños.</li></ul><p>Combinando lentes se fabrican muchos <b>aparatos ópticos</b>:</p><ul><li><b>Gafas</b> y <b>lentillas</b>, que corrigen los defectos de la vista.</li><li>El <b>microscopio</b>, que permite ver células y microorganismos.</li><li>El <b>telescopio</b>, que acerca los planetas y las estrellas. Galileo lo usó en 1609 para descubrir las lunas de Júpiter.</li><li>Los <b>prismáticos</b> y las <b>cámaras</b> de fotos y de los móviles.</li></ul><p>Cuidado: una lupa al sol concentra la luz en un punto tan caliente que puede quemar papel o la piel. Y nunca mires al Sol con una lupa, unos prismáticos ni un telescopio: dañarías tus ojos para siempre.</p>`,
+        svg("Lente convergente que junta los rayos y lente divergente que los separa", `${tit("Dos tipos de lentes")}<path d="M60 44 Q74 92 60 140 Q46 92 60 44z" fill="${COL.agua}" fill-opacity=".35" stroke="${COL.agua}" stroke-width="2"/>${[60, 92, 124].map((y) => `<path d="M14 ${y} H60 L104 92" stroke="${COL.sol}" stroke-width="2" fill="none"/>`).join("")}<path d="M184 44 Q176 92 184 140 H204 Q196 92 204 44z" fill="${COL.agua}" fill-opacity=".35" stroke="${COL.agua}" stroke-width="2"/>${[66, 92, 118].map((y) => `<path d="M150 ${y} H194 L246 ${92 + (y - 92) * 2}" stroke="${COL.sol}" stroke-width="2" fill="none"/>`).join("")}${et(66, 162, "convergente: lupa", 110, { size: 10.5, color: COL.verde })}${et(196, 162, "divergente", 100, { size: 10.5, color: COL.morado })}`)],
+    ],
+    "La luz y los colores": [
+      ["Cómo se forma el arcoíris", `<p>El <b>arcoíris</b> es una descomposición de la luz como la del prisma de Newton, pero hecha por millones de <b>gotas de agua</b>. Para que aparezca se necesitan dos cosas a la vez: <b>sol</b> y <b>gotas</b> en el aire, como después de una tormenta o junto a una cascada.</p><p>Cuando la luz del Sol entra en una gota, se <b>refracta</b> (se desvía) y se separa en colores, porque cada color se desvía un poco distinto. Después <b>se refleja</b> en el fondo de la gota y vuelve a salir hacia nosotros. Cada gota nos manda un color según su posición, y entre todas forman el arco.</p><p>Los colores aparecen siempre en el mismo orden: <b>rojo</b> por fuera, después <b>naranja</b>, <b>amarillo</b>, <b>verde</b>, <b>azul</b>, <b>añil</b> y <b>violeta</b> por dentro.</p><p>Algunos trucos para verlo:</p><ul><li>Pon el Sol <b>a tu espalda</b> y mira hacia donde llueve.</li><li>Se ve mejor por la mañana o por la tarde, cuando el Sol está bajo.</li><li>A veces aparece un segundo arcoíris, más débil, con los colores al revés.</li></ul><p>Puedes crear tu propio arcoíris con una manguera en un día soleado, de espaldas al sol.</p>`,
+        svg("Arcoíris con siete colores de rojo por fuera a violeta por dentro, con el sol a la espalda del observador", `${tit("El arcoíris")}${["#ef4444", "#f97316", "#eab308", "#22c55e", "#3b82f6", "#4f46e5", "#8b5cf6"].map((c, i) => `<path d="M${30 + i * 7} 150 A${100 - i * 7} ${100 - i * 7} 0 0 1 ${230 - i * 7} 150" fill="none" stroke="${c}" stroke-width="7"/>`).join("")}${tx(130, 140, "rojo fuera · violeta dentro", 110)}${tx(130, 172, "sol a tu espalda + gotas de agua", 236)}`)],
+    ],
+    "¿Qué es el sonido?": [
+      ["La velocidad del sonido: rayos y truenos", `<p>El sonido necesita un medio para viajar y lo hace mucho más despacio que la luz:</p><ul><li>La <b>luz</b> recorre unos 300 000 kilómetros cada segundo. Para nosotros, llega casi al instante.</li><li>El <b>sonido</b>, en el aire, recorre unos <b>340 metros por segundo</b>. Es decir, tarda unos <b>3 segundos en recorrer un kilómetro</b>.</li></ul><p>Por eso en una tormenta primero vemos el <b>relámpago</b> y después oímos el <b>trueno</b>, aunque se producen a la vez. Puedes calcular a qué distancia está la tormenta: cuenta los segundos entre el relámpago y el trueno y <b>divide entre 3</b>. Si cuentas 9 segundos, está a unos 3 km.</p><p>Si cuentas menos de 30 segundos, la tormenta está cerca (a menos de 10 km) y hay riesgo de rayos: busca refugio dentro de un edificio o un coche, aléjate de árboles aislados y no te bañes.</p><p>En el agua el sonido va unas cuatro veces más rápido que en el aire, y en el acero, unas quince veces. Algunos <b>aviones</b> supersónicos vuelan más rápido que el sonido y, al romper esa barrera, producen un gran estruendo.</p>`,
+        svg("Relámpago y trueno: el sonido tarda unos 3 segundos en recorrer un kilómetro", `${tit("¿A qué distancia está?")}<path d="M50 34 L36 74 H50 L40 110 L70 62 H54 L66 34z" fill="${COL.sol}" stroke="#a16207" stroke-width="1.5"/>${cj(96, 40, 150, 28, "luz: llega al instante", COL.sol)}${cj(96, 80, 150, 28, "sonido: 340 m/s", COL.azul)}${cj(20, 124, 220, 30, "segundos : 3 = kilómetros", COL.verde)}${tx(130, 172, "9 segundos → unos 3 km", 230)}`)],
+    ],
+  },
+  final: [
+    ["Instrumentos musicales: la física del sonido", `<p>Todos los instrumentos musicales producen sonido haciendo <b>vibrar</b> algo, y su forma decide cómo suena. Se agrupan en tres familias principales:</p><ul><li><b>De cuerda</b>: vibran cuerdas tensas al pulsarlas, frotarlas con un arco o golpearlas. Guitarra, violín, arpa o piano. Una cuerda <b>más corta, más fina o más tensa</b> da un sonido más <b>agudo</b>. Por eso, al pisar una cuerda de la guitarra, el sonido sube.</li><li><b>De viento</b>: vibra el aire dentro de un tubo. Flauta, trompeta, clarinete o gaita. Cuanto <b>más corto</b> es el tubo de aire, más agudo suena. Al tapar agujeros de la flauta alargas el tubo de aire y el sonido se hace más grave.</li><li><b>De percusión</b>: suenan al golpearlos o sacudirlos. Tambor, xilófono, pandereta o castañuelas. En un tambor, cuanto más tensa está la piel, más agudo suena.</li></ul><p>La <b>caja</b> de madera de la guitarra o del violín sirve de <b>caja de resonancia</b>: hace que el sonido sea más intenso. Puedes construir instrumentos caseros: botellas con distinta cantidad de agua, gomas elásticas tensadas sobre una caja o un tambor con un bote y un globo.</p>`,
+        svg("Familias de instrumentos: cuerda, viento y percusión; más corto suena más agudo", `${tit("Familias de instrumentos")}${filas([["Cuerda", "guitarra, violín, piano", COL.marron], ["Viento", "flauta, trompeta, gaita", COL.azul], ["Percusión", "tambor, xilófono", COL.rojo]], 50, 30)}${cj(20, 136, 220, 28, "más corto o más tenso = más agudo", COL.morado)}`)],
+  ],
+  ejemplos: [
+    ["Ves un relámpago y cuentas 15 segundos hasta el trueno. ¿A qué distancia está la tormenta?", ["El sonido tarda unos 3 segundos en recorrer 1 km.", "15 : 3 = 5.", "Como es menos de 30 segundos, la tormenta está cerca."], "A unos 5 km: hay que buscar refugio"],
+    ["Llenas tres botellas iguales con poca, media y mucha agua y soplas por la boca. ¿Cuál suena más agudo?", ["Al soplar vibra el aire que queda encima del agua.", "Con mucha agua, la columna de aire es más corta.", "Cuanto más corto es el tubo de aire, más agudo suena."], "La botella con más agua"],
+  ],
+  errores: ["Pensar que el relámpago y el trueno se producen en momentos distintos: se producen a la vez, pero el sonido llega más tarde."],
+  nivelesBase: "bbbbmmmmmm",
+  ejercicios: [
+    ["b", "¿Qué tipo de lente es una lupa?", "Una lente convergente."],
+    ["b", "Escribe en orden los siete colores del arcoíris.", "Rojo, naranja, amarillo, verde, azul, añil y violeta."],
+    ["b", "¿Qué velocidad tiene el sonido en el aire, aproximadamente?", "Unos 340 metros por segundo."],
+    ["b", "Escribe un instrumento de cuerda, uno de viento y uno de percusión.", "Guitarra, flauta y tambor."],
+    ["b", "¿Qué dos cosas hacen falta para ver un arcoíris?", "Sol y gotas de agua en el aire."],
+    ["m", "Si entre el relámpago y el trueno pasan 6 segundos, ¿a qué distancia está la tormenta?", "A unos 2 km."],
+    ["m", "¿Por qué debes ponerte de espaldas al Sol para ver el arcoíris?", "Porque la luz entra en las gotas, se refleja dentro y vuelve hacia el lado del que viene el Sol."],
+    ["m", "¿Por qué no se debe mirar al Sol con prismáticos?", "Porque concentran la luz y dañarían los ojos para siempre."],
+    ["m", "¿Qué pasa con el sonido de una cuerda de guitarra si la pisas y la haces más corta?", "Se vuelve más agudo."],
+    ["m", "¿Para qué sirve la caja de madera de una guitarra?", "Es una caja de resonancia que hace el sonido más intenso."],
+    ["m", "Nombra tres aparatos ópticos y para qué sirven.", "Microscopio (ver cosas muy pequeñas), telescopio (ver astros lejanos) y gafas (corregir la vista)."],
+    ["a", "¿Cuánto tarda el sonido en recorrer 1700 metros?", "1700 : 340 = 5 segundos."],
+    ["a", "Una tormenta: primero cuentas 18 segundos, luego 12 y luego 6. ¿Qué está pasando?", "La tormenta se acerca: está a 6 km, luego a 4 km y luego a 2 km."],
+    ["a", "Explica la diferencia entre la descomposición de la luz en un prisma y en el arcoíris.", "Es el mismo fenómeno (refracción que separa los colores), pero en el arcoíris lo hacen millones de gotas de agua, que además reflejan la luz."],
+    ["a", "Diseña un xilófono con botellas de agua y explica cómo afinarlo.", "Respuesta abierta. Botellas iguales con distinta cantidad de agua; al golpearlas, cambiando el agua cambia el tono. Se ajusta añadiendo o quitando agua."],
+    ["a", "¿Por qué la lupa al sol puede quemar un papel?", "Porque al ser convergente concentra la luz y el calor del Sol en un punto muy pequeño."],
+  ],
+  quiz: [
+    ["Una lente convergente hace que los objetos se vean…", ["Más grandes", "Más pequeños", "Del revés siempre"], "Como una lupa."],
+    ["El color de fuera del arcoíris es el…", ["Rojo", "Violeta", "Verde"], "El violeta está por dentro."],
+    ["Para calcular la distancia de una tormenta, los segundos se dividen entre…", ["3", "10", "100"], "El sonido recorre 1 km en unos 3 s."],
+    ["Un tubo de aire más corto suena…", ["Más agudo", "Más grave", "Igual"], "Como en la flauta."],
+    ["Galileo usó el telescopio para descubrir…", ["Las lunas de Júpiter", "Los microbios", "El sonido"], "En 1609."],
+  ],
+  examen: [
+    ["El sonido viaja más deprisa en…", ["El acero", "El aire", "El vacío"], "En el vacío no viaja."],
+    ["El arcoíris se forma por refracción y reflexión en…", ["Gotas de agua", "Las nubes negras", "El polvo"], "Cada gota separa los colores."],
+  ],
+  tarjetas: [
+    ["Lente convergente", "Más gruesa en el centro; amplía, como la lupa."],
+    ["Arcoíris", "Rojo, naranja, amarillo, verde, azul, añil, violeta."],
+    ["Velocidad del sonido", "Unos 340 m/s: 1 km en unos 3 s."],
+    ["Instrumentos", "Cuerda, viento y percusión."],
+  ],
+  glosario: [
+    ["Luz", "Forma de energía que nos permite ver."],
+    ["Fuente luminosa", "Cuerpo que produce luz propia."],
+    ["Opaco", "Material que no deja pasar la luz."],
+    ["Reflexión", "Rebote de la luz o del sonido en una superficie."],
+    ["Refracción", "Desviación de la luz al cambiar de medio."],
+    ["Lente", "Pieza transparente curvada que desvía la luz."],
+    ["Prisma", "Pieza de vidrio que separa la luz en colores."],
+    ["Sonido", "Energía que se produce cuando algo vibra."],
+    ["Intensidad", "Cualidad del sonido: fuerte o débil."],
+    ["Tono", "Cualidad del sonido: agudo o grave."],
+    ["Eco", "Sonido reflejado que se oye después del original."],
+    ["Contaminación acústica", "Exceso de ruido en un lugar."],
+  ],
+  situacion: {
+    titulo: "Feria de la luz y el sonido",
+    reto: "La clase organiza una feria con experimentos de luz y sonido e instrumentos fabricados con materiales reciclados.",
+    pasos: ["Preparad experimentos de luz: arcoíris con un vaso de agua al sol, lápiz «roto» en agua, sombras y espejos.", "Fabricad instrumentos reciclados de las tres familias y comprobad cómo cambiar su tono.", "Medid el ruido del patio y del aula con una aplicación de decibelios y comparad los resultados.", "Montad la feria con carteles que expliquen cada experimento y tocad una canción con los instrumentos."],
+    producto: "Una feria de experimentos y una pequeña orquesta de instrumentos reciclados.",
+    evaluacion: ["Explica la reflexión, la refracción y la descomposición de la luz.", "Relaciona el tamaño y la tensión de un instrumento con su tono.", "Recoge e interpreta medidas de ruido.", "Comunica con claridad y trabaja en equipo."],
+  },
+});

@@ -145,3 +145,88 @@ module.exports = {
   fuentes: [RD, wiki("Materia", "Materia"), wiki("Estado de agregación de la materia", "Estado_de_agregación_de_la_materia"), wiki("Mezcla", "Mezcla")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Predecir si un objeto flota o se hunde a partir de su densidad", "Relacionar los cambios de estado con el ciclo del agua", "Reconocer la oxidación y la combustión y separar residuos para reciclarlos"],
+  lectura: { titulo: "¡Eureka!", html: `<p>Hace más de 2200 años, en la ciudad de Siracusa, el rey Hierón encargó una corona de oro puro. Cuando se la entregaron, sospechó que el orfebre le había engañado mezclando el oro con plata, que es más barata. Pero ¿cómo comprobarlo sin estropear la corona?</p><p>El rey le pidió ayuda al sabio <b>Arquímedes</b>. Durante días, Arquímedes no encontró la solución. Un día, al meterse en una bañera llena hasta arriba, vio que el agua se desbordaba. ¡Su cuerpo ocupaba un espacio y desplazaba el agua! Cuenta la leyenda que salió corriendo por la calle gritando «¡<b>Eureka</b>!», que significa «¡lo encontré!».</p><p>Arquímedes sumergió en agua la corona y después un trozo de oro puro con la <b>misma masa</b>. La corona desplazó más agua: tenía más <b>volumen</b>. Eso significaba que no era solo de oro, porque el oro, al ser tan <b>denso</b>, ocupa poco espacio. El orfebre había hecho trampa.</p><p>En este tema aprenderás qué es la materia, cómo se mide y cómo cambia.</p>` },
+  tras: {
+    "Masa, volumen y densidad": [
+      ["¿Flota o se hunde?", `<p>Que un objeto flote o se hunda no depende de lo que pese, sino de su <b>densidad</b> comparada con la del líquido. La densidad del agua es de <b>1 gramo por centímetro cúbico</b> (1 g/cm³): un cubito de 1 cm de lado lleno de agua pesa 1 gramo.</p><ul><li>Si un objeto es <b>menos denso</b> que el agua, <b>flota</b>: la madera, el corcho, el aceite o el hielo.</li><li>Si es <b>más denso</b>, <b>se hunde</b>: una piedra, una moneda o un clavo de hierro.</li></ul><p>Por eso un tronco enorme flota y una canica pequeña se hunde. ¿Y cómo flota un barco de acero, que es muy denso? Porque su forma hueca encierra mucho aire, y el conjunto del barco y el aire de dentro es menos denso que el agua.</p><p>Una curiosidad importante: el <b>hielo</b> flota porque el agua, al congelarse, se expande y se vuelve menos densa. Gracias a eso, en invierno los lagos se congelan solo por arriba y los peces sobreviven debajo.</p><p>Puedes hacer una «torre de líquidos» en un vaso: miel abajo, después agua con colorante y, arriba, aceite. Cada líquido se coloca según su densidad.</p>`,
+        svg("Torre de líquidos: miel abajo, agua en medio y aceite arriba; el corcho flota y la piedra se hunde", `${tit("Torre de densidades")}<path d="M70 40 V160 H150 V40" fill="none" stroke="var(--ink)" stroke-width="2.5"/><rect x="72" y="58" width="76" height="32" fill="${COL.sol}" fill-opacity=".45"/><rect x="72" y="90" width="76" height="36" fill="${COL.agua}" fill-opacity=".4"/><rect x="72" y="126" width="76" height="32" fill="${COL.marron}" fill-opacity=".5"/><rect x="98" y="48" width="22" height="12" rx="3" fill="#d6a76b" stroke="#92400e" stroke-width="1.5"/><circle cx="110" cy="150" r="7" fill="#a8a29e" stroke="#57534e" stroke-width="1.5"/>${filas([["aceite", "arriba", COL.sol], ["agua", "1 g/cm³", COL.agua], ["miel", "abajo", COL.marron]], 78, 36, { x: 166, wa: 44, wb: 46 })}${tx(36, 52, "corcho", 60)}${tx(36, 154, "piedra", 60)}`)],
+    ],
+    "Los cambios de estado": [
+      ["El ciclo del agua: cambios de estado en la naturaleza", `<p>El agua de la Tierra está siempre cambiando de estado y moviéndose de un sitio a otro. A este viaje sin fin se le llama <b>ciclo del agua</b>, y el motor que lo mueve es el <b>Sol</b>.</p><ol><li><b>Evaporación</b>: el calor del Sol evapora el agua de los mares, los ríos y los lagos, y también la que sueltan las plantas. El vapor de agua sube con el aire caliente.</li><li><b>Condensación</b>: arriba hace frío y el vapor se condensa en gotitas diminutas que forman las <b>nubes</b>.</li><li><b>Precipitación</b>: cuando las gotas se hacen grandes y pesadas, caen como <b>lluvia</b>. Si hace mucho frío, el agua se solidifica y cae como <b>nieve</b> o <b>granizo</b>.</li><li><b>Escorrentía y filtración</b>: el agua corre por ríos hasta el mar o se filtra en el suelo y forma <b>aguas subterráneas</b>. La nieve de las montañas se funde en primavera (fusión) y alimenta los ríos.</li></ol><p>Así, el agua que bebes hoy pudo haber estado hace miles de años en un glaciar, en el océano o en una nube sobre otro continente. ¡La cantidad total de agua de la Tierra casi no cambia!</p>`,
+        svg("Ciclo del agua: evaporación, condensación, precipitación y escorrentía", `${tit("El ciclo del agua")}${ciclo([["evaporación", COL.naranja], ["condensación", COL.gris], ["precipitación", COL.azul], ["escorrentía", COL.agua]], 130, 100, 54, 92)}`)],
+    ],
+  },
+  final: [
+    ["Oxidación y combustión", `<p>Dos cambios químicos que vemos a menudo son la oxidación y la combustión. En los dos interviene el <b>oxígeno</b> del aire.</p><p>La <b>oxidación</b> ocurre cuando una sustancia reacciona lentamente con el oxígeno. El <b>hierro</b> que se deja a la intemperie se cubre de <b>óxido</b>, una capa marrón y frágil que lo va deshaciendo. Una <b>manzana</b> cortada se pone marrón por la misma razón. Para evitar la oxidación del hierro se pinta, se engrasa o se fabrican aceros especiales como el acero inoxidable; a la manzana le sirve unas gotas de limón.</p><p>La <b>combustión</b> es una reacción rápida con oxígeno que desprende mucha <b>luz</b> y <b>calor</b>: es el fuego. Para que haya fuego hacen falta tres cosas, el <b>triángulo del fuego</b>:</p><ul><li>Un <b>combustible</b>: madera, papel, gas, gasolina.</li><li>El <b>oxígeno</b> del aire.</li><li><b>Calor</b> suficiente para empezar.</li></ul><p>Si quitas uno de los tres lados, el fuego se apaga. Por eso una manta sobre una sartén con aceite ardiendo apaga las llamas: les quita el oxígeno. ¡Y nunca se echa agua sobre aceite ardiendo!</p>`,
+        svg("Triángulo del fuego: combustible, oxígeno y calor", `${tit("El triángulo del fuego")}<path d="M130 44 L206 150 H54z" fill="${COL.naranja}" fill-opacity=".15" stroke="${COL.naranja}" stroke-width="3"/>${cj(90, 30, 80, 24, "oxígeno", COL.azul)}${cj(10, 140, 96, 24, "combustible", COL.marron)}${cj(166, 140, 84, 24, "calor", COL.rojo)}<path d="M130 120 q-14 -14 -4 -34 q4 12 10 6 q8 14 -6 28z" fill="${COL.naranja}"/>${tx(130, 176, "quita un lado y el fuego se apaga", 230)}`)],
+    ["Reciclar los materiales", `<p>Muchos de los materiales que usamos se pueden volver a aprovechar si los separamos bien. Así ahorramos <b>materias primas</b>, agua y energía, y producimos menos basura. En España los contenedores tienen colores:</p><ul><li><b>Amarillo</b>: envases de plástico, latas y briks.</li><li><b>Azul</b>: papel y cartón.</li><li><b>Verde</b> (iglú): envases de vidrio, como botellas y tarros, sin tapones.</li><li><b>Marrón</b>: restos orgánicos, como cáscaras y restos de comida, con los que se fabrica abono.</li><li><b>Gris</b>: lo que no se puede reciclar en los otros.</li></ul><p>Otros residuos van al <b>punto limpio</b>: pilas, aceite usado, aparatos eléctricos o bombillas. Las pilas son muy contaminantes y nunca deben tirarse a la basura normal.</p><p>Reciclar transforma el material: una lata de aluminio puede convertirse en otra lata nueva en pocas semanas, y el vidrio se puede reciclar una y otra vez sin perder calidad. Pero aún es mejor <b>reducir</b>: usar menos envases, botellas reutilizables y bolsas de tela.</p>`,
+        svg("Contenedores de reciclaje: amarillo envases, azul papel, verde vidrio, marrón orgánico", `${tit("¿A qué contenedor?")}${fichas([["Amarillo", "plástico, latas, briks", COL.sol], ["Azul", "papel y cartón", COL.azul], ["Verde", "vidrio", COL.verde], ["Marrón", "restos orgánicos", COL.marron]])}`)],
+  ],
+  ejemplos: [
+    ["Un trozo de madera tiene una densidad de 0,6 g/cm³ y una piedra de 2,5 g/cm³. ¿Cuál flota en agua?", ["La densidad del agua es 1 g/cm³.", "La madera: 0,6 es menor que 1, así que flota.", "La piedra: 2,5 es mayor que 1, así que se hunde."], "Flota la madera; la piedra se hunde"],
+    ["¿Qué cambios de estado ocurren cuando la nieve de una montaña acaba en una nube?", ["La nieve se funde en primavera: fusión.", "El agua del río llega al mar y se evapora: vaporización (evaporación).", "El vapor se enfría arriba y forma gotitas: condensación."], "Fusión, evaporación y condensación"],
+  ],
+  errores: ["Pensar que los objetos pesados siempre se hunden: depende de su densidad, no de su peso; un tronco enorme flota."],
+  nivelesBase: "bbbmbmmmmm",
+  ejercicios: [
+    ["b", "¿Cuál es la densidad del agua?", "1 g/cm³."],
+    ["b", "Escribe dos objetos que floten en el agua y dos que se hundan.", "Flotan: corcho y madera. Se hunden: piedra y moneda."],
+    ["b", "¿Cuáles son los tres lados del triángulo del fuego?", "Combustible, oxígeno y calor."],
+    ["b", "¿En qué contenedor se tiran las latas? ¿Y las botellas de vidrio?", "Las latas en el amarillo; el vidrio en el verde."],
+    ["b", "¿Qué es el motor del ciclo del agua?", "El Sol."],
+    ["m", "¿Por qué flota el hielo?", "Porque al congelarse el agua se expande y el hielo es menos denso que el agua líquida."],
+    ["m", "¿Por qué un barco de acero flota?", "Porque su forma hueca encierra mucho aire y el conjunto es menos denso que el agua."],
+    ["m", "¿Qué cambio de estado forma las nubes?", "La condensación del vapor de agua."],
+    ["m", "¿Por qué una manta apaga el fuego de una sartén?", "Porque le quita el oxígeno, uno de los lados del triángulo del fuego."],
+    ["m", "¿Por qué la manzana cortada se pone marrón? ¿Cómo lo evitas?", "Por la oxidación con el oxígeno del aire; con unas gotas de limón."],
+    ["m", "¿Dónde se tiran las pilas usadas? ¿Por qué?", "En contenedores especiales o en el punto limpio, porque son muy contaminantes."],
+    ["a", "¿Qué descubrió Arquímedes en la bañera y cómo lo usó con la corona?", "Que un cuerpo sumergido desplaza agua según su volumen. Comparó el agua que desplazaban la corona y un trozo de oro de igual masa: la corona desplazó más, luego no era de oro puro."],
+    ["a", "Explica por qué es importante que el hielo flote para los peces de un lago.", "El hielo queda arriba y aísla el agua de debajo, que no se congela y permite vivir a los peces."],
+    ["a", "¿Es la oxidación un cambio físico o químico? Justifícalo.", "Químico, porque se forma una sustancia nueva (el óxido) con propiedades distintas."],
+    ["a", "Clasifica estos residuos: periódico, piel de plátano, bote de yogur, tarro de mermelada, pila.", "Periódico: azul. Piel de plátano: marrón. Bote de yogur: amarillo. Tarro: verde. Pila: punto limpio o contenedor de pilas."],
+    ["a", "Diseña un experimento para comprobar que el hierro necesita aire y agua para oxidarse.", "Respuesta abierta. Tres clavos: uno en agua hervida tapada con aceite (sin aire), otro en un tarro seco cerrado (sin agua) y otro en agua al aire. Solo se oxida bien el último."],
+  ],
+  quiz: [
+    ["Un objeto flota si es…", ["Menos denso que el agua", "Más pesado", "Más grande"], "Depende de la densidad."],
+    ["Las nubes se forman por…", ["Condensación", "Fusión", "Solidificación"], "El vapor se enfría y forma gotitas."],
+    ["Para que haya fuego hace falta combustible, calor y…", ["Oxígeno", "Agua", "Arena"], "Es el triángulo del fuego."],
+    ["El papel y el cartón van al contenedor…", ["Azul", "Amarillo", "Verde"], "Se fabrica papel nuevo."],
+    ["El hierro a la intemperie se cubre de…", ["Óxido", "Hielo", "Sal"], "Es una oxidación."],
+  ],
+  examen: [
+    ["Arquímedes descubrió que un cuerpo sumergido…", ["Desplaza agua", "Pierde masa", "Se calienta"], "Según su volumen."],
+    ["Sobre aceite ardiendo nunca se echa…", ["Agua", "Una manta", "Una tapa"], "Se apaga quitando el oxígeno."],
+  ],
+  tarjetas: [
+    ["Flotar", "Ocurre si el objeto es menos denso que el líquido."],
+    ["Ciclo del agua", "Evaporación, condensación, precipitación, escorrentía."],
+    ["Triángulo del fuego", "Combustible + oxígeno + calor."],
+    ["Contenedores", "Amarillo envases, azul papel, verde vidrio, marrón orgánico."],
+  ],
+  glosario: [
+    ["Materia", "Todo lo que tiene masa y ocupa un volumen."],
+    ["Masa", "Cantidad de materia de un cuerpo; se mide en kg."],
+    ["Volumen", "Espacio que ocupa un cuerpo; se mide en litros o m³."],
+    ["Densidad", "Masa que hay en cada unidad de volumen."],
+    ["Fusión", "Paso de sólido a líquido."],
+    ["Evaporación", "Paso de líquido a gas en la superficie."],
+    ["Condensación", "Paso de gas a líquido."],
+    ["Mezcla homogénea", "Mezcla cuyos componentes no se distinguen."],
+    ["Mezcla heterogénea", "Mezcla cuyos componentes se distinguen."],
+    ["Cambio químico", "Cambio en el que se forman sustancias nuevas."],
+    ["Oxidación", "Reacción lenta de una sustancia con el oxígeno."],
+    ["Combustión", "Reacción rápida con oxígeno que produce luz y calor."],
+  ],
+  situacion: {
+    titulo: "Científicos de la cocina",
+    reto: "La clase investiga la materia con experimentos de cocina y presenta un «programa de ciencia» grabado o en directo.",
+    pasos: ["Construid una torre de densidades con miel, agua con colorante y aceite, y probad qué objetos flotan en cada capa.", "Preparad mezclas y separadlas: arena y agua por filtración, sal y agua por evaporación al sol.", "Observad la oxidación de una manzana cortada con limón y sin limón durante una hora.", "Presentad cada experimento explicando qué propiedad o cambio de la materia demuestra."],
+    producto: "Un programa de ciencia con cuatro experimentos explicados.",
+    evaluacion: ["Explica la flotación con el concepto de densidad.", "Elige el método adecuado para separar cada mezcla.", "Distingue cambios físicos y químicos con ejemplos.", "Trabaja con seguridad y comunica con claridad."],
+  },
+});
