@@ -88,3 +88,85 @@ module.exports = P.tema({
   saberes: "Pentecostés y el nacimiento de la Iglesia; la vida de las primeras comunidades; san Pedro y san Pablo; los viajes misioneros y las cartas; persecuciones y mártires; catacumbas y símbolos cristianos; el Edicto de Milán",
   ideas: ["Mapa de los viajes de san Pablo con hilos de colores.", "Taller de símbolos cristianos (pez, ancla, crismón) en barro o cartulina.", "Diario imaginario de un cristiano de Corinto que recibe una carta de Pablo."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 60,
+  objetivos: ["Conocer cómo se reunían los primeros cristianos en las casas", "Descubrir cómo se viajaba por el Imperio romano y el naufragio de Pablo", "Saber cómo pasó el cristianismo a ser la religión del Imperio", "Conocer a algunos Padres de la Iglesia"],
+  lectura: { titulo: "La carta que llegó a Filipos", html: `<p>Era domingo por la tarde y la casa de Lidia estaba llena. Habían venido comerciantes, esclavos, soldados, viudas y niños. En cualquier otro lugar de la ciudad no se habrían sentado juntos, pero allí compartían el mismo pan.</p><p>Epafrodito acababa de volver de un largo viaje. Traía algo muy esperado: una carta de Pablo, escrita desde la cárcel.</p><p>—¿Está bien? —preguntó alguien, preocupado.</p><p>—Está preso, pero no ha perdido la alegría —respondió Epafrodito—. Escuchad.</p><p>Desenrolló el pergamino y empezó a leer en voz alta. Pablo les daba las gracias por la ayuda que le habían enviado, les pedía que no discutieran entre ellos y les animaba una y otra vez: «Estad siempre alegres en el Señor. Os lo repito: estad alegres».</p><p>Una niña, sentada en el suelo junto a su madre, levantó la cabeza.</p><p>—¿Cómo puede estar alegre si está en la cárcel?</p><p>Lidia sonrió.</p><p>—Porque sabe que no está solo. Y porque nos tiene a nosotros, aunque estemos lejos.</p><p>Al terminar, rezaron por Pablo y compartieron la cena. Después, alguien copió la carta con cuidado para enviarla a otras comunidades. Casi dos mil años después, todavía se lee.</p>` },
+  tras: {
+    "Cómo vivían las primeras comunidades": [
+      ["Las iglesias en las casas", `<p>Durante los primeros siglos, los cristianos <b>no tenían templos</b>. Se reunían en las <b>casas</b> de algunos miembros de la comunidad que tenían una vivienda amplia, como Lidia en Filipos o Priscila y Aquila en Roma. Por eso se habla de «iglesias domésticas».</p><p>Se reunían sobre todo el <b>domingo</b>, que llamaban el «día del Señor», porque fue el día de la resurrección de Jesús. En esas reuniones:</p><ul><li>Leían las <b>Escrituras</b> y las cartas de los apóstoles.</li><li>Cantaban <b>himnos</b> y rezaban juntos.</li><li>Celebraban la <b>fracción del pan</b>, recordando la Última Cena: era el origen de la misa o Eucaristía.</li><li>Recogían ayuda para los <b>pobres</b>, las viudas y los huérfanos.</li></ul><p>Algo que llamaba mucho la atención era que en estas reuniones se sentaban juntos <b>ricos y pobres</b>, libres y esclavos, hombres y mujeres. San Pablo lo resumió así: «Ya no hay judío ni griego, esclavo ni libre, hombre ni mujer».</p><p>La casa-iglesia más antigua que se conoce se encontró en <b>Dura Europos</b>, en la actual Siria. Es de hacia el año 232 y tiene una sala para el bautismo decorada con pinturas.</p>`,
+        L.filas("La reunión del domingo", [["leer", "Escrituras y cartas", AZ], ["cantar", "himnos y oración", VE], ["partir el pan", "la Eucaristía", RO], ["compartir", "ayuda a los pobres", NA]])],
+    ],
+    "Los viajes de san Pablo": [
+      ["Viajar por el Imperio romano", `<p>Los viajes de Pablo fueron posibles gracias a algo que había construido el Imperio romano: una gran red de <b>calzadas</b>, caminos empedrados que unían las ciudades. Había también rutas de <b>barcos</b> por todo el Mediterráneo, que los romanos llamaban «nuestro mar». Además, en casi todas partes se entendía el <b>griego</b>, lo que facilitaba predicar.</p><p>Aun así, viajar era duro y peligroso: se caminaba unos 30 kilómetros al día, había ladrones en los caminos y las tormentas hundían los barcos. En invierno, la navegación casi se detenía.</p><p>El libro de los Hechos (capítulos 27 y 28) cuenta el viaje de Pablo a Roma como prisionero. En pleno otoño, una terrible <b>tempestad</b> arrastró el barco durante catorce días. Iban a bordo 276 personas. Pablo animaba a todos a comer y a no perder la esperanza. Finalmente, el barco encalló cerca de la isla de <b>Malta</b> y se rompió, pero todos llegaron a tierra nadando o agarrados a tablas.</p><p>Los habitantes de la isla los acogieron con mucha amabilidad y encendieron una hoguera para que se calentaran. Tres meses después, Pablo continuó su viaje hasta Roma.</p>`,
+        H.flujo("Pablo hacia Roma", ["Preso", "Tormenta", "Naufragio", "Malta", "Roma"], AZ), ["jgftD4bXcew", "Naufragio Pablo, Saulo de Tarso", "Antonio Duarte", 34324]],
+    ],
+  },
+  final: [
+    ["Una religión del Imperio", `<p>Después del Edicto de Milán (313), el cristianismo creció muy deprisa. Algunos momentos importantes fueron:</p><ul><li>En el año <b>325</b>, el emperador Constantino reunió a obispos de todo el Imperio en el <b>Concilio de Nicea</b>. Allí se redactó una parte importante del <b>Credo</b>, la oración que resume la fe cristiana.</li><li>Constantino mandó construir grandes <b>basílicas</b>, como la de San Juan de Letrán y la primera basílica de San Pedro, en Roma, sobre la tumba del apóstol.</li><li>Su madre, <b>santa Elena</b>, viajó a Tierra Santa y promovió la construcción de iglesias en Belén y Jerusalén.</li><li>En el año <b>380</b>, el emperador <b>Teodosio</b> firmó el Edicto de Tesalónica, que convirtió el cristianismo en la <b>religión oficial</b> del Imperio romano.</li></ul><p>En menos de setenta años, los cristianos pasaron de ser perseguidos a ser la religión del emperador. La palabra <b>basílica</b>, que significa «casa del rey», se usaba antes para los grandes edificios públicos romanos; los cristianos adoptaron esa forma para sus iglesias.</p>`,
+      L.filas("Del 313 al 380", [["313", "Edicto de Milán", VE], ["325", "Concilio de Nicea", AZ], ["basílicas", "Letrán y San Pedro", NA], ["380", "religión oficial", RO]])],
+    ["Los Padres de la Iglesia", `<p>Se llama <b>Padres de la Iglesia</b> a algunos escritores cristianos de los primeros siglos que explicaron la fe con mucha sabiduría. Sus obras se siguen leyendo hoy:</p><ul><li><b>San Ambrosio</b> (siglo IV), obispo de Milán. Fue un gran orador y compuso himnos que aún se cantan.</li><li><b>San Agustín</b> (354-430), del norte de África. De joven llevó una vida desordenada, pero su madre, santa Mónica, rezó por él durante años. Se convirtió escuchando a san Ambrosio y escribió las <i>Confesiones</i>, donde cuenta su vida. Una frase famosa suya es: «Nos hiciste, Señor, para ti, y nuestro corazón está inquieto hasta que descanse en ti».</li><li><b>San Jerónimo</b> (siglo IV-V) tradujo la Biblia al latín: la Vulgata.</li><li><b>San Isidoro de Sevilla</b> (siglo VII), en la Hispania visigoda, escribió las <i>Etimologías</i>, una especie de enciclopedia con todo el saber de su época. Se le ha propuesto como patrón de internet.</li></ul>`,
+      L.filas("Padres de la Iglesia", [["Ambrosio", "obispo de Milán", AZ], ["Agustín", "las Confesiones", RO], ["Jerónimo", "la Vulgata", VE], ["Isidoro", "las Etimologías", NA]])],
+  ],
+  ejemplos: [
+    ["¿Por qué los primeros cristianos se reunían en casas y no en iglesias?", ["Pensar en su situación: eran pocos y a veces perseguidos.", "No tenían permiso ni medios para construir templos."], "Porque no tenían templos y eran perseguidos; usaban casas amplias de la comunidad."],
+    ["Ordena: Edicto de Tesalónica, Edicto de Milán, Concilio de Nicea.", ["Recordar las fechas: 313, 325 y 380.", "Ordenar de menor a mayor."], "Edicto de Milán (313), Concilio de Nicea (325), Edicto de Tesalónica (380)."],
+  ],
+  errores: ["Confundir el Edicto de Milán (libertad, 313) con el de Tesalónica (religión oficial, 380).", "Pensar que los primeros cristianos tenían grandes iglesias: se reunían en casas."],
+  ejercicios: [
+    ["b", "¿Qué día se reunían los primeros cristianos y por qué?", "El domingo, día de la resurrección."],
+    ["b", "¿Dónde naufragó Pablo camino de Roma?", "Cerca de la isla de Malta."],
+    ["b", "¿Qué se redactó en el Concilio de Nicea?", "Una parte importante del Credo."],
+    ["b", "¿Qué emperador hizo del cristianismo la religión oficial?", "Teodosio, en el 380."],
+    ["b", "¿Qué escribió san Isidoro de Sevilla?", "Las Etimologías."],
+    ["m", "¿Qué facilitó los viajes de Pablo por el Imperio?", "Las calzadas, las rutas marítimas y el griego como lengua común."],
+    ["m", "¿Qué llamaba la atención de las reuniones cristianas?", "Que se sentaban juntos ricos y pobres, libres y esclavos."],
+    ["m", "¿Qué significa la palabra basílica?", "Casa del rey."],
+    ["m", "¿Quién era santa Mónica?", "La madre de san Agustín, que rezó por él."],
+    ["m", "¿Qué se ha encontrado en Dura Europos?", "La casa-iglesia más antigua conocida."],
+    ["a", "Dibuja un mapa del Mediterráneo con el viaje de Pablo a Roma y el naufragio.", "Respuesta abierta."],
+    ["a", "Escribe una carta como si fueras un cristiano de una casa-iglesia contando una reunión.", "Respuesta abierta."],
+    ["a", "Haz una línea del tiempo desde Pentecostés hasta el año 380.", "Respuesta abierta."],
+    ["a", "Prepara una ficha sobre un Padre de la Iglesia con una frase suya.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Los primeros cristianos se reunían en…", ["casas", "catedrales", "castillos"], "Iglesias domésticas."],
+    ["Pablo naufragó cerca de…", ["Malta", "Sicilia", "Creta"], "Hechos 28."],
+    ["El Concilio de Nicea fue en el año…", ["325", "313", "380"], "Credo."],
+    ["Las Confesiones las escribió…", ["san Agustín", "san Pedro", "san Isidoro"], "Agustín."],
+    ["Los caminos empedrados romanos se llaman…", ["calzadas", "autopistas", "veredas"], "Viajes."],
+  ],
+  examen: [
+    ["La madre de Constantino fue…", ["santa Elena", "santa Mónica", "santa Lidia"], "Tierra Santa."],
+    ["San Isidoro vivió en la Hispania…", ["visigoda", "musulmana", "de los Reyes Católicos"], "Siglo VII."],
+  ],
+  tarjetas: [
+    ["Iglesias domésticas", "Reunión del domingo en casas: leer, cantar, partir el pan, compartir."],
+    ["Naufragio", "Pablo, preso camino de Roma, naufraga en Malta."],
+    ["313-325-380", "Milán, Nicea, Tesalónica."],
+    ["Padres de la Iglesia", "Ambrosio, Agustín, Jerónimo, Isidoro."],
+  ],
+  glosario: [
+    ["Iglesia doméstica", "Comunidad cristiana que se reunía en una casa."],
+    ["Fracción del pan", "Nombre antiguo de la Eucaristía."],
+    ["Himno", "Canto de alabanza."],
+    ["Calzada", "Camino empedrado romano."],
+    ["Naufragio", "Hundimiento o rotura de un barco."],
+    ["Encallar", "Quedar un barco atascado en arena o rocas."],
+    ["Concilio", "Reunión de obispos."],
+    ["Credo", "Oración que resume la fe cristiana."],
+    ["Basílica", "Gran iglesia; antes, edificio público romano."],
+    ["Edicto", "Ley o decreto de una autoridad."],
+    ["Padres de la Iglesia", "Escritores cristianos sabios de los primeros siglos."],
+    ["Enciclopedia", "Obra que reúne conocimientos de muchas materias."],
+  ],
+  situacion: {
+    titulo: "Reporteros del siglo I",
+    reto: "La clase elabora un periódico ambientado en el Imperio romano con noticias sobre los primeros cristianos.",
+    pasos: ["Repartid las secciones: viajes de Pablo, vida en las comunidades, persecuciones y emperadores.", "Buscad la información en los Hechos de los Apóstoles y en el tema.", "Redactad noticias, entrevistas imaginarias y un mapa del naufragio.", "Maquetad el periódico y presentadlo como un informativo de radio."],
+    producto: "Un periódico histórico y un informativo de radio.",
+    evaluacion: ["Sitúa los hechos en el tiempo.", "Usa fuentes bíblicas e históricas.", "Redacta con claridad.", "Colabora en equipo."],
+  },
+});

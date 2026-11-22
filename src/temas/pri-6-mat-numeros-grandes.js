@@ -99,3 +99,91 @@ module.exports = P.tema({
   saberes: "Sentido numérico: números naturales de más de seis cifras, valor posicional, redondeo y estimación; operaciones, propiedades y jerarquía",
   ideas: ["Tabla de valor posicional gigante en el suelo con tarjetas de cifras.", "Bingo de números grandes dictados en voz alta.", "Noticias del periódico: subrayar números y redondearlos a los millones."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmbmmmaa",
+  objetivos: ["Leer y escribir billones y distinguir el billón del «billion» inglés", "Estimar resultados redondeando antes de operar", "Usar la propiedad distributiva para calcular mentalmente", "Conocer el origen de nuestras cifras y del cero"],
+  lectura: { titulo: "Un millón de segundos", html: `<p>—¿Cuánto es un millón? —preguntó la maestra al empezar la clase.</p><p>—¡Muchísimo! —contestó Leo.</p><p>—Vamos a comprobarlo. Si contáramos un número cada segundo, sin parar ni para dormir, ¿cuánto tardaríamos en llegar a un millón?</p><p>Nadie se atrevía a decir nada. Sara sacó la calculadora: un día tiene 24 horas, cada hora 60 minutos y cada minuto 60 segundos. Multiplicó: 86 400 segundos en un día. Luego dividió un millón entre 86 400.</p><p>—¡Unos once días y medio!</p><p>—Muy bien —dijo la maestra—. ¿Y mil millones?</p><p>Sara volvió a calcular y se quedó con la boca abierta.</p><p>—¡Más de treinta y un años!</p><p>—¿Y un billón, que es un millón de millones?</p><p>Esta vez la calculadora casi no tenía sitio para tantas cifras. El resultado era más de treinta y un mil años, mucho más que toda la historia escrita de la humanidad.</p><p>La clase se quedó en silencio. Hasta ese momento, «millón», «mil millones» y «billón» les parecían palabras parecidas. Ahora sabían que entre ellas había una distancia enorme.</p><p>En este tema aprenderás a manejar estos números gigantes sin perderte.</p>` },
+  tras: {
+    "Leer y escribir números grandes": [
+      ["Más allá del millón: los billones", `<p>Después de los millones vienen los <b>miles de millones</b> y, después, los <b>billones</b>. En español:</p><ul><li><b>Un millón</b> = 1 000 000 (un 1 seguido de 6 ceros).</li><li><b>Mil millones</b> = 1 000 000 000 (9 ceros).</li><li><b>Un billón</b> = un millón de millones = 1 000 000 000 000 (12 ceros).</li><li><b>Un trillón</b> = un millón de billones (18 ceros).</li></ul><p>Para leer un número de billones, separamos las cifras de tres en tres desde la derecha. Por ejemplo, 4 250 000 000 000 se lee «cuatro billones doscientos cincuenta mil millones».</p><p>¡Atención con el inglés! En inglés, la palabra <i>billion</i> significa <b>mil millones</b>, no un billón. Por eso, cuando en una noticia traducida del inglés leemos que una empresa vale «3 billones», puede que en realidad sean 3 000 millones. La RAE admite también la palabra <b>millardo</b> para decir mil millones.</p><p>Comprender estas diferencias es importante para entender noticias sobre economía, población o astronomía.</p>`,
+        L6.filas("De millón a trillón", [["millón", "1 y 6 ceros", cAZ], ["mil millones", "1 y 9 ceros", cVE], ["billón", "1 y 12 ceros", cNA], ["trillón", "1 y 18 ceros", cRO]])],
+    ],
+    "Redondear números": [
+      ["Estimar antes de calcular", `<p><b>Estimar</b> es calcular un resultado <b>aproximado</b> redondeando los números antes de operar. Sirve para dos cosas:</p><ul><li>Para dar una respuesta rápida cuando no hace falta el resultado exacto: «¿Me llega el dinero?».</li><li>Para <b>comprobar</b> si un cálculo exacto es razonable. Si la estimación da 30 000 y la calculadora da 3 000, ¡algo ha fallado!</li></ul><p>Ejemplos:</p><ul><li>4 980 + 3 020 ≈ 5 000 + 3 000 = 8 000 (el resultado exacto es 8 000).</li><li>612 × 49 ≈ 600 × 50 = 30 000 (el exacto es 29 988).</li><li>7 920 : 39 ≈ 8 000 : 40 = 200 (el exacto es 203, con resto 3).</li></ul><p>Consejo: redondea a un orden que te permita calcular de cabeza. Normalmente basta con dejar <b>una o dos cifras distintas de cero</b> en cada número.</p><p>Usamos estimaciones continuamente: al calcular cuánto costará la compra, cuánto tiempo tardaremos en un viaje o cuántas personas caben en un estadio.</p>`,
+        H6.flujo("Estimar", ["Redondear", "Operar|de cabeza", "Comparar"], cVE)],
+    ],
+    "Multiplicar": [
+      ["La propiedad distributiva", `<p>La <b>propiedad distributiva</b> dice que multiplicar un número por una suma es lo mismo que multiplicarlo por cada sumando y después sumar los resultados:</p><p><b>a × (b + c) = a × b + a × c</b></p><p>Ejemplo: 7 × (20 + 3) = 7 × 20 + 7 × 3 = 140 + 21 = 161.</p><p>También funciona con la resta: 9 × (100 − 1) = 900 − 9 = 891.</p><p>Esta propiedad es muy útil para el <b>cálculo mental</b>: descomponemos uno de los factores en números fáciles.</p><ul><li>12 × 35 = 12 × 30 + 12 × 5 = 360 + 60 = 420.</li><li>25 × 104 = 25 × 100 + 25 × 4 = 2 500 + 100 = 2 600.</li><li>15 × 99 = 15 × 100 − 15 = 1 485.</li></ul><p>Y al revés, sirve para <b>sacar factor común</b>: 8 × 47 + 8 × 53 = 8 × (47 + 53) = 8 × 100 = 800.</p><p>Imagina que compras 6 camisetas de 12 € y 6 pantalones de 18 €: puedes calcular 6 × 12 + 6 × 18, o más rápido, 6 × 30 = 180 €.</p>`,
+        L6.filas("Distributiva", [["7 × (20 + 3)", "140 + 21 = 161", cAZ], ["9 × (100 − 1)", "900 − 9 = 891", cRO], ["8 × 47 + 8 × 53", "8 × 100 = 800", cVE]]), ["BeK6F3eEe0w", "Propiedad distributiva respecto a la suma", "podemos aprobar matemáticas", 1222132]],
+    ],
+  },
+  final: [
+    ["Números grandes en el mundo real", `<p>Los números grandes aparecen continuamente en la ciencia y en las noticias:</p><ul><li>En el mundo viven más de <b>8 000 millones</b> de personas. La ONU calculó que esa cifra se alcanzó en noviembre de 2022.</li><li>España tiene unos <b>49 millones</b> de habitantes.</li><li>La Tierra está a unos <b>150 millones de kilómetros</b> del Sol. La luz, que viaja a casi 300 000 km por segundo, tarda unos 8 minutos y 20 segundos en recorrer esa distancia.</li><li>Un <b>año luz</b>, la distancia que recorre la luz en un año, mide unos <b>9,5 billones de kilómetros</b>.</li><li>El cuerpo humano tiene unos <b>37 billones de células</b>, según una estimación científica de 2013.</li></ul><p>Cuando un número es tan grande que cuesta imaginarlo, ayuda <b>compararlo</b> con algo conocido. Por ejemplo, si cada persona del mundo fuera un grano de arroz, harían falta unas 200 toneladas de arroz para representarlas a todas.</p>`,
+      L6.filas("Números del mundo", [["personas", "más de 8 000 millones", cAZ], ["Tierra–Sol", "150 millones de km", cNA], ["año luz", "9,5 billones de km", cMO], ["células", "unos 37 billones", cVE]])],
+    ["Una historia de cifras", `<p>Las cifras que usamos (0, 1, 2, 3, 4, 5, 6, 7, 8, 9) se llaman <b>indoarábigas</b>, porque nacieron en la <b>India</b> y llegaron a Europa a través de los <b>árabes</b>.</p><ul><li>Los matemáticos indios desarrollaron un sistema de <b>posición</b> en base 10 y usaron el <b>cero</b> como un número más. Hacia el año 628, el matemático <b>Brahmagupta</b> escribió reglas para operar con él.</li><li>En el siglo IX, el sabio persa <b>al-Juarismi</b>, que trabajaba en Bagdad, escribió un libro sobre cómo calcular con estas cifras. De su nombre viene la palabra <b>algoritmo</b>.</li><li>Las cifras llegaron a la península ibérica con al-Ándalus. En 1202, el italiano <b>Fibonacci</b> las dio a conocer en toda Europa con su <i>Libro del ábaco</i>.</li></ul><p>Antes, en Europa se usaban los <b>números romanos</b>, con los que era muy difícil multiplicar y dividir. Gracias al valor posicional y al cero, las operaciones se volvieron mucho más sencillas. ¡Prueba a multiplicar MCCXLV por XXXVIII sin pasarlo a nuestras cifras!</p>`,
+      H6.flujo("Viaje de las cifras", ["India|el cero", "Bagdad|al-Juarismi", "Fibonacci|1202", "Hoy"], cNA), ["MOtCBPXO698", "¿Quién inventó el CERO?", "Derivando", 1128078]],
+  ],
+  ejemplos: [
+    ["¿Cuántos millones son un billón?", ["Un billón = 1 000 000 000 000.", "Dividimos entre 1 000 000."], "Un millón de millones."],
+    ["Calcula 12 × 35 con la propiedad distributiva.", ["Descomponemos 35 = 30 + 5.", "12 × 30 + 12 × 5 = 360 + 60."], "420."],
+  ],
+  errores: ["Traducir el «billion» inglés por «billón»: equivale a mil millones.", "Usar una estimación como si fuera el resultado exacto sin decir que es aproximada."],
+  ejercicios: [
+    ["b", "Escribe con cifras: dos billones trescientos mil millones.", "2 300 000 000 000."],
+    ["b", "¿Cuántos ceros tiene un billón?", "12."],
+    ["b", "Estima 4 980 + 3 020 redondeando a los millares.", "5 000 + 3 000 = 8 000."],
+    ["b", "Calcula con la propiedad distributiva: 7 × (20 + 3).", "140 + 21 = 161."],
+    ["b", "¿Cuántos millares hay en un millón?", "1 000."],
+    ["m", "Expresa 3 billones en millones.", "3 000 000 millones."],
+    ["m", "Estima 612 × 49 y después calcula el resultado exacto.", "Estimación: 30 000. Exacto: 29 988."],
+    ["m", "Calcula mentalmente 25 × 104.", "2 500 + 100 = 2 600."],
+    ["m", "Saca factor común y calcula: 8 × 47 + 8 × 53.", "8 × 100 = 800."],
+    ["m", "Un país tiene 47 385 912 habitantes. Redondea a los millones y a las centenas de millar.", "47 000 000 y 47 400 000."],
+    ["a", "La luz recorre unos 300 000 km por segundo. ¿Cuántos segundos tarda en recorrer 150 000 000 km?", "150 000 000 : 300 000 = 500 s (8 min 20 s)."],
+    ["a", "Una empresa gana 2 400 millones de euros al año. ¿Cuánto gana de media al mes?", "200 000 000 €."],
+    ["a", "Calcula 15 × 99 usando la propiedad distributiva con una resta.", "15 × 100 − 15 = 1 485."],
+    ["a", "Una noticia en inglés dice «5 billion people». ¿Cuántas personas son en español?", "5 000 millones."],
+  ],
+  quiz: [
+    ["Un billón en español tiene…", ["12 ceros", "9 ceros", "6 ceros"], "Millón de millones."],
+    ["El «billion» inglés equivale a…", ["mil millones", "un billón", "un millón"], "Falso amigo."],
+    ["6 × (10 + 4) = …", ["84", "64", "70"], "60 + 24."],
+    ["Una buena estimación de 398 + 603 es…", ["1 000", "900", "1 100"], "400 + 600."],
+    ["El cero como número lo desarrollaron matemáticos de…", ["la India", "Roma", "Grecia"], "Brahmagupta."],
+  ],
+  examen: [
+    ["Fibonacci dio a conocer las cifras en Europa en…", ["1202", "1492", "325"], "Libro del ábaco."],
+    ["9 × 99 = …", ["891", "909", "819"], "900 − 9."],
+  ],
+  tarjetas: [
+    ["Billón", "Un millón de millones: 1 y 12 ceros. Billion = mil millones."],
+    ["Estimar", "Redondear, operar de cabeza y comparar."],
+    ["Distributiva", "a × (b + c) = a × b + a × c."],
+    ["Cifras indoarábigas", "India, al-Juarismi, Fibonacci (1202)."],
+  ],
+  glosario: [
+    ["Billón", "Un millón de millones."],
+    ["Millardo", "Mil millones."],
+    ["Trillón", "Un millón de billones."],
+    ["Estimar", "Calcular un resultado aproximado."],
+    ["Redondear", "Sustituir un número por otro próximo más sencillo."],
+    ["Propiedad distributiva", "a × (b + c) = a × b + a × c."],
+    ["Factor común", "Número que se repite como factor en varios productos."],
+    ["Cálculo mental", "Operar de cabeza sin papel ni calculadora."],
+    ["Valor posicional", "Valor de una cifra según el lugar que ocupa."],
+    ["Cifras indoarábigas", "Las diez cifras que usamos, nacidas en la India."],
+    ["Algoritmo", "Serie de pasos ordenados para resolver un problema."],
+    ["Año luz", "Distancia que recorre la luz en un año."],
+  ],
+  situacion: {
+    titulo: "El periódico de los números gigantes",
+    reto: "La clase busca números grandes en noticias reales y crea un mural que los explique con comparaciones comprensibles.",
+    pasos: ["Buscad en periódicos o webs fiables cinco noticias con números de millones o billones.", "Escribid cada número con cifras y con letras, y redondeadlo.", "Inventad una comparación que ayude a imaginarlo (segundos, granos de arroz, campos de fútbol).", "Montad el mural y explicad cada número a otra clase."],
+    producto: "Un mural de números gigantes con comparaciones.",
+    evaluacion: ["Lee y escribe números de billones.", "Redondea y estima correctamente.", "Distingue billón y billion.", "Explica con comparaciones claras."],
+  },
+});

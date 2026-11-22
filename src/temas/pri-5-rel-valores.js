@@ -88,3 +88,85 @@ module.exports = P.tema({
   saberes: "Los valores cristianos; el mandamiento del amor y la regla de oro; el prójimo y la parábola del buen samaritano; perdón, solidaridad, verdad, humildad y paz; las Bienaventuranzas; las obras de misericordia; el cuidado de la creación en la vida diaria",
   ideas: ["Árbol de los valores en clase: cada buena acción es una hoja.", "Rincón de la paz para resolver conflictos dialogando.", "Campaña solidaria organizada por el alumnado."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 60,
+  objetivos: ["Conocer personas que vivieron los valores cristianos de forma ejemplar", "Descubrir organizaciones cristianas de ayuda", "Valorar el cuidado de la creación", "Reconocer valores compartidos con otras religiones"],
+  lectura: { titulo: "Las tostadas de los martes", html: `<p>Todos los martes, Irene acompañaba a su tía al comedor social de la parroquia. Al principio no quería ir: le daba un poco de miedo no saber qué decir a la gente.</p><p>La primera vez se quedó en la cocina untando tostadas con tomate. Desde allí veía las mesas: un señor mayor con un abrigo demasiado grande, una madre con dos niños pequeños, un chico joven que no levantaba la vista del plato.</p><p>—¿Por qué vienen aquí? —preguntó en voz baja.</p><p>—Cada uno tiene su historia —respondió su tía—. Alguno se ha quedado sin trabajo, otro está solo… Lo importante es que aquí nadie les pregunta nada. Solo se les recibe.</p><p>Al tercer martes, la tía le pidió que sirviera ella las tostadas en las mesas. Irene se acercó al señor del abrigo grande.</p><p>—Buenos días. ¿Quiere una tostada?</p><p>El hombre sonrió y le dio las gracias. Luego le contó que había sido panadero durante cuarenta años.</p><p>—Estas tostadas están muy buenas —añadió—, pero el pan lo hacía yo mejor.</p><p>Irene se rio. Desde entonces, cada martes buscaba al señor panadero para charlar un rato.</p><p>Un día, su tía le dijo:</p><p>—¿Ves? A veces lo más valioso no es la comida, sino que alguien te mire a los ojos y te llame por tu nombre.</p>` },
+  tras: {
+    "El perdón": [
+      ["Testigos de los valores", `<p>A lo largo de la historia, muchas personas han vivido los valores del Evangelio de una manera que sigue inspirando a otros:</p><ul><li><b>San Juan de Dios</b> (1495-1550) fundó en Granada un hospital para atender a los pobres y enfermos que nadie cuidaba. Recorría las calles pidiendo con la frase: «Haced bien, hermanos, a vosotros mismos». Es patrón de los enfermos y de los enfermeros.</li><li><b>Santa Teresa de Calcuta</b> (1910-1997) dedicó su vida a los más pobres de la India: recogía de la calle a enfermos y moribundos para que no murieran solos. Recibió el Premio Nobel de la Paz en 1979.</li><li><b>Vicente Ferrer</b> (1920-2009), nacido en Barcelona, trabajó durante más de cuarenta años en la región de Anantapur, en la India, construyendo escuelas, hospitales y pozos.</li><li>El papa <b>Juan Pablo II</b> sufrió un atentado en 1981. Dos años después visitó en la cárcel al hombre que le había disparado, habló con él y le perdonó.</li></ul><p>Ninguno de ellos era perfecto, pero todos convirtieron el amor al prójimo en hechos concretos.</p>`,
+        L.filas("Testigos de los valores", [["Juan de Dios", "hospital en Granada", AZ], ["Teresa", "los pobres de Calcuta", NA], ["Vicente Ferrer", "escuelas en la India", VE], ["Juan Pablo II", "perdonó al agresor", MO]]), ["MnQAsL9jbUg", "Santa Teresa de Calcuta: \"Amar hasta que duela\" | Amén Comunicaciones", "Amen Comunicaciones", 219999]],
+    ],
+    "Verdad y humildad": [
+      ["Cuidar la creación", `<p>Para los cristianos, el mundo es un <b>regalo de Dios</b> que hay que cuidar. El Génesis cuenta que Dios puso al ser humano en el jardín «para que lo cultivara y lo guardara», no para destruirlo.</p><p><b>San Francisco de Asís</b> (1181-1226) es el gran ejemplo de este amor a la naturaleza. Llamaba «hermanos» al sol, al viento, al agua y a todos los animales. Escribió el <b>Cántico de las criaturas</b>, uno de los primeros poemas en lengua italiana, en el que alaba a Dios por «el hermano sol», «la hermana luna» y «la hermana agua, que es muy útil y humilde, preciosa y casta». Por eso es el patrón de la ecología.</p><p>En 2015, el papa Francisco publicó una carta titulada <b>Laudato si'</b> («Alabado seas», palabras del cántico). En ella pide cuidar la Tierra, que llama «nuestra casa común», y recuerda que los problemas del medio ambiente afectan sobre todo a los <b>más pobres</b>.</p><p>Cuidar la creación se concreta en gestos diarios: no desperdiciar comida ni agua, reciclar, usar menos plástico, cuidar las plantas y los animales y moverse a pie o en bici cuando se pueda.</p>`,
+        H.dos("Cuidar la creación", ["Inspiración", ["san Francisco", "Cántico", "Laudato si'"], VE], ["Gestos", ["no desperdiciar", "reciclar", "a pie o en bici"], AZ]), ["Mfl2ghyC_Jo", "Cántico de las criaturas.", "Estalayo", 439625]],
+    ],
+  },
+  final: [
+    ["Organizaciones cristianas que ayudan", `<p>Hoy, muchas organizaciones cristianas llevan a la práctica la solidaridad y las obras de misericordia:</p><ul><li><b>Cáritas</b> es la organización de la Iglesia católica para ayudar a las personas que lo pasan mal: reparte alimentos, ayuda a buscar trabajo, acompaña a personas mayores solas y a familias sin recursos. Está presente en casi todas las parroquias.</li><li><b>Manos Unidas</b> nació en España en 1959, cuando un grupo de mujeres de Acción Católica respondió a un llamamiento internacional para luchar contra el hambre. Cada año organiza una campaña en febrero y apoya proyectos en África, Asia y América.</li><li>Los <b>comedores sociales</b> y los albergues, muchos atendidos por voluntarios de parroquias y congregaciones.</li><li>Las <b>misiones</b>: religiosos, religiosas y laicos que viven en países pobres y trabajan en escuelas, hospitales y proyectos de desarrollo. En octubre se celebra el <b>Domund</b>, la jornada de las misiones.</li></ul><p>Los niños también pueden colaborar: participando en campañas de recogida de alimentos, en mercadillos solidarios o haciendo voluntariado con su familia.</p>`,
+      H.rueda("Ayuda cristiana", "SOLIDARIDAD", [["Cáritas", RO], ["Manos Unidas", AZ], ["comedores", VE], ["misiones", NA]]), ["n4kHZgkks_c", "Super Pepo. ¿Qué quieres ser de mayor? | Manos Unidas", "Manos Unidas", 131913]],
+    ["Valores que compartimos", `<p>Los valores del Evangelio tienen mucho en común con los de otras religiones y con los de personas no creyentes. Un ejemplo es la <b>regla de oro</b>, que aparece de distintas formas en muchas tradiciones:</p><ul><li><b>Judaísmo</b>: el sabio Hillel enseñó: «Lo que es odioso para ti, no se lo hagas a tu prójimo».</li><li><b>Cristianismo</b>: Jesús dijo: «Tratad a los demás como queréis que ellos os traten».</li><li><b>Islam</b>: un dicho atribuido a Mahoma afirma que nadie es verdadero creyente hasta que desea para su hermano lo que desea para sí mismo.</li><li><b>Confucianismo</b>: Confucio enseñó en China: «No hagas a los demás lo que no quieres que te hagan a ti».</li></ul><p>Descubrir estos valores comunes ayuda al <b>diálogo</b> y al <b>respeto</b> entre personas de distintas creencias. En un colegio o un barrio donde conviven familias de distintas religiones, podemos aprender unos de otros y trabajar juntos por la paz, la justicia y el cuidado de los más débiles.</p>`,
+      L.filas("La regla de oro", [["judaísmo", "Hillel", AZ], ["cristianismo", "Jesús", RO], ["islam", "Mahoma", VE], ["confucianismo", "Confucio", NA]])],
+  ],
+  ejemplos: [
+    ["¿Qué tienen en común san Juan de Dios y santa Teresa de Calcuta?", ["Pensar en las personas a las que ayudaron.", "Relacionarlo con las obras de misericordia."], "Los dos dedicaron su vida a cuidar a enfermos y pobres que nadie atendía."],
+    ["Propón tres gestos para cuidar la creación en el colegio.", ["Pensar en agua, comida, residuos y transporte.", "Que sean concretos y posibles."], "Por ejemplo: cerrar los grifos, separar residuos y no tirar comida del comedor."],
+  ],
+  errores: ["Pensar que los valores cristianos solo se viven en la iglesia: se viven sobre todo en la vida diaria.", "Creer que la regla de oro es exclusiva de una religión: aparece en muchas tradiciones."],
+  ejercicios: [
+    ["b", "¿Dónde fundó san Juan de Dios su hospital?", "En Granada."],
+    ["b", "¿Qué premio recibió santa Teresa de Calcuta?", "El Premio Nobel de la Paz, en 1979."],
+    ["b", "¿Cómo se titula el poema de san Francisco de Asís?", "Cántico de las criaturas."],
+    ["b", "¿Qué hace Cáritas?", "Ayuda a personas sin recursos: alimentos, empleo, compañía."],
+    ["b", "¿Qué es el Domund?", "La jornada de las misiones."],
+    ["m", "¿Por qué fue tan llamativo el gesto de Juan Pablo II en 1983?", "Porque perdonó en persona a quien le había disparado."],
+    ["m", "¿Qué significa «Laudato si'» y de dónde viene?", "«Alabado seas»; del Cántico de las criaturas."],
+    ["m", "¿Por qué los problemas ambientales afectan más a los pobres?", "Porque tienen menos medios para protegerse."],
+    ["m", "¿Cómo nació Manos Unidas?", "En 1959, cuando un grupo de mujeres respondió a una llamada contra el hambre."],
+    ["m", "Escribe la regla de oro según Hillel y según Jesús.", "«Lo que es odioso para ti, no se lo hagas a tu prójimo»; «Tratad a los demás como queréis que os traten»."],
+    ["a", "Escribe tu propio cántico dando gracias por elementos de la naturaleza.", "Respuesta abierta."],
+    ["a", "Investiga un proyecto de Manos Unidas o del Domund y preséntalo.", "Respuesta abierta."],
+    ["a", "Organiza con tu clase una recogida de alimentos para Cáritas.", "Respuesta práctica."],
+    ["a", "Prepara un mural con la regla de oro en varias religiones.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["San Juan de Dios es patrón de…", ["los enfermos", "los marineros", "los músicos"], "Granada."],
+    ["Vicente Ferrer trabajó en…", ["la India", "Perú", "Kenia"], "Anantapur."],
+    ["«Hermano sol, hermana luna» es de…", ["san Francisco de Asís", "san Agustín", "santa Teresa"], "Cántico."],
+    ["Manos Unidas lucha sobre todo contra…", ["el hambre", "el ruido", "la sequía de Europa"], "Campaña."],
+    ["La regla de oro aparece…", ["en muchas religiones", "solo en la Biblia", "solo en el Corán"], "Diálogo."],
+  ],
+  examen: [
+    ["Laudato si' la publicó…", ["el papa Francisco", "san Francisco de Asís", "Juan Pablo II"], "2015."],
+    ["Confucio enseñaba en…", ["China", "Grecia", "Egipto"], "Regla de oro."],
+  ],
+  tarjetas: [
+    ["Testigos", "Juan de Dios, Teresa de Calcuta, Vicente Ferrer, Juan Pablo II."],
+    ["Creación", "San Francisco, Cántico de las criaturas, Laudato si'."],
+    ["Ayuda", "Cáritas, Manos Unidas, comedores, misiones."],
+    ["Regla de oro", "Hillel, Jesús, Mahoma, Confucio."],
+  ],
+  glosario: [
+    ["Testigo", "Persona que muestra con su vida aquello en lo que cree."],
+    ["Atentado", "Ataque violento contra alguien."],
+    ["Creación", "Todo lo que existe, visto como obra de Dios."],
+    ["Cántico", "Canto o poema de alabanza."],
+    ["Patrón", "Santo protector de un grupo, oficio o lugar."],
+    ["Ecología", "Ciencia que estudia la relación de los seres vivos con su entorno."],
+    ["Casa común", "Expresión para referirse a la Tierra."],
+    ["Parroquia", "Comunidad cristiana de un barrio o pueblo."],
+    ["Misionero", "Persona que va a otros lugares a anunciar el Evangelio y ayudar."],
+    ["Laico", "Cristiano que no es sacerdote ni religioso."],
+    ["Diálogo interreligioso", "Conversación respetuosa entre creyentes de distintas religiones."],
+    ["Solidaridad", "Ayuda a los demás como si su problema fuera nuestro."],
+  ],
+  situacion: {
+    titulo: "Semana de los valores",
+    reto: "La clase organiza una semana en la que cada día se vive y se comparte un valor cristiano con todo el colegio.",
+    pasos: ["Elegid cinco valores: perdón, solidaridad, verdad, paz y cuidado de la creación.", "Para cada uno, buscad un testigo, una frase del Evangelio y un gesto concreto.", "Preparad carteles y una acción diaria, como una recogida de alimentos o una limpieza del patio.", "Al final de la semana, evaluad qué ha cambiado en la clase."],
+    producto: "Una semana de acciones con carteles y un diario de la experiencia.",
+    evaluacion: ["Relaciona cada valor con el Evangelio.", "Conoce testigos de esos valores.", "Propone gestos concretos.", "Participa con compromiso."],
+  },
+});
