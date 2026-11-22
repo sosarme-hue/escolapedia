@@ -139,3 +139,91 @@ module.exports = {
   fuentes: [RD, wiki("Relieve", "Relieve terrestre"), wiki("Geografía de España", "Geografía de España"), wiki("Teide", "Teide")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Explicar qué es un volcán", "Entender cómo la erosión cambia el relieve", "Conocer las montañas más altas del mundo", "Descubrir paisajes sorprendentes y salir a la montaña con seguridad"],
+  lectura: { titulo: "La montaña que despertó", html: `<p>En septiembre de 2021, Daniela vivía con sus padres en la isla de La Palma, en Canarias. Una tarde, mientras hacía los deberes, notó que la mesa temblaba un poco. No era la primera vez: llevaban días con pequeños terremotos.</p><p>De repente, se oyó un estruendo enorme. Desde la ventana vieron cómo, en la ladera de la montaña, se abría la tierra y salía una columna de humo negro y fuego.</p><p>—¡Es un volcán! —gritó su padre.</p><p>Durante casi tres meses, el volcán, que después se llamó Tajogaite, expulsó lava, cenizas y gases. Los ríos de lava bajaron hasta el mar, quemando a su paso casas, carreteras y plataneras. Gracias a los avisos de los científicos y de Protección Civil, miles de personas fueron evacuadas a tiempo.</p><p>La familia de Daniela tuvo que irse a casa de unos tíos. Cada mañana barrían la ceniza negra de los coches y las aceras.</p><p>Cuando por fin el volcán se apagó, la lava se había enfriado formando rocas nuevas. Incluso había creado tierra nueva junto al mar.</p><p>—La isla ha crecido —dijo Daniela, sorprendida.</p><p>—Así nacieron todas las islas Canarias —le explicó su madre—: de volcanes.</p>` },
+  tras: {
+    "Las montañas": [
+      ["Los volcanes", `<p>Un <mark>volcán</mark> es una montaña por la que sale material muy caliente del interior de la Tierra.</p><ul><li>Bajo la corteza terrestre hay roca fundida, llamada <b>magma</b>.</li><li>Cuando el magma sube y sale por una abertura, llamada <b>cráter</b>, se produce una <b>erupción</b>.</li><li>El magma que sale fuera se llama <b>lava</b>. Al enfriarse, se convierte en roca.</li><li>Los volcanes también expulsan <b>cenizas</b> y <b>gases</b>.</li></ul><p>Las <b>islas Canarias</b> se formaron por volcanes que crecieron desde el fondo del mar. El <b>Teide</b>, en Tenerife, es un volcán, y en Lanzarote está el Parque Nacional de <b>Timanfaya</b>, con paisajes de lava. En Girona hay volcanes apagados en la zona de la Garrotxa.</p><p>Los científicos que estudian los volcanes se llaman <b>vulcanólogos</b>. Miden los temblores y los gases para avisar antes de una erupción.</p>`,
+        L6.filas("Volcán", [["magma", "roca fundida", cRO], ["cráter", "abertura", cNA], ["lava", "magma fuera", cMO], ["ceniza", "polvo", cAZ]]), ["Swn1nJEGogI", "¿Qué es un Volcán? | Vídeos Educativos Para Niños", "GuerrerosPlanet", 3144278]],
+    ],
+    "El relieve de la costa": [
+      ["La erosión: escultores del paisaje", `<p>El relieve cambia muy despacio, a lo largo de miles y millones de años. Hay unos «escultores» que lo van desgastando: es la <mark>erosión</mark>.</p><ul><li><b>El agua de los ríos</b> arrastra piedras y tierra, y excava valles. El Gran Cañón de Colorado lo excavó un río durante millones de años.</li><li><b>Las olas del mar</b> golpean las rocas de la costa y forman acantilados, arcos y cuevas.</li><li><b>El viento</b> lleva granos de arena que pulen las rocas y les dan formas curiosas, como setas de piedra.</li><li><b>El hielo</b>: el agua entra en las grietas, se congela, aumenta de tamaño y rompe la roca.</li><li><b>Los glaciares</b> son ríos de hielo que excavan valles con forma de U.</li></ul><p>Los materiales arrancados se depositan en otros lugares: así se forman las playas, los deltas y las llanuras.</p><p>Las personas también provocamos erosión al talar bosques, porque sin raíces la lluvia se lleva el suelo.</p>`,
+        H6.rueda("Erosión", "ESCULTORES", [["ríos", cAZ], ["olas", cVE], ["viento", cNA], ["hielo", cMO]]), ["mvsOl8s2aJM", "Tipos de Erosión (Explicado para niños)", "TERRA EXPLORATA", 185829]],
+    ],
+    "Las montañas de España": [
+      ["Las montañas más altas del mundo", `<p>Las montañas de España son altas, pero en otros continentes hay <mark>gigantes</mark> mucho mayores:</p><ul><li>El <b>Everest</b>, en la cordillera del <b>Himalaya</b> (Asia), es la montaña más alta del mundo: mide unos <b>8.849 metros</b>. Casi tres veces el Teide.</li><li>El <b>Aconcagua</b>, en los Andes, es el más alto de América.</li><li>El <b>Kilimanjaro</b> es el más alto de África. Es un volcán y tiene nieve en la cima, aunque está cerca del ecuador.</li><li>El <b>Mont Blanc</b>, en los Alpes, es uno de los más altos de Europa occidental.</li></ul><p>En las cimas tan altas hace un frío terrible y el aire tiene tan poco oxígeno que cuesta respirar. Los montañistas llevan botellas de oxígeno y suben poco a poco para acostumbrarse.</p><p>La primera vez que se subió al Everest fue en <b>1953</b>, con el neozelandés Edmund Hillary y el sherpa Tenzing Norgay.</p>`,
+        L6.filas("Gigantes", [["Everest", "Asia", cAZ], ["Aconcagua", "América", cVE], ["Kilimanjaro", "África", cNA], ["Mont Blanc", "Europa", cRO]]), ["g6eseuiBoz8", "Datos sobre el Monte Everest para niños", "Hey! Guess What", 98849]],
+    ],
+  },
+  final: [
+    ["Paisajes sorprendentes de España", `<p>España tiene paisajes de relieve muy <mark>sorprendentes</mark>:</p><ul><li>El <b>desierto de Tabernas</b>, en Almería, es tan seco que allí se han rodado muchas películas del Oeste.</li><li>Las <b>Bardenas Reales</b>, en Navarra, tienen cerros de formas extrañas creados por la erosión del agua y el viento.</li><li>La <b>Ciudad Encantada</b>, en Cuenca, tiene rocas con forma de animales y objetos, esculpidas por la erosión.</li><li>Los <b>Picos de Europa</b> son montañas de roca caliza con desfiladeros profundos.</li><li>El <b>Torcal de Antequera</b>, en Málaga, parece un laberinto de rocas apiladas.</li><li>Las <b>Médulas</b>, en León, son montañas rojizas que los romanos excavaron para sacar oro.</li><li>En <b>Lanzarote</b>, los campos de lava negra parecen la superficie de otro planeta.</li></ul><p>Muchos de estos lugares están protegidos como parques naturales o nacionales.</p>`,
+      H6.dos("Paisajes", ["EROSIÓN", ["Bardenas", "Ciudad Encantada", "Torcal"], cNA], ["OTROS", ["Tabernas", "Médulas", "Lanzarote"], cRO])],
+    ["Excursión segura a la montaña", `<p>Ir a la <mark>montaña</mark> es una gran aventura, pero hay que prepararla bien:</p><ul><li><b>Antes de salir</b>: consulta el tiempo, elige una ruta adecuada para tu edad y di a alguien adónde vas.</li><li><b>La mochila</b>: agua, comida, gorra, crema solar, chubasquero, ropa de abrigo, un pequeño botiquín y el móvil cargado.</li><li><b>El calzado</b>: botas o zapatillas que agarren bien.</li><li><b>En el camino</b>: sigue las marcas pintadas y no te separes del grupo. Las marcas blancas y rojas indican senderos largos, y las blancas y amarillas, cortos.</li><li><b>Respeta la naturaleza</b>: no hagas fuego, no arranques plantas y llévate tu basura.</li><li>Si hay tormenta, aléjate de las cumbres y de los árboles solitarios.</li></ul><p>Si alguien se pierde o se hace daño, hay que llamar al 112 y quedarse quieto en un lugar visible.</p>`,
+      H6.flujo("Montaña", ["planear|la ruta", "mochila|agua", "camino|marcas", "volver|sin basura"], cVE)],
+  ],
+  ejemplos: [
+    ["¿Cuántas veces más alto es el Everest que el Teide?", ["Everest: unos 8.849 m; Teide: unos 3.715 m.", "8.849 es más del doble y casi el triple."], "Casi tres veces."],
+    ["¿Qué formó las rocas de la Ciudad Encantada?", ["Son rocas con formas curiosas.", "El agua y el viento las desgastaron durante mucho tiempo."], "La erosión."],
+  ],
+  errores: ["Pensar que el relieve no cambia nunca: la erosión lo cambia muy despacio.", "Creer que todos los volcanes están en otros países: Canarias es volcánica."],
+  ejercicios: [
+    ["b", "¿Cómo se llama el magma que sale del volcán?", "Lava."],
+    ["b", "Di un escultor del paisaje.", "Ríos, olas, viento o hielo."],
+    ["b", "¿Cuál es la montaña más alta del mundo?", "El Everest."],
+    ["b", "¿Dónde está el desierto de Tabernas?", "En Almería."],
+    ["b", "¿Qué número llamas si alguien se hace daño en la montaña?", "El 112."],
+    ["m", "¿Cómo se formaron las islas Canarias?", "Por volcanes."],
+    ["m", "¿Cómo rompe el hielo las rocas?", "El agua se congela en las grietas y las agranda."],
+    ["m", "¿Por qué cuesta respirar en el Everest?", "Hay poco oxígeno."],
+    ["m", "¿Quién excavó las Médulas?", "Los romanos, para sacar oro."],
+    ["m", "¿Qué indican las marcas blancas y amarillas?", "Senderos cortos."],
+    ["a", "Haz una maqueta de un volcán y explica sus partes.", "Respuesta abierta."],
+    ["a", "Prepara la lista de una mochila de montaña.", "Respuesta abierta."],
+    ["a", "Investiga un paisaje sorprendente de tu comunidad.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿cómo se llamó el volcán?", "Tajogaite."],
+  ],
+  quiz: [
+    ["La abertura del volcán se llama…", ["cráter", "cima", "valle"], "Volcán."],
+    ["Los glaciares excavan valles en forma de…", ["U", "V", "O"], "Erosión."],
+    ["El Kilimanjaro está en…", ["África", "Asia", "Europa"], "Gigantes."],
+    ["La Ciudad Encantada está en…", ["Cuenca", "Sevilla", "Bilbao"], "Paisajes."],
+    ["Si hay tormenta en la montaña, hay que…", ["alejarse de las cumbres", "subir a la cima", "ponerse bajo un árbol solo"], "Seguridad."],
+  ],
+  examen: [
+    ["En la lectura, ¿en qué isla estaba el volcán?", ["La Palma", "Tenerife", "Mallorca"], "Lectura."],
+    ["El Everest se subió por primera vez en…", ["1953", "1492", "2001"], "Everest."],
+  ],
+  tarjetas: [
+    ["Volcanes", "Magma, cráter, erupción, lava; Canarias y la Garrotxa."],
+    ["Erosión", "Ríos, olas, viento y hielo esculpen el relieve."],
+    ["Gigantes", "Everest, Aconcagua, Kilimanjaro, Mont Blanc."],
+    ["Paisajes y seguridad", "Tabernas, Bardenas, Ciudad Encantada; planear y mochila."],
+  ],
+  glosario: [
+    ["Volcán", "Montaña por la que sale magma."],
+    ["Magma", "Roca fundida del interior de la Tierra."],
+    ["Lava", "Magma que sale al exterior."],
+    ["Erupción", "Salida de lava, ceniza y gases."],
+    ["Vulcanólogo", "Científico que estudia los volcanes."],
+    ["Erosión", "Desgaste del relieve por agua, viento o hielo."],
+    ["Glaciar", "Gran masa de hielo que se mueve despacio."],
+    ["Acantilado", "Costa alta y cortada en vertical."],
+    ["Cordillera", "Cadena de montañas."],
+    ["Montañista", "Persona que sube montañas."],
+    ["Sendero", "Camino estrecho marcado."],
+    ["Botiquín", "Caja con material de primeros auxilios."],
+  ],
+  situacion: {
+    titulo: "Exploradores del relieve",
+    reto: "La clase prepara una expedición imaginaria por los paisajes más sorprendentes.",
+    pasos: ["Construir un volcán con bicarbonato y vinagre.", "Hacer el experimento de la erosión con arena y agua.", "Ordenar las montañas más altas en un gráfico.", "Planear una excursión segura a un paisaje de España."],
+    producto: "Un diario de expedición con maquetas y rutas.",
+    evaluacion: ["Explica los volcanes.", "Comprende la erosión.", "Compara montañas del mundo.", "Planifica una salida segura."],
+  },
+});

@@ -139,3 +139,87 @@ module.exports = {
   fuentes: [RD, wiki("Patrimonio cultural", "Patrimonio cultural"), wiki("Patrimonio de la Humanidad en España", "Anexo:Patrimonio de la Humanidad en España"), wiki("Parques nacionales de España", "Parques nacionales de España")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Distinguir iglesias románicas y góticas", "Conocer maravillas del patrimonio mundial", "Descubrir el Camino de Santiago", "Comprender por qué el patrimonio puede estar en peligro"],
+  lectura: { titulo: "La catedral que arde", html: `<p>Un día de abril de 2019, la madre de Lucas lo llamó desde el salón.</p><p>—Ven, mira las noticias.</p><p>En la pantalla se veía una enorme iglesia de piedra con el tejado envuelto en llamas. Una columna de humo naranja subía hacia el cielo de París.</p><p>—Es Notre-Dame —dijo su madre—. Una catedral gótica de hace más de ochocientos años.</p><p>Miles de personas miraban desde las calles. Muchas lloraban. Los bomberos trabajaron toda la noche para salvar las torres y las vidrieras de colores. Al final, la aguja del tejado se derrumbó, pero la estructura principal resistió.</p><p>—¿Por qué está tan triste la gente si no es su casa? —preguntó Lucas.</p><p>—Porque es un tesoro de todos —explicó su madre—. Lo construyeron personas de hace muchos siglos y lo han cuidado generación tras generación.</p><p>Durante cinco años, cientos de artesanos trabajaron para restaurarla: carpinteros, canteros, vidrieros, pintores… Usaron técnicas antiguas, como las de la Edad Media.</p><p>En diciembre de 2024, Notre-Dame volvió a abrir sus puertas. Lucas lo vio en la tele y sonrió. Ahora entendía que el patrimonio es como una herencia que hay que cuidar entre todos.</p>` },
+  tras: {
+    "El patrimonio cultural material": [
+      ["Iglesias románicas y góticas", `<p>En la Edad Media se construyeron en España muchas iglesias y catedrales en dos estilos muy diferentes:</p><p><b>El románico</b>:</p><ul><li>Muros <b>gruesos</b> de piedra y ventanas <b>pequeñas</b>, por eso el interior es oscuro.</li><li>Arcos <b>redondos</b>, de medio punto.</li><li>Edificios bajos y sólidos, como fortalezas.</li><li>Ejemplos: las iglesias del valle de Boí, en Lleida, o San Martín de Frómista, en Palencia.</li></ul><p><b>El gótico</b>, que llegó después:</p><ul><li>Edificios muy <b>altos</b>, que parecen subir hacia el cielo.</li><li>Arcos <b>apuntados</b>, terminados en punta.</li><li>Grandes <b>vidrieras</b> de colores que llenan el interior de luz.</li><li>Ejemplos: las catedrales de León, Burgos y Toledo.</li></ul><p>Para reconocerlos, fíjate en los arcos y en las ventanas: redondos y pequeñas, románico; en punta y enormes, gótico.</p>`,
+        H6.dos("Estilos", ["ROMÁNICO", ["arcos redondos", "muros gruesos", "poca luz"], cNA], ["GÓTICO", ["arcos en punta", "muy altos", "vidrieras"], cAZ]), ["Pd_AVElSRG0", "ARTE GÓTICO para niños 🏰 Arquitectura, vidrieras y esculturas de la Edad Media 🎨", "Smile and Learn - Español", 186361]],
+    ],
+    "Patrimonio de la Humanidad": [
+      ["Maravillas del mundo", `<p>Hay monumentos tan impresionantes que se conocen en todo el planeta. Algunos de los más famosos son:</p><ul><li>Las <b>pirámides de Egipto</b>, construidas hace más de 4.500 años como tumbas de los faraones. La Gran Pirámide es la única de las siete maravillas antiguas que sigue en pie.</li><li>La <b>Gran Muralla China</b>, una muralla de miles de kilómetros que protegía el imperio chino.</li><li><b>Machu Picchu</b>, una ciudad de los incas en lo alto de las montañas de Perú.</li><li>El <b>Taj Mahal</b>, en la India, un palacio funerario de mármol blanco que un emperador construyó en memoria de su esposa.</li><li>El <b>Coliseo</b> de Roma, donde se celebraban espectáculos en la época de los romanos.</li><li><b>Chichén Itzá</b>, en México, con su pirámide escalonada de los mayas.</li></ul><p>Todos ellos son Patrimonio de la Humanidad y reciben millones de visitantes cada año.</p>`,
+        L6.filas("Maravillas", [["pirámides", "Egipto", cNA], ["Gran Muralla", "China", cRO], ["Machu Picchu", "Perú", cVE], ["Taj Mahal", "India", cAZ]]), ["Fi0pcVQJx5Y", "LAS 7 MARAVILLAS DEL MUNDO MODERNO | Draw My Life", "TikTak Draw", 1057590]],
+    ],
+  },
+  final: [
+    ["El Camino de Santiago", `<p>El <mark>Camino de Santiago</mark> es una ruta que recorren a pie, en bicicleta o a caballo miles de personas cada año para llegar a la catedral de <b>Santiago de Compostela</b>, en Galicia.</p><ul><li>Se hace desde la Edad Media, hace más de mil años. Las personas que lo recorren se llaman <b>peregrinos</b>.</li><li>Hay muchos caminos: el Camino Francés, que entra por los Pirineos, el del Norte, junto a la costa, o el Portugués.</li><li>El símbolo del Camino es la <b>concha de vieira</b>. Unas flechas amarillas pintadas en paredes y piedras indican la ruta.</li><li>Los peregrinos llevan una credencial que sellan en los albergues, iglesias y bares por los que pasan.</li></ul><p>A lo largo del Camino nacieron pueblos, puentes, hospitales e iglesias románicas y góticas. Por eso es Patrimonio de la Humanidad.</p><p>Hoy lo recorren personas de todo el mundo, por fe, por deporte o por conocer paisajes y gente.</p>`,
+      H6.rueda("Camino", "SANTIAGO", [["peregrinos", cAZ], ["concha", cNA], ["flechas", cRO], ["credencial", cVE]]), ["_5wBpqi3rYg", "Todo sobre el CAMINO DE SANTIAGO 🚶‍♀️🚶‍♂️ | En 8 minutos ⏰", "ProfeDeELE.es", 241109]],
+    ["Patrimonio en peligro", `<p>El patrimonio puede <mark>dañarse</mark> o incluso desaparecer por muchas causas:</p><ul><li><b>Incendios</b>, como el de la catedral de Notre-Dame de París en 2019.</li><li><b>Terremotos</b> e <b>inundaciones</b>.</li><li>El <b>paso del tiempo</b>: la lluvia, la humedad y el viento desgastan la piedra.</li><li>La <b>contaminación</b> del aire ennegrece y estropea las fachadas.</li><li>Las <b>guerras</b>, que han destruido ciudades y monumentos enteros.</li><li>El <b>vandalismo</b>: pintadas, golpes o robos.</li><li>El <b>exceso de visitantes</b>, que puede desgastar suelos y pinturas.</li></ul><p>Para protegerlo, la Unesco tiene una lista de patrimonio en peligro y ayuda a los países a salvarlo. Los gobiernos pagan restauraciones y ponen normas, como limitar las visitas o prohibir hacer fotos con flash.</p><p>Y tú también puedes ayudar: respetando las normas en los monumentos, sin tocar ni pintar, y contando a los demás por qué es importante cuidarlos.</p>`,
+      H6.flujo("Proteger", ["peligro|fuego", "Unesco|lista", "restaurar|artesanos", "respetar|todos"], cRO)],
+  ],
+  ejemplos: [
+    ["Una iglesia tiene arcos redondos y ventanas pequeñas. ¿Qué estilo es?", ["Los arcos redondos son de medio punto.", "Muros gruesos y poca luz son del románico."], "Románico."],
+    ["¿Qué indica una flecha amarilla en un camino de Galicia?", ["Es la señal del Camino de Santiago.", "Muestra la ruta a los peregrinos."], "La ruta del Camino."],
+  ],
+  errores: ["Confundir románico y gótico: fíjate en los arcos.", "Pensar que el patrimonio dura para siempre sin cuidados."],
+  ejercicios: [
+    ["b", "¿Cómo son los arcos góticos?", "Apuntados, en punta."],
+    ["b", "¿Dónde están las pirámides más famosas?", "En Egipto."],
+    ["b", "¿Cuál es el símbolo del Camino de Santiago?", "La concha de vieira."],
+    ["b", "¿Cómo se llaman quienes recorren el Camino?", "Peregrinos."],
+    ["b", "Di un peligro para el patrimonio.", "Incendios, guerras, contaminación…"],
+    ["m", "¿Por qué las iglesias románicas son oscuras?", "Tienen ventanas pequeñas."],
+    ["m", "Di una catedral gótica de España.", "León, Burgos o Toledo."],
+    ["m", "¿Quiénes construyeron Machu Picchu?", "Los incas."],
+    ["m", "¿Por qué no se pueden hacer fotos con flash en algunos museos?", "La luz puede estropear las obras."],
+    ["m", "¿Qué se sella en la credencial del peregrino?", "Los lugares por los que pasa."],
+    ["a", "Dibuja un arco románico y uno gótico.", "Respuesta abierta."],
+    ["a", "Investiga una maravilla del mundo y haz una ficha.", "Respuesta abierta."],
+    ["a", "Escribe normas para visitar un monumento.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿cuándo volvió a abrir Notre-Dame?", "En diciembre de 2024."],
+  ],
+  quiz: [
+    ["Las grandes vidrieras son típicas del…", ["gótico", "románico", "arte romano"], "Estilos."],
+    ["El Taj Mahal está en…", ["la India", "China", "Egipto"], "Maravillas."],
+    ["El Camino de Santiago termina en…", ["Galicia", "Andalucía", "Cataluña"], "Camino."],
+    ["La única maravilla antigua que sigue en pie es…", ["la Gran Pirámide", "el Coliseo", "Machu Picchu"], "Maravillas."],
+    ["La contaminación del aire…", ["ennegrece las fachadas", "limpia la piedra", "no afecta"], "Peligro."],
+  ],
+  examen: [
+    ["En la lectura, ¿en qué ciudad está Notre-Dame?", ["París", "Roma", "Londres"], "Lectura."],
+    ["San Martín de Frómista es una iglesia…", ["románica", "gótica", "moderna"], "Estilos."],
+  ],
+  tarjetas: [
+    ["Románico y gótico", "Arcos redondos y oscuridad; arcos en punta y vidrieras."],
+    ["Maravillas", "Pirámides, Gran Muralla, Machu Picchu, Taj Mahal, Coliseo."],
+    ["Camino de Santiago", "Peregrinos, concha, flechas amarillas y credencial."],
+    ["Patrimonio en peligro", "Fuego, tiempo, guerras, vandalismo; Unesco y restauración."],
+  ],
+  glosario: [
+    ["Románico", "Estilo de muros gruesos y arcos redondos."],
+    ["Gótico", "Estilo de edificios altos y arcos apuntados."],
+    ["Vidriera", "Ventana de cristales de colores."],
+    ["Catedral", "Iglesia principal de una ciudad."],
+    ["Pirámide", "Construcción con base cuadrada y caras triangulares."],
+    ["Faraón", "Rey del antiguo Egipto."],
+    ["Peregrino", "Persona que viaja a un lugar sagrado."],
+    ["Credencial", "Documento que sellan los peregrinos."],
+    ["Albergue", "Lugar donde duermen los peregrinos."],
+    ["Vandalismo", "Destrozos hechos a propósito."],
+    ["Restaurar", "Reparar algo antiguo con cuidado."],
+    ["Unesco", "Organización que protege el patrimonio mundial."],
+  ],
+  situacion: {
+    titulo: "Guardianes del patrimonio",
+    reto: "La clase prepara una guía de monumentos y una campaña para protegerlos.",
+    pasos: ["Buscar iglesias románicas o góticas cercanas y clasificarlas.", "Preparar fichas de maravillas del mundo.", "Dibujar en un mapa los caminos de Santiago.", "Crear carteles con normas para cuidar el patrimonio."],
+    producto: "Una guía ilustrada y carteles de campaña.",
+    evaluacion: ["Distingue románico y gótico.", "Conoce maravillas del mundo.", "Explica el Camino de Santiago.", "Propone cómo proteger el patrimonio."],
+  },
+});

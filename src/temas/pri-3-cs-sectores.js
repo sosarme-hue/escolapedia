@@ -140,3 +140,91 @@ module.exports = {
   fuentes: [RD, wiki("Sector primario", "Sector primario"), wiki("Sector secundario", "Sector secundario"), wiki("Sector terciario", "Sector terciario")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer de dónde viene la energía que usamos", "Explicar el paso del trueque al dinero", "Valorar los trabajos de cuidados", "Imaginar los trabajos del futuro"],
+  lectura: { titulo: "El mercadillo del trueque", html: `<p>En el colegio de Valeria organizaron un mercadillo muy especial: estaba prohibido usar dinero. Cada alumno llevaba cosas que ya no usaba y las cambiaba por otras.</p><p>Valeria llevó tres cuentos y un puzle. Quería conseguir un balón.</p><p>Fue al puesto de Mario, que tenía un balón casi nuevo.</p><p>—Te lo cambio por el puzle —ofreció Valeria.</p><p>—Es que yo no quiero puzles —contestó Mario—. Quiero unos rotuladores.</p><p>Valeria no tenía rotuladores. Recorrió el patio hasta encontrar a Sofía, que tenía una caja de rotuladores y buscaba precisamente un puzle. ¡Trato hecho! Después, Valeria volvió al puesto de Mario y cambió los rotuladores por el balón.</p><p>Al final de la mañana, la maestra reunió a la clase.</p><p>—¿Qué os ha parecido el trueque?</p><p>—¡Muy lío! —dijo Valeria—. Tuve que hacer dos cambios para conseguir lo que quería.</p><p>—Exactamente por eso se inventó el dinero —sonrió la maestra—. Con dinero, Mario te habría vendido el balón aunque no quisiera tu puzle.</p><p>Aun así, todos coincidieron en que el mercadillo había sido muy divertido. Y Valeria volvió a casa con su balón.</p>` },
+  tras: {
+    "El sector secundario": [
+      ["¿De dónde viene la energía?", `<p>Las fábricas, los coches, las casas y los colegios necesitan <mark>energía</mark>. Producirla es un trabajo muy importante que se hace en las <mark>centrales</mark>.</p><p><b>Energías renovables</b>, que no se agotan:</p><ul><li><b>Solar</b>: placas que convierten la luz del Sol en electricidad.</li><li><b>Eólica</b>: aerogeneradores movidos por el viento.</li><li><b>Hidráulica</b>: el agua de los embalses mueve turbinas.</li></ul><p><b>Energías no renovables</b>, que se acaban:</p><ul><li>El <b>petróleo</b>, del que se sacan la gasolina y el plástico.</li><li>El <b>carbón</b> y el <b>gas natural</b>, que se queman para producir electricidad o calefacción.</li></ul><p>Las no renovables contaminan el aire y se agotarán algún día. Por eso cada vez se usan más las renovables. En España hay muchísimos parques eólicos y huertos solares.</p><p>Muchas personas trabajan en la energía: ingenieros, técnicos que instalan placas, operarios que reparan aerogeneradores…</p>`,
+        H6.dos("Energía", ["SE RENUEVAN", ["solar", "eólica", "hidráulica"], cVE], ["SE ACABAN", ["petróleo", "carbón", "gas"], cMO])],
+    ],
+    "El sector terciario o de servicios": [
+      ["Del trueque al dinero", `<p>Hace miles de años no existía el dinero. Las personas hacían <mark>trueque</mark>: cambiaban unas cosas por otras. Un pastor cambiaba lana por trigo, o un pescador, pescado por vasijas.</p><p>Pero el trueque tenía problemas: era difícil encontrar a alguien que quisiera justo lo que tú tenías, y no era fácil saber cuánto valía cada cosa.</p><ul><li>Primero se usaron objetos valiosos como «dinero»: conchas, sal o cabezas de ganado. De la sal viene la palabra <b>salario</b>.</li><li>Después se inventaron las <b>monedas</b> de metal, hace unos 2.700 años.</li><li>Más tarde llegaron los <b>billetes</b> de papel.</li><li>Hoy pagamos también con <b>tarjetas</b> y con el <b>móvil</b>: el dinero viaja de una cuenta a otra sin tocarlo.</li></ul><p>En España, como en muchos países de Europa, la moneda es el <b>euro</b> desde 2002.</p><p>El dinero facilita el comercio, que es la base del sector servicios: tiendas, mercados y comercios de todo tipo.</p>`,
+        H6.flujo("Dinero", ["trueque|cambiar", "sal|conchas", "monedas|billetes", "tarjeta|móvil"], cNA), ["axi81PIGUFw", "La Evolución del Dinero Explicada: Del Trueque a las Criptomonedas", "Infonimados", 106004]],
+    ],
+    "Todos los trabajos son importantes": [
+      ["Los trabajos de cuidados", `<p>Hay trabajos que no siempre se pagan, pero son imprescindibles: los <mark>trabajos de cuidados</mark>.</p><ul><li><b>Las tareas del hogar</b>: cocinar, limpiar, lavar la ropa, hacer la compra…</li><li><b>Cuidar de las personas</b>: de los bebés, de los niños, de los mayores y de los enfermos.</li><li><b>El voluntariado</b>: ayudar en un banco de alimentos, en una protectora de animales o acompañar a personas solas.</li></ul><p>Sin estos trabajos, el resto no podría funcionar: nadie podría ir a trabajar si no hubiera quien cuidara de los niños o preparara la comida.</p><p>Durante mucho tiempo, las mujeres hacían casi todos estos trabajos. Hoy sabemos que deben <b>repartirse</b> entre todos los miembros de la familia.</p><p>Tú también puedes colaborar: hacer tu cama, poner la mesa, recoger tus juguetes o ayudar a un hermano pequeño. ¡Son pequeños trabajos que ayudan a toda la familia!</p>`,
+        L6.filas("Cuidados", [["casa", "cocinar, limpiar", cNA], ["personas", "niños, mayores", cRO], ["voluntariado", "ayudar", cVE], ["yo", "poner la mesa", cAZ]])],
+    ],
+  },
+  final: [
+    ["Trabajos del futuro", `<p>Los <mark>trabajos cambian</mark> con el tiempo. Algunos que antes eran muy comunes casi han desaparecido, como el de afilador, sereno o telefonista. Y han aparecido otros nuevos.</p><p><b>Trabajos que hace pocos años no existían</b>:</p><ul><li><b>Programadores</b> de aplicaciones y videojuegos.</li><li><b>Pilotos de drones</b>, que hacen fotos desde el aire o vigilan cultivos.</li><li><b>Técnicos de energía solar</b> y de coches eléctricos.</li><li>Personas que diseñan y cuidan <b>robots</b>.</li></ul><p>Muchas personas hoy <b>teletrabajan</b>: trabajan desde casa con un ordenador.</p><p>Nadie sabe con seguridad cómo serán los trabajos cuando tú seas mayor. Por eso es tan importante aprender a aprender, ser creativo, saber trabajar en equipo y cuidar el planeta. Esas habilidades servirán para cualquier trabajo.</p><p><b>Actividad</b>: inventa un trabajo del futuro, ponle nombre y explica qué haría esa persona.</p>`,
+      H6.rueda("Futuro", "TRABAJOS", [["programador", cAZ], ["piloto de drones", cNA], ["técnico solar", cVE], ["robótica", cMO]])],
+    ["Comprar con cabeza", `<p>Todos somos <mark>consumidores</mark>: compramos comida, ropa, juguetes y otros productos. Comprar bien también es una forma de cuidar el trabajo de las personas y el planeta.</p><ul><li><b>Pensar antes de comprar</b>: ¿lo necesito de verdad o solo me apetece ahora?</li><li><b>Comparar precios</b> en distintas tiendas.</li><li><b>Leer las etiquetas</b>: de qué está hecho, dónde se fabricó y cuándo caduca.</li><li><b>Comprar productos locales</b>, que ayudan a los agricultores y comercios de tu zona y viajan menos kilómetros.</li><li><b>Reparar y reutilizar</b> antes de tirar.</li><li><b>Guardar el tique</b> por si hay que devolver algo.</li></ul><p>La publicidad intenta convencernos de que necesitamos muchas cosas. Un consumidor responsable sabe pensar por sí mismo.</p><p><b>Actividad</b>: con una paga imaginaria de 10 euros, planifica qué comprarías y cuánto ahorrarías.</p>`,
+      L6.filas("Consumo", [["pensar", "¿lo necesito?", cAZ], ["comparar", "precios", cNA], ["etiqueta", "origen", cVE], ["local", "menos viaje", cRO]])],
+  ],
+  ejemplos: [
+    ["¿Qué energía usa un parque eólico?", ["Los aerogeneradores giran con el viento.", "La energía del viento es eólica y renovable."], "La eólica."],
+    ["Quieres 3 € de cromos y tienes 5 €. ¿Cuánto ahorras?", ["Restamos lo que gastas a lo que tienes.", "5 − 3 = 2."], "Ahorras 2 €."],
+  ],
+  errores: ["Pensar que solo es trabajo lo que se cobra: los cuidados también lo son.", "Creer que la energía no se acaba: el petróleo y el carbón se agotan."],
+  ejercicios: [
+    ["b", "Di una energía renovable.", "Solar, eólica o hidráulica."],
+    ["b", "¿Qué es el trueque?", "Cambiar unas cosas por otras sin dinero."],
+    ["b", "¿Cuál es la moneda de España?", "El euro."],
+    ["b", "Di un trabajo de cuidados.", "Cocinar, limpiar, cuidar a mayores…"],
+    ["b", "¿Qué es teletrabajar?", "Trabajar desde casa con un ordenador."],
+    ["m", "¿Por qué hay que usar más energías renovables?", "No se agotan y contaminan menos."],
+    ["m", "¿De qué palabra viene «salario»?", "De sal."],
+    ["m", "¿Qué problemas tenía el trueque?", "Era difícil encontrar a quien quisiera lo tuyo y saber el valor."],
+    ["m", "Di un trabajo que ha desaparecido.", "Afilador, sereno o telefonista."],
+    ["m", "¿Por qué es bueno comprar productos locales?", "Ayudan a la zona y viajan menos."],
+    ["a", "Haz una lista de tareas de casa y repártelas en la familia.", "Respuesta abierta."],
+    ["a", "Inventa un trabajo del futuro.", "Respuesta abierta."],
+    ["a", "Planifica una compra con 10 € imaginarios.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿cuántos cambios hizo Valeria?", "Dos."],
+  ],
+  quiz: [
+    ["El petróleo es una energía…", ["no renovable", "renovable", "eólica"], "Energía."],
+    ["El euro se usa en España desde…", ["2002", "1492", "1978"], "Dinero."],
+    ["Ayudar en un banco de alimentos es…", ["voluntariado", "una fábrica", "un impuesto"], "Cuidados."],
+    ["Un piloto de drones es un trabajo…", ["nuevo", "muy antiguo", "prohibido"], "Futuro."],
+    ["Antes de comprar hay que…", ["pensar si lo necesito", "comprar lo primero", "tirar el tique"], "Consumo."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué quería conseguir Valeria?", ["un balón", "un puzle", "unos cuentos"], "Lectura."],
+    ["Las placas solares producen electricidad con…", ["la luz del Sol", "el viento", "el carbón"], "Energía."],
+  ],
+  tarjetas: [
+    ["Energía", "Renovables (solar, eólica, hidráulica) y no renovables."],
+    ["Dinero", "Trueque, sal y conchas, monedas, billetes, tarjeta, euro."],
+    ["Cuidados", "Casa, personas y voluntariado: repartirlos entre todos."],
+    ["Futuro y consumo", "Programadores, drones; pensar, comparar, comprar local."],
+  ],
+  glosario: [
+    ["Energía", "Lo que hace funcionar máquinas y aparatos."],
+    ["Renovable", "Que no se agota."],
+    ["Central", "Lugar donde se produce electricidad."],
+    ["Trueque", "Cambio de cosas sin dinero."],
+    ["Moneda", "Pieza de metal que sirve de dinero."],
+    ["Salario", "Dinero que se cobra por trabajar."],
+    ["Euro", "Moneda de España y otros países europeos."],
+    ["Cuidados", "Trabajos de atender a personas y al hogar."],
+    ["Voluntariado", "Ayuda sin cobrar."],
+    ["Teletrabajo", "Trabajo desde casa."],
+    ["Consumidor", "Persona que compra y usa productos."],
+    ["Producto local", "Producto hecho cerca de donde se compra."],
+  ],
+  situacion: {
+    titulo: "El mercado de la clase",
+    reto: "La clase organiza un mercadillo y estudia los trabajos y el dinero.",
+    pasos: ["Hacer un mercadillo de trueque.", "Investigar qué energías se usan en la comunidad.", "Crear un cuadro de reparto de tareas de casa.", "Inventar un trabajo del futuro y presentarlo."],
+    producto: "Un mercadillo y un mural de trabajos de ayer, hoy y mañana.",
+    evaluacion: ["Distingue tipos de energía.", "Explica el paso del trueque al dinero.", "Valora los cuidados.", "Consume con responsabilidad."],
+  },
+});
