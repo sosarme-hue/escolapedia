@@ -130,3 +130,93 @@ module.exports = tema({
 function manzanaF(x, y) { return `<g transform="translate(${x} ${y})"><circle r="34" fill="var(--red)"/><path d="M0 -32 q4 -14 14 -18" stroke="var(--ink)" stroke-width="3" fill="none"/><ellipse cx="16" cy="-44" rx="12" ry="6" fill="var(--leaf)"/></g>`; }
 // Oreja grande con ondas de sonido.
 function oreja(x, y) { return `<g transform="translate(${x} ${y})"><path d="M-10 -36 q30 -6 32 22 q2 20 -14 28 q-8 4 -6 16 q-2 12 -14 8" fill="#f3c9a1" stroke="#c68b5c" stroke-width="3"/><path d="M-36 -20 q-10 20 0 40 M-50 -30 q-16 30 0 60" stroke="var(--pen)" stroke-width="4" fill="none" stroke-linecap="round"/></g>`; }
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer las setas y los seres vivos diminutos", "Entender la metamorfosis", "Distinguir seres vivos naturales y objetos fabricados", "Conocer las cadenas de alimentos"],
+  lectura: { titulo: "La oruga glotona", html: `<p>En el jardín del abuelo de Noa vive una oruga verde y gordita. Noa la descubre un día comiéndose una hoja de col.</p><p>—Abuelo, ¡se está comiendo tus coles!</p><p>—Déjala —sonríe el abuelo—. Mira lo que pasa dentro de unas semanas.</p><p>Noa la observa cada día. La oruga come, come y come. Cada vez está más grande.</p><p>Una mañana, ya no la encuentra. En su lugar, colgada de una rama, hay una especie de cápsula marrón y quieta.</p><p>—Es una crisálida —le explica el abuelo—. Dentro, la oruga se está transformando.</p><p>Pasan dos semanas. Un día, la crisálida se abre y sale algo arrugado y húmedo. Poco a poco despliega unas alas blancas con manchitas negras.</p><p>—¡Es una mariposa! —grita Noa.</p><p>La mariposa seca sus alas al sol y, de pronto, echa a volar por encima de las flores.</p><p>—Era la misma oruga —dice Noa, asombrada—. ¡Ha cambiado por completo!</p>` },
+  tras: {
+    "Los seres inertes": [
+      ["Natural o fabricado", `<p>Los seres inertes pueden ser de dos tipos:</p><ul><li><mark>Naturales</mark>: están en la naturaleza sin que nadie los haya fabricado. Una piedra, el agua, la arena, una montaña, una nube.</li><li><mark>Fabricados</mark> por las personas: una mesa, un coche, un lápiz, un móvil.</li></ul><p>¡Cuidado! Hay cosas que estuvieron vivas y ya no lo están:</p><ul><li>Una <b>hoja seca</b> caída del árbol.</li><li>Un trozo de <b>madera</b>: fue parte de un árbol vivo.</li><li>Una <b>concha</b> vacía en la playa: era la casa de un animal.</li></ul><p>Y hay cosas que parecen muertas, pero están vivas: una <b>semilla</b> seca puede germinar si la plantamos.</p><p>Para saber si algo está vivo, nos preguntamos: ¿nace, se alimenta, crece, se relaciona, se reproduce y muere?</p><p><b>Actividad</b>: en el patio, busca tres cosas naturales inertes y tres fabricadas.</p>`,
+        H6.dos("Inertes", ["NATURALES", ["piedra", "agua", "arena"], cNA], ["FABRICADOS", ["mesa", "coche", "lápiz"], cAZ])],
+    ],
+    "La nutrición": [
+      ["Cadenas de alimentos", `<p>En la naturaleza, unos seres vivos sirven de alimento a otros. Así se forman las <mark>cadenas de alimentos</mark>:</p><ul><li>Las <b>plantas</b> fabrican su alimento con la luz del sol.</li><li>Un <b>saltamontes</b> se come la hierba.</li><li>Un <b>pájaro</b> se come el saltamontes.</li><li>Un <b>zorro</b> se come el pájaro.</li></ul><p>Las plantas están siempre al principio de la cadena. Los animales que comen plantas son <b>herbívoros</b>; los que comen otros animales, <b>carnívoros</b>.</p><p>Si desaparece un eslabón, toda la cadena se estropea. Si no hubiera hierba, los saltamontes no tendrían comida, y los pájaros tampoco.</p><p>Por eso todos los seres vivos son importantes, aunque sean pequeños.</p><p><b>Actividad</b>: inventa una cadena de alimentos del mar con cuatro seres vivos.</p>`,
+        H6.flujo("Cadena", ["hierba|planta", "saltamontes|herbívoro", "pájaro|carnívoro", "zorro|carnívoro"], cVE)],
+    ],
+    "El ciclo de la vida": [
+      ["La metamorfosis", `<p>Algunos animales cambian <mark>muchísimo</mark> de forma a lo largo de su vida. Este cambio se llama <b>metamorfosis</b>.</p><p>La <b>mariposa</b>:</p><ul><li>Pone un <b>huevo</b> en una hoja.</li><li>Del huevo sale una <b>oruga</b>, que come sin parar.</li><li>La oruga se convierte en <b>crisálida</b>, quieta dentro de una cápsula.</li><li>De la crisálida sale la <b>mariposa</b> adulta.</li></ul><p>La <b>rana</b>:</p><ul><li>Pone <b>huevos</b> en el agua.</li><li>Nacen <b>renacuajos</b>, con cola y sin patas, que respiran como peces.</li><li>Les salen patas y pierden la cola.</li><li>Se convierten en <b>ranas</b> que viven también en tierra.</li></ul><p>¡Parecen animales completamente distintos, pero son el mismo!</p><p><b>Actividad</b>: dibuja la metamorfosis de la mariposa en cuatro viñetas.</p>`,
+        L6.filas("Mariposa", [["1", "huevo", cNA], ["2", "oruga", cVE], ["3", "crisálida", cMO], ["4", "mariposa", cAZ]]),
+        ["01NwWTGefM0", "La mariposa - Animales para niños", "Smile and Learn - Español", 1182583]],
+    ],
+    "Animales, plantas y más": [
+      ["Setas y seres diminutos", `<p>Además de animales y plantas, hay otros seres vivos:</p><ul><li>Las <mark>setas</mark> y los <b>hongos</b>: no son plantas, porque no son verdes ni fabrican su alimento con el sol. Viven en lugares húmedos y se alimentan de restos de hojas y madera. ¡Algunas setas son muy venenosas! Nunca debemos tocarlas ni comerlas si no lo dice un experto.</li><li>El <b>moho</b> es un hongo: es la pelusilla verde o blanca que sale en el pan viejo.</li><li>La <b>levadura</b>, otro hongo, sirve para hacer el pan y los bizcochos.</li><li>Las <b>bacterias</b> son seres vivos tan pequeños que solo se ven con un <b>microscopio</b>. Algunas nos ponen enfermos, pero otras son buenas: las del yogur nos ayudan a hacer la digestión.</li></ul><p><b>Actividad</b>: deja un trozo de pan húmedo en una bolsa cerrada unos días y observa el moho (¡sin tocarlo!).</p>`,
+        H6.rueda("Otros", "VIDA", [["setas", cRO], ["moho", cVE], ["levadura", cNA], ["bacterias", cAZ]])],
+    ],
+  },
+  final: [
+    ["Seres vivos en peligro", `<p>Los seres vivos necesitan un lugar adecuado donde vivir. Ese lugar se llama <mark>hábitat</mark>: el bosque para el oso, el río para la trucha, el desierto para el camello.</p><p>Cuando las personas destruimos o ensuciamos los hábitats, muchos seres vivos sufren:</p><ul><li>Si se tala un <b>bosque</b>, los animales pierden su casa y su comida.</li><li>Si se ensucia un <b>río</b>, mueren los peces y las plantas acuáticas.</li><li>Si se usan muchos <b>venenos</b> en los campos, desaparecen las abejas.</li></ul><p>Las <b>abejas</b> son muy importantes: llevan el polen de flor en flor y así las plantas pueden dar frutos. ¡Sin abejas, tendríamos muchas menos frutas!</p><p>Cuidar la naturaleza es cuidar a todos los seres vivos, incluidos nosotros.</p><p><b>Actividad</b>: haced un hotel de insectos con cañas y piñas para el jardín del cole.</p>`,
+      L6.filas("Hábitats", [["bosque", "oso", cVE], ["río", "trucha", cAZ], ["desierto", "camello", cNA], ["flores", "abejas", cRO]])],
+    ["Repaso: la oruga glotona", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>La oruga <b>se alimenta</b> de hojas de col: nutrición.</li><li>Cada vez está más grande: <b>crece</b>.</li><li>Se convierte en <b>crisálida</b> y luego en <b>mariposa</b>: metamorfosis.</li><li>La mariposa vuela entre las flores: se <b>relaciona</b> con lo que la rodea.</li><li>Cuando sea adulta, pondrá huevos: se <b>reproducirá</b>.</li><li>La col es una <b>planta</b>, otro ser vivo.</li></ul><p>La oruga cumple todas las funciones de los seres vivos: nace, se alimenta, crece, se relaciona, se reproduce y, algún día, morirá.</p><p>Y en una cadena de alimentos: col → oruga → pájaro.</p><p><b>Actividad</b>: busca en un libro otro animal con metamorfosis y explica sus fases.</p>`,
+      H6.flujo("Noa ve", ["oruga|come", "crisálida|quieta", "mariposa|sale", "vuela|¡libre!"], cAZ)],
+  ],
+  ejemplos: [
+    ["¿Una hoja seca es un ser vivo?", ["Fue parte de un árbol vivo.", "Ya no crece ni se alimenta."], "No, ahora es inerte."],
+    ["¿Las setas son plantas?", ["No son verdes.", "No fabrican su alimento con el sol."], "No, son hongos."],
+  ],
+  errores: ["Pensar que las setas son plantas.", "Creer que la oruga y la mariposa son animales distintos."],
+  ejercicios: [
+    ["b", "Di un ser inerte natural.", "Piedra, agua, arena…"],
+    ["b", "Di un ser inerte fabricado.", "Mesa, lápiz, coche…"],
+    ["b", "¿Qué es la metamorfosis?", "Un gran cambio de forma en la vida de un animal."],
+    ["b", "¿Las setas son plantas?", "No, son hongos."],
+    ["b", "¿Qué aparato sirve para ver bacterias?", "El microscopio."],
+    ["m", "Ordena: crisálida, huevo, mariposa, oruga.", "Huevo, oruga, crisálida, mariposa."],
+    ["m", "Escribe una cadena de alimentos de tres seres vivos.", "Hierba → conejo → zorro."],
+    ["m", "¿Qué es el moho?", "Un hongo que sale en alimentos viejos."],
+    ["m", "¿Por qué son importantes las abejas?", "Porque llevan el polen y las plantas dan frutos."],
+    ["m", "¿Qué es un hábitat?", "El lugar donde vive un ser vivo."],
+    ["a", "En la lectura, ¿qué come la oruga?", "Hojas de col."],
+    ["a", "Explica la metamorfosis de la rana.", "Huevo, renacuajo, renacuajo con patas, rana."],
+    ["a", "¿Qué pasa en una cadena si desaparece la hierba?", "Los herbívoros no tienen comida y la cadena se rompe."],
+    ["a", "¿Por qué una semilla seca puede estar viva?", "Porque si la plantamos, germina."],
+  ],
+  quiz: [
+    ["Una piedra es un ser inerte…", ["natural", "fabricado", "vivo"], "Inertes."],
+    ["Al principio de una cadena de alimentos están las…", ["plantas", "zorras", "piedras"], "Cadenas."],
+    ["La fase quieta de la mariposa es la…", ["crisálida", "oruga", "larva"], "Metamorfosis."],
+    ["La levadura es un…", ["hongo", "animal", "mineral"], "Hongos."],
+    ["El lugar donde vive un ser vivo es su…", ["hábitat", "cadena", "crisálida"], "Hábitat."],
+  ],
+  examen: [
+    ["En la lectura, ¿de qué color es la mariposa?", ["blanca con manchas negras", "azul", "amarilla"], "Lectura."],
+    ["La cadena de la lectura es…", ["col → oruga → pájaro", "pájaro → col → oruga", "oruga → col"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Metamorfosis", "Huevo, oruga, crisálida, mariposa."],
+    ["Cadena de alimentos", "Planta → herbívoro → carnívoro."],
+  ],
+  glosario: [
+    ["Inerte", "Que no tiene vida."],
+    ["Fabricado", "Hecho por las personas."],
+    ["Cadena de alimentos", "Seres vivos que sirven de comida unos a otros."],
+    ["Herbívoro", "Animal que come plantas."],
+    ["Carnívoro", "Animal que come otros animales."],
+    ["Metamorfosis", "Gran cambio de forma de un animal."],
+    ["Crisálida", "Fase quieta de la mariposa."],
+    ["Renacuajo", "Cría de la rana."],
+    ["Hongo", "Ser vivo como las setas o el moho."],
+    ["Hábitat", "Lugar donde vive un ser vivo."],
+  ],
+  situacion: {
+    titulo: "Detectives de la vida",
+    reto: "La clase investiga seres vivos del patio, observa una metamorfosis y crea un mural de cadenas de alimentos.",
+    pasos: ["Clasificar lo que hay en el patio en vivos, inertes naturales e inertes fabricados.", "Observar gusanos de seda o renacuajos y anotar sus cambios.", "Dibujar cadenas de alimentos de distintos hábitats.", "Construir un hotel de insectos para ayudar a los seres vivos del cole."],
+    producto: "Un mural de la vida y un hotel de insectos.",
+    evaluacion: ["Distingue inertes naturales y fabricados.", "Explica la metamorfosis.", "Construye cadenas de alimentos.", "Conoce hongos y bacterias."],
+  },
+});

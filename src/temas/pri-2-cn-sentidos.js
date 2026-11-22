@@ -134,3 +134,93 @@ module.exports = tema({
   saberes: "El cuerpo humano: los sentidos y sus órganos; hábitos de cuidado e higiene",
   ideas: ["Rincón de los sentidos con cajas de olores, bolsas de texturas y botes de sonidos.", "Cata de sabores (dulce, salado, ácido, amargo) con registro en una tabla.", "Paseo sensorial por el patio con una ficha para cada sentido."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer los cinco sabores básicos", "Saber que la vista puede engañarnos", "Conocer animales con sentidos extraordinarios", "Conocer cómo viven las personas ciegas o sordas"],
+  lectura: { titulo: "La amiga que veía con las manos", html: `<p>A la clase de Pablo llega una niña nueva, Elena. Elena es ciega: no puede ver nada con sus ojos.</p><p>El primer día, Pablo no sabe cómo hablar con ella. Pero Elena enseguida le dice:</p><p>—Hola, ¿cómo te llamas? Tu voz suena simpática.</p><p>Elena lleva un bastón blanco que mueve delante de ella para notar los obstáculos. En clase lee libros especiales con puntitos en relieve: es el braille. Pasa los dedos por encima muy deprisa, ¡más rápido de lo que Pablo lee con los ojos!</p><p>En el recreo, juegan a adivinar objetos con los ojos cerrados. Pablo no acierta casi ninguno. Elena los acierta todos: una piña, una moneda, una pluma…</p><p>—¿Cómo lo haces? —le pregunta Pablo.</p><p>—Mis otros sentidos están muy entrenados. Oigo, toco y huelo muy bien.</p><p>Desde ese día, Pablo y Elena son inseparables. Y Pablo ha aprendido a escribir su nombre en braille.</p>` },
+  tras: {
+    "La vista": [
+      ["Ilusiones ópticas", `<p>A veces, los ojos nos <mark>engañan</mark>. Vemos algo que no es exactamente así. Estos engaños se llaman <b>ilusiones ópticas</b>.</p><ul><li>Dos líneas iguales pueden parecer de distinto tamaño si les ponemos flechas en los extremos.</li><li>Un dibujo puede parecer que se mueve, aunque esté quieto.</li><li>En algunos dibujos podemos ver dos cosas distintas: un jarrón o dos caras mirándose.</li><li>Un lápiz metido en un vaso de agua parece <b>roto</b>, aunque no lo esté.</li></ul><p>Estos engaños pasan porque el ojo ve, pero quien interpreta lo que vemos es el <b>cerebro</b>. Y el cerebro a veces se confunde.</p><p>Por eso, para estar seguros de algo, a veces hay que medirlo o tocarlo.</p><p><b>Actividad</b>: mete un lápiz en un vaso con agua y míralo desde un lado. ¿Parece roto?</p>`,
+        H6.dos("¿Engaño?", ["PARECE", ["lápiz roto", "líneas distintas"], cRO], ["ES", ["lápiz entero", "líneas iguales"], cVE])],
+    ],
+    "El gusto": [
+      ["Los cinco sabores", `<p>Con la lengua notamos <mark>cinco sabores</mark> básicos:</p><ul><li><b>Dulce</b>: el azúcar, la miel, la fruta madura.</li><li><b>Salado</b>: la sal, las patatas fritas, las aceitunas.</li><li><b>Ácido</b>: el limón, el vinagre, el yogur natural.</li><li><b>Amargo</b>: el café, el pomelo, algunas verduras como la alcachofa.</li><li><b>Umami</b>: un sabor sabroso, como el del queso curado, el tomate maduro o el caldo.</li></ul><p>El gusto y el <b>olfato</b> trabajan juntos. Cuando estamos resfriados y tenemos la nariz tapada, la comida parece que no sabe a nada. ¡Prueba a comer algo tapándote la nariz!</p><p>Los sabores amargos y ácidos nos avisan a veces de que algo puede estar estropeado o ser venenoso.</p><p><b>Actividad</b>: con los ojos tapados, prueba alimentos y di qué sabor tiene cada uno.</p>`,
+        L6.filas("Sabores", [["dulce", "miel", cNA], ["salado", "aceitunas", cAZ], ["ácido", "limón", cVE], ["amargo", "café", cMO]])],
+    ],
+    "Los sentidos trabajan juntos": [
+      ["Sentidos de animales", `<p>Algunos animales tienen <mark>sentidos extraordinarios</mark>, mucho mejores que los nuestros:</p><ul><li>El <b>águila</b> ve un conejo desde muy alto, a más de un kilómetro.</li><li>El <b>perro</b> tiene un olfato muchísimo mejor que el nuestro. Por eso ayuda a buscar personas perdidas.</li><li>El <b>murciélago</b> se orienta en la oscuridad con el oído: lanza grititos y escucha el eco.</li><li>El <b>búho</b> ve muy bien de noche y oye el ruidito de un ratón bajo la nieve.</li><li>El <b>gato</b> usa sus bigotes para notar si cabe por un agujero.</li><li>La <b>serpiente</b> «huele» con la lengua.</li></ul><p>Cada animal ha desarrollado el sentido que más necesita para buscar comida y defenderse.</p><p><b>Actividad</b>: elige un animal y escribe qué sentido usa más y para qué.</p>`,
+        H6.rueda("Súper", "SENTIDOS", [["águila: vista", cNA], ["perro: olfato", cAZ], ["murciélago", cVE], ["gato: tacto", cRO]])],
+    ],
+    "Cuidamos los sentidos": [
+      ["Personas ciegas y sordas", `<p>Algunas personas no pueden ver o no pueden oír. Pero aprenden a hacer las cosas de <mark>otra manera</mark> y llevan una vida plena.</p><p>Las personas <b>ciegas</b>:</p><ul><li>Leen y escriben en <b>braille</b>, un alfabeto de puntitos en relieve.</li><li>Usan un <b>bastón blanco</b> o un <b>perro guía</b> para moverse por la calle.</li><li>Usan teléfonos y ordenadores que leen en voz alta.</li></ul><p>Las personas <b>sordas</b>:</p><ul><li>Se comunican con la <b>lengua de signos</b>, que usa las manos, la cara y el cuerpo.</li><li>Algunas leen los labios.</li><li>Otras llevan <b>audífonos</b> o implantes que les ayudan a oír.</li></ul><p>En los semáforos hay sonidos para las personas ciegas, y en la tele, subtítulos para las sordas.</p><p><b>Actividad</b>: aprende a decir «hola» y «gracias» en lengua de signos.</p>`,
+        L6.filas("Otra manera", [["ciegas", "braille", cAZ], ["ciegas", "perro guía", cNA], ["sordas", "lengua de signos", cVE], ["sordas", "audífonos", cRO]]),
+        ["KZkYxXgcnt4", "Aprenda Braille Fácilmente con cartones de huevos", "Ayudas Para Todos", 722014]],
+    ],
+  },
+  final: [
+    ["El cerebro, el jefe de los sentidos", `<p>Los ojos, los oídos, la nariz, la lengua y la piel recogen información. Pero quien la entiende es el <mark>cerebro</mark>.</p><p>Funciona así:</p><ul><li>El <b>órgano</b> de los sentidos recibe algo: una luz, un sonido, un olor.</li><li>Unos <b>nervios</b>, como cables muy finos, llevan el mensaje al cerebro.</li><li>El <b>cerebro</b> lo entiende: «Es la voz de mamá», «Huele a tostadas».</li><li>El cerebro decide qué hacer: sonreír, ir a desayunar…</li></ul><p>Todo esto pasa rapidísimo, en menos de un segundo.</p><p>Cuando tocamos algo muy caliente, apartamos la mano antes incluso de pensarlo: es un <b>reflejo</b> que nos protege.</p><p><b>Actividad</b>: haz el juego del reflejo: un compañero deja caer una regla y tú intentas atraparla.</p>`,
+      H6.flujo("Mensaje", ["órgano|recibe", "nervios|llevan", "cerebro|entiende", "decide|¡actúa!"], cAZ)],
+    ["Repaso: Elena, la amiga nueva", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Elena es <b>ciega</b>: no puede usar el sentido de la vista.</li><li>Reconoce a Pablo por la <b>voz</b>: usa el oído.</li><li>Usa un <b>bastón blanco</b> para notar los obstáculos: usa el tacto.</li><li>Lee en <b>braille</b> con los dedos: usa el tacto.</li><li>Adivina objetos con los ojos cerrados: usa el tacto y el olfato.</li><li>Sus otros sentidos están muy <b>entrenados</b>.</li></ul><p>Pablo aprende algo importante: las personas con discapacidad pueden hacer muchísimas cosas, solo que de otra manera. Y él también aprende braille.</p><p><b>Actividad</b>: con los ojos tapados, intenta reconocer a tres compañeros por su voz.</p>`,
+      H6.dos("Elena", ["NO USA", ["la vista"], cMO], ["USA MUCHO", ["oído", "tacto", "olfato"], cVE])],
+  ],
+  ejemplos: [
+    ["¿Qué sabor tiene el limón?", ["Pienso en cómo lo noto."], "Ácido."],
+    ["¿Por qué el lápiz parece roto en el agua?", ["El ojo ve, el cerebro interpreta.", "El agua cambia cómo vemos."], "Es una ilusión óptica."],
+  ],
+  errores: ["Pensar que las personas ciegas o sordas no pueden hacer casi nada.", "Creer que solo vemos con los ojos, sin el cerebro."],
+  ejercicios: [
+    ["b", "Di los cinco sabores.", "Dulce, salado, ácido, amargo y umami."],
+    ["b", "¿Qué animal tiene un olfato extraordinario?", "El perro."],
+    ["b", "¿Qué es el braille?", "Un alfabeto de puntitos en relieve."],
+    ["b", "¿Qué lleva el mensaje de los sentidos al cerebro?", "Los nervios."],
+    ["b", "¿Qué es una ilusión óptica?", "Un engaño de la vista."],
+    ["m", "¿Por qué la comida no sabe a nada con la nariz tapada?", "Porque el gusto y el olfato trabajan juntos."],
+    ["m", "¿Cómo se orienta el murciélago?", "Con el oído, escuchando el eco."],
+    ["m", "¿Cómo se comunican muchas personas sordas?", "Con la lengua de signos."],
+    ["m", "¿Qué es un reflejo?", "Una reacción rápida sin pensar."],
+    ["m", "Di dos ayudas para las personas ciegas.", "Bastón blanco, perro guía, braille."],
+    ["a", "En la lectura, ¿cómo reconoce Elena a Pablo?", "Por su voz."],
+    ["a", "¿Por qué Elena acierta los objetos y Pablo no?", "Porque tiene el tacto y el olfato muy entrenados."],
+    ["a", "Explica el camino de un sonido hasta el cerebro.", "El oído lo recibe, los nervios lo llevan y el cerebro lo entiende."],
+    ["a", "¿Qué podemos hacer para que una persona ciega se mueva mejor por el cole?", "No dejar cosas por el suelo, avisarle…"],
+  ],
+  quiz: [
+    ["El sabor del café es…", ["amargo", "dulce", "salado"], "Sabores."],
+    ["El lápiz que parece roto en el agua es una…", ["ilusión óptica", "fractura", "sombra"], "Vista."],
+    ["El águila destaca por su…", ["vista", "olfato", "gusto"], "Animales."],
+    ["Las personas ciegas leen en…", ["braille", "signos", "colores"], "Ciegas."],
+    ["Quien entiende lo que sentimos es el…", ["cerebro", "estómago", "pie"], "Cerebro."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué lleva Elena para moverse?", ["un bastón blanco", "gafas", "un patinete"], "Lectura."],
+    ["Al leer en braille, Elena usa el…", ["tacto", "gusto", "olfato"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Sabores", "Dulce, salado, ácido, amargo, umami."],
+    ["Cerebro", "Órgano → nervios → cerebro → acción."],
+  ],
+  glosario: [
+    ["Ilusión óptica", "Engaño de la vista."],
+    ["Umami", "Sabor sabroso, como el del queso curado."],
+    ["Cerebro", "Órgano que entiende lo que sentimos."],
+    ["Nervio", "Cable fino que lleva mensajes al cerebro."],
+    ["Reflejo", "Reacción rapidísima sin pensar."],
+    ["Braille", "Alfabeto de puntos en relieve."],
+    ["Lengua de signos", "Idioma con las manos y la cara."],
+    ["Audífono", "Aparato que ayuda a oír."],
+    ["Perro guía", "Perro que ayuda a una persona ciega."],
+    ["Eco", "Sonido que rebota y vuelve."],
+  ],
+  situacion: {
+    titulo: "El circuito de los sentidos",
+    reto: "La clase monta un circuito de estaciones donde los visitantes usan cada sentido con los ojos tapados.",
+    pasos: ["Preparar una estación para cada sentido: sabores, olores, sonidos, tacto e ilusiones.", "Escribir las instrucciones de cada estación.", "Incluir una estación de braille y lengua de signos.", "Recibir a otra clase y explicar cada estación."],
+    producto: "Un circuito de cinco estaciones de los sentidos.",
+    evaluacion: ["Distingue los cinco sabores.", "Explica una ilusión óptica.", "Conoce sentidos de animales.", "Muestra respeto por las personas con discapacidad."],
+  },
+});
