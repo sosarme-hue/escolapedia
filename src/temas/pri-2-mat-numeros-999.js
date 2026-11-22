@@ -100,3 +100,95 @@ module.exports = P.tema({
   saberes: "Sentido numérico: conteo, lectura y escritura de números naturales hasta el 999 y la centena como agrupación",
   ideas: ["Material multibase o placas de cartulina para representar números.", "Dictado de números con especial atención a los ceros intermedios.", "Recta numérica en el suelo del aula de 100 en 100."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Contar de 10 en 10 y de 100 en 100", "Encontrar números en la recta hasta el 999", "Reconocer números pares e impares", "Usar los números grandes en la vida diaria"],
+  lectura: { titulo: "El libro de 999 páginas", html: `<p>En la biblioteca del cole hay un libro enorme. Es una enciclopedia de animales y tiene ¡999 páginas!</p><p>Hugo y Vera quieren buscar la página de los delfines. En el índice pone: «Delfines, página 457».</p><p>—¡Qué número tan grande! —dice Vera.</p><p>Hugo abre el libro por la mitad. Mira el número de abajo: 500.</p><p>—Nos hemos pasado. El 457 es menor que el 500. Tenemos que ir hacia atrás.</p><p>Pasan muchas hojas juntas. Ahora están en la página 420.</p><p>—Cuatrocientos veinte… Ya tenemos las 4 centenas. Ahora faltan las decenas.</p><p>Pasan hojas de diez en diez: 430, 440, 450. Después, de una en una: 451, 452… ¡457!</p><p>Allí está un delfín saltando sobre las olas.</p><p>—Saber los números grandes sirve para encontrar delfines —se ríe Vera.</p>` },
+  tras: {
+    "Contar de cien en cien": [
+      ["Contar de diez en diez", `<p>Además de contar de 100 en 100, podemos contar de <mark>10 en 10</mark>. Así vamos más deprisa que de uno en uno.</p><p>Empezamos en el 100: <b>100, 110, 120, 130, 140, 150…</b> Solo cambia la cifra del medio, la de las <b>decenas</b>.</p><p>Cuando llegamos al 190, el siguiente es el <b>200</b>. ¡Hemos completado otra centena!</p><p>También podemos empezar en cualquier número: <b>235, 245, 255, 265</b>. Las unidades no cambian: siempre terminan en 5.</p><p>Contar de 10 en 10 sirve para contar monedas de 10 céntimos, palillos en paquetes de 10 o los minutos de un partido.</p><p><b>Actividad</b>: cuenta de 10 en 10 desde el 300 hasta el 400 dando una palmada en cada número.</p>`,
+        H6.flujo("De 10 en 10", ["100|cien", "110|+10", "120|+10", "130|y sigue…"], cAZ),
+        ["1UX-UvY-IWE", "Los números del 100 al 1000 | Canciones infantiles | LittleBabyBum", "Little Baby Bum en Español", 4285926]],
+    ],
+    "Escribir números con cifras": [
+      ["Cuidado con el cero", `<p>El <mark>cero</mark> es muy importante en los números de tres cifras. Nos dice que en una casilla <b>no hay nada</b>.</p><p>Mira estos dos números:</p><ul><li><b>305</b>: 3 centenas, <b>0 decenas</b> y 5 unidades. Se lee «trescientos cinco».</li><li><b>350</b>: 3 centenas, 5 decenas y <b>0 unidades</b>. Se lee «trescientos cincuenta».</li></ul><p>¡Son números muy diferentes! Si nos olvidamos del cero, el 305 se convierte en 35, que es mucho más pequeño.</p><p>Un truco: cuando oigas «trescientos cinco», piensa: ¿hay decenas? No. Entonces pon un <b>0</b> en su sitio.</p><p>Más ejemplos: «seiscientos ocho» es <b>608</b>; «novecientos» es <b>900</b>, con dos ceros.</p><p><b>Actividad</b>: escribe con cifras «setecientos uno», «cuatrocientos diez» y «doscientos».</p>`,
+        H6.dos("El cero", ["305", ["3 centenas", "0 decenas", "5 unidades"], cAZ], ["350", ["3 centenas", "5 decenas", "0 unidades"], cRO])],
+    ],
+    "Los números en bloques": [
+      ["La recta hasta el 999", `<p>En una <mark>recta numérica</mark> los números están ordenados en fila, como en una regla muy larga.</p><p>Si la recta va del <b>0 al 1000</b>, no caben todos los números. Por eso marcamos solo las centenas: 0, 100, 200, 300… hasta 1000.</p><p>¿Dónde está el <b>250</b>? Está justo en medio del 200 y el 300.</p><p>¿Y el <b>480</b>? Está entre el 400 y el 500, pero más cerca del 500.</p><p>También podemos hacer una recta más pequeña, por ejemplo del 300 al 400, y marcar las decenas: 310, 320, 330…</p><p>La recta nos ayuda a ver si un número está <b>cerca</b> o <b>lejos</b> de otro, y qué números hay en medio.</p><p><b>Actividad</b>: dibuja una recta del 0 al 1000 en una tira de papel y coloca tu número favorito.</p>`,
+        L6.filas("En la recta", [["250", "entre 200 y 300", cAZ], ["480", "cerca del 500", cVE], ["910", "cerca del 900", cNA], ["999", "antes del 1000", cRO]])],
+    ],
+    "El número anterior y el posterior": [
+      ["Pares e impares", `<p>Los números pueden ser <mark>pares</mark> o <mark>impares</mark>. Para saberlo, solo miramos la <b>última cifra</b>, la de las unidades.</p><ul><li>Son <b>pares</b> si terminan en <b>0, 2, 4, 6 u 8</b>. Por ejemplo: 124, 350, 998.</li><li>Son <b>impares</b> si terminan en <b>1, 3, 5, 7 o 9</b>. Por ejemplo: 137, 405, 999.</li></ul><p>Un número par se puede repartir entre <b>dos</b> sin que sobre nada. Si tienes 6 caramelos, das 3 a tu amigo y te quedas 3. Con un número impar, siempre sobra uno.</p><p>En muchas calles, los portales pares están en una acera y los impares, en la de enfrente. ¡Fíjate cuando vayas por la calle!</p><p><b>Actividad</b>: escribe tres números pares y tres impares mayores que 500.</p>`,
+        H6.dos("Última cifra", ["PARES", ["0, 2, 4", "6, 8", "124 · 350"], cAZ], ["IMPARES", ["1, 3, 5", "7, 9", "137 · 405"], cRO])],
+    ],
+    "¿Para qué sirve?": [
+      ["Números con distinto uso", `<p>Los números no siempre sirven para lo mismo. Fíjate en estos usos:</p><ul><li>Para <mark>contar</mark>: hay 325 alumnos en el colegio.</li><li>Para <mark>medir</mark>: la torre mide 120 metros; el libro pesa 800 gramos.</li><li>Para <mark>ordenar</mark>: Lucía llegó la primera a la meta; tú, el tercero.</li><li>Para <mark>identificar</mark>: el autobús número 147; el portal 25; el dorsal 309. Estos números no dicen cuántos hay: son como un nombre.</li></ul><p>Por eso, cuando veas un número, piensa: ¿qué me está diciendo? ¿Cuántas cosas hay? ¿Cuánto mide? ¿En qué lugar va? ¿O es un nombre?</p><p>El número del autobús 147 no quiere decir que haya 147 autobuses. ¡Solo sirve para reconocer cuál es!</p><p><b>Actividad</b>: busca en casa un número para contar, otro para medir y otro que sea un nombre.</p>`,
+        H6.rueda("Usos", "NÚMEROS", [["contar", cAZ], ["medir", cVE], ["ordenar", cNA], ["nombrar", cRO]])],
+    ],
+  },
+  final: [
+    ["Repaso: el número del día", `<p>Cada mañana podemos jugar con un <mark>número del día</mark>. Por ejemplo, hoy es el <b>486</b>. Vamos a hacer muchas cosas con él:</p><ul><li><b>Leerlo</b>: cuatrocientos ochenta y seis.</li><li><b>Descomponerlo</b>: 4 centenas, 8 decenas y 6 unidades. 400 + 80 + 6.</li><li><b>Anterior y posterior</b>: 485 y 487.</li><li><b>Diez más y diez menos</b>: 496 y 476.</li><li><b>Cien más y cien menos</b>: 586 y 386.</li><li><b>¿Par o impar?</b> Termina en 6: es <b>par</b>.</li><li><b>En la recta</b>: entre el 400 y el 500, más cerca del 500.</li></ul><p>¡Un solo número nos da para mucho! Mañana elegimos otro.</p><p><b>Actividad</b>: elige tú el número del día y completa todas las preguntas en tu cuaderno.</p>`,
+      L6.filas("Hoy: 486", [["se lee", "cuatrocientos ochenta y seis", cAZ], ["±1", "485 · 487", cVE], ["±10", "476 · 496", cNA], ["±100", "386 · 586", cRO]])],
+  ],
+  ejemplos: [
+    ["¿Cómo se escribe «quinientos siete»?", ["Hay 5 centenas.", "No hay decenas: ponemos un 0.", "Hay 7 unidades."], "507."],
+    ["¿El 643 es par o impar?", ["Miramos la última cifra: 3.", "El 3 es impar."], "Es impar."],
+  ],
+  errores: ["Olvidar el cero en números como 305 y escribir 35.", "Pensar que un número es par o impar mirando la primera cifra: hay que mirar la última."],
+  ejercicios: [
+    ["b", "Cuenta de 10 en 10 desde el 240 hasta el 300.", "240, 250, 260, 270, 280, 290, 300."],
+    ["b", "Escribe con cifras «doscientos cuatro».", "204."],
+    ["b", "¿El 358 es par o impar?", "Par."],
+    ["b", "¿Qué número va después del 599?", "600."],
+    ["b", "¿Entre qué dos centenas está el 730?", "Entre el 700 y el 800."],
+    ["m", "Escribe el número que es 10 más que 495.", "505."],
+    ["m", "Ordena: 350, 305, 530.", "305, 350, 530."],
+    ["m", "Escribe tres números impares entre 200 y 210.", "201, 203, 205, 207 o 209."],
+    ["m", "¿Para qué sirve el número de un autobús?", "Para identificarlo, como un nombre."],
+    ["m", "¿Qué número es 100 menos que 812?", "712."],
+    ["a", "En la lectura, ¿por qué Hugo va hacia atrás desde la página 500?", "Porque 457 es menor que 500."],
+    ["a", "Haz el número del día con el 709.", "Setecientos nueve; 7C 0D 9U; 708 y 710; 699 y 719; 609 y 809; impar."],
+    ["a", "Inventa un número de tres cifras par, con un 0 en las decenas.", "Por ejemplo, 408."],
+    ["a", "¿Cuántos números hay entre el 990 y el 999, sin contarlos?", "Ocho: 991 a 998."],
+  ],
+  quiz: [
+    ["Después del 190, contando de 10 en 10, viene…", ["200", "191", "1100"], "De 10 en 10."],
+    ["«Seiscientos ocho» se escribe…", ["608", "68", "680"], "El cero."],
+    ["El 250 está entre…", ["200 y 300", "100 y 200", "300 y 400"], "Recta."],
+    ["Es un número par…", ["746", "745", "999"], "Pares."],
+    ["El número del dorsal sirve para…", ["identificar", "medir", "pesar"], "Usos."],
+  ],
+  examen: [
+    ["En la lectura, ¿en qué página están los delfines?", ["457", "500", "999"], "Lectura."],
+    ["100 más que 486 es…", ["586", "496", "487"], "Repaso."],
+  ],
+  tarjetas: [
+    ["De 10 en 10", "Cambia la cifra de las decenas: 110, 120, 130…"],
+    ["Pares e impares", "Mira la última cifra: 0, 2, 4, 6, 8 son pares."],
+  ],
+  glosario: [
+    ["Centena", "Grupo de 100 unidades."],
+    ["Decena", "Grupo de 10 unidades."],
+    ["Cifra", "Cada signo con que escribimos un número."],
+    ["Recta numérica", "Línea con los números en orden."],
+    ["Anterior", "Número que va justo antes."],
+    ["Posterior", "Número que va justo después."],
+    ["Par", "Número que termina en 0, 2, 4, 6 u 8."],
+    ["Impar", "Número que termina en 1, 3, 5, 7 o 9."],
+    ["Descomponer", "Partir un número en centenas, decenas y unidades."],
+    ["Índice", "Lista de un libro que dice en qué página está cada cosa."],
+  ],
+  situacion: {
+    titulo: "La biblioteca de los números",
+    reto: "La clase prepara un juego de búsqueda en un libro grande: cada grupo encuentra páginas usando lo que sabe de los números hasta el 999.",
+    pasos: ["Elegir un libro gordo y mirar su última página.", "Escribir en tarjetas números de páginas para buscar.", "Buscar las páginas contando de 100 en 100 y de 10 en 10.", "Contar qué hay en cada página y si su número es par o impar."],
+    producto: "Un juego de tarjetas de búsqueda y una hoja con lo encontrado.",
+    evaluacion: ["Lee y escribe números hasta el 999.", "Cuenta de 10 en 10 y de 100 en 100.", "Sitúa números en la recta.", "Distingue números pares e impares."],
+  },
+});

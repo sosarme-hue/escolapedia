@@ -104,3 +104,93 @@ module.exports = P.tema({
   saberes: "Sentido numérico: comparación y ordenación de números naturales hasta el 999; uso de los signos &gt;, &lt; e =; recta numérica",
   ideas: ["Recta numérica gigante en el pasillo para situar números.", "Tarjetas de cocodrilo para practicar los signos.", "Juego de ordenar a los alumnos por el número que llevan en una tarjeta."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Usar los números ordinales", "Encontrar números entre otros dos", "Comparar sumas y precios", "Ordenar datos de la vida real"],
+  lectura: { titulo: "La carrera de sacos", html: `<p>En la fiesta del colegio hay una carrera de sacos. Cada niño lleva un dorsal con un número.</p><p>Al terminar, la profesora apunta cuántos saltos ha dado cada uno para llegar a la meta. Gana quien dé <b>menos</b> saltos, porque salta más lejos.</p><p>Leo ha dado 48 saltos. Irene, 39. Marcos, 52. Y Ana, 41.</p><p>—¡He ganado yo, porque mi número es el más grande! —grita Marcos.</p><p>—No —dice Irene—. Gana quien tiene el número más pequeño.</p><p>La profesora los ordena de menor a mayor en la pizarra: 39, 41, 48, 52.</p><p>—Primera, Irene. Segunda, Ana. Tercero, Leo. Y cuarto, Marcos.</p><p>Marcos se ríe y se encoge de hombros.</p><p>—Bueno, por lo menos he sido el que más ha saltado.</p><p>Todos aplauden. A veces gana el número mayor y otras veces, el menor. Hay que leer bien las reglas.</p>` },
+  tras: {
+    "Los signos &gt;, &lt; e =": [
+      ["El cocodrilo hambriento", `<p>Un truco para no confundir los signos <b>&gt;</b> y <b>&lt;</b> es imaginar un <mark>cocodrilo</mark> con la boca abierta.</p><p>El cocodrilo tiene mucha hambre y siempre abre la boca hacia el número <b>más grande</b>, porque quiere comer más.</p><ul><li>En <b>85 &gt; 58</b>, la boca abierta mira al 85.</li><li>En <b>120 &lt; 210</b>, la boca abierta mira al 210.</li></ul><p>La parte estrecha, la punta, siempre señala al número <b>más pequeño</b>.</p><p>Si los dos números son iguales, el cocodrilo no sabe cuál elegir y cierra la boca: entonces usamos el signo <b>=</b>.</p><p>Al leer, siempre empezamos por la izquierda: «85 es mayor que 58»; «120 es menor que 210».</p><p><b>Actividad</b>: dibuja un cocodrilo de papel con la boca abierta y úsalo para comparar los números de tus compañeros.</p>`,
+        H6.dos("Cocodrilo", ["85 > 58", ["boca al 85", "mayor que"], cVE], ["120 < 210", ["boca al 210", "menor que"], cAZ]),
+        ["2-T2kAO19Oc", "Comparando números para niños - Mayor Que Menor Que | Kids Academy Español", "Kids Academy Español", 164769]],
+    ],
+    "La recta numérica": [
+      ["Números entre otros dos", `<p>A veces nos preguntan qué números hay <mark>entre</mark> otros dos.</p><p>¿Qué números hay entre el <b>45</b> y el <b>50</b>? Contamos los que van en medio, sin incluir el 45 ni el 50: <b>46, 47, 48 y 49</b>.</p><p>¿Y entre el <b>298</b> y el <b>303</b>? Hay que tener cuidado al pasar la centena: <b>299, 300, 301 y 302</b>.</p><p>En la recta numérica es muy fácil verlo: los números que están entre dos marcas son los que quedan en medio.</p><p>También podemos buscar un número que esté entre otros dos: un número entre 600 y 700 puede ser 650, 612 o 699. ¡Hay muchos!</p><p><b>Actividad</b>: escribe todos los números entre el 196 y el 204.</p>`,
+        L6.filas("Entre…", [["45 y 50", "46, 47, 48, 49", cAZ], ["298 y 303", "299 … 302", cRO], ["600 y 700", "650, 699…", cVE], ["10 y 12", "solo el 11", cNA]])],
+    ],
+    "Ordenar de menor a mayor": [
+      ["Los números ordinales", `<p>Cuando ordenamos cosas o personas en una fila, usamos los <mark>números ordinales</mark>. Dicen el <b>puesto</b> que ocupa cada uno.</p><ul><li>1.º <b>primero</b> · 2.º <b>segundo</b> · 3.º <b>tercero</b></li><li>4.º <b>cuarto</b> · 5.º <b>quinto</b> · 6.º <b>sexto</b></li><li>7.º <b>séptimo</b> · 8.º <b>octavo</b> · 9.º <b>noveno</b> · 10.º <b>décimo</b></li></ul><p>Se escriben con el número y un circulito pequeño arriba: 1.º, 2.º… Si es una niña, se escribe 1.ª, 2.ª: primera, segunda.</p><p>Tú estás en <b>2.º</b> de Primaria. En una carrera, el que llega 1.º recibe la medalla de oro; el 2.º, la de plata; y el 3.º, la de bronce.</p><p>Los ordinales también aparecen en los pisos de un edificio: 1.º, 2.º, 3.º…</p><p><b>Actividad</b>: haced una fila de diez niños y que cada uno diga su puesto con el ordinal.</p>`,
+        L6.filas("Ordinales", [["1.º", "primero · oro", cNA], ["2.º", "segundo · plata", cMO], ["3.º", "tercero · bronce", cRO], ["10.º", "décimo", cAZ]])],
+    ],
+    "¿Para qué sirve?": [
+      ["Comparar precios y sumas", `<p>No solo comparamos números sueltos: también podemos comparar <mark>cuentas</mark> y <mark>precios</mark>.</p><p>¿Qué es mayor, <b>20 + 15</b> o <b>40</b>? Primero hacemos la suma: 20 + 15 = 35. Después comparamos: <b>35 &lt; 40</b>.</p><p>En la tienda, comparar precios nos ayuda a elegir. Un cuento cuesta 9 € en una tienda y 12 € en otra. 9 &lt; 12: en la primera es <b>más barato</b>.</p><p>Si tenemos 15 € y algo cuesta 18 €, comparamos: 15 &lt; 18. ¡No nos llega el dinero! Nos faltan 3 €.</p><p>Cuidado: más grande no siempre es mejor. En una carrera de tiempo, gana quien tarda <b>menos</b>, como en la lectura.</p><p><b>Actividad</b>: compara con &lt;, &gt; o =: 30 + 20 y 50; 45 y 25 + 25.</p>`,
+        H6.flujo("Comparar cuentas", ["20 + 15|sumo", "= 35|resultado", "35 ? 40|comparo", "35 < 40|¡listo!"], cNA)],
+    ],
+  },
+  final: [
+    ["Ordenar datos de la vida real", `<p>Ordenar números nos ayuda a entender <mark>información</mark> de la vida real.</p><p>Por ejemplo, estas son las alturas de cuatro árboles del parque:</p><ul><li>Pino: <b>15 metros</b>.</li><li>Roble: <b>22 metros</b>.</li><li>Olivo: <b>6 metros</b>.</li><li>Chopo: <b>30 metros</b>.</li></ul><p>Si los ordenamos de <b>mayor a menor</b>: chopo (30), roble (22), pino (15), olivo (6). Ahora sabemos enseguida cuál es el más alto y cuál el más bajo.</p><p>Lo mismo podemos hacer con las edades de la familia, los puntos de un concurso o los precios de una lista de la compra.</p><p>Un consejo: antes de ordenar, <b>tacha</b> cada número cuando lo hayas colocado. Así no te olvidas de ninguno ni lo repites.</p><p><b>Actividad</b>: pregunta la edad a cinco personas de tu familia y ordénalas de menor a mayor.</p>`,
+      L6.filas("Árboles", [["1.º chopo", "30 m", cVE], ["2.º roble", "22 m", cNA], ["3.º pino", "15 m", cAZ], ["4.º olivo", "6 m", cRO]])],
+    ["Repaso: el juego del mayor", `<p>Vamos a jugar al <mark>juego del mayor</mark> en parejas. Necesitáis unas tarjetas con las cifras del 0 al 9.</p><ul><li><b>1.</b> Cada jugador saca <b>tres tarjetas</b>.</li><li><b>2.</b> Con ellas forma el <b>número más grande</b> posible. Si saca 4, 7 y 2, forma el <b>742</b>: la cifra mayor va en las centenas.</li><li><b>3.</b> Comparáis vuestros números con &gt;, &lt; o =.</li><li><b>4.</b> Quien tenga el número mayor gana un punto.</li></ul><p>Variante: ahora gana quien forme el número <b>más pequeño</b>. Con 4, 7 y 2, el más pequeño es el <b>247</b>.</p><p>¡Cuidado con el 0! Con 0, 5 y 3, el más pequeño no puede empezar por 0. Es el <b>305</b>.</p><p><b>Actividad</b>: jugad cinco rondas y apuntad los números en una tabla.</p>`,
+      H6.dos("Con 4, 7, 2", ["MAYOR", ["742", "grande delante"], cRO], ["MENOR", ["247", "pequeña delante"], cAZ])],
+  ],
+  ejemplos: [
+    ["¿Qué números hay entre el 397 y el 402?", ["Contamos los de en medio.", "Pasamos por el 400."], "398, 399, 400 y 401."],
+    ["¿Qué es mayor, 30 + 25 o 50?", ["Primero sumamos: 30 + 25 = 55.", "Comparamos: 55 > 50."], "30 + 25 es mayor."],
+  ],
+  errores: ["Incluir los números de los extremos cuando nos preguntan los que hay entre dos.", "Pensar que siempre gana el número mayor, aunque las reglas digan lo contrario."],
+  ejercicios: [
+    ["b", "Escribe el signo: 78 ___ 87.", "<."],
+    ["b", "¿Cómo se escribe «quinto» con número?", "5.º"],
+    ["b", "Escribe los números entre el 18 y el 22.", "19, 20, 21."],
+    ["b", "¿Qué medalla recibe el 2.º?", "La de plata."],
+    ["b", "¿Hacia qué número abre la boca el cocodrilo?", "Hacia el mayor."],
+    ["m", "Compara: 40 + 30 ___ 75.", "70 < 75."],
+    ["m", "Ordena de mayor a menor: 512, 215, 521, 152.", "521, 512, 215, 152."],
+    ["m", "Escribe los números entre el 598 y el 603.", "599, 600, 601, 602."],
+    ["m", "Un juguete cuesta 14 € y tienes 11 €. ¿Te llega?", "No, 11 < 14; faltan 3 €."],
+    ["m", "Forma el mayor y el menor número con 6, 1 y 9.", "961 y 169."],
+    ["a", "En la lectura, ¿por qué gana Irene si su número es el menor?", "Porque gana quien da menos saltos."],
+    ["a", "Forma el menor número con 0, 8 y 2.", "208."],
+    ["a", "Escribe un número entre 450 y 460 que sea impar y mayor que 455.", "457 o 459."],
+    ["a", "Ordena por altura cuatro personas de tu familia y di quién es 1.º y 4.º.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El cocodrilo abre la boca hacia el número…", ["mayor", "menor", "par"], "Cocodrilo."],
+    ["Entre el 99 y el 102 están…", ["100 y 101", "99 y 100", "solo el 100"], "Entre."],
+    ["El que llega en tercer lugar es el…", ["3.º", "30", "1.º"], "Ordinales."],
+    ["50 + 20 comparado con 60 es…", ["mayor", "menor", "igual"], "Cuentas."],
+    ["El menor número con 0, 5 y 3 es…", ["305", "035", "503"], "Juego."],
+  ],
+  examen: [
+    ["En la lectura, ¿quién queda segunda?", ["Ana", "Irene", "Marcos"], "Lectura."],
+    ["El árbol más alto de la lista es el…", ["chopo", "olivo", "pino"], "Datos."],
+  ],
+  tarjetas: [
+    ["Ordinales", "1.º primero, 2.º segundo, 3.º tercero… 10.º décimo."],
+    ["Entre dos números", "Solo los de en medio, sin los extremos."],
+  ],
+  glosario: [
+    ["Comparar", "Mirar qué número es mayor, menor o si son iguales."],
+    ["Mayor que", "Signo > ; el número de la izquierda es más grande."],
+    ["Menor que", "Signo < ; el número de la izquierda es más pequeño."],
+    ["Igual", "Signo = ; los dos números valen lo mismo."],
+    ["Ordenar", "Colocar números en fila según su tamaño."],
+    ["Ordinal", "Número que dice el puesto: primero, segundo…"],
+    ["Recta numérica", "Línea con los números en orden."],
+    ["Entre", "En medio de dos cosas."],
+    ["Precio", "Lo que cuesta una cosa."],
+    ["Dorsal", "Número que lleva un corredor en la camiseta."],
+  ],
+  situacion: {
+    titulo: "Las olimpiadas de la clase",
+    reto: "La clase organiza unas pequeñas olimpiadas y tiene que ordenar los resultados para dar las medallas.",
+    pasos: ["Hacer pruebas: lanzar una pelota lejos y recorrer un circuito con cronómetro.", "Apuntar las distancias y los tiempos de cada participante.", "Comparar y ordenar los resultados, pensando si gana el mayor o el menor.", "Dar las medallas a 1.º, 2.º y 3.º usando los ordinales."],
+    producto: "Una tabla de clasificación y un podio con medallas.",
+    evaluacion: ["Usa bien los signos >, < e =.", "Ordena números de menor a mayor y al revés.", "Usa los números ordinales.", "Lee bien la regla para saber quién gana."],
+  },
+});

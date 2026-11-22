@@ -91,3 +91,7 @@ Se amplía el tema que ya existe sin reescribirlo: al final del fichero se llama
 - `ejercicios`: 24 a 30 con nivel (`nivelesBase` para los 10 que ya había y `[b|m|a, q, sol]` para los nuevos).
 - `quiz`: 15; `examen`: 6 o más; `tarjetas`: 10 o más; `glosario`: 10 a 14; `situacion` con 4 o más pasos.
 - Después: `node build.js && node tools/desbordes.js 5-primaria` (0 desbordes) y `node tools/pdfs.js`.
+
+### Nivel libro de 2º de Primaria
+
+Mismo mecanismo (`_priL`), a la medida de niños de 7 y 8 años: frases cortas y vocabulario sencillo. Se pasa `limites: L2` con `const L2 = { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] }`: lectura de 90 a 180 palabras y unos 6 apartados nuevos de 100 a 140 palabras. El resto igual (5 ejemplos, 6 errores, 24 ejercicios, 15 quiz, 6 examen, 10 tarjetas, glosario de 10 a 12, situación de 4 pasos, 2 vídeos). Después: `node build.js && node tools/desbordes.js 2-primaria`.

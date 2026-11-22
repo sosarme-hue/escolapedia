@@ -101,3 +101,93 @@ module.exports = P.tema({
   saberes: "Sentido numérico: suma de números naturales con llevadas; estrategias de cálculo mental y estimación",
   ideas: ["Material multibase para hacer el canje de 10 unidades por 1 decena antes del algoritmo.", "Cuadrícula para alinear las cifras en columna.", "Problemas de la vida del aula (excursiones, recreos, colecciones)."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Sumar tres números", "Usar la propiedad conmutativa y la asociativa", "Estimar antes de sumar", "Resolver sumas de la vida diaria"],
+  lectura: { titulo: "La hucha de Sara", html: `<p>Sara quiere comprarse una bici que cuesta 95 euros. Lleva meses guardando dinero en su hucha con forma de cerdito.</p><p>En el cumpleaños, su abuela le ha regalado 38 euros. Y su tío, 27 euros. En la hucha ya tenía 29 euros.</p><p>—¿Me llegará? —pregunta nerviosa.</p><p>Su padre le da un papel y un lápiz.</p><p>—Vamos a sumar. Primero, 38 más 27.</p><p>Sara escribe uno debajo del otro. Ocho más siete, quince. Pone el 5 y se lleva una. Tres más dos, cinco, y una que se lleva, seis. ¡Sesenta y cinco!</p><p>—Ahora súmale lo de la hucha.</p><p>Sesenta y cinco más veintinueve. Cinco más nueve, catorce. Pone el 4 y se lleva una. Seis más dos, ocho, más una, nueve. ¡Noventa y cuatro!</p><p>—¡Me falta un euro! —dice Sara.</p><p>Su padre busca en el bolsillo y le da una moneda.</p><p>—Toma. Por sumar tan bien.</p>` },
+  tras: {
+    "Paso a paso: 38 + 25": [
+      ["Sumar tres números", `<p>A veces tenemos que sumar <mark>tres números</mark>. Los colocamos los tres en columna, bien alineados: unidades con unidades y decenas con decenas.</p><p>Mira <b>24 + 35 + 17</b>:</p><ul><li><b>Unidades</b>: 4 + 5 + 7 = 16. Escribimos el 6 y nos llevamos 1.</li><li><b>Decenas</b>: 2 + 3 + 1 = 6, más la que nos llevamos, <b>7</b>.</li></ul><p>El resultado es <b>76</b>.</p><p>Un truco: en la columna de las unidades, busca primero los números que juntos hacen 10. En 4 + 5 + 6, el 4 y el 6 hacen 10, y luego sumamos 5: 15. ¡Más fácil!</p><p>Con tres números a veces nos llevamos 2, si las unidades suman 20 o más. Por ejemplo, 9 + 8 + 7 = 24: escribimos 4 y nos llevamos 2.</p><p><b>Actividad</b>: suma 15 + 26 + 38 en columna.</p>`,
+        L6.filas("24 + 35 + 17", [["U", "4 + 5 + 7 = 16", cAZ], ["escribo", "6, me llevo 1", cRO], ["D", "2 + 3 + 1 + 1 = 7", cVE], ["total", "76", cNA]]),
+        ["WPzUocqGOVA", "Sumas de dos números con llevadas para Primaria (3/3)", "Mundo Primaria", 371277]],
+    ],
+    "Comprobar la suma": [
+      ["Las propiedades de la suma", `<p>La suma tiene unas reglas que siempre se cumplen. Se llaman <mark>propiedades</mark>.</p><p><b>Propiedad conmutativa</b>: el orden de los sumandos no cambia el resultado.</p><ul><li>8 + 5 = 13 y 5 + 8 = 13.</li></ul><p>Por eso es más fácil empezar por el número grande: 2 + 37 es lo mismo que 37 + 2.</p><p><b>Propiedad asociativa</b>: si sumamos tres números, podemos juntarlos como queramos.</p><ul><li>(6 + 4) + 7 = 10 + 7 = 17.</li><li>6 + (4 + 7) = 6 + 11 = 17.</li></ul><p>Primero hacemos lo que está entre paréntesis.</p><p><b>El cero</b>: si sumamos 0, el número no cambia. 45 + 0 = 45.</p><p>Estas reglas nos ayudan a sumar más rápido y a <b>comprobar</b> nuestras cuentas.</p><p><b>Actividad</b>: suma 7 + 8 + 3 de dos formas distintas y comprueba que sale lo mismo.</p>`,
+        H6.rueda("Propiedades", "SUMA", [["conmutativa", cAZ], ["asociativa", cVE], ["el cero", cNA], ["comprobar", cRO]])],
+    ],
+    "Trucos de cálculo mental": [
+      ["Estimar antes de sumar", `<p><mark>Estimar</mark> es calcular más o menos el resultado antes de hacer la cuenta exacta. Sirve para saber si nuestro resultado tiene sentido.</p><p>Para estimar, <b>redondeamos</b> los números a la decena más cercana:</p><ul><li>38 + 27 → 40 + 30 = <b>70</b>. El resultado será <b>cerca de 70</b>.</li><li>La cuenta exacta es <b>65</b>. ¡Está cerca! Seguramente está bien.</li></ul><p>Si al sumar 38 + 27 nos hubiera salido 515, sabríamos enseguida que algo está mal, porque está muy lejos de 70. Quizá hemos olvidado alinear bien las columnas.</p><p>Estimar también sirve en la tienda: si compras algo de 19 € y algo de 32 €, gastarás <b>unos 50 €</b>.</p><p><b>Actividad</b>: estima y después calcula: 41 + 48; 29 + 33.</p>`,
+        H6.flujo("Estimar", ["38 + 27|cuenta", "40 + 30|redondeo", "≈ 70|estimo", "65|¡cerca!"], cMO)],
+    ],
+    "¿Para qué sirve?": [
+      ["Sumar dinero", `<p>Sumamos muchas veces cuando vamos de <mark>compras</mark>.</p><p>En la papelería, Lucas compra un cuaderno de <b>3 €</b>, unos rotuladores de <b>8 €</b> y una mochila de <b>26 €</b>. ¿Cuánto paga?</p><ul><li>Primero sumamos el cuaderno y los rotuladores: 3 + 8 = 11.</li><li>Después sumamos la mochila: 11 + 26 = <b>37 €</b>.</li></ul><p>También sumamos para saber cuánto dinero <b>tenemos</b>: 2 billetes de 20 € y 1 de 5 € son 20 + 20 + 5 = <b>45 €</b>.</p><p>Y para saber cuánto hemos <b>ahorrado</b>: si cada semana guardas 5 € en la hucha, en 4 semanas tienes 5 + 5 + 5 + 5 = 20 €.</p><p>Antes de pagar, es buena idea estimar el total para saber si llevamos suficiente dinero.</p><p><b>Actividad</b>: inventa una lista de la compra con tres cosas y calcula el total.</p>`,
+        L6.filas("Papelería", [["cuaderno", "3 €", cAZ], ["rotuladores", "8 €", cVE], ["mochila", "26 €", cRO], ["total", "37 €", cNA]])],
+    ],
+  },
+  final: [
+    ["Sumas con huecos", `<p>A veces en una suma <mark>falta una cifra</mark> y tenemos que descubrirla. ¡Es como un acertijo!</p><p>Mira: <b>3_ + 25 = 61</b>. ¿Qué cifra falta?</p><ul><li>Las unidades del resultado son 1. El 5 de abajo más algo da un número que termina en 1. ¡5 + 6 = 11! Entonces la cifra que falta es el <b>6</b>, y nos llevamos 1.</li><li>Comprobamos las decenas: 3 + 2 + 1 = 6. ¡Coincide con el 6 del 61!</li></ul><p>La suma es <b>36 + 25 = 61</b>.</p><p>Para resolver estos acertijos:</p><ul><li>Empieza siempre por las <b>unidades</b>.</li><li>Acuérdate de si te <b>llevas</b> alguna.</li><li>Al final, <b>comprueba</b> haciendo la suma entera.</li></ul><p><b>Actividad</b>: descubre la cifra que falta: 4_ + 18 = 65.</p>`,
+      H6.dos("3_ + 25 = 61", ["UNIDADES", ["_ + 5 = 11", "_ = 6", "me llevo 1"], cAZ], ["DECENAS", ["3 + 2 + 1", "= 6", "¡bien!"], cVE])],
+    ["Repaso: el circuito de las sumas", `<p>Repasamos todo lo aprendido con un <mark>circuito</mark> de cinco estaciones. En cada una hay una prueba:</p><ul><li><b>Estación 1</b>: suma en columna 47 + 36. (83)</li><li><b>Estación 2</b>: suma tres números: 12 + 25 + 18. (55)</li><li><b>Estación 3</b>: estima 59 + 21 redondeando. (60 + 20 = 80)</li><li><b>Estación 4</b>: descubre la cifra: 2_ + 34 = 61. (27)</li><li><b>Estación 5</b>: problema. Hay 156 libros en una estantería y 128 en otra. ¿Cuántos hay? (284)</li></ul><p>Por cada estación superada, ganas una pegatina. Si te equivocas, ¡revisa si te has llevado bien!</p><p>Recuerda los pasos: alinear las columnas, empezar por las unidades, llevarse cuando pasamos de 9 y comprobar al final.</p><p><b>Actividad</b>: inventa una sexta estación para el circuito.</p>`,
+      L6.filas("Circuito", [["1", "47 + 36 = 83", cAZ], ["2", "12 + 25 + 18 = 55", cVE], ["3", "≈ 80", cNA], ["5", "156 + 128 = 284", cRO]])],
+  ],
+  ejemplos: [
+    ["Suma 18 + 26 + 9.", ["Unidades: 8 + 6 + 9 = 23. Escribo 3 y me llevo 2.", "Decenas: 1 + 2 + 2 = 5."], "53."],
+    ["Estima 52 + 39.", ["Redondeo: 50 + 40.", "Sumo de cabeza."], "Unos 90 (exacto: 91)."],
+  ],
+  errores: ["Olvidar sumar la que nos llevamos en la columna siguiente.", "Colocar mal los números en columna, mezclando unidades con decenas."],
+  ejercicios: [
+    ["b", "Suma: 36 + 47.", "83."],
+    ["b", "Suma: 11 + 22 + 33.", "66."],
+    ["b", "¿Es igual 9 + 4 que 4 + 9?", "Sí, los dos dan 13."],
+    ["b", "Estima 31 + 48.", "Unos 80."],
+    ["b", "¿Cuánto es 63 + 0?", "63."],
+    ["m", "Suma 28 + 35 + 16.", "79."],
+    ["m", "Calcula (5 + 5) + 8 y 5 + (5 + 8).", "18 y 18."],
+    ["m", "Un libro cuesta 14 € y un puzle 27 €. ¿Cuánto cuestan juntos?", "41 €."],
+    ["m", "Estima y calcula 68 + 23.", "Unos 90; exacto 91."],
+    ["m", "Suma 245 + 136.", "381."],
+    ["a", "En la lectura, ¿cuánto dinero tiene Sara antes de que su padre le dé la moneda?", "94 €."],
+    ["a", "Descubre la cifra: 5_ + 27 = 85.", "58 (falta el 8)."],
+    ["a", "Suma 9 + 8 + 7 + 6 de la forma más fácil.", "(9 + 6) + (8 + 7) = 15 + 15 = 30."],
+    ["a", "Inventa un problema de sumar con tres números.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["En 24 + 35 + 17, las unidades suman…", ["16", "6", "76"], "Tres números."],
+    ["Cambiar el orden de los sumandos es la propiedad…", ["conmutativa", "asociativa", "del cero"], "Propiedades."],
+    ["38 + 27 se estima como…", ["40 + 30", "30 + 20", "38 + 30"], "Estimar."],
+    ["3 € + 8 € + 26 € son…", ["37 €", "36 €", "47 €"], "Dinero."],
+    ["En 3_ + 25 = 61 falta el…", ["6", "4", "1"], "Huecos."],
+  ],
+  examen: [
+    ["En la lectura, ¿cuánto cuesta la bici?", ["95 €", "65 €", "94 €"], "Lectura."],
+    ["156 + 128 es…", ["284", "274", "1284"], "Circuito."],
+  ],
+  tarjetas: [
+    ["Tres sumandos", "En columna; busca parejas que hagan 10."],
+    ["Estimar", "Redondea a la decena y suma de cabeza."],
+  ],
+  glosario: [
+    ["Sumando", "Cada número que se suma."],
+    ["Suma o total", "Resultado de sumar."],
+    ["Llevar", "Pasar una decena a la columna siguiente."],
+    ["Columna", "Fila de cifras de arriba abajo."],
+    ["Conmutativa", "Propiedad: el orden no cambia el resultado."],
+    ["Asociativa", "Propiedad: podemos juntar los sumandos como queramos."],
+    ["Paréntesis", "Signos ( ) que dicen qué se hace primero."],
+    ["Estimar", "Calcular más o menos un resultado."],
+    ["Hucha", "Recipiente para ahorrar dinero."],
+    ["Comprobar", "Mirar si una cuenta está bien."],
+  ],
+  situacion: {
+    titulo: "Ahorramos para la excursión",
+    reto: "La clase quiere saber si con el dinero ahorrado llega para pagar una excursión, sumando lo que aporta cada grupo.",
+    pasos: ["Cada grupo cuenta el dinero de juguete de su hucha.", "Sumar en columna lo de todos los grupos, llevándose cuando haga falta.", "Estimar antes y comprobar después con las propiedades.", "Comparar el total con el precio de la excursión."],
+    producto: "Una hoja de cuentas con las sumas, la estimación y la conclusión.",
+    evaluacion: ["Suma llevando con dos y tres sumandos.", "Estima resultados redondeando.", "Usa las propiedades para comprobar.", "Resuelve un problema real de dinero."],
+  },
+});

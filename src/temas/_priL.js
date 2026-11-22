@@ -53,12 +53,14 @@ function libro(T, A) {
   if (A.fuentes) T.fuentes.push(...A.fuentes);
   T.revisado = A.revisado || "2026-11-22";
   // 3. Comprobaciones del nivel libro.
+  // Límites: los de 3º a 6º por defecto; 2º de Primaria pasa `limites` más cortos (README).
+  const LIM = { palabras: [1600, 2800], apartados: [12, 16], lectura: [120, 230], ...(A.limites || {}) };
   const av = [], w = T.bloques.reduce((s, b) => s + palabras(b.html), 0), lw = palabras(T.lectura && T.lectura.html);
-  if (w < 1600 || w > 2800) av.push(`${w} palabras`);
-  if (T.bloques.length < 12 || T.bloques.length > 16) av.push(`${T.bloques.length} apartados`);
+  if (w < LIM.palabras[0] || w > LIM.palabras[1]) av.push(`${w} palabras`);
+  if (T.bloques.length < LIM.apartados[0] || T.bloques.length > LIM.apartados[1]) av.push(`${T.bloques.length} apartados`);
   if (T.bloques.some((b) => !b.svg)) av.push("apartado sin dibujo");
   if (T.bloques.filter((b) => b.video).length < 2) av.push("menos de 2 vídeos de apartado");
-  if (lw < 120 || lw > 230) av.push(`lectura de ${lw} palabras`);
+  if (lw < LIM.lectura[0] || lw > LIM.lectura[1]) av.push(`lectura de ${lw} palabras`);
   if (T.ejemplos.length < 5) av.push(`${T.ejemplos.length} ejemplos`);
   if (T.errores.length < 6) av.push(`${T.errores.length} errores`);
   if (T.ejercicios.length < 24 || T.ejercicios.length > 30) av.push(`${T.ejercicios.length} ejercicios`);
