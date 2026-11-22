@@ -19,7 +19,7 @@ module.exports = P.tema({
       L.filas("Quin accent?", [["à", "sempre obert: sofà", NA], ["í, ú", "sempre tancat: matí", AZ], ["è / é", "cafè / també", VE], ["ò / ó", "història / cançó", RO]]), "ca6b"],
     ["La e i la o: com triar", `<p>Saber si una <i>e</i> o una <i>o</i> és oberta o tancada depèn de la pronúncia, i aquesta canvia segons el territori. Per això cal fixar-se molt en les paraules escrites i, quan dubtis, consultar el diccionari. Alguns trucs:</p><ul><li>Les paraules acabades en <b>-ès</b> solen portar accent obert: <i>francès, anglès, interès</i>.</li><li>Les acabades en <b>-ó, -ós</b> solen portar accent tancat: <i>cançó, camió, botó, només</i>.</li><li>Les paraules com <i>història, glòria, memòria</i> porten <b>ò</b> oberta.</li></ul><p>En la norma valenciana s'admeten formes amb accent tancat com <i>anglés, francés, conéixer</i>, perquè així es pronuncien allà. Totes dues formes són correctes en el seu àmbit.</p>`,
       L.tabla("È o é, ò o ó", ["Obert", "Tancat"], [["cafè", "també"], ["francès", "només"], ["història", "cançó"], ["pèsol", "camió"]])],
-    ["Els accents diacrítics", `<p>Els <b>accents diacrítics</b> serveixen per <mark>distingir</mark> dues paraules que s'escriuen igual però volen dir coses diferents. La norma de l'IEC (2017) en manté quinze:</p>${P.tb(["Amb accent", "Sense accent"], [["bé (correctament; un bé)", "be (xai)"], ["déu (divinitat)", "deu (número; deure)"], ["dóna (de donar)", "dona (persona)"], ["és (de ser)", "es (pronom)"], ["mà (part del cos)", "ma (possessiu antic)"], ["més (quantitat)", "mes (del calendari)"], ["món (la Terra)", "mon (possessiu antic)"], ["pèl (cabell)", "pel (per + el)"], ["sé (de saber)", "se (pronom)"], ["sí (afirmació)", "si (condició)"], ["sóc (de ser)", "soc (tronc)"], ["són (de ser)", "son (de dormir)"], ["té (de tenir)", "te (pronom; beguda)"], ["ús (utilització)", "us (pronom)"], ["vós (pronom)", "vos (pronom feble)"]])}`, null, "ca6c"],
+    ["Els accents diacrítics", `<p>Els <b>accents diacrítics</b> serveixen per <mark>distingir</mark> dues paraules que s'escriuen igual però volen dir coses diferents. La norma de l'IEC (2017) en manté quinze:</p>${P.tb(["Amb accent", "Sense accent"], [["bé (correctament; un bé)", "be (xai)"], ["déu (divinitat)", "deu (número; deure)"], ["dóna (de donar)", "dona (persona)"], ["és (de ser)", "es (pronom)"], ["mà (part del cos)", "ma (possessiu antic)"], ["més (quantitat)", "mes (del calendari)"], ["món (la Terra)", "mon (possessiu antic)"], ["pèl (cabell)", "pel (per + el)"], ["sé (de saber)", "se (pronom)"], ["sí (afirmació)", "si (condició)"], ["sóc (de ser)", "soc (tronc)"], ["són (de ser)", "son (de dormir)"], ["té (de tenir)", "te (pronom; beguda)"], ["ús (utilització)", "us (pronom)"], ["vós (pronom)", "vos (pronom feble)"]])}`, L.filas("Diacrítics", [["bé / be", "adverbi / xai", AZ], ["més / mes", "quantitat / mes", VE], ["són / son", "verb / dormir", NA], ["sé / se", "saber / pronom", MO]]), "ca6c"],
     ["La dièresi", `<p>La <b>dièresi</b> (¨) és un signe que es posa sobre la <i>u</i> o la <i>i</i> en dos casos:</p><ul><li>Sobre la <b>u</b> dels grups <mark>güe, güi, qüe, qüi</mark>, per indicar que la u sona: <i>pingüí, aigües, llengües, qüestió, freqüent</i>. Compara <i>guerra</i> (la u no sona) amb <i>pingüí</i> (sí que sona).</li><li>Sobre la <b>i</b> o la <b>u</b> per indicar que <mark>no formen diftong</mark> amb la vocal del costat (hiat): <i>veïna, raïm, oïda, països, diürn</i>.</li></ul><p>Compte: no es posa dièresi a la <i>i</i> o la <i>u</i> que ja porten accent (<i>veí</i>), ni en els infinitius, gerundis, futurs i condicionals: <i>lluir, lluint, lluirà</i>.</p>`,
       L.filas("La dièresi", [["güe, güi", "pingüí, aigües", AZ], ["qüe, qüi", "qüestió, freqüent", VE], ["hiat", "veïna, raïm, països", RO]])],
     ["Com aprendre a accentuar bé", `<p>Accentuar bé és qüestió de <mark>pràctica</mark>. Segueix aquests passos quan dubtis:</p><ol><li>Separa la paraula en síl·labes.</li><li>Troba la síl·laba tònica (crida-la!).</li><li>Decideix si és aguda, plana o esdrúixola.</li><li>Mira com acaba i aplica la regla.</li><li>Si porta accent i és una e o una o, decideix si és obert o tancat. Si dubtes, consulta el diccionari.</li></ol><p>També ajuda molt llegir cada dia i fer-te una llista de les paraules que t'equivoques. I recorda que el corrector del mòbil no sempre sap si volies dir <i>dona</i> o <i>dóna</i>.</p>`,
@@ -85,4 +85,92 @@ module.exports = P.tema({
   saberes: "Reflexió sobre la llengua: síl·laba tònica i àtona; paraules agudes, planes i esdrúixoles; regles d'accentuació; accent obert i tancat; accents diacrítics (norma de l'IEC, 2017); la dièresi",
   ideas: ["Classificar en tres columnes les paraules d'un text del llibre de lectura.", "Dictat de 10 paraules i autocorrecció per parelles amb la figura de les regles.", "Memory de parelles diacrítiques (és/es, té/te, sí/si…)."],
   fuentes: [["Institut d'Estudis Catalans, Ortografia catalana (2017)", "https://www.iec.cat/llengua/documents/ortografia_catalana_versio_digital.pdf"]],
+});
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Distingir diftongs i hiats per accentuar bé", "Saber quan no cal posar dièresi", "Accentuar els plurals, els adverbis en -ment i les majúscules", "Reconèixer paraules que canvien de significat segons on és la tònica"],
+  lectura: { titulo: "La carta sense accents", html: `<p>L'Èric va rebre una carta del seu cosí Raül, que vivia a l'Alguer. La va obrir content, però de seguida va arrufar el nas:</p><p><i>«Hola, cosi! Aquest mati he anat a la platja amb la meva veina. Hem vist un dofi i un pingui de plastic que flotava. La setmana que ve fare onze anys i la mare em fara un pastis de raim. Vindras?»</i></p><p>—Què vol dir «cosi»? —va preguntar l'Èric a la seva germana Júlia—. I un «pingui de plastic»?</p><p>La Júlia va riure.</p><p>—En Raül s'ha oblidat de tots els accents i les dièresis! Mira: «cosí» és aguda acabada en vocal, porta accent. «Matí», igual. «Veïna» porta dièresi perquè la <i>i</i> no fa diftong. «Dofí», «pingüí», «plàstic», «faré», «farà», «pastís», «raïm», «vindràs»…</p><p>—Doncs sense accents sembla una altra llengua!</p><p>L'Èric va agafar un llapis vermell i va corregir la carta de dalt a baix. Després la hi va tornar a enviar, amb una nota a sota:</p><p><i>«Sí, hi vindré! Però tu repassa els accents, eh? Una abraçada.»</i></p>` },
+  tras: {
+    "Agudes, planes i esdrúixoles": [
+      ["Diftongs i hiats", `<p>Per accentuar bé cal saber <b>separar les síl·labes</b>, i per fer-ho cal distingir els diftongs dels hiats.</p><p>Un <b>diftong</b> és la unió de dues vocals que es pronuncien en <b>una sola síl·laba</b>. En català n'hi ha dos tipus:</p><ul><li><b>Decreixents</b>: vocal + <i>i</i> o <i>u</i>: <i>ai, ei, oi, ui, au, eu, iu, ou</i>. <i>mai, rei, noi, cuina, cau, peu, viu, nou</i>.</li><li><b>Creixents</b>: <i>gu</i> o <i>qu</i> + vocal, quan la <i>u</i> sona: <i>guant, quatre, aigua, qüestió</i>.</li></ul><p>Un <b>hiat</b> és quan dues vocals juntes es pronuncien en <b>síl·labes diferents</b>: <i>po-e-ta, te-a-tre, ve-ï-na, ra-ïm</i>.</p><p>Això és molt important per comptar les síl·labes i saber si una paraula és aguda, plana o esdrúixola:</p><ul><li><i>cui-na</i> (2 síl·labes, plana), però <i>ve-ï-na</i> (3 síl·labes, plana).</li><li><i>ma-te-ri-al</i> té 4 síl·labes, perquè <i>ia</i> no forma diftong en català.</li></ul><p>Recorda: a final de paraula, <i>ia, ie, io, ua, ue, uo</i> <b>no són diftongs</b> en català. Per això <i>his-tò-ri-a</i> és esdrúixola i porta accent. En canvi, a <i>ai-gua</i> el grup <b>gu</b> + vocal sí que forma diftong creixent, i la paraula és plana.</p>`,
+        L6.filas("Diftong o hiat?", [["mai, peu", "diftong", cAZ], ["ve-ï-na", "hiat", cRO], ["guant, qua-tre", "diftong creixent", cVE], ["his-tò-ri-a", "hiat", cMO]])],
+    ],
+    "La dièresi": [
+      ["Quan no es posa dièresi", `<p>La dièresi sobre la <i>i</i> o la <i>u</i> indica que fan <b>hiat</b> amb la vocal anterior: <i>veïna, raïm, països, Raül</i>. Però hi ha casos en què, tot i haver-hi hiat, <b>no</b> s'escriu dièresi:</p><ul><li>Quan ja hi ha un <b>accent</b> que marca el hiat: <i>país</i> (però <i>països</i>), <i>veí</i> (però <i>veïna</i>), <i>raó</i>.</li><li>En l'<b>infinitiu</b>, el <b>gerundi</b>, el <b>futur</b> i el <b>condicional</b> dels verbs acabats en <b>-uir</b> i <b>-air</b>: <i>conduir, conduint, conduiré, conduiria</i>; <i>agrair, agraint</i>. En canvi, en altres formes sí que n'hi ha: <i>conduït, conduïa, agraïa</i>.</li><li>En les paraules amb els <b>prefixos</b> <i>re-, co-, contra-, anti-, auto-</i>…: <i>reinventar, coincidir, autoescola</i>.</li><li>En les paraules acabades en els <b>sufixos</b> <i>-isme</i> i <i>-ista</i>: <i>egoisme, egoista, altruisme, altruista</i>.</li></ul><p>Són regles complicades: si dubtes, recorda les paraules més freqüents i consulta el diccionari.</p>`,
+        H6.dos("Dièresi", ["AMB ¨", ["veïna, raïm", "països", "conduït"], cVE], ["SENSE ¨", ["veí (accent)", "conduir", "egoisme"], cRO])],
+    ],
+    "Accent obert i accent tancat": [
+      ["Plurals, adverbis i majúscules", `<p>Alguns casos especials d'accentuació:</p><ul><li><b>Els plurals</b>: com que la paraula canvia, l'accent pot desaparèixer o aparèixer. <i>camió → camions</i> (aguda en -ns, sense accent), <i>francès → francesos</i> (plana en -os, sense accent), <i>país → països</i> (dièresi). Però <i>cafè → cafès</i> (aguda en vocal + s, conserva l'accent).</li><li><b>Els adverbis en -ment</b>: mantenen l'accent de l'adjectiu del qual vénen, encara que la paraula ara sigui plana: <i>ràpid → ràpidament</i>, <i>fàcil → fàcilment</i>, <i>pública → públicament</i>.</li><li><b>Els compostos amb guionet</b>: cada part s'accentua com si fos sola: <i>pèl-roig, físic-químic</i>.</li><li><b>Les majúscules</b>: també porten accent! <i>Àfrica, Èric, Índia, Òscar, ÀVIA</i>. No és cap excepció: un accent oblidat en una majúscula és una falta.</li><li><b>Els pronoms darrere del verb</b> no canvien l'accent del verb: <i>agafa-la, explica-m'ho, compra'ns</i>.</li></ul><p>Recorda també que els <b>monosíl·labs</b> no porten accent, llevat dels diacrítics: <i>sol, pa, mar</i>, però <i>bé, més, sí</i>.</p>`,
+        L6.filas("Casos especials", [["camió", "camions", cAZ], ["ràpid", "ràpidament", cVE], ["Àfrica", "majúscula", cNA], ["cafè", "cafès", cMO]])],
+    ],
+  },
+  final: [
+    ["L'accent canvia el significat", `<p>En català hi ha moltes parelles de paraules que s'escriuen igual però tenen la <b>síl·laba tònica en un lloc diferent</b>. L'accent ens diu quina és quina, i el significat canvia completament:</p><ul><li><i><b>pú</b>blica</i> (adjectiu: una escola pública) / <i>pu<b>bli</b>ca</i> (verb: ell publica un llibre).</li><li><i><b>prà</b>ctica</i> (nom: la pràctica) / <i>prac<b>ti</b>ca</i> (verb: ella practica).</li><li><i>se<b>cre</b>tària</i> (persona) / <i>secreta<b>ri</b>a</i> (oficina).</li><li><i><b>fà</b>brica</i> (nom: una fàbrica de galetes) / <i>fa<b>bri</b>ca</i> (verb: ell fabrica joguines).</li><li><i><b>àn</b>cora</i> (nom: l'àncora del vaixell) / <i>an<b>co</b>ra</i> (verb: el vaixell ancora al port).</li><li><i><b>mú</b>sica</i> (nom) / <i>mu<b>si</b>ca</i> (verb: ell musica un poema).</li><li><i><b>cò</b>pia</i> (nom) / <i>co<b>pi</b>a</i> (verb: ella copia).</li></ul><p>Per això, quan llegeixis, fixa't en els accents: et diuen com pronunciar la paraula i quin significat té.</p><p>Fixa't que gairebé sempre la parella està formada per un <b>nom</b> esdrúixol, que porta accent, i una forma del <b>verb</b> que és plana i no en porta. El truc per saber quina has d'escriure és mirar la frase: si davant hi ha un article (<i>la, una</i>), és el nom; si hi ha un subjecte que fa l'acció (<i>ella, el pare</i>), és el verb. Per exemple: «<b>La</b> còpia és igual que l'original» i «<b>La Marta</b> copia el dibuix». També hi ha parelles que abans es distingien amb un accent diacrític, com <i>dóna</i> (verb) i <i>dona</i> (persona), i que des de la reforma ortogràfica del 2017 s'escriuen igual: <i>dona</i>. En aquests casos, el context de la frase és l'única pista per saber-ne el significat, i normalment n'hi ha prou per entendre-ho sense cap problema.</p>`,
+      H6.dos("Nom o verb?", ["NOM", ["la pràctica", "la còpia", "la música"], cAZ], ["VERB", ["practica", "copia", "musica"], cVE])],
+    ["Corregir textos", `<p>Accentuar bé no es fa només en els exercicis: cal fer-ho en tots els textos que escrivim. Quan acabis un text, fes una <b>revisió d'accents</b> seguint aquests passos:</p><ol><li><b>Llegeix el text en veu alta</b>, a poc a poc. Pronunciar ajuda a sentir la síl·laba tònica.</li><li><b>Busca les paraules agudes</b> acabades en vocal, vocal + s, -en o -in: <i>cosí, matí, faré, vindràs</i>.</li><li><b>Busca les esdrúixoles</b>: totes porten accent (<i>plàstic, música, història</i>).</li><li><b>Comprova els diacrítics</b>: <i>és/es, més/mes, sí/si, bé/be</i>.</li><li><b>Mira les dièresis</b>: <i>veïna, raïm, pingüí</i>.</li><li><b>Tria entre obert i tancat</b> en la <i>e</i> i la <i>o</i>: <i>cafè, també, què, només</i>.</li></ol><p>Els <b>correctors</b> de l'ordinador ajuden, però no són perfectes: no distingeixen <i>publica</i> de <i>pública</i>, perquè les dues formes existeixen. Per això és important saber les regles.</p><p>Com l'Èric de la lectura, pots fer de corrector per als companys: revisar textos dels altres també és una bona manera d'aprendre.</p>`,
+      H6.flujo("Revisió d'accents", ["llegir|en veu alta", "agudes|esdrúixoles", "diacrítics|dièresi", "obert|o tancat"], cMO)],
+  ],
+  ejemplos: [
+    ["Accentua: cosi, mati, plastic, pastis.", ["cosí, matí, pastís: agudes en vocal o vocal + s.", "plàstic: esdrúixola."], "cosí, matí, plàstic, pastís."],
+    ["Per què «veïna» porta dièresi i «veí» no?", ["A veïna, la i fa hiat i no hi ha accent.", "A veí, l'accent ja marca la tònica."], "La dièresi només es posa quan no hi ha accent que marqui el hiat."],
+  ],
+  errores: ["Oblidar l'accent a les majúscules: «Africa» per «Àfrica».", "Posar dièresi a l'infinitiu: «conduïr» per «conduir»."],
+  ejercicios: [
+    ["b", "Escriu quatre diftongs decreixents.", "ai, ei, oi, au (eu, iu, ou, ui)."],
+    ["b", "Escriu el plural de camió i francès.", "camions, francesos."],
+    ["b", "Escriu l'adverbi en -ment de ràpid i fàcil.", "ràpidament, fàcilment."],
+    ["b", "Porten accent les majúscules en català?", "Sí: Àfrica, Èric."],
+    ["b", "Accentua: dofi, pingui, raim.", "dofí, pingüí, raïm."],
+    ["m", "Separa en síl·labes: veïna, cuina, poeta.", "ve-ï-na, cui-na, po-e-ta."],
+    ["m", "Digues si són nom o verb: pràctica, practica, còpia, copia.", "nom, verb, nom, verb."],
+    ["m", "Corregeix: «conduïnt», «egoïsme», «païs».", "conduint, egoisme, país."],
+    ["m", "Corregeix la carta del Raül.", "Hola, cosí! Aquest matí he anat a la platja amb la meva veïna. Hem vist un dofí i un pingüí de plàstic… faré… farà… pastís de raïm. Vindràs?"],
+    ["m", "Explica per què «història» porta accent.", "Perquè és esdrúixola: his-tò-ri-a (ia fa hiat)."],
+    ["a", "Escriu una carta de deu línies i revisa-la seguint els sis passos.", "Resposta oberta."],
+    ["a", "Busca cinc parelles nom/verb que canviïn amb l'accent.", "Resposta oberta: pràctica/practica, còpia/copia, música/musica…"],
+    ["a", "Prepara un dictat amb hiats, diftongs i dièresis per a un company.", "Resposta oberta."],
+    ["a", "Escriu cinc titulars en majúscules ben accentuats.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["«ve-ï-na» té un…", ["hiat", "diftong", "triftong"], "Hiat."],
+    ["L'infinitiu correcte és…", ["conduir", "conduïr", "condüir"], "Dièresi."],
+    ["L'adverbi de «fàcil» és…", ["fàcilment", "facilment", "fácilment"], "Adverbis."],
+    ["«La secretària» és…", ["una persona", "una oficina", "un verb"], "Significat."],
+    ["Les majúscules en català…", ["també porten accent", "mai no porten accent", "porten accent només als noms"], "Majúscules."],
+  ],
+  examen: [
+    ["On vivia el cosí Raül?", ["a l'Alguer", "a Andorra", "a Palma"], "Lectura."],
+    ["El plural de «país» és…", ["països", "paisos", "paísos"], "Plurals."],
+  ],
+  tarjetas: [
+    ["Diftongs i hiats", "ai, ei, oi, au, eu, iu, ou: diftong. ve-ï-na, po-e-ta: hiat."],
+    ["Sense dièresi", "Si hi ha accent (veí), infinitiu, gerundi, futur (conduir), prefixos i -isme."],
+    ["Casos especials", "Plurals (camions), -ment (ràpidament), majúscules (Àfrica)."],
+    ["Accent i significat", "pràctica/practica, còpia/copia, secretària/secretaria."],
+  ],
+  glosario: [
+    ["Diftong", "Dues vocals en una sola síl·laba."],
+    ["Diftong decreixent", "Vocal + i o u: ai, eu."],
+    ["Diftong creixent", "Gu o qu + vocal amb la u que sona: quatre."],
+    ["Hiat", "Dues vocals juntes en síl·labes diferents."],
+    ["Dièresi", "Signe ¨ sobre la i o la u."],
+    ["Prefix", "Morfema que va davant del lexema: re-, co-."],
+    ["Adverbi en -ment", "Adverbi format a partir d'un adjectiu: ràpidament."],
+    ["Monosíl·lab", "Paraula d'una sola síl·laba."],
+    ["Accent diacrític", "Accent que distingeix dues paraules iguals."],
+    ["Tònica", "Síl·laba que es pronuncia amb més força."],
+    ["Revisió", "Lectura atenta per corregir un text."],
+    ["Corrector", "Persona o programa que troba errors en un text."],
+  ],
+  situacion: {
+    titulo: "Els caçadors d'accents",
+    reto: "La classe fa de correctora d'una revista escolar plena d'errors d'accentuació.",
+    pasos: ["Prepareu textos amb errors (sense accents, sense dièresis, majúscules sense accent).", "Intercanvieu-los i corregiu-los seguint els sis passos de revisió.", "Feu una taula amb els errors trobats classificats per regles.", "Publiqueu la revista corregida i un cartell amb les regles més útils."],
+    producto: "Una revista escolar corregida i un cartell de regles d'accentuació.",
+    evaluacion: ["Distingeix diftongs i hiats.", "Aplica la dièresi correctament.", "Accentua plurals, adverbis i majúscules.", "Revisa els textos de manera sistemàtica."],
+  },
 });

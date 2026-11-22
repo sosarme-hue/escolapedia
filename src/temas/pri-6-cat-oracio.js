@@ -23,7 +23,7 @@ module.exports = P.tema({
       L.filas("Dos tipus de predicat", [["Nominal", "El meu gos és molt llest.", NA], ["Verbal", "El meu gos corre pel jardí.", RO]])],
     ["Els complements del verb", `<p>Alguns complements del predicat són molt freqüents i els estudiaràs més a fons a l'ESO. Ja els pots reconèixer amb preguntes:</p><ul><li><b>Complement directe</b>: diu <mark>què</mark> es fa. «L'Anna menja <b>una poma</b>» (què menja?). Es pot canviar per un pronom feble: «L'Anna <b>la</b> menja».</li><li><b>Complement indirecte</b>: diu <mark>a qui</mark> o <mark>per a qui</mark>. «L'Anna dona aigua <b>al seu gos</b>». Es canvia per <i>li</i>: «L'Anna <b>li</b> dona aigua».</li><li><b>Complements circumstancials</b>: diuen <mark>on, quan, com</mark>... «L'Anna corre <b>pel parc</b> <b>cada matí</b>».</li></ul>`,
       L.frase("Complements del verb", [["L'Anna", "subjecte", AZ], ["dona", "verb", RO], ["aigua", "CD", VE], ["al gos", "CI", NA], ["al pati", "CC lloc", MO]], "preguntes: què?, a qui?, on?")],
-    ["Classes d'oracions segons la intenció", `<p>Segons el que vol expressar qui parla, les oracions poden ser:</p>${P.tb(["Classe", "Serveix per", "Exemple"], [["enunciativa afirmativa", "informar", "El museu obre a les deu."], ["enunciativa negativa", "negar", "El museu no obre els dilluns."], ["interrogativa", "preguntar", "A quina hora obre el museu?"], ["exclamativa", "expressar emoció", "Quin museu tan bonic!"], ["imperativa", "manar o demanar", "Entreu en silenci."], ["desiderativa", "expressar un desig", "Tant de bo hi tornem aviat."], ["dubitativa", "expressar dubte", "Potser avui tanca abans."]])}<p>Recorda que en català les interrogatives i les exclamatives només porten el signe al final (? !).</p>`, null, "ca5b"],
+    ["Classes d'oracions segons la intenció", `<p>Segons el que vol expressar qui parla, les oracions poden ser:</p>${P.tb(["Classe", "Serveix per", "Exemple"], [["enunciativa afirmativa", "informar", "El museu obre a les deu."], ["enunciativa negativa", "negar", "El museu no obre els dilluns."], ["interrogativa", "preguntar", "A quina hora obre el museu?"], ["exclamativa", "expressar emoció", "Quin museu tan bonic!"], ["imperativa", "manar o demanar", "Entreu en silenci."], ["desiderativa", "expressar un desig", "Tant de bo hi tornem aviat."], ["dubitativa", "expressar dubte", "Potser avui tanca abans."]])}<p>Recorda que en català les interrogatives i les exclamatives només porten el signe al final (? !).</p>`, H.flujo("Segons la intenció", ["enunciativa|informa", "interrogativa|pregunta", "exclamativa|emoció", "imperativa|ordena"], AZ), "ca5b"],
     ["Escriure oracions clares", `<p>Perquè els teus textos s'entenguin bé, convé escriure oracions ordenades. Un ordre molt clar és: <mark>subjecte + verb + complements</mark>. «Els alumnes de sisè van visitar el castell dijous».</p><p>Evita les oracions massa llargues, en què es barregen moltes idees unides amb <i>i</i>. Si una oració ocupa més de tres línies, probablement la pots partir en dues. Comprova també la <b>concordança</b> entre el subjecte i el verb: «Els meus cosins i jo <b>vam anar</b>…» (si al subjecte hi ets tu, el verb va en 1a persona del plural).</p>`,
       L.filas("Ordre clar", [["Subjecte", "Els alumnes de sisè", AZ], ["Verb", "van visitar", RO], ["Complements", "el castell dijous", VE]])],
   ],
@@ -86,4 +86,92 @@ module.exports = P.tema({
   familias: ["Jugueu a «qui ho fa?»: un diu una oració i l'altre troba el subjecte canviant-ne el nombre.", "Busqueu en un diari titulars que siguin frases (sense verb) i d'altres que siguin oracions.", "Inventeu oracions amb «agradar» i comproveu junts quin és el subjecte."],
   saberes: "Reflexió sobre la llengua: enunciat, oració i frase; subjecte i predicat; nuclis; concordança; subjecte el·líptic; predicat nominal i verbal; modalitats oracionals",
   ideas: ["Oracions retallades en dues tires (subjecte i predicat) per combinar-les i crear oracions divertides.", "Detectius del subjecte: canviar el nombre per comprovar la concordança.", "Canviar la modalitat d'una mateixa oració (enunciativa, interrogativa, exclamativa…)."],
+});
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Fer concordar el subjecte i el verb, també en els casos difícils", "Reconèixer les oracions impersonals", "Fer servir correctament els signes de puntuació", "Distingir oracions simples i compostes"],
+  lectura: { titulo: "La nit de les estrelles fugaces", html: `<p>Era la nit del 12 d'agost. Al càmping, tothom esperava les Llàgrimes de Sant Llorenç, la pluja d'estrelles fugaces més famosa de l'estiu.</p><p>La Clara i el seu pare van estendre una manta damunt l'herba, lluny dels fanals. Feia calor i els grills cantaven sense parar.</p><p>—Quantes en veurem? —va preguntar la Clara.</p><p>—Si tenim sort, moltes. Però has de tenir paciència.</p><p>Van passar deu minuts. Vint. No passava res. La Clara començava a badallar quan, de sobte, una ratlla de llum va creuar el cel.</p><p>—Una! L'has vista?</p><p>—Sí! Demana un desig, ràpid!</p><p>Aquella nit en van comptar trenta-dues. El pare li va explicar que no eren estrelles de veritat, sinó petits trossos de roca que cremen quan entren a l'atmosfera.</p><p>La Clara va tancar els ulls. No va dir a ningú quin desig havia demanat, però aquella nit va somiar que viatjava damunt d'un cometa.</p>` },
+  tras: {
+    "Com es troba el subjecte": [
+      ["La concordança subjecte-verb", `<p>El verb sempre ha de concordar amb el subjecte en <b>persona</b> i <b>nombre</b>. Normalment és fàcil, però hi ha alguns casos que porten problemes:</p><ul><li><b>Subjecte compost</b> (dos o més nuclis units per <i>i</i>): el verb va en <b>plural</b>. «<b>La Clara i el seu pare</b> van estendre una manta».</li><li><b>Noms col·lectius</b> en singular (<i>gent, grup, família, classe</i>): el verb va en <b>singular</b>. «<b>Tothom</b> esperava». «<b>La gent</b> mira el cel» (no «miren»).</li><li><b>Subjecte darrere del verb</b>: compte de no confondre'l. «Al cel <b>brillaven</b> moltes <b>estrelles</b>».</li><li><b>Haver-hi</b>: no té subjecte i va sempre en <b>singular</b>. «<b>Hi ha</b> trenta estrelles», «<b>Hi havia</b> molts nens». No es diu «hi han».</li><li>Amb <b>jo i tu</b>, el verb va en primera persona del plural: «<b>Tu i jo</b> ho <b>farem</b>».</li></ul><p>Un truc per comprovar-ho: canvia el subjecte de nombre i mira si el verb també ha de canviar. Si canvia, és el subjecte.</p>`,
+        L6.filas("Concordança", [["Clara i el pare", "van estendre", cAZ], ["la gent", "mira", cVE], ["hi ha", "trenta estrelles", cRO], ["tu i jo", "ho farem", cMO]]), ["QvOIq9Afm58", "Subjecte i Predicat", "Xisca", 50991]],
+    ],
+    "Els complements del verb": [
+      ["Les oracions impersonals", `<p>Algunes oracions <b>no tenen subjecte</b>: ni escrit ni el·líptic. No és que no sapiguem qui fa l'acció, sinó que no hi ha ningú que la faci. Són les <b>oracions impersonals</b>:</p><ul><li>Amb verbs de <b>fenòmens de la natura</b>: <i>ploure, nevar, llampegar, tronar, fer-se fosc</i>. «<b>Plou</b>». «<b>Ha nevat</b> molt». «<b>Es fa</b> de nit».</li><li>Amb <b>fer</b> + temps atmosfèric: «<b>Feia calor</b>». «<b>Fa</b> sol». «<b>Fa</b> fred».</li><li>Amb <b>haver-hi</b>: «<b>Hi ha</b> un gat a la teulada». (Recorda: sempre en singular.)</li><li>Amb <b>ser</b> + expressions de temps: «<b>És</b> tard». «<b>Era</b> la nit del 12 d'agost».</li><li>Amb el pronom <b>es</b> quan no importa qui fa l'acció: «Aquí <b>es parla</b> català». «<b>Es lloga</b> pis».</li><li>Amb <b>caldre</b> i <b>haver de</b> en sentit general: «<b>Cal</b> tenir paciència».</li></ul><p>No confonguis les impersonals amb el <b>subjecte el·líptic</b>: a «Vam anar al càmping», el subjecte és <i>nosaltres</i>, encara que no es digui; en canvi, a «Plou», no hi ha cap subjecte possible.</p>`,
+        H6.rueda("Impersonals", "SENSE SUBJECTE", [["plou", cAZ], ["fa calor", cRO], ["hi ha", cVE], ["és tard", cMO]])],
+    ],
+    "Classes d'oracions segons la intenció": [
+      ["Els signes de puntuació", `<p>Els <b>signes de puntuació</b> marquen les pauses i l'entonació, i ajuden a entendre el sentit de les oracions:</p><ul><li><b>El punt (.)</b>: tanca una oració. Darrere sempre va majúscula. Hi ha <i>punt i seguit</i>, <i>punt i a part</i> i <i>punt final</i>.</li><li><b>La coma (,)</b>: marca una pausa curta. Separa els elements d'una enumeració («grills, fanals i estrelles»), el vocatiu («Clara, mira!») i les explicacions («El pare, que sabia molt, li ho va explicar»). <b>Mai</b> no es posa coma entre el subjecte i el verb.</li><li><b>Els dos punts (:)</b>: introdueixen una enumeració, una explicació o les paraules d'algú.</li><li><b>El punt i coma (;)</b>: una pausa més llarga que la coma, per separar oracions relacionades.</li><li><b>L'interrogant (?)</b> i <b>l'exclamació (!)</b>: en català, a diferència del castellà, normalment només es posen <b>al final</b>: «Quantes en veurem?».</li><li><b>El guió (—)</b>: introdueix les intervencions dels personatges en un diàleg.</li><li><b>Els punts suspensius (...)</b>: deixen una idea sense acabar.</li></ul><p>Una coma mal posada pot canviar el sentit: «No, vull pastís» no és el mateix que «No vull pastís»!</p>`,
+        L6.filas("Puntuació", [[". punt", "acaba l'oració", cAZ], [", coma", "pausa curta", cVE], [": dos punts", "enumeració", cNA], ["? !", "només al final", cRO]]), ["i_Khe6k8kj4", "LA COMA - Signos de puntuación - Gramática y ortografía para niños", "Smile and Learn - Español", 677461]],
+    ],
+  },
+  final: [
+    ["Oracions simples i compostes", `<p>Una <b>oració simple</b> té un sol verb conjugat (o una sola perífrasi): «La Clara mira el cel». «Van passar deu minuts».</p><p>Una <b>oració composta</b> té <b>dos o més verbs conjugats</b>, és a dir, està formada per diverses oracions unides. Les podem unir de diverses maneres:</p><ul><li><b>Coordinació</b>: les oracions tenen la mateixa importància i s'uneixen amb <b>conjuncions</b>:<ul><li><b>i</b>, <b>ni</b> (sumen): «Feia calor <b>i</b> els grills cantaven».</li><li><b>o</b> (opció): «Mirem el cel <b>o</b> tornem a la tenda?».</li><li><b>però</b>, <b>sinó</b> (contrast): «Moltes, <b>però</b> has de tenir paciència».</li></ul></li><li><b>Juxtaposició</b>: s'uneixen amb un signe de puntuació, sense conjunció: «Van passar deu minuts; no passava res».</li><li><b>Subordinació</b>: una oració depèn de l'altra i s'uneix amb paraules com <b>que</b>, <b>quan</b>, <b>perquè</b>, <b>si</b>: «La Clara començava a badallar <b>quan</b> va creuar una llum». «<b>Si</b> tenim sort, en veurem moltes».</li></ul><p>Per saber quantes oracions hi ha en una frase, <b>compta els verbs conjugats</b>: cada un és el nucli d'una oració.</p>`,
+      H6.dos("Simples i compostes", ["SIMPLE", ["1 verb", "la Clara mira", "el cel"], cAZ], ["COMPOSTA", ["2 verbs o més", "feia calor", "i cantaven"], cMO])],
+    ["Ampliar i reduir oracions", `<p>Un bon escriptor sap fer les oracions <b>més riques</b> quan vol descriure i <b>més curtes</b> quan vol anar de pressa. Practica-ho!</p><p><b>Ampliar</b> una oració vol dir afegir-hi informació:</p><ul><li>Al <b>subjecte</b>, amb adjectius o complements del nom: «La nena» → «La nena <b>petita de les trenes</b>».</li><li>Al <b>predicat</b>, amb complements: «Mirava el cel» → «Mirava el cel <b>estrellat</b> <b>amb atenció</b> <b>des de la manta</b>».</li><li>Afegint una altra oració: «…<b>mentre el pare li explicava què eren</b>».</li></ul><p><b>Reduir</b> una oració vol dir quedar-se només amb el més important: el nucli del subjecte i el verb. «Els grills del prat del costat cantaven sense parar tota la nit» → «Els grills cantaven».</p><p>En les narracions, les oracions <b>curtes</b> creen tensió i ritme ràpid: «Van passar deu minuts. Vint. No passava res». Les oracions <b>llargues</b> fan pausar i són bones per a les descripcions. Combinar-les fa que el text sigui més viu.</p>`,
+      H6.flujo("Ampliar", ["la nena|mira", "+ petita|+ el cel", "+ amb|atenció", "+ mentre|explica"], cVE)],
+  ],
+  ejemplos: [
+    ["Corregeix: «Hi havien molts nens al càmping».", ["Haver-hi és impersonal.", "Va sempre en singular."], "Hi havia molts nens al càmping."],
+    ["Quantes oracions hi ha a «Feia calor i els grills cantaven»?", ["Verbs conjugats: feia, cantaven.", "Units per i: coordinades."], "Dues oracions coordinades."],
+  ],
+  errores: ["Escriure «hi han» en lloc de «hi ha».", "Posar una coma entre el subjecte i el verb: «La Clara, mira el cel»."],
+  ejercicios: [
+    ["b", "Escriu tres verbs impersonals de fenòmens de la natura.", "ploure, nevar, llampegar."],
+    ["b", "On es posen els interrogants en català?", "Normalment només al final."],
+    ["b", "Corregeix: «La gent miren el cel».", "La gent mira el cel."],
+    ["b", "Escriu tres conjuncions coordinants.", "i, o, però (ni, sinó)."],
+    ["b", "Quin signe introdueix els diàlegs?", "El guió."],
+    ["m", "Digues si són impersonals: «Plou», «Vam riure», «Hi ha un gat».", "Sí, no (subjecte el·líptic), sí."],
+    ["m", "Puntua: «Clara mira una estrella demana un desig»", "Clara, mira, una estrella! Demana un desig!"],
+    ["m", "Uneix amb una conjunció: «Volia veure estrelles. Tenia son».", "Volia veure estrelles, però tenia son."],
+    ["m", "Amplia: «El gos borda».", "Resposta oberta. Ex.: El gos negre del veí borda fort a la nit."],
+    ["m", "Compta les oracions: «Si tenim sort, en veurem moltes».", "Dues (tenim, veurem)."],
+    ["a", "Escriu un paràgraf amb dues oracions coordinades, una juxtaposada i una subordinada.", "Resposta oberta."],
+    ["a", "Reescriu la lectura com un diàleg, amb tots els signes de puntuació.", "Resposta oberta."],
+    ["a", "Escriu una escena de tensió amb oracions curtes i una descripció amb oracions llargues.", "Resposta oberta."],
+    ["a", "Busca en un diari cinc oracions impersonals.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["«La Marta i en Pau ___ a futbol.»", ["juguen", "juga", "jugo"], "Concordança."],
+    ["«Nevava» és una oració…", ["impersonal", "amb subjecte el·líptic", "composta"], "Impersonals."],
+    ["Entre el subjecte i el verb…", ["no es posa coma", "es posa coma", "es posen dos punts"], "Puntuació."],
+    ["«Però» és una conjunció…", ["de contrast", "d'opció", "de suma"], "Coordinació."],
+    ["Una oració composta té…", ["dos o més verbs conjugats", "un sol verb", "cap verb"], "Oracions."],
+  ],
+  examen: [
+    ["Quantes estrelles fugaces van comptar?", ["trenta-dues", "dotze", "vint"], "Lectura."],
+    ["La forma correcta és…", ["Hi ha molts núvols.", "Hi han molts núvols.", "Hi hagueren molts núvols."], "Haver-hi."],
+  ],
+  tarjetas: [
+    ["Concordança", "Subjecte compost → plural. Col·lectius → singular. Hi ha → sempre singular."],
+    ["Impersonals", "Plou, fa calor, hi ha, és tard, es lloga pis."],
+    ["Puntuació", "Coma, punt, dos punts, punt i coma; ? i ! només al final."],
+    ["Oracions compostes", "Coordinades (i, o, però), juxtaposades (;) i subordinades (que, quan, si)."],
+  ],
+  glosario: [
+    ["Concordança", "Coincidència de persona i nombre entre subjecte i verb."],
+    ["Subjecte compost", "Subjecte amb dos o més nuclis."],
+    ["Nom col·lectiu", "Nom en singular que designa un grup: gent."],
+    ["Oració impersonal", "Oració sense subjecte."],
+    ["Vocatiu", "Paraula amb què cridem algú: Clara, vine!"],
+    ["Enumeració", "Llista d'elements separats per comes."],
+    ["Oració simple", "Oració amb un sol verb conjugat."],
+    ["Oració composta", "Oració amb dos o més verbs conjugats."],
+    ["Coordinació", "Unió d'oracions de la mateixa importància."],
+    ["Juxtaposició", "Unió d'oracions amb signes de puntuació."],
+    ["Subordinació", "Unió en què una oració depèn d'una altra."],
+    ["Conjunció", "Paraula que uneix oracions o paraules."],
+  ],
+  situacion: {
+    titulo: "El diari de les estrelles",
+    reto: "La classe escriu un diari d'observació del cel nocturn ben redactat i ben puntuat.",
+    pasos: ["Observeu el cel una nit (amb la família) i preneu notes del que veieu.", "Escriviu l'entrada del diari amb oracions simples i compostes.", "Reviseu la concordança, les impersonals (feia fred, hi havia…) i la puntuació.", "Llegiu les entrades en veu alta respectant les pauses i l'entonació."],
+    producto: "Un diari d'observació del cel amb entrades de tota la classe.",
+    evaluacion: ["Fa concordar subjecte i verb.", "Reconeix i usa oracions impersonals.", "Puntua correctament.", "Combina oracions simples i compostes."],
+  },
 });
