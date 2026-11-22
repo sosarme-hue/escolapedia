@@ -91,3 +91,97 @@ module.exports = tema({
   ideas: ["Formaciones en el patio: corro, filas y parejas.", "Inventar la danza de la clase.", "Mapa de danzas de España."],
   fuentes: [["UNESCO: patrimonio cultural inmaterial", "https://ich.unesco.org/es"], ["Museo del Traje (Madrid)", "https://www.culturaydeporte.gob.es/mtraje/"]],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Tocar las castañuelas con un ritmo sencillo", "Conocer el flamenco y otras danzas de España", "Descubrir danzas de cintas y de palos", "Crear una danza con forma AB"],
+  lectura: { titulo: "La sardana del abuelo", html: `<p>Todos los domingos por la mañana, el abuelo Jordi baja a la plaza de la catedral de Barcelona. Allí, delante de las escaleras, se reúne mucha gente para bailar sardanas.</p><p>Un domingo, su nieta Laia lo acompaña. En una esquina, un grupo de músicos afina sus instrumentos: es la cobla. Hay un músico que toca a la vez una flauta pequeña con una mano y un tamborcito con la otra.</p><p>—Ese es el flabiol —le explica el abuelo—. Él empieza siempre la sardana.</p><p>Empieza la música. Personas que no se conocen de nada se dan la mano y forman un corro. Dejan los bolsos y las chaquetas en el centro, todos juntos, y empiezan a bailar con pasos pequeños y precisos, con los brazos abajo y después arriba.</p><p>Laia mira cómo el abuelo cuenta los pasos en voz baja. —Hay pasos cortos y pasos largos —le dice—. Hay que contar muy bien.</p><p>El abuelo le hace un hueco en el corro. Laia le da la mano a él y a una señora desconocida que le sonríe. Al principio se equivoca, pero imita a los demás y poco a poco lo consigue.</p><p>—¿Ves? —dice el abuelo—. En la sardana nadie baila solo.</p>` },
+  tras: {
+    "La jota": [
+      ["Las castañuelas", `<p>Las <mark>castañuelas</mark> son uno de los instrumentos más característicos de España. Acompañan la jota, las sevillanas, el bolero y muchas otras danzas.</p><p>Son dos piezas de madera con forma de concha, unidas por un cordón que se ata al dedo pulgar. Al chocar entre sí, producen un sonido seco y brillante. Pertenecen a la familia de <b>percusión</b>.</p><p>Se tocan por <b>parejas</b>, una en cada mano, y no suenan igual:</p><ul><li>La <b>hembra</b>, más aguda, se toca con la mano <b>derecha</b>. Se hacen sonar los dedos uno tras otro, haciendo redobles («ria»).</li><li>El <b>macho</b>, más grave, se toca con la mano <b>izquierda</b>, con golpes más sencillos («ta»).</li></ul><p>En el colegio solemos usar <b>castañuelas de mango</b> o con una base de madera, más fáciles de tocar: se agitan o se golpean sobre la palma.</p><p>Los bailarines las tocan mientras bailan, así que el sonido de las castañuelas forma parte de la danza: el bailarín es a la vez músico.</p><p>Hay castañuelas muy parecidas en otros lugares del Mediterráneo, y en la Antigüedad ya se tocaban instrumentos semejantes.</p><p><b>Actividad</b>: con castañuelas de mango, acompaña una jota tocando en el primer tiempo de cada compás.</p>`,
+        H6.dos("Castañuelas", ["HEMBRA", ["más aguda", "mano derecha", "redobles"], cRO], ["MACHO", ["más grave", "mano izquierda", "golpes"], cAZ])],
+    ],
+    "Las sevillanas": [
+      ["El flamenco", `<p>El <mark>flamenco</mark> es un arte nacido en <b>Andalucía</b> que une canto, guitarra y baile. En 2010, la UNESCO lo declaró <b>Patrimonio Cultural Inmaterial de la Humanidad</b>: algo que pertenece a todas las personas del mundo y que hay que proteger.</p><p>Tiene tres elementos:</p><ul><li>El <b>cante</b>: canciones muy expresivas, a veces alegres y a veces muy tristes. Se llaman <b>palos</b>: bulerías, alegrías, soleá, fandangos, tangos…</li><li>El <b>toque</b>: la guitarra flamenca, con técnicas especiales como el rasgueado.</li><li>El <b>baile</b>: con <b>zapateado</b> (golpes rítmicos con los zapatos), movimientos de brazos y manos llamados <b>braceo</b>, y giros.</li></ul><p>Además, son muy importantes las <b>palmas</b> (que pueden ser sordas o sonoras), el <b>cajón</b> (un instrumento de percusión con forma de caja, que llegó desde Perú) y el <b>jaleo</b>: los ánimos que se gritan, como «¡olé!» o «¡asa!».</p><p>El flamenco recibió influencias de muchas culturas que convivieron en Andalucía, y el pueblo <b>gitano</b> tuvo un papel muy importante en su creación.</p><p><b>Actividad</b>: aprende a hacer palmas sordas (con las manos huecas) y sonoras (con los dedos sobre la palma).</p>`,
+        L6.filas("Flamenco", [["cante", "palos", cRO], ["toque", "guitarra", cNA], ["baile", "zapateado, braceo", cMO], ["jaleo", "¡olé!", cVE]])],
+    ],
+    "La sardana y la muiñeira": [
+      ["Más danzas de España", `<p>En España hay <mark>cientos de danzas tradicionales</mark>. Conozcamos algunas más:</p><ul><li>El <b>aurresku</b> (País Vasco): un baile de honor. Un bailarín, el aurreskulari, baila delante de una persona a la que se quiere homenajear, con patadas muy altas, al son del txistu y el tamboril.</li><li>La <b>isa</b> (Canarias): una danza alegre en grupo, con parejas que forman figuras, acompañada del timple.</li><li>Los <b>verdiales</b> (Málaga): grupos llamados «pandas» con sombreros decorados con flores, cintas y espejitos, y violines, guitarras y panderos.</li><li>El <b>paloteo</b> (Aragón, Castilla y León, Navarra): los danzantes llevan dos palos de madera y los entrechocan con los de los compañeros siguiendo el ritmo.</li><li>La <b>danza prima</b> (Asturias): una de las más antiguas; un gran corro, cogidos del dedo meñique, que se mueve lentamente.</li><li>Las <b>seguidillas</b> (Castilla-La Mancha y Madrid): bailadas en parejas, de ellas nacieron las sevillanas.</li></ul><p>Cada danza nos habla de la historia, el trabajo y las fiestas de su tierra.</p><p><b>Actividad</b>: busca un vídeo de una danza de tu comunidad y anota su formación, sus instrumentos y su traje.</p>`,
+        H6.rueda("España", "DANZAS", [["aurresku", cVE], ["isa", cAZ], ["verdiales", cNA], ["paloteo", cRO]])],
+    ],
+    "Danzas de otros países": [
+      ["Danzas de cintas y de palos", `<p>Hay dos tipos de danzas tradicionales que se bailan en muchos lugares de Europa, también en España.</p><p><mark>Danzas de cintas</mark>: se clava en el suelo un <b>palo alto</b> (a veces llamado «mayo») con muchas <b>cintas de colores</b> atadas en la punta. Cada bailarín coge una cinta y, al bailar en corro, unos hacia dentro y otros hacia fuera, cruzándose, las cintas se van <b>trenzando</b> alrededor del palo y forman un dibujo de colores. Luego se baila al revés para destrenzarlas. En España se llama <b>baile del cordón</b> o <b>de las cintas</b>, y se baila en primavera y en fiestas.</p><p><mark>Danzas de palos</mark>: los bailarines llevan palos de madera y los golpean entre ellos al ritmo de la música, como en el paloteo. Hace falta mucha <b>coordinación</b> y <b>atención</b> para no darse en los dedos. En Inglaterra hay una danza parecida, la <i>morris dance</i>, con palos y cascabeles en las piernas.</p><p>Estas danzas muestran cómo la danza es también un <b>juego de grupo</b>: si alguien se equivoca, las cintas se enredan o los palos no coinciden.</p><p><b>Actividad</b>: con cuerdas de colores y una pica, intentad trenzar las cintas en clase de Educación Física.</p>`,
+        L6.filas("Danzas", [["cintas", "trenzar en un palo", cMO], ["cordón", "primavera", cVE], ["palos", "golpear al ritmo", cNA], ["morris", "Inglaterra", cAZ]])],
+    ],
+    "Trajes e instrumentos": [
+      ["Fiestas donde se baila", `<p>Las danzas populares se bailan sobre todo en las <mark>fiestas</mark>, cuando la gente del pueblo o del barrio se reúne:</p><ul><li><b>Fiestas patronales</b>: en honor al santo o la virgen patronos de cada pueblo, con procesiones, música y bailes en la plaza.</li><li><b>Romerías</b>: excursiones en grupo a una ermita en el campo, con comida, canciones y bailes. Son muy típicas en Galicia y Andalucía, como la del Rocío.</li><li><b>Verbenas</b>: fiestas de noche al aire libre, con orquesta y baile, muy típicas en verano.</li><li><b>Ferias</b>: como la Feria de Abril de Sevilla, donde se bailan sevillanas en las casetas.</li><li><b>San Juan</b>: la noche del 23 de junio, con hogueras y bailes en muchas regiones.</li><li><b>Carnaval</b>: con disfraces, comparsas y desfiles bailando.</li></ul><p>En las fiestas, bailan juntos niños, jóvenes y mayores. Las danzas pasan así de los abuelos a los nietos, como en la lectura, y no se olvidan.</p><p>Muchas de estas fiestas y danzas están protegidas porque son parte de nuestro <b>patrimonio cultural</b>.</p><p><b>Actividad</b>: haz un calendario con las fiestas de tu pueblo o ciudad y las danzas que se bailan en cada una.</p>`,
+        H6.flujo("Fiestas", ["patronales|plaza", "romerías|ermita", "verbenas|verano", "carnaval|disfraces"], cRO)],
+    ],
+  },
+  final: [
+    ["Creamos una danza con forma AB", `<p>Muchas danzas y canciones tienen una <mark>forma</mark>: están organizadas en partes que se repiten o cambian. Las partes se nombran con letras.</p><ul><li><b>Forma AB</b>: hay una parte A y después una parte B diferente.</li><li><b>Forma ABA</b>: parte A, parte B y vuelve la parte A. Es muy común: suena a «ida y vuelta».</li><li><b>Forma con estribillo</b> (rondó): A B A C A… La parte A se repite entre otras partes nuevas, como el estribillo de una canción.</li></ul><p>En la danza, cada parte de la música tiene sus propios pasos. ¡Vamos a crear una danza AB!</p><ul><li><b>1.</b> Escucha la música y descubre dónde cambia de A a B.</li><li><b>2.</b> Para la parte <b>A</b>, inventa pasos en <b>corro</b>: por ejemplo, ocho pasos a la derecha y ocho a la izquierda.</li><li><b>3.</b> Para la parte <b>B</b>, cambia de formación: en <b>parejas</b>, con palmas y un giro.</li><li><b>4.</b> Ensayad juntos y añadid castañuelas o panderos.</li></ul><p>Cuando la música repite la parte A, repetimos los pasos de A. ¡Así la danza y la música encajan!</p><p><b>Actividad</b>: cread en grupo una danza ABA y presentadla a la clase.</p>`,
+      L6.filas("Formas", [["AB", "dos partes", cAZ], ["ABA", "ida y vuelta", cVE], ["ABACA", "estribillo", cNA], ["A en corro", "B en parejas", cRO]])],
+  ],
+  ejemplos: [
+    ["¿Con qué mano se toca la castañuela hembra?", ["La hembra es la más aguda.", "Hace los redobles."], "Con la mano derecha."],
+    ["Una danza tiene parte A, parte B y otra vez A. ¿Qué forma tiene?", ["Se nombran las partes con letras.", "La A vuelve al final."], "Forma ABA."],
+  ],
+  errores: ["Pensar que las dos castañuelas suenan igual.", "Confundir el flamenco con las sevillanas: las sevillanas son solo un tipo de baile."],
+  ejercicios: [
+    ["b", "¿De qué familia son las castañuelas?", "De percusión."],
+    ["b", "¿En qué región nació el flamenco?", "En Andalucía."],
+    ["b", "¿Qué es el zapateado?", "Golpes rítmicos con los zapatos en el flamenco."],
+    ["b", "¿Qué se hace en una danza de cintas?", "Trenzar cintas de colores alrededor de un palo bailando."],
+    ["b", "En la lectura, ¿qué es la cobla?", "El grupo de músicos que toca la sardana."],
+    ["m", "Nombra los tres elementos del flamenco.", "Cante, toque y baile."],
+    ["m", "¿Qué es el aurresku?", "Un baile de honor del País Vasco."],
+    ["m", "¿Qué diferencia hay entre una romería y una verbena?", "La romería es una excursión a una ermita; la verbena, una fiesta de noche con orquesta."],
+    ["m", "Explica qué es la forma ABA.", "Una parte A, una B distinta y vuelve la A."],
+    ["m", "¿Qué declaró la UNESCO sobre el flamenco en 2010?", "Que es Patrimonio Cultural Inmaterial de la Humanidad."],
+    ["a", "¿Qué aprende Laia en la plaza y qué quiere decir el abuelo con «nadie baila solo»?", "Aprende a bailar la sardana; que es una danza de grupo, en corro, donde todos se dan la mano."],
+    ["a", "Crea una danza AB: describe los pasos de cada parte.", "Respuesta abierta."],
+    ["a", "Compara una danza de cintas y una danza de palos.", "En las dos hace falta coordinación; en una se trenzan cintas y en la otra se golpean palos."],
+    ["a", "Investiga una fiesta de tu localidad y la danza que se baila.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["La castañuela más grave se llama…", ["macho", "hembra", "redoble"], "Castañuelas."],
+    ["«¡Olé!» y otros ánimos en el flamenco se llaman…", ["jaleo", "palo", "toque"], "Flamenco."],
+    ["La isa es una danza de…", ["Canarias", "Galicia", "Aragón"], "Danzas."],
+    ["En el paloteo los danzantes…", ["golpean palos entre ellos", "trenzan cintas", "bailan solos"], "Palos."],
+    ["Una forma con estribillo que se repite es…", ["ABACA", "AB", "B"], "Forma."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué instrumento empieza siempre la sardana?", ["el flabiol", "la gaita", "el piano"], "Lectura."],
+    ["¿En qué feria se bailan sevillanas en las casetas?", ["la Feria de Abril de Sevilla", "el Carnaval", "San Juan"], "Fiestas."],
+  ],
+  tarjetas: [
+    ["Castañuelas", "Hembra: aguda, derecha. Macho: grave, izquierda."],
+    ["Flamenco", "Cante, toque y baile; palmas, cajón, jaleo; UNESCO 2010."],
+    ["Danzas de España", "Aurresku, isa, verdiales, paloteo, danza prima, seguidillas."],
+    ["Forma", "AB, ABA y con estribillo ABACA."],
+  ],
+  glosario: [
+    ["Castañuelas", "Instrumento de dos piezas de madera que chocan."],
+    ["Hembra", "Castañuela aguda, de la mano derecha."],
+    ["Macho", "Castañuela grave, de la mano izquierda."],
+    ["Flamenco", "Arte andaluz de cante, toque y baile."],
+    ["Palo", "Cada estilo del cante flamenco."],
+    ["Zapateado", "Golpes rítmicos con los pies."],
+    ["Cajón", "Instrumento de percusión con forma de caja."],
+    ["Aurresku", "Baile de honor vasco."],
+    ["Paloteo", "Danza en la que se golpean palos."],
+    ["Romería", "Fiesta en una ermita del campo."],
+    ["Cobla", "Grupo de músicos de la sardana."],
+    ["Forma musical", "Organización de una obra en partes."],
+  ],
+  situacion: {
+    titulo: "Nuestro festival de danzas",
+    reto: "La clase prepara un festival en el que cada grupo presenta una danza tradicional y, al final, todos bailan una danza AB creada por la clase.",
+    pasos: ["Elegir por grupos una danza: jota, sevillanas, sardana, paloteo o danza de cintas.", "Investigar su región, su formación, sus instrumentos y su traje.", "Ensayar unos pasos sencillos con castañuelas, palmas o palos.", "Crear todos juntos una danza AB y bailarla al final del festival."],
+    producto: "Un festival de danzas con fichas informativas y una danza de clase.",
+    evaluacion: ["Reconoce danzas de distintas regiones de España.", "Toca un ritmo sencillo con castañuelas o palmas.", "Baila coordinado con su grupo.", "Crea pasos que se ajustan a la forma de la música."],
+  },
+});

@@ -93,3 +93,97 @@ module.exports = tema({
   ideas: ["Canon de «Frère Jacques» a dos y tres voces.", "Kye Kye Kule con gestos.", "Cancionero del mundo con las familias."],
   fuentes: [["UNESCO: patrimonio cultural inmaterial", "https://ich.unesco.org/es"], ["Orquesta y Coro Nacionales de España: educación", "https://ocne.mcu.es/"]],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Cantar en coro a una y a varias voces", "Conocer canciones de trabajo y de cumpleaños del mundo", "Descubrir ritmos de África y América", "Respetar los himnos y entender cómo viajan las canciones"],
+  lectura: { titulo: "La canción de Amina", html: `<p>Amina llegó a la clase de 3.º C en febrero. Venía de Senegal, un país de África, y aún hablaba poco español. En el recreo se quedaba sola, mirando cómo jugaban los demás.</p><p>Un día, en clase de Música, la maestra preguntó: —¿Alguien conoce una canción de otro país?</p><p>Amina levantó la mano muy despacio. Se puso de pie y empezó a cantar en wólof, su idioma. Era una canción alegre, con palabras que se repetían. Al final de cada frase, miraba a la clase como esperando algo.</p><p>—¿Quieres que respondamos? —preguntó la maestra.</p><p>Amina asintió y les enseñó la respuesta: una sola palabra que todos tenían que cantar juntos. Ella cantaba una frase y la clase respondía. Luego añadió palmas y unos golpes en la mesa, como un tambor.</p><p>Al cabo de cinco minutos, toda la clase cantaba, reía y tocaba. Parecía una fiesta.</p><p>—¿Qué significa la canción? —preguntó Leo.</p><p>Amina buscó las palabras: —Dice… que juntos somos más fuertes.</p><p>Ese día, en el recreo, Amina no se quedó sola. Medio patio cantaba su canción.</p>` },
+  tras: {
+    "El canon": [
+      ["Cantar en coro", `<p>Un <mark>coro</mark> es un grupo de personas que cantan juntas. Puede ser pequeño, como el de una clase, o enorme, con cientos de cantantes.</p><p>Hay dos formas principales de cantar en coro:</p><ul><li><b>Al unísono</b>: todos cantan la <b>misma melodía</b> a la vez. Es lo más sencillo y lo que solemos hacer en clase.</li><li><b>A varias voces</b>: cada grupo canta una melodía diferente, pero todas encajan y suenan bien juntas. Así se forman los <b>acordes</b>. El canon es una forma sencilla de cantar a varias voces.</li></ul><p>Normas de un buen coro:</p><ul><li>Mirar al <b>director</b> para empezar y terminar juntos.</li><li><b>Escuchar</b> a los demás: nadie debe destacar gritando.</li><li>Cantar con la espalda recta y respirando bien.</li><li>Pronunciar claramente la letra.</li></ul><p>En España hay coros infantiles muy famosos, como la <b>Escolanía de Montserrat</b>, en Cataluña, uno de los coros de niños más antiguos de Europa: tiene más de 700 años de historia.</p><p>Cantar en coro nos enseña a <b>cooperar</b>: la música solo suena bien si todos trabajamos juntos.</p><p><b>Actividad</b>: cantad una canción al unísono y después en canon a dos voces.</p>`,
+        H6.dos("Coro", ["UNÍSONO", ["misma melodía", "todos a la vez"], cAZ], ["VARIAS VOCES", ["melodías distintas", "encajan juntas"], cRO])],
+    ],
+    "Nanas del mundo": [
+      ["Canciones de trabajo", `<p>Durante siglos, las personas han cantado <mark>mientras trabajaban</mark>. Las canciones de trabajo servían para hacer más llevadero el esfuerzo, no aburrirse y, sobre todo, <b>coordinar los movimientos</b> de todo el grupo al mismo ritmo.</p><ul><li><b>Canciones de siega</b>: los campesinos cantaban mientras cortaban el trigo con la hoz, al ritmo de sus movimientos.</li><li><b>Canciones marineras</b>: los marineros cantaban para tirar todos a la vez de las cuerdas de las velas. En inglés se llaman <i>sea shanties</i>. Muchas tienen un solista que canta y un grupo que responde.</li><li><b>Canciones de lavanderas</b>: mujeres que lavaban la ropa en el río cantaban juntas.</li><li><b>Canciones de los esclavos</b> en América: cantaban en los campos de algodón. De esas canciones nacieron los <b>espirituales</b> y, más tarde, el góspel y el blues.</li><li><b>Canciones de arrieros</b> y pastores: para acompañar los largos caminos con los animales.</li></ul><p>Hoy, con las máquinas, ya casi no se cantan en el trabajo, pero muchas se han conservado como canciones populares.</p><p><b>Actividad</b>: inventa una canción de trabajo para recoger la clase: un solista canta una frase y el grupo responde mientras ordena.</p>`,
+        L6.filas("Trabajo", [["siega", "campo", cNA], ["marineras", "barcos", cAZ], ["lavanderas", "río", cVE], ["espirituales", "América", cMO]])],
+    ],
+    "Canciones de juego y de corro": [
+      ["Cumpleaños feliz en el mundo", `<p>¿Sabías que la canción que más se canta en el mundo es probablemente <mark>«Cumpleaños feliz»</mark>? Su melodía viene de una canción infantil de Estados Unidos de finales del siglo XIX, «Good Morning to All» («Buenos días a todos»), escrita por dos hermanas maestras, <b>Mildred y Patty Hill</b>. Después le cambiaron la letra por «Happy Birthday to You».</p><p>Hoy se canta en decenas de idiomas con la misma melodía:</p><ul><li>Inglés: <i>Happy birthday to you</i>.</li><li>Francés: <i>Joyeux anniversaire</i>.</li><li>Italiano: <i>Tanti auguri a te</i>.</li><li>Alemán: <i>Zum Geburtstag viel Glück</i>.</li></ul><p>Pero en muchos países tienen además sus <b>propias canciones</b> de cumpleaños:</p><ul><li>En <b>México</b> se cantan <b>«Las mañanitas»</b>, a veces por la mañana temprano, con mariachis.</li><li>En <b>Cataluña</b> se canta «Per molts anys».</li><li>En <b>Suecia</b> se canta «Ja, må hon leva».</li></ul><p>Cantar en un cumpleaños es una forma de decirle a alguien que es importante para nosotros.</p><p><b>Actividad</b>: aprende a cantar «Cumpleaños feliz» en otro idioma y cántasela al próximo compañero que cumpla años.</p>`,
+        L6.filas("Cumpleaños", [["inglés", "Happy birthday", cAZ], ["francés", "Joyeux anniversaire", cRO], ["italiano", "Tanti auguri", cVE], ["México", "Las mañanitas", cNA]])],
+    ],
+    "Instrumentos del mundo": [
+      ["Ritmos de África y América", `<p>Muchos de los ritmos que escuchamos hoy en la música moderna tienen sus raíces en <mark>África</mark>.</p><p>En la música tradicional africana:</p><ul><li>El <b>ritmo</b> es lo más importante. Los <b>tambores</b>, como el <b>djembé</b>, se tocan con las manos.</li><li>Varios instrumentos tocan <b>ritmos diferentes a la vez</b> que se entrelazan: se llama <b>polirritmia</b>.</li><li>Se usa mucho la <b>llamada y respuesta</b>: un solista canta y el grupo contesta, como en la lectura.</li><li>La música va unida a la <b>danza</b> y a la vida de la comunidad.</li></ul><p>Cuando muchas personas africanas fueron llevadas a la fuerza a América como esclavas, llevaron con ellas su música. Mezclada con la música europea e indígena, dio lugar a muchos estilos nuevos:</p><ul><li>La <b>samba</b> y la <b>batucada</b> de Brasil.</li><li>La <b>salsa</b> y la <b>rumba</b> de Cuba.</li><li>El <b>jazz</b>, el <b>blues</b> y el <b>góspel</b> de Estados Unidos.</li><li>El <b>reggae</b> de Jamaica.</li></ul><p><b>Actividad</b>: en grupos, tocad dos ritmos diferentes a la vez con palmas y mesas. ¿Conseguís no perderos?</p>`,
+        H6.flujo("Viaje", ["África|tambores", "llegan a|América", "se mezclan|músicas", "nacen|jazz, samba"], cNA)],
+    ],
+    "Cantar una canción del mundo": [
+      ["Los himnos", `<p>Un <mark>himno</mark> es una canción solemne que representa a un país, una región, un equipo o una institución. Se interpreta en actos importantes, como competiciones deportivas o celebraciones oficiales.</p><ul><li>El himno de <b>España</b> es la <b>Marcha Real</b>. Es uno de los pocos himnos nacionales del mundo que <b>no tienen letra oficial</b>: solo se toca la música.</li><li>Las <b>comunidades autónomas</b> también tienen sus himnos, como «Els Segadors» en Cataluña o el «Himno de Andalucía».</li><li>El himno de la <b>Unión Europea</b> es el <b>«Himno de la alegría»</b>, una melodía de la Novena Sinfonía de <b>Beethoven</b>, compuesta en 1824. Tampoco tiene letra oficial, porque en Europa se hablan muchas lenguas.</li><li>Los <b>Juegos Olímpicos</b> tienen su propio himno, y muchos clubes deportivos y colegios tienen el suyo.</li></ul><p>Cuando suena un himno, lo correcto es estar <b>en silencio y de pie</b>, por respeto, sea del país que sea. Respetar los himnos de los demás es respetar a las personas.</p><p><b>Actividad</b>: escucha el «Himno de la alegría» y tócalo con la flauta o un instrumento de láminas si conoces las notas.</p>`,
+        L6.filas("Himnos", [["España", "Marcha Real", cRO], ["Europa", "Himno de la alegría", cAZ], ["Beethoven", "Novena Sinfonía", cMO], ["respeto", "en silencio", cVE]])],
+    ],
+  },
+  final: [
+    ["Canciones que viajan", `<p>Las canciones no se quedan quietas: <mark>viajan con las personas</mark>. Cuando alguien se va a vivir a otro país, se lleva sus canciones en la memoria y las canta a sus hijos y amigos. Así, poco a poco, se mezclan con las del nuevo lugar.</p><p>Algunos ejemplos:</p><ul><li>Muchos <b>romances</b> y canciones infantiles españolas, como «Arroz con leche», viajaron a América hace siglos y hoy se cantan en México, Argentina o Colombia, a veces con letras un poco distintas.</li><li>La <b>cumbia</b> nació en Colombia mezclando música africana, indígena y española, y luego viajó por toda América y llegó a España.</li><li>El <b>flamenco</b> recibió influencias de la música gitana, árabe, judía y andaluza.</li><li>Hoy, con internet, una canción puede dar la vuelta al mundo en un día.</li></ul><p>En tu clase seguramente hay compañeros con familias de otros lugares. Cada uno puede traer canciones nuevas: es una manera preciosa de conocernos mejor, como Amina en la lectura.</p><p>La música es un idioma que todos entendemos, aunque no conozcamos la lengua de la letra.</p><p><b>Actividad</b>: pregunta en casa por una canción de tu familia o de tu pueblo y enséñasela a la clase.</p>`,
+      H6.rueda("Viajan", "CANCIONES", [["romances", cNA], ["cumbia", cVE], ["flamenco", cRO], ["internet", cAZ]])],
+  ],
+  ejemplos: [
+    ["Toda la clase canta la misma melodía a la vez. ¿Cómo se llama?", ["Nadie canta una melodía diferente.", "Todos cantan lo mismo."], "Cantar al unísono."],
+    ["¿Por qué los marineros cantaban al tirar de las cuerdas?", ["Era un trabajo en equipo.", "El ritmo ayuda a hacer fuerza a la vez."], "Para coordinarse y tirar todos a la vez."],
+  ],
+  errores: ["Hablar o moverse mientras suena un himno.", "Gritar en el coro para que se te oiga más que a los demás."],
+  ejercicios: [
+    ["b", "¿Qué es cantar al unísono?", "Cantar todos la misma melodía a la vez."],
+    ["b", "Nombra un tipo de canción de trabajo.", "Canciones de siega, marineras o de lavanderas."],
+    ["b", "¿Qué canción de cumpleaños se canta en México?", "Las mañanitas."],
+    ["b", "¿Cómo se llama el himno de España?", "La Marcha Real."],
+    ["b", "En la lectura, ¿de qué país viene Amina?", "De Senegal."],
+    ["m", "¿Qué es la polirritmia?", "Tocar varios ritmos diferentes a la vez."],
+    ["m", "¿Quién compuso el «Himno de la alegría»?", "Beethoven."],
+    ["m", "¿De qué canción viene la melodía de «Cumpleaños feliz»?", "De «Good Morning to All», de las hermanas Hill."],
+    ["m", "Nombra dos estilos de América con raíces africanas.", "Samba, salsa, jazz, blues, góspel o reggae."],
+    ["m", "¿Qué hacemos cuando suena un himno?", "Estar en silencio y de pie, por respeto."],
+    ["a", "¿Cómo ayuda la canción a Amina a integrarse?", "Enseña una canción de llamada y respuesta; todos cantan con ella y deja de estar sola."],
+    ["a", "Inventa una canción de trabajo con solista y respuesta para recoger la clase.", "Respuesta abierta."],
+    ["a", "Explica con un ejemplo cómo viajan las canciones.", "Ejemplo: «Arroz con leche» viajó de España a América y se canta allí con otras letras."],
+    ["a", "¿Por qué el himno europeo no tiene letra oficial?", "Porque en Europa se hablan muchas lenguas."],
+  ],
+  quiz: [
+    ["Cantar melodías distintas que encajan es cantar…", ["a varias voces", "al unísono", "en silencio"], "Coro."],
+    ["Los «sea shanties» son canciones…", ["marineras", "de cuna", "de cumpleaños"], "Trabajo."],
+    ["«Tanti auguri a te» es «Cumpleaños feliz» en…", ["italiano", "francés", "alemán"], "Cumpleaños."],
+    ["El djembé es un…", ["tambor africano", "instrumento de cuerda", "himno"], "África."],
+    ["El himno de la Unión Europea es…", ["el Himno de la alegría", "la Marcha Real", "Las mañanitas"], "Himnos."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué significa la canción de Amina?", ["que juntos somos más fuertes", "que llueve mucho", "que es su cumpleaños"], "Lectura."],
+    ["¿Qué coro infantil español tiene más de 700 años?", ["la Escolanía de Montserrat", "el coro del colegio", "el Orfeón de París"], "Coros."],
+  ],
+  tarjetas: [
+    ["Coro", "Al unísono o a varias voces; mirar al director y escuchar."],
+    ["Canciones de trabajo", "Siega, marineras, lavanderas, espirituales: coordinar el esfuerzo."],
+    ["África y América", "Djembé, polirritmia, llamada y respuesta → samba, salsa, jazz, reggae."],
+    ["Himnos", "Marcha Real (sin letra); Himno de la alegría (Beethoven); respeto."],
+  ],
+  glosario: [
+    ["Coro", "Grupo de personas que cantan juntas."],
+    ["Unísono", "Todos cantan la misma melodía."],
+    ["Acorde", "Varias notas que suenan a la vez."],
+    ["Escolanía", "Coro de niños, muchas veces ligado a un monasterio."],
+    ["Canción de trabajo", "Canción para acompañar un trabajo."],
+    ["Espiritual", "Canto religioso afroamericano."],
+    ["Djembé", "Tambor africano que se toca con las manos."],
+    ["Polirritmia", "Varios ritmos distintos a la vez."],
+    ["Himno", "Canción solemne que representa a un grupo o un país."],
+    ["Marcha Real", "Himno de España."],
+    ["Mariachi", "Grupo musical tradicional de México."],
+    ["Cumbia", "Música y baile nacidos en Colombia."],
+  ],
+  situacion: {
+    titulo: "El cancionero del mundo de la clase",
+    reto: "La clase reúne canciones de las familias y de distintos países en un cancionero y las canta en un festival.",
+    pasos: ["Preguntar en casa por una canción de la familia, del pueblo o de otro país.", "Elegir entre todos diez canciones: de cuna, de trabajo, de juego, de cumpleaños y de otros países.", "Ensayar algunas al unísono, otras en canon y otras con llamada y respuesta.", "Celebrar el festival explicando de dónde viene cada canción."],
+    producto: "Un cancionero ilustrado de la clase y un festival de canciones.",
+    evaluacion: ["Canta en grupo siguiendo al director.", "Reconoce tipos de canciones y su función.", "Conoce músicas de otras culturas y su origen.", "Muestra respeto por las músicas de todos."],
+  },
+});
