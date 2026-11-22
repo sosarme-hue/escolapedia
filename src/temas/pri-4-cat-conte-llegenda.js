@@ -87,3 +87,92 @@ module.exports = P.tema({
   saberes: "Educació literària: la narració; el conte popular (rondalla) i d'autor; la llegenda; narrador, personatges, temps i espai; estructura (plantejament, nus i desenllaç); connectors temporals; el diàleg amb guió; contes i llegendes de la tradició catalana; creació de textos narratius",
   ideas: ["Mapa de llegendes del territori amb un resum escrit per cada grup.", "Daus de contes (personatge, lloc, problema) per inventar històries.", "Preparar la diada de Sant Jordi amb contes escrits i il·lustrats per la classe."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+module.exports.bloques.find((b) => /Conte i llegenda: diferències/.test(b.html)).svg = H6.dos("Diferències", ["CONTE", ["imaginari", "lloc qualsevol", "per divertir"], cAZ], ["LLEGENDA", ["real + fantàstic", "lloc conegut", "explica un origen"], cNA]);
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conèixer els grans recopiladors de rondalles", "Distingir el narrador en primera i en tercera persona", "Descobrir llegendes dels territoris de parla catalana", "Identificar els tipus de personatges i els contes de repetició"],
+  lectura: { titulo: "La llegenda de les quatre barres", html: `<p>Fa més de mil anys, quan Catalunya encara no tenia bandera, hi havia un comte molt valent que es deia <b>Guifré</b>. Tothom l'anomenava <b>el Pilós</b>, perquè tenia molt de pèl, fins i tot en llocs on normalment no n'hi ha.</p><p>Diu la llegenda que, un dia, el rei dels francs va demanar ajuda al comte Guifré per lluitar contra uns enemics. Guifré hi va anar amb els seus soldats i va lluitar amb tanta força que va guanyar la batalla.</p><p>Però en acabar, el comte estava <b>ferit</b>. Tenia una ferida molt profunda i les mans plenes de sang.</p><p>El rei el va anar a veure a la tenda. Al costat del comte hi havia el seu <b>escut</b>, que era completament daurat, sense cap dibuix.</p><p>—Has lluitat com un heroi —li va dir el rei—. Mereixes un escut digne del teu valor.</p><p>Llavors el rei va mullar quatre dits a la ferida de Guifré i els va passar de dalt a baix per l'escut daurat. Hi van quedar <b>quatre barres vermelles</b> sobre fons d'or.</p><p>—Aquest serà, a partir d'ara, el teu senyal —va dir.</p><p>I així, segons la llegenda, va néixer la <b>senyera</b>, la bandera de les quatre barres.</p><p>Els historiadors diuen que no va passar ben bé així. Però, de generació en generació, la llegenda s'ha continuat explicant, perquè és una manera bonica d'explicar l'origen d'un símbol que estimem.</p>` },
+  tras: {
+    "El conte i la rondalla": [
+      ["Els recopiladors de rondalles", `<p>Durant segles, les <mark>rondalles</mark> només s'explicaven de paraula, a la vora del foc o a l'hora d'anar a dormir. Si ningú no les hagués escrit, moltes s'haurien perdut. Per sort, hi va haver persones que van anar de poble en poble escoltant la gent gran i apuntant-les. Són els <b>recopiladors</b>:</p><ul><li><b>Antoni Maria Alcover</b> (Mallorca): va recollir centenars de rondalles i les va publicar amb el nom de <i>Rondaies mallorquines</i>. Moltes comencen amb la fórmula <i>«Això era i no era, bon viatge faci la cadernera…»</i>.</li><li><b>Joan Amades</b> (Catalunya): va dedicar tota la vida a recollir rondalles, cançons, llegendes, costums i festes populars.</li><li><b>Enric Valor</b> (País Valencià): va escriure les <i>Rondalles valencianes</i>, amb històries de les comarques del sud.</li></ul><p>Alguns personatges i rondalles molt coneguts són <i>La flor romanial</i>, <i>En Pere Sense Por</i>, <i>La rateta que escombrava l'escaleta</i> o <i>Les tres taronges de l'amor</i>.</p><p>Les rondalles sovint tenen <b>elements que es repeteixen</b>: tres germans, tres proves, tres desitjos; animals que parlen; objectes màgics; i el més petit o el més humil de tots, que al final aconsegueix el que els altres no han pogut.</p><p>Si tens avis o besavis, pregunta'ls quines rondalles els explicaven de petits. Potser en saben alguna que no està escrita enlloc!</p>`,
+        L6.filas("Recopiladors", [["Alcover", "Rondaies mallorquines", cAZ], ["Amades", "rondalles catalanes", cVE], ["Valor", "Rondalles valencianes", cNA]]), ["2G6xHX5pXp8", "La flor romanial", "AriasJofre", 17419]],
+    ],
+    "Els elements de la narració": [
+      ["El narrador", `<p>El <mark>narrador</mark> és la veu que explica la història. No l'hem de confondre amb l'<b>autor</b>, que és la persona real que l'ha escrita. Hi ha dues maneres principals d'explicar una història:</p><ul><li><b>Narrador en tercera persona</b>: explica el que passa als personatges des de fora, com si ho estigués mirant. Fa servir <i>ell</i>, <i>ella</i>, <i>ells</i>: <i>«La Mariona <b>va obrir</b> la porta i <b>va veure</b> un gat negre.»</i> És el narrador de la majoria de contes i rondalles.</li><li><b>Narrador en primera persona</b>: el narrador és un dels personatges, normalment el protagonista, i explica el que li passa a ell mateix. Fa servir <i>jo</i>, <i>nosaltres</i>: <i>«<b>Vaig obrir</b> la porta i <b>vaig veure</b> un gat negre. Em vaig espantar moltíssim!»</i></li></ul><p>Cada narrador té avantatges:</p><ul><li>El de <b>tercera persona</b> pot explicar què fan i què pensen tots els personatges. Sap moltes coses.</li><li>El de <b>primera persona</b> ens fa sentir molt a prop del protagonista, perquè ens explica directament el que sent i el que pensa. Però només sap el que ell veu.</li></ul><p>Els <b>diaris personals</b> i les <b>cartes</b> s'escriuen en primera persona. Les <b>notícies</b> i la majoria de <b>contes</b>, en tercera.</p><p>Repte: agafa un conte que coneguis i torna'l a explicar en primera persona, com si fossis un dels personatges. Per exemple, <i>La caputxeta vermella</i> explicada pel llop!</p>`,
+        H6.dos("Narrador", ["1a PERSONA", ["jo vaig obrir", "és personatge", "molt a prop"], cAZ], ["3a PERSONA", ["ella va obrir", "mira des de fora", "ho sap tot"], cVE])],
+    ],
+    "La llegenda": [
+      ["Llegendes dels nostres pobles", `<p>Cada racó dels territoris de parla catalana té les seves <mark>llegendes</mark>. Aquí en tens algunes:</p><ul><li><b>Les quatre barres</b>: explica l'origen de la senyera amb el comte Guifré el Pilós, com has llegit a la lectura.</li><li><b>El pont del Diable</b> de Martorell: diuen que el Diable va construir el pont en una sola nit a canvi de l'ànima del primer que hi passés. Però una noia molt llesta hi va fer passar primer un gat!</li><li><b>El drac de Banyoles</b>: un drac terrible vivia a l'estany de Banyoles i atemoria la gent, fins que un monjo, sant Martirià, el va amansir.</li><li><b>El comte Arnau</b>: un noble malvat condemnat a cavalcar eternament de nit pels boscos del Ripollès, envoltat de flames.</li><li><b>La Moreneta</b> de Montserrat: uns pastors van trobar la imatge de la Mare de Déu amagada en una cova de la muntanya.</li><li><b>El drac del Patriarca</b> de València: un cocodril dissecat que, segons la llegenda, vivia al riu Túria i atemoria la ciutat.</li></ul><p>Fixa't que totes les llegendes passen en un <b>lloc real</b> que encara podem visitar: el pont, l'estany, la muntanya… Per això ens semblen tan creïbles.</p><p>Moltes festes populars recorden llegendes: el <b>drac</b> i les <b>bèsties</b> de foc que surten a les festes majors són hereus d'aquests relats.</p><p>Coneixes alguna llegenda del teu poble o de la teva ciutat?</p>`,
+        L6.filas("Llegendes", [["quatre barres", "Guifré el Pilós", cRO], ["pont del Diable", "Martorell", cAZ], ["drac", "Banyoles", cVE], ["comte Arnau", "Ripollès", cMO]])],
+    ],
+  },
+  final: [
+    ["Els personatges", `<p>A totes les històries hi ha <mark>personatges</mark>, i cadascun té un paper. Els principals són:</p><ul><li>El <b>protagonista</b>: el personatge principal, a qui passa la història. Sovint té un problema o un objectiu: rescatar algú, trobar un tresor, tornar a casa.</li><li>L'<b>antagonista</b>: el personatge que s'hi oposa i li posa les coses difícils. Pot ser un llop, una bruixa, un gegant, un drac… o fins i tot una tempesta!</li><li>Els <b>ajudants</b>: personatges que ajuden el protagonista. Poden ser amics, animals que parlen o éssers màgics, com una fada.</li><li>Els <b>personatges secundaris</b>: apareixen a la història però no hi tenen un paper tan important.</li></ul><p>En els contes i les rondalles, sovint hi apareix un <b>objecte màgic</b> que ajuda el protagonista: una vareta, unes botes de set llegües, un anell, una làmpada…</p><p>Per descriure un personatge, pots explicar:</p><ul><li>Com és <b>per fora</b>: alt, baix, amb barba, amb una capa vermella…</li><li>Com és <b>per dins</b>: valent, tímid, llest, envejós, generós…</li><li>Què <b>vol</b> aconseguir.</li></ul><p>A la llegenda de Sant Jordi, per exemple, el <b>protagonista</b> és el cavaller, l'<b>antagonista</b> és el drac i la princesa és un personatge que cal salvar. I a <i>En Patufet</i>, qui és el protagonista? I l'antagonista?</p>`,
+      H6.rueda("Personatges", "HISTÒRIA", [["protagonista", cAZ], ["antagonista", cRO], ["ajudants", cVE], ["secundaris", cMO]]), ["SvZVuRvzafg", "Característiques del conte: estructura i personatges", "MissStephy", 306806]],
+    ["Contes amb repeticions", `<p>Molts contes populars tenen <mark>repeticions</mark>: fragments que tornen a sortir una vegada i una altra, amb petits canvis. Les repeticions fan que el conte sigui fàcil de <b>recordar</b> i d'<b>explicar</b>, i que els que escolten participin dient-les en veu alta.</p><p>Alguns exemples:</p><ul><li><b>La rateta que escombrava l'escaleta</b>: a la rateta se li presenten molts pretendents, i a cadascun li pregunta: <i>«I a la nit, què faràs?»</i>. El gos, el gat, el porc, el ruc… responen fent el seu soroll.</li><li><b>Els tres porquets</b>: el llop va a cada casa i repeteix: <i>«Bufaré i bufaré i la casa t'esbotzaré!»</i></li><li><b>En Patufet</b>: tothom el busca cridant <i>«Patufet, on ets?»</i>, i ell respon <i>«A la panxa del bou, que no hi neva ni hi plou!»</i></li></ul><p>També hi ha contes <b>acumulatius</b>, en què cada vegada s'afegeix un element nou i es repeteixen tots els anteriors, com una cadena que es fa cada cop més llarga.</p><p>A més, els contes populars sovint fan servir el número <b>tres</b>: tres germans, tres porquets, tres proves, tres desitjos. Les dues primeres vegades les coses surten malament, i la tercera, bé.</p><p>Quan escriguis un conte, prova d'afegir-hi una frase que es repeteixi: veuràs com queda més rodó!</p>`,
+      H6.flujo("Repetir", ["1a vegada|malament", "2a vegada|malament", "3a vegada|bé!", "final|feliç"], cNA)],
+  ],
+  ejemplos: [
+    ["Passa a primera persona: «La Joana va entrar al bosc i va sentir un soroll».", ["El narrador passa a ser la Joana.", "Canviem va entrar per vaig entrar."], "Vaig entrar al bosc i vaig sentir un soroll."],
+    ["Per què «El pont del Diable» és una llegenda i no un conte?", ["Passa en un lloc real: Martorell.", "Barreja fets reals i fantàstics i explica un origen."], "Perquè passa en un lloc real i explica l'origen del pont."],
+  ],
+  errores: ["Confondre el narrador amb l'autor.", "Pensar que les llegendes són fets històrics reals."],
+  ejercicios: [
+    ["b", "Qui va recollir les Rondaies mallorquines?", "Antoni Maria Alcover."],
+    ["b", "En quina persona està: «Vaig córrer molt»?", "Primera persona."],
+    ["b", "Quina llegenda explica l'origen de la senyera?", "La de Guifré el Pilós."],
+    ["b", "Qui és l'antagonista a Sant Jordi?", "El drac."],
+    ["b", "Quina frase es repeteix als tres porquets?", "Bufaré i bufaré i la casa t'esbotzaré."],
+    ["m", "Explica la diferència entre narrador i autor.", "L'autor és la persona real; el narrador és la veu del conte."],
+    ["m", "On passa la llegenda del drac de Banyoles?", "A l'estany de Banyoles."],
+    ["m", "Escriu tres objectes màgics de contes.", "Per exemple: vareta, botes de set llegües, làmpada."],
+    ["m", "Per què es repeteix el número tres als contes?", "Ajuda a recordar i crea emoció."],
+    ["m", "Descriu per dins el protagonista d'un conte que coneguis.", "Resposta oberta."],
+    ["a", "Explica la caputxeta vermella des del punt de vista del llop.", "Resposta oberta."],
+    ["a", "Investiga una llegenda del teu poble i escriu-la.", "Resposta oberta."],
+    ["a", "Inventa un conte amb una frase que es repeteixi.", "Resposta oberta."],
+    ["a", "Pregunta a la gent gran una rondalla i enregistra-la.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["Enric Valor va escriure…", ["Rondalles valencianes", "Rondaies mallorquines", "El comte Arnau"], "Recopiladors."],
+    ["«Ella va obrir la porta» és narrador en…", ["tercera persona", "primera persona", "segona persona"], "Narrador."],
+    ["El pont del Diable és a…", ["Martorell", "Banyoles", "Montserrat"], "Llegendes."],
+    ["Qui s'oposa al protagonista?", ["l'antagonista", "l'ajudant", "el narrador"], "Personatges."],
+    ["Els contes populars repeteixen sovint el número…", ["tres", "deu", "set"], "Repeticions."],
+  ],
+  examen: [
+    ["A la lectura, amb què es van pintar les quatre barres?", ["amb la sang de la ferida de Guifré", "amb pintura vermella", "amb vi"], "Lectura."],
+    ["Una llegenda passa en un lloc…", ["real i conegut", "inventat", "a l'espai"], "Llegenda."],
+  ],
+  tarjetas: [
+    ["Recopiladors", "Alcover, Amades i Valor van escriure les rondalles."],
+    ["Narrador", "1a persona: jo. 3a persona: ell, ella."],
+    ["Llegendes", "Quatre barres, pont del Diable, drac de Banyoles, comte Arnau."],
+    ["Personatges", "Protagonista, antagonista, ajudants i secundaris."],
+  ],
+  glosario: [
+    ["Conte", "Narració breu de fets imaginaris."],
+    ["Rondalla", "Conte popular transmès de boca en boca."],
+    ["Llegenda", "Relat que barreja fets reals i fantàstics."],
+    ["Recopilador", "Persona que recull rondalles i les escriu."],
+    ["Narrador", "Veu que explica la història."],
+    ["Autor", "Persona real que escriu una obra."],
+    ["Protagonista", "Personatge principal."],
+    ["Antagonista", "Personatge que s'oposa al protagonista."],
+    ["Ajudant", "Personatge que ajuda el protagonista."],
+    ["Objecte màgic", "Objecte amb poders en un conte."],
+    ["Tradició oral", "Transmissió de paraula, sense escriure."],
+    ["Senyera", "Bandera de les quatre barres."],
+  ],
+  situacion: {
+    titulo: "El mapa de les llegendes",
+    reto: "La classe fa un mapa il·lustrat de llegendes dels territoris de parla catalana.",
+    pasos: ["Trieu en grups una llegenda i busqueu-ne informació.", "Escriviu-la amb narrador en tercera persona i identifiqueu els personatges.", "Situeu-la en un gran mapa amb un dibuix.", "Expliqueu-la oralment a la resta de la classe."],
+    producto: "Un mapa il·lustrat de llegendes.",
+    evaluacion: ["Explica la llegenda amb ordre.", "Identifica el narrador i els personatges.", "Situa el lloc real.", "Explica la llegenda en veu alta amb expressivitat."],
+  },
+});

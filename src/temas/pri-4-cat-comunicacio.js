@@ -88,3 +88,91 @@ module.exports = P.tema({
   saberes: "Comunicació: elements de la comunicació; llenguatge verbal i no verbal; diferències entre comunicació oral i escrita; normes de la conversa; exposició oral; planificació, textualització i revisió de textos escrits; nota, invitació, correu i carta",
   ideas: ["Telèfon de gots per identificar emissor, receptor i canal.", "Roda d'exposicions de dos minuts amb guió de tres paraules clau.", "Bústia de classe per escriure's notes i cartes amb totes les parts."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Interpretar els gestos, la mirada i el to de veu", "Preparar i fer una entrevista", "Reconèixer les parts d'una notícia i les sis preguntes", "Escriure cartes i correus i comunicar-se a internet amb seguretat"],
+  lectura: { titulo: "El diari de l'escola", html: `<p>La classe de 4t havia decidit fer un <b>diari</b>. Cada grup s'encarregaria d'una secció.</p><p>El grup de la Txell va fer una <b>entrevista</b> a la Rosa, la cuinera de l'escola, que es jubilava aquell any. Havien preparat les preguntes el dia abans:</p><p>—Quants anys fa que treballa aquí? —va començar la Txell.</p><p>—Trenta-dos anys! —va respondre la Rosa, amb els ulls brillants.</p><p>Mentre parlava, la Txell s'adonava que la Rosa somreia molt i movia les mans. No calia que li preguntés si estava contenta: el seu <b>cos</b> ja ho deia.</p><p>El grup d'en Joan va escriure una <b>notícia</b> sobre l'hort de l'escola. Van fer servir les sis preguntes que els havia ensenyat la mestra: <i>qui</i>, <i>què</i>, <i>quan</i>, <i>on</i>, <i>com</i> i <i>per què</i>. El titular deia: <b>«Les primeres tomaqueres de l'hort ja donen fruit»</b>.</p><p>El grup de la Nora, en canvi, va escriure una <b>carta</b> a l'alcaldessa per demanar més papereres al parc. La van començar amb <i>Benvolguda senyora alcaldessa</i> i la van acabar amb <i>Atentament</i>.</p><p>Quan el diari va estar enllestit, el van penjar al web de l'escola. La mestra els va recordar una cosa important:</p><p>—A internet, no hi poseu mai les vostres adreces ni els vostres telèfons.</p><p>Aquella setmana, tota l'escola va llegir el diari. I la Rosa en va guardar una còpia per sempre.</p>` },
+  tras: {
+    "Llenguatge verbal i no verbal": [
+      ["Gestos, mirada i to de veu", `<p>Quan parlem, no només comuniquem amb les paraules. El nostre <mark>cos</mark> també parla, i a vegades diu més coses que la boca!</p><ul><li><b>La cara</b>: un somriure mostra alegria; les celles arrufades, enuig o preocupació; els ulls ben oberts, sorpresa.</li><li><b>La mirada</b>: mirar als ulls demostra atenció i confiança. Mirar a terra pot voler dir vergonya o tristesa.</li><li><b>Els gestos</b>: amb les mans diem moltes coses: <i>vine</i>, <i>prou</i>, <i>molt bé</i>, <i>no ho sé</i> (arronsant les espatlles).</li><li><b>La postura</b>: estar dret i relaxat transmet seguretat; estar encongit, timidesa; tenir els braços creuats, a vegades, que no volem escoltar.</li><li><b>El to de veu</b>: la mateixa frase pot voler dir coses diferents segons com la diguem. Prova de dir <i>Molt bé</i> content, enfadat i avorrit. Sona igual?</li><li><b>La distància</b>: amb els amics ens hi apropem; amb desconeguts, mantenim més distància.</li></ul><p>Fixa't que alguns gestos <b>canvien segons el país</b>. Per exemple, en alguns llocs moure el cap amunt i avall vol dir <i>no</i>!</p><p>Per comunicar-te bé, procura que el que dius amb les paraules i el que dius amb el cos <b>diguin el mateix</b>. Si dius «estic content» amb cara de pomes agres, ningú no se't creurà.</p>`,
+        H6.rueda("El cos parla", "COS", [["cara", cAZ], ["mirada", cVE], ["gestos", cNA], ["to de veu", cMO]]), ["qSXG7m_Uuk4", "Què és el llenguatge corporal", "LearnFree en Español", 160514]],
+    ],
+    "Conversar bé": [
+      ["L'entrevista", `<p>Una <mark>entrevista</mark> és una conversa en què una persona, l'<b>entrevistador</b>, fa preguntes a una altra, l'<b>entrevistat</b>, per conèixer-la millor o per saber què pensa d'un tema.</p><p>Per fer una bona entrevista, cal seguir uns passos:</p><ol><li><b>Abans</b>: tria a qui entrevistaràs i per què. Busca informació sobre aquesta persona. Prepara les <b>preguntes</b> per escrit i ordena-les. Demana-li permís i acorda el dia i l'hora.</li><li><b>Durant</b>: saluda i presenta't. Fes les preguntes amb claredat i una per una. <b>Escolta</b> amb atenció les respostes: potser et suggereixen una pregunta nova. Pren notes o enregistra-la, si l'entrevistat hi està d'acord.</li><li><b>Després</b>: dona-li les gràcies. Passa l'entrevista a net.</li></ol><p>Les entrevistes escrites tenen una forma especial:</p><ul><li>Un <b>títol</b> atractiu.</li><li>Una <b>presentació</b> breu de la persona entrevistada.</li><li>Les <b>preguntes</b>, en negreta, i les <b>respostes</b> a continuació.</li></ul><p>Un consell: evita les preguntes que es responen amb un simple <i>sí</i> o <i>no</i>. En lloc de preguntar <i>T'agrada la teva feina?</i>, pregunta <i>Què és el que més t'agrada de la teva feina?</i> Obtindràs respostes molt més interessants.</p>`,
+        H6.flujo("Entrevista", ["triar|persona", "preparar|preguntes", "escoltar|i anotar", "passar|a net"], cAZ), ["1eMvie8ZI3U", "L'entrevista: què és i característiques", "Aprendiendo con Dan", 420435]],
+    ],
+    "Textos escrits de cada dia": [
+      ["La notícia", `<p>Una <mark>notícia</mark> és un text que explica un <b>fet real</b> i <b>recent</b> que interessa a molta gent. La trobem als diaris, a la ràdio, a la televisió i a internet.</p><p>Una notícia ha de respondre <b>sis preguntes</b>:</p><ul><li><b>Qui?</b> Les persones que hi surten.</li><li><b>Què?</b> El que ha passat.</li><li><b>Quan?</b> El dia o el moment.</li><li><b>On?</b> El lloc.</li><li><b>Com?</b> De quina manera ha passat.</li><li><b>Per què?</b> La causa.</li></ul><p>Les parts d'una notícia són:</p><ol><li>El <b>titular</b>: una frase curta i cridanera que resumeix el fet. Va en lletra grossa.</li><li>L'<b>entradeta</b>: un paràgraf breu que explica el més important, sovint responent qui, què, quan i on.</li><li>El <b>cos</b>: explica la notícia amb tots els detalls, del més important al menys important.</li><li>Sovint hi ha una <b>fotografia</b> amb un <b>peu de foto</b> que l'explica.</li></ol><p>El llenguatge de la notícia ha de ser <b>clar</b> i <b>objectiu</b>: explica el que ha passat, sense donar l'opinió de qui l'escriu. Per això, no diu <i>«Va ser una festa fantàstica»</i>, sinó <i>«A la festa hi van assistir tres-centes persones»</i>.</p><p>Compte amb les <b>notícies falses</b>! Abans de creure una notícia, mira on s'ha publicat i si altres mitjans també en parlen.</p>`,
+        L6.filas("Notícia", [["titular", "curt i cridaner", cRO], ["entradeta", "el més important", cAZ], ["cos", "tots els detalls", cVE], ["foto", "amb peu de foto", cNA]]), ["nEo3jm7PReY", "La notícia i les seves parts", "Aprendemos juntos", 617276]],
+    ],
+  },
+  final: [
+    ["La carta i el correu electrònic", `<p>Encara que avui dia escrivim molts missatges curts, a vegades hem d'escriure una <mark>carta</mark> o un <b>correu electrònic</b> amb més cura.</p><p>Hi ha dos tipus de cartes:</p><ul><li><b>Cartes personals</b>, per a familiars i amics. Tenen un to proper: <i>Estimada àvia</i>, <i>Hola, Pau!</i>… <i>Una abraçada</i>, <i>Molts petons</i>.</li><li><b>Cartes formals</b>, per a persones que no coneixem o per a institucions: l'ajuntament, una empresa, la direcció de l'escola. Tenen un to respectuós: <i>Benvolgut senyor</i>, <i>Benvolguda directora</i>… <i>Atentament</i>, <i>Cordialment</i>.</li></ul><p>Les parts d'una carta són:</p><ol><li><b>Lloc i data</b>: <i>Lleida, 12 de març de 2026</i>.</li><li><b>Salutació</b>.</li><li><b>Cos</b>: el que volem explicar, en paràgrafs.</li><li><b>Comiat</b>.</li><li><b>Signatura</b>.</li></ol><p>El <b>correu electrònic</b> té les mateixes parts, però a més cal omplir:</p><ul><li>L'<b>adreça</b> del destinatari, ben escrita.</li><li>L'<b>assumpte</b>: una frase curta que digui de què tracta, per exemple <i>Petició de papereres per al parc</i>.</li></ul><p>Abans d'enviar-lo, <b>rellegeix-lo</b>: has saludat? S'entén el que vols dir? Hi ha faltes? Un correu enviat ja no es pot desfer!</p>`,
+      L6.filas("Carta formal", [["lloc i data", "Lleida, 12 de març", cAZ], ["salutació", "Benvolguda senyora", cVE], ["cos", "el que volem dir", cNA], ["comiat", "Atentament", cMO], ["signatura", "Nora Puig", cRO]])],
+    ["Comunicar-se a internet amb seguretat", `<p>Internet ens permet comunicar-nos amb gent de tot el món, buscar informació i compartir el que fem. Però també hem de ser <mark>prudents</mark>, igual que ho som al carrer.</p><p>Normes per navegar i comunicar-te amb seguretat:</p><ul><li><b>No comparteixis dades personals</b>: el teu nom complet, l'adreça, el telèfon, l'escola o les contrasenyes.</li><li><b>Les contrasenyes són secretes</b>: només les poden saber els teus pares o tutors.</li><li><b>No acceptis</b> sol·licituds de persones que no coneixes a la vida real.</li><li><b>Pensa abans de publicar</b>: el que penges a internet s'hi pot quedar per sempre, encara que l'esborris.</li><li><b>No pengis fotos</b> d'altres persones sense el seu permís.</li><li><b>Si alguna cosa et fa sentir malament</b>, o algú et diu coses que no t'agraden, explica-ho de seguida a un adult de confiança.</li></ul><p>A més, cal ser <b>respectuós</b> a internet: escriu com si la persona fos davant teu. Les majúscules seguides semblen crits, i les bromes, sense la cara i el to de veu, es poden entendre malament.</p><p>Una bona pregunta abans d'enviar un missatge: <i>M'agradaria que me l'enviessin a mi?</i> Si la resposta és <i>no</i>, millor no enviar-lo.</p>`,
+      H6.dos("A internet", ["SÍ", ["contrasenyes", "secretes", "demanar ajuda"], cVE], ["NO", ["adreça, telèfon", "fotos d'altres", "desconeguts"], cRO])],
+  ],
+  ejemplos: [
+    ["Escriu un titular per a: «Ahir, a l'escola de Reus, 50 alumnes van plantar 100 arbres».", ["Ha de ser curt i cridaner.", "Ha de resumir el fet principal."], "Cinquanta alumnes planten cent arbres a Reus"],
+    ["Converteix en oberta: «T'agrada el teu ofici?».", ["Evitem les preguntes de sí o no.", "Comencem amb què, com, per què…"], "Què és el que més t'agrada del teu ofici?"],
+  ],
+  errores: ["Donar l'opinió en una notícia: «Va ser una festa fantàstica».", "Compartir dades personals a internet."],
+  ejercicios: [
+    ["b", "Quines són les sis preguntes de la notícia?", "Qui, què, quan, on, com i per què."],
+    ["b", "Què vol dir arronsar les espatlles?", "No ho sé."],
+    ["b", "Escriu una salutació de carta formal.", "Benvolgut senyor / Benvolguda senyora."],
+    ["b", "Qui fa les preguntes en una entrevista?", "L'entrevistador."],
+    ["b", "Pots dir la teva contrasenya a un amic?", "No."],
+    ["m", "Escriu un assumpte per a un correu sobre una excursió.", "Per exemple: Informació de l'excursió de dijous."],
+    ["m", "Prepara cinc preguntes obertes per entrevistar un avi.", "Resposta oberta."],
+    ["m", "Digues «Molt bé» amb tres tons diferents i explica què expressen.", "Resposta oberta."],
+    ["m", "Quines són les parts d'una notícia?", "Titular, entradeta, cos i foto."],
+    ["m", "Corregeix per fer-la objectiva: «El partit va ser increïble».", "Per exemple: El partit va acabar 3 a 2."],
+    ["a", "Escriu una notícia sobre un fet de l'escola.", "Resposta oberta."],
+    ["a", "Fes una entrevista a algú de l'escola i passa-la a net.", "Resposta oberta."],
+    ["a", "Escriu una carta formal a l'ajuntament amb una proposta.", "Resposta oberta."],
+    ["a", "Fes un cartell amb normes per usar internet amb seguretat.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["Mirar als ulls demostra…", ["atenció", "avorriment", "por"], "Llenguatge no verbal."],
+    ["Una pregunta oberta comença per…", ["què o com", "oi que", "sí o no"], "Entrevista."],
+    ["La part curta i cridanera de la notícia és…", ["el titular", "el cos", "l'entradeta"], "Notícia."],
+    ["«Atentament» és un comiat…", ["formal", "personal", "de missatge curt"], "Carta."],
+    ["A internet has de…", ["protegir les teves dades", "dir la teva adreça", "acceptar tothom"], "Seguretat."],
+  ],
+  examen: [
+    ["A la lectura, a qui va entrevistar la Txell?", ["la Rosa, la cuinera", "l'alcaldessa", "la mestra"], "Lectura."],
+    ["La notícia ha de ser…", ["objectiva", "inventada", "plena d'opinions"], "Notícia."],
+  ],
+  tarjetas: [
+    ["No verbal", "Cara, mirada, gestos, postura i to de veu."],
+    ["Entrevista", "Preparar, preguntar, escoltar i passar a net."],
+    ["Notícia", "Qui, què, quan, on, com, per què; titular, entradeta i cos."],
+    ["Carta i internet", "Salutació, cos, comiat; no compartir dades."],
+  ],
+  glosario: [
+    ["Comunicació", "Intercanvi d'informació entre persones."],
+    ["Llenguatge no verbal", "Comunicació amb gestos i postures."],
+    ["To de veu", "Manera de dir les coses."],
+    ["Entrevista", "Conversa de preguntes i respostes."],
+    ["Entrevistador", "Qui fa les preguntes."],
+    ["Notícia", "Text que explica un fet real i recent."],
+    ["Titular", "Títol d'una notícia."],
+    ["Entradeta", "Resum inicial d'una notícia."],
+    ["Objectiu", "Que no dona opinió."],
+    ["Assumpte", "Tema d'un correu electrònic."],
+    ["Comiat", "Fórmula per acabar una carta."],
+    ["Contrasenya", "Paraula secreta per entrar a un compte."],
+  ],
+  situacion: {
+    titulo: "El diari de la classe",
+    reto: "La classe publica un diari amb notícies, entrevistes i cartes.",
+    pasos: ["Repartiu les seccions: notícies, entrevista, cartes i normes d'internet.", "Prepareu i feu una entrevista a algú de l'escola.", "Escriviu les notícies amb les sis preguntes i una carta formal.", "Maqueteu el diari i compartiu-lo amb les famílies."],
+    producto: "Un diari escolar.",
+    evaluacion: ["La notícia respon les sis preguntes.", "L'entrevista té preguntes obertes.", "La carta té totes les parts.", "Es respecten les normes d'internet."],
+  },
+});

@@ -87,3 +87,92 @@ module.exports = P.tema({
   saberes: "Vocabulari: sinònims i antònims; tria del sinònim segons el context; polisèmia; formació d'antònims amb prefixos in-, im-, i-, des-, a-; parelles de contraris; ús del diccionari; castellanismes freqüents",
   ideas: ["Dòmino d'antònims i memory de sinònims.", "Mural de paraules comodí amb alternatives més precises.", "Caçadors de castellanismes: punt per cada paraula catalana trobada."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+module.exports.bloques.find((b) => /Paraules catalanes en lloc de castellanismes/.test(b.html)).svg = H6.dos("Millor així", ["NO", ["bueno", "vale", "tenir que"], cRO], ["SÍ", ["bé, doncs", "d'acord", "haver de"], cVE]);
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Reconèixer paraules polisèmiques", "Distingir paraules homòfones com a/ha, o/ho, i/hi", "Entendre i fer servir frases fetes", "Conèixer refranys catalans i el seu significat"],
+  lectura: { titulo: "L'àvia de les dites", html: `<p>L'àvia Remei sempre parlava amb <b>frases fetes</b> i <b>refranys</b>. Al principi, la seva néta Abril no l'entenia gaire.</p><p>—Avui <b>plou a bots i barrals</b> —va dir l'àvia un matí, mirant per la finestra.</p><p>L'Abril va treure el cap, buscant bots i barrals que caiguessin del cel. Només hi va veure una pluja molt forta.</p><p>—Vol dir que plou moltíssim —li va explicar l'àvia, rient—. Va, posa't les botes, que <b>qui matina, fa farina</b>.</p><p>De camí a l'escola, l'Abril va relliscar en un bassal i va quedar xopa.</p><p>—Ai, filla, <b>estàs feta una sopa</b>!</p><p>A la tarda, l'Abril li va explicar que s'havia oblidat els deures a casa i que s'havia posat <b>vermella com un tomàquet</b> davant de la mestra.</p><p>—No passa res —va dir l'àvia—. <b>Errar és d'humans.</b> Però la propera vegada, prepara la motxilla abans d'anar a dormir. <b>Més val prevenir que curar.</b></p><p>Aquella nit, l'Abril va obrir una llibreta i va començar a apuntar totes les dites de l'àvia. Al cap d'un mes, ja en tenia més de cinquanta.</p><p>—Ets <b>un tros de pa</b>, àvia —li va dir, abraçant-la.</p><p>I l'àvia, emocionada, va somriure. Per fi, algú havia entès que les paraules poden ser molt més que el que diuen.</p>` },
+  tras: {
+    "Els sinònims": [
+      ["Paraules polisèmiques", `<p>Algunes paraules tenen <mark>més d'un significat</mark>. Es diuen <b>paraules polisèmiques</b>. Per saber quin significat tenen, ens hem de fixar en el <b>context</b>, és a dir, en la resta de la frase.</p><p>Mira aquests exemples:</p><ul><li><b>Banc</b>: <i>M'assec en un <b>banc</b> del parc</i> (seient). <i>La mare va al <b>banc</b> a treure diners</i> (entitat). <i>Hem vist un <b>banc</b> de peixos</i> (grup).</li><li><b>Fulla</b>: <i>La <b>fulla</b> de l'arbre</i>. <i>Una <b>fulla</b> de paper</i>. <i>La <b>fulla</b> del ganivet</i>.</li><li><b>Ratolí</b>: l'animal i l'aparell de l'ordinador.</li><li><b>Coll</b>: part del cos, part d'una ampolla, pas entre muntanyes (<i>el coll de Pal</i>).</li><li><b>Pila</b>: d'una llanterna, de plats apilats o de la cuina per rentar.</li><li><b>Cua</b>: d'un animal, de gent esperant, d'un cometa.</li><li><b>Planta</b>: un vegetal, el pis d'un edifici, la part de sota del peu.</li></ul><p>Al <b>diccionari</b>, els diferents significats d'una paraula polisèmica apareixen <b>numerats</b>: 1, 2, 3… Has de llegir-los tots i triar el que encaixa amb la frase.</p><p>Moltes bromes i endevinalles juguen amb les paraules polisèmiques: <i>Quin és l'animal que té cua però no té pèls? El ratolí de l'ordinador!</i></p>`,
+        H6.rueda("Polisèmia", "BANC", [["seient", cAZ], ["diners", cVE], ["peixos", cNA], ["sorra", cMO]]), ["AL7_XR1zJ3A", "Palabras polisémicas y homófonas", "Happy Learning Español", 827082]],
+    ],
+    "Els antònims": [
+      ["Paraules homòfones", `<p>Les <mark>paraules homòfones</mark> <b>sonen igual</b> però s'escriuen de manera diferent i signifiquen coses diferents. Són una trampa per a l'ortografia! Les més importants són:</p><ul><li><b>a</b> (preposició) / <b>ha</b> (verb haver): <i>Vaig <b>a</b> casa.</i> / <i>La Laia <b>ha</b> menjat.</i> Truc: si pots posar <i>havia</i>, és <b>ha</b>.</li><li><b>o</b> (conjunció) / <b>ho</b> (pronom): <i>Vols pa <b>o</b> galetes?</i> / <i>No <b>ho</b> sé.</i> Truc: <i>ho</i> substitueix <i>això</i>.</li><li><b>i</b> (conjunció) / <b>hi</b> (pronom): <i>Pa <b>i</b> formatge.</i> / <i>A la platja? Sí, <b>hi</b> vaig.</i> Truc: <i>hi</i> vol dir <i>allà</i>.</li><li><b>e</b> (lletra) / <b>he</b> (verb haver): <i>La lletra <b>e</b>.</i> / <i><b>He</b> acabat.</i></li><li><b>en</b> / <b>hem</b>: <i>Viu <b>en</b> un pis.</i> / <i><b>Hem</b> guanyat!</i></li></ul><p>En molts parlars de Catalunya, la <b>b</b> i la <b>v</b> sonen igual, i per això també són homòfones parelles com:</p><ul><li><b>bell</b> (bonic) / <b>vell</b> (gran d'edat).</li><li><b>bena</b> (per a una ferida) / <b>vena</b> (per on va la sang).</li><li><b>bota</b> (calçat) / <b>vota</b> (del verb votar).</li></ul><p>Per encertar-les, pensa sempre en el <b>significat</b> i, si cal, prova els trucs de substitució.</p>`,
+        L6.filas("Homòfones", [["a / ha", "vaig a casa / ha menjat", cAZ], ["o / ho", "pa o galetes / no ho sé", cVE], ["i / hi", "pa i formatge / hi vaig", cNA], ["bell / vell", "bonic / gran", cMO]])],
+    ],
+    "Paraules catalanes en lloc de castellanismes": [
+      ["Les frases fetes", `<p>Les <mark>frases fetes</mark> són grups de paraules que tenen un significat diferent del que diuen les paraules soles. No es poden entendre al peu de la lletra! Cada llengua té les seves, i les del català són molt divertides:</p><ul><li><b>Ploure a bots i barrals</b>: ploure molt fort.</li><li><b>Fer el préssec</b>: fer el ximple o quedar en ridícul.</li><li><b>Tocar el dos</b>: marxar.</li><li><b>Estar fet una sopa</b>: estar xop.</li><li><b>Ser un tros de pa</b>: ser molt bona persona.</li><li><b>Posar-se vermell com un tomàquet</b>: tenir vergonya.</li><li><b>Anar de bòlit</b>: anar molt atrafegat.</li><li><b>Tenir la mà trencada</b>: tenir molta pràctica en alguna cosa.</li><li><b>Fer-se un embolic</b>: confondre's.</li><li><b>Ficar-se en un bon embolic</b>: tenir problemes.</li><li><b>Estar com un llum</b>: estar una mica boig.</li><li><b>Fer volar coloms</b>: imaginar coses impossibles.</li></ul><p>Compte a l'hora de traduir les frases fetes del castellà! Moltes no es diuen igual:</p><ul><li><i>Tomar el pelo</i> → <b>prendre el pèl</b>.</li><li><i>Estar en las nubes</i> → <b>estar als núvols</b>.</li><li><i>Ser pan comido</i> → <b>ser bufar i fer ampolles</b>.</li><li><i>Meter la pata</i> → <b>ficar la pota</b>.</li></ul><p>Fer servir frases fetes fa que el nostre català sigui més viu i més ric.</p>`,
+        L6.filas("Frases fetes", [["bots i barrals", "ploure molt", cAZ], ["fer el préssec", "fer el ximple", cVE], ["tocar el dos", "marxar", cNA], ["tros de pa", "molt bona persona", cMO]])],
+    ],
+  },
+  final: [
+    ["Els refranys", `<p>Els <mark>refranys</mark> són frases curtes, que sovint <b>rimen</b>, i que contenen un <b>consell</b> o una <b>lliçó</b> de la saviesa popular. Han passat de pares a fills durant segles!</p><p>Alguns refranys molt coneguts:</p><ul><li><b>Qui matina, fa farina</b>: qui es lleva d'hora aprofita el dia.</li><li><b>Més val prevenir que curar</b>: és millor evitar un problema que haver-lo d'arreglar.</li><li><b>A poc a poc s'hi va lluny</b>: amb paciència s'aconsegueixen les coses.</li><li><b>Qui no s'arrisca, no pisca</b>: per aconseguir coses, s'ha de provar.</li><li><b>Més val ocell en mà que cent volant</b>: és millor tenir una cosa segura que moltes de possibles.</li><li><b>Cada ovella amb la seva parella</b>: cadascú va amb qui s'assembla.</li><li><b>Qui no té feina, el gat pentina</b>: qui no fa res, acaba fent coses inútils.</li></ul><p>També hi ha refranys sobre el <b>temps</b> i el <b>calendari</b>:</p><ul><li><b>Al març, la primavera surt del jaç.</b></li><li><b>Per Sant Martí, mata el porc i enceta el vi.</b></li><li><b>Cel rogent, pluja o vent.</b></li></ul><p>Pregunta als teus avis quins refranys coneixen. Segur que en saben molts!</p>`,
+      H6.flujo("Un refrany", ["frase|curta", "sovint|rima", "dona un|consell", "saviesa|popular"], cVE), ["D1SL5q8QGIc", "8 refranys en català que et sorprendran", "Lletraferint", 8275]],
+    ["El camp semàntic", `<p>Un <mark>camp semàntic</mark> és un grup de paraules que tenen relació amb un <b>mateix tema</b>. No cal que s'assemblin ni que comparteixin l'arrel: només cal que parlin del mateix.</p><p>Per exemple, al camp semàntic de l'<b>escola</b> hi trobem: <i>mestra, alumne, pissarra, llapis, llibreta, pati, classe, deures, examen, motxilla</i>.</p><p>Al camp semàntic del <b>mar</b>: <i>onada, platja, sorra, peix, vaixell, port, mariner, sal, gavina, petxina</i>.</p><p>Al camp semàntic dels <b>colors</b>: <i>vermell, groc, blau, verd, lila, taronja, marró, rosa</i>.</p><p>No l'has de confondre amb la <b>família de paraules</b>, que són paraules que comparteixen la mateixa <b>arrel</b>: <i>mar, mariner, marítim, marina</i>. Fixa't: <i>mariner</i> és alhora de la família de <i>mar</i> i del seu camp semàntic, però <i>gavina</i> només és del camp semàntic.</p><p>Els camps semàntics són molt útils per:</p><ul><li><b>Escriure</b>: abans de fer una redacció, fes una llista de paraules del tema. Així no et quedaràs en blanc.</li><li><b>Aprendre vocabulari</b>: és més fàcil recordar paraules agrupades.</li><li><b>Trobar sinònims</b> i evitar repeticions.</li></ul><p>Repte: en un minut, quantes paraules pots escriure del camp semàntic de la <b>cuina</b>?</p>`,
+      H6.dos("No confonguis", ["CAMP", ["mar, gavina", "sorra, onada", "mateix tema"], cAZ], ["FAMÍLIA", ["mar, mariner", "marítim", "mateixa arrel"], cNA])],
+  ],
+  ejemplos: [
+    ["Completa amb a o ha: «La Marta ___ anat ___ la platja».", ["La primera: es pot dir «havia anat» → ha.", "La segona: preposició → a."], "La Marta ha anat a la platja."],
+    ["Explica què vol dir «tocar el dos».", ["És una frase feta: no es refereix a tocar res.", "Vol dir marxar d'un lloc."], "Marxar."],
+  ],
+  errores: ["Confondre homòfones: «No o sé» en lloc de «No ho sé».", "Traduir literalment frases fetes del castellà: «ser pa menjat»."],
+  ejercicios: [
+    ["b", "Completa amb o / ho: «No ___ entenc».", "Ho."],
+    ["b", "Quins significats té «fulla»?", "D'arbre, de paper, de ganivet."],
+    ["b", "Què vol dir «estar fet una sopa»?", "Estar xop."],
+    ["b", "Escriu cinc paraules del camp semàntic del mar.", "Per exemple: onada, platja, sorra, peix, port."],
+    ["b", "Completa el refrany: «Qui matina, …».", "Fa farina."],
+    ["m", "Completa amb i / hi: «Al parc? Sí, ___ anem amb en Pol ___ la Rut».", "Hi; i."],
+    ["m", "Escriu dues frases amb «banc» amb significats diferents.", "Resposta oberta."],
+    ["m", "Explica el refrany «Més val prevenir que curar».", "És millor evitar un problema."],
+    ["m", "Com es diu en català «tomar el pelo»?", "Prendre el pèl."],
+    ["m", "Separa: mar, gavina, mariner, sorra (família / camp).", "Família: mar, mariner. Camp: gavina, sorra (i les altres)."],
+    ["a", "Escriu un conte breu amb cinc frases fetes.", "Resposta oberta."],
+    ["a", "Recull refranys de casa i explica'n el significat.", "Resposta oberta."],
+    ["a", "Inventa una endevinalla amb una paraula polisèmica.", "Resposta oberta."],
+    ["a", "Fes un mapa de paraules del camp semàntic de la cuina.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["Una paraula polisèmica té…", ["diversos significats", "un sol significat", "dues arrels"], "Polisèmia."],
+    ["«No ___ sé»", ["ho", "o", "hi"], "Homòfones."],
+    ["«Ploure a bots i barrals» vol dir…", ["ploure molt", "no ploure", "fer sol"], "Frases fetes."],
+    ["«Qui matina, fa farina» aconsella…", ["llevar-se d'hora", "fer pa", "anar a dormir"], "Refranys."],
+    ["Gavina és del camp semàntic de…", ["el mar", "l'escola", "els colors"], "Camp semàntic."],
+  ],
+  examen: [
+    ["A la lectura, què li va dir l'àvia quan l'Abril va arribar xopa?", ["Estàs feta una sopa", "Ets un tros de pa", "Qui matina, fa farina"], "Lectura."],
+    ["«La Rut ___ dormit»", ["ha", "a", "hi"], "Homòfones."],
+  ],
+  tarjetas: [
+    ["Polisèmia", "Una paraula, molts significats: banc, fulla, coll."],
+    ["Homòfones", "a/ha, o/ho, i/hi, e/he: sonen igual."],
+    ["Frases fetes", "Ploure a bots i barrals, fer el préssec, tocar el dos."],
+    ["Refranys", "Consells populars: qui matina, fa farina."],
+  ],
+  glosario: [
+    ["Sinònim", "Paraula amb el mateix significat."],
+    ["Antònim", "Paraula amb el significat contrari."],
+    ["Polisèmia", "Quan una paraula té diversos significats."],
+    ["Context", "Resta de la frase que ajuda a entendre."],
+    ["Homòfona", "Paraula que sona igual que una altra."],
+    ["Frase feta", "Expressió amb un significat figurat."],
+    ["Refrany", "Frase popular que dona un consell."],
+    ["Dita", "Frase popular, com un refrany."],
+    ["Camp semàntic", "Paraules d'un mateix tema."],
+    ["Família de paraules", "Paraules amb la mateixa arrel."],
+    ["Castellanisme", "Paraula castellana usada en català."],
+    ["Saviesa popular", "Coneixements que es transmeten de generació en generació."],
+  ],
+  situacion: {
+    titulo: "El llibre de les dites",
+    reto: "La classe recull frases fetes i refranys de les famílies.",
+    pasos: ["Pregunteu a casa quines frases fetes i refranys coneixen.", "Escriviu cada dita amb el seu significat i un exemple.", "Il·lustreu-la de manera literal i figurada.", "Ajunteu-les en un llibre i presenteu-lo a una altra classe."],
+    producto: "Un llibre il·lustrat de dites populars.",
+    evaluacion: ["Explica bé el significat de cada dita.", "Distingeix el sentit literal del figurat.", "Escriu sense errors d'homòfones.", "Presenta el llibre amb cura."],
+  },
+});
