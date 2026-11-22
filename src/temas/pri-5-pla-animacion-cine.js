@@ -93,3 +93,90 @@ module.exports = tema({
   ideas: ["Taller de taumatropos y flipbooks.", "Stop motion en grupos con storyboard previo.", "Visionado de las primeras películas de los Lumière y Méliès."],
   fuentes: [["Filmoteca Española", "https://www.culturaydeporte.gob.es/cultura/areas/cine/mc/fe/portada.html"], ["Institut Lumière (Lyon)", "https://www.institut-lumiere.org/"]],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { L: L5, H: H5, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 75,
+  objetivos: ["Entender qué son los fotogramas por segundo", "Conocer pioneros y películas de la animación española", "Usar ángulos y movimientos de cámara con intención", "Descubrir el sonido y los oficios que hacen posible una película"],
+  lectura: { titulo: "El cine del sábado", html: `<p>Cada sábado por la tarde, el abuelo de Nora la llevaba al cine del barrio. Era una sala antigua, con butacas rojas y un telón que se abría poco a poco antes de empezar la película.</p><p>Un sábado, al terminar, el abuelo se quedó sentado mientras pasaban los créditos.</p><p>—¿Por qué no nos vamos? —preguntó Nora.</p><p>—Porque quiero ver quién ha hecho la película. Mira cuántos nombres.</p><p>Nora empezó a leer: dirección, guion, animación, montaje, música, efectos de sonido, vestuario… La lista no se acababa nunca.</p><p>—Cuando yo era pequeño —contó el abuelo—, pensaba que una película la hacía una sola persona. Pero detrás de cada minuto hay cientos de personas trabajando durante meses. Algunas dibujan, otras graban los pasos de los personajes golpeando zapatos sobre una caja de arena, otras eligen dónde poner la cámara para que sientas miedo o alegría.</p><p>—¿Grabando pasos con zapatos? —se rió Nora.</p><p>—Sí. Y el sonido de un fuego a veces es papel de celofán arrugado.</p><p>Esa noche, Nora no podía dormir. Cogió el móvil de su madre, un muñeco de plastilina y una caja de zapatos, y empezó a planear su propia película. Ya sabía que los créditos iban a ser largos: necesitaría ayuda de toda la familia.</p>` },
+  tras: {
+    "Técnicas de animación": [
+      ["Fotogramas por segundo", `<p>Una película es una sucesión de imágenes fijas llamadas <b>fotogramas</b>. Lo que hace que veamos movimiento es la <b>velocidad</b> a la que pasan. Esa velocidad se mide en <b>fotogramas por segundo</b> (en inglés, <i>fps</i>).</p><ul><li>El cine se proyecta a <b>24 fotogramas por segundo</b>. Una película de hora y media tiene ¡unos 130 000 fotogramas!</li><li>La televisión europea emite a <b>25</b> imágenes por segundo.</li><li>Muchos dibujos animados tradicionales se hacen «<b>a doses</b>»: cada dibujo se repite en dos fotogramas, así que solo hay que dibujar <b>12 imágenes por segundo</b>. Se ahorra la mitad del trabajo y el movimiento sigue siendo fluido.</li><li>En <b>stop motion</b> se suelen hacer entre 12 y 24 fotos por segundo de película.</li></ul><p>Si hay pocos fotogramas por segundo, el movimiento se ve <b>a saltos</b>; si hay muchos, se ve <b>suave</b>. Los videojuegos suelen ir a 30 o 60 imágenes por segundo para que la acción sea muy fluida.</p><p>Haz el cálculo: si quieres hacer un stop motion de 10 segundos a 12 fotos por segundo, necesitas <b>120 fotos</b>. Por eso la animación requiere mucha paciencia.</p>`,
+        H5.barras("Imágenes por segundo", [["a doses", 12, cNA, "12"], ["cine", 24, cAZ, "24"], ["televisión", 25, cVE, "25"], ["videojuegos", 60, cRO, "60"]], 60), ["T1JNWxyA3ss", "ANIMACIONES Fluidas con MENOS Fotogramas?", "Koncepto", 500709]],
+    ],
+    "Nace el cine": [
+      ["Pioneros españoles del cine y la animación", `<p>España también tiene un lugar en la historia del cine y la animación.</p><p><b>Segundo de Chomón</b>, nacido en Teruel en 1871, fue uno de los grandes pioneros de los <b>trucos de cine</b>. Trabajó en Francia e Italia y fue de los primeros en usar la técnica de mover objetos fotograma a fotograma, el antecesor del stop motion. En su película <i>El hotel eléctrico</i>, las maletas se deshacen solas, los zapatos se limpian solos y los peines peinan sin que nadie los toque.</p><p>En 1945 se estrenó <b>Garbancito de la Mancha</b>, considerado el primer largometraje de dibujos animados <b>en color</b> hecho en Europa. Se dibujó a mano en Barcelona.</p><p>Hoy la animación española es reconocida en todo el mundo. <b>Klaus</b> (2019), dirigida por <b>Sergio Pablos</b>, fue nominada al Óscar a la mejor película de animación y ganó muchos premios; combina el dibujo a mano con una iluminación digital que parece pintada.</p><p>También hay muchos estudios que hacen series de dibujos para televisión que se ven en decenas de países. Quizá alguna de tus series favoritas se ha hecho en España sin que lo sepas: mira los créditos.</p>`,
+        L5.filas("Animación española", [["1908", "El hotel eléctrico", cAZ], ["1945", "Garbancito de la Mancha", cNA], ["2019", "Klaus", cRO]]), ["aZFdaqQky2o", "El hotel electrico Segundo de Chomon, 1905", "Nomecuentespeliculas", 142096]],
+    ],
+    "Los planos del cine": [
+      ["Ángulos y movimientos de cámara", `<p>Además del plano (lo cerca o lejos que está la cámara), el director decide el <b>ángulo</b>, es decir, desde qué altura mira la cámara. Cada ángulo transmite una sensación diferente:</p><ul><li><b>Normal</b>: la cámara está a la altura de los ojos. Es neutral, como si mirásemos a alguien de frente.</li><li><b>Picado</b>: la cámara mira desde arriba hacia abajo. El personaje parece <b>pequeño, débil</b> o solo.</li><li><b>Contrapicado</b>: la cámara mira desde abajo hacia arriba. El personaje parece <b>grande, poderoso</b> o amenazante.</li><li><b>Cenital</b>: la cámara está justo encima, mirando hacia el suelo, como un pájaro.</li></ul><p>La cámara también se puede <b>mover</b>:</p><ul><li><b>Panorámica</b>: la cámara gira sobre sí misma, de izquierda a derecha o de arriba abajo, para enseñar un paisaje.</li><li><b>Travelling</b>: la cámara se desplaza, por ejemplo sobre unas vías, siguiendo a un personaje.</li><li><b>Zoom</b>: la cámara no se mueve, pero el objetivo acerca o aleja la imagen.</li></ul><p>Prueba con el móvil: graba a un compañero en picado y en contrapicado y comparad cómo cambia la sensación.</p>`,
+        L5.filas("Ángulos de cámara", [["normal", "neutral", cVE], ["picado", "pequeño, débil", cAZ], ["contrapicado", "grande, poderoso", cRO], ["cenital", "desde arriba", cMO]])],
+    ],
+  },
+  final: [
+    ["El sonido en el cine", `<p>Durante sus primeros treinta años, el cine fue <b>mudo</b>. Pero no silencioso: en las salas un <b>pianista</b> o una pequeña orquesta tocaba en directo, y los diálogos se leían en <b>intertítulos</b>, unos carteles con texto entre escena y escena. En 1927 se estrenó <i>El cantante de jazz</i>, una de las primeras películas con sonido sincronizado.</p><p>Hoy el sonido de una película tiene varias partes:</p><ul><li><b>Diálogos</b>: lo que dicen los personajes. En animación, los graban <b>actores de doblaje</b> antes de animar, para que los animadores ajusten el movimiento de la boca.</li><li><b>Música</b> o <b>banda sonora</b>: crea emoción, suspense o alegría. Muchas veces la reconoces aunque no veas la película.</li><li><b>Efectos de sonido</b>: puertas, pasos, viento, explosiones…</li></ul><p>Los artistas de <b>foley</b> crean efectos de sonido en un estudio con objetos cotidianos, mientras miran la película: unos guantes de cuero agitados suenan como alas de pájaro, el apio partido suena como huesos que crujen y unos cocos huecos imitan los cascos de un caballo.</p><p>Haz la prueba: mira una escena de una película sin sonido y luego con sonido. Verás que el sonido es la mitad de la película.</p>`,
+      L5.filas("Partes del sonido", [["diálogos", "las voces", cAZ], ["música", "la emoción", cVE], ["efectos", "foley y ambiente", cNA]]), ["UO3N_PRIgX0", "La magia de hacer sonido", "Great Big Story", 18514036]],
+    ["Los oficios del cine", `<p>Una película es un trabajo en <b>equipo</b>. Estos son algunos de los oficios que aparecen en los créditos:</p><ul><li><b>Guionista</b>: escribe la historia, los diálogos y lo que pasa en cada escena.</li><li><b>Director o directora</b>: decide cómo se cuenta la historia y coordina a todo el equipo.</li><li><b>Productor o productora</b>: consigue el dinero, organiza el calendario y se ocupa de que todo funcione.</li><li><b>Director de fotografía</b>: decide la luz, los planos y la cámara.</li><li><b>Dirección de arte</b>: diseña los decorados, los objetos y el aspecto visual.</li><li><b>Animadores</b>: dan vida a los personajes fotograma a fotograma.</li><li><b>Montador</b>: elige y ordena los planos para que la historia tenga ritmo.</li><li><b>Compositor</b>: crea la música.</li><li><b>Vestuario, maquillaje y peluquería</b>: transforman a los actores en sus personajes.</li></ul><p>En una película de animación pueden trabajar más de quinientas personas durante varios años.</p><p>Cuando hagáis vuestro propio corto en clase, repartid los oficios: así cada uno aprende una parte y todos juntos consiguen el resultado final.</p>`,
+      H5.rueda("Oficios del cine", "CINE", [["guion", cAZ], ["dirección", cRO], ["cámara", cVE], ["montaje", cNA]])],
+  ],
+  ejemplos: [
+    ["¿Cuántos dibujos necesitas para 5 segundos de animación «a doses»?", ["A doses se dibujan 12 imágenes por segundo.", "12 × 5 = 60."], "60 dibujos."],
+    ["Quieres que un gigante dé miedo. ¿Qué ángulo usarías?", ["Contrapicado: la cámara mira desde abajo.", "El personaje parece más grande y poderoso."], "Un contrapicado."],
+  ],
+  errores: ["Pensar que el cine mudo era silencioso: había música en directo en las salas.", "Confundir el zoom con el travelling: en el zoom la cámara no se mueve."],
+  ejercicios: [
+    ["b", "¿A cuántos fotogramas por segundo se proyecta el cine?", "A 24."],
+    ["b", "¿Qué pionero español hizo «El hotel eléctrico»?", "Segundo de Chomón."],
+    ["b", "¿Qué es un plano picado?", "La cámara mira desde arriba hacia abajo."],
+    ["b", "¿Qué hace un artista de foley?", "Crea efectos de sonido con objetos."],
+    ["b", "¿Quién escribe la historia de una película?", "El guionista."],
+    ["m", "Calcula cuántas fotos necesitas para 8 segundos de stop motion a 12 fotos por segundo.", "96 fotos."],
+    ["m", "Explica la diferencia entre panorámica y travelling.", "En la panorámica la cámara gira sin desplazarse; en el travelling se desplaza."],
+    ["m", "¿Por qué en animación se graban las voces antes de animar?", "Para ajustar el movimiento de la boca a lo que dicen."],
+    ["m", "Propón objetos para hacer el sonido de la lluvia y de unos pasos en la nieve.", "Por ejemplo: arroz cayendo sobre papel; apretar una bolsa de maicena."],
+    ["m", "¿Qué sensación da un personaje filmado en picado?", "Parece pequeño, débil o solo."],
+    ["a", "Graba la misma escena en plano normal, picado y contrapicado y compara.", "Respuesta abierta."],
+    ["a", "Pon efectos de sonido a una escena muda de un minuto.", "Respuesta abierta."],
+    ["a", "Escribe los créditos de un corto de clase repartiendo los oficios.", "Respuesta abierta."],
+    ["a", "Investiga una película de animación española y haz una ficha.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Los dibujos «a doses» usan…", ["12 dibujos por segundo", "24 dibujos por segundo", "60 dibujos por segundo"], "Cada dibujo, dos fotogramas."],
+    ["«Klaus» fue dirigida por…", ["Sergio Pablos", "Segundo de Chomón", "Georges Méliès"], "2019."],
+    ["El contrapicado hace que el personaje parezca…", ["poderoso", "pequeño", "lejano"], "Desde abajo."],
+    ["En el cine mudo, los diálogos se leían en…", ["intertítulos", "subtítulos 3D", "créditos"], "Carteles de texto."],
+    ["Quien ordena los planos y da ritmo es…", ["el montador", "el guionista", "el compositor"], "Montaje."],
+  ],
+  examen: [
+    ["El primer largometraje animado en color de Europa fue…", ["Garbancito de la Mancha", "Klaus", "El hotel eléctrico"], "1945."],
+    ["En el zoom, la cámara…", ["no se mueve", "gira", "se desplaza"], "Cambia el objetivo."],
+  ],
+  tarjetas: [
+    ["Fotogramas por segundo", "Cine 24, TV 25, dibujos a doses 12."],
+    ["Pioneros españoles", "Chomón, Garbancito de la Mancha, Klaus."],
+    ["Ángulos", "Normal, picado, contrapicado, cenital."],
+    ["Sonido", "Diálogos, música y efectos (foley)."],
+  ],
+  glosario: [
+    ["Fotograma", "Cada imagen fija de una película."],
+    ["Fps", "Fotogramas por segundo."],
+    ["A doses", "Técnica en que cada dibujo se repite en dos fotogramas."],
+    ["Largometraje", "Película de más de una hora."],
+    ["Picado", "Ángulo con la cámara mirando desde arriba."],
+    ["Contrapicado", "Ángulo con la cámara mirando desde abajo."],
+    ["Travelling", "Movimiento en que la cámara se desplaza."],
+    ["Panorámica", "Movimiento en que la cámara gira sobre sí misma."],
+    ["Intertítulo", "Cartel con texto en el cine mudo."],
+    ["Foley", "Creación de efectos de sonido con objetos."],
+    ["Doblaje", "Grabación de las voces de los personajes."],
+    ["Montaje", "Selección y orden de los planos de una película."],
+  ],
+  situacion: {
+    titulo: "El estudio de cine de la clase",
+    reto: "La clase funciona como un estudio de cine y produce un corto de stop motion de 30 segundos con sonido y créditos.",
+    pasos: ["Repartid los oficios: guion, dirección, arte, animación, sonido y montaje.", "Escribid el guion y dibujad el storyboard indicando planos y ángulos.", "Animad a 12 fotos por segundo y grabad las voces y los efectos de foley.", "Montad el corto, añadid los créditos y estrenadlo ante otra clase."],
+    producto: "Un corto de stop motion con sonido y créditos.",
+    evaluacion: ["Calcula los fotogramas necesarios.", "Usa ángulos y movimientos con intención.", "Crea efectos de sonido adecuados.", "Cumple su oficio dentro del equipo."],
+  },
+});

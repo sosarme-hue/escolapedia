@@ -93,3 +93,90 @@ module.exports = tema({
   ideas: ["Línea del tiempo del arte en el pasillo con una obra por estilo.", "Visita virtual a un museo y ficha de la obra favorita.", "Recrear una obra famosa con los alumnos como modelos (tableau vivant)."],
   fuentes: [["Museo Nacional del Prado", "https://www.museodelprado.es/"], ["Museo Nacional y Centro de Investigación de Altamira", "https://www.culturaydeporte.gob.es/mnaltamira/home.html"]],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { L: L5, H: H5, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 75,
+  objetivos: ["Conocer el arte rupestre levantino y diferenciarlo del cantábrico", "Reconocer los rasgos del arte islámico en España", "Observar con detalle una obra maestra: Las Meninas", "Descubrir mujeres artistas del pasado y el arte urbano actual"],
+  lectura: { titulo: "Detectives en el museo", html: `<p>La clase de quinto llegó al museo con una misión: no iban a «ver cuadros», iban a resolver misterios.</p><p>La guía les dio a cada grupo una tarjeta con una pregunta. A Marcos y a su equipo les tocó esta: «En un cuadro famoso hay un rey y una reina que no están en la sala, pero aparecen. ¿Dónde?».</p><p>Recorrieron la sala buscando y, al fin, se plantaron delante de un cuadro enorme. Una niña rubia con un vestido muy ancho estaba en el centro, rodeada de damas, una mujer pequeña, un niño que pisaba a un perro y un pintor con un pincel en la mano.</p><p>—¡Es Las Meninas! —dijo Aisha—. El pintor es Velázquez.</p><p>—Pero aquí no hay ningún rey —protestó Marcos.</p><p>Entonces Aisha señaló el fondo de la habitación pintada. Allí, en un pequeño espejo, se veían dos caras borrosas.</p><p>—¡En el espejo! El rey y la reina están donde estamos nosotros, mirando el cuadro.</p><p>La guía sonrió.</p><p>—Exacto. Velázquez juega con nosotros: nos convierte en los reyes. Por eso este cuadro lleva casi cuatrocientos años haciendo pensar a la gente.</p><p>Aquel día, el equipo de Marcos aprendió que un buen observador mira despacio, pregunta y no da nada por supuesto. Como un detective.</p>` },
+  tras: {
+    "El arte prehistórico": [
+      ["El arte rupestre levantino", `<p>Además de las cuevas del norte, como Altamira, en España hay otro tipo de arte prehistórico muy especial: el <b>arte rupestre levantino</b>. Se encuentra en abrigos rocosos, es decir, en paredes de roca protegidas por un saliente, al aire libre, a lo largo de toda la zona mediterránea: Cataluña, Aragón, la Comunidad Valenciana, Murcia, Castilla-La Mancha y Andalucía.</p><p>Sus diferencias con el arte de las cuevas del Cantábrico son claras:</p><ul><li>Aparecen muchas <b>figuras humanas</b>, a menudo muy estilizadas, como palitos alargados.</li><li>Representan <b>escenas</b> con acción: cacerías con arcos y flechas, danzas, recolección de miel o luchas.</li><li>Las figuras son más <b>pequeñas</b> y suelen estar pintadas en un solo color, rojo o negro.</li></ul><p>Algunos conjuntos famosos son el de <b>Cogul</b> (Lleida), con una escena de mujeres que parecen bailar, o los de la <b>Valltorta</b> (Castellón), con escenas de caza de ciervos.</p><p>En 1998, la UNESCO declaró el arte rupestre del arco mediterráneo <b>Patrimonio de la Humanidad</b>. Son más de setecientos lugares que hay que proteger: nunca se deben tocar ni mojar las pinturas.</p>`,
+        H5.dos("Dos artes prehistóricos", ["Cantábrico", ["cuevas", "animales grandes", "varios colores"], cNA], ["Levantino", ["abrigos rocosos", "escenas humanas", "un solo color"], cRO]), ["23EauM-nlYE", "El Misterio de las Rocas: Arte Rupestre Levantino.", "ECOPATRIMONIO, S.L.U", 315511]],
+    ],
+    "Románico y gótico": [
+      ["El arte islámico en España", `<p>Durante casi ochocientos años, en gran parte de la península Ibérica, en <b>al-Ándalus</b>, se desarrolló un arte muy original: el <b>arte islámico</b> o hispanomusulmán.</p><p>Sus rasgos más característicos son:</p><ul><li>El <b>arco de herradura</b>, que se cierra un poco por abajo, como una herradura de caballo. También usaron arcos lobulados, con forma de pétalos.</li><li>La decoración que cubre paredes y techos: <b>geometría</b> (estrellas y polígonos entrelazados), <b>ataurique</b> (hojas y tallos estilizados) y <b>caligrafía</b> (inscripciones en letras árabes).</li><li>Los <b>mocárabes</b>, una decoración de techos y bóvedas formada por pequeños prismas que cuelgan como estalactitas.</li><li>Los materiales humildes, como el <b>yeso</b>, el ladrillo y la cerámica, convertidos en verdaderos encajes.</li><li>El <b>agua</b> y los <b>jardines</b>: fuentes, estanques y acequias que refrescan y reflejan los edificios.</li></ul><p>Los dos monumentos más famosos son la <b>Mezquita de Córdoba</b>, con su bosque de columnas y arcos bicolores rojos y blancos, y la <b>Alhambra</b> de Granada, un palacio con patios como el de los Leones.</p><p>Los patrones geométricos de la Alhambra son tan perfectos que han inspirado a matemáticos y artistas de todo el mundo.</p>`,
+        L5.filas("Rasgos del arte islámico", [["arco", "de herradura", cRO], ["geometría", "estrellas, polígonos", cAZ], ["ataurique", "hojas y tallos", cVE], ["mocárabes", "como estalactitas", cNA], ["agua", "fuentes, jardines", cMO]]), ["1JJqNeSTJJc", "La Alhambra explicada", "Manuel Bravo", 2317361]],
+    ],
+    "El Barroco y el Siglo de Oro": [
+      ["Mirar de cerca: Las Meninas", `<p><b>Las Meninas</b> es una de las pinturas más estudiadas del mundo. La pintó <b>Diego Velázquez</b> en <b>1656</b> y está en el <b>Museo del Prado</b>, en Madrid. Es enorme: mide más de tres metros de alto.</p><p>Observemos qué hay en el cuadro:</p><ul><li>En el centro, la <b>infanta Margarita</b>, hija del rey Felipe IV, con un gran vestido.</li><li>A su lado, dos damas de compañía, llamadas <b>meninas</b>, que dan nombre al cuadro: una le ofrece agua en una pequeña jarra.</li><li>A la izquierda, el propio <b>Velázquez</b>, pintando un lienzo gigante del que solo vemos la parte de atrás.</li><li>A la derecha, una mujer de baja estatura, un niño que pone el pie sobre un <b>perro mastín</b> tumbado y, detrás, otras personas de la corte.</li><li>Al fondo, un hombre en una puerta iluminada y un <b>espejo</b> donde se reflejan el <b>rey Felipe IV</b> y la <b>reina Mariana</b>.</li></ul><p>¿A quién pinta Velázquez? ¿A los reyes, que están donde está el espectador? ¿O a la infanta? Nadie lo sabe con seguridad, y ese misterio es parte de su magia.</p><p>Fíjate también en la <b>luz</b>: entra por la ventana de la derecha e ilumina a la infanta. Y en el <b>aire</b>: Velázquez pintó el espacio entre las figuras de forma que parece que podamos entrar en la habitación.</p>`,
+        L5.filas("Quién es quién", [["centro", "la infanta Margarita", cNA], ["a sus lados", "las meninas", cRO], ["izquierda", "Velázquez pintando", cAZ], ["derecha", "un perro mastín", cVE], ["espejo", "los reyes", cMO]])],
+    ],
+  },
+  final: [
+    ["Mujeres artistas del pasado", `<p>Durante siglos, a las mujeres les resultó muy difícil ser artistas: no podían estudiar en las academias ni firmar encargos importantes. Aun así, algunas lo consiguieron y hoy los museos recuperan su obra.</p><ul><li><b>Sofonisba Anguissola</b> (siglo XVI) fue una pintora italiana del Renacimiento. Fue tan famosa que el rey <b>Felipe II</b> la llamó a la corte española, donde enseñó pintura a la reina y pintó retratos de la familia real.</li><li><b>Artemisia Gentileschi</b> (siglo XVII) fue una gran pintora del Barroco. Pintaba escenas con fuerte contraste de luz y sombra y mujeres valientes de la historia y de la Biblia.</li><li><b>Clara Peeters</b> (siglo XVII), de Flandes, pintaba <b>bodegones</b>: mesas con quesos, pescados, flores y copas brillantes. Se divertía escondiendo su autorretrato reflejado en las copas de metal. En 2016, el Museo del Prado le dedicó la primera exposición de su historia a una pintora.</li><li><b>Rosa Bonheur</b> (siglo XIX), francesa, pintaba animales con gran realismo y fue muy famosa en su época.</li></ul><p>Cuando visites un museo, busca obras de mujeres artistas: verás que hay muchas más de las que imaginas.</p>`,
+      L5.filas("Pintoras del pasado", [["Sofonisba", "Renacimiento, retratos", cAZ], ["Artemisia", "Barroco, luz y sombra", cRO], ["Clara Peeters", "bodegones", cNA], ["Rosa Bonheur", "animales", cVE]]), ["4hxvQMDkifg", "Sofonisba Anguissola | MUJERES Artistas del RENACIMIENTO | cap 6 | La Gata Verde", "La Gata Verde", 64320]],
+    ["El arte sale a la calle", `<p>El arte no solo está en los museos. Hoy muchos artistas trabajan en la calle y en las pantallas.</p><p>El <b>arte urbano</b> incluye los <b>murales</b> que decoran fachadas enteras, las plantillas pintadas con espray, los mosaicos o las instalaciones en plazas y parques. Muchos murales se hacen con permiso de los ayuntamientos y de los vecinos, y cuentan la historia del barrio o tratan temas como la naturaleza o la convivencia. Hay que distinguirlo de las pintadas que estropean paredes sin permiso, que no respetan el espacio de todos.</p><p>Algunos pueblos se han llenado de murales y se han convertido en museos al aire libre que atraen visitantes.</p><p>El <b>arte digital</b> se crea con ordenadores y tabletas: ilustración digital, animación, fotografía editada o instalaciones con luz y proyecciones que cubren edificios enteros (el <i>videomapping</i>). También existen <b>museos virtuales</b>: puedes recorrer el Prado o el Louvre desde casa y ampliar los cuadros hasta ver cada pincelada.</p><p>El arte de hoy demuestra que cualquier lugar puede ser un lienzo y que el arte está vivo y sigue cambiando.</p>`,
+      L5.filas("Arte de hoy", [["mural", "fachadas pintadas", cRO], ["plantilla", "espray y recorte", cMO], ["videomapping", "luz sobre edificios", cAZ], ["museo virtual", "visitas desde casa", cVE]])],
+  ],
+  ejemplos: [
+    ["Observas una pintura prehistórica con muchas figuras humanas pequeñas cazando ciervos con arcos, en una roca al aire libre. ¿De qué tipo es?", ["Figuras humanas y escenas: levantino.", "Al aire libre, en un abrigo rocoso."], "Arte rupestre levantino."],
+    ["¿Cómo reconoces un edificio del arte islámico?", ["Busca el arco de herradura.", "Fíjate en la decoración geométrica, vegetal y de letras."], "Por el arco de herradura y la decoración de yeso con geometría, ataurique y caligrafía."],
+  ],
+  errores: ["Pensar que todo el arte prehistórico está en cuevas: el levantino está en abrigos al aire libre.", "Creer que no hubo mujeres artistas antes del siglo XX: las hubo, aunque se las conoció menos."],
+  ejercicios: [
+    ["b", "¿Qué se representa sobre todo en el arte levantino?", "Escenas con figuras humanas: caza, danza, recolección."],
+    ["b", "¿Cómo se llama el arco típico del arte islámico?", "Arco de herradura."],
+    ["b", "¿Quién pintó Las Meninas y en qué año?", "Diego Velázquez, en 1656."],
+    ["b", "¿Dónde aparecen los reyes en Las Meninas?", "En el espejo del fondo."],
+    ["b", "¿Qué pintaba Clara Peeters?", "Bodegones."],
+    ["m", "Explica tres diferencias entre el arte cantábrico y el levantino.", "Lugar (cuevas o abrigos), tema (animales o escenas humanas) y color (varios o uno)."],
+    ["m", "¿Qué son los mocárabes?", "Decoración de techos con prismas que cuelgan como estalactitas."],
+    ["m", "¿Por qué Sofonisba Anguissola vino a España?", "La llamó Felipe II a la corte."],
+    ["m", "¿Qué diferencia hay entre un mural autorizado y una pintada?", "El mural tiene permiso y respeta el espacio común; la pintada no."],
+    ["m", "¿De dónde entra la luz en Las Meninas?", "Por la ventana de la derecha."],
+    ["a", "Dibuja una escena de tu vida al estilo levantino, con figuras de palitos en rojo.", "Respuesta abierta."],
+    ["a", "Diseña un azulejo con un patrón geométrico de estrellas como en la Alhambra.", "Respuesta abierta."],
+    ["a", "Crea tu versión de Las Meninas con tu familia o tu clase.", "Respuesta abierta."],
+    ["a", "Diseña un mural para un muro de tu colegio sobre la convivencia.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El arte levantino se pinta en…", ["abrigos rocosos", "cuevas profundas", "lienzos"], "Al aire libre."],
+    ["La decoración de hojas y tallos se llama…", ["ataurique", "mocárabe", "trencadís"], "Arte islámico."],
+    ["Las Meninas está en el…", ["Museo del Prado", "Louvre", "Museo Picasso"], "Madrid."],
+    ["Artemisia Gentileschi fue una pintora del…", ["Barroco", "Románico", "Impresionismo"], "Siglo XVII."],
+    ["Proyectar luz e imágenes sobre un edificio es…", ["videomapping", "frottage", "collage"], "Arte digital."],
+  ],
+  examen: [
+    ["El arte rupestre del arco mediterráneo es Patrimonio de la Humanidad desde…", ["1998", "1898", "2018"], "UNESCO."],
+    ["El patio más famoso de la Alhambra es el de…", ["los Leones", "los Naranjos", "las Muñecas"], "Granada."],
+  ],
+  tarjetas: [
+    ["Arte levantino", "Abrigos al aire libre, escenas humanas, un color."],
+    ["Arte islámico", "Arco de herradura, geometría, ataurique, mocárabes."],
+    ["Las Meninas", "Velázquez, 1656; la infanta, el pintor y los reyes en el espejo."],
+    ["Pintoras", "Sofonisba, Artemisia, Clara Peeters, Rosa Bonheur."],
+  ],
+  glosario: [
+    ["Abrigo rocoso", "Pared de roca protegida por un saliente."],
+    ["Estilizado", "Simplificado y alargado."],
+    ["Al-Ándalus", "Territorio de la península bajo dominio musulmán."],
+    ["Arco de herradura", "Arco que se cierra por abajo como una herradura."],
+    ["Ataurique", "Decoración islámica de hojas y tallos."],
+    ["Mocárabe", "Decoración de prismas colgantes en techos."],
+    ["Infanta", "Hija de un rey que no es la heredera."],
+    ["Menina", "Dama joven que acompañaba a los infantes."],
+    ["Bodegón", "Pintura de objetos y alimentos."],
+    ["Mural", "Pintura de gran tamaño sobre una pared."],
+    ["Videomapping", "Proyección de luz e imágenes sobre edificios."],
+    ["Museo virtual", "Museo que se visita por internet."],
+  ],
+  situacion: {
+    titulo: "Detectives del arte",
+    reto: "Cada grupo prepara una «misión detective» sobre una obra de arte para que otro grupo la resuelva observando con atención.",
+    pasos: ["Elegid una obra: una pintura levantina, la Alhambra, Las Meninas, un bodegón de Clara Peeters o un mural actual.", "Escribid cinco preguntas que solo se respondan mirando con atención.", "Intercambiad las misiones y resolvedlas con imágenes ampliadas o en un museo virtual.", "Presentad la obra a la clase con su época, su autor y su detalle más sorprendente."],
+    producto: "Una tarjeta de misión detective y una presentación de una obra.",
+    evaluacion: ["Diferencia el arte levantino del cantábrico.", "Reconoce los rasgos del arte islámico.", "Observa y describe una obra con detalle.", "Valora a las mujeres artistas y el arte actual."],
+  },
+});

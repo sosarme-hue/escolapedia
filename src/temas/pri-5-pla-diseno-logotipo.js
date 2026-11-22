@@ -93,3 +93,90 @@ module.exports = tema({
   ideas: ["Concurso de logotipos para la clase o la biblioteca escolar.", "Caza de pictogramas por el colegio.", "Ejercicio de simplificar un objeto en cuatro pasos."],
   fuentes: [["Museo del Diseño de Barcelona", "https://ajuntament.barcelona.cat/dissenyhub/es"], ["Pictogramas ARASAAC", "https://arasaac.org/"]],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { L: L5, H: H5, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 75,
+  objetivos: ["Diseñar pictogramas claros que se entiendan sin palabras", "Componer un cartel con jerarquía visual", "Analizar envases y pensar en un diseño sostenible", "Conocer diseñadores españoles y sus obras más conocidas"],
+  lectura: { titulo: "Perdidos en el aeropuerto", html: `<p>Era la primera vez que Leo viajaba en avión. Con su madre, aterrizaron en un aeropuerto de un país lejano, donde todos los carteles estaban escritos en un alfabeto que no conocían.</p><p>—¿Y ahora qué hacemos? —preguntó Leo, un poco asustado—. No entiendo nada.</p><p>Su madre señaló hacia arriba.</p><p>—Mira los dibujos.</p><p>Leo miró. Había un muñequito con una maleta y una flecha: «recogida de equipajes». Un autobús: la parada para ir a la ciudad. Un tenedor y un cuchillo cruzados: un restaurante. Una figura de hombre y otra de mujer: los aseos. Y un hombrecillo verde corriendo hacia una puerta: la salida.</p><p>—¡Lo entiendo todo! —exclamó Leo.</p><p>Siguiendo los dibujos, recogieron las maletas y encontraron el autobús sin preguntar a nadie.</p><p>Por la noche, en el hotel, Leo dibujó en su libreta todos los pictogramas que había visto.</p><p>—Quien los inventó es un genio —dijo.</p><p>—Es un diseñador gráfico —le contestó su madre—. Su trabajo es que cualquier persona del mundo entienda un mensaje sin necesidad de palabras.</p><p>Leo cerró la libreta y decidió que, de mayor, quería hacer ese trabajo.</p>` },
+  tras: {
+    "La marca y su identidad": [
+      ["Pictogramas: comunicar sin palabras", `<p>Un <b>pictograma</b> es un dibujo muy simplificado que comunica un mensaje sin necesidad de palabras. Los vemos en aeropuertos, estaciones, hospitales, carreteras, envases y pantallas.</p><p>Un buen pictograma debe ser:</p><ul><li><b>Sencillo</b>: solo las formas imprescindibles, sin detalles.</li><li><b>Universal</b>: que lo entienda cualquier persona, hable el idioma que hable.</li><li><b>Coherente</b>: todos los pictogramas de un mismo sistema tienen el mismo estilo, el mismo grosor de línea y los mismos colores.</li><li><b>Legible</b>: que se reconozca desde lejos y en tamaño pequeño.</li></ul><p>Los <b>Juegos Olímpicos</b> han sido un gran laboratorio de pictogramas, porque reciben visitantes de todo el mundo. Para los Juegos de <b>Múnich 1972</b>, el diseñador alemán <b>Otl Aicher</b> creó una figura humana hecha con líneas rectas y ángulos que se convirtió en el modelo de muchas señales actuales. Para <b>Barcelona 92</b>, cada deporte tenía un pictograma de trazo pincelado, como el propio logotipo de los Juegos.</p><p>Para diseñar un pictograma, dibuja primero la acción o el objeto, y luego ve quitando detalles hasta que quede lo esencial, como hiciste con el árbol que se simplificaba.</p>`,
+        L5.filas("Pictogramas de aeropuerto", [["maleta", "recogida de equipajes", cAZ], ["autobús", "transporte a la ciudad", cVE], ["tenedor y cuchillo", "restaurante", cNA], ["figura corriendo", "salida", cRO]]), ["-188cpa6ZAc", "Pictogramas | Design Focus", "Olympic Games", 103451]],
+    ],
+    "La tipografía": [
+      ["La composición de un cartel", `<p>Un <b>cartel</b> tiene que captar la atención en pocos segundos, porque la gente pasa por delante caminando. Para conseguirlo, el diseñador organiza los elementos con una <b>jerarquía visual</b>: lo más importante se ve primero.</p><ul><li><b>Título</b>: grande, corto y legible. Es lo primero que se lee.</li><li><b>Imagen</b>: una ilustración o foto potente que resuma el mensaje.</li><li><b>Información</b>: fecha, hora, lugar. Más pequeña, pero clara.</li><li><b>Firma o logotipo</b>: quién organiza, normalmente abajo.</li></ul><p>Algunos trucos de composición:</p><ul><li><b>Contraste de tamaños</b>: si todo es igual de grande, nada destaca.</li><li><b>Espacio en blanco</b>: dejar zonas vacías ayuda a respirar y a leer. Un cartel lleno de cosas cansa.</li><li><b>Alineación</b>: alinear los textos a la izquierda, al centro o a la derecha da orden.</li><li><b>Regla de los tercios</b>: divide el cartel en tres partes iguales en horizontal y en vertical; los puntos donde se cruzan las líneas son buenos lugares para colocar lo importante.</li><li><b>Pocos colores</b>: dos o tres, con buen contraste entre texto y fondo.</li></ul><p>Antes de dar por acabado un cartel, ponlo en la pared y míralo desde cinco metros: ¿se entiende en tres segundos?</p>`,
+        L5.filas("Jerarquía de un cartel", [["1.º", "título grande", cRO], ["2.º", "imagen potente", cAZ], ["3.º", "fecha, hora, lugar", cVE], ["4.º", "logotipo", cNA]]), ["gJhOHTOjGO8", "Qué es y cómo usar la disposición y composición | Conceptos básicos de diseño gráfico", "LearnFree en Español", 212748]],
+    ],
+    "El color y la forma comunican": [
+      ["Iconos y emojis", `<p>Los <b>iconos</b> son pequeños dibujos que representan acciones o programas en las pantallas: la lupa para buscar, la casa para volver al inicio, la papelera para borrar, el engranaje para la configuración. Son pictogramas digitales y siguen las mismas reglas: sencillos, coherentes y reconocibles a tamaño muy pequeño.</p><p>Algunos iconos conservan objetos que casi ya no se usan: el icono de <b>guardar</b> suele ser un disquete, aunque muchos niños nunca han visto uno, y el de <b>llamar</b> es un auricular de teléfono antiguo. Los seguimos entendiendo porque nos hemos acostumbrado a ellos.</p><p>Los <b>emojis</b> son iconos que expresan emociones, objetos y acciones en los mensajes. Los primeros los diseñó en <b>1999</b> el japonés <b>Shigetaka Kurita</b> para los teléfonos móviles de su país: eran 176 dibujos de solo 12 × 12 puntos. Hoy hay miles, y se usan en todo el mundo.</p><p>Fíjate en que el mismo emoji puede verse distinto en cada marca de móvil, porque cada empresa los diseña con su propio estilo.</p><p>Diseñar un icono es un buen ejercicio: dibújalo en una cuadrícula de 12 × 12 cuadros, como Kurita, y comprueba si tus compañeros adivinan qué significa.</p>`,
+        L5.filas("Iconos de pantalla", [["lupa", "buscar", cAZ], ["casa", "inicio", cVE], ["papelera", "borrar", cRO], ["engranaje", "configurar", cMO], ["disquete", "guardar", cNA]]), ["ShafzFYsg3k", "¿Son los emojis el origen de un futuro lenguaje universal? Shigetaka Kurita responde", "El Futuro Es Apasionante de Vodafone", 69534]],
+    ],
+  },
+  final: [
+    ["El diseño de envases", `<p>El <b>envase</b> (en inglés, <i>packaging</i>) es también diseño gráfico. Cuando vas al supermercado, cada caja, botella o bolsa ha sido diseñada para cumplir tres funciones:</p><ul><li><b>Proteger</b> el producto durante el transporte y conservarlo.</li><li><b>Informar</b>: nombre, ingredientes, fecha de caducidad, peso, alérgenos, instrucciones y forma de reciclarlo.</li><li><b>Atraer</b>: colores, forma e imágenes que hacen que el producto destaque en la estantería.</li></ul><p>Los envases generan muchos residuos, así que hoy es muy importante el <b>diseño sostenible</b>:</p><ul><li>Usar <b>menos material</b>: envases más finos y sin capas innecesarias.</li><li>Usar <b>un solo material</b> cuando sea posible, para que se recicle más fácilmente.</li><li>Elegir materiales <b>reciclados</b> o <b>reciclables</b>, como el cartón o el vidrio.</li><li>Diseñar envases <b>reutilizables</b> o recargables.</li><li>Indicar con símbolos claros en qué <b>contenedor</b> va cada parte.</li></ul><p>Haz una investigación en tu cocina: elige tres envases y analiza qué información dan, si atraen la mirada y cuánto material sobra. ¿Cómo los rediseñarías para generar menos basura?</p>`,
+      H5.flujo("Funciones del envase", ["Proteger", "Informar", "Atraer"], cVE), ["XFaXB4nrfGA", "El PACKAGING del futuro | Zoom Net", "RTVE Play", 49635]],
+    ["Diseñadores españoles", `<p>Muchos de los diseños que vemos cada día en España los han creado artistas y diseñadores muy conocidos.</p><ul><li><b>Joan Miró</b>, el pintor, diseñó en <b>1983</b> el <b>sol</b> de colores que se usa para promocionar el turismo de España en todo el mundo. También creó la estrella de una conocida entidad bancaria. Sus símbolos son sencillos y alegres, como sus cuadros.</li><li><b>Javier Mariscal</b> diseñó a <b>Cobi</b>, la mascota de los Juegos Olímpicos de Barcelona 92, un perro de estilo cubista que al principio no gustó a todo el mundo y que acabó siendo muy querido.</li><li><b>Josep Maria Trias</b> diseñó el logotipo de los Juegos de <b>Barcelona 92</b>: una figura humana saltando, hecha con tres trazos de pincel en azul, amarillo y rojo.</li><li><b>Cruz Novillo</b> diseñó muchos logotipos que aún hoy vemos por la calle, como el de Correos, con su corneta.</li></ul><p>Fíjate en que todos estos diseños tienen algo en común: son <b>sencillos</b>, <b>memorables</b> y funcionan tanto en un sello como en un cartel gigante. Son las mismas cualidades que debe tener tu logotipo.</p>`,
+      L5.filas("Diseños españoles", [["Joan Miró", "el sol del turismo", cNA], ["Mariscal", "Cobi, mascota 92", cAZ], ["J. M. Trias", "logo Barcelona 92", cRO], ["Cruz Novillo", "Correos", cVE]]), ["Vyyl2FiSxJk", "El nacimiento de Cobi", "Mariscal Oficial", 37153]],
+  ],
+  ejemplos: [
+    ["Diseña el pictograma de «biblioteca» en tres pasos.", ["Dibuja una persona leyendo un libro.", "Quita detalles: cara, ropa, sombras.", "Deja una figura de líneas sencillas y un libro abierto."], "Una figura esquemática con un libro abierto, en un solo color."],
+    ["Ordena por importancia los elementos de un cartel de la fiesta del cole.", ["Primero, lo que más debe verse.", "Al final, quién organiza."], "Título, imagen, fecha y lugar, logotipo del colegio."],
+  ],
+  errores: ["Llenar un cartel de textos e imágenes sin dejar espacio en blanco: nada destaca.", "Hacer pictogramas con demasiados detalles: de lejos no se entienden."],
+  ejercicios: [
+    ["b", "¿Qué es un pictograma?", "Un dibujo simplificado que comunica sin palabras."],
+    ["b", "¿Quién diseñó los pictogramas de Múnich 1972?", "Otl Aicher."],
+    ["b", "¿Qué es lo primero que se debe leer en un cartel?", "El título."],
+    ["b", "¿Quién inventó los primeros emojis?", "Shigetaka Kurita, en 1999."],
+    ["b", "¿Quién diseñó a Cobi?", "Javier Mariscal."],
+    ["m", "Nombra las tres funciones de un envase.", "Proteger, informar y atraer."],
+    ["m", "Explica la regla de los tercios.", "Dividir en tres partes en horizontal y vertical y colocar lo importante en los cruces."],
+    ["m", "¿Por qué el icono de guardar es un disquete?", "Por costumbre: era el soporte que se usaba cuando se creó."],
+    ["m", "Propón dos mejoras sostenibles para un envase de galletas.", "Por ejemplo: quitar la bandeja de plástico y usar solo cartón reciclado."],
+    ["m", "¿Qué tienen en común el sol de Miró y el logo de Barcelona 92?", "Son sencillos, de colores vivos y con trazo de pincel."],
+    ["a", "Diseña un sistema de cuatro pictogramas para los espacios de tu colegio.", "Respuesta abierta."],
+    ["a", "Diseña el cartel de una actividad escolar aplicando la jerarquía visual.", "Respuesta abierta."],
+    ["a", "Rediseña un envase real para que sea más sostenible y explica los cambios.", "Respuesta abierta."],
+    ["a", "Inventa un emoji nuevo en una cuadrícula de 12 × 12.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Un buen pictograma es…", ["sencillo y universal", "detallado y realista", "con mucho texto"], "Sin palabras."],
+    ["En un cartel, el espacio en blanco…", ["ayuda a leer", "es un error", "sobra siempre"], "Respirar."],
+    ["El engranaje suele significar…", ["configuración", "borrar", "buscar"], "Icono."],
+    ["Una función del envase es…", ["informar", "decorar la cocina", "pesar más"], "Proteger, informar, atraer."],
+    ["El sol del turismo de España lo diseñó…", ["Joan Miró", "Picasso", "Dalí"], "1983."],
+  ],
+  examen: [
+    ["Los primeros emojis tenían…", ["12 × 12 puntos", "100 × 100 puntos", "3 × 3 puntos"], "Kurita."],
+    ["El logo de Barcelona 92 lo diseñó…", ["Josep Maria Trias", "Javier Mariscal", "Otl Aicher"], "Figura saltando."],
+  ],
+  tarjetas: [
+    ["Pictograma", "Sencillo, universal, coherente y legible."],
+    ["Cartel", "Título, imagen, información y logo; espacio en blanco."],
+    ["Envase", "Proteger, informar, atraer; menos material."],
+    ["Diseño español", "Miró (sol), Mariscal (Cobi), Trias (Barcelona 92)."],
+  ],
+  glosario: [
+    ["Pictograma", "Dibujo simplificado que comunica sin palabras."],
+    ["Señalética", "Sistema de señales que orienta en un espacio."],
+    ["Jerarquía visual", "Orden en que se ven los elementos de un diseño."],
+    ["Composición", "Forma de colocar los elementos en un espacio."],
+    ["Espacio en blanco", "Zona vacía que ayuda a leer un diseño."],
+    ["Regla de los tercios", "División en tres partes para colocar lo importante."],
+    ["Icono", "Pequeño dibujo que representa una acción en una pantalla."],
+    ["Emoji", "Icono que expresa emociones en los mensajes."],
+    ["Packaging", "Diseño de envases."],
+    ["Sostenible", "Que reduce el daño al medio ambiente."],
+    ["Mascota", "Personaje que representa un evento o una marca."],
+    ["Memorable", "Fácil de recordar."],
+  ],
+  situacion: {
+    titulo: "La señalética del colegio",
+    reto: "La clase diseña un sistema de pictogramas y carteles para orientar a las familias y a los alumnos nuevos en el colegio.",
+    pasos: ["Haced una lista de los espacios: biblioteca, gimnasio, comedor, aseos, secretaría y patio.", "Diseñad un pictograma para cada uno con el mismo estilo, grosor y colores.", "Componed carteles con pictograma, nombre y flecha aplicando la jerarquía visual.", "Probadlo con alumnos de infantil: ¿encuentran los lugares sin leer?"],
+    producto: "Un sistema de pictogramas y carteles para el colegio.",
+    evaluacion: ["Simplifica las formas hasta lo esencial.", "Mantiene un estilo coherente.", "Compone carteles legibles.", "Comprueba que el diseño se entiende."],
+  },
+});
