@@ -92,3 +92,91 @@ module.exports = tema({
   ideas: ["Producción por parejas de una pieza de 16 compases.", "Paisaje sonoro grabado y editado del colegio.", "Banco de sonidos de clase con licencia libre."],
   fuentes: [["Chrome Music Lab", "https://musiclab.chromeexperiments.com/"], ["Creative Commons: licencias", "https://creativecommons.org/licenses/?lang=es"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer los efectos de sonido más usados en la producción", "Reflexionar sobre la inteligencia artificial en la música", "Descubrir las profesiones del sonido, la música de videojuegos y el foley", "Crear sonidos y efectos con objetos cotidianos"],
+  lectura: { titulo: "Los pasos del dinosaurio", html: `<p>La clase de 6.º B estaba haciendo un cortometraje de animación sobre un dinosaurio que se perdía en una ciudad moderna. Los dibujos estaban terminados, pero el vídeo en silencio parecía muerto.</p><p>—Necesitamos sonido —dijo Aitana—. Pero ¿cómo grabamos los pasos de un dinosaurio?</p><p>El profesor sonrió y sacó una caja llena de objetos: cáscaras de coco, una bolsa de celofán, unos guantes de cuero, un apio y una sandía pequeña.</p><p>—Bienvenidos al foley —dijo—. En el cine, casi todos los ruidos se hacen así.</p><p>Probaron de todo. Los pasos del dinosaurio los consiguieron dejando caer una mochila llena de libros sobre una alfombra y bajando el tono en el ordenador. El crujido de las hojas, arrugando celofán. Cuando el dinosaurio tropezaba con una farola, golpearon una sartén con una cuchara de madera.</p><p>Al final añadieron una música que cambiaba según la escena: misteriosa al principio, rápida en la persecución, tranquila cuando el dinosaurio encontraba a su familia.</p><p>El día del estreno, la clase entera se rió y aplaudió. Nadie se dio cuenta de que el rugido del dinosaurio era, en realidad, Marcos gruñendo dentro de una papelera.</p>` },
+  tras: {
+    "El sonido digital": [
+      ["Efectos de sonido: reverb, eco y más", `<p>En la producción musical, los <mark>efectos</mark> transforman el sonido grabado para darle color, espacio o personalidad. Los más habituales son:</p><ul><li><b>Reverberación</b> (<i>reverb</i>): imita el sonido de un espacio. Con poca reverb parece que cantas en una habitación pequeña; con mucha, en una catedral o en una cueva.</li><li><b>Eco o retardo</b> (<i>delay</i>): repite el sonido unas cuantas veces, cada vez más suave, como el eco de una montaña.</li><li><b>Ecualizador</b>: sube o baja los <b>graves</b>, los <b>medios</b> o los <b>agudos</b>. Es como los controles de «bass» y «treble» de un altavoz. Sirve para que la voz se entienda mejor o para que el bajo no retumbe.</li><li><b>Compresor</b>: reduce la diferencia entre los momentos fuertes y los suaves, para que el volumen sea más uniforme.</li><li><b>Distorsión</b>: ensucia el sonido a propósito; es la que da a la guitarra eléctrica del rock su sonido rasgado.</li><li><b>Corrector de afinación</b> (<i>autotune</i>): ajusta automáticamente las notas desafinadas. Usado de forma exagerada, da a la voz un sonido robótico que muchos artistas buscan a propósito.</li></ul><p>Un consejo de los productores: los efectos son como la sal en la comida. Un poco mejora el plato; demasiado lo estropea.</p>`,
+        L6.filas("Efectos", [["reverb", "espacio", cAZ], ["delay", "eco", cVE], ["ecualizador", "graves y agudos", cNA], ["distorsión", "sonido rasgado", cRO]])],
+    ],
+    "Instrumentos electrónicos y MIDI": [
+      ["Música e inteligencia artificial", `<p>La <mark>inteligencia artificial</mark> (IA) son programas que aprenden a partir de muchísimos ejemplos. En música, ya hay aplicaciones que pueden <b>generar una canción</b> a partir de una frase escrita, <b>separar</b> la voz de los instrumentos de una grabación, sugerir acordes, limpiar ruidos o traducir una melodía tarareada a una partitura.</p><p>Estas herramientas pueden ser muy útiles para aprender, para probar ideas o para ayudar a personas con alguna discapacidad a hacer música. Pero también plantean <b>preguntas importantes</b>:</p><ul><li><b>¿De quién es la canción?</b> La IA aprende escuchando música creada por personas. Muchos artistas piden que se respeten sus derechos y que se les pida permiso.</li><li><b>¿Es real?</b> Hoy se pueden imitar voces de cantantes famosos. Usar la voz de alguien sin su permiso no está bien y puede ser ilegal.</li><li><b>¿Qué aporta la persona?</b> La creatividad, la emoción, la intención y las decisiones siguen siendo humanas.</li></ul><p>Una buena regla para la clase: si usas IA en un trabajo, <b>dilo</b> y explica para qué la has usado. Y no dejes que haga todo por ti: la parte más divertida de la música es crearla tú.</p>`,
+        H6.dos("IA y música", ["PUEDE AYUDAR", ["probar ideas", "separar pistas", "aprender"], cVE], ["CUIDADO CON", ["derechos", "imitar voces", "copiar"], cRO])],
+    ],
+    "Mezclar y exportar": [
+      ["Profesiones del sonido", `<p>Detrás de cada canción, película, videojuego o concierto hay muchas personas que trabajan con el sonido, aunque no salgan en el escenario:</p><ul><li><b>Técnico o técnica de sonido</b>: coloca micrófonos y altavoces y controla la mesa de mezclas en conciertos, teatros y platós de televisión.</li><li><b>Productor o productora musical</b>: ayuda a los artistas a dar forma a sus canciones, decide arreglos, instrumentos y efectos, y dirige la grabación.</li><li><b>Ingeniero de mezcla y de masterización</b>: equilibra las pistas y prepara el resultado final para que suene bien en cualquier aparato.</li><li><b>Diseñador de sonido</b>: crea los sonidos de películas, series, anuncios y videojuegos.</li><li><b>DJ</b>: selecciona y mezcla canciones en directo, enlazándolas sin cortes.</li><li><b>Compositor de bandas sonoras</b>: escribe música para cine, televisión o videojuegos.</li><li><b>Musicoterapeuta</b>: usa la música para ayudar a personas a sentirse mejor.</li></ul><p>Para estas profesiones hacen falta buen oído, conocimientos de música y de tecnología, paciencia y mucho trabajo en equipo. Se pueden estudiar en ciclos de formación profesional, conservatorios y universidades.</p>`,
+        H6.rueda("Trabajar con sonido", "SONIDO", [["técnico", cAZ], ["productor", cVE], ["DJ", cNA], ["diseñador", cMO]])],
+    ],
+  },
+  final: [
+    ["Música para videojuegos", `<p>La música de los videojuegos tiene un reto especial: nadie sabe cuánto tiempo pasará el jugador en cada pantalla. Por eso los compositores crean <mark>música adaptativa</mark> o interactiva, que <b>cambia según lo que ocurre</b> en el juego.</p><ul><li>Se componen <b>bucles</b> que pueden repetirse sin que se note dónde empiezan y acaban.</li><li>La música se divide en <b>capas</b>: si aparece un enemigo, se añade percusión; si la vida del personaje baja, el tempo se acelera; si se entra en una cueva, aparece más reverb.</li><li>Hay <b>temas</b> para cada personaje o lugar, como el leitmotiv del cine.</li><li>Los <b>efectos</b> (saltar, coger una moneda, abrir una puerta) son pequeñas piezas sonoras que deben reconocerse al instante.</li></ul><p>Los primeros videojuegos tenían chips de sonido muy limitados, con solo unas pocas voces a la vez. Ese sonido electrónico tan característico se llama hoy <b>chiptune</b> o música de 8 bits, y muchos músicos lo siguen usando por su encanto.</p><p>Hoy, las bandas sonoras de muchos videojuegos se graban con grandes orquestas y se interpretan en conciertos llenos de público.</p>`,
+      H6.flujo("Música adaptativa", ["explorar|tranquila", "enemigo|+ percusión", "peligro|+ tempo", "victoria|fanfarria"], cAZ), ["AzHsRuGAhx0", "La Importancia de la MÚSICA en los Videojuegos", "Merluso", 867890]],
+    ["El foley: los sonidos del cine", `<p>En una película, muchos sonidos que oímos <b>no se grabaron durante el rodaje</b>: en el plató hay demasiado ruido o el micrófono está lejos. Por eso, después, unos artistas los vuelven a crear en un estudio mientras ven la imagen. Esta técnica se llama <mark>foley</mark>, por <b>Jack Foley</b>, un técnico de los estudios Universal que la desarrolló a finales de los años 20.</p><p>Los artistas de foley usan objetos cotidianos con mucha imaginación:</p><ul><li>Dos mitades de <b>cáscara de coco</b> golpeadas sobre arena o grava: los cascos de un caballo.</li><li><b>Celofán</b> arrugado: el crepitar del fuego.</li><li>Un <b>apio</b> que se parte: un hueso que se rompe.</li><li>Unos <b>guantes de cuero</b> agitados: el aleteo de un pájaro.</li><li><b>Almidón de maíz</b> en una bolsa apretada: pasos sobre la nieve.</li><li>Una <b>sandía</b> o una col golpeada: un golpe en una pelea.</li></ul><p>También graban los <b>pasos</b> de cada personaje con el calzado y el suelo adecuados, el roce de la ropa o el ruido de unas llaves. Si están bien hechos, nadie se da cuenta; si faltan, la película parece extraña y vacía.</p>`,
+      L6.filas("Trucos de foley", [["cocos", "caballo", cNA], ["celofán", "fuego", cRO], ["apio", "hueso roto", cVE], ["guantes", "alas", cAZ]]), ["MIo7P8Mu8Ek", "Así se Hacen estos 10 Sonidos Famosos del Cine", "Drawblogs", 24903377]],
+  ],
+  ejemplos: [
+    ["Grabas tu voz en casa y quieres que suene como en una catedral. ¿Qué efecto usas?", ["Hay que simular un espacio grande.", "Ese efecto es la reverberación."], "Reverb abundante."],
+    ["En un videojuego, al aparecer un enemigo la música añade tambores. ¿Qué tipo de música es?", ["Cambia según la acción.", "Se añaden capas."], "Música adaptativa."],
+  ],
+  errores: ["Pensar que todos los sonidos de una película se graban durante el rodaje.", "Usar la voz de un cantante imitada con IA sin su permiso."],
+  ejercicios: [
+    ["b", "¿Qué hace la reverberación?", "Imita el sonido de un espacio."],
+    ["b", "¿Qué controla un ecualizador?", "Graves, medios y agudos."],
+    ["b", "¿Qué es el foley?", "Crear en estudio los sonidos de una película."],
+    ["b", "¿Qué hace un DJ?", "Selecciona y mezcla canciones en directo."],
+    ["b", "¿Qué es el chiptune?", "Música electrónica de 8 bits de los primeros videojuegos."],
+    ["m", "Explica la diferencia entre reverb y delay.", "La reverb imita un espacio; el delay repite el sonido como un eco."],
+    ["m", "Escribe dos usos útiles y dos riesgos de la IA en la música.", "Probar ideas, separar pistas; derechos de autor, imitar voces."],
+    ["m", "¿Por qué la música de videojuegos usa bucles?", "Porque no se sabe cuánto tiempo pasará el jugador en cada parte."],
+    ["m", "¿Con qué objeto se imitan los cascos de un caballo?", "Con cáscaras de coco."],
+    ["m", "Nombra tres profesiones del sonido.", "Técnico de sonido, productor, diseñador de sonido."],
+    ["a", "Graba tres efectos de foley con objetos de casa para una escena.", "Respuesta abierta."],
+    ["a", "Aplica reverb y delay a una grabación de tu voz y compara.", "Respuesta abierta."],
+    ["a", "Diseña la música adaptativa de un nivel de videojuego inventado.", "Respuesta abierta."],
+    ["a", "Debate en clase: ¿una canción creada con IA es arte?", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El efecto que da el sonido rasgado de la guitarra rock es…", ["la distorsión", "la reverb", "el ecualizador"], "Efectos."],
+    ["Si usas IA en un trabajo, debes…", ["decirlo y explicar para qué", "ocultarlo", "copiar todo"], "IA."],
+    ["El diseñador de sonido…", ["crea sonidos para películas y juegos", "afina pianos", "vende instrumentos"], "Profesiones."],
+    ["La música adaptativa…", ["cambia según lo que pasa en el juego", "siempre es igual", "no tiene ritmo"], "Videojuegos."],
+    ["El celofán arrugado imita…", ["el fuego", "la lluvia", "un caballo"], "Foley."],
+  ],
+  examen: [
+    ["En la lectura, ¿cómo hicieron el rugido del dinosaurio?", ["Marcos gruñendo en una papelera", "con un sintetizador", "golpeando una sartén"], "Lectura."],
+    ["El foley debe su nombre a…", ["Jack Foley", "un instrumento", "una ciudad"], "Foley."],
+  ],
+  tarjetas: [
+    ["Efectos", "Reverb (espacio), delay (eco), ecualizador, compresor, distorsión, autotune."],
+    ["IA y música", "Útil para probar ideas; respeta derechos y voces; dilo si la usas."],
+    ["Videojuegos", "Música adaptativa: bucles y capas; chiptune."],
+    ["Foley", "Sonidos de cine con objetos: cocos, celofán, apio."],
+  ],
+  glosario: [
+    ["Reverberación", "Efecto que imita el sonido de un espacio."],
+    ["Delay", "Efecto que repite el sonido como un eco."],
+    ["Ecualizador", "Control de graves, medios y agudos."],
+    ["Compresor", "Efecto que iguala el volumen."],
+    ["Autotune", "Corrector automático de afinación."],
+    ["Inteligencia artificial", "Programas que aprenden de ejemplos y generan contenidos."],
+    ["Productor musical", "Persona que da forma y dirige la grabación de una canción."],
+    ["Masterización", "Último ajuste del sonido antes de publicar."],
+    ["Música adaptativa", "Música de videojuego que cambia según la acción."],
+    ["Chiptune", "Música electrónica de 8 bits."],
+    ["Foley", "Creación en estudio de los sonidos de una película."],
+    ["Diseño de sonido", "Creación de los sonidos de una obra audiovisual."],
+  ],
+  situacion: {
+    titulo: "Sonorizamos un corto",
+    reto: "La clase pone sonido y música a un cortometraje de animación sin audio.",
+    pasos: ["Ved el corto y haced una lista de todos los sonidos que necesita.", "Cread los efectos con técnicas de foley y grabadlos.", "Componed una música que cambie según las escenas.", "Mezclad, añadid efectos con moderación y exportad el vídeo final."],
+    producto: "Un cortometraje sonorizado con foley y música propia.",
+    evaluacion: ["Graba sonidos con calidad.", "Usa efectos de forma adecuada.", "Crea música que se adapta a la imagen.", "Respeta los derechos de autor y trabaja en equipo."],
+  },
+});

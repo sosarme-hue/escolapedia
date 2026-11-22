@@ -95,3 +95,91 @@ module.exports = tema({
   ideas: ["Círculo cromático con témperas en un plato de cartón.", "Mismo dibujo pintado en gama cálida y en gama fría y comparación.", "Búsqueda de complementarios en carteles, logotipos y cuadros."],
   fuentes: [["Museo Nacional del Prado: educación", "https://www.museodelprado.es/aprende/educacion"], ["Real Academia Española: color", "https://dle.rae.es/color"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Explicar cómo percibe el ojo los colores y qué es el daltonismo", "Experimentar el contraste simultáneo y las imágenes residuales", "Aplicar armonías de color en composiciones propias", "Conocer el origen de los pigmentos y artistas del color"],
+  lectura: { titulo: "El jersey de Leo", html: `<p>Aquella mañana, Leo llegó a clase con un jersey que a todos les hizo gracia: era de un verde chillón y él estaba convencido de que era marrón.</p><p>—¡Es verde! —le dijo Carmen, riéndose.</p><p>—Que no, que es marrón —insistió Leo, muy serio.</p><p>La profesora de Plástica, que escuchaba, se acercó con un libro lleno de círculos hechos con puntitos de colores.</p><p>—Leo, ¿ves algún número dentro de este círculo?</p><p>Leo miró y miró. Solo veía puntos. Carmen, en cambio, vio un 74 enseguida.</p><p>—Puede que tengas daltonismo —le explicó la profesora con calma—. Es muy frecuente, sobre todo en chicos. Tus ojos distinguen los colores de otra manera, y por eso algunos rojos y verdes te parecen parecidos. No es una enfermedad que duela, solo una forma distinta de ver.</p><p>Esa semana, en casa, el oftalmólogo lo confirmó. Leo descubrió que hay aplicaciones que le dicen el nombre de los colores, y que algunos pintores famosos quizá también lo tuvieron.</p><p>En la clase siguiente, la profesora puso etiquetas con el nombre escrito en cada bote de témpera. «Así pintamos todos», dijo. Leo pintó ese día su mejor cuadro.</p>` },
+  tras: {
+    "¿Qué es el color?": [
+      ["El ojo y el color", `<p>En 1666, el científico inglés <b>Isaac Newton</b> hizo pasar un rayo de luz del sol a través de un <b>prisma</b> de cristal y vio que se separaba en los colores del arcoíris. Así demostró que la luz blanca contiene todos los colores.</p><p>Pero el color no está solo en la luz: también depende de nuestros <b>ojos</b> y nuestro <b>cerebro</b>. En el fondo del ojo, la <b>retina</b> tiene dos tipos de células sensibles a la luz:</p><ul><li><b>Los bastones</b>: muy sensibles a la luz débil, pero no distinguen colores. Por eso, al anochecer, todo se ve gris.</li><li><b>Los conos</b>: necesitan más luz y nos permiten ver los colores. Hay <b>tres tipos</b>, más sensibles al rojo, al verde y al azul. El cerebro combina sus señales y fabrica todos los demás colores.</li></ul><p>Cuando uno de los tipos de conos no funciona bien, aparece el <mark>daltonismo</mark>: dificultad para distinguir algunos colores, normalmente rojos y verdes. Afecta a aproximadamente <b>1 de cada 12 chicos</b> y a muy pocas chicas, porque se hereda a través de un gen que va en el cromosoma X. Su nombre viene del científico <b>John Dalton</b>, que lo tenía y lo describió en 1794.</p><p>Muchos animales ven los colores de otra forma: las abejas ven la luz ultravioleta, que nosotros no vemos.</p>`,
+        L6.filas("En la retina", [["bastones", "luz débil, gris", cMO], ["conos", "color", cNA], ["3 tipos de conos", "rojo, verde, azul", cAZ], ["daltonismo", "1 de cada 12 chicos", cRO]]), ["r9IbN14AeqU", "¿Cómo funcionan los ojos?", "DW Español", 174268]],
+    ],
+    "Los colores complementarios": [
+      ["Trucos del ojo: contraste e imágenes residuales", `<p>Un mismo color no siempre parece igual: depende de los colores que tiene alrededor. Es el <mark>contraste simultáneo</mark>. Un cuadrado gris parece más <b>claro</b> sobre un fondo negro y más <b>oscuro</b> sobre un fondo blanco. Un gris rodeado de rojo parece ligeramente verdoso, y rodeado de verde, ligeramente rojizo: el ojo le «añade» el complementario del fondo.</p><p>Otro efecto sorprendente es la <b>imagen residual</b> o posimagen. Haz la prueba:</p><ol><li>Mira fijamente durante unos 30 segundos el centro de un círculo rojo intenso, sin mover los ojos.</li><li>Después mira una hoja en blanco.</li><li>Verás aparecer un círculo de color <b>verde azulado</b>, ¡el complementario!</li></ol><p>Ocurre porque los conos que detectan el rojo se «cansan» y, al mirar el blanco, responden menos que los demás.</p><p>Los artistas conocen bien estos trucos. Los pintores <b>impresionistas</b> colocaban pinceladas de complementarios juntas para que vibraran, y en el <b>op art</b> (arte óptico) del siglo XX, artistas como Victor Vasarely crearon obras que parecen moverse solo con formas y colores.</p>`,
+        H6.dos("El gris engaña", ["SOBRE NEGRO", ["parece claro", "destaca", "brilla"], cMO], ["SOBRE BLANCO", ["parece oscuro", "pesa más", "se apaga"], cAZ])],
+    ],
+    "El color expresa": [
+      ["Armonías de color", `<p>Elegir bien los colores de un dibujo, un cartel o una habitación es como elegir las notas de una melodía: hay combinaciones que «suenan» bien juntas. Se llaman <mark>armonías de color</mark>, y el círculo cromático ayuda a encontrarlas:</p><ul><li><b>Monocromática</b>: un solo color con sus tonos claros y oscuros (por ejemplo, del celeste al azul marino). Transmite calma y unidad.</li><li><b>Análoga</b>: colores vecinos en el círculo (amarillo, amarillo anaranjado y naranja). Es suave y natural, como un atardecer o un bosque en otoño.</li><li><b>Complementaria</b>: dos colores opuestos (azul y naranja). Es llamativa y llena de energía; conviene que uno predomine y el otro sirva de acento.</li><li><b>Tríada</b>: tres colores a la misma distancia en el círculo, formando un triángulo (como los tres primarios). Es alegre y variada.</li></ul><p>Un truco de diseñadores es la <b>regla 60-30-10</b>: un color principal ocupa más o menos el 60 % de la superficie, otro el 30 % y un tercero, el más llamativo, solo el 10 %, como toque final.</p><p>No son leyes obligatorias: muchos artistas rompen las armonías a propósito para inquietar o sorprender.</p>`,
+        H6.rueda("Armonías", "ARMONÍA", [["monocromática", cAZ], ["análoga", cNA], ["complementaria", cRO], ["tríada", cVE]])],
+    ],
+  },
+  final: [
+    ["De dónde salen los colores: los pigmentos", `<p>Los <mark>pigmentos</mark> son los polvos de color que, mezclados con un aglutinante (aceite, agua con goma, huevo…), forman la pintura. Durante miles de años se obtuvieron de la naturaleza, y algunos eran carísimos:</p><ul><li><b>Ocres y tierras</b>: arcillas de color amarillo, rojo o marrón. Son los más antiguos: se usaron en las pinturas de las cuevas de Altamira.</li><li><b>Azul ultramar</b>: se obtenía moliendo <b>lapislázuli</b>, una piedra que venía de Afganistán, «de más allá del mar». Llegó a valer más que el oro, y por eso los pintores lo reservaban para el manto de la Virgen.</li><li><b>Púrpura</b>: se extraía de miles de pequeños caracoles marinos. Era tan cara que en algunas épocas de la antigua Roma solo los emperadores podían vestirla por completo.</li><li><b>Carmín de cochinilla</b>: un rojo intenso hecho con un insecto que vive en los cactus de México. Los españoles lo trajeron de América y se vendió por toda Europa. Hoy aún se usa en alimentos y cosméticos.</li></ul><p>En el siglo XVIII y sobre todo en el XIX, la química empezó a fabricar <b>pigmentos sintéticos</b>, como el azul de Prusia o los colores de anilina. Los colores se hicieron baratos y variados, y los pintores pudieron salir al aire libre con sus tubos de pintura.</p>`,
+      L6.filas("Pigmentos", [["ocre", "arcilla", cNA], ["ultramar", "lapislázuli", cAZ], ["púrpura", "caracoles", cMO], ["carmín", "cochinilla", cRO]]), ["1ZEnAJOXBiY", "Cómo se fabrica el color más caro del mundo | ¡Qué caro!", "Insider Español", 293212]],
+    ["Artistas del color", `<p>Algunos artistas convirtieron el color en el protagonista absoluto de su obra:</p><ul><li><b>Claude Monet</b> y los <b>impresionistas</b> (Francia, siglo XIX) pintaban al aire libre para captar cómo cambia el color de un mismo lugar según la hora y el tiempo. Monet pintó la misma catedral o los mismos almiares muchas veces, con luces distintas.</li><li><b>Henri Matisse</b> y los <b>fauvistas</b> (las «fieras») usaron colores puros y violentos sin preocuparse por imitar la realidad: una cara podía ser verde y un árbol, rojo. Al final de su vida, Matisse creó grandes obras recortando papeles pintados con gouache.</li><li><b>Vasili Kandinsky</b>, pintor ruso, fue uno de los primeros en pintar cuadros <b>abstractos</b>, sin objetos reconocibles. Relacionaba los colores con los sonidos: para él, el amarillo sonaba como una trompeta y el azul profundo, como un órgano.</li><li><b>Sonia Delaunay</b> llenó de círculos de colores cuadros, telas, vestidos e incluso coches.</li></ul><p>En España, <b>Sorolla</b> con la luz y <b>Miró</b> con sus colores primarios también son grandes maestros del color.</p><p>Inspírate en ellos: pinta un mismo paisaje con colores cálidos y luego con fríos, o un retrato con colores «imposibles».</p>`,
+      H6.dos("El color manda", ["IMITAR LA LUZ", ["impresionismo", "Monet", "Sorolla"], cAZ], ["COLOR LIBRE", ["fauvismo", "Matisse", "Kandinsky"], cRO])],
+  ],
+  ejemplos: [
+    ["Miras 30 segundos un círculo rojo y luego una pared blanca. ¿Qué ves?", ["Los conos del rojo se cansan.", "Aparece el complementario."], "Un círculo verde azulado."],
+    ["Un cartel usa naranja, amarillo anaranjado y amarillo. ¿Qué armonía es?", ["Son colores vecinos en el círculo.", "Armonía de vecinos."], "Armonía análoga."],
+  ],
+  errores: ["Pensar que el color está solo en los objetos y no depende de la luz ni del ojo.", "Creer que las personas con daltonismo ven en blanco y negro."],
+  ejercicios: [
+    ["b", "¿Quién descompuso la luz con un prisma?", "Isaac Newton."],
+    ["b", "¿Qué células del ojo ven los colores?", "Los conos."],
+    ["b", "¿Qué es el daltonismo?", "Dificultad para distinguir algunos colores."],
+    ["b", "¿De qué piedra se obtenía el azul ultramar?", "Del lapislázuli."],
+    ["b", "¿Qué es una armonía monocromática?", "Un solo color con sus tonos claros y oscuros."],
+    ["m", "Explica por qué al anochecer vemos todo gris.", "Porque con poca luz trabajan los bastones, que no distinguen colores."],
+    ["m", "¿Qué es el contraste simultáneo?", "El cambio aparente de un color según los colores que lo rodean."],
+    ["m", "Explica la regla 60-30-10.", "Un color al 60 %, otro al 30 % y un acento al 10 %."],
+    ["m", "¿Por qué el ultramar era tan caro?", "Porque se hacía con lapislázuli traído de Afganistán."],
+    ["m", "Compara impresionismo y fauvismo.", "El impresionismo imita la luz real; el fauvismo usa colores puros e irreales."],
+    ["a", "Pinta el mismo paisaje con una armonía análoga y otra complementaria.", "Respuesta abierta."],
+    ["a", "Crea una ilusión de contraste simultáneo con papeles de colores.", "Respuesta abierta."],
+    ["a", "Diseña un cartel accesible para personas con daltonismo.", "Respuesta abierta."],
+    ["a", "Pinta una obra abstracta inspirada en una música, como Kandinsky.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Los conos de la retina son de…", ["tres tipos", "un tipo", "diez tipos"], "Ojo."],
+    ["La imagen residual de un círculo rojo es…", ["verde azulada", "roja", "negra"], "Contraste."],
+    ["La armonía complementaria usa colores…", ["opuestos en el círculo", "vecinos", "de un solo tono"], "Armonías."],
+    ["El carmín de cochinilla procede de…", ["un insecto", "una piedra", "un caracol"], "Pigmentos."],
+    ["Kandinsky relacionaba los colores con…", ["los sonidos", "los números", "los olores"], "Artistas."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué hace la profesora para ayudar a Leo?", ["pone el nombre en los botes de pintura", "le cambia de sitio", "le prohíbe pintar"], "Lectura."],
+    ["El op art crea obras que…", ["parecen moverse", "son de un solo color", "imitan fotografías"], "Contraste."],
+  ],
+  tarjetas: [
+    ["El ojo", "Bastones (luz débil) y conos (color, tres tipos). Daltonismo."],
+    ["Trucos del ojo", "Contraste simultáneo e imagen residual del complementario."],
+    ["Armonías", "Monocromática, análoga, complementaria, tríada; 60-30-10."],
+    ["Pigmentos y artistas", "Ocre, ultramar, púrpura, carmín; Monet, Matisse, Kandinsky."],
+  ],
+  glosario: [
+    ["Prisma", "Pieza de cristal que separa la luz en colores."],
+    ["Retina", "Capa del fondo del ojo sensible a la luz."],
+    ["Cono", "Célula de la retina que distingue los colores."],
+    ["Bastón", "Célula de la retina sensible a la luz débil."],
+    ["Daltonismo", "Dificultad para distinguir ciertos colores."],
+    ["Contraste simultáneo", "Cambio aparente de un color según su entorno."],
+    ["Imagen residual", "Imagen que se ve tras mirar fijamente un color."],
+    ["Armonía de color", "Combinación de colores que funcionan bien juntos."],
+    ["Pigmento", "Polvo de color que da color a la pintura."],
+    ["Aglutinante", "Sustancia que une el pigmento para formar pintura."],
+    ["Fauvismo", "Movimiento que usó colores puros e irreales."],
+    ["Arte abstracto", "Arte que no representa objetos reconocibles."],
+  ],
+  situacion: {
+    titulo: "Laboratorio del color",
+    reto: "La clase investiga el color y monta una exposición interactiva para otros cursos.",
+    pasos: ["Preparad experimentos: prisma, imagen residual y contraste simultáneo.", "Cread láminas con las cuatro armonías de color.", "Investigad un pigmento histórico y un artista del color.", "Montad la exposición con carteles accesibles para personas con daltonismo."],
+    producto: "Una exposición interactiva sobre el color con experimentos y obras.",
+    evaluacion: ["Explica cómo vemos el color.", "Aplica armonías de color.", "Conoce pigmentos y artistas.", "Diseña pensando en la accesibilidad."],
+  },
+});

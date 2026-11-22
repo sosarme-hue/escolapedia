@@ -101,3 +101,91 @@ module.exports = tema({
   ideas: ["Galería de aula «a la manera de…» con fichas técnicas.", "Visita virtual a un museo y búsqueda de obras con pistas.", "Línea del tiempo gigante con los artistas del tema."],
   fuentes: [["Museo Nacional del Prado", "https://www.museodelprado.es/"], ["Museo Nacional Centro de Arte Reina Sofía", "https://www.museoreinasofia.es/"], ["Museo Sorolla", "https://www.cultura.gob.es/msorolla/inicio.html"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer a los pintores del Siglo de Oro además de Velázquez", "Entender la técnica del grabado a partir de la obra de Goya", "Descubrir artistas españoles actuales y los grandes museos", "Valorar el trabajo de conservación y restauración del arte"],
+  lectura: { titulo: "El cuadro que guardaba un secreto", html: `<p>La excursión al museo empezó mal para Mateo: odiaba los cuadros antiguos. «Todos son marrones y aburridos», le decía a todo el mundo.</p><p>Pero la guía los llevó a una sala distinta, sin cuadros en las paredes. Detrás de un cristal, una mujer con bata blanca y una lupa enorme trabajaba con un bastoncillo diminuto sobre un lienzo enorme.</p><p>—Es una restauradora —explicó la guía—. Está quitando un barniz antiguo que se ha vuelto amarillo con los años.</p><p>Mateo se acercó. Donde la restauradora ya había limpiado, el cielo era de un azul brillante; donde no, parecía color sopa.</p><p>—¡Los cuadros no eran marrones! —exclamó.</p><p>La restauradora se giró y sonrió. Les enseñó en una pantalla una foto del cuadro con rayos X. Debajo del retrato se veía otro brazo, en otra posición.</p><p>—El pintor cambió de idea mientras pintaba —dijo—. A esto lo llamamos arrepentimiento. Llevamos meses estudiándolo.</p><p>Mateo se pasó el resto de la visita buscando arrepentimientos en todos los cuadros. Al volver, le dijo a su madre que de mayor quería ser «detective de cuadros».</p>` },
+  tras: {
+    "Diego Velázquez, el pintor de la corte": [
+      ["El Siglo de Oro: El Greco, Zurbarán y Murillo", `<p>Velázquez no estuvo solo. Entre finales del siglo XVI y el siglo XVII, España vivió un <mark>Siglo de Oro</mark> en las artes, con pintores de estilos muy distintos:</p><ul><li><b>El Greco</b> (1541-1614) nació en la isla griega de Creta y por eso le llamaban «el Griego». Se instaló en <b>Toledo</b>, donde pintó figuras muy <b>alargadas</b>, con colores intensos y una luz misteriosa que parece salir de dentro. Su obra más famosa es <i>El entierro del señor de Orgaz</i>, que puede verse todavía en una iglesia toledana.</li><li><b>Francisco de Zurbarán</b> (1598-1664), extremeño, es el pintor de los <b>monjes</b>: los representó con hábitos blancos de pliegues tan reales que parecen de tela. También pintó sencillos <b>bodegones</b> de cacharros y frutas sobre fondo oscuro.</li><li><b>Bartolomé Esteban Murillo</b> (1617-1682), sevillano, es famoso por sus <b>niños de la calle</b>, que comen fruta o juegan con una ternura especial, y por sus dulces imágenes religiosas.</li><li><b>José de Ribera</b>, de Xàtiva, trabajó en Nápoles y usó fuertes contrastes de luz y sombra, el llamado <b>tenebrismo</b>.</li></ul><p>Fue una época en la que la Iglesia y la corte encargaban muchas obras, y los pintores competían por ellas.</p>`,
+        L6.filas("Siglo de Oro", [["El Greco", "figuras alargadas", cMO], ["Zurbarán", "monjes y bodegones", cNA], ["Murillo", "niños, ternura", cAZ], ["Ribera", "tenebrismo", cRO]]), ["UHCb5mnFBEA", "Lunnis de Leyenda - El Greco | Clan TVE", "Clan", 48038]],
+    ],
+    "Francisco de Goya, el pintor que lo vio todo": [
+      ["Goya y el grabado", `<p>Goya no solo pintó cuadros: fue también un gran <mark>grabador</mark>. El <b>grabado</b> es una técnica que permite hacer <b>muchas copias</b> de una misma imagen, llamadas <b>estampas</b>. Así sus ideas podían llegar a mucha más gente que un cuadro único.</p><p>Goya usaba sobre todo el <b>aguafuerte</b>. El proceso es así:</p><ol><li>Se cubre una <b>plancha de cobre</b> con un barniz que el ácido no puede atravesar.</li><li>Con una punta metálica se <b>dibuja</b> rascando el barniz, de modo que el metal queda al descubierto en las líneas.</li><li>Se sumerge la plancha en <b>ácido</b>, que «muerde» el cobre solo donde no hay barniz.</li><li>Se limpia el barniz, se <b>entinta</b> la plancha y se limpia la superficie: la tinta queda solo dentro de las líneas.</li><li>Se coloca encima un papel húmedo y se pasa todo por una prensa llamada <b>tórculo</b>. ¡La imagen sale al revés que en la plancha!</li></ol><p>Para conseguir manchas y grises, Goya combinaba el aguafuerte con la <b>aguatinta</b>, que usa polvo de resina.</p><p>Sus series más famosas son <b>Los Caprichos</b> (1799), en la que criticaba con humor las supersticiones y los defectos de la sociedad, y <b>Los desastres de la guerra</b>, un testimonio terrible de la violencia.</p>`,
+        H6.flujo("El aguafuerte", ["barniz|en cobre", "dibujar|rascando", "ácido|muerde", "entintar|y prensar"], cNA)],
+    ],
+    "Artistas que también cuentan": [
+      ["Artistas españoles de hoy", `<p>El arte español sigue muy vivo. Algunos artistas actuales reconocidos en todo el mundo son:</p><ul><li><b>Antonio López</b> (Tomelloso, 1936): pintor y escultor <b>realista</b>. Pinta del natural con una paciencia enorme; puede pasar años con un mismo cuadro, esperando la luz exacta. Son famosas sus vistas de la Gran Vía de Madrid y sus membrillos.</li><li><b>Cristina Iglesias</b> (San Sebastián, 1956): escultora que crea espacios que parecen vegetales, laberintos y fuentes en los que el agua aparece y desaparece. Hizo las puertas de bronce de la ampliación del Museo del Prado.</li><li><b>Jaume Plensa</b> (Barcelona, 1955): crea grandes cabezas y figuras humanas, algunas hechas con letras de acero entrelazadas o de mármol blanco, que se colocan en plazas de ciudades de todo el mundo.</li><li><b>Okuda San Miguel</b> (Santander, 1980): artista urbano que pinta enormes murales con formas geométricas y colores muy vivos. Transformó una antigua iglesia de Asturias en una pista de patinaje llena de color.</li></ul><p>El arte de hoy no se ve solo en los museos: también en la calle, en las plazas, en internet y en los edificios. Fíjate en las esculturas y murales de tu ciudad: ¿sabes quién los hizo?</p>`,
+        H6.rueda("Arte de hoy", "HOY", [["A. López", cNA], ["C. Iglesias", cVE], ["J. Plensa", cAZ], ["Okuda", cRO]])],
+    ],
+  },
+  final: [
+    ["Los grandes museos de España", `<p>España tiene algunos de los museos más visitados del mundo:</p><ul><li><b>Museo del Prado</b> (Madrid): abrió en 1819 y guarda la mayor colección de Velázquez, Goya y El Greco, además de grandes obras de pintores europeos.</li><li><b>Museo Reina Sofía</b> (Madrid): dedicado al arte de los siglos XX y XXI. Allí está el <i>Guernica</i> de Picasso.</li><li><b>Museo Thyssen-Bornemisza</b> (Madrid): con pintura europea de muchas épocas. Junto al Prado y el Reina Sofía forma el llamado <b>Triángulo del Arte</b>.</li><li><b>Museo Guggenheim</b> (Bilbao): inaugurado en 1997, el propio edificio, del arquitecto Frank Gehry, es una obra de arte, cubierto de placas de <b>titanio</b> que brillan como escamas.</li><li><b>Museos de artistas</b>: el Museo Picasso de Málaga y el de Barcelona, el Teatro-Museo Dalí de Figueres, la Fundació Joan Miró en Barcelona o la casa-museo de Sorolla en Madrid.</li></ul><p>Muchos museos tienen <b>días de entrada gratuita</b>, talleres para familias y webs donde se pueden ver las obras en alta resolución. En el museo, recuerda: no tocar las obras, no usar flash y mantener la distancia, porque los cuadros son frágiles y únicos.</p>`,
+      L6.filas("Museos", [["Prado", "Velázquez, Goya", cAZ], ["Reina Sofía", "Guernica", cRO], ["Guggenheim", "Bilbao, titanio", cVE], ["Dalí", "Figueres", cNA]])],
+    ["Conservar y restaurar el arte", `<p>Las obras de arte envejecen: la luz apaga los colores, la humedad hincha la madera, el polvo y el humo las ensucian, y los barnices antiguos se vuelven amarillos. Para protegerlas trabajan los <mark>conservadores</mark> y <mark>restauradores</mark>.</p><p>La <b>conservación preventiva</b> evita los daños: los museos controlan la <b>luz</b> (por eso algunas salas están en penumbra), la <b>temperatura</b> y la <b>humedad</b>, y prohíben el flash.</p><p>Cuando una obra ya está dañada, se <b>restaura</b>. Antes de tocarla, se estudia con técnicas científicas: los <b>rayos X</b> y la luz <b>infrarroja</b> permiten ver lo que hay debajo de la pintura, como dibujos previos o cambios que hizo el artista, llamados <b>arrepentimientos</b>. Velázquez, por ejemplo, cambiaba a menudo la posición de una pierna o de un brazo mientras pintaba.</p><p>Los restauradores siguen tres reglas:</p><ul><li><b>Mínima intervención</b>: hacer solo lo necesario.</li><li><b>Reversibilidad</b>: usar materiales que se puedan quitar en el futuro.</li><li><b>Respeto al original</b>: no repintar ni «mejorar» la obra. Los retoques se hacen de forma que, de cerca, se distingan.</li></ul><p>Restaurar un cuadro grande puede llevar meses o incluso años.</p>`,
+      H6.flujo("Restaurar", ["estudiar|rayos X", "limpiar|barniz", "consolidar|la pintura", "reintegrar|con respeto"], cMO), ["EXXIwaS9x_E", "Restauración: María Tudor, reina de Inglaterra, segunda mujer de Felipe II, de Antonio Moro", "Museo Nacional del Prado", 279567]],
+  ],
+  ejemplos: [
+    ["Un cuadro tiene figuras muy alargadas, colores intensos y fue pintado en Toledo. ¿De quién puede ser?", ["Figuras alargadas.", "Toledo, siglo XVI."], "De El Greco."],
+    ["¿Por qué una estampa de Goya sale al revés que el dibujo de la plancha?", ["El papel se apoya sobre la plancha.", "Es como un sello."], "Porque se imprime como un espejo."],
+  ],
+  errores: ["Pensar que un grabado es un dibujo único.", "Creer que restaurar es repintar el cuadro para que parezca nuevo."],
+  ejercicios: [
+    ["b", "¿Dónde nació El Greco?", "En Creta."],
+    ["b", "¿Qué pintaba Zurbarán?", "Monjes y bodegones."],
+    ["b", "¿Qué es una estampa?", "Cada copia de un grabado."],
+    ["b", "¿En qué museo está el Guernica?", "En el Museo Reina Sofía."],
+    ["b", "¿Qué es un arrepentimiento en pintura?", "Un cambio que hizo el artista mientras pintaba."],
+    ["m", "Explica los pasos del aguafuerte.", "Barnizar la plancha, dibujar rascando, ácido, entintar y prensar."],
+    ["m", "¿Qué criticaba Goya en Los Caprichos?", "Las supersticiones y los defectos de la sociedad."],
+    ["m", "¿Qué tres museos forman el Triángulo del Arte?", "Prado, Reina Sofía y Thyssen."],
+    ["m", "Nombra las tres reglas de la restauración.", "Mínima intervención, reversibilidad y respeto al original."],
+    ["m", "Compara a Antonio López y Okuda San Miguel.", "López es realista y pinta del natural; Okuda pinta murales geométricos de colores."],
+    ["a", "Haz un grabado sencillo con una bandeja de corcho blanco y témpera.", "Respuesta abierta."],
+    ["a", "Prepara una visita virtual a un museo español y presenta tres obras.", "Respuesta abierta."],
+    ["a", "Investiga un artista de tu comunidad y elabora su ficha.", "Respuesta abierta."],
+    ["a", "Pinta un bodegón con objetos de casa al estilo de Zurbarán.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Murillo es famoso por sus…", ["niños de la calle", "relojes blandos", "monjes"], "Siglo de Oro."],
+    ["La prensa del grabado se llama…", ["tórculo", "paleta", "caballete"], "Grabado."],
+    ["Las puertas de la ampliación del Prado son de…", ["Cristina Iglesias", "Picasso", "Goya"], "Hoy."],
+    ["El Guggenheim de Bilbao está cubierto de…", ["titanio", "cristal", "madera"], "Museos."],
+    ["Los rayos X sirven en restauración para…", ["ver lo que hay debajo de la pintura", "secar el cuadro", "pintar"], "Restauración."],
+  ],
+  examen: [
+    ["En la lectura, ¿por qué los cuadros parecían marrones?", ["por el barniz amarillento", "porque eran así", "por la luz del museo"], "Lectura."],
+    ["El tenebrismo se caracteriza por…", ["fuertes contrastes de luz y sombra", "colores pastel", "formas geométricas"], "Siglo de Oro."],
+  ],
+  tarjetas: [
+    ["Siglo de Oro", "El Greco, Zurbarán, Murillo, Ribera."],
+    ["Grabado", "Aguafuerte y aguatinta; Goya: Caprichos y Desastres."],
+    ["Arte de hoy", "Antonio López, Cristina Iglesias, Jaume Plensa, Okuda."],
+    ["Museos y restauración", "Prado, Reina Sofía, Guggenheim; mínima intervención."],
+  ],
+  glosario: [
+    ["Siglo de Oro", "Época de esplendor del arte y las letras españolas."],
+    ["Bodegón", "Pintura de objetos y alimentos."],
+    ["Tenebrismo", "Estilo con fuertes contrastes de luz y sombra."],
+    ["Grabado", "Técnica para hacer copias de una imagen."],
+    ["Aguafuerte", "Grabado en el que el ácido muerde las líneas de una plancha."],
+    ["Estampa", "Cada copia impresa de un grabado."],
+    ["Tórculo", "Prensa para imprimir grabados."],
+    ["Realismo", "Estilo que representa la realidad con detalle."],
+    ["Arte urbano", "Arte creado en la calle, como los murales."],
+    ["Conservación preventiva", "Medidas para evitar que las obras se dañen."],
+    ["Restauración", "Intervención para reparar una obra dañada."],
+    ["Arrepentimiento", "Cambio hecho por el artista durante la obra."],
+  ],
+  situacion: {
+    titulo: "Nuestro museo de clase",
+    reto: "La clase organiza una exposición de obras propias inspiradas en artistas españoles.",
+    pasos: ["Cada persona elige un artista y estudia su estilo.", "Crea una obra inspirada en él (pintura, grabado o escultura).", "Escribe una cartela con título, técnica y explicación.", "Montad la exposición con normas de visita y haced de guías."],
+    producto: "Una exposición con obras, cartelas y visitas guiadas.",
+    evaluacion: ["Reconoce el estilo de varios artistas.", "Aplica una técnica artística con cuidado.", "Explica su obra con vocabulario adecuado.", "Respeta las normas de conservación y visita."],
+  },
+});
