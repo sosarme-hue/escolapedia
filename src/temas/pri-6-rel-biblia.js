@@ -89,3 +89,91 @@ module.exports = P.tema({
   ideas: ["Construir una «estantería» de la Biblia con cajas de cerillas o tarjetas para cada libro.", "Concurso de búsqueda de citas por equipos.", "Ilustrar una parábola y explicarla al resto de la clase."],
   fuentes: [["Concilio Vaticano II, constitución Dei Verbum", "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651118_dei-verbum_sp.html"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer las grandes traducciones de la Biblia y su llegada a la imprenta", "Identificar personajes importantes del Antiguo Testamento", "Reconocer la huella de la Biblia en la lengua, el arte y la música", "Situar los lugares bíblicos y distinguir los cuatro Evangelios"],
+  lectura: { titulo: "La Biblia de la bisabuela", html: `<p>En casa de los abuelos de Pablo había una Biblia enorme, con tapas de piel gastadas y un cierre de metal. Nadie la abría casi nunca, pero ocupaba un lugar de honor en la estantería del salón.</p><p>Un domingo, Pablo le preguntó a su abuela qué tenía de especial.</p><p>—Era de mi madre —le explicó ella, sacándola con cuidado—. Mira.</p><p>En las primeras páginas, en blanco, había nombres y fechas escritos con distintas letras: nacimientos, bodas, bautizos. El primero era de 1902. El último, con letra de su madre, era el nacimiento de Pablo.</p><p>—Antes, muchas familias usaban la Biblia como libro de familia —dijo la abuela—. Era el libro más importante de la casa, y a veces el único.</p><p>Pablo pasó las páginas. Había ilustraciones antiguas: un arca llena de animales, un joven con una honda frente a un gigante, una ballena enorme.</p><p>—Esto lo conozco —dijo, señalando al gigante—. En clase decimos «es como David contra Goliat» cuando un equipo pequeño gana a uno grande.</p><p>La abuela sonrió.</p><p>—¿Ves? Aunque no lo sepas, la Biblia está en muchas cosas que dices.</p>` },
+  tras: {
+    "Lenguas y materiales": [
+      ["Traducciones e imprenta", `<p>Para que más personas pudieran leer la Biblia, se tradujo muy pronto a otras lenguas:</p><ul><li><b>La Septuaginta</b>: traducción del Antiguo Testamento al <b>griego</b>, hecha en Alejandría (Egipto) a partir del siglo III antes de Cristo para los judíos que ya no hablaban hebreo. Su nombre significa «setenta», por la leyenda de los setenta sabios que la tradujeron.</li><li><b>La Vulgata</b>: traducción al <b>latín</b> realizada por <b>san Jerónimo</b> a finales del siglo IV. Fue la Biblia de la Iglesia occidental durante más de mil años.</li></ul><p>Durante la Edad Media, los monjes copiaban la Biblia a mano en los monasterios. Un solo ejemplar podía llevar años de trabajo. Todo cambió hacia 1455, cuando <b>Johannes Gutenberg</b> imprimió en Maguncia (Alemania) la primera gran obra hecha con su <b>imprenta</b> de tipos móviles: una Biblia en latín. Hoy se conservan unos cincuenta ejemplares.</p><p>En España, el cardenal <b>Cisneros</b> impulsó en Alcalá de Henares la <b>Biblia Políglota Complutense</b> (1514-1517), con el texto en hebreo, arameo, griego y latín. Y en 1569, <b>Casiodoro de Reina</b> publicó la primera traducción completa al castellano, conocida como <b>Biblia del Oso</b> por el dibujo de su portada.</p><p>Hoy la Biblia completa está traducida a más de 700 lenguas: es el libro más traducido de la historia.</p>`,
+        L6.filas("Grandes traducciones", [["Septuaginta", "griego", cAZ], ["Vulgata", "latín, s. IV", cVE], ["Gutenberg", "imprenta, 1455", cNA], ["Biblia del Oso", "castellano, 1569", cRO]]), ["370FyS_f1fI", "La imprenta 📖: El invento de Gutenberg que revolucionó la comunicación - #Historia #Documental", "Bully Magnets - Historia Documental", 133834]],
+    ],
+    "Muchos tipos de textos": [
+      ["Personajes del Antiguo Testamento", `<p>El Antiguo Testamento está lleno de personajes cuyas historias se cuentan desde hace miles de años. Algunos de los más conocidos son:</p><ul><li><b>Abraham</b>: según el Génesis, salió de Ur, en Mesopotamia, confiando en la promesa de Dios de tener una gran descendencia. Judíos, cristianos y musulmanes lo consideran padre en la fe.</li><li><b>Moisés</b>: guio al pueblo de Israel en su salida de la esclavitud de Egipto, el <b>Éxodo</b>. En el monte Sinaí recibió las tablas de los <b>Diez Mandamientos</b>.</li><li><b>David</b>: un joven pastor que, con solo una honda, venció al gigante Goliat. Después fue rey de Israel, y la tradición le atribuye muchos de los <b>salmos</b>.</li><li><b>Salomón</b>: hijo de David, famoso por su sabiduría y por construir el Templo de Jerusalén.</li><li><b>Rut</b>: una mujer extranjera que no abandonó a su suegra viuda. Su historia habla de la lealtad y de la acogida al extranjero.</li><li><b>Jonás</b>: un profeta que intentó huir de la misión que Dios le daba y acabó, según el relato, dentro de un gran pez. Enseña que Dios perdona incluso a los enemigos.</li></ul><p>Muchos de estos relatos combinan recuerdos históricos con un lenguaje simbólico: lo importante es el mensaje que transmiten sobre Dios y sobre las personas.</p>`,
+        L6.filas("Personajes", [["Abraham", "padre en la fe", cNA], ["Moisés", "Éxodo, mandamientos", cAZ], ["David", "pastor y rey", cRO], ["Rut", "lealtad", cVE]])],
+    ],
+    "La Biblia, hoy": [
+      ["La Biblia en la lengua y en el arte", `<p>Aunque no la hayas leído, usas expresiones que vienen de la Biblia:</p><ul><li><b>«Ser más viejo que Matusalén»</b>: según el Génesis, Matusalén vivió 969 años.</li><li><b>«Tener más paciencia que el santo Job»</b>: Job soportó desgracias terribles sin perder la fe.</li><li><b>«Esto es una torre de Babel»</b>: un lugar donde nadie se entiende, como en el relato de la torre en la que los hombres empezaron a hablar lenguas distintas.</li><li><b>«Lavarse las manos»</b>: desentenderse de algo, como hizo Pilato en el juicio a Jesús.</li><li><b>«Ser un buen samaritano»</b>: ayudar a un desconocido.</li><li><b>«David contra Goliat»</b>: el pequeño que vence al grande.</li><li><b>«Vender algo por un plato de lentejas»</b>: cambiar algo valioso por poca cosa, como hizo Esaú con sus derechos de hermano mayor.</li></ul><p>La Biblia también ha inspirado durante siglos a <b>artistas</b>: los frescos de Miguel Ángel en la Capilla Sixtina, las catedrales góticas con sus vidrieras, que eran como una «Biblia para los que no sabían leer», o los cuadros de Velázquez, Murillo y El Greco. En <b>música</b>, obras como <i>El Mesías</i> de Händel, y en el cine, numerosas películas.</p><p>Por eso, conocer la Biblia ayuda a entender buena parte de nuestra cultura, seas creyente o no.</p>`,
+        H6.rueda("Huella bíblica", "BIBLIA", [["lengua", cAZ], ["pintura", cRO], ["música", cVE], ["cine", cNA]])],
+    ],
+  },
+  final: [
+    ["Los cuatro Evangelios: cuatro miradas", `<p>Los cuatro Evangelios cuentan la vida y el mensaje de Jesús, pero cada uno lo hace a su manera, pensando en lectores distintos:</p><ul><li><b>Marcos</b>: el más breve y probablemente el primero en escribirse. Ágil y directo, con muchas acciones de Jesús.</li><li><b>Mateo</b>: escrito para cristianos de origen judío. Insiste en que Jesús cumple las promesas del Antiguo Testamento y recoge el Sermón de la Montaña.</li><li><b>Lucas</b>: escrito para cristianos de otros pueblos. Destaca la misericordia de Dios, la atención a los pobres y a las mujeres, y contiene las parábolas del buen samaritano y del hijo pródigo. Su autor escribió también los Hechos de los Apóstoles.</li><li><b>Juan</b>: el más distinto y reflexivo, con largos discursos de Jesús y un lenguaje muy simbólico (la luz, el pan, el agua viva).</li></ul><p>Mateo, Marcos y Lucas se parecen mucho entre sí y se pueden leer en columnas paralelas, por eso se llaman <mark>sinópticos</mark> («que se ven de un vistazo»).</p><p>En el arte, cada evangelista se representa con un símbolo, el <b>tetramorfos</b>: Mateo, con un hombre o ángel; Marcos, con un león; Lucas, con un toro; y Juan, con un águila. Búscalos en las portadas de las iglesias románicas.</p>`,
+      L6.filas("Tetramorfos", [["Mateo", "hombre o ángel", cAZ], ["Marcos", "león", cNA], ["Lucas", "toro", cRO], ["Juan", "águila", cMO]]), ["Ml9ID4RYfiM", "👼🐂SÍMBOLOS de los 4 EVANGELISTAS y su SIGNIFICADO 🦁🦅 | ICONOGRAFÍA RELIGIOSA", "En bre-ve viaja y aprende", 51811]],
+    ["Un mapa de la Biblia", `<p>Los relatos bíblicos ocurren en lugares reales de Oriente Próximo, que puedes encontrar en un mapa:</p><ul><li><b>Mesopotamia</b>: la tierra entre los ríos Tigris y Éufrates (hoy Irak), de donde, según el Génesis, partió Abraham.</li><li><b>Egipto</b> y el río <b>Nilo</b>: allí vivió esclavizado el pueblo de Israel antes del Éxodo.</li><li>El desierto y el monte <b>Sinaí</b>, donde Moisés recibió la Ley.</li><li><b>Jerusalén</b>: la ciudad santa, con el Templo. Allí murió y resucitó Jesús, según los Evangelios. Es una ciudad sagrada para judíos, cristianos y musulmanes.</li><li><b>Belén</b>: un pueblo a unos diez kilómetros de Jerusalén, donde, según la Biblia, nacieron el rey David y Jesús.</li><li><b>Nazaret</b>, en <b>Galilea</b>: el pueblo donde creció Jesús.</li><li>El <b>lago de Galilea</b> (o de Tiberíades): donde Jesús llamó a sus primeros discípulos, que eran pescadores.</li><li>El río <b>Jordán</b>: donde Jesús fue bautizado. Desemboca en el <b>mar Muerto</b>, el punto más bajo de la tierra firme, a más de 400 metros bajo el nivel del mar. Su agua es tan salada que en ella se flota sin esfuerzo.</li></ul><p>Situar los relatos en el mapa ayuda a entender los viajes, los climas y la vida de aquellas personas.</p>`,
+      H6.flujo("De norte a sur", ["Galilea|Nazaret", "Jordán|bautismo", "Jerusalén|Templo", "Belén|nacimiento"], cVE)],
+  ],
+  ejemplos: [
+    ["Un texto antiguo de la Biblia está en latín y es de finales del siglo IV. ¿Qué traducción puede ser?", ["Latín.", "Siglo IV, san Jerónimo."], "La Vulgata."],
+    ["Un capitel románico muestra un león con alas junto a un libro. ¿Qué evangelista representa?", ["Tetramorfos.", "El león es Marcos."], "San Marcos."],
+  ],
+  errores: ["Pensar que la Biblia se escribió desde el principio en castellano.", "Creer que los cuatro Evangelios son iguales."],
+  ejercicios: [
+    ["b", "¿Quién tradujo la Vulgata?", "San Jerónimo."],
+    ["b", "¿Qué fue lo primero que imprimió Gutenberg con su gran imprenta?", "Una Biblia."],
+    ["b", "¿Quién guio al pueblo en el Éxodo?", "Moisés."],
+    ["b", "¿Qué significa «ser más viejo que Matusalén»?", "Ser muy viejo."],
+    ["b", "¿Qué símbolo representa a san Juan?", "El águila."],
+    ["m", "¿Por qué se llama Biblia del Oso la traducción de Casiodoro de Reina?", "Por el dibujo de un oso en su portada."],
+    ["m", "¿Qué enseña la historia de Rut?", "La lealtad y la acogida al extranjero."],
+    ["m", "Explica qué son los Evangelios sinópticos.", "Mateo, Marcos y Lucas, que se parecen y se pueden comparar en columnas."],
+    ["m", "Escribe tres expresiones de origen bíblico.", "Torre de Babel, lavarse las manos, buen samaritano."],
+    ["m", "¿Por qué se flota en el mar Muerto?", "Porque su agua es muy salada."],
+    ["a", "Dibuja un mapa con los lugares principales de la Biblia.", "Respuesta abierta."],
+    ["a", "Busca un cuadro de tema bíblico en el Prado y explica qué escena muestra.", "Respuesta abierta."],
+    ["a", "Compara cómo cuentan dos Evangelios una misma escena.", "Respuesta abierta."],
+    ["a", "Escribe un cuento actual usando una expresión de origen bíblico.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["La Septuaginta es una traducción al…", ["griego", "latín", "castellano"], "Traducciones."],
+    ["La Políglota Complutense se hizo en…", ["Alcalá de Henares", "Maguncia", "Roma"], "Traducciones."],
+    ["David venció a Goliat con…", ["una honda", "una espada", "un arco"], "Personajes."],
+    ["El Evangelio más breve es el de…", ["Marcos", "Juan", "Lucas"], "Evangelios."],
+    ["Jesús creció en…", ["Nazaret", "Belén", "Egipto"], "Mapa."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué había escrito en las primeras páginas de la Biblia?", ["nombres y fechas de la familia", "un mapa", "recetas"], "Lectura."],
+    ["Las vidrieras góticas eran como una…", ["Biblia para los que no sabían leer", "ventana decorativa sin sentido", "partitura"], "Arte."],
+  ],
+  tarjetas: [
+    ["Traducciones", "Septuaginta (griego), Vulgata (latín), Gutenberg 1455, Biblia del Oso 1569."],
+    ["Personajes", "Abraham, Moisés, David, Salomón, Rut, Jonás."],
+    ["Huella cultural", "Expresiones, Capilla Sixtina, vidrieras, El Mesías."],
+    ["Evangelios y mapa", "Sinópticos y Juan; tetramorfos; Galilea, Jerusalén, Belén."],
+  ],
+  glosario: [
+    ["Septuaginta", "Traducción griega del Antiguo Testamento."],
+    ["Vulgata", "Traducción latina de la Biblia de san Jerónimo."],
+    ["Imprenta", "Máquina para reproducir textos con tipos móviles."],
+    ["Políglota", "Escrito en varias lenguas."],
+    ["Éxodo", "Salida del pueblo de Israel de Egipto."],
+    ["Salmo", "Poema u oración cantada de la Biblia."],
+    ["Profeta", "Persona que habla en nombre de Dios."],
+    ["Sinópticos", "Evangelios de Mateo, Marcos y Lucas."],
+    ["Tetramorfos", "Símbolos de los cuatro evangelistas."],
+    ["Mesopotamia", "Tierra entre los ríos Tigris y Éufrates."],
+    ["Galilea", "Región del norte donde vivió Jesús."],
+    ["Mar Muerto", "Lago muy salado en el punto más bajo de la tierra firme."],
+  ],
+  situacion: {
+    titulo: "La Biblia en nuestra cultura",
+    reto: "La clase prepara una exposición sobre la huella de la Biblia en la lengua, el arte y la historia.",
+    pasos: ["Recoged expresiones de origen bíblico y explicad su significado.", "Buscad obras de arte de tema bíblico en museos y monumentos cercanos.", "Elaborad un mapa de los lugares bíblicos y una línea del tiempo de las traducciones.", "Montad la exposición y presentadla a las familias."],
+    producto: "Una exposición con mapa, línea del tiempo, expresiones y obras de arte.",
+    evaluacion: ["Conoce la historia y las traducciones de la Biblia.", "Identifica personajes y lugares.", "Reconoce la Biblia en la cultura.", "Trabaja con respeto y rigor."],
+  },
+});

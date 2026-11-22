@@ -87,3 +87,91 @@ module.exports = P.tema({
   ideas: ["Caja de signos: objetos (vela, aceite, pan, anillo) para adivinar el sacramento.", "Línea de la vida con los sacramentos en cada etapa.", "Entrevistar a un familiar sobre un sacramento que haya celebrado."],
   fuentes: [["Catecismo de la Iglesia Católica, n. 1113-1134 y 1210-1211", "https://www.vatican.va/archive/catechism_sp/p2s1c1a1_sp.html"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer el año litúrgico, sus tiempos y sus colores", "Identificar las partes de la misa y del templo", "Distinguir tipos de oración", "Comparar los sacramentos en las distintas confesiones cristianas"],
+  lectura: { titulo: "El color de la casulla", html: `<p>Carlos era monaguillo en la parroquia de su barrio desde hacía un año. Un domingo de diciembre, su amiga Paula, que no solía ir a misa, le acompañó.</p><p>Al salir, Paula le hizo una pregunta que llevaba toda la misa pensando:</p><p>—¿Por qué el cura iba vestido de morado? En la boda de mi prima iba de blanco.</p><p>Carlos se rió.</p><p>—Es que estamos en Adviento. El color cambia según el tiempo del año. Morado para prepararse, blanco para las fiestas, rojo para el Espíritu Santo y los mártires y verde para el resto del año.</p><p>—¿Y esa velita encendida que hay al lado de la cajita dorada?</p><p>—Esa cajita es el sagrario. La lámpara está siempre encendida para indicar que ahí se guarda la eucaristía.</p><p>Paula se quedó pensativa.</p><p>—Todo tiene un significado, ¿no?</p><p>—Casi todo —contestó Carlos—. Es como un idioma. Al principio no lo entiendes, pero cuando aprendes las palabras, empiezas a leerlo.</p><p>Paula prometió volver en Navidad para comprobar si el cura cambiaba de color. Y volvió.</p>` },
+  tras: {
+    "El bautismo": [
+      ["El año litúrgico", `<p>Los cristianos organizan el año alrededor de la vida de Jesús. Es el <mark>año litúrgico</mark>, y no empieza el 1 de enero, sino unas cuatro semanas antes de Navidad. Cada tiempo tiene un sentido y un <b>color</b>, que se ve en la ropa del sacerdote y en los adornos del altar:</p><ul><li><b>Adviento</b> (morado): las cuatro semanas de preparación para la Navidad. Se enciende cada domingo una vela de la corona de Adviento.</li><li><b>Navidad</b> (blanco): se celebra el nacimiento de Jesús. Incluye la Epifanía o día de los Reyes Magos, el 6 de enero.</li><li><b>Cuaresma</b> (morado): cuarenta días de preparación para la Pascua, que empiezan el Miércoles de Ceniza. Es un tiempo de conversión, oración y ayuda a los demás.</li><li><b>Semana Santa</b>: recuerda la entrada de Jesús en Jerusalén, la Última Cena, su pasión y muerte.</li><li><b>Pascua</b> (blanco): cincuenta días de alegría por la resurrección. Es el centro de todo el año.</li><li><b>Pentecostés</b> (rojo): cierra la Pascua recordando la venida del Espíritu Santo.</li><li><b>Tiempo ordinario</b> (verde): el resto del año, el más largo, para profundizar en la vida y el mensaje de Jesús.</li></ul><p>La fecha de la Pascua cambia cada año: se celebra el domingo siguiente a la primera luna llena de primavera.</p>`,
+        L6.filas("Colores litúrgicos", [["morado", "Adviento, Cuaresma", cMO], ["blanco", "Navidad, Pascua", cAZ], ["rojo", "Pentecostés, mártires", cRO], ["verde", "tiempo ordinario", cVE]]), ["_-PJTV2rzTk", "¿Sabes cuáles son los colores litúrgicos?", "Caballeros de la Virgen", 61805]],
+    ],
+    "Sacramentos de curación": [
+      ["La oración", `<p>La <mark>oración</mark> es la forma de comunicarse con Dios. Los creyentes dicen que rezar es como hablar con un amigo: se puede hacer con palabras aprendidas o con palabras propias, en voz alta o en silencio, solo o con otros.</p><p>Según lo que se quiera expresar, hay varios tipos de oración:</p><ul><li><b>De alabanza</b>: admirar la grandeza de Dios, por ejemplo al contemplar la naturaleza.</li><li><b>De acción de gracias</b>: dar las gracias por la vida, las personas queridas o algo bueno que ha pasado.</li><li><b>De petición</b>: pedir ayuda para uno mismo o para otros (en este caso se llama de intercesión), como cuando alguien está enfermo.</li><li><b>De perdón</b>: reconocer los propios errores y pedir ayuda para cambiar.</li></ul><p>También hay distintas formas: la <b>oración personal</b>, la <b>oración comunitaria</b> (como la misa), la <b>meditación</b> en silencio a partir de un texto, o la oración con el cuerpo y el canto. Los <b>salmos</b> de la Biblia son oraciones de todo tipo: de alegría, de queja, de miedo o de confianza.</p><p>Muchas religiones rezan: los musulmanes cinco veces al día, los judíos en la sinagoga y en casa, los budistas meditan. Respetar la oración de los demás forma parte de la convivencia.</p>`,
+        H6.rueda("Tipos de oración", "ORACIÓN", [["alabanza", cNA], ["gracias", cVE], ["petición", cAZ], ["perdón", cMO]])],
+    ],
+    "Los sacramentos y la vida": [
+      ["El templo y sus partes", `<p>El <mark>templo</mark> o iglesia es el lugar donde se reúne la comunidad cristiana para celebrar los sacramentos. Sus partes principales tienen un significado:</p><ul><li><b>La nave</b>: el espacio donde se sienta la comunidad. Muchas iglesias antiguas tienen planta de <b>cruz</b>.</li><li><b>El presbiterio</b>: la zona elevada al fondo, donde se celebra.</li><li><b>El altar</b>: la mesa central, donde se celebra la eucaristía. Recuerda la mesa de la Última Cena.</li><li><b>El ambón</b>: el atril desde el que se leen las lecturas de la Biblia.</li><li><b>El sagrario</b>: una caja donde se guarda la eucaristía; a su lado siempre hay una <b>lámpara encendida</b>.</li><li><b>La pila bautismal</b>: donde se celebra el bautismo. En algunas iglesias antiguas había un edificio aparte, el baptisterio.</li><li><b>El confesionario</b>: lugar para el sacramento de la reconciliación.</li><li><b>El retablo</b>: estructura de madera o piedra detrás del altar, con imágenes y escenas; en España hay retablos impresionantes de oro y colores.</li><li><b>El cirio pascual</b>: una gran vela que se enciende en Pascua y en los bautizos.</li></ul><p>Visitar una iglesia de tu localidad es también una forma de conocer su arte y su historia.</p>`,
+        L6.filas("Partes del templo", [["altar", "la mesa", cRO], ["ambón", "lecturas", cAZ], ["sagrario", "eucaristía", cNA], ["pila", "bautismo", cVE]]), ["XycKBuSTT14", "El templo y sus partes", "Amparo Cortes", 198217]],
+    ],
+  },
+  final: [
+    ["La misa paso a paso", `<p>La <mark>eucaristía</mark> o misa es la celebración principal de los católicos, sobre todo el domingo, el día de la resurrección. Tiene cuatro partes:</p><ol><li><b>Ritos iniciales</b>: la comunidad se reúne, se canta, el sacerdote saluda y todos piden perdón por sus faltas. En los días de fiesta se canta el <b>Gloria</b>.</li><li><b>Liturgia de la Palabra</b>: se leen textos de la Biblia desde el ambón. Normalmente, una lectura del Antiguo Testamento, un salmo, una lectura de las cartas de los apóstoles y el <b>Evangelio</b>, que se escucha de pie. Después, el sacerdote lo explica en la <b>homilía</b>. Se recita el Credo y se reza por las necesidades del mundo.</li><li><b>Liturgia eucarística</b>: se presentan el pan y el vino en el altar. El sacerdote repite las palabras de Jesús en la Última Cena: es la <b>consagración</b>. Se reza el Padrenuestro, se da la paz y los fieles reciben la <b>comunión</b>.</li><li><b>Rito de conclusión</b>: el sacerdote bendice a la comunidad y la envía a vivir lo celebrado.</li></ol><p>Cada parte tiene sus gestos: estar de pie (atención, alegría), sentados (escucha), de rodillas (adoración), y su música. Por eso la misa es como un encuentro con dos mesas: la de la Palabra y la del pan.</p>`,
+      H6.flujo("La misa", ["ritos|iniciales", "liturgia|Palabra", "liturgia|eucarística", "rito|conclusión"], cAZ)],
+    ["Sacramentos en otras confesiones cristianas", `<p>El cristianismo se divide en varias <b>confesiones</b> o iglesias, que comparten la fe en Jesús pero se diferencian en algunas creencias y costumbres. También en los sacramentos:</p><ul><li><b>Iglesia católica</b>: siete sacramentos, como has estudiado. Su centro está en Roma, con el papa.</li><li><b>Iglesias ortodoxas</b> (Grecia, Rusia, Rumanía, Serbia…): también tienen siete sacramentos, que llaman <b>misterios</b>. El bautismo suele hacerse sumergiendo tres veces al bebé en el agua y, en la misma celebración, recibe la confirmación (la crismación) y la comunión. Dan mucha importancia a los <b>iconos</b>, imágenes sagradas pintadas sobre madera.</li><li><b>Iglesias protestantes</b> (luteranos, evangélicos, anglicanos y otras), nacidas en el siglo XVI con la Reforma: reconocen sobre todo dos sacramentos, el <b>bautismo</b> y la <b>Santa Cena</b>, porque consideran que son los que Jesús mandó celebrar de forma directa en los Evangelios. Dan gran importancia a la lectura personal de la Biblia.</li></ul><p>A pesar de las diferencias, las iglesias cristianas se reconocen hoy como hermanas y trabajan juntas en el <mark>ecumenismo</mark>, el movimiento que busca la unidad de los cristianos. Cada año, en enero, se celebra la Semana de Oración por la Unidad de los Cristianos.</p>`,
+      H6.dos("Sacramentos", ["SIETE", ["católicos", "ortodoxos", "misterios"], cNA], ["DOS", ["protestantes", "bautismo", "Santa Cena"], cVE])],
+  ],
+  ejemplos: [
+    ["El sacerdote viste de verde en una misa de octubre sin fiesta especial. ¿Qué tiempo litúrgico es?", ["El verde es el tiempo ordinario.", "Octubre no es Adviento ni Cuaresma."], "Tiempo ordinario."],
+    ["En la misa, alguien lee la Biblia desde un atril. ¿Cómo se llama ese lugar y en qué parte estamos?", ["El atril de las lecturas es el ambón.", "Las lecturas son de la liturgia de la Palabra."], "El ambón, en la liturgia de la Palabra."],
+  ],
+  errores: ["Pensar que el año litúrgico empieza el 1 de enero.", "Creer que todas las iglesias cristianas tienen los mismos sacramentos."],
+  ejercicios: [
+    ["b", "¿Con qué tiempo empieza el año litúrgico?", "Con el Adviento."],
+    ["b", "¿De qué color es la Pascua?", "Blanco."],
+    ["b", "¿Qué es el sagrario?", "La caja donde se guarda la eucaristía."],
+    ["b", "Nombra las cuatro partes de la misa.", "Ritos iniciales, liturgia de la Palabra, liturgia eucarística y rito de conclusión."],
+    ["b", "¿Cuántos sacramentos reconocen sobre todo los protestantes?", "Dos."],
+    ["m", "¿Por qué el morado se usa en Adviento y Cuaresma?", "Porque son tiempos de preparación."],
+    ["m", "Escribe un ejemplo de cada tipo de oración.", "Respuesta abierta (alabanza, gracias, petición, perdón)."],
+    ["m", "¿Qué recuerda el altar?", "La mesa de la Última Cena."],
+    ["m", "¿Qué es el ecumenismo?", "El movimiento que busca la unidad de los cristianos."],
+    ["m", "¿Cómo se celebra el bautismo en las iglesias ortodoxas?", "Sumergiendo tres veces al bebé; recibe a la vez crismación y comunión."],
+    ["a", "Elabora un calendario circular del año litúrgico con sus colores.", "Respuesta abierta."],
+    ["a", "Dibuja el plano de una iglesia de tu localidad con sus partes.", "Respuesta abierta."],
+    ["a", "Escribe una oración de acción de gracias propia.", "Respuesta abierta."],
+    ["a", "Investiga cómo celebra la Pascua una iglesia ortodoxa.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Pentecostés se celebra con el color…", ["rojo", "verde", "morado"], "Año litúrgico."],
+    ["La oración por otras personas se llama de…", ["intercesión", "alabanza", "perdón"], "Oración."],
+    ["La gran vela de Pascua es el…", ["cirio pascual", "sagrario", "retablo"], "Templo."],
+    ["La explicación del Evangelio en misa es la…", ["homilía", "consagración", "comunión"], "Misa."],
+    ["Las imágenes sagradas ortodoxas sobre madera son los…", ["iconos", "retablos", "ambones"], "Confesiones."],
+  ],
+  examen: [
+    ["En la lectura, ¿por qué el sacerdote iba de morado?", ["porque era Adviento", "porque era una boda", "porque era Pascua"], "Lectura."],
+    ["La Cuaresma empieza el…", ["Miércoles de Ceniza", "Domingo de Ramos", "día de Navidad"], "Año litúrgico."],
+  ],
+  tarjetas: [
+    ["Año litúrgico", "Adviento, Navidad, Cuaresma, Semana Santa, Pascua, ordinario."],
+    ["Colores", "Morado, blanco, rojo y verde."],
+    ["Templo y misa", "Altar, ambón, sagrario; cuatro partes de la misa."],
+    ["Oración y confesiones", "Alabanza, gracias, petición, perdón; católicos, ortodoxos, protestantes."],
+  ],
+  glosario: [
+    ["Año litúrgico", "Calendario cristiano organizado según la vida de Jesús."],
+    ["Adviento", "Tiempo de preparación para la Navidad."],
+    ["Cuaresma", "Cuarenta días de preparación para la Pascua."],
+    ["Pentecostés", "Fiesta de la venida del Espíritu Santo."],
+    ["Oración", "Comunicación con Dios."],
+    ["Intercesión", "Oración por otras personas."],
+    ["Ambón", "Atril desde donde se leen las lecturas."],
+    ["Sagrario", "Lugar donde se guarda la eucaristía."],
+    ["Homilía", "Explicación de las lecturas en la misa."],
+    ["Consagración", "Momento central de la liturgia eucarística."],
+    ["Icono", "Imagen sagrada pintada en la tradición ortodoxa."],
+    ["Ecumenismo", "Movimiento por la unidad de los cristianos."],
+  ],
+  situacion: {
+    titulo: "Guía de nuestra parroquia",
+    reto: "La clase elabora una guía para visitar un templo cercano y entender sus celebraciones.",
+    pasos: ["Visitad un templo y anotad sus partes y obras de arte.", "Investigad qué tiempo litúrgico se vive y qué color se usa.", "Explicad en la guía las partes de la misa y los sacramentos que allí se celebran.", "Presentad la guía a otra clase y recoged sus preguntas."],
+    producto: "Una guía ilustrada del templo y sus celebraciones.",
+    evaluacion: ["Identifica las partes del templo.", "Conoce el año litúrgico y sus colores.", "Explica las partes de la misa.", "Respeta las distintas confesiones y creencias."],
+  },
+});

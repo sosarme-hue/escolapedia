@@ -89,3 +89,91 @@ module.exports = P.tema({
   ideas: ["Dramatizar la parábola del padre bueno por grupos.", "Mural «Semillas del Reino» con gestos de la clase.", "Reescribir una parábola situándola en nuestro barrio."],
   fuentes: [["Catecismo de la Iglesia Católica, n. 541-556", "https://www.vatican.va/archive/catechism_sp/p1s2c2a3p4_sp.html"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Interpretar la parábola del buen samaritano y aplicarla a la vida", "Descubrir la actitud de Jesús con las personas excluidas", "Conocer el mandamiento del amor y el Padrenuestro", "Valorar a testigos que han trabajado por los demás"],
+  lectura: { titulo: "El chico nuevo", html: `<p>Yusuf llegó al colegio en febrero, a mitad de curso. Venía de otro país, hablaba poco castellano y se sentaba solo en el comedor.</p><p>Durante la primera semana, casi nadie le dirigió la palabra. No es que la clase fuera mala: simplemente, cada uno tenía ya su grupo y sus planes.</p><p>Un día, en el patio, a Yusuf se le cayó la bandeja con toda la comida. Algunos se rieron. Otros miraron hacia otro lado.</p><p>Lucía, que estaba en la cola, dejó su bandeja, se agachó y le ayudó a recoger. Luego fue a la cocina a pedir otro plato para él y se sentó a su lado.</p><p>—¿Juegas al fútbol? —le preguntó, por decir algo.</p><p>Yusuf sonrió por primera vez. Resultó que jugaba muy bien.</p><p>Esa semana, en Religión, leyeron la parábola del buen samaritano. Cuando la profesora preguntó quién era el prójimo, Martín levantó la mano:</p><p>—Creo que es como lo de Lucía con Yusuf. El prójimo no es el que se parece a ti, sino el que necesita que te acerques.</p><p>Nadie dijo nada. Pero al día siguiente, la mesa del comedor de Yusuf estaba llena.</p>` },
+  tras: {
+    "Las parábolas": [
+      ["El buen samaritano", `<p>Un maestro de la Ley le preguntó a Jesús: «¿Y quién es mi prójimo?». Jesús le respondió con una de sus parábolas más conocidas, que recoge el Evangelio de Lucas (Lc 10,25-37). La contamos con nuestras palabras:</p><p>Un hombre bajaba por el camino de Jerusalén a Jericó, un camino peligroso entre montañas. Unos bandidos le asaltaron, le robaron y le dejaron medio muerto. Pasó por allí un <b>sacerdote</b>, lo vio… y siguió de largo por el otro lado. Después pasó un <b>levita</b>, que trabajaba en el Templo, e hizo lo mismo.</p><p>Entonces llegó un <b>samaritano</b>. Los samaritanos y los judíos estaban enemistados desde hacía siglos y casi no se hablaban. Pero este hombre sintió compasión: se acercó, le curó las heridas con aceite y vino, le subió a su cabalgadura, le llevó a una posada y pagó al posadero para que lo cuidara.</p><p>Al terminar, Jesús preguntó: «¿Cuál de los tres se portó como prójimo del herido?». El maestro contestó: «El que tuvo compasión de él». Y Jesús le dijo: «Ve y haz tú lo mismo».</p><p>La parábola cambia la pregunta: no se trata de saber <b>quién</b> merece mi ayuda, sino de <b>hacerme yo prójimo</b> de quien me necesita, sea quien sea.</p>`,
+        H6.flujo("La parábola", ["asaltado|en el camino", "sacerdote|pasa de largo", "levita|pasa de largo", "samaritano|ayuda"], cRO), ["bpkDItcmCl4", "Parábolas de Jesús: El Buen Samaritano.", "Centro Cristiano CS", 2561166]],
+    ],
+    "Los milagros, signos del Reino": [
+      ["Jesús y las personas excluidas", `<p>En tiempos de Jesús, muchas personas vivían <b>apartadas</b> de la sociedad: los enfermos de lepra, a los que se obligaba a vivir lejos de los pueblos; los recaudadores de impuestos, considerados traidores; los extranjeros; las mujeres, que tenían muchos menos derechos; y los niños, que apenas contaban. Los Evangelios muestran que Jesús se acercaba precisamente a ellos.</p><ul><li><b>Zaqueo</b> (Lc 19,1-10) era jefe de los recaudadores de Jericó, rico y odiado. Como era bajito, se subió a un árbol para ver pasar a Jesús. Jesús se detuvo, le miró y le dijo que quería ir a comer a su casa. La gente murmuraba. Pero Zaqueo, conmovido, decidió dar la mitad de sus bienes a los pobres y devolver cuatro veces lo que había robado.</li><li>Cuando los discípulos querían apartar a los <b>niños</b>, Jesús les dijo que les dejaran acercarse, porque el Reino de Dios es de los que son como ellos (Mc 10,13-16).</li><li>Jesús hablaba con <b>mujeres</b>, como la samaritana junto al pozo, y varias mujeres le acompañaban como discípulas.</li><li><b>Tocaba a los leprosos</b>, algo que nadie se atrevía a hacer.</li></ul><p>El mensaje es claro: en el Reino de Dios nadie queda fuera. Hoy podemos preguntarnos quiénes son los «excluidos» de nuestro entorno y cómo acercarnos a ellos.</p>`,
+        L6.filas("Acercarse a…", [["Zaqueo", "el odiado", cNA], ["los niños", "los que no cuentan", cAZ], ["las mujeres", "sin derechos", cMO], ["los leprosos", "los apartados", cVE]])],
+    ],
+    "Las bienaventuranzas": [
+      ["El mandamiento del amor y el Padrenuestro", `<p>Un maestro de la Ley preguntó a Jesús cuál era el mandamiento más importante. Jesús respondió uniendo dos: <b>amar a Dios</b> con todo el corazón y <b>amar al prójimo como a uno mismo</b> (Mc 12,28-31). Y en la Última Cena dejó a sus discípulos un <b>mandamiento nuevo</b>: «que os améis unos a otros como yo os he amado» (Jn 13,34).</p><p>Ese amor no es solo un sentimiento: se demuestra con <b>hechos</b>. Jesús llega a pedir algo muy difícil: amar incluso a los enemigos y perdonar «setenta veces siete», es decir, siempre.</p><p>Cuando los discípulos le pidieron que les enseñara a rezar, Jesús les enseñó el <mark>Padrenuestro</mark> (Mt 6,9-13), la oración más conocida de los cristianos. Tiene una estructura clara:</p><ul><li>Empieza llamando a Dios <b>Padre</b>, con confianza, y «nuestro», porque todos somos hermanos.</li><li>Las primeras peticiones se refieren a <b>Dios</b>: que su nombre sea reconocido, que llegue su Reino y que se haga su voluntad.</li><li>Las siguientes se refieren a <b>nuestras necesidades</b>: el pan de cada día, el perdón de nuestras faltas (igual que nosotros perdonamos a los demás) y la ayuda para no caer en el mal.</li></ul><p>Es una oración que resume todo el mensaje del Reino: confianza en Dios, fraternidad, perdón y compromiso.</p>`,
+        H6.dos("El Padrenuestro", ["DIOS", ["su nombre", "su Reino", "su voluntad"], cAZ], ["NOSOTROS", ["el pan", "el perdón", "librarnos del mal"], cVE])],
+    ],
+  },
+  final: [
+    ["Testigos del Reino en nuestro tiempo", `<p>A lo largo de la historia, muchas personas han intentado vivir el mensaje de Jesús dedicando su vida a los demás. Algunos ejemplos del siglo XX:</p><ul><li><b>Teresa de Calcuta</b> (1910-1997): religiosa que cuidó a los más pobres y a los moribundos de las calles de la India. Recibió el Premio Nobel de la Paz en 1979.</li><li><b>Vicente Ferrer</b> (1920-2009): barcelonés que trabajó durante décadas en Anantapur, una de las zonas más pobres de la India. Su fundación ha construido escuelas, hospitales y viviendas, y ayudado a millones de personas.</li><li><b>Óscar Romero</b> (1917-1980): arzobispo de San Salvador que defendió a los pobres y denunció la violencia en su país. Fue asesinado mientras celebraba misa y fue declarado santo en 2018.</li><li><b>Martin Luther King</b> (1929-1968): pastor protestante estadounidense que luchó de forma pacífica contra la discriminación de las personas negras. Premio Nobel de la Paz en 1964.</li></ul><p>Pero no hace falta ser famoso. Miles de voluntarios trabajan cada día en organizaciones como <b>Cáritas</b> o <b>Manos Unidas</b>, en comedores sociales, hospitales o residencias. Cada gesto de ayuda, por pequeño que sea, es como la semilla de mostaza de la parábola.</p>`,
+      L6.filas("Testigos", [["Teresa de Calcuta", "India, Nobel 1979", cAZ], ["Vicente Ferrer", "Anantapur", cNA], ["Óscar Romero", "El Salvador", cRO], ["M. L. King", "derechos civiles", cVE]]), ["xB4XMA0zvbA", "Fundación Vicente Ferrer: la historia de un sueño", "Fundación Vicente Ferrer", 49947]],
+    ["Un recorrido por la vida de Jesús", `<p>Los Evangelios permiten seguir la vida de Jesús por los lugares de su tierra:</p><ol><li><b>Belén</b>: según los Evangelios de Mateo y Lucas, Jesús nace y es acostado en un pesebre; lo visitan pastores y magos de Oriente.</li><li><b>Nazaret</b>: crece en una familia humilde, con María y José, y aprende el oficio de artesano.</li><li><b>El río Jordán</b>: hacia los treinta años, Juan el Bautista lo bautiza.</li><li><b>El desierto</b>: pasa cuarenta días de oración y ayuno antes de empezar su misión.</li><li><b>Galilea</b>: recorre los pueblos junto al lago, especialmente Cafarnaún. Llama a sus doce apóstoles, predica en parábolas y cura a enfermos.</li><li><b>Jerusalén</b>: entra en la ciudad aclamado el Domingo de Ramos, celebra la Última Cena con sus discípulos, es detenido, juzgado y crucificado. Para los cristianos, al tercer día <b>resucita</b>: es la Pascua, la fiesta más importante.</li></ol><p>Los historiadores, creyentes o no, coinciden en que Jesús de Nazaret fue un personaje real que vivió en Palestina en el siglo I y murió crucificado en tiempos del gobernador romano Poncio Pilato. La fe en su resurrección es lo que dio origen al cristianismo.</p>`,
+      H6.flujo("Vida de Jesús", ["Belén|nacimiento", "Nazaret|infancia", "Galilea|predicación", "Jerusalén|Pascua"], cMO)],
+  ],
+  ejemplos: [
+    ["En el patio, alguien se cae y la mayoría sigue jugando. ¿Qué haría el buen samaritano?", ["Acercarse a quien lo necesita.", "Sin mirar quién es."], "Pararse a ayudar y buscar ayuda si hace falta."],
+    ["¿Por qué la gente murmuraba cuando Jesús fue a casa de Zaqueo?", ["Zaqueo era recaudador.", "Era considerado un traidor y un ladrón."], "Porque Zaqueo era un pecador odiado por todos."],
+  ],
+  errores: ["Pensar que el prójimo es solo quien es de tu grupo o se parece a ti.", "Creer que el amor cristiano es solo un sentimiento y no se demuestra con hechos."],
+  ejercicios: [
+    ["b", "¿Quiénes pasaron de largo ante el herido?", "Un sacerdote y un levita."],
+    ["b", "¿Qué hizo Zaqueo para ver a Jesús?", "Subirse a un árbol."],
+    ["b", "¿Cuál es el mandamiento nuevo de Jesús?", "Amaos unos a otros como yo os he amado."],
+    ["b", "¿Dónde trabajó Vicente Ferrer?", "En Anantapur, en la India."],
+    ["b", "¿Dónde creció Jesús?", "En Nazaret."],
+    ["m", "¿Por qué es importante que el que ayuda sea un samaritano?", "Porque era de un pueblo enemistado, lo que muestra que el amor no tiene fronteras."],
+    ["m", "¿Qué cambió en Zaqueo tras el encuentro con Jesús?", "Decidió dar la mitad a los pobres y devolver cuatro veces lo robado."],
+    ["m", "Explica las dos partes del Padrenuestro.", "Peticiones sobre Dios y peticiones sobre nuestras necesidades."],
+    ["m", "¿Qué relación tienen los testigos con la semilla de mostaza?", "Sus gestos pequeños tienen una gran fuerza transformadora."],
+    ["m", "Ordena: Galilea, Belén, Jerusalén, Nazaret.", "Belén, Nazaret, Galilea, Jerusalén."],
+    ["a", "Escribe una versión actual de la parábola del buen samaritano.", "Respuesta abierta."],
+    ["a", "Investiga una ONG de tu localidad y lo que hace.", "Respuesta abierta."],
+    ["a", "Proponed un gesto de acogida para alumnos nuevos del colegio.", "Respuesta abierta."],
+    ["a", "Dibuja un mapa con el recorrido de la vida de Jesús.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El buen samaritano llevó al herido a…", ["una posada", "el Templo", "su casa"], "Samaritano."],
+    ["Zaqueo era…", ["jefe de recaudadores", "pescador", "sacerdote"], "Excluidos."],
+    ["Jesús dijo que hay que perdonar…", ["setenta veces siete", "tres veces", "nunca"], "Amor."],
+    ["Óscar Romero fue arzobispo de…", ["San Salvador", "Calcuta", "Barcelona"], "Testigos."],
+    ["Jesús fue bautizado en…", ["el río Jordán", "el mar Muerto", "el Nilo"], "Vida."],
+  ],
+  examen: [
+    ["En la lectura, ¿quién se porta como el buen samaritano?", ["Lucía", "Martín", "la profesora"], "Lectura."],
+    ["El Padrenuestro dice «nuestro» porque…", ["todos somos hermanos", "es una oración privada", "solo lo rezan los curas"], "Padrenuestro."],
+  ],
+  tarjetas: [
+    ["Buen samaritano", "Lc 10: hacerse prójimo de quien lo necesita."],
+    ["Excluidos", "Zaqueo, niños, mujeres, leprosos: nadie queda fuera."],
+    ["Amor y oración", "Mandamiento nuevo (Jn 13,34); Padrenuestro (Mt 6)."],
+    ["Testigos", "Teresa de Calcuta, Vicente Ferrer, Óscar Romero, M. L. King."],
+  ],
+  glosario: [
+    ["Prójimo", "Cualquier persona cercana que necesita nuestra ayuda."],
+    ["Samaritano", "Habitante de Samaría, enemistado con los judíos."],
+    ["Levita", "Persona dedicada al servicio del Templo."],
+    ["Compasión", "Sentir el sufrimiento del otro y querer ayudar."],
+    ["Recaudador", "Persona que cobraba impuestos para Roma."],
+    ["Excluido", "Persona apartada de la sociedad."],
+    ["Lepra", "Enfermedad de la piel que obligaba a vivir aislado."],
+    ["Mandamiento nuevo", "Amarse unos a otros como Jesús amó."],
+    ["Padrenuestro", "Oración que enseñó Jesús."],
+    ["Testigo", "Persona que muestra su fe con su vida."],
+    ["Voluntario", "Persona que ayuda a otros sin cobrar."],
+    ["Pascua", "Fiesta cristiana de la resurrección de Jesús."],
+  ],
+  situacion: {
+    titulo: "Buenos samaritanos en el colegio",
+    reto: "La clase diseña un plan de acogida y ayuda para el colegio inspirado en el mensaje del Reino.",
+    pasos: ["Detectad situaciones del colegio en las que alguien puede sentirse solo o apartado.", "Leed el buen samaritano y Zaqueo y relacionadlos con esas situaciones.", "Diseñad acciones concretas: padrinos de acogida, juegos inclusivos, ayuda en tareas.", "Ponedlas en marcha durante un mes y evaluad los resultados."],
+    producto: "Un plan de acogida con acciones realizadas y su evaluación.",
+    evaluacion: ["Interpreta las parábolas y relatos.", "Relaciona el mensaje con la vida real.", "Propone acciones concretas de ayuda.", "Valora a quienes trabajan por los demás."],
+  },
+});
