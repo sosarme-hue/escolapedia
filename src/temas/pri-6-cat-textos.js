@@ -88,3 +88,91 @@ module.exports = P.tema({
   saberes: "Comprensió i producció de textos: el text narratiu (elements, estructura, narrador i diàleg), el text descriptiu (retrat) i el text expositiu (estructura i trets); propietats del text",
   ideas: ["Contes en cadena: cada grup escriu una part (plantejament, nus, desenllaç).", "Retrats misteriosos de companys per endevinar (només amb trets positius).", "Mural expositiu per grups amb introducció, desenvolupament i conclusió."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Fer servir connectors temporals per ordenar una narració", "Descriure llocs amb un ordre espacial", "Fer esquemes i resums d'un text expositiu", "Reconèixer i escriure textos instructius i argumentatius"],
+  lectura: { titulo: "La cabana de l'avi", html: `<p>Al fons del jardí de l'avi hi ha una cabana de fusta que sembla treta d'un conte. Té la teulada vermella, una mica torta, i una porta verda amb un picaporta en forma de peix.</p><p>A dins fa olor de serradures i de pomes. A la dreta hi ha un banc de treball ple d'eines ben ordenades: martells, serres, tornavisos i un pot de vidre amb claus de totes les mides. A l'esquerra, penjades a la paret, hi ha les bicicletes velles de quan la mare era petita. Al fons, sota la finestra, l'avi hi té una butaca de vímet i una prestatgeria plena de llibres sobre ocells.</p><p>Un estiu, l'avi i jo hi vam construir una caseta per a les mallerengues. Primer vam dibuixar el plànol. Després vam serrar les fustes i les vam clavar amb molta paciència. Finalment, la vam pintar de blau i la vam penjar a l'olivera.</p><p>Al cap d'unes setmanes, una parella de mallerengues hi va fer el niu. Des d'aleshores, cada primavera, l'avi i jo les observem amb els prismàtics des de la porta de la cabana.</p>` },
+  tras: {
+    "L'estructura de la narració": [
+      ["Els connectors temporals", `<p>Per ordenar els fets d'una narració i que el lector no es perdi, fem servir <b>connectors temporals</b>. Són paraules o expressions que indiquen <b>quan</b> passa cada cosa:</p><ul><li><b>Per començar</b>: al principi, primer, un dia, fa molt de temps, hi havia una vegada.</li><li><b>Per continuar</b>: després, més tard, llavors, aleshores, a continuació, l'endemà, al cap d'una estona.</li><li><b>Per indicar simultaneïtat</b> (al mateix temps): mentre, mentrestant, alhora, en aquell moment.</li><li><b>Per acabar</b>: finalment, al final, per fi, des d'aleshores.</li></ul><p>Mira com els fa servir la lectura: «<b>Primer</b> vam dibuixar el plànol. <b>Després</b> vam serrar les fustes. <b>Finalment</b>, la vam pintar de blau». I també: «<b>Al cap d'unes setmanes</b>», «<b>Des d'aleshores</b>».</p><p>Compte de no repetir sempre el mateix connector: un text amb «i després… i després… i després…» és avorrit. Canvia'ls i combina'ls. I recorda que, quan el connector va al principi de la frase, sovint el separem amb una <b>coma</b>: «Finalment, la vam penjar».</p>`,
+        H6.flujo("Ordenar els fets", ["primer|", "després|", "mentrestant|", "finalment|"], cAZ)],
+    ],
+    "El text descriptiu": [
+      ["Descriure llocs", `<p>Quan descrivim un lloc, l'hem de presentar amb <b>ordre</b>, com si moguéssim una càmera, perquè el lector el pugui imaginar. Podem seguir diversos ordres:</p><ul><li><b>De fora cap a dins</b>: primer l'exterior d'una casa i després les habitacions.</li><li><b>De l'esquerra a la dreta</b>, o al revés.</li><li><b>De dalt a baix</b>: del sostre al terra, o del cim de la muntanya a la vall.</li><li><b>De l'element més important als detalls</b>.</li></ul><p>Per situar els elements fem servir <b>expressions de lloc</b>: <i>a la dreta, a l'esquerra, al fons, al davant, al darrere, a sobre, a sota, al costat de, al mig, enfront de</i>.</p><p>A més, una bona descripció fa servir els <b>cinc sentits</b>: no només el que es veu, sinó també el que se sent (els sons), l'olor, el tacte i fins i tot el gust. A la lectura, la cabana «fa olor de serradures i de pomes».</p><p>També hi ajuden molt els <b>adjectius</b> (<i>teulada vermella, una mica torta</i>) i les <b>comparacions</b> (<i>sembla treta d'un conte</i>).</p>`,
+        L6.filas("Ordre per descriure", [["de fora", "cap a dins", cVE], ["esquerra", "cap a la dreta", cAZ], ["de dalt", "a baix", cNA], ["5 sentits", "olor, so, tacte", cMO]])],
+    ],
+    "Trets del text expositiu": [
+      ["L'esquema i el resum", `<p>Els textos expositius serveixen per aprendre. Per estudiar-los bé, és molt útil fer-ne un <b>esquema</b> i un <b>resum</b>.</p><p><b>Abans</b>, llegeix el text sencer i <b>subratlla</b> les idees principals (només les paraules clau, no línies senceres). Cada paràgraf sol tenir una idea principal.</p><p><b>L'esquema</b> mostra les idees de manera visual i jerarquitzada:</p><ul><li>A dalt o a l'esquerra, el <b>tema</b>.</li><li>A sota, les <b>idees principals</b>, numerades o amb guions.</li><li>Més endins, les <b>idees secundàries</b> i els exemples.</li><li>Fa servir paraules clau, no frases llargues. Pot tenir forma de claus, de fletxes o de mapa conceptual.</li></ul><p><b>El resum</b> és un text breu, escrit amb <b>les teves paraules</b>, que explica només les idees importants del text original. Ha de ser més curt (aproximadament una quarta part), seguir el mateix ordre i no incloure-hi opinions personals ni detalls innecessaris.</p><p>Un truc: si després de fer el resum pots explicar el tema a un company sense mirar el llibre, és que l'has entès.</p>`,
+        H6.flujo("Estudiar un text", ["llegir|", "subratllar|", "esquema|", "resum|"], cVE), ["1XSQ6LdbOO0", "🧠 Com fer un bon ESQUEMA abans de redactar | C1 i C2 de català", "Parlem d'escriure en català", 2160]],
+    ],
+  },
+  final: [
+    ["El text instructiu", `<p>El <b>text instructiu</b> explica els passos que cal seguir per fer alguna cosa: una recepta de cuina, les instruccions d'un joc, el muntatge d'un moble, les normes d'una piscina o les instruccions d'un experiment.</p><p>Les seves característiques són:</p><ul><li>Té un <b>títol</b> que diu què s'aconsegueix: «Com fer una caseta per a ocells».</li><li>Sovint té una llista de <b>materials</b> o <b>ingredients</b>.</li><li>Els <b>passos</b> estan ordenats, numerats o amb connectors (<i>primer, després, finalment</i>).</li><li>Els verbs van en <b>imperatiu</b> (<i>talla, posa, barreja</i>) o en <b>infinitiu</b> (<i>tallar, posar, barrejar</i>).</li><li>Les frases són <b>curtes i clares</b>, i sovint s'acompanyen de <b>dibuixos</b>.</li></ul><p>Exemple: <i>Caseta per a ocells. Materials: fustes, claus, martell i pintura. 1. Dibuixa el plànol. 2. Serra les fustes. 3. Clava-les. 4. Pinta la caseta. 5. Penja-la en un arbre.</i></p><p>Per comprovar si un text instructiu està ben fet, dona'l a algú altre: si el pot seguir sense fer-te preguntes, funciona.</p>`,
+      L6.filas("El text instructiu", [["títol", "què farem", cAZ], ["materials", "què necessitem", cVE], ["passos", "ordenats", cNA], ["imperatiu", "talla, posa…", cRO]])],
+    ["El text argumentatiu", `<p>El <b>text argumentatiu</b> vol <b>convèncer</b> el lector d'una opinió. Són argumentatius els articles d'opinió, les cartes al director d'un diari, els debats o els anuncis publicitaris.</p><p>Té tres parts:</p><ol><li><b>La tesi</b>: és l'opinió que defensem. «Crec que l'escola hauria de tenir un hort».</li><li><b>Els arguments</b>: són les raons que donen suport a la tesi. «En primer lloc, aprendríem d'on vénen els aliments. A més, passaríem més temps a l'aire lliure. Finalment, menjaríem més verdura».</li><li><b>La conclusió</b>: repeteix la tesi de manera resumida. «Per tot això, un hort seria una gran idea».</li></ol><p>Per escriure'l fem servir <b>expressions d'opinió</b> (<i>crec que, penso que, al meu parer, des del meu punt de vista</i>) i <b>connectors</b> per ordenar els arguments (<i>en primer lloc, a més, també, d'altra banda, per tant, en conclusió</i>).</p><p>Un bon argument es basa en <b>fets</b> i <b>exemples</b>, no en insults. I quan debatem, cal respectar les opinions dels altres, encara que no hi estiguem d'acord.</p>`,
+      H6.dos("Argumentar", ["TESI", ["crec que…", "al meu parer…", "l'opinió"], cMO], ["ARGUMENTS", ["en primer lloc", "a més", "per tant"], cAZ])],
+  ],
+  ejemplos: [
+    ["Ordena amb connectors: «Vaig esmorzar. Vaig sortir de casa. Vaig arribar a l'escola».", ["Primer connector d'inici.", "Després un de continuació.", "Al final un de tancament."], "Primer vaig esmorzar, després vaig sortir de casa i finalment vaig arribar a l'escola."],
+    ["Quina és la tesi: «Al meu parer, cal reciclar més, perquè així contaminem menys»?", ["La tesi és l'opinió.", "«perquè…» és l'argument."], "Tesi: cal reciclar més."],
+  ],
+  errores: ["Repetir sempre el connector «i després» en una narració.", "Copiar frases senceres del text en lloc de fer el resum amb les pròpies paraules."],
+  ejercicios: [
+    ["b", "Escriu quatre connectors temporals.", "Primer, després, mentrestant, finalment."],
+    ["b", "Escriu quatre expressions de lloc.", "A la dreta, a l'esquerra, al fons, a sota."],
+    ["b", "Quines són les tres parts d'un text argumentatiu?", "Tesi, arguments i conclusió."],
+    ["b", "En quin mode van els verbs d'un text instructiu?", "En imperatiu o en infinitiu."],
+    ["b", "Què hi ha a la dreta de la cabana de l'avi?", "Un banc de treball ple d'eines."],
+    ["m", "Quin ordre segueix la descripció de la lectura?", "De fora cap a dins i després dreta, esquerra i fons."],
+    ["m", "Troba dues olors o sensacions a la lectura.", "Olor de serradures i de pomes."],
+    ["m", "Fes un esquema de la lectura amb tres idees principals.", "La cabana; com és per dins; la caseta per a ocells."],
+    ["m", "Escriu un resum de la lectura en tres frases.", "Resposta oberta."],
+    ["m", "Escriu una tesi i dos arguments sobre els deures.", "Resposta oberta."],
+    ["a", "Descriu la teva habitació seguint un ordre espacial i amb tres sentits.", "Resposta oberta."],
+    ["a", "Escriu les instruccions d'un joc del pati.", "Resposta oberta."],
+    ["a", "Escriu una carta al director proposant una millora per al teu barri.", "Resposta oberta."],
+    ["a", "Escriu una narració breu amb sis connectors temporals diferents.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["«Mentrestant» indica…", ["simultaneïtat", "final", "lloc"], "Connectors."],
+    ["«Al fons» és una expressió de…", ["lloc", "temps", "opinió"], "Descripció."],
+    ["El resum s'escriu…", ["amb les teves paraules", "copiant el text", "amb opinions"], "Resum."],
+    ["Una recepta és un text…", ["instructiu", "argumentatiu", "líric"], "Tipus de text."],
+    ["«Crec que» introdueix…", ["una opinió", "un pas", "un lloc"], "Argumentació."],
+  ],
+  examen: [
+    ["De quin color van pintar la caseta?", ["blau", "verd", "vermell"], "Lectura."],
+    ["L'esquema fa servir…", ["paraules clau", "frases llargues", "diàlegs"], "Esquema."],
+  ],
+  tarjetas: [
+    ["Connectors temporals", "Primer, després, mentrestant, finalment, des d'aleshores."],
+    ["Descriure llocs", "Ordre (fora-dins, esquerra-dreta, dalt-baix) i cinc sentits."],
+    ["Esquema i resum", "Subratllar, ordenar idees, escriure amb les pròpies paraules."],
+    ["Text argumentatiu", "Tesi + arguments + conclusió."],
+  ],
+  glosario: [
+    ["Connector", "Paraula que enllaça idees o frases."],
+    ["Simultaneïtat", "Fet de passar dues coses alhora."],
+    ["Ordre espacial", "Manera ordenada de recórrer un lloc en descriure'l."],
+    ["Subratllar", "Marcar amb una línia les idees importants."],
+    ["Esquema", "Representació visual i ordenada de les idees d'un text."],
+    ["Resum", "Text breu amb les idees principals d'un altre text."],
+    ["Idea principal", "La idea més important d'un paràgraf o d'un text."],
+    ["Text instructiu", "Text que explica com fer alguna cosa."],
+    ["Imperatiu", "Forma del verb per donar ordres o instruccions."],
+    ["Text argumentatiu", "Text que vol convèncer d'una opinió."],
+    ["Tesi", "Opinió que es defensa en un text argumentatiu."],
+    ["Argument", "Raó que dona suport a una opinió."],
+  ],
+  situacion: {
+    titulo: "El diari de la classe",
+    reto: "La classe publica un diari amb textos de tots els tipus que heu estudiat.",
+    pasos: ["Repartiu les seccions: una narració, una descripció d'un lloc de l'escola, un article expositiu, unes instruccions i un article d'opinió.", "Feu un esquema de cada text abans d'escriure'l.", "Escriviu els textos fent servir connectors i les característiques de cada tipus.", "Reviseu-los per parelles, maqueteu el diari i presenteu-lo a les famílies."],
+    producto: "Un diari de classe amb textos narratius, descriptius, expositius, instructius i argumentatius.",
+    evaluacion: ["Identifica i escriu diversos tipus de text.", "Fa servir connectors temporals i expressions de lloc.", "Planifica amb esquemes i resumeix.", "Argumenta amb respecte."],
+  },
+});

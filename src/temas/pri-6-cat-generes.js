@@ -88,3 +88,91 @@ module.exports = P.tema({
   saberes: "Educació literària: el text literari; els gèneres narratiu, líric i dramàtic; subgèneres (conte, rondalla, llegenda, faula, novel·la, poema, teatre); tradició literària catalana; lectura expressiva i dramatització",
   ideas: ["Classificar els llibres de la biblioteca d'aula per gèneres.", "Taller de rondalles amb fórmules d'inici i de final.", "Representació d'una escena breu amb acotacions escrites pel grup."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conèixer la llegenda de Sant Jordi i la diada del llibre", "Conèixer alguns grans autors de la literatura catalana", "Valorar la literatura de tradició oral: dites, endevinalles i embarbussaments", "Escriure la ressenya d'un llibre"],
+  lectura: { titulo: "El drac de Montblanc", html: `<p>Diu la llegenda que, fa molts i molts anys, a prop de la vila de Montblanc hi vivia un drac terrible. Tenia les ales com veles de vaixell i un alè tan pudent que enverinava l'aire i assecava els camps.</p><p>Per calmar-lo, els vilatans li donaven cada dia un animal. Però quan ja no en quedaven, van decidir fer un sorteig entre les persones. Un dia, la mala sort va tocar a la filla del rei.</p><p>La princesa va sortir de la vila, tota sola, cap a la cova del drac. Però just quan la bèstia s'hi abraonava, va aparèixer un cavaller amb una armadura brillant, muntat en un cavall blanc. Era en Jordi. Amb la seva llança va ferir el drac i el va vèncer.</p><p>De la sang del drac en va brotar un roser ple de roses vermelles. El cavaller en va collir la més bonica i la va oferir a la princesa.</p><p>Per això, cada 23 d'abril, als Països Catalans, se celebra Sant Jordi regalant roses i llibres. I els carrers s'omplen de parades, de gent i de lectors.</p>` },
+  tras: {
+    "Rondalles, llegendes i faules": [
+      ["Sant Jordi: la diada del llibre i la rosa", `<p>La <b>llegenda de Sant Jordi</b> és una de les més conegudes de Catalunya. Com totes les llegendes, barreja <b>elements reals</b> (un lloc concret, com Montblanc, o un personatge que existeix, com un sant) amb <b>elements fantàstics</b> (un drac, un roser que neix de la sang). Hi ha versions diferents en molts països d'Europa.</p><p>Sant Jordi és el patró de Catalunya i el seu dia, el <b>23 d'abril</b>, és una festa molt especial:</p><ul><li>Tradicionalment es regala una <b>rosa</b> i un <b>llibre</b> a les persones que estimem.</li><li>Els carrers s'omplen de <b>parades</b> de llibres i de flors, i els escriptors <b>signen</b> els seus llibres als lectors.</li><li>El 23 d'abril també va ser el dia de la mort, el 1616, de dos grans escriptors: <b>Miguel de Cervantes</b> i <b>William Shakespeare</b> (encara que, en realitat, no van morir el mateix dia, perquè cada país feia servir un calendari diferent).</li><li>Per això, la UNESCO va declarar el 23 d'abril <b>Dia Mundial del Llibre i dels Drets d'Autor</b>, el 1995.</li></ul><p>A les escoles se celebren els <b>Jocs Florals</b>: concursos de poemes i contes escrits pels alumnes.</p>`,
+        L6.filas("La diada de Sant Jordi", [["23 d'abril", "Sant Jordi", cRO], ["la rosa", "regal", cVE], ["el llibre", "regal", cAZ], ["1995", "Dia del Llibre", cNA]]), ["gJGsn6a9Cic", "El Conte 📕 La llegenda de Sant Jordi 🐉- Només Babys 👶", "Només Babys", 425935]],
+    ],
+    "El gènere líric": [
+      ["Grans autors en català", `<p>La literatura catalana té més de vuit-cents anys d'història. Aquests són alguns dels seus autors més importants:</p><ul><li><b>Ramon Llull</b> (segle XIII), de Mallorca: filòsof i escriptor. Va ser un dels primers a escriure obres importants en català, en una època en què els savis escrivien en llatí.</li><li><b>Ausiàs March</b> (segle XV), de Gandia: un gran poeta que va escriure poemes d'amor i de reflexió.</li><li><b>Joanot Martorell</b> (segle XV), de València: va escriure <i>Tirant lo Blanc</i>, una novel·la de cavalleries que admirava Cervantes.</li><li><b>Jacint Verdaguer</b> (segle XIX): poeta de <i>Canigó</i> i <i>L'Atlàntida</i>.</li><li><b>Mercè Rodoreda</b> (segle XX): autora de <i>La plaça del Diamant</i>, una de les novel·les catalanes més traduïdes.</li><li><b>Miquel Martí i Pol</b> i <b>Vicent Andrés Estellés</b> (segle XX): poetes molt estimats pels lectors.</li><li><b>Joana Raspall</b> (segle XX): va escriure molts poemes per a infants, com «Podries».</li></ul><p>Avui, molts escriptors continuen publicant en català contes, novel·les, poemes, còmics i literatura per a joves.</p>`,
+        H6.flujo("Vuit segles de literatura", ["s. XIII|Llull", "s. XV|Martorell", "s. XIX|Verdaguer", "s. XX|Rodoreda"], cMO), ["RFf6Qo-X0zY", "Poema Visual - Podries (Joana Raspall)", "Família Garcia i Noguera", 14060]],
+    ],
+    "La representació teatral": [
+      ["El teatre popular", `<p>A més del teatre que es fa als teatres, a Catalunya hi ha moltes formes de <b>teatre popular</b>, que es representen a les festes i que sovint fan actors aficionats:</p><ul><li><b>Els Pastorets</b>: obres de teatre de Nadal que expliquen el naixement de Jesús, amb pastors, àngels i dimonis que intenten fer-los mal. Les més conegudes són les de Josep Maria Folch i Torres, i se'n fan a molts pobles.</li><li><b>La Passió</b>: representacions de Setmana Santa, com les d'Olesa de Montserrat i Esparreguera, amb centenars d'actors veïns del poble.</li><li><b>El Misteri d'Elx</b>: un drama cantat que es representa cada agost a la basílica d'Elx des de fa segles. La UNESCO el va declarar patrimoni de la humanitat.</li><li><b>Els titelles</b> i les <b>marionetes</b>: tenen una llarga tradició i són molt populars entre els infants.</li></ul><p>A les festes també hi ha <b>balls parlats</b>, com el Ball de Diables, en què els personatges reciten versos.</p><p>El teatre popular demostra que la literatura no només es llegeix: també es representa, es canta i es comparteix al carrer.</p>`,
+        L6.filas("Teatre popular", [["Pastorets", "Nadal", cVE], ["La Passió", "Setmana Santa", cMO], ["Misteri d'Elx", "agost", cNA], ["titelles", "tot l'any", cAZ]])],
+    ],
+  },
+  final: [
+    ["La literatura de tradició oral", `<p>Abans que existissin els llibres impresos, la literatura passava de boca en boca. Encara avui conservem molts textos de <b>tradició oral</b>: són <b>anònims</b> (no se'n sap l'autor) i sovint són curts i fàcils de recordar.</p><ul><li><b>Les dites i els refranys</b>: frases que expressen un consell o una veritat popular. «Qui matina fa farina». «Al maig, cada dia un raig». «Qui no plora no mama».</li><li><b>Les endevinalles</b>: descriuen una cosa de manera enginyosa perquè l'endevinin. «Té dents i no menja, té barba i no és home» (l'all).</li><li><b>Els embarbussaments</b>: frases difícils de pronunciar ràpidament. «Setze jutges d'un jutjat mengen fetge d'un penjat».</li><li><b>Les cançons populars</b>: de bressol, de feina, de festa, com «El cant dels ocells».</li><li><b>Les rondalles</b>: contes meravellosos, com «En Patufet» o les rondalles mallorquines recollides per Antoni Maria Alcover.</li></ul><p>Aquests textos fan servir molt la <b>rima</b>, el <b>ritme</b> i la <b>repetició</b>, que ajuden a recordar-los. Pregunta als teus avis quines dites i cançons coneixen!</p>`,
+      H6.rueda("Tradició oral", "ORAL", [["dites", cAZ], ["endevinalles", cVE], ["embarbussaments", cRO], ["cançons", cMO]]), ["3_VxaGfI2OM", "EMBARBUSSAMENTS infantil i primària (visuals)", "SonaSonia AL", 6710]],
+    ["Com fer una ressenya", `<p>Una <b>ressenya</b> és un text breu que presenta un llibre (o una pel·lícula, o una obra de teatre) i en dona una <b>opinió</b>, perquè altres lectors decideixin si el volen llegir. Té aquestes parts:</p><ol><li><b>Fitxa tècnica</b>: títol, autor o autora, il·lustrador, editorial i any.</li><li><b>Gènere</b>: és una novel·la, un recull de contes, de poemes, un còmic, una obra de teatre?</li><li><b>Resum de l'argument</b>: explica de què va, qui són els personatges principals i on passa. Però <b>no expliquis el final</b>, per no espatllar la sorpresa!</li><li><b>Valoració</b>: què t'ha agradat i què no, i per què. Fes servir arguments: «M'ha agradat perquè els personatges semblen reals», «M'ha semblat lenta al principi».</li><li><b>Recomanació</b>: a qui el recomanaries? «És ideal per als que els agraden les aventures».</li></ol><p>Pots acabar amb una <b>puntuació</b> (de 1 a 5 estrelles) i una frase destacada del llibre. Les ressenyes són perfectes per penjar al blog de l'escola o a la biblioteca de la classe.</p>`,
+      L6.filas("La ressenya", [["fitxa", "títol, autor", cAZ], ["argument", "sense el final", cVE], ["valoració", "m'ha agradat…", cNA], ["recomanació", "per a qui?", cMO]])],
+  ],
+  ejemplos: [
+    ["Quins elements reals i fantàstics té la llegenda de Sant Jordi?", ["Reals: un lloc (Montblanc) i un sant.", "Fantàstics: el drac i el roser que neix de la sang."], "Barreja realitat i fantasia: per això és una llegenda."],
+    ["Classifica: «Setze jutges d'un jutjat mengen fetge d'un penjat».", ["És difícil de pronunciar ràpidament.", "És de tradició oral."], "És un embarbussament."],
+  ],
+  errores: ["Explicar el final del llibre en una ressenya.", "Pensar que la literatura de tradició oral té un autor conegut: és anònima."],
+  ejercicios: [
+    ["b", "Quin dia és Sant Jordi i què es regala?", "El 23 d'abril; una rosa i un llibre."],
+    ["b", "Qui va escriure Tirant lo Blanc?", "Joanot Martorell."],
+    ["b", "Escriu una dita que coneguis.", "Resposta oberta. Ex.: Qui matina fa farina."],
+    ["b", "Què són els Pastorets?", "Obres de teatre popular de Nadal."],
+    ["b", "Quines són les parts d'una ressenya?", "Fitxa, gènere, argument, valoració i recomanació."],
+    ["m", "Per què el 23 d'abril és el Dia Mundial del Llibre?", "Perquè és la data de la mort de Cervantes i Shakespeare el 1616."],
+    ["m", "Resol l'endevinalla: «Té dents i no menja, té barba i no és home».", "L'all."],
+    ["m", "Ordena cronològicament: Rodoreda, Llull, Verdaguer, Ausiàs March.", "Llull, Ausiàs March, Verdaguer, Rodoreda."],
+    ["m", "Quines característiques fan fàcils de recordar els textos orals?", "La rima, el ritme i la repetició."],
+    ["m", "Què va sortir de la sang del drac a la lectura?", "Un roser amb roses vermelles."],
+    ["a", "Escriu la ressenya de l'últim llibre que has llegit.", "Resposta oberta."],
+    ["a", "Inventa una endevinalla i un embarbussament.", "Resposta oberta."],
+    ["a", "Escriu una versió moderna de la llegenda de Sant Jordi.", "Resposta oberta."],
+    ["a", "Recull tres dites o cançons de la teva família i explica què volen dir.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["Una llegenda barreja…", ["fets reals i fantàstics", "només fets reals", "només poemes"], "Llegenda."],
+    ["La plaça del Diamant és de…", ["Mercè Rodoreda", "Ramon Llull", "Jacint Verdaguer"], "Autors."],
+    ["El Misteri d'Elx es representa…", ["a l'agost", "per Nadal", "per Sant Jordi"], "Teatre."],
+    ["Un text de tradició oral és…", ["anònim", "sempre modern", "escrit per un sol autor conegut"], "Tradició oral."],
+    ["En una ressenya no s'ha d'explicar…", ["el final", "el títol", "l'autor"], "Ressenya."],
+  ],
+  examen: [
+    ["A la lectura, el drac vivia a prop de…", ["Montblanc", "Girona", "Vic"], "Lectura."],
+    ["Joana Raspall va escriure molta poesia per a…", ["infants", "teatre", "cançons de bressol només"], "Autors."],
+  ],
+  tarjetas: [
+    ["Sant Jordi", "23 d'abril: rosa i llibre. Dia Mundial del Llibre des del 1995."],
+    ["Autors en català", "Llull, Ausiàs March, Martorell, Verdaguer, Rodoreda, Martí i Pol, Raspall."],
+    ["Tradició oral", "Dites, endevinalles, embarbussaments, cançons i rondalles."],
+    ["La ressenya", "Fitxa, argument sense final, valoració i recomanació."],
+  ],
+  glosario: [
+    ["Diada", "Dia de festa assenyalat."],
+    ["Patró", "Sant protector d'un lloc."],
+    ["Drets d'autor", "Drets que té qui crea una obra sobre el seu treball."],
+    ["Jocs Florals", "Concurs literari de poemes i contes."],
+    ["Novel·la de cavalleries", "Novel·la sobre les aventures de cavallers."],
+    ["Teatre popular", "Teatre de festes i tradicions, fet sovint per aficionats."],
+    ["Pastorets", "Teatre de Nadal amb pastors, àngels i dimonis."],
+    ["Tradició oral", "Textos que passen de boca en boca."],
+    ["Anònim", "Que no se'n sap l'autor."],
+    ["Dita", "Frase popular que expressa un consell o una idea."],
+    ["Embarbussament", "Frase difícil de pronunciar ràpidament."],
+    ["Ressenya", "Text que presenta i valora una obra."],
+  ],
+  situacion: {
+    titulo: "La setmana de Sant Jordi",
+    reto: "La classe organitza les activitats de Sant Jordi per a tota l'escola.",
+    pasos: ["Prepareu una dramatització de la llegenda de Sant Jordi.", "Escriviu ressenyes dels vostres llibres preferits per a una parada de recomanacions.", "Recolliu dites, endevinalles i embarbussaments de les famílies i feu-ne un recull.", "Organitzeu uns Jocs Florals amb poemes i contes de la classe."],
+    producto: "Una diada de Sant Jordi amb teatre, ressenyes, recull de tradició oral i Jocs Florals.",
+    evaluacion: ["Reconeix els gèneres i subgèneres literaris.", "Coneix autors i tradicions de la literatura catalana.", "Escriu ressenyes amb arguments.", "Participa en activitats literàries amb creativitat."],
+  },
+});

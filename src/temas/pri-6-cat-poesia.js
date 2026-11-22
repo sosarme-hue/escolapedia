@@ -88,3 +88,91 @@ module.exports = P.tema({
   saberes: "Educació literària: el poema; vers i estrofa; mesura dels versos (comptatge fins a l'última tònica, sinalefa); versos masculins i femenins; rima consonant i assonant; esquema mètric; rodolí, quarteta, romanç i sonet; recitació i creació de poemes",
   ideas: ["Mesurar versos picant de mans a cada síl·laba fins a la tònica.", "Taller de rodolins sobre un tema de classe i recital final.", "Comparar un vers català i un de castellà per veure com es compten les síl·labes."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Reconèixer les principals figures literàries en un poema", "Conèixer la corranda i la cançó popular", "Distingir el vers lliure de la poesia amb mètrica", "Crear cal·ligrames i haikus"],
+  lectura: { titulo: "El poeta del carrer", html: `<p>Cada dissabte, a la plaça del poble, s'hi asseia un home gran amb un barret de palla i una llibreta blava. No venia res. Només escrivia.</p><p>—Què fa, aquest senyor? —va preguntar la Nil a la seva mare.<br>—És poeta —va respondre ella—. Si li dius una paraula, t'hi escriu un poema.</p><p>La Nil s'hi va acostar, una mica vergonyosa.<br>—«Pluja» —va dir.</p><p>L'home va tancar els ulls, va somriure i va escriure de pressa. Després va arrencar el full i l'hi va donar:</p><p><i>La pluja és un tambor petit<br>que toca a la finestra,<br>i el carrer, adormit,<br>s'emmiralla en la tempesta.</i></p><p>La Nil el va llegir dues vegades. Hi havia rima: «petit» i «adormit», «finestra» i «tempesta». Però, sobretot, hi havia màgia: la pluja era un tambor, i el carrer dormia com una persona.</p><p>—Com ho fa? —li va preguntar.<br>—Miro les coses com si fos el primer cop que les veig —va dir el poeta—. Prova-ho tu.</p><p>Aquella tarda, la Nil va omplir tres pàgines de la seva llibreta.</p>` },
+  tras: {
+    "La rima": [
+      ["Les figures literàries", `<p>Els poetes fan servir <b>figures literàries</b> (o recursos literaris) per embellir el llenguatge i fer-lo més expressiu. Les més habituals són:</p><ul><li><b>La comparació</b>: relaciona dues coses amb un nexe (<i>com, igual que, sembla</i>). «Els teus ulls són <b>com</b> dues estrelles».</li><li><b>La metàfora</b>: identifica dues coses sense nexe. «La pluja <b>és</b> un tambor petit». «Les perles de la teva boca» (les dents).</li><li><b>La personificació</b>: dona qualitats humanes a animals o coses. «El carrer, <b>adormit</b>». «La lluna <b>somriu</b>».</li><li><b>La hipèrbole</b>: exagera molt. «T'he dit <b>un milió de vegades</b> que endrecis l'habitació».</li><li><b>L'al·literació</b>: repeteix un mateix so. «<b>R</b>ius <b>r</b>ogencs que <b>r</b>odolen».</li><li><b>L'anàfora</b>: repeteix una paraula al principi de diversos versos. «<b>Podries</b> ser… / <b>Podries</b> dir…».</li></ul><p>Per trobar les figures en un poema, pregunta't: hi ha alguna cosa que es compara? Algun objecte que actua com una persona? Alguna exageració o algun so que es repeteixi?</p>`,
+        L6.filas("Figures literàries", [["comparació", "com dues estrelles", cAZ], ["metàfora", "la pluja és un tambor", cVE], ["personificació", "la lluna somriu", cMO], ["hipèrbole", "un milió de vegades", cRO]])],
+    ],
+    "Rodolí, quarteta i romanç": [
+      ["La corranda i la cançó popular", `<p>La <b>corranda</b> és una de les formes de poesia popular més típiques de la cultura catalana. És una estrofa de <b>quatre versos</b>, normalment heptasíl·labs, que <b>es canta</b> amb una melodia coneguda. Sovint s'improvisa: els cantadors s'inventen els versos en el moment, i a vegades es responen l'un a l'altre amb humor, com en una competició.</p><p>Mira aquesta corranda inventada:</p><p><i>Una noia de Tortosa<br>va pintar-se de color,<br>i quan va tornar de missa<br>semblava un gira-sol.</i></p><p>Altres formes populars de poesia cantada són:</p><ul><li><b>Les cançons de bressol</b>, per adormir els infants.</li><li><b>Les caramelles</b>, cançons que es canten per Pasqua pels carrers.</li><li><b>Les nadales</b>, cançons de Nadal: «El vint-i-cinc de desembre, fum, fum, fum».</li><li><b>Les cançons de feina</b>, que acompanyaven el treball al camp o al mar.</li></ul><p>La poesia i la música han anat sempre juntes: moltes cançons actuals són, en realitat, poemes musicats. Fins i tot el <b>rap</b> es basa en el ritme i la rima.</p>`,
+        H6.rueda("Poesia cantada", "CANÇÓ POPULAR", [["corrandes", cAZ], ["de bressol", cMO], ["caramelles", cVE], ["nadales", cRO]])],
+    ],
+    "El sonet": [
+      ["El vers lliure", `<p>Durant segles, gairebé tots els poemes tenien una mètrica fixa i rima. Però a partir del segle XX molts poetes van començar a escriure en <b>vers lliure</b>: versos que <b>no tenen un nombre fix de síl·labes</b> i que sovint <b>no rimen</b>.</p><p>Això no vol dir que qualsevol text tallat en línies sigui un poema. El vers lliure també té <b>ritme</b>, que s'aconsegueix amb:</p><ul><li>la <b>repetició</b> de paraules o d'estructures (anàfora);</li><li>les <b>pauses</b> al final de cada vers, que el poeta tria amb cura;</li><li>les <b>imatges</b> i les figures literàries;</li><li>el <b>so</b> de les paraules.</li></ul><p>Un dels poetes catalans que va escriure molt en vers lliure és <b>Miquel Martí i Pol</b> (1929-2003), de Roda de Ter. Els seus poemes parlen de coses quotidianes, de la feina a la fàbrica, de l'amor i de l'esperança, amb un llenguatge senzill que arriba a tothom. Un dels seus versos més citats diu: «<i>Tot està per fer i tot és possible</i>».</p><p>Quan llegeixis un poema en vers lliure, fixa't en per què el poeta talla el vers en un lloc i no en un altre.</p>`,
+        H6.dos("Dos tipus de vers", ["AMB MÈTRICA", ["síl·labes fixes", "rima", "estrofes"], cAZ], ["VERS LLIURE", ["síl·labes lliures", "sense rima", "ritme propi"], cVE]), ["3NSp44tUJ5Q", "«Primavera» de Miquel Martí i Pol -vídeo animat i musicat.", "Fundació Miquel Martí i Pol", 52145]],
+    ],
+  },
+  final: [
+    ["La poesia visual: el cal·ligrama", `<p>Hi ha poemes que no només es llegeixen: també <b>es miren</b>. Són els poemes de la <b>poesia visual</b>.</p><p>El <b>cal·ligrama</b> és un poema en què les paraules es col·loquen formant un <b>dibuix</b> relacionat amb el tema. Un poema sobre la pluja pot tenir les paraules caient com gotes; un poema sobre un arbre pot tenir els versos formant el tronc i les branques. El poeta francès Guillaume Apollinaire els va fer famosos a principis del segle XX.</p><p>En català, el poeta <b>Joan Salvat-Papasseit</b> (1894-1924) va fer cal·ligrames molt originals, com «Marxa nupcial», on les lletres canvien de mida i de direcció.</p><p>Un altre gran autor de poesia visual va ser <b>Joan Brossa</b> (1919-1998), de Barcelona. Feia <b>poemes objecte</b>: combinava objectes reals i lletres per crear sorpreses. Per exemple, va fer una gran lletra A a la Vall d'Hebron, a Barcelona, que es pot recórrer caminant.</p><p>Per fer un cal·ligrama: tria un tema, escriu un poema breu, dibuixa la silueta a llapis i escriu-hi les paraules a sobre seguint la forma. Després esborra el llapis!</p>`,
+      L6.filas("Poesia visual", [["cal·ligrama", "paraules dibuix", cAZ], ["Apollinaire", "França", cVE], ["Salvat-Papasseit", "cal·ligrames", cNA], ["Brossa", "poema objecte", cMO]])],
+    ["L'haiku", `<p>L'<b>haiku</b> és una forma de poesia que va néixer al <b>Japó</b> fa més de tres-cents anys. És molt breu: només té <b>tres versos</b>, que tradicionalment tenen <b>5, 7 i 5 síl·labes</b>. No sol tenir rima.</p><p>L'haiku intenta captar <b>un instant</b> de la natura, com si fos una fotografia feta amb paraules, i sovint fa referència a una <b>estació de l'any</b>. El poeta japonès més conegut d'haikus és <b>Matsuo Bashō</b>. Un dels seus haikus més famosos parla d'un estany antic on salta una granota i se sent el soroll de l'aigua.</p><p>Mira aquest haiku escrit en català:</p><p><i>Fulles que cauen (5)<br>el vent les fa ballar lentes (7)<br>sobre el bassal gris (5)</i></p><p>Per escriure'n un:</p><ol><li>Surt al pati i observa una cosa petita: una fulla, una formiga, un núvol.</li><li>Escriu el que veus, sense explicar el que sents.</li><li>Ajusta les síl·labes (recorda comptar fins a l'última tònica i fer sinalefes).</li></ol><p>Al segle XX, alguns poetes catalans, com Josep Maria Junoy, també van escriure poemes inspirats en els haikus.</p>`,
+      H6.flujo("Un haiku", ["vers 1|5 síl·labes", "vers 2|7 síl·labes", "vers 3|5 síl·labes", "un instant|de natura"], cVE)],
+  ],
+  ejemplos: [
+    ["Quina figura hi ha a «El carrer, adormit»?", ["Un carrer no pot dormir.", "Rep una qualitat humana."], "És una personificació."],
+    ["Diferencia: «La pluja és un tambor» i «La pluja sona com un tambor».", ["La primera no té nexe.", "La segona té el nexe com."], "La primera és una metàfora; la segona, una comparació."],
+  ],
+  errores: ["Confondre la metàfora amb la comparació: la comparació porta nexe (com).", "Pensar que el vers lliure no té cap ritme."],
+  ejercicios: [
+    ["b", "Escriu tres figures literàries.", "Comparació, metàfora, personificació (hipèrbole, al·literació, anàfora)."],
+    ["b", "Quants versos té un haiku i quantes síl·labes cada un?", "Tres versos de 5, 7 i 5 síl·labes."],
+    ["b", "Què és un cal·ligrama?", "Un poema en què les paraules formen un dibuix."],
+    ["b", "Què és una corranda?", "Una estrofa popular de quatre versos que es canta."],
+    ["b", "On va néixer l'haiku?", "Al Japó."],
+    ["m", "Troba la rima del poema de la lectura.", "petit / adormit; finestra / tempesta."],
+    ["m", "Escriu una hipèrbole i una personificació.", "Resposta oberta."],
+    ["m", "Explica què és el vers lliure.", "Versos sense nombre fix de síl·labes i sovint sense rima, però amb ritme."],
+    ["m", "Compta les síl·labes del segon vers de l'haiku de les fulles.", "7."],
+    ["m", "Qui va ser Joan Brossa?", "Un poeta de Barcelona conegut per la poesia visual i els poemes objecte."],
+    ["a", "Escriu un poema breu sobre una paraula que et digui un company, com el poeta del carrer.", "Resposta oberta."],
+    ["a", "Fes un cal·ligrama sobre un animal o un objecte.", "Resposta oberta."],
+    ["a", "Escriu dos haikus sobre estacions diferents.", "Resposta oberta."],
+    ["a", "Inventa una corranda sobre l'escola amb una melodia coneguda.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["«La lluna somriu» és una…", ["personificació", "hipèrbole", "comparació"], "Figures."],
+    ["Un haiku té…", ["3 versos", "14 versos", "4 versos"], "Haiku."],
+    ["Joan Salvat-Papasseit va fer…", ["cal·ligrames", "sonets japonesos", "rondalles"], "Poesia visual."],
+    ["El vers lliure…", ["no té un nombre fix de síl·labes", "sempre rima", "té 14 versos"], "Vers lliure."],
+    ["Les nadales es canten…", ["per Nadal", "per Pasqua", "a l'estiu"], "Cançó popular."],
+  ],
+  examen: [
+    ["Quina paraula va dir la Nil al poeta?", ["pluja", "sol", "mar"], "Lectura."],
+    ["«T'he trucat mil vegades» és una…", ["hipèrbole", "metàfora", "anàfora"], "Figures."],
+  ],
+  tarjetas: [
+    ["Figures literàries", "Comparació, metàfora, personificació, hipèrbole, al·literació, anàfora."],
+    ["Corranda", "Quatre versos populars que es canten i sovint s'improvisen."],
+    ["Vers lliure", "Sense mètrica fixa ni rima; ritme amb repeticions i pauses."],
+    ["Cal·ligrama i haiku", "Paraules que dibuixen / tres versos de 5-7-5 síl·labes."],
+  ],
+  glosario: [
+    ["Figura literària", "Recurs que embelleix el llenguatge."],
+    ["Comparació", "Relació de dues coses amb un nexe com."],
+    ["Metàfora", "Identificació de dues coses sense nexe."],
+    ["Personificació", "Atribució de qualitats humanes a coses o animals."],
+    ["Hipèrbole", "Exageració."],
+    ["Al·literació", "Repetició d'un so."],
+    ["Anàfora", "Repetició d'una paraula a l'inici dels versos."],
+    ["Corranda", "Estrofa popular cantada de quatre versos."],
+    ["Vers lliure", "Vers sense mètrica fixa."],
+    ["Cal·ligrama", "Poema que forma un dibuix."],
+    ["Poema objecte", "Obra que combina objectes i lletres."],
+    ["Haiku", "Poema japonès de tres versos."],
+  ],
+  situacion: {
+    titulo: "El mural de poesia",
+    reto: "La classe crea un mural de poesia per al passadís de l'escola amb poemes de totes les formes estudiades.",
+    pasos: ["Cada alumne tria una forma: rodolí, quarteta, corranda, haiku, cal·ligrama o vers lliure.", "Escriviu el poema fent servir almenys dues figures literàries.", "Comproveu la mètrica i la rima per parelles i feu-ne l'esquema mètric si en té.", "Munteu el mural i organitzeu un recital per a les altres classes."],
+    producto: "Un mural de poesia i un recital amb poemes de la classe.",
+    evaluacion: ["Reconeix i fa servir figures literàries.", "Aplica la mètrica i la rima quan cal.", "Crea poesia visual i haikus.", "Recita amb ritme i expressivitat."],
+  },
+});
