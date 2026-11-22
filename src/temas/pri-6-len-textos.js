@@ -88,3 +88,91 @@ module.exports = P.tema({
   saberes: "Comprensión y producción de textos: el texto narrativo (elementos, estructura, narrador), el texto descriptivo (retrato) y el texto expositivo (estructura y rasgos); propiedades del texto",
   ideas: ["Cuentos en cadena: cada grupo escribe una parte (planteamiento, nudo, desenlace).", "Retratos misteriosos de compañeros para adivinar (solo con rasgos positivos).", "Mural expositivo por grupos con introducción, desarrollo y conclusión."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Transformar el estilo directo en indirecto y al revés", "Preparar y escribir una entrevista", "Escribir textos instructivos y argumentativos sencillos", "Revisar y mejorar los propios textos"],
+  lectura: { titulo: "Las instrucciones del abuelo", html: `<p>El abuelo de Nora había muerto hacía un año, y la familia decidió vaciar por fin su casa del pueblo. En el fondo de un cajón, Nora encontró un cuaderno con tapas de hule. En la primera página, con letra muy cuidada, ponía: <i>Bizcocho de yogur. Para cuando yo no esté</i>.</p><p>Debajo, el abuelo había escrito una lista de <b>ingredientes</b>: un yogur, tres huevos, el vaso del yogur como medida para todo lo demás… Y después, los <b>pasos</b>, numerados del uno al ocho. Pero no eran instrucciones corrientes. En el paso tres ponía: «Bate los huevos con paciencia, como hacíamos los domingos». Y en el siete: «No abras el horno antes de tiempo, que el bizcocho se asusta, y tú siempre tenías mucha prisa».</p><p>Nora llevó el cuaderno a casa. Aquella tarde siguió cada paso con cuidado, sin saltarse ninguno. Cuando sacó el bizcocho del horno, la cocina se llenó del olor de los domingos de su infancia.</p><p>Comprendió entonces que su abuelo le había dejado dos textos a la vez: unas instrucciones para hacer un bizcocho y, entre líneas, una carta de amor.</p>` },
+  tras: {
+    "El narrador": [
+      ["Estilo directo y estilo indirecto", `<p>Cuando en una narración queremos contar lo que dijo un personaje, podemos hacerlo de dos maneras:</p><ul><li>En <b>estilo directo</b>, reproducimos sus palabras exactas. Se usan la raya o las comillas y un verbo como <i>dijo</i>, <i>preguntó</i> o <i>gritó</i>: <i>—Mañana iré a la playa —dijo Lucía.</i></li><li>En <b>estilo indirecto</b>, el narrador cuenta lo que dijo el personaje con sus propias palabras, normalmente con <b>que</b> o <b>si</b>: <i>Lucía dijo que al día siguiente iría a la playa.</i></li></ul><p>Al pasar de estilo directo a indirecto cambian varias cosas:</p><ul><li>Las <b>personas</b>: <i>yo</i> pasa a <i>él</i> o <i>ella</i>; <i>nosotros</i> pasa a <i>ellos</i>.</li><li>Los <b>tiempos verbales</b>: <i>iré</i> pasa a <i>iría</i>; <i>estoy</i> pasa a <i>estaba</i>.</li><li>Las palabras de <b>tiempo y lugar</b>: <i>mañana</i> pasa a <i>al día siguiente</i>; <i>aquí</i> pasa a <i>allí</i>.</li><li>Las <b>preguntas</b> se introducen con <i>si</i> o con la palabra interrogativa: <i>—¿Vienes? —preguntó.</i> pasa a <i>Preguntó si venía.</i></li></ul><p>El estilo directo da viveza y hace oír la voz del personaje. El indirecto resume y hace avanzar la historia más deprisa.</p>`,
+        L6.filas("Del directo al indirecto", [["yo", "él / ella", cAZ], ["iré", "iría", cVE], ["mañana", "al día siguiente", cNA], ["¿Vienes?", "si venía", cMO]])],
+    ],
+    "Describir personas": [
+      ["La entrevista", `<p>La <b>entrevista</b> es un texto en el que una persona, el <b>entrevistador</b>, hace preguntas a otra, el <b>entrevistado</b>, para conocer sus ideas, su trabajo o su vida. Se publica en periódicos, revistas, radio, televisión o internet, y es un tipo de <b>texto dialogado</b>.</p><p>Una entrevista escrita tiene estas partes:</p><ul><li>Un <b>título</b> llamativo, que muchas veces es una frase del entrevistado.</li><li>Una <b>presentación</b>: un párrafo breve que explica quién es la persona y por qué es interesante.</li><li>El <b>cuerpo</b>: las preguntas, que se destacan en negrita o con el nombre del entrevistador, y las respuestas.</li><li>Una <b>despedida</b> o cierre.</li></ul><p>Para hacer una buena entrevista:</p><ul><li>Infórmate antes sobre la persona y prepara las preguntas por escrito.</li><li>Haz <b>preguntas abiertas</b>, que no se respondan con un simple sí o no: «¿Cómo empezaste…?» mejor que «¿Te gusta tu trabajo?».</li><li>Escucha con atención: a veces una respuesta te sugiere una pregunta nueva.</li><li>Pide permiso para grabar y, al transcribir, respeta lo que dijo la persona.</li></ul>`,
+        H6.flujo("Hacer una entrevista", ["informarse|antes", "preguntas|abiertas", "grabar|y escuchar", "transcribir|y revisar"], cAZ), ["kJSMAsWU1Iw", "LA ENTREVISTA para niños 🗣️​ Características y elementos ✍️​​ Lengua para niños", "Smile and Learn - Español", 325630]],
+    ],
+    "Rasgos del texto expositivo": [
+      ["El texto instructivo", `<p>El <b>texto instructivo</b> explica paso a paso cómo hacer algo. Son instructivos las recetas de cocina, las instrucciones de montaje de un mueble, las reglas de un juego, el manual de un aparato o las normas de seguridad de un parque.</p><p>Suele tener dos partes:</p><ul><li>Los <b>materiales</b> o <b>ingredientes</b> que se necesitan, en forma de lista.</li><li>Los <b>pasos</b>, ordenados, numerados o con viñetas.</li></ul><p>Sus rasgos lingüísticos son muy claros:</p><ul><li>Los verbos van en <b>imperativo</b> (<i>corta</i>, <i>mezclad</i>), en <b>infinitivo</b> (<i>cortar</i>, <i>mezclar</i>) o con <b>se</b> (<i>se corta</i>, <i>se mezcla</i>). Es importante elegir una forma y mantenerla en todo el texto.</li><li>Las frases son <b>cortas</b> y precisas, y cada paso explica una sola acción.</li><li>Se usan <b>conectores de orden</b>: <i>primero</i>, <i>a continuación</i>, <i>después</i>, <i>por último</i>.</li><li>Se indican <b>cantidades</b>, <b>tiempos</b> y <b>medidas</b> exactas: <i>200 gramos</i>, <i>durante 10 minutos</i>.</li><li>A menudo se acompañan de <b>dibujos</b> o esquemas.</li></ul><p>Una buena prueba: dale tus instrucciones a otra persona y observa si consigue hacerlo sin preguntarte nada.</p>`,
+        H6.dos("Texto instructivo", ["Partes", ["materiales", "pasos", "dibujos"], cVE], ["Lengua", ["imperativo", "frases cortas", "cantidades"], cNA]), ["amzCnUhoOcs", "QUE ES EL TEXTO INSTRUCTIVO | #MiAulaCreativa | Educación Primaria", "Mi Aula Creativa", 401255]],
+    ],
+  },
+  final: [
+    ["El texto argumentativo", `<p>En un <b>texto argumentativo</b> el autor defiende una opinión e intenta <b>convencer</b> al lector con razones. Lo encontramos en los artículos de opinión, en las cartas al director de un periódico, en los debates o en los anuncios.</p><p>Tiene tres partes:</p><ul><li>La <b>tesis</b>: la idea que se defiende. Por ejemplo: <i>El colegio debería tener un huerto escolar</i>.</li><li>Los <b>argumentos</b>: las razones que apoyan la tesis. Pueden ser datos, ejemplos, experiencias, la opinión de expertos o las consecuencias positivas: <i>aprenderíamos de dónde vienen los alimentos</i>, <i>comeríamos más verdura</i>…</li><li>La <b>conclusión</b>: resume y refuerza la tesis.</li></ul><p>Para unir los argumentos se usan <b>conectores</b>: <i>en primer lugar</i>, <i>además</i>, <i>por otra parte</i>, <i>sin embargo</i>, <i>por tanto</i>, <i>en conclusión</i>.</p><p>Un buen texto argumentativo también tiene en cuenta lo que piensan los demás: reconoce un posible <b>contraargumento</b> y lo responde. <i>Algunos dirán que un huerto da mucho trabajo; sin embargo, podemos organizar turnos por clases</i>. Argumentar no es imponer: es dar buenas razones con respeto.</p>`,
+      H6.flujo("Argumentar", ["tesis|qué defiendo", "argumentos|por qué", "réplica|qué dirán", "conclusión|resumen"], cMO), ["Qz6qdvXRN8I", "Cómo escribir un texto argumentativo paso a paso (con ejemplos fáciles)", "Te Lo Explico", 1210011]],
+    ["Revisar para mejorar", `<p>Los escritores profesionales casi nunca aciertan a la primera. Escriben un <b>borrador</b> y después lo <b>revisan</b> varias veces. Revisar no es solo buscar faltas: es mejorar el texto. Puedes revisar en tres pasadas:</p><ul><li><b>Primera pasada, el contenido.</b> ¿Se entiende lo que quiero decir? ¿Falta información o sobra algo? ¿Las ideas están en orden?</li><li><b>Segunda pasada, la forma.</b> ¿Cada párrafo trata una idea? ¿Repito mucho las mismas palabras? Cambia las repeticiones por sinónimos o pronombres: <i>El perro corría. El perro ladraba</i> mejora así: <i>El perro corría y ladraba</i>. ¿Uso conectores para unir las ideas?</li><li><b>Tercera pasada, la corrección.</b> Ortografía, tildes, mayúsculas y signos de puntuación. Si dudas de una palabra, consulta el diccionario.</li></ul><p>Algunos trucos que funcionan:</p><ul><li>Deja reposar el texto unas horas antes de revisarlo.</li><li>Léelo <b>en voz alta</b>: oirás las frases demasiado largas y dónde faltan pausas.</li><li>Pide a un compañero que lo lea y te diga qué ha entendido.</li></ul><p>Después, pasa el texto a limpio. Esa versión final es mucho mejor que el primer borrador.</p>`,
+      L6.filas("Tres pasadas", [["1. Contenido", "¿se entiende?", cAZ], ["2. Forma", "párrafos y repeticiones", cVE], ["3. Corrección", "ortografía y puntos", cRO], ["Truco", "leer en voz alta", cNA]])],
+  ],
+  ejemplos: [
+    ["Pasa a estilo indirecto: «—Aquí estoy muy contento —dijo Pablo».", ["Yo pasa a él; estoy pasa a estaba.", "Aquí pasa a allí."], "Pablo dijo que allí estaba muy contento."],
+    ["Mejora la instrucción «Luego pones la harina y lo mezclas un rato».", ["Usamos un conector de orden.", "Damos cantidad y tiempo exactos."], "A continuación, añade 200 g de harina y mezcla durante 2 minutos."],
+  ],
+  errores: ["Mezclar imperativo e infinitivo en unas mismas instrucciones.", "Olvidar cambiar los tiempos y las personas al pasar al estilo indirecto."],
+  ejercicios: [
+    ["b", "¿Qué signo introduce las palabras de un personaje en estilo directo?", "La raya (—) o las comillas."],
+    ["b", "¿Cómo se llama quien hace las preguntas en una entrevista?", "Entrevistador."],
+    ["b", "Escribe dos ejemplos de textos instructivos.", "Una receta y las reglas de un juego."],
+    ["b", "¿Qué es la tesis de un texto argumentativo?", "La idea u opinión que se defiende."],
+    ["b", "¿Qué es un borrador?", "La primera versión de un texto, que luego se revisa."],
+    ["m", "Pasa a estilo indirecto: «—¿Has hecho los deberes? —preguntó mi madre».", "Mi madre preguntó si había hecho los deberes."],
+    ["m", "Convierte en pregunta abierta: «¿Te gusta ser bombera?».", "¿Qué es lo que más te gusta de ser bombera?"],
+    ["m", "Escribe tres conectores de orden para unas instrucciones.", "Primero, a continuación, por último."],
+    ["m", "Escribe dos argumentos para «Deberíamos tener más tiempo de recreo».", "Descansamos y luego atendemos mejor; hacemos más ejercicio."],
+    ["m", "Elimina la repetición: «Compré un libro. El libro era de aventuras».", "Compré un libro que era de aventuras."],
+    ["a", "Pasa a estilo directo: «Ana dijo que al día siguiente traería su balón».", "—Mañana traeré mi balón —dijo Ana."],
+    ["a", "Escribe un contraargumento a «Los deberes no sirven para nada» y respóndelo.", "Respuesta abierta. Ej.: ayudan a repasar; sin embargo, deberían ser pocos y útiles."],
+    ["a", "Escribe las instrucciones para lavarse las manos en cinco pasos.", "Respuesta abierta con imperativo y conectores."],
+    ["a", "Prepara cinco preguntas abiertas para entrevistar a una persona mayor de tu familia.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["En estilo indirecto, «mañana» pasa a…", ["al día siguiente", "ayer", "hoy"], "Estilo indirecto."],
+    ["Una pregunta abierta es la que…", ["no se responde con sí o no", "se hace al aire libre", "solo tiene una respuesta"], "Entrevista."],
+    ["Los verbos de un texto instructivo suelen ir en…", ["imperativo o infinitivo", "pretérito pluscuamperfecto", "condicional"], "Instructivo."],
+    ["«Sin embargo» es un conector que…", ["opone ideas", "ordena pasos", "da un ejemplo"], "Argumentativo."],
+    ["Leer el texto en voz alta ayuda a…", ["detectar frases largas y pausas", "escribir más rápido", "no revisar"], "Revisar."],
+  ],
+  examen: [
+    ["En la lectura, el cuaderno del abuelo contenía…", ["una receta de bizcocho", "un mapa", "un diario de viajes"], "Lectura."],
+    ["La parte final de un texto argumentativo es…", ["la conclusión", "la tesis", "el borrador"], "Argumentativo."],
+  ],
+  tarjetas: [
+    ["Directo e indirecto", "Directo: palabras exactas con raya. Indirecto: «dijo que…», cambian personas y tiempos."],
+    ["Entrevista", "Título, presentación, preguntas y respuestas, cierre."],
+    ["Texto instructivo", "Materiales y pasos; imperativo o infinitivo; conectores de orden."],
+    ["Texto argumentativo", "Tesis, argumentos, contraargumento y conclusión."],
+  ],
+  glosario: [
+    ["Estilo directo", "Reproducción exacta de las palabras de un personaje."],
+    ["Estilo indirecto", "Lo que dijo un personaje contado por el narrador."],
+    ["Entrevista", "Texto de preguntas y respuestas entre dos personas."],
+    ["Pregunta abierta", "Pregunta que no se responde con sí o no."],
+    ["Transcribir", "Escribir lo que se ha dicho en voz alta."],
+    ["Texto instructivo", "Texto que explica cómo hacer algo."],
+    ["Imperativo", "Forma verbal que expresa orden o consejo."],
+    ["Tesis", "Opinión que defiende un texto argumentativo."],
+    ["Argumento", "Razón que apoya una opinión."],
+    ["Contraargumento", "Razón contraria a la tesis."],
+    ["Borrador", "Primera versión de un texto."],
+    ["Revisar", "Leer de nuevo un texto para mejorarlo."],
+  ],
+  situacion: {
+    titulo: "La revista de la clase",
+    reto: "La clase prepara una revista con distintos tipos de texto para repartir en el colegio.",
+    pasos: ["Repartid las secciones: entrevista, receta o instrucciones, artículo de opinión y relato.", "Escribid un borrador de cada texto siguiendo su estructura.", "Intercambiad los borradores y revisadlos en tres pasadas.", "Maquetad la revista con imágenes y presentadla a otras clases."],
+    producto: "Una revista escolar con entrevista, texto instructivo, opinión y relato.",
+    evaluacion: ["Respeta la estructura de cada tipo de texto.", "Usa conectores y un registro adecuado.", "Revisa y mejora sus textos.", "Colabora en el trabajo en equipo."],
+  },
+});

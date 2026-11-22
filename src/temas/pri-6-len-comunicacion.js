@@ -93,3 +93,85 @@ module.exports = P.tema({
   ideas: ["Teléfono roto en clase para descubrir el ruido y cómo se deforma un mensaje.", "Cazar en el colegio ejemplos de comunicación visual, sonora y gestual y hacer un mural.", "Representar la misma escena con registro coloquial y formal."],
   fuentes: [["Comunicación, Wikipedia en español", "https://es.wikipedia.org/wiki/Comunicaci%C3%B3n"]],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Comparar la comunicación humana con la de los animales", "Conocer sistemas de comunicación accesibles como la lengua de signos y el braille", "Detectar bulos y comprobar la información antes de compartirla", "Valorar la comunicación como herramienta para convivir"],
+  lectura: { titulo: "El niño que inventó los puntos", html: `<p>Louis vivía en un pueblo cerca de París, a principios del siglo XIX. Su padre fabricaba sillas de montar y Louis, con tres años, jugaba en el taller. Un día cogió una herramienta afilada, se hirió en un ojo y la infección pasó al otro. A los cinco años se quedó <b>completamente ciego</b>.</p><p>Era un niño muy listo y consiguió una plaza en una escuela para jóvenes ciegos de París. Allí se leía con libros enormes de letras en relieve: pesaban muchísimo, había muy pocos y leer una página costaba una eternidad.</p><p>Un día visitó la escuela un capitán del ejército que había inventado una escritura de puntos para que los soldados leyeran mensajes de noche, sin luz. Era complicadísima, pero a Louis le dio una idea. Durante años, por las noches, fue simplificándola hasta crear un sistema con solo <b>seis puntos</b> que cabían bajo la yema de un dedo.</p><p>Lo terminó en 1825. Tenía <b>quince años</b>. Su invento, que lleva su apellido, <b>Braille</b>, permite hoy a millones de personas ciegas de todo el mundo leer y escribir.</p>` },
+  tras: {
+    "Comunicación no verbal": [
+      ["¿Se comunican los animales?", `<p>Los animales también se comunican: necesitan avisar de un peligro, buscar pareja, marcar su territorio o encontrar comida. Lo hacen de muchas maneras:</p><ul><li>Las <b>abejas</b> bailan. Cuando una abeja exploradora encuentra flores, vuelve a la colmena y hace una danza en forma de ocho: la dirección indica hacia dónde están las flores y la duración del baile, a qué distancia. Lo descubrió el científico <b>Karl von Frisch</b>, que recibió el Premio Nobel en 1973.</li><li>Las <b>hormigas</b> dejan un rastro químico, las <b>feromonas</b>, que las demás siguen hasta la comida.</li><li>Los <b>delfines</b> usan silbidos, y cada uno parece tener un silbido propio, como un nombre.</li><li>Los <b>lobos</b> aúllan para reunir a la manada, y los perros mueven la cola o enseñan los dientes.</li><li>Los <b>monos vervet</b> tienen gritos diferentes para avisar de un águila, de una serpiente o de un leopardo.</li></ul><p>Pero hay una gran diferencia con nosotros: los animales tienen un número limitado de mensajes. Las personas, con unos pocos sonidos y palabras, podemos crear <b>infinitas frases nuevas</b>, hablar del pasado y del futuro, de cosas que no están delante o incluso de cosas que no existen.</p>`,
+        L6.filas("Animales que comunican", [["abejas", "danza en ocho", cNA], ["hormigas", "feromonas", cRO], ["delfines", "silbidos", cAZ], ["monos", "gritos de alarma", cVE]]), ["6Lnq_zZlYa4", "El lenguaje de las abejas | NATIONAL GEOGRAPHIC ESPAÑA", "National Geographic España", 427024]],
+    ],
+    "Lenguaje, lengua y habla": [
+      ["Comunicarse sin oír o sin ver", `<p>Las personas sordas o ciegas tienen sus propios sistemas para comunicarse, que demuestran que el lenguaje no depende solo de la voz y de la vista.</p><p>La <b>lengua de signos</b> es una lengua completa, con su vocabulario y su gramática, que se expresa con las <b>manos</b>, la <b>cara</b> y el <b>cuerpo</b>, y se percibe con la vista. No es universal: hay una lengua de signos española, otra catalana, otra francesa… En España, la <b>lengua de signos española</b> y la <b>lengua de signos catalana</b> están reconocidas por la ley desde 2007. Para deletrear nombres se usa el <b>alfabeto dactilológico</b>, con una posición de la mano para cada letra.</p><p>El <b>braille</b> es un sistema de lectura y escritura con el tacto. Cada letra se forma con una combinación de hasta <b>seis puntos en relieve</b>, colocados en dos columnas de tres. Se lee pasando la yema de los dedos. Hoy lo encontramos en las cajas de medicamentos, en los botones de los ascensores o en los cajeros automáticos.</p><p>También existen los <b>pictogramas</b>, dibujos sencillos que ayudan a comunicarse a personas que tienen dificultades con el lenguaje oral. Muchos colegios los usan para señalar el comedor, el baño o la biblioteca.</p>`,
+        H6.dos("Sistemas accesibles", ["Signos", ["manos y cara", "se ve", "tiene gramática"], cAZ], ["Braille", ["6 puntos", "se toca", "Louis Braille"], cVE]), ["5YepYQZOZJ4", "¿Cómo es leer y escribir en braille? Deinny te lo explica", "Mi Señal", 270467]],
+    ],
+  },
+  final: [
+    ["Bulos: mensajes que engañan", `<p>Un <b>bulo</b> es una noticia falsa que se difunde a propósito para engañar. Hoy se extienden muy deprisa por las redes sociales y los grupos de mensajería, porque basta con pulsar «reenviar». A veces buscan asustar, otras veces ganar dinero con visitas o hacer daño a alguien.</p><p>Antes de creer o compartir un mensaje, hazte estas preguntas:</p><ul><li><b>¿Quién lo dice?</b> ¿Viene de un medio de comunicación conocido o de una institución, o no sabes quién lo escribió?</li><li><b>¿Cuándo se publicó?</b> Muchas noticias antiguas vuelven a circular como si fueran nuevas.</li><li><b>¿Lo cuentan otros medios?</b> Si algo es importante y solo aparece en un mensaje de WhatsApp, desconfía.</li><li><b>¿Cómo está escrito?</b> Los bulos suelen tener muchas mayúsculas, exclamaciones, faltas de ortografía y frases como «¡Compártelo antes de que lo borren!».</li><li><b>¿Qué te hace sentir?</b> Si te da mucho miedo o mucha rabia, para y piensa: los bulos juegan con las emociones.</li></ul><p>Si tienes dudas, pregunta a una persona adulta de confianza y, sobre todo, <b>no lo reenvíes</b>. Cortar la cadena también es comunicar de forma responsable.</p>`,
+      H6.flujo("Antes de compartir", ["¿Quién?|fuente", "¿Cuándo?|fecha", "¿Otros?|medios", "¿Dudas?|no reenvíes"], cRO)],
+  ],
+  ejemplos: [
+    ["¿En qué se diferencia el aviso de un mono vervet de una frase humana?", ["El mono tiene unos pocos gritos fijos.", "Las personas combinamos palabras para crear frases nuevas."], "El lenguaje humano permite infinitos mensajes nuevos."],
+    ["Te llega: «¡¡URGENTE!! Mañana cierran todos los colegios. ¡Compártelo ya!». ¿Qué haces?", ["No dice quién lo publica ni cuándo.", "Tiene mayúsculas y prisa por compartir.", "Compruebo en la web del colegio o de la Consejería."], "Sospecho que es un bulo y no lo reenvío."],
+  ],
+  errores: ["Creer que la lengua de signos es igual en todo el mundo.", "Reenviar un mensaje sin comprobar quién lo escribió."],
+  ejercicios: [
+    ["b", "¿Cómo indican las abejas dónde hay flores?", "Con una danza en forma de ocho."],
+    ["b", "¿Cuántos puntos tiene como máximo una letra en braille?", "Seis."],
+    ["b", "¿Qué es un bulo?", "Una noticia falsa que se difunde para engañar."],
+    ["b", "¿Con qué se expresa la lengua de signos?", "Con las manos, la cara y el cuerpo."],
+    ["b", "¿Qué edad tenía Louis Braille cuando terminó su sistema?", "Quince años."],
+    ["m", "¿Qué son las feromonas?", "Sustancias químicas que dejan algunos animales, como las hormigas, para comunicarse."],
+    ["m", "¿Dónde puedes encontrar braille en tu vida diaria?", "En cajas de medicamentos, ascensores o cajeros."],
+    ["m", "Di tres señales que hacen sospechar de un bulo.", "No se sabe quién lo escribe, muchas mayúsculas y exclamaciones, piden que lo compartas ya."],
+    ["m", "¿Para qué sirve el alfabeto dactilológico?", "Para deletrear con la mano nombres y palabras en lengua de signos."],
+    ["m", "¿Qué es un pictograma? Pon un ejemplo.", "Un dibujo sencillo que comunica algo, como el dibujo de un plato en la puerta del comedor."],
+    ["a", "¿Por qué decimos que la lengua de signos es una lengua y no solo gestos?", "Porque tiene vocabulario y gramática propios y permite expresar cualquier idea."],
+    ["a", "¿Qué hace que el lenguaje humano sea diferente del de los animales?", "Crea infinitas frases nuevas y habla del pasado, del futuro o de lo que no existe."],
+    ["a", "¿Por qué los bulos se extienden tan rápido hoy?", "Porque basta con reenviar y juegan con emociones como el miedo."],
+    ["a", "Diseña tres pictogramas para tu clase y explica qué comunica cada uno.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["La danza de las abejas la descubrió…", ["Karl von Frisch", "Louis Braille", "Charles Darwin"], "Animales."],
+    ["La lengua de signos española está reconocida por la ley desde…", ["2007", "1825", "1978"], "Accesibilidad."],
+    ["El braille se lee con…", ["el tacto", "el oído", "la vista"], "Braille."],
+    ["Ante un mensaje dudoso, lo mejor es…", ["comprobarlo y no reenviarlo", "reenviarlo por si acaso", "creerlo si da miedo"], "Bulos."],
+    ["Los monos vervet tienen gritos distintos para…", ["cada depredador", "cada día de la semana", "cada comida"], "Animales."],
+  ],
+  examen: [
+    ["Louis Braille se quedó ciego por…", ["un accidente en el taller de su padre", "una enfermedad de nacimiento", "una guerra"], "Lectura."],
+    ["Una diferencia del lenguaje humano es que…", ["permite crear frases nuevas sin límite", "solo sirve para avisar de peligros", "no necesita código"], "Animales."],
+  ],
+  tarjetas: [
+    ["Comunicación animal", "Abejas (danza), hormigas (feromonas), delfines (silbidos), lobos (aullidos)."],
+    ["Lengua de signos", "Lengua completa con manos, cara y cuerpo; no es universal."],
+    ["Braille", "Seis puntos en relieve; se lee con el tacto. Louis Braille, 1825."],
+    ["Bulo", "Noticia falsa. Comprueba quién, cuándo y si otros medios lo cuentan."],
+  ],
+  glosario: [
+    ["Feromona", "Sustancia química con la que se comunican algunos animales."],
+    ["Danza de las abejas", "Baile con el que las abejas indican dónde hay alimento."],
+    ["Lengua de signos", "Lengua visual que usan las personas sordas."],
+    ["Alfabeto dactilológico", "Letras representadas con posiciones de la mano."],
+    ["Braille", "Sistema de lectura con puntos en relieve."],
+    ["Relieve", "Lo que sobresale de una superficie y se puede tocar."],
+    ["Pictograma", "Dibujo sencillo que representa una idea."],
+    ["Bulo", "Noticia falsa difundida para engañar."],
+    ["Fuente", "Persona o medio de donde procede una información."],
+    ["Reenviar", "Volver a enviar un mensaje recibido a otras personas."],
+    ["Accesible", "Que todas las personas pueden usar o entender."],
+    ["Desinformación", "Información falsa que confunde a la gente."],
+  ],
+  situacion: {
+    titulo: "Un colegio que se entiende",
+    reto: "La clase quiere que su colegio sea más accesible y que todos sepan detectar bulos.",
+    pasos: ["Aprended a deletrear vuestro nombre con el alfabeto dactilológico y diez signos básicos.", "Diseñad pictogramas para las puertas del colegio y etiquetas en braille con plantillas de puntos.", "Recoged ejemplos de mensajes dudosos y comprobad si eran verdad.", "Preparad un cartel «Antes de compartir» y presentadlo a otras clases."],
+    producto: "Pictogramas y etiquetas accesibles para el colegio y un cartel contra los bulos.",
+    evaluacion: ["Conoce sistemas de comunicación accesibles.", "Compara la comunicación humana y animal.", "Comprueba la fiabilidad de la información.", "Comunica sus propuestas con claridad."],
+  },
+});

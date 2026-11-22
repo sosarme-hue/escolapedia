@@ -147,3 +147,91 @@ module.exports = {
   fuentes: [RD, { t: "Unión Europea: sitio oficial", url: "https://european-union.europa.eu/index_es" }, { t: "Rincón de aprendizaje de la UE", url: "https://learning-corner.learning.europa.eu/index_es" }, wiki("Unión Europea", "Unión_Europea")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer a las personas que impulsaron la construcción europea", "Reconocer decisiones europeas que afectan a nuestra vida diaria", "Identificar proyectos financiados por la Unión Europea en nuestro entorno", "Valorar la diversidad de lenguas de Europa y el papel de la UE en el mundo"],
+  lectura: { titulo: "De Auschwitz al Parlamento Europeo", html: `<p>Simone nació en 1927 en Niza, en Francia. Cuando tenía 16 años, en plena Segunda Guerra Mundial, fue detenida junto a su familia por ser judía y deportada al campo de concentración de <b>Auschwitz</b>. Allí vivió el horror más absoluto. Su madre murió en el campo, y su padre y su hermano desaparecieron para siempre.</p><p>Simone sobrevivió. Cuando terminó la guerra, regresó a Francia, estudió Derecho y trabajó como magistrada. Se convirtió en una política muy respetada que defendió los derechos de las mujeres y de los presos.</p><p>Muchas personas que habían sufrido la guerra pensaban que había que hacer algo para que nunca más se repitiera. Simone, a la que todos conocían como <b>Simone Veil</b>, creía firmemente que la respuesta era una <b>Europa unida</b>, donde los antiguos enemigos trabajaran juntos.</p><p>En 1979 se celebraron por primera vez elecciones directas al Parlamento Europeo: los ciudadanos de los países miembros votaron a sus diputados. Y el nuevo Parlamento eligió como presidenta a Simone Veil. La joven que había sobrevivido a Auschwitz presidía ahora la institución que representaba a los europeos unidos en paz.</p>` },
+  tras: {
+    "Historia de la Unión Europea": [
+      ["Las personas que soñaron Europa", `<p>Detrás de la Unión Europea hay personas que, tras dos guerras mundiales terribles, se atrevieron a imaginar un continente en paz. Se les llama a menudo los <b>padres fundadores</b>:</p><ul><li><b>Jean Monnet</b>, francés, fue quien diseñó la idea de poner en común el carbón y el acero, las materias primas de la guerra, para que Francia y Alemania no pudieran volver a enfrentarse.</li><li><b>Robert Schuman</b>, ministro francés, presentó esa propuesta el 9 de mayo de 1950. Él mismo había vivido en una región que pasó varias veces de Francia a Alemania.</li><li><b>Konrad Adenauer</b>, canciller de Alemania, aceptó la mano tendida de Francia.</li><li><b>Alcide De Gasperi</b>, de Italia, y <b>Paul-Henri Spaak</b>, de Bélgica, impulsaron los tratados.</li><li><b>Altiero Spinelli</b>, italiano, escribió durante la guerra, cuando estaba preso en una isla, un manifiesto por una Europa libre y unida.</li></ul><p>También hubo mujeres que lucharon por Europa, como la periodista francesa <b>Louise Weiss</b> o la propia <b>Simone Veil</b>. Hoy algunos edificios del Parlamento Europeo llevan sus nombres. Todos ellos compartían una idea: es mejor resolver los problemas hablando y cooperando que con las armas.</p>`,
+        L6.filas("Pioneros de Europa", [["Jean Monnet", "carbón y acero", cAZ], ["Robert Schuman", "9 de mayo de 1950", cNA], ["Adenauer", "Alemania", cMO], ["Simone Veil", "presidenta en 1979", cVE]])],
+    ],
+    "Las instituciones europeas": [
+      ["Europa en tu vida diaria", `<p>Muchas decisiones que se toman en Bruselas y Estrasburgo afectan a nuestra vida cotidiana, aunque no siempre nos demos cuenta:</p><ul><li>Desde 2017, al viajar a otro país de la UE puedes usar el móvil <b>sin pagar más</b> por las llamadas y los datos: se eliminó el llamado roaming.</li><li>Desde finales de 2024, los móviles, tabletas y muchos aparatos nuevos vendidos en la UE deben usar el mismo <b>cargador universal</b> con conector USB-C. Así se ahorra dinero y se generan menos residuos.</li><li>Las botellas de plástico de bebidas deben llevar el <b>tapón unido</b> al envase, para que no acabe tirado en la naturaleza.</li><li>Las etiquetas de los alimentos deben indicar los <b>alérgenos</b> de forma destacada, y los juguetes deben cumplir normas de <b>seguridad</b> comunes y llevar el marcado CE.</li><li>Las normas de <b>protección de datos</b> obligan a las empresas a cuidar nuestra información personal.</li><li>Si un vuelo se retrasa mucho o se cancela, los pasajeros tienen <b>derecho a una compensación</b>.</li></ul><p>Estas normas las proponen la Comisión Europea y las aprueban el Parlamento Europeo, elegido por los ciudadanos, y el Consejo, donde están los gobiernos de los países.</p>`,
+        L6.filas("Europa en casa", [["2017", "fin del roaming", cAZ], ["2024", "cargador USB-C común", cVE], ["botellas", "tapón unido", cNA], ["juguetes", "marcado CE", cRO]]), ["teM-LZCuks8", "Unión Europea, las historias insólitas y las curiosidades más increíbles", "Un Mundo Inmenso", 1139034]],
+    ],
+    "España en la Unión Europea": [
+      ["Proyectos europeos cerca de ti", `<p>Si te fijas, en muchas obras, edificios y proyectos de tu entorno verás un cartel con la bandera azul de las doce estrellas y el texto «Financiado por la Unión Europea» o «Cofinanciado por la Unión Europea». Significa que una parte del dinero viene de los <b>fondos europeos</b>, que pagan entre todos los países miembros.</p><p>Algunos de estos fondos son:</p><ul><li>El <b>FEDER</b> (Fondo Europeo de Desarrollo Regional) ayuda a las regiones con menos recursos: carreteras, depuradoras, hospitales, centros de investigación.</li><li>El <b>Fondo Social Europeo</b> financia formación para el empleo y ayudas a personas con dificultades.</li><li>La <b>Política Agrícola Común</b> (PAC) apoya a los agricultores y ganaderos y el desarrollo de los pueblos.</li></ul><p>También hay programas para los centros educativos:</p><ul><li><b>eTwinning</b> permite a los colegios hacer proyectos por internet con escuelas de otros países europeos.</li><li><b>Erasmus+</b> organiza intercambios de alumnos y profesores, también en Primaria.</li><li>El <b>Cuerpo Europeo de Solidaridad</b> permite a los jóvenes hacer voluntariado en otros países.</li></ul><p>Busca carteles europeos en tu localidad: te sorprenderá cuántos hay.</p>`,
+        H6.rueda("Fondos y programas", "UE", [["FEDER", cAZ], ["PAC", cVE], ["Erasmus+", cNA], ["eTwinning", cMO]])],
+    ],
+  },
+  final: [
+    ["Las lenguas de Europa", `<p>En la Unión Europea hay <b>24 lenguas oficiales</b>. Cualquier ciudadano puede escribir a las instituciones europeas en su lengua y recibir la respuesta en ella. Por eso trabajan en Bruselas y Luxemburgo miles de traductores e intérpretes.</p><p>La mayoría de las lenguas europeas pertenecen a la gran familia <b>indoeuropea</b> y se agrupan en ramas:</p><ul><li><b>Lenguas romances</b>, que vienen del latín: español, portugués, francés, italiano, rumano, catalán, gallego…</li><li><b>Lenguas germánicas</b>: alemán, inglés, neerlandés, sueco, danés…</li><li><b>Lenguas eslavas</b>: polaco, checo, eslovaco, búlgaro, croata, esloveno…</li><li>Otras ramas, como el <b>griego</b>, las <b>bálticas</b> (lituano y letón) o las <b>célticas</b> (irlandés).</li></ul><p>Hay lenguas que no son indoeuropeas, como el <b>húngaro</b>, el <b>finés</b> y el <b>estonio</b>. Y el <b>euskera</b> es especial: no se ha podido relacionar con ninguna otra lengua conocida.</p><p>Como las lenguas de una misma rama se parecen, si sabes español te resultará más fácil entender el portugués o el italiano. Cada 26 de septiembre se celebra el <b>Día Europeo de las Lenguas</b>, para animar a todos a aprender idiomas.</p>`,
+      L6.filas("Familias de lenguas", [["romances", "español, francés…", cRO], ["germánicas", "alemán, inglés…", cAZ], ["eslavas", "polaco, checo…", cVE], ["no indoeuropeas", "húngaro, finés, euskera", cMO]]), ["yMi5vduNWtI", "El ORIGEN de los IDIOMAS", "Xataka", 450786]],
+    ["La Unión Europea en el mundo", `<p>La Unión Europea no solo trabaja dentro de sus fronteras. También tiene un papel importante en el mundo:</p><ul><li>Es uno de los mayores <b>mercados</b> del planeta y comercia con casi todos los países.</li><li>La UE y sus países miembros, juntos, son el <b>mayor donante de ayuda al desarrollo</b> del mundo: financian escuelas, hospitales, agua potable y vacunas en países con menos recursos.</li><li>Envían <b>ayuda humanitaria</b> cuando hay terremotos, inundaciones, guerras o hambrunas.</li><li>Defienden en los foros internacionales los <b>derechos humanos</b>, la democracia y la lucha contra el <b>cambio climático</b>.</li><li>Organizan misiones para ayudar a mantener la <b>paz</b> en algunas zonas en conflicto.</li></ul><p>En 2012, la Unión Europea recibió el <b>Premio Nobel de la Paz</b> por haber contribuido durante más de seis décadas a la paz, la reconciliación, la democracia y los derechos humanos en Europa.</p><p>La UE también tiene problemas y recibe críticas: decisiones lentas, desacuerdos entre países o la sensación de algunos ciudadanos de que está lejos de ellos. Por eso es importante informarse y participar, por ejemplo votando en las elecciones europeas, que se celebran cada cinco años.</p>`,
+      H6.dos("La UE en el mundo", ["Ayuda", ["desarrollo", "humanitaria", "vacunas y agua"], cVE], ["Valores", ["derechos humanos", "democracia", "clima y paz"], cAZ])],
+  ],
+  ejemplos: [
+    ["¿Cuántos años pasaron entre la declaración Schuman (1950) y las primeras elecciones europeas (1979)?", ["1979 − 1950."], "29 años."],
+    ["¿Qué familia de lenguas es el italiano? ¿Y el sueco?", ["El italiano viene del latín.", "El sueco es germánico."], "Romance y germánica."],
+  ],
+  errores: ["Pensar que lo que decide Europa no nos afecta: muchas normas diarias son europeas.", "Creer que todas las lenguas de Europa vienen del latín."],
+  ejercicios: [
+    ["b", "¿Quién fue la primera presidenta del Parlamento Europeo elegido por los ciudadanos?", "Simone Veil, en 1979."],
+    ["b", "¿Cuántas lenguas oficiales tiene la UE?", "24."],
+    ["b", "¿Qué se eliminó en 2017 para los móviles en la UE?", "El roaming."],
+    ["b", "¿Qué significa un cartel «Financiado por la Unión Europea»?", "Que el proyecto se ha pagado en parte con fondos europeos."],
+    ["b", "¿Qué premio recibió la UE en 2012?", "El Premio Nobel de la Paz."],
+    ["m", "¿Por qué Jean Monnet propuso poner en común el carbón y el acero?", "Para que Francia y Alemania no pudieran volver a hacerse la guerra."],
+    ["m", "Di tres normas europeas que afecten a tu vida diaria.", "Fin del roaming, cargador USB-C común, tapón unido a la botella."],
+    ["m", "¿Qué es eTwinning?", "Un programa para hacer proyectos entre colegios europeos por internet."],
+    ["m", "Clasifica: portugués, polaco, alemán, rumano.", "Romances: portugués, rumano. Eslava: polaco. Germánica: alemán."],
+    ["m", "¿Qué tiene de especial el euskera?", "No se ha podido relacionar con ninguna otra lengua."],
+    ["a", "¿Qué ventaja ecológica tiene el cargador universal?", "Se fabrican y tiran menos cargadores, se generan menos residuos."],
+    ["a", "¿Por qué la historia de Simone Veil simboliza el sentido de la UE?", "Porque una superviviente de la guerra presidió la institución de la Europa unida en paz."],
+    ["a", "Da dos críticas que se hacen a la UE.", "Decisiones lentas y sensación de lejanía de los ciudadanos (también desacuerdos)."],
+    ["a", "Busca un proyecto financiado por la UE en tu comunidad y explica para qué sirve.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["La declaración Schuman se presentó el…", ["9 de mayo de 1950", "12 de octubre de 1492", "6 de diciembre de 1978"], "Historia."],
+    ["El FEDER ayuda sobre todo a…", ["las regiones con menos recursos", "los equipos de fútbol", "los bancos"], "Fondos."],
+    ["El Día Europeo de las Lenguas es el…", ["26 de septiembre", "1 de enero", "9 de mayo"], "Lenguas."],
+    ["El húngaro y el finés son lenguas…", ["no indoeuropeas", "romances", "eslavas"], "Lenguas."],
+    ["Las elecciones europeas se celebran cada…", ["cinco años", "año", "diez años"], "Participar."],
+  ],
+  examen: [
+    ["Simone Veil sobrevivió al campo de…", ["Auschwitz", "Waterloo", "Verdún"], "Lectura."],
+    ["La UE y sus países son juntos el mayor donante de…", ["ayuda al desarrollo", "armas", "petróleo"], "Mundo."],
+  ],
+  tarjetas: [
+    ["Padres de Europa", "Monnet, Schuman, Adenauer, De Gasperi, Spinelli; Simone Veil y Louise Weiss."],
+    ["Europa en tu vida", "Fin del roaming (2017), cargador USB-C, tapón unido, alérgenos, marcado CE."],
+    ["Fondos y programas", "FEDER, Fondo Social, PAC, Erasmus+, eTwinning."],
+    ["Lenguas", "24 oficiales; romances, germánicas, eslavas y otras."],
+  ],
+  glosario: [
+    ["Padres fundadores", "Políticos que impulsaron la unión europea tras la guerra."],
+    ["Deportar", "Expulsar a una persona de su país por la fuerza."],
+    ["Roaming", "Recargo por usar el móvil en otro país."],
+    ["Marcado CE", "Señal de que un producto cumple las normas europeas."],
+    ["Fondos europeos", "Dinero común de la UE para proyectos."],
+    ["FEDER", "Fondo Europeo de Desarrollo Regional."],
+    ["PAC", "Política Agrícola Común."],
+    ["eTwinning", "Programa de colaboración entre colegios europeos."],
+    ["Lengua romance", "Lengua que procede del latín."],
+    ["Indoeuropeo", "Gran familia de lenguas de Europa y parte de Asia."],
+    ["Intérprete", "Persona que traduce oralmente."],
+    ["Ayuda humanitaria", "Ayuda urgente a víctimas de catástrofes o guerras."],
+  ],
+  situacion: {
+    titulo: "Embajadores europeos",
+    reto: "La clase investiga cómo la Unión Europea está presente en su localidad y organiza una jornada europea para el colegio.",
+    pasos: ["Recorred el barrio o el pueblo buscando carteles de proyectos financiados por la UE y fotografiadlos.", "Investigad qué fondo los financió, cuánto costaron y para qué sirven.", "Preparad juegos sobre las 24 lenguas, los países y los símbolos de Europa.", "Celebrad una jornada europea el 9 de mayo y presentad vuestro mapa de proyectos."],
+    producto: "Un mapa de proyectos europeos de la localidad y una jornada europea.",
+    evaluacion: ["Identifica la presencia de la UE en su entorno.", "Investiga y contrasta información.", "Valora la diversidad lingüística y cultural.", "Comunica y organiza actividades en equipo."],
+  },
+});
