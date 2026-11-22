@@ -85,3 +85,100 @@ module.exports = P.tema({
   saberes: "Coneixement de la llengua: el pronom personal fort; persona i nombre; vostè i vostès; pronoms després de preposició (amb mi); concordança amb el verb; ús per evitar repeticions",
   ideas: ["Gest de cada pronom recitat en cor.", "Text amb repeticions per corregir per parelles.", "Targetes de noms i pronoms per aparellar."],
 });
+
+// ---------- Nivell llibre (3r de Primària) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  videos: {
+    "Una cançó per recordar-los": ["uHECZ1CKnk0", "Los pronombres personales en español, cancion. Aprender español", "Tio Spanish: aprender español online", 693286],
+  },
+  dibujos: {
+    "Singular i plural": H6.dos("Nombre", ["SINGULAR", ["jo", "tu", "ell, ella"], cAZ], ["PLURAL", ["nosaltres", "vosaltres", "ells, elles"], cNA]),
+    "El pronom i el verb": L6.filas("Verb", [["jo", "canto", cAZ], ["tu", "cantes", cVE], ["ella", "canta", cNA], ["nosaltres", "cantem", cRO]]),
+    "Repàs: busca els pronoms": H6.flujo("Buscar", ["llegeix|la frase", "qui|ho fa?", "subratlla|el pronom", "persona|i nombre"], cMO),
+  },
+  objetivos: ["Reconèixer si una història s'explica en primera o tercera persona", "Fer servir els pronoms em, et, es, ens, us", "Entendre per què en català sovint no cal dir el pronom", "Escriure un diari i comparar els pronoms amb l'anglès"],
+  lectura: { titulo: "Els bessons", html: `<p>La Noa i l'Èric són bessons. Tenen nou anys, van a la mateixa classe i s'assemblen tant que, quan eren petits, la gent els confonia. Però ara ja no: ella porta el cabell curt i ell, unes ulleres blaves.</p><p>—Jo soc la gran —diu sempre la Noa—. Vaig néixer deu minuts abans.</p><p>—I jo soc el més alt —respon l'Èric.</p><p>Un dissabte, la seva àvia els va portar d'excursió a la muntanya.</p><p>—Vosaltres dos aneu davant —els va dir—. Jo us seguiré a poc a poc.</p><p>Nosaltres, els bessons, vam córrer pel camí. De sobte, l'Èric es va aturar.</p><p>—Mira, Noa! Un esquirol!</p><p>Ella es va acostar sense fer soroll. L'esquirol els mirava des d'una branca amb una pinya a les mans. Després va saltar a un altre arbre i va desaparèixer.</p><p>Quan l'àvia els va atrapar, ells li ho van explicar tot alhora, parlant pels descosits.</p><p>—Un a un, si us plau! —va riure ella—. Primer tu, Noa, i després tu, Èric.</p><p>Aquella nit, la Noa va escriure al seu diari: «Avui hem vist un esquirol. Ens ha mirat i se n'ha anat saltant. M'ho he passat molt bé.»</p>` },
+  tras: {
+    "Les tres persones": [
+      ["Qui explica la història?", `<p>Els pronoms ens ajuden a saber <mark>qui explica</mark> una història.</p><ul><li>Si el narrador fa servir <b>jo</b> i <b>nosaltres</b>, explica en <b>primera persona</b>: és un personatge de la història. <i>«Jo vaig obrir la porta i vaig veure el drac.»</i> Així s'escriuen els diaris, les cartes i moltes novel·les d'aventures.</li><li>Si el narrador fa servir <b>ell</b>, <b>ella</b>, <b>ells</b>, explica en <b>tercera persona</b>: és fora de la història i l'explica com si la veiés des de lluny. <i>«Ella va obrir la porta i va veure el drac.»</i> Així comencen la majoria de rondalles: «Hi havia una vegada una nena que…».</li><li>Molt poques vegades s'explica en <b>segona persona</b>: <i>«Tu obres la porta i veus un drac.»</i> Es fa servir en alguns llibres de joc en què el lector decideix què passa.</li></ul><p>Explicar en primera persona fa que el lector se senti dins de la història. Explicar en tercera persona permet saber el que pensen diversos personatges.</p><p>A la lectura, el narrador explica gairebé tot en tercera persona (<i>ella, ell</i>), però en un moment diu <i>«Nosaltres, els bessons, vam córrer»</i>: llavors parla un dels bessons. I el diari de la Noa és tot en primera persona.</p><p><b>Activitat</b>: busca el començament de tres llibres de la biblioteca i esbrina en quina persona estan explicats.</p>`,
+        H6.rueda("Narrador", "QUI?", [["1a: jo", cAZ], ["2a: tu", cVE], ["3a: ell", cNA], ["diari: jo", cRO]])],
+    ],
+    "Vostè i vostès": [
+      ["El pronom que no es veu", `<p>En català, moltes vegades <mark>no cal dir el pronom</mark>, perquè la terminació del verb ja ens diu qui fa l'acció:</p><ul><li><i>Canto</i>: ja sabem que és <i>jo</i>.</li><li><i>Cantes</i>: és <i>tu</i>.</li><li><i>Cantem</i>: som <i>nosaltres</i>.</li><li><i>Canteu</i>: sou <i>vosaltres</i>.</li></ul><p>Per això, normalment diem <i>Demà vaig a la piscina</i>, i no <i>Jo demà vaig a la piscina</i>. Si posem el pronom a totes les frases, el text sona repetitiu i poc natural: <i>«Jo em llevo. Jo esmorzo. Jo vaig a l'escola.»</i> Millor: <i>«Em llevo, esmorzo i vaig a l'escola.»</i></p><p>Llavors, quan hem de dir el pronom?</p><ul><li>Quan volem <b>destacar</b> qui ho fa: <i>Ho he fet <b>jo</b>, no ell!</i></li><li>Quan hi pot haver <b>confusió</b>, sobretot amb <i>ell</i> i <i>ella</i>, que fan servir la mateixa forma del verb: <i>Ella canta i ell balla.</i></li><li>Quan contestem una pregunta curta: <i>Qui vol pastís? <b>Jo!</b></i></li></ul><p>Això és diferent de l'<b>anglès</b>, on gairebé sempre s'ha de dir el pronom: <i>I sing</i>, <i>you sing</i>.</p><p><b>Activitat</b>: reescriu aquest text traient els pronoms que sobren: <i>«Jo tinc un gos. Jo el passejo cada dia. Jo l'estimo molt.»</i></p>`,
+        H6.dos("Pronom", ["NO CAL", ["canto", "cantem", "vaig"], cVE], ["SÍ CAL", ["ho he fet jo", "ella canta", "Jo!"], cNA])],
+    ],
+    "Pronoms per no repetir": [
+      ["Em, et, es, ens, us", `<p>A més de <i>jo, tu, ell</i>…, hi ha uns pronoms <mark>petitets</mark> que van al costat del verb. Es diuen <b>pronoms febles</b>:</p><ul><li><b>em</b> (jo): <i>Em rento les mans. L'àvia em llegeix contes.</i></li><li><b>et</b> (tu): <i>Et convido a la festa.</i></li><li><b>es</b> (ell, ella, ells, elles): <i>Es pentina. Es riuen.</i></li><li><b>ens</b> (nosaltres): <i>Ens n'anem al parc.</i></li><li><b>us</b> (vosaltres): <i>Us espero a la porta.</i></li></ul><p>Aquests pronoms canvien una mica de forma segons on van:</p><ul><li>Davant d'un verb que comença per <b>vocal</b> o <b>h</b>, s'apostrofen: <i>m'agrada, t'estimo, s'ha adormit</i>.</li><li><b>Darrere</b> del verb (amb l'infinitiu o una ordre), van amb un guionet: <i>rentar-<b>me</b>, renta't, asseieu-<b>vos</b>, anem-<b>nos-en</b></i>.</li></ul><p>També hi ha <b>el, la, els, les</b> per no repetir coses: <i>On és la pilota? <b>La</b> tinc jo.</i> I <b>li, els</b> per a persones que reben alguna cosa: <i><b>Li</b> vaig donar un regal a la Marta.</i></p><p>Fixa't com ajuden a no repetir: <i>Vaig comprar un gelat i em vaig menjar el gelat</i> sona estrany; millor: <i>Vaig comprar un gelat i me'l vaig menjar</i>.</p><p><b>Activitat</b>: busca a la lectura tres pronoms febles.</p>`,
+        L6.filas("Febles", [["em", "em rento", cAZ], ["et", "et convido", cVE], ["ens", "ens n'anem", cNA], ["us", "us espero", cRO]])],
+    ],
+  },
+  final: [
+    ["Escrivim un diari", `<p>Un <mark>diari</mark> és un quadern on escrivim el que ens passa i el que sentim. S'escriu en <b>primera persona</b>, amb <i>jo, em, el meu</i>.</p><p><b>Com s'escriu una pàgina de diari</b>:</p><ul><li><b>1.</b> Comença amb la <b>data</b>: <i>Dimarts, 12 d'abril</i>.</li><li><b>2.</b> Et pots adreçar al diari: <i>Estimat diari…</i></li><li><b>3.</b> Explica el que ha passat en <b>ordre</b>: primer, després, al final.</li><li><b>4.</b> Explica com t'has <b>sentit</b>: content, nerviós, sorprès…</li><li><b>5.</b> Acaba amb alguna cosa que esperes per a demà.</li></ul><p>El diari és <b>privat</b>: ningú no l'ha de llegir sense permís.</p><p>Alguns diaris s'han fet molt famosos, perquè ens expliquen com era la vida d'una persona en una altra època. Escriure un diari també ajuda a ordenar les idees i a recordar coses que, si no, oblidaríem.</p><p>A la lectura, la Noa escriu al seu diari: <i>«Avui hem vist un esquirol. Ens ha mirat i se n'ha anat saltant. M'ho he passat molt bé.»</i> Fixa't que no diu <i>jo</i> ni una sola vegada, però sabem que parla ella, gràcies als verbs i als pronoms febles.</p><p><b>Activitat</b>: escriu el teu diari durant una setmana. Al final, llegeix-lo i compta quants pronoms de primera persona has fet servir.</p>`,
+      H6.flujo("Diari", ["data|del dia", "estimat|diari", "què va|passar", "com|em sento"], cNA)],
+    ["Pronoms en anglès", `<p>En <b>anglès</b> també hi ha <mark>pronoms personals</mark>, i s'assemblen bastant als nostres:</p><ul><li><b>I</b> = jo. Sempre s'escriu amb majúscula!</li><li><b>you</b> = tu, i també vosaltres.</li><li><b>he</b> = ell. <b>she</b> = ella.</li><li><b>it</b> = per a animals i coses.</li><li><b>we</b> = nosaltres.</li><li><b>they</b> = ells o elles.</li></ul><p>Hi ha dues diferències importants:</p><ul><li>En anglès existeix <b>it</b> per a les coses i els animals. En català diem <i>ell</i> o <i>ella</i> per a tot, o no diem res.</li><li>En anglès gairebé sempre s'ha de dir el pronom: <i>I play</i>. En català moltes vegades no cal, perquè el verb ja ens diu la persona: <i>jugo</i>.</li></ul><p>A més, en anglès no hi ha una forma especial per parlar amb respecte, com el nostre <i>vostè</i>: a tothom se li diu <i>you</i>, sigui un amic o la directora de l'escola. I per dir «nosaltres» o «elles» es fan servir les mateixes paraules per al masculí i el femení: <i>we</i> i <i>they</i>.</p><p>Comparar les llengües ens ajuda a aprendre-les millor totes.</p><p><b>Activitat</b>: escriu una frase sobre tu en català i en anglès, i compara els pronoms.</p>`,
+      L6.filas("Anglès", [["I", "jo", cAZ], ["you", "tu, vosaltres", cVE], ["he / she", "ell / ella", cNA], ["we / they", "nosaltres / ells", cRO]]),
+      ["cVkSndpZtN0", "👋😄PRONOMBRES PERSONALES EN INGLÉS [Yo en ingles, TÚ en ingles, Él en inglés,...]", "Como digo", 2909487]],
+  ],
+  ejemplos: [
+    ["En quina persona està «Ella va obrir la capsa»?", ["El pronom és ella.", "Ella és tercera persona."], "Tercera persona."],
+    ["Treu els pronoms que sobren: «Jo em llevo i jo esmorzo».", ["El verb ja diu que és jo.", "Només deixem el pronom feble em."], "Em llevo i esmorzo."],
+  ],
+  errores: ["Posar el pronom jo a totes les frases, quan el verb ja ho diu.", "Oblidar l'apòstrof o el guionet: «em agrada», «rentar me» en comptes de «m'agrada», «rentar-me»."],
+  ejercicios: [
+    ["b", "En quina persona s'escriu un diari?", "En primera persona."],
+    ["b", "Completa: «___ rento les dents» (jo).", "Em."],
+    ["b", "Com es diu «jo» en anglès?", "I."],
+    ["b", "Què va primer en una pàgina de diari?", "La data."],
+    ["b", "A la lectura, quin animal veuen els bessons?", "Un esquirol."],
+    ["m", "Com comença una rondalla en tercera persona?", "Hi havia una vegada una nena que…"],
+    ["m", "Escriu amb apòstrof: em + agrada, et + estimo.", "M'agrada, t'estimo."],
+    ["m", "Escriu amb guionet: rentar + me.", "Rentar-me."],
+    ["m", "Per a què serveix «it» en anglès?", "Per a animals i coses."],
+    ["m", "Per què diem «Ho he fet jo» amb el pronom?", "Per destacar qui ho ha fet."],
+    ["a", "Escriu una pàgina del teu diari.", "Resposta oberta."],
+    ["a", "Reescriu sense pronoms que sobrin: «Jo tinc un gos. Jo el passejo».", "Tinc un gos. El passejo."],
+    ["a", "Explica com sabem que el diari de la Noa és en primera persona si no diu «jo».", "Pels verbs (hem vist, he passat) i els pronoms febles (ens, m')."],
+    ["a", "Busca a la lectura una frase en què parla un dels bessons com a narrador.", "Nosaltres, els bessons, vam córrer pel camí."],
+  ],
+  quiz: [
+    ["«Jo vaig obrir la porta» està en…", ["primera persona", "segona persona", "tercera persona"], "Narrador."],
+    ["«Ens n'anem» fa servir el pronom de…", ["nosaltres", "vosaltres", "ells"], "Febles."],
+    ["És correcte…", ["m'agrada", "em agrada", "me agrada"], "Febles."],
+    ["En anglès, «ella» és…", ["she", "he", "it"], "Anglès."],
+    ["«Cantem» vol dir que ho fem…", ["nosaltres", "vosaltres", "ells"], "Sense pronom."],
+  ],
+  examen: [
+    ["A la lectura, qui va néixer primer?", ["la Noa", "l'Èric", "l'àvia"], "Lectura."],
+    ["El diari s'escriu en…", ["primera persona", "tercera persona", "segona persona"], "Diari."],
+  ],
+  tarjetas: [
+    ["Narrador", "Primera persona (jo) o tercera (ell, ella)."],
+    ["Febles", "Em, et, es, ens, us; m'agrada; rentar-me."],
+    ["Sense pronom", "Canto, cantem: el verb ja diu la persona."],
+    ["Diari i anglès", "Data, ordre, sentiments; I, you, he, she, it, we, they."],
+  ],
+  glosario: [
+    ["Pronom personal", "Paraula que substitueix un nom de persona, animal o cosa."],
+    ["Narrador", "Qui explica la història."],
+    ["Primera persona", "La de qui parla: jo, nosaltres."],
+    ["Tercera persona", "La de qui no parla ni escolta: ell, ella."],
+    ["Pronom feble", "Pronom petit que va amb el verb: em, et, es."],
+    ["Apòstrof", "Signe (') que substitueix una vocal."],
+    ["Guionet", "Signe (-) que uneix el pronom al verb: rentar-me."],
+    ["Vostè", "Pronom de respecte per parlar amb una persona."],
+    ["Diari", "Quadern on expliquem el que vivim."],
+    ["Privat", "Que és només per a un mateix."],
+    ["It", "Pronom anglès per a animals i coses."],
+    ["Bessons", "Germans que han nascut el mateix dia."],
+  ],
+  situacion: {
+    titulo: "Escriptors en primera persona",
+    reto: "La classe escriu un diari col·lectiu i el converteix en un conte en tercera persona.",
+    pasos: ["Escriure cada dia una pàgina del diari de la classe.", "Revisar els pronoms febles, els apòstrofs i els guionets.", "Treure els pronoms que sobren i transformar el diari en un conte en tercera persona.", "Traduir els pronoms principals a l'anglès."],
+    producto: "Un diari de classe i la seva versió en conte.",
+    evaluacion: ["Reconeix el narrador.", "Fa servir els pronoms febles.", "Sap quan no cal el pronom.", "Canvia de persona correctament."],
+  },
+});

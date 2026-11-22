@@ -87,3 +87,98 @@ module.exports = P.tema({
   saberes: "Educació literària i comunicació escrita: la narració; el conte popular (rondalla) i d'autor; narrador; personatges, lloc i temps; estructura (plantejament, nus, desenllaç); connectors temporals; planificació i escriptura d'un conte",
   ideas: ["Capsa de contes: treure un personatge, un lloc i un problema a l'atzar i escriure.", "Tira de tres vinyetes per dibuixar plantejament, nus i desenllaç.", "Lectura en veu alta de rondalles catalanes i comparació de versions."],
 });
+
+// ---------- Nivell llibre (3r de Primària) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  dibujos: {
+    "Repàs: un conte curt": H6.flujo("Buscar", ["llegeix|el conte", "qui|i on?", "quin|problema?", "com|acaba?"], cMO),
+  },
+  objetivos: ["Distingir rondalles, faules i llegendes", "Descriure un personatge per fora i per dins", "Reconèixer el problema que mou la història", "Revisar, millorar i explicar en veu alta un conte propi"],
+  lectura: { titulo: "El drac que tenia por del foc", html: `<p>Hi havia una vegada, en una cova del Montseny, un drac petit i verd que es deia Espurna. Tots els dracs de la muntanya llançaven foc per la boca, però l'Espurna no: tenia por del foc. Cada vegada que provava d'escopir una flama, tancava els ulls i només li sortia una bombolla de fum.</p><p>Els altres dracs se'n reien. «Un drac sense foc no és un drac de veritat», li deien.</p><p>Un hivern molt fred, la nena del mas del costat, la Roser, es va perdre al bosc mentre buscava llenya. Es feia fosc i nevava. L'Espurna la va sentir plorar sota un avet.</p><p>El drac es va acostar. La nena tremolava de fred. L'Espurna va pensar: «Si no faig foc, es glaçarà». Va respirar fort, va obrir els ulls i, per primera vegada, va treure una flama petita i calenta. Amb ella va encendre una foguera.</p><p>La Roser es va escalfar i, quan va sortir el sol, l'Espurna la va acompanyar fins a casa.</p><p>Des d'aquell dia, el drac ja no té por del foc. Però només el fa servir per escalfar els qui en tenen necessitat.</p>` },
+  tras: {
+    "Què és un conte": [
+      ["Rondalles, faules i llegendes", `<p>El conte no és l'única narració breu. Hi ha altres <mark>famílies d'històries</mark> que s'hi assemblen molt, però tenen alguna cosa especial:</p><ul><li>La <b>rondalla</b> és el conte popular de la nostra terra, que s'explicava de padrins a néts. Molts personatges són coneguts per tothom: en <i>Patufet</i>, tan petit que s'amagava sota una col; en <i>Pere Xic</i>; o la <i>Ventafocs</i>. Mossèn Jacint Verdaguer i Joan Amades van recollir moltes rondalles perquè no es perdessin.</li><li>La <b>faula</b> és una narració curta en què els protagonistes solen ser <b>animals que parlen</b>. Al final té una <b>moralitat</b>: un ensenyament. A <i>La cigala i la formiga</i>, la cigala canta tot l'estiu i la formiga treballa; quan arriba l'hivern, la cigala no té menjar. Moralitat: cal pensar en el futur.</li><li>La <b>llegenda</b> explica una cosa que va passar, segons diuen, en un <b>lloc real</b> i fa molt de temps. Barreja fets veritables amb fets fantàstics, i sovint explica l'origen d'alguna cosa. La més coneguda és la de <b>Sant Jordi</b> i el drac de Montblanc: de la sang del drac, diu la llegenda, va néixer un roser.</li></ul><p>Totes tenen narrador, personatges, lloc, temps i tres parts.</p><p><b>Activitat</b>: pregunta a casa si coneixen alguna llegenda del teu poble o ciutat i explica-la a classe.</p>`,
+        H6.rueda("Narrar", "HISTÒRIES", [["rondalla", cAZ], ["faula", cVE], ["llegenda", cNA], ["moralitat", cRO]]),
+        ["mEKmjGBOrP4", "El Conte 📕 d'En Patufet - Només Babys 👶", "Només Babys", 450418]],
+    ],
+    "Els personatges": [
+      ["Descriure un personatge", `<p>Perquè el lector s'imagini bé un personatge, l'escriptor el <mark>descriu</mark>. Una bona descripció té dues parts:</p><ul><li>Com és <b>per fora</b> (el seu aspecte): si és alt o baixet, com té els cabells, els ulls, quina roba porta, si té alguna cosa especial, com unes ulleres o una cicatriu. <i>«L'Espurna era un drac petit i verd, amb les ales arrugades com fulles de col.»</i></li><li>Com és <b>per dins</b> (el seu caràcter): si és valent o poruc, generós o egoista, alegre, tímid, curiós… <i>«Era tan curiós que ficava el nas a tots els caus.»</i></li></ul><p>Un truc dels bons escriptors és <b>mostrar</b> el caràcter amb el que fa el personatge, en comptes de dir-lo. No escriguis només «La Lola era generosa»; escriu: <i>«La Lola va partir el seu entrepà en dos i en va donar la meitat al seu company.»</i> Així el lector ho descobreix tot sol.</p><p>Per descriure fem servir molts <b>adjectius</b> i també <b>comparacions</b>: <i>ràpid com un llamp, alt com un campanar, dolç com la mel</i>.</p><p>Recorda que els personatges també <b>canvien</b> al llarg de la història: el poruc es torna valent, l'egoista aprèn a compartir. Aquest canvi és una de les coses que més ens agraden dels contes.</p><p><b>Activitat</b>: descriu el protagonista del teu conte preferit per fora i per dins.</p>`,
+        H6.dos("Descriure", ["PER FORA", ["alt", "cabells arrissats", "ulleres"], cAZ], ["PER DINS", ["valent", "curiós", "generós"], cVE])],
+    ],
+    "Les tres parts del conte": [
+      ["El problema del conte", `<p>Tot bon conte té un <mark>problema</mark> o <b>conflicte</b>: una cosa que el protagonista vol aconseguir i que no és fàcil. Sense problema, no hi ha història. Imagina: «Una nena va anar al bosc, va tornar a casa i va berenar». Que avorrit! Però si al bosc troba un llop, ja tenim conte.</p><p>El problema apareix al final del <b>plantejament</b> o al principi del <b>nus</b>. Sol començar amb paraules com <i>un dia, de sobte, però llavors</i>.</p><p>Hi ha molts tipus de problemes:</p><ul><li>Es <b>perd</b> alguna cosa: un tresor, una mascota, el camí.</li><li>Algú <b>vol</b> una cosa difícil: volar, guanyar una cursa, fer un amic.</li><li>Apareix un <b>enemic</b>: un drac, una bruixa, un gegant.</li><li>Hi ha un <b>perill</b>: una tempesta, un incendi, un riu que es desborda.</li></ul><p>Al <b>nus</b>, el protagonista intenta resoldre el problema. De vegades ho prova diverses vegades i falla abans d'aconseguir-ho, i això crea emoció. En la rondalla d'en Patufet, els pares el busquen per tot arreu cridant «Patufet, on ets?» fins que el troben dins la panxa del bou.</p><p>Al <b>desenllaç</b>, el problema es resol, bé o malament, i la història s'acaba.</p><p><b>Activitat</b>: digues quin és el problema de la lectura i com es resol.</p>`,
+        L6.filas("Problema", [["es perd", "un tresor", cAZ], ["vol", "volar", cVE], ["enemic", "un drac", cNA], ["perill", "tempesta", cRO]])],
+    ],
+    "Escriure un conte pas a pas": [
+      ["Revisar i millorar el conte", `<p>Els escriptors de veritat mai no deixen el conte tal com surt la primera vegada. El <mark>revisen</mark> i el milloren. Tu també ho pots fer amb aquesta llista de preguntes:</p><ul><li>Té un <b>títol</b> que fa venir ganes de llegir-lo?</li><li>S'entén <b>qui</b> és el protagonista, <b>on</b> i <b>quan</b> passa?</li><li>Hi ha un <b>problema</b> clar?</li><li>Té les <b>tres parts</b>: plantejament, nus i desenllaç?</li><li>He fet servir <b>connectors</b>: <i>primer, després, de sobte, al final</i>?</li><li>He <b>repetit</b> molt alguna paraula? Si posa «i aleshores» cinc vegades, canvia'n algunes per <i>després, més tard, en aquell moment</i>.</li><li>Estan bé les <b>majúscules</b>, els <b>punts</b>, els <b>apòstrofs</b> i l'<b>ortografia</b>?</li></ul><p>Un bon sistema és llegir el conte <b>en veu alta</b>: així es noten les frases massa llargues o les que no s'entenen.</p><p>També ajuda que el llegeixi un <b>company</b>. Et pot dir dues coses que li han agradat i una que milloraria. Això es diu <b>dues estrelles i un desig</b>.</p><p>Finalment, passa el conte a net, amb bona lletra, i afegeix-hi un dibuix a la portada.</p>`,
+        H6.flujo("Revisar", ["llegeixo|en veu alta", "busco|errors", "canvio|repetides", "passo|a net"], cVE)],
+    ],
+  },
+  final: [
+    ["Explicar un conte en veu alta", `<p>Els contes van néixer per ser <mark>explicats</mark>. Molt abans que existissin els llibres, la gent es reunia al voltant del foc, a les vetllades d'hivern, i algú explicava rondalles. Així van passar de padrins a néts durant centenars d'anys.</p><p>Per explicar bé un conte cal preparar unes quantes coses:</p><ul><li><b>Conèixer bé la història</b>: no cal aprendre-la de memòria paraula per paraula, però sí saber què passa i en quin ordre.</li><li><b>La veu</b>: parla alt i a poc a poc. Canvia la veu per a cada personatge: greu per al gegant, aguda per a en Patufet, tremolosa per al qui té por.</li><li><b>Les pauses</b>: abans d'un moment important, calla un segon. El públic es queda amb la boca oberta!</li><li><b>La cara i les mans</b>: fes cara de sorpresa, de por o d'alegria, i fes servir les mans per mostrar el que és gran o petit.</li><li><b>Mirar el públic</b>: no miris a terra, mira als ulls de qui t'escolta.</li></ul><p>Les fórmules tradicionals ajuden molt a començar i a acabar. Per començar: <i>«Hi havia una vegada…»</i> o <i>«Això era i no era…»</i>. I per acabar: <i>«I conte contat, conte acabat»</i>, o <i>«I van ser feliços i van menjar anissos»</i>.</p><p><b>Activitat</b>: prepara una rondalla curta i explica-la a un nen més petit o a la teva família.</p>`,
+      L6.filas("Explicar", [["veu", "alta i clara", cAZ], ["pauses", "abans del millor", cVE], ["cara", "amb emoció", cNA], ["mirada", "al públic", cRO]]),
+      ["pd7CfNrNvE4", "Rondalla catalana Pere Xic", "ornitorrinc999", 3495]],
+  ],
+  ejemplos: [
+    ["És faula o llegenda? «Una guineu i un corb parlen, i al final aprenem a no refiar-nos dels afalacs».", ["Els protagonistes són animals que parlen.", "Té un ensenyament al final: moralitat."], "És una faula."],
+    ["Mostra, sense dir-ho, que en Pau és valent.", ["No escrivim «en Pau era valent».", "Expliquem una cosa que fa: es posa davant de la seva germana quan un gos borda."], "«En Pau es va posar davant de la seva germana i va mirar el gos sense moure's.»"],
+  ],
+  errores: ["Escriure un conte sense problema: només passen coses, però no passa res d'important.", "Repetir «i aleshores» a totes les frases en lloc de fer servir altres connectors."],
+  ejercicios: [
+    ["b", "Què és la moralitat?", "L'ensenyament que apareix al final d'una faula."],
+    ["b", "Quines dues parts té la descripció d'un personatge?", "Com és per fora i com és per dins."],
+    ["b", "Amb quina fórmula acaben moltes rondalles?", "I conte contat, conte acabat."],
+    ["b", "Què necessita tot bon conte perquè hi hagi història?", "Un problema o conflicte."],
+    ["b", "A la lectura, com es diu el drac?", "Espurna."],
+    ["m", "Quina és la llegenda més coneguda de Catalunya?", "La de Sant Jordi i el drac."],
+    ["m", "Escriu una comparació per descriure algú molt alt.", "Per exemple: alt com un campanar."],
+    ["m", "Canvia «i aleshores» per dos connectors més.", "Per exemple: després, més tard, en aquell moment."],
+    ["m", "Quin és el problema de la lectura?", "L'Espurna té por del foc i la Roser s'ha perdut i té fred."],
+    ["m", "Què és «dues estrelles i un desig»?", "Dir dues coses bones d'un text i una que es podria millorar."],
+    ["a", "Com canvia l'Espurna al llarg del conte?", "Al principi té por del foc; al final el fa servir per ajudar."],
+    ["a", "Escriu un conte curt amb un drac com a protagonista.", "Resposta oberta."],
+    ["a", "Descriu un personatge mostrant el seu caràcter amb una acció.", "Resposta oberta."],
+    ["a", "Per què creus que el drac només fa servir el foc per escalfar?", "Resposta oberta: perquè ha après que el seu foc serveix per ajudar."],
+  ],
+  quiz: [
+    ["Una narració amb animals que parlen i moralitat és…", ["una faula", "una llegenda", "una notícia"], "Faules."],
+    ["«Era tan curiós que ho mirava tot» descriu el personatge…", ["per dins", "per fora", "pel lloc"], "Descriure."],
+    ["El problema del conte sol aparèixer…", ["al final del plantejament", "al títol", "després del desenllaç"], "Problema."],
+    ["En explicar un conte en veu alta convé…", ["fer pauses en el moment important", "parlar molt de pressa", "mirar a terra"], "Explicar."],
+    ["Per revisar un conte és útil…", ["llegir-lo en veu alta", "no tornar-lo a llegir", "esborrar el títol"], "Revisar."],
+  ],
+  examen: [
+    ["A la lectura, què fa l'Espurna amb la seva primera flama?", ["encén una foguera", "crema un arbre", "espanta la nena"], "Lectura."],
+    ["La llegenda de Sant Jordi explica l'origen…", ["del roser", "del Montseny", "de la castanyada"], "Llegendes."],
+  ],
+  tarjetas: [
+    ["Rondalla, faula, llegenda", "Rondalla: conte popular. Faula: animals i moralitat. Llegenda: lloc real i origen."],
+    ["Descriure", "Per fora (aspecte) i per dins (caràcter)."],
+    ["Problema", "El que el protagonista vol i no és fàcil: sense ell no hi ha història."],
+    ["Revisar i explicar", "Llegir en veu alta, canviar repeticions; veu, pauses i mirada."],
+  ],
+  glosario: [
+    ["Narració", "Text que explica fets que els passen a uns personatges."],
+    ["Rondalla", "Conte popular de tradició oral."],
+    ["Faula", "Narració breu amb animals que parlen i un ensenyament."],
+    ["Moralitat", "Ensenyament que es treu d'una faula."],
+    ["Llegenda", "Història antiga, situada en un lloc real, que barreja fets i fantasia."],
+    ["Protagonista", "Personatge principal de la història."],
+    ["Caràcter", "Manera de ser d'una persona o personatge."],
+    ["Conflicte", "Problema que mou la història."],
+    ["Plantejament", "Part inicial del conte."],
+    ["Nus", "Part en què apareix i creix el problema."],
+    ["Desenllaç", "Part final en què es resol el problema."],
+    ["Vetllada", "Estona de la nit en què la gent es reunia per parlar i explicar contes."],
+  ],
+  situacion: {
+    titulo: "La vetllada de rondalles",
+    reto: "Cada alumne recull una rondalla o una llegenda a casa, en fa una versió pròpia i l'explica en veu alta en una vetllada per a les famílies.",
+    pasos: ["Recollir una rondalla o una llegenda preguntant a la família.", "Escriure'n una versió pròpia amb les tres parts i un protagonista ben descrit.", "Revisar-la amb «dues estrelles i un desig» i passar-la a net.", "Assajar i explicar-la a la vetllada fent servir les fórmules tradicionals."],
+    producto: "Un recull de rondalles de la classe i una vetllada de contes.",
+    evaluacion: ["El conte té un problema clar.", "Té plantejament, nus i desenllaç.", "Descriu el protagonista per fora i per dins.", "Explica el conte amb bona veu, pauses i mirada."],
+  },
+});

@@ -86,3 +86,99 @@ module.exports = P.tema({
   saberes: "Ortografia: ús de la majúscula (inici de text, després de punt, noms propis); el punt (i seguit, i a part, final); la coma en enumeracions i vocatius; signes d'interrogació i d'exclamació en català; els dos punts",
   ideas: ["Semàfor de la puntuació: verd (coma), groc (punt i seguit), vermell (punt final).", "Lectura dramatitzada d'una mateixa paraula amb tres entonacions.", "Correcció col·lectiva d'una nota sense signes a la pissarra."],
 });
+
+// ---------- Nivell llibre (3r de Primària) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  dibujos: {
+    "Català i castellà: compte!": H6.dos("Compte", ["CATALÀ", ["Vens?", "Que bonic!", "en Pere"], cAZ], ["CASTELLÀ", ["¿Vienes?", "¡Qué bonito!", "Pedro"], cNA]),
+    "Repàs: corregim una nota": H6.flujo("Corregir", ["llegeix|a poc a poc", "posa|majúscules", "posa|els signes", "llegeix|en veu alta"], cMO),
+  },
+  objetivos: ["Escriure amb minúscula dies, mesos, estacions i llengües", "Llegir i escriure abreviatures senzilles", "Escriure diàlegs amb guió", "Fer servir punts suspensius i cometes"],
+  lectura: { titulo: "El missatge misteriós", html: `<p>Un dilluns d'octubre, en Martí va trobar una nota a la seva taula. Estava escrita així:</p><p><i>«vine al pati no et quedis a classe»</i></p><p>En Martí s'hi va quedar pensant. Volia dir «Vine al pati, no et quedis a classe» o «Vine al pati. No et quedis a classe?». No hi entenia res.</p><p>A l'esbarjo va ensenyar la nota a la seva amiga Laia.</p><p>—Quin desastre de nota! —va dir ella—. No té ni un signe.</p><p>—Ni una majúscula —va afegir en Martí—. I tampoc no té signatura…</p><p>Llavors van veure l'Arnau, el nou de la classe, que els saludava des de la porteria amb una pilota.</p><p>—L'ha escrita ell! —va cridar la Laia—. Vol que juguem a futbol.</p><p>L'endemà, l'Arnau els va deixar una altra nota. Aquesta vegada l'havia escrita amb molta cura:</p><p><i>«Hola, Martí i Laia: juguem avui a l'esbarjo? Porto la pilota. Us espero! Arnau.»</i></p><p>En Martí va somriure. Ara sí que s'entenia tot.</p>` },
+  tras: {
+    "Quan s'escriu amb majúscula": [
+      ["Quan NO s'escriu majúscula", `<p>Hi ha paraules que molta gent escriu amb majúscula per error. En català, aquestes paraules van amb <mark>minúscula</mark> (si no van a principi de frase):</p><ul><li>Els <b>dies de la setmana</b>: <i>dilluns, dimarts, dimecres, dijous, divendres, dissabte, diumenge</i>. <i>Ens veiem dissabte.</i></li><li>Els <b>mesos</b>: <i>gener, febrer, març… desembre</i>. <i>El meu aniversari és al maig.</i></li><li>Les <b>estacions</b>: <i>primavera, estiu, tardor, hivern</i>.</li><li>Les <b>llengües</b>: <i>català, castellà, anglès, francès</i>. <i>Estudio anglès.</i></li><li>Els noms que diuen d'on és algú: <i>És <b>català</b>, són <b>italians</b>, una nena <b>japonesa</b>.</i> En canvi, el nom del país sí que va amb majúscula: <i>Catalunya, Itàlia, el Japó.</i></li><li>Les paraules <b>senyor, senyora, doctor, tieta, avi</b>: <i>la senyora Garcia, el doctor Ruiz, la tieta Elena</i>. La majúscula la porta només el nom.</li></ul><p>Aquest és un dels errors més freqüents perquè en <b>anglès</b> els dies, els mesos i les llengües sí que van amb majúscula: <i>Monday, May, English</i>. No ho barregis!</p><p>Recorda que la data d'una carta s'escriu així: <i>Reus, 15 de març de 2026</i>. Majúscula a la ciutat, minúscula al mes.</p><p><b>Activitat</b>: escriu la data d'avui i la del teu aniversari amb les majúscules correctes.</p>`,
+        H6.dos("Majúscula", ["SÍ", ["Catalunya", "Laia", "Reus"], cVE], ["NO", ["dilluns", "maig", "anglès"], cRO])],
+    ],
+    "El punt": [
+      ["Les abreviatures", `<p>Una <mark>abreviatura</mark> és una manera <b>curta</b> d'escriure una paraula. Serveix per estalviar espai i gairebé sempre acaba amb un <b>punt</b>.</p><p>Algunes abreviatures que veuràs sovint:</p><ul><li><b>Sr.</b> = senyor. <b>Sra.</b> = senyora. <i>Sr. Puig, Sra. Martí.</i></li><li><b>Dr.</b> = doctor. <b>Dra.</b> = doctora.</li><li><b>pàg.</b> = pàgina. <i>Obriu el llibre per la pàg. 20.</i></li><li><b>etc.</b> = etcètera, «i altres coses». <i>Vam comprar fruita, pa, llet, etc.</i></li><li><b>núm.</b> = número. <i>Visc al núm. 7.</i></li><li><b>c.</b> = carrer. <i>c. Major, 5.</i></li><li><b>1r, 2n, 3r, 4t</b> = primer, segon, tercer, quart. Fixa't que aquestes no porten punt. Per això escrivim <i>3r de Primària</i>.</li></ul><p>Compte: les <b>mesures</b> no són abreviatures, són <b>símbols</b>, i s'escriuen <b>sense punt</b>: <i>5 km, 2 kg, 30 cm, 10 min</i>.</p><p>Les abreviatures serveixen sobretot en adreces, sobres, notes i llistes. Quan escriguis un conte o una redacció, és millor escriure la paraula sencera.</p><p>Quan <b>llegim en veu alta</b>, cal dir la paraula sencera: on posa <i>Sra.</i>, llegim «senyora».</p><p><b>Activitat</b>: escriu la teva adreça com ho faries en un sobre, amb abreviatures.</p>`,
+        L6.filas("Abreujar", [["Sr.", "senyor", cAZ], ["pàg.", "pàgina", cVE], ["etc.", "etcètera", cNA], ["núm.", "número", cRO]])],
+    ],
+    "La coma": [
+      ["Una coma ho canvia tot", `<p>Una coma sembla petita, però pot <mark>canviar el significat</mark> d'una frase del tot. Mira aquests exemples:</p><ul><li><i>Anem a menjar, nens.</i> → Parlem amb els nens i els diem que anem a menjar.</li><li><i>Anem a menjar nens.</i> → Sembla que els nens siguin el menjar!</li></ul><ul><li><i>No, vull anar-hi.</i> → La persona sí que hi vol anar.</li><li><i>No vull anar-hi.</i> → La persona no hi vol anar.</li></ul><p>Ja saps que fem servir la coma per separar les paraules d'una <b>enumeració</b> i per separar el <b>nom</b> de la persona a qui parlem. També posem coma darrere d'algunes paraules a començament de frase, com <i>sí</i>, <i>no</i>, <i>bé</i> o <i>a més</i>: <i>Sí, m'agrada. Bé, anem-hi.</i></p><p>Quan llegim en veu alta, la coma és una <b>pausa curta</b>: un respir petit. Si ens la saltem, la frase pot sonar estranya o dir una altra cosa.</p><p>Hi ha una norma que no has d'oblidar: en una enumeració, <b>no es posa coma davant de la darrera <i>i</i></b>: <i>peres, raïm i maduixes</i>.</p><p><b>Activitat</b>: inventa una frase que canviï de significat segons si hi poses o hi treus una coma.</p>`,
+        H6.dos("Coma", ["AMB", ["Menjar,", "nens.", "(els parlo)"], cVE], ["SENSE", ["Menjar", "nens.", "(quin horror!)"], cRO])],
+    ],
+    "Els dos punts": [
+      ["El guió del diàleg", `<p>Quan en un conte parlen els personatges, fem servir un signe especial: el <mark>guió</mark> de diàleg (—). És més llarg que el guionet (-).</p><p>Així s'escriu un <b>diàleg</b>:</p><p><i>—Vens al parc? —va preguntar en Lluc.<br>—Ara no, faig els deures —va contestar l'Anna.<br>—Doncs t'espero.</i></p><p>Les normes són aquestes:</p><ul><li>Cada vegada que parla un personatge, comencem una <b>línia nova</b> amb un guió.</li><li>El guió va <b>enganxat</b> a la primera paraula: <i>—Hola</i>, no <i>— Hola</i>.</li><li>Quan el narrador explica qui parla (<i>va preguntar en Lluc</i>), ho separem amb un altre guió, i aquesta part comença amb <b>minúscula</b>.</li><li>Els verbs que ens diuen com es parla són molt útils: <i>va dir, va preguntar, va contestar, va cridar, va xiuxiuejar, va exclamar</i>. Fes-ne servir uns quants per no repetir sempre <i>va dir</i>!</li></ul><p>Els diàlegs donen vida a un conte: el lector sent els personatges com si hi fos. Fixa't en la lectura del tema: quan parlen en Martí i la Laia, cada intervenció comença amb un guió.</p><p><b>Activitat</b>: escriu un diàleg de quatre línies entre un gat i un ratolí.</p>`,
+        L6.filas("Diàleg", [["guió", "—Hola", cAZ], ["narrador", "—va dir l'Anna", cVE], ["minúscula", "—va preguntar", cNA], ["línia", "nova cada vegada", cRO]]),
+        ["FIvyc3jx-Hg", "EL GUION LARGO O RAYA | ORTOGRAFÍA | PARA NIÑOS #MiAulaCreativa", "Mi Aula Creativa", 54977]],
+    ],
+  },
+  final: [
+    ["Punts suspensius i cometes", `<p>Coneixerem dos signes més que surten molt als llibres.</p><p>Els <mark>punts suspensius</mark> (…) són <b>tres punts</b> seguits, ni dos ni quatre. Serveixen per:</p><ul><li>Deixar alguna cosa <b>sense acabar</b>, creant intriga o dubte: <i>Va obrir la porta a poc a poc i llavors…</i></li><li>Indicar que una llista <b>continua</b>: <i>Hi havia gossos, gats, conills…</i> (com <i>etc.</i>).</li><li>Mostrar que algú <b>dubta</b> o té por: <i>Jo… no ho sé… crec que sí.</i></li></ul><p>Quan llegim en veu alta, els punts suspensius es llegeixen amb una <b>pausa llarga</b> i la veu quedant-se a l'aire.</p><p>Les <mark>cometes</mark> (« ») es posen al principi i al final d'unes paraules. Serveixen per:</p><ul><li>Copiar les <b>paraules exactes</b> que va dir algú: <i>La meva àvia sempre diu: «Qui matina fa farina».</i></li><li>Escriure el <b>títol</b> d'un conte o d'una cançó: <i>He llegit «En Patufet».</i></li><li>Assenyalar una paraula <b>especial</b>, inventada o d'una altra llengua: <i>El meu germà petit diu «pota» en lloc de «pilota».</i></li></ul><p>En català es prefereixen les <b>cometes baixes</b> o angulars (« »), tot i que també es veuen les altes (" ").</p><p>Fixa't que, quan copiem paraules exactes, davant de les cometes sovint hi van els <b>dos punts</b>.</p><p><b>Activitat</b>: escriu una dita que digui algú de la teva família, entre cometes.</p>`,
+      H6.dos("Signes", ["… TRES", ["intriga", "llista que segueix", "dubte"], cAZ], ["« » COMETES", ["paraules exactes", "títols", "paraules rares"], cNA]),
+      ["NCSnt4nQN_k", "Punto y coma, dos puntos y puntos suspensivos | Vídeo Educativo para Niños", "Happy Learning Español", 1519461]],
+  ],
+  ejemplos: [
+    ["Corregeix: «El Dilluns comença Setembre».", ["Els dies i els mesos van amb minúscula.", "El és la primera paraula: majúscula."], "El dilluns comença setembre."],
+    ["Escriu com a diàleg: l'Anna pregunta al Lluc si vol pa.", ["Línia nova amb guió enganxat.", "El narrador, entre guions i en minúscula."], "—Vols pa? —va preguntar l'Anna."],
+  ],
+  errores: ["Escriure amb majúscula els dies, els mesos o les llengües, com en anglès.", "Posar punt als símbols de mesura: «5 km.» en comptes de «5 km»."],
+  ejercicios: [
+    ["b", "S'escriu «Dimarts» o «dimarts» al mig d'una frase?", "Dimarts amb minúscula: dimarts."],
+    ["b", "Què vol dir l'abreviatura «pàg.»?", "Pàgina."],
+    ["b", "Quants punts tenen els punts suspensius?", "Tres."],
+    ["b", "Amb quin signe comença cada intervenció d'un diàleg?", "Amb un guió (—)."],
+    ["b", "A la lectura, qui va escriure la nota misteriosa?", "L'Arnau."],
+    ["m", "Corregeix: «La meva tieta parla Francès i va néixer al Juny».", "La meva tieta parla francès i va néixer al juny."],
+    ["m", "Què canvia entre «No, vull anar-hi» i «No vull anar-hi»?", "La primera diu que sí que hi vol anar; la segona, que no."],
+    ["m", "Escriu abreujat: senyora, número, doctor.", "Sra., núm., Dr."],
+    ["m", "Posa cometes: L'avi sempre diu: Qui matina fa farina.", "L'avi sempre diu: «Qui matina fa farina»."],
+    ["m", "Com s'escriu «tercer» abreujat?", "3r."],
+    ["a", "Puntua la primera nota de la lectura perquè digui que vagis al pati.", "Vine al pati, no et quedis a classe."],
+    ["a", "Escriu un diàleg de quatre línies amb tres verbs diferents de «va dir».", "Resposta oberta."],
+    ["a", "Escriu el començament d'un conte que acabi amb punts suspensius.", "Resposta oberta."],
+    ["a", "Per què en català no fem servir el signe d'obrir interrogació (¿)?", "Perquè en català normalment només es posa el signe de tancar, al final."],
+  ],
+  quiz: [
+    ["S'escriu amb minúscula…", ["octubre", "Lleida", "Pere"], "Minúscula."],
+    ["L'abreviatura d'«etcètera» és…", ["etc.", "etc", "et."], "Abreviatures."],
+    ["En un diàleg, cada personatge comença amb…", ["un guió en línia nova", "dos punts", "cometes"], "Diàleg."],
+    ["«Anem a menjar, nens» vol dir que…", ["parlem als nens", "ens mengem els nens", "els nens cuinen"], "Coma."],
+    ["Les cometes serveixen per…", ["copiar paraules exactes", "acabar una pregunta", "separar una llista"], "Cometes."],
+  ],
+  examen: [
+    ["A la lectura, què volia l'Arnau?", ["jugar a futbol", "quedar-se a classe", "fer els deures"], "Lectura."],
+    ["Els símbols de mesura com km s'escriuen…", ["sense punt", "amb punt", "amb majúscula"], "Abreviatures."],
+  ],
+  tarjetas: [
+    ["Sense majúscula", "Dies, mesos, estacions, llengües i gentilicis."],
+    ["Abreviatures", "Sr., Sra., Dr., pàg., etc., núm.; 1r, 3r; km sense punt."],
+    ["Guió", "Diàleg: línia nova, guió enganxat; narrador en minúscula."],
+    ["Suspensius i cometes", "… intriga o llista; « » paraules exactes i títols."],
+  ],
+  glosario: [
+    ["Majúscula", "Lletra gran que es fa servir per començar i en noms propis."],
+    ["Minúscula", "Lletra petita, la que fem servir normalment."],
+    ["Nom propi", "Nom d'una persona, lloc o animal concret."],
+    ["Abreviatura", "Manera curta d'escriure una paraula."],
+    ["Símbol", "Signe d'una mesura que s'escriu sense punt, com km."],
+    ["Enumeració", "Llista de paraules separades per comes."],
+    ["Diàleg", "Conversa entre personatges."],
+    ["Guió", "Signe llarg (—) que introdueix el que diu un personatge."],
+    ["Punts suspensius", "Tres punts que deixen alguna cosa sense acabar."],
+    ["Cometes", "Signes « » per a paraules exactes o títols."],
+    ["Entonació", "Manera de pujar i baixar la veu en llegir."],
+    ["Gentilici", "Paraula que diu d'on és algú: català, italià."],
+  ],
+  situacion: {
+    titulo: "La bústia de la classe",
+    reto: "La classe crea una bústia de missatges. Cada alumne escriu notes i cartes als companys, i un equip de correctors revisa que estiguin ben puntuades.",
+    pasos: ["Escriure una nota a un company amb data, salutació i signatura.", "Revisar majúscules, dies i mesos en minúscula i abreviatures.", "Escriure un petit diàleg amb guió per al diari de la classe.", "Llegir en veu alta algunes notes respectant els signes."],
+    producto: "Una bústia de classe amb notes ben escrites i un diàleg publicat.",
+    evaluacion: ["Fa servir bé majúscules i minúscules.", "Escriu bé les abreviatures.", "Escriu diàlegs amb guió.", "Llegeix amb l'entonació que marquen els signes."],
+  },
+});
