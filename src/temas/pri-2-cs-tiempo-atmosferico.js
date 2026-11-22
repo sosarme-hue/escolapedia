@@ -134,3 +134,94 @@ module.exports = tema({
   saberes: "Sociedades y territorios: el tiempo atmosférico y sus elementos (sol, nubes, lluvia, nieve, viento, temperatura); observación y registro con símbolos; adaptación de la ropa y las actividades al tiempo",
   ideas: ["Calendario del tiempo en clase con símbolos que se cambian cada día.", "Termómetro de la ventana: leerlo cada mañana y anotarlo.", "Fabricar una manga de viento o un molinillo de papel."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer el ciclo del agua de forma sencilla", "Usar instrumentos para medir el tiempo atmosférico", "Interpretar el mapa del tiempo", "Saber protegerse en tormentas y olas de calor"],
+  lectura: { titulo: "La estación meteorológica", html: `<p>Los alumnos de segundo construyeron una estación meteorológica en el patio del colegio.</p><p>Leo hizo un pluviómetro con una botella cortada y una regla pegada. Nora fabricó una veleta con una pajita, una cartulina en forma de flecha y un lápiz con goma. Y Hugo colgó un termómetro a la sombra, junto a la ventana.</p><p>Cada mañana, un equipo distinto salía a mirar. Apuntaban en un cuadro la temperatura, hacia dónde soplaba el viento y cuánta agua había caído.</p><p>—Hoy hay 12 grados y la veleta apunta al norte —leyó Nora.</p><p>—¡Y en el pluviómetro hay agua hasta el número 3! —añadió Leo—. Esta noche ha llovido.</p><p>Al final del mes, hicieron un gráfico con los días de sol, de nubes y de lluvia. Ganaron los días de sol, pero por poco.</p><p>—¡Somos meteorólogos! —gritó Hugo.</p><p>La maestra sonrió y les enseñó el mapa del tiempo de la televisión. Ahora entendían todos sus símbolos.</p>` },
+  tras: {
+    "Día de lluvia": [
+      ["El viaje del agua", `<p>El agua de la lluvia hace un viaje que nunca termina. Se llama el <mark>ciclo del agua</mark>:</p><ul><li><b>1. Evaporación</b>: el Sol calienta el agua del mar, de los ríos y de los lagos. El agua se convierte en vapor y sube.</li><li><b>2. Condensación</b>: arriba hace frío. El vapor se convierte en gotitas muy pequeñas que forman las <b>nubes</b>.</li><li><b>3. Precipitación</b>: cuando las gotitas se juntan y pesan mucho, caen en forma de <b>lluvia</b>, nieve o granizo.</li><li><b>4. Vuelta al mar</b>: el agua corre por ríos y por debajo de la tierra hasta llegar otra vez al mar.</li></ul><p>¡Y vuelta a empezar! El agua que bebes hoy pudo ser lluvia hace muchos años… ¡o el agua que bebió un dinosaurio!</p><p><b>Actividad</b>: dibuja el ciclo del agua con flechas.</p>`,
+        H6.flujo("Ciclo", ["Sol|calienta", "vapor|sube", "nube|frío", "lluvia|cae"], cAZ),
+        ["5WklF3JhTOI", "El Mundo de Luna - ¿De dónde viene la lluvia?", "El Mundo de Luna", 23049309]],
+    ],
+    "Frío y calor: la temperatura": [
+      ["Instrumentos del tiempo", `<p>Las personas que estudian el tiempo atmosférico se llaman <mark>meteorólogos</mark>. Usan varios instrumentos:</p><ul><li><b>Termómetro</b>: mide la <b>temperatura</b>, es decir, si hace frío o calor. Se mide en grados.</li><li><b>Pluviómetro</b>: mide cuánta <b>lluvia</b> ha caído. Es un recipiente con números.</li><li><b>Veleta</b>: indica <b>de dónde sopla el viento</b>: norte, sur, este u oeste.</li><li><b>Anemómetro</b>: mide la <b>fuerza del viento</b>. Tiene unas cazoletas que giran.</li></ul><p>Todos estos instrumentos juntos forman una <b>estación meteorológica</b>. Hay muchas repartidas por todo el país, y también satélites en el espacio que hacen fotos de las nubes.</p><p>Con todos esos datos, los meteorólogos hacen la <b>previsión</b> del tiempo: dicen qué tiempo hará mañana.</p><p><b>Actividad</b>: fabrica un pluviómetro con una botella de plástico y una regla.</p>`,
+        L6.filas("Miden", [["termómetro", "temperatura", cRO], ["pluviómetro", "lluvia", cAZ], ["veleta", "dirección", cVE], ["anemómetro", "fuerza", cNA]])],
+    ],
+    "Los símbolos del tiempo": [
+      ["El mapa del tiempo", `<p>En la televisión, en el periódico y en internet aparece el <mark>mapa del tiempo</mark>. Nos dice qué tiempo hará en cada lugar.</p><p>Para leerlo hay que fijarse en:</p><ul><li>Los <b>símbolos</b>: sol, nube, lluvia, nieve, tormenta, viento.</li><li>Los <b>números</b>: son las temperaturas. Muchas veces aparecen dos: la máxima (la más alta del día) y la mínima (la más baja).</li><li>Los <b>colores</b>: el rojo y el naranja indican calor; el azul, frío.</li><li>Las <b>flechas</b>: muestran por dónde sopla el viento.</li></ul><p>Antes de salir de excursión, ir a la playa o viajar, conviene mirar el mapa del tiempo. Así sabemos qué ropa llevar y si necesitamos paraguas.</p><p><b>Actividad</b>: mira el mapa del tiempo de hoy y explica qué tiempo hará en tu localidad.</p>`,
+        H6.dos("Mapa", ["CALOR", ["rojo", "sol", "máxima"], cRO], ["FRÍO", ["azul", "nieve", "mínima"], cAZ]),
+        ["CGImwvqwycc", "¿Cómo está el clima? | Canciones Infantiles", "Super Simple Español", 10437809]],
+    ],
+    "Nos vestimos según el tiempo": [
+      ["Tormentas y olas de calor", `<p>A veces el tiempo es <mark>peligroso</mark>. Hay que saber protegerse.</p><p><b>En una tormenta con rayos</b>:</p><ul><li>Entrar en casa o en un edificio.</li><li>No ponerse debajo de un árbol solo.</li><li>Alejarse del agua: piscinas, ríos y playas.</li><li>Contar los segundos entre el rayo y el trueno: si son pocos, la tormenta está cerca.</li></ul><p><b>En una ola de calor</b>:</p><ul><li>Beber mucha agua, aunque no tengas sed.</li><li>No hacer deporte en las horas de más calor.</li><li>Estar a la sombra y llevar gorra.</li><li>Cuidar a los mayores y a las mascotas.</li></ul><p>Cuando el tiempo va a ser peligroso, se dan <b>avisos</b> de colores: amarillo, naranja o rojo. El rojo es el más peligroso.</p><p><b>Actividad</b>: haz un cartel con consejos para un día de mucho calor.</p>`,
+        H6.rueda("Avisos", "ALERTA", [["amarillo", cNA], ["naranja", cMO], ["rojo", cRO], ["agua", cAZ]])],
+    ],
+  },
+  final: [
+    ["Refranes del tiempo", `<p>Antes de que existieran los satélites y la televisión, la gente del campo observaba el cielo y los animales para adivinar el tiempo. De ahí vienen muchos <mark>refranes</mark>:</p><ul><li>«<b>En abril, aguas mil</b>»: en abril llueve mucho.</li><li>«<b>Hasta el cuarenta de mayo, no te quites el sayo</b>»: no te quites la ropa de abrigo demasiado pronto.</li><li>«<b>Cielo empedrado, suelo mojado</b>»: si las nubes parecen piedrecitas, lloverá.</li><li>«<b>Año de nieves, año de bienes</b>»: la nieve trae agua para las cosechas.</li><li>«<b>Cuando marzo mayea, mayo marcea</b>»: si marzo es caluroso, mayo será fresco.</li></ul><p>Algunos refranes aciertan bastante, pero hoy confiamos más en los meteorólogos.</p><p><b>Actividad</b>: pregunta en casa por un refrán del tiempo y explícalo en clase.</p>`,
+      L6.filas("Refranes", [["abril", "aguas mil", cAZ], ["mayo", "sayo", cMO], ["cielo", "empedrado", cVE], ["nieves", "bienes", cNA]])],
+    ["Repaso: la estación meteorológica", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Leo hace un <b>pluviómetro</b> con una botella: mide la lluvia.</li><li>Nora fabrica una <b>veleta</b>: indica de dónde sopla el viento.</li><li>Hugo cuelga un <b>termómetro</b> a la sombra: mide la temperatura.</li><li>Cada día apuntan los datos en un <b>cuadro</b>.</li><li>Hay <b>12 grados</b> y viento del norte.</li><li>Al final del mes hacen un <b>gráfico</b> con los días de sol, nubes y lluvia.</li><li>Gracias a su trabajo entienden los símbolos del <b>mapa del tiempo</b>.</li></ul><p>¡Cualquiera puede ser meteorólogo con un poco de paciencia!</p><p><b>Actividad</b>: apunta el tiempo de cada día durante una semana.</p>`,
+      H6.flujo("Estación", ["Leo|lluvia", "Nora|viento", "Hugo|grados", "clase|gráfico"], cVE)],
+  ],
+  ejemplos: [
+    ["¿Qué instrumento uso para saber si hace frío?", ["Necesito medir la temperatura."], "El termómetro."],
+    ["El mapa marca un aviso rojo por calor. ¿Qué hago?", ["Es el aviso más peligroso."], "Beber agua, estar a la sombra y no hacer deporte al sol."],
+  ],
+  errores: ["Ponerse debajo de un árbol durante una tormenta.", "Esperar a tener sed para beber en una ola de calor."],
+  ejercicios: [
+    ["b", "¿Qué mide el termómetro?", "La temperatura."],
+    ["b", "¿Qué indica la veleta?", "De dónde sopla el viento."],
+    ["b", "¿De qué están hechas las nubes?", "De gotitas de agua."],
+    ["b", "En el mapa, ¿qué color indica calor?", "Rojo o naranja."],
+    ["b", "Explica «En abril, aguas mil».", "En abril llueve mucho."],
+    ["m", "Ordena: lluvia, evaporación, nube.", "Evaporación, nube, lluvia."],
+    ["m", "¿Para qué sirve el pluviómetro?", "Para medir la lluvia."],
+    ["m", "¿Qué es la temperatura máxima?", "La más alta del día."],
+    ["m", "Di dos consejos en una tormenta.", "Entrar en casa, alejarse del agua…"],
+    ["m", "¿Qué aviso es el más peligroso?", "El rojo."],
+    ["a", "En la lectura, ¿quién hace cada instrumento?", "Leo el pluviómetro, Nora la veleta, Hugo el termómetro."],
+    ["a", "¿Por qué el agua que bebes pudo beberla un dinosaurio?", "Porque el agua circula siempre en el ciclo del agua."],
+    ["a", "Hay 35 grados y sol. ¿Qué ropa llevas?", "Ropa ligera y gorra."],
+    ["a", "Si entre el rayo y el trueno pasan 2 segundos, ¿la tormenta está cerca o lejos?", "Cerca."],
+  ],
+  quiz: [
+    ["El vapor sube y forma…", ["nubes", "piedras", "ríos"], "Ciclo."],
+    ["La lluvia se mide con el…", ["pluviómetro", "termómetro", "reloj"], "Instrumentos."],
+    ["En el mapa, el azul indica…", ["frío", "calor", "viento"], "Mapa."],
+    ["En una tormenta, no hay que ponerse…", ["bajo un árbol", "en casa", "en un edificio"], "Tormentas."],
+    ["«Hasta el cuarenta de mayo…»", ["no te quites el sayo", "aguas mil", "suelo mojado"], "Refranes."],
+  ],
+  examen: [
+    ["En la lectura, ¿con qué hace Leo el pluviómetro?", ["una botella", "una pajita", "un lápiz"], "Lectura."],
+    ["¿Qué días ganaron en el gráfico?", ["los de sol", "los de lluvia", "los de nieve"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Ciclo del agua", "Evaporación, nubes, lluvia y vuelta al mar."],
+    ["Instrumentos", "Termómetro, pluviómetro, veleta, anemómetro."],
+  ],
+  glosario: [
+    ["Evaporación", "Paso del agua líquida a vapor."],
+    ["Ciclo del agua", "Viaje continuo del agua."],
+    ["Meteorólogo", "Persona que estudia el tiempo."],
+    ["Termómetro", "Instrumento que mide la temperatura."],
+    ["Pluviómetro", "Instrumento que mide la lluvia."],
+    ["Veleta", "Indica de dónde sopla el viento."],
+    ["Anemómetro", "Mide la fuerza del viento."],
+    ["Previsión", "Lo que se espera que pase con el tiempo."],
+    ["Ola de calor", "Varios días seguidos de mucho calor."],
+    ["Refrán", "Frase popular que da un consejo."],
+  ],
+  situacion: {
+    titulo: "Somos meteorólogos",
+    reto: "La clase monta su propia estación meteorológica y presenta el parte del tiempo como en la televisión.",
+    pasos: ["Fabricar un pluviómetro y una veleta.", "Apuntar cada día la temperatura, el viento y la lluvia.", "Hacer un gráfico con los datos del mes.", "Presentar el parte del tiempo con un mapa y símbolos."],
+    producto: "Una estación meteorológica de clase y un parte del tiempo.",
+    evaluacion: ["Explica el ciclo del agua.", "Usa instrumentos del tiempo.", "Lee el mapa del tiempo.", "Sabe protegerse del tiempo peligroso."],
+  },
+});

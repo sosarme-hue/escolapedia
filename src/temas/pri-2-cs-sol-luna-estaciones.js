@@ -140,3 +140,91 @@ module.exports = tema({
   saberes: "Sociedades y territorios: el Sol y la Luna; el día y la noche por el giro de la Tierra; las fases de la Luna; el año y las cuatro estaciones, con sus cambios en el paisaje y en la vida cotidiana",
   ideas: ["Linterna y globo terráqueo para ver el día y la noche.", "Diario de la Luna durante un mes con dibujos de cada noche.", "Mural de las cuatro estaciones con hojas, flores y fotos."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Saber que la Tierra gira y da vueltas alrededor del Sol", "Conocer los planetas del sistema solar", "Reconocer algunas constelaciones", "Relacionar las estaciones con fiestas y costumbres"],
+  lectura: { titulo: "La noche de las estrellas", html: `<p>En agosto, Paula fue de acampada con su familia a un pueblo de la montaña. Allí no había farolas ni luces de ciudad.</p><p>Por la noche, se tumbaron en una manta sobre la hierba. Paula abrió mucho los ojos: el cielo estaba lleno de estrellas, miles y miles, como purpurina sobre un papel negro.</p><p>—¡Mira! —dijo su padre, señalando—. Esas siete estrellas forman el Carro. Y aquella brillante es la estrella Polar: siempre señala el norte.</p><p>De pronto, una luz cruzó el cielo muy deprisa.</p><p>—¡Una estrella fugaz! —gritó Paula—. ¡Pide un deseo!</p><p>Su madre le explicó que en realidad no era una estrella, sino una piedrecita del espacio que se quema al entrar en el aire de la Tierra.</p><p>La Luna estaba en cuarto creciente, como una sonrisa ladeada. Paula pensó que la Tierra era como una pelota que da vueltas en el espacio, y que ellos estaban ahí encima, mirando hacia arriba.</p><p>Esa noche se durmió soñando con planetas.</p>` },
+  tras: {
+    "El día y la noche": [
+      ["La Tierra se mueve", `<p>Aunque no lo notamos, la <mark>Tierra</mark> se mueve todo el tiempo. Hace dos movimientos:</p><ul><li><b>Rotación</b>: la Tierra gira sobre sí misma, como una peonza. Tarda <b>un día</b> (24 horas) en dar una vuelta. Por eso hay día y noche: la parte que mira al Sol tiene día, y la otra, noche.</li><li><b>Traslación</b>: la Tierra da vueltas alrededor del Sol. Tarda <b>un año</b> (365 días) en dar una vuelta completa.</li></ul><p>Parece que el Sol se mueve por el cielo: sale por el <b>este</b> por la mañana y se pone por el <b>oeste</b> por la tarde. Pero en realidad es la Tierra la que gira.</p><p>Por eso, cuando en España es de día, en otros países del otro lado del mundo es de noche.</p><p><b>Actividad</b>: con una linterna y una pelota, comprueba cómo se forman el día y la noche.</p>`,
+        H6.dos("Tierra", ["ROTACIÓN", ["sobre sí", "1 día", "día y noche"], cAZ], ["TRASLACIÓN", ["al Sol", "1 año", "estaciones"], cNA])],
+    ],
+    "Las estrellas": [
+      ["Los planetas", `<p>La Tierra es un <mark>planeta</mark>. Junto con otros siete planetas gira alrededor del Sol. Todos juntos forman el <mark>sistema solar</mark>.</p><p>Los ocho planetas, del más cercano al Sol al más lejano, son:</p><ul><li><b>Mercurio</b>: el más pequeño y cercano.</li><li><b>Venus</b>: el más caliente.</li><li><b>Tierra</b>: nuestro planeta, el único con vida conocida.</li><li><b>Marte</b>: el planeta rojo.</li><li><b>Júpiter</b>: el más grande.</li><li><b>Saturno</b>: tiene unos anillos preciosos.</li><li><b>Urano</b> y <b>Neptuno</b>: muy fríos y lejanos.</li></ul><p>Los planetas no tienen luz propia: brillan porque los ilumina el Sol. Algunos, como Venus, se ven en el cielo como una estrella muy brillante.</p><p><b>Actividad</b>: haz un móvil del sistema solar con bolas de papel de colores.</p>`,
+        L6.filas("Planetas", [["Mercurio", "pequeño", cMO], ["Tierra", "con vida", cAZ], ["Marte", "rojo", cRO], ["Júpiter", "el mayor", cNA]])],
+      ["Las constelaciones", `<p>Desde la antigüedad, las personas miraban el cielo y unían las estrellas con líneas imaginarias para formar dibujos. Esos grupos de estrellas son las <mark>constelaciones</mark>.</p><p>Algunas constelaciones famosas:</p><ul><li><b>La Osa Mayor</b>: tiene siete estrellas que forman el <b>Carro</b>.</li><li><b>La Osa Menor</b>: en ella está la <b>estrella Polar</b>, que indica el norte.</li><li><b>Orión</b>: un cazador con un cinturón de tres estrellas en fila.</li><li><b>Casiopea</b>: tiene forma de W.</li></ul><p>Antes de que existieran las brújulas, los marineros usaban las estrellas para orientarse por la noche.</p><p>Las <b>estrellas fugaces</b> no son estrellas: son piedrecitas del espacio que se queman al entrar en el aire.</p><p>Para ver bien las estrellas hay que ir a un lugar oscuro, lejos de las luces de la ciudad.</p><p><b>Actividad</b>: dibuja el Carro uniendo siete puntos.</p>`,
+        H6.rueda("Cielo", "NOCHE", [["Carro", cAZ], ["Polar", cNA], ["Orión", cMO], ["fugaz", cRO]]),
+        ["YLBArJNRRQk", "La Luna", "Dúo Karma", 14800408]],
+    ],
+    "Primavera y verano": [
+      ["Fiestas de cada estación", `<p>Cada <mark>estación</mark> tiene sus fiestas y costumbres:</p><ul><li><b>Primavera</b>: la Semana Santa, las ferias, las romerías y el Día del Libro (23 de abril).</li><li><b>Verano</b>: la noche de San Juan con hogueras (24 de junio), las fiestas del pueblo y las vacaciones en la playa o la montaña.</li><li><b>Otoño</b>: la vendimia (recogida de la uva), las castañas asadas y Halloween o la castañada.</li><li><b>Invierno</b>: la Navidad, la Nochevieja con las doce uvas, los Reyes Magos y el Carnaval.</li></ul><p>También la <b>comida</b> cambia: en verano comemos sandía, melón y gazpacho; en invierno, naranjas, mandarinas y sopa caliente.</p><p>Cada estación es especial y trae cosas bonitas.</p><p><b>Actividad</b>: haz un calendario de clase con una fiesta de cada estación.</p>`,
+        H6.flujo("Fiestas", ["primavera|libro", "verano|San Juan", "otoño|castañas", "invierno|Reyes"], cVE)],
+    ],
+  },
+  final: [
+    ["Astronautas", `<p>Los <mark>astronautas</mark> son personas que viajan al espacio en cohetes y naves espaciales.</p><ul><li>En <b>1961</b>, Yuri Gagarin fue el primer ser humano en viajar al espacio.</li><li>En <b>1969</b>, Neil Armstrong fue el primero en pisar la Luna. Dijo: «Es un pequeño paso para el hombre, pero un gran salto para la humanidad».</li><li>Hoy, varios astronautas viven en la <b>Estación Espacial Internacional</b>, que da vueltas alrededor de la Tierra.</li><li>El español Pedro Duque viajó al espacio dos veces.</li></ul><p>En el espacio no hay gravedad, así que los astronautas <b>flotan</b>. Duermen en sacos atados a la pared y beben con pajita.</p><p>Llevan un <b>traje espacial</b> para respirar y protegerse del frío y del calor.</p><p><b>Actividad</b>: diseña tu propio traje de astronauta y dibújalo.</p>`,
+      L6.filas("Espacio", [["1961", "Gagarin", cRO], ["1969", "Luna", cAZ], ["estación", "vivir allí", cVE], ["traje", "respirar", cNA]])],
+    ["Repaso: la noche de las estrellas", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Paula ve más estrellas en la montaña porque <b>no hay luces</b> de ciudad.</li><li>El <b>Carro</b> tiene siete estrellas y forma parte de la Osa Mayor.</li><li>La <b>estrella Polar</b> señala el norte.</li><li>La <b>estrella fugaz</b> es una piedrecita que se quema en el aire.</li><li>La Luna estaba en <b>cuarto creciente</b>.</li><li>La Tierra es como una pelota que gira en el espacio.</li><li>La acampada es en agosto: <b>verano</b>.</li></ul><p>Mirar el cielo nocturno es una forma bonita de aprender y de soñar.</p><p><b>Actividad</b>: una noche despejada, sal con tu familia a mirar la Luna y las estrellas.</p>`,
+      H6.dos("Lectura", ["CIELO", ["Carro", "Polar", "fugaz"], cAZ], ["LUNA", ["creciente", "sonrisa", "agosto"], cMO])],
+  ],
+  ejemplos: [
+    ["¿Por qué hay día y noche?", ["La Tierra gira sobre sí misma.", "Una parte mira al Sol y otra no."], "Por la rotación de la Tierra."],
+    ["¿Cuál es el planeta más grande?", ["Ordenamos por tamaño."], "Júpiter."],
+  ],
+  errores: ["Creer que el Sol da vueltas alrededor de la Tierra.", "Pensar que una estrella fugaz es una estrella."],
+  ejercicios: [
+    ["b", "¿Cuánto tarda la Tierra en girar sobre sí misma?", "Un día."],
+    ["b", "¿Cuántos planetas hay en el sistema solar?", "Ocho."],
+    ["b", "¿Qué planeta tiene anillos?", "Saturno."],
+    ["b", "¿Qué estrella señala el norte?", "La estrella Polar."],
+    ["b", "Di una fiesta de verano.", "San Juan, fiestas del pueblo."],
+    ["m", "¿Por dónde sale el Sol?", "Por el este."],
+    ["m", "¿Qué es la traslación?", "La vuelta de la Tierra alrededor del Sol; dura un año."],
+    ["m", "¿Qué es una constelación?", "Un grupo de estrellas que forman un dibujo."],
+    ["m", "¿Quién pisó la Luna por primera vez?", "Neil Armstrong, en 1969."],
+    ["m", "¿Por qué flotan los astronautas?", "Porque en el espacio no hay gravedad."],
+    ["a", "¿Por qué Paula ve más estrellas en la montaña?", "Porque no hay luces de ciudad."],
+    ["a", "Ordena: Tierra, Mercurio, Marte, Venus.", "Mercurio, Venus, Tierra, Marte."],
+    ["a", "Si en España es de día, ¿qué pasa al otro lado del mundo?", "Es de noche."],
+    ["a", "Explica qué es una estrella fugaz.", "Una piedrecita del espacio que se quema al entrar en el aire."],
+  ],
+  quiz: [
+    ["La Tierra gira sobre sí misma en…", ["un día", "un año", "un mes"], "Rotación."],
+    ["El planeta rojo es…", ["Marte", "Venus", "Saturno"], "Planetas."],
+    ["La estrella Polar señala el…", ["norte", "sur", "este"], "Constelaciones."],
+    ["La noche de San Juan es en…", ["verano", "invierno", "otoño"], "Fiestas."],
+    ["El primero en pisar la Luna fue…", ["Armstrong", "Gagarin", "Colón"], "Astronautas."],
+  ],
+  examen: [
+    ["En la lectura, ¿en qué mes acampa Paula?", ["agosto", "enero", "abril"], "Lectura."],
+    ["¿Cómo estaba la Luna?", ["cuarto creciente", "llena", "nueva"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Rotación y traslación", "1 día sobre sí misma; 1 año alrededor del Sol."],
+    ["Sistema solar", "El Sol y 8 planetas."],
+  ],
+  glosario: [
+    ["Rotación", "Giro de la Tierra sobre sí misma."],
+    ["Traslación", "Vuelta de la Tierra alrededor del Sol."],
+    ["Planeta", "Astro sin luz propia que gira alrededor de una estrella."],
+    ["Sistema solar", "El Sol y los astros que giran a su alrededor."],
+    ["Constelación", "Grupo de estrellas que forman un dibujo."],
+    ["Estrella Polar", "Estrella que indica el norte."],
+    ["Estrella fugaz", "Piedrecita que se quema al entrar en el aire."],
+    ["Astronauta", "Persona que viaja al espacio."],
+    ["Gravedad", "Fuerza que nos atrae hacia el suelo."],
+    ["Este", "Punto por donde sale el Sol."],
+  ],
+  situacion: {
+    titulo: "Noche de astronomía",
+    reto: "La clase prepara una exposición del sistema solar y una guía para mirar el cielo de noche con la familia.",
+    pasos: ["Hacer los ocho planetas con bolas y pintura.", "Ordenarlos alrededor de un Sol de papel.", "Dibujar tres constelaciones con pegatinas brillantes.", "Escribir una guía para observar el cielo en familia."],
+    producto: "Un sistema solar colgante y una guía del cielo.",
+    evaluacion: ["Explica el día y la noche.", "Nombra los planetas.", "Reconoce constelaciones.", "Relaciona estaciones y fiestas."],
+  },
+});

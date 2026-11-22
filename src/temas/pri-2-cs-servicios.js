@@ -131,3 +131,93 @@ module.exports = tema({
   saberes: "Sociedades y territorios: los servicios públicos (educación, sanidad, seguridad, limpieza, transporte y cultura), su financiación con impuestos y el respeto por los bienes comunes",
   ideas: ["Visita de bomberos o policía local al colegio.", "Mapa del barrio con pegatinas de servicios públicos.", "Juego de rol: llamar al 112 y explicar una emergencia."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer cómo funciona la biblioteca pública", "Saber cuándo llamar a cada servicio de emergencias", "Cuidar las instalaciones públicas", "Conocer los servicios sociales y el voluntariado"],
+  lectura: { titulo: "Un día sin servicios", html: `<p>Una noche, Lucas tuvo un sueño muy raro. Se despertó y, al abrir el grifo, no salía agua.</p><p>Fue al cole, pero estaba cerrado: no había maestros. En la calle había basura por todas partes porque no habían pasado los camiones de limpieza. Las farolas estaban apagadas y los semáforos no funcionaban.</p><p>Un niño se cayó en el parque y se hizo daño en la rodilla, pero el centro de salud estaba cerrado. El autobús no pasaba. La biblioteca tenía un cartel: «Cerrado para siempre».</p><p>—¡Esto es un desastre! —gritó Lucas.</p><p>Entonces se despertó de verdad. Abrió el grifo… y salió agua. Por la ventana vio pasar el camión de la basura y a una vecina esperando el autobús.</p><p>En el cole, se lo contó a su maestra.</p><p>—Los servicios públicos son como el aire —dijo ella—. No nos damos cuenta de que están hasta que nos faltan.</p><p>Ese día, Lucas dio las gracias al conserje, a la señora de la limpieza y al conductor del autobús.</p>` },
+  tras: {
+    "La educación": [
+      ["La biblioteca pública", `<p>La <mark>biblioteca pública</mark> es un servicio de la localidad donde podemos leer y llevarnos libros prestados <b>gratis</b>.</p><p>Para usarla, necesitamos el <b>carné de la biblioteca</b>. Con él podemos:</p><ul><li>Llevarnos libros, cómics, películas y música a casa durante unos días.</li><li>Leer en la sala, en silencio.</li><li>Usar los ordenadores e internet.</li><li>Ir a actividades: cuentacuentos, talleres, clubes de lectura.</li></ul><p>Normas de la biblioteca:</p><ul><li>Hablar en <b>voz baja</b>.</li><li><b>Cuidar</b> los libros: no pintarlos ni romperlos.</li><li><b>Devolverlos</b> a tiempo, para que otros puedan leerlos.</li></ul><p>Los libros están ordenados por temas y edades. El <b>bibliotecario</b> o la bibliotecaria nos ayuda a encontrarlos.</p><p><b>Actividad</b>: hazte el carné de la biblioteca con tu familia y llévate un libro.</p>`,
+        L6.filas("Biblioteca", [["carné", "gratis", cAZ], ["préstamo", "a casa", cVE], ["silencio", "en la sala", cNA], ["devolver", "a tiempo", cRO]])],
+    ],
+    "La seguridad": [
+      ["¿A quién llamo?", `<p>En España, el número <mark>112</mark> sirve para todas las emergencias. Desde ahí avisan al servicio que hace falta:</p><ul><li><b>Ambulancia</b> y médicos: si alguien está herido o muy enfermo.</li><li><b>Bomberos</b>: si hay un incendio, una inundación o alguien atrapado.</li><li><b>Policía</b>: si hay un robo, una pelea o alguien perdido.</li><li><b>Guardia Civil</b>: en carreteras y en el campo.</li><li><b>Salvamento marítimo</b>: si alguien tiene problemas en el mar.</li></ul><p>Cuando llamamos al 112 hay que:</p><ul><li>Estar tranquilos.</li><li>Decir <b>qué pasa</b>.</li><li>Decir <b>dónde</b> estamos: la calle, el número, el pueblo.</li><li>No colgar hasta que nos lo digan.</li></ul><p>Solo se llama en emergencias de verdad. ¡Las bromas pueden costar vidas!</p><p><b>Actividad</b>: aprende de memoria tu dirección completa.</p>`,
+        H6.rueda("112", "112", [["ambulancia", cRO], ["bomberos", cNA], ["policía", cAZ], ["mar", cVE]]),
+        ["ywmrVuzJYHc", "Luli Pampín - El bombero y la bombera", "Luli Pampín", 304819409]],
+    ],
+    "Cultura, deporte y ocio": [
+      ["Cuidar lo de todos", `<p>Los servicios y lugares públicos son <mark>de todos</mark>: los pagamos entre todos y los usamos todos. Por eso hay que cuidarlos como si fueran nuestros.</p><ul><li>En los <b>parques</b>: no romper los columpios, no pisar las flores, tirar la basura a la papelera.</li><li>En el <b>autobús</b>: no pintar los asientos ni ensuciar.</li><li>En el <b>colegio</b>: cuidar las mesas, los libros y los baños.</li><li>En la <b>calle</b>: no hacer pintadas, no romper farolas ni papeleras.</li><li>En el <b>polideportivo</b>: dejar el material recogido.</li></ul><p>Cuando algo público se rompe, arreglarlo cuesta dinero que podría usarse para otras cosas, como un parque nuevo.</p><p>Si vemos algo roto o peligroso, podemos <b>avisar</b> al ayuntamiento.</p><p><b>Actividad</b>: haced una lista de lugares públicos que usáis y cómo cuidarlos.</p>`,
+        H6.dos("Lo público", ["CUIDAR", ["papelera", "recoger", "avisar"], cVE], ["NO", ["pintadas", "romper", "ensuciar"], cRO])],
+    ],
+    "¿Quién los paga?": [
+      ["Servicios sociales y voluntarios", `<p>Hay servicios que ayudan especialmente a las personas que más lo necesitan. Son los <mark>servicios sociales</mark>:</p><ul><li>Ayudan a personas <b>mayores</b> que viven solas, llevándoles comida o acompañándolas.</li><li>Ayudan a familias que tienen <b>pocos recursos</b>.</li><li>Atienden a personas con <b>discapacidad</b>.</li><li>Organizan <b>centros de día</b> y residencias.</li></ul><p>Además, hay personas que ayudan a los demás sin cobrar: son los <mark>voluntarios</mark>. Colaboran en:</p><ul><li>Bancos de alimentos.</li><li>Cruz Roja y Protección Civil.</li><li>Refugios de animales.</li><li>Limpieza de playas y bosques.</li></ul><p>Ser voluntario es una forma de ser buen ciudadano. ¡Los niños también pueden colaborar, por ejemplo, en recogidas de alimentos o juguetes!</p><p><b>Actividad</b>: organizad en clase una recogida de alimentos o de libros para quien los necesite.</p>`,
+        L6.filas("Ayudan", [["mayores", "compañía", cNA], ["familias", "recursos", cAZ], ["voluntarios", "sin cobrar", cVE], ["banco", "de alimentos", cRO]])],
+    ],
+  },
+  final: [
+    ["Personas que trabajan para todos", `<p>Detrás de cada servicio público hay muchas <mark>personas trabajando</mark>:</p><ul><li><b>Maestros</b> y conserjes en el colegio.</li><li><b>Médicos</b>, enfermeros y celadores en el centro de salud.</li><li><b>Policías</b>, bomberos y agentes de tráfico.</li><li><b>Barrenderos</b> y conductores del camión de la basura.</li><li><b>Conductores</b> de autobús y metro.</li><li><b>Bibliotecarios</b>, monitores deportivos, jardineros del parque.</li></ul><p>Muchos trabajan de <b>noche</b> o los fines de semana para que todo funcione: los bomberos, los médicos de urgencias, los barrenderos que limpian de madrugada.</p><p>Todos merecen nuestro respeto y nuestro agradecimiento. Un «gracias» o un «buenos días» alegra su trabajo.</p><p><b>Actividad</b>: escribe una nota de agradecimiento a una persona que trabaje en un servicio público.</p>`,
+      H6.flujo("Trabajan", ["cole|maestros", "salud|médicos", "calle|barrenderos", "noche|bomberos"], cAZ)],
+    ["Repaso: un día sin servicios", `<p>Repasamos con la <mark>lectura</mark> de Lucas:</p><ul><li>Sin <b>agua</b> en el grifo: servicio de agua.</li><li>El cole cerrado: <b>educación</b>.</li><li>Basura en la calle: <b>limpieza</b>.</li><li>Farolas y semáforos apagados: <b>alumbrado</b> y tráfico.</li><li>El centro de salud cerrado: <b>sanidad</b>.</li><li>El autobús sin pasar: <b>transporte público</b>.</li><li>La biblioteca cerrada: <b>cultura</b>.</li></ul><p>La maestra dice que los servicios son «como el aire»: no nos damos cuenta de que están hasta que faltan.</p><p>Lucas aprende a <b>valorarlos</b> y a dar las gracias a quienes trabajan en ellos.</p><p><b>Actividad</b>: dibuja tu barrio con todos sus servicios funcionando.</p>`,
+      L6.filas("Sin…", [["agua", "grifo seco", cAZ], ["limpieza", "basura", cMO], ["sanidad", "sin médico", cRO], ["transporte", "sin autobús", cNA]])],
+  ],
+  ejemplos: [
+    ["Hay humo saliendo de una casa. ¿Qué hago?", ["Es un incendio.", "Aviso a un adulto o llamo al 112."], "Llamar al 112 para que vengan los bomberos."],
+    ["¿Qué necesito para llevarme libros de la biblioteca?", ["Un documento de la biblioteca."], "El carné de la biblioteca."],
+  ],
+  errores: ["Pensar que lo público no es de nadie y no cuidarlo.", "Llamar al 112 para algo que no es una emergencia."],
+  ejercicios: [
+    ["b", "¿Cuánto cuesta llevarse un libro de la biblioteca?", "Nada, es gratis."],
+    ["b", "¿Para qué se llama a los bomberos?", "Incendios, inundaciones, personas atrapadas."],
+    ["b", "¿Qué es un voluntario?", "Una persona que ayuda sin cobrar."],
+    ["b", "Di una forma de cuidar el parque.", "Tirar la basura a la papelera."],
+    ["b", "Di un trabajador de un servicio público.", "Maestro, médico, barrendero…"],
+    ["m", "¿Qué decimos al llamar al 112?", "Qué pasa y dónde estamos."],
+    ["m", "Di dos normas de la biblioteca.", "Hablar bajo, cuidar los libros, devolverlos."],
+    ["m", "¿Por qué hay que cuidar lo público?", "Porque es de todos y arreglarlo cuesta dinero."],
+    ["m", "¿Qué hacen los servicios sociales?", "Ayudan a personas que lo necesitan."],
+    ["m", "¿Por qué algunos trabajan de noche?", "Para que todo funcione siempre."],
+    ["a", "En la lectura, ¿qué servicios faltan en el sueño de Lucas?", "Agua, educación, limpieza, alumbrado, sanidad, transporte, biblioteca."],
+    ["a", "Explica la frase «los servicios son como el aire».", "No nos damos cuenta de que están hasta que faltan."],
+    ["a", "Propón una actividad de voluntariado para tu clase.", "Respuesta libre."],
+    ["a", "¿A quién llamarías si un perro se queda atrapado en un pozo?", "Al 112, que avisa a los bomberos."],
+  ],
+  quiz: [
+    ["Con el carné de la biblioteca puedes…", ["llevarte libros", "comprar libros", "vender libros"], "Biblioteca."],
+    ["Si hay un incendio vienen los…", ["bomberos", "carteros", "maestros"], "112."],
+    ["Lo público es…", ["de todos", "de nadie", "solo del alcalde"], "Cuidar."],
+    ["Quien ayuda sin cobrar es…", ["voluntario", "jefe", "cliente"], "Voluntarios."],
+    ["El 112 es para…", ["emergencias", "bromas", "pedir pizza"], "Seguridad."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué pasa al abrir el grifo en el sueño?", ["no sale agua", "sale leche", "sale agua caliente"], "Lectura."],
+    ["¿A quién da las gracias Lucas?", ["al conserje y otros trabajadores", "a nadie", "solo a su madre"], "Repaso."],
+  ],
+  tarjetas: [
+    ["112", "Qué pasa y dónde: ambulancia, bomberos, policía."],
+    ["Lo público", "Es de todos: lo cuidamos."],
+  ],
+  glosario: [
+    ["Biblioteca pública", "Lugar para leer y llevarse libros gratis."],
+    ["Carné", "Tarjeta con nuestros datos."],
+    ["Préstamo", "Llevarse algo y devolverlo después."],
+    ["Emergencia", "Situación grave y urgente."],
+    ["Bombero", "Persona que apaga incendios y rescata."],
+    ["Servicios sociales", "Ayudas para quien más lo necesita."],
+    ["Voluntario", "Persona que ayuda sin cobrar."],
+    ["Banco de alimentos", "Lugar que reparte comida a quien la necesita."],
+    ["Instalación", "Lugar o equipo para un servicio."],
+    ["Ciudadano", "Persona que vive en un lugar y participa en él."],
+  ],
+  situacion: {
+    titulo: "Gracias, servicios",
+    reto: "La clase investiga los servicios públicos del barrio y organiza una campaña para cuidarlos y agradecer el trabajo de sus profesionales.",
+    pasos: ["Hacer una lista de servicios del barrio.", "Entrevistar a una persona que trabaje en uno de ellos.", "Hacer carteles con normas para cuidar lo público.", "Organizar una recogida solidaria o escribir notas de agradecimiento."],
+    producto: "Entrevistas, carteles y una acción solidaria.",
+    evaluacion: ["Conoce servicios y su función.", "Sabe cuándo llamar al 112.", "Cuida lo público.", "Valora el voluntariado."],
+  },
+});

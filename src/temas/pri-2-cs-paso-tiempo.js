@@ -140,3 +140,93 @@ module.exports = tema({
   saberes: "Sociedades y territorios: nociones temporales básicas (ayer, hoy, mañana; antes, después); medida del tiempo con reloj y calendario; la historia personal y familiar, el árbol genealógico y las fuentes orales y materiales",
   ideas: ["Línea del tiempo personal con fotos traídas de casa.", "Entrevista a un abuelo o abuela en clase.", "Rincón de objetos antiguos: comparar cómo eran antes y cómo son ahora."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Usar el calendario: días, semanas, meses y años", "Distinguir pasado, presente y futuro", "Comparar juegos y escuelas de antes y de ahora", "Conocer los museos y los objetos antiguos"],
+  lectura: { titulo: "El baúl del desván", html: `<p>Un sábado lluvioso, Carlos sube con su abuela al desván. Allí hay un baúl viejo de madera con una cerradura oxidada.</p><p>—¿Qué hay dentro? —pregunta Carlos.</p><p>—Mis recuerdos —sonríe la abuela.</p><p>Al abrirlo, Carlos encuentra un montón de tesoros: fotos en blanco y negro, una muñeca de trapo, un plumier de madera, un tintero, una peonza y una libreta con las tablas de multiplicar escritas con letra muy bonita.</p><p>—Esta foto es de mi colegio —le explica la abuela—. Éramos cuarenta niñas en una sola clase y escribíamos con pluma mojada en tinta.</p><p>—¿Y no teníais tablets?</p><p>La abuela se ríe.</p><p>—Ni tablets, ni ordenadores, ni televisión en casa. Jugábamos en la calle a la comba, a la rayuela y a las tabas.</p><p>Carlos coge la peonza e intenta hacerla bailar. Se le cae diez veces, pero la abuela le enseña el truco.</p><p>Esa tarde, Carlos descubre que el pasado está lleno de historias… ¡y de juegos divertidos!</p>` },
+  tras: {
+    "Medimos el tiempo": [
+      ["El calendario", `<p>Para organizar el tiempo usamos el <mark>calendario</mark>. En él aparecen:</p><ul><li>Los <b>días</b> de la semana: lunes, martes, miércoles, jueves, viernes, sábado y domingo.</li><li>Las <b>semanas</b>: grupos de 7 días.</li><li>Los <b>meses</b>: enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre y diciembre. Son 12.</li><li>El <b>año</b>: tiene 12 meses o 365 días.</li></ul><p>No todos los meses tienen los mismos días: algunos tienen 30, otros 31, y febrero tiene 28 (o 29 cada cuatro años).</p><p>Un truco para recordarlo: cierra el puño y cuenta los meses por los nudillos y los huecos. Los nudillos tienen 31 días.</p><p>En el calendario apuntamos los cumpleaños, las vacaciones, las excursiones y las fiestas.</p><p><b>Actividad</b>: marca en un calendario tu cumpleaños y el de tres familiares.</p>`,
+        L6.filas("Calendario", [["semana", "7 días", cAZ], ["mes", "30 o 31 días", cVE], ["año", "12 meses", cNA], ["año", "365 días", cRO]])],
+    ],
+    "Antes y después": [
+      ["Pasado, presente y futuro", `<p>El tiempo se divide en tres partes:</p><ul><li>El <mark>pasado</mark>: lo que ya ha ocurrido. Ayer, el año pasado, cuando era bebé, cuando vivían los dinosaurios.</li><li>El <mark>presente</mark>: lo que ocurre ahora. Hoy, en este momento.</li><li>El <mark>futuro</mark>: lo que todavía no ha pasado. Mañana, el próximo verano, cuando sea mayor.</li></ul><p>Los verbos nos ayudan a saber cuándo pasa algo:</p><ul><li>Pasado: «Ayer <b>jugué</b> en el parque».</li><li>Presente: «Hoy <b>juego</b> en el parque».</li><li>Futuro: «Mañana <b>jugaré</b> en el parque».</li></ul><p>El pasado ya no se puede cambiar, pero podemos recordarlo. El futuro todavía no ha llegado, pero podemos planificarlo.</p><p><b>Actividad</b>: escribe una frase sobre algo que hiciste, algo que haces y algo que harás.</p>`,
+        H6.flujo("Tiempo", ["pasado|ayer", "presente|hoy", "futuro|mañana", "verbos|jugué, juego"], cAZ)],
+    ],
+    "¿Cómo vivían los abuelos?": [
+      ["Juegos y escuelas de antes", `<p>Los niños de hace muchos años <mark>jugaban</mark> y <mark>estudiaban</mark> de forma diferente:</p><p><b>Juegos de antes</b>:</p><ul><li>La <b>peonza</b>, las <b>canicas</b> y las <b>tabas</b>.</li><li>La <b>comba</b> y la <b>rayuela</b>.</li><li>El escondite, el pilla-pilla y las chapas.</li><li>Muñecas de trapo y coches de hojalata.</li></ul><p><b>Escuelas de antes</b>:</p><ul><li>En muchas, los niños y las niñas iban a clases <b>separadas</b>.</li><li>Había <b>muchos alumnos</b> en una sola clase, a veces de distintas edades.</li><li>Escribían con <b>pluma</b> y tinta, o en pizarras pequeñas con tiza.</li><li>Calentaban la clase con una estufa de leña.</li></ul><p>Algunos juegos de antes se siguen jugando hoy. ¡Son divertidísimos!</p><p><b>Actividad</b>: aprende un juego de antes preguntando a tus abuelos y enséñalo en el recreo.</p>`,
+        H6.dos("Juegos", ["ANTES", ["peonza", "canicas", "rayuela"], cMO], ["AHORA", ["videojuegos", "patinete", "¡y la peonza!"], cAZ]),
+        ["C-G3z1Vx2DI", "¡Vienen Nuestros Abuelos! | Canciones Infantiles", "Bebefinn en español", 3446272]],
+    ],
+    "¿Cómo conocemos el pasado?": [
+      ["Los museos", `<p>Los <mark>museos</mark> son lugares donde se guardan y se exponen objetos importantes del pasado para que todos podamos verlos y aprender.</p><p>Hay museos de muchos tipos:</p><ul><li><b>De historia</b>: con herramientas, armas, vasijas y monedas antiguas.</li><li><b>De arte</b>: con pinturas y esculturas, como el Museo del Prado en Madrid.</li><li><b>De ciencias</b>: con fósiles, esqueletos de dinosaurios y experimentos.</li><li><b>Del juguete</b>, del ferrocarril, del traje…</li><li><b>Etnográficos</b>: muestran cómo vivía la gente de una zona: aperos de labranza, trajes, utensilios de cocina.</li></ul><p>En los museos hay que seguir unas <b>normas</b>: no tocar las piezas, hablar bajito, no correr y no comer.</p><p>Las personas que cuidan los objetos y estudian el pasado son historiadores, arqueólogos y restauradores.</p><p><b>Actividad</b>: haced un museo en clase con objetos antiguos que traigáis de casa.</p>`,
+        L6.filas("Museos", [["historia", "vasijas", cNA], ["arte", "pinturas", cRO], ["ciencias", "fósiles", cVE], ["normas", "no tocar", cAZ]])],
+    ],
+  },
+  final: [
+    ["Inventos que cambiaron la vida", `<p>Algunos <mark>inventos</mark> cambiaron mucho la forma de vivir de las personas:</p><ul><li>La <b>rueda</b>: permitió hacer carros y transportar cosas pesadas.</li><li>La <b>escritura</b>: con ella se pudieron guardar las historias y las leyes.</li><li>La <b>imprenta</b>: hizo que los libros fueran más baratos y que más gente aprendiera a leer.</li><li>La <b>electricidad</b> y la bombilla: dieron luz a las casas por la noche.</li><li>El <b>teléfono</b>: permitió hablar con personas lejanas.</li><li>Internet: hoy podemos ver, leer y hablar con todo el mundo al instante.</li></ul><p>Tus bisabuelos no tuvieron internet; tus abuelos quizá no tenían teléfono en casa. ¡El mundo ha cambiado muchísimo en poco tiempo!</p><p><b>Actividad</b>: pregunta a tus abuelos qué invento les cambió más la vida.</p>`,
+      H6.rueda("Inventos", "CAMBIO", [["rueda", cNA], ["imprenta", cAZ], ["bombilla", cVE], ["internet", cRO]])],
+    ["Repaso: el baúl del desván", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Las <b>fotos en blanco y negro</b> son una <b>fuente</b> para conocer el pasado.</li><li>La <b>muñeca de trapo</b> y la <b>peonza</b> son juguetes de antes.</li><li>El <b>plumier</b>, el <b>tintero</b> y la libreta son material escolar antiguo.</li><li>En la clase de la abuela había <b>cuarenta niñas</b>: las clases eran muy grandes y separadas.</li><li>No tenían <b>televisión</b> ni ordenadores: jugaban en la calle.</li><li>Cuando la abuela era niña es el <b>pasado</b>; Carlos jugando con la peonza es el <b>presente</b>.</li></ul><p>El baúl de la abuela es como un pequeño <b>museo</b> familiar.</p><p><b>Actividad</b>: busca en casa un objeto antiguo y escribe su historia.</p>`,
+      L6.filas("Baúl", [["fotos", "blanco y negro", cMO], ["juguetes", "peonza, trapo", cNA], ["escuela", "pluma, tinta", cAZ], ["juegos", "comba, tabas", cVE]])],
+  ],
+  ejemplos: [
+    ["¿Cuántos meses tiene un año?", ["Enero, febrero… diciembre."], "12."],
+    ["«Mañana iré al cine»: ¿pasado, presente o futuro?", ["«Mañana» y «iré»."], "Futuro."],
+  ],
+  errores: ["Pensar que todos los meses tienen 30 días.", "Tocar las piezas de un museo."],
+  ejercicios: [
+    ["b", "¿Cuántos días tiene una semana?", "7."],
+    ["b", "Di los meses del verano.", "Junio, julio, agosto (y parte de septiembre)."],
+    ["b", "¿«Ayer» es pasado o futuro?", "Pasado."],
+    ["b", "Di un juego de antes.", "Peonza, canicas, comba…"],
+    ["b", "¿Qué es un museo?", "Un lugar donde se exponen objetos importantes."],
+    ["m", "¿Cuántos días tiene febrero?", "28, o 29 cada cuatro años."],
+    ["m", "Pasa a futuro: «Hoy juego en el parque».", "Mañana jugaré en el parque."],
+    ["m", "¿Con qué escribían en las escuelas de antes?", "Con pluma y tinta o pizarras."],
+    ["m", "Di dos normas del museo.", "No tocar, hablar bajito…"],
+    ["m", "¿Para qué sirvió la imprenta?", "Para hacer libros más baratos."],
+    ["a", "En la lectura, ¿qué objetos hay en el baúl?", "Fotos, muñeca, plumier, tintero, peonza, libreta."],
+    ["a", "Compara la clase de la abuela con la tuya.", "Antes, muchas niñas solas y pluma; ahora, clases mixtas y más pequeñas."],
+    ["a", "¿Por qué el baúl es como un museo?", "Porque guarda objetos del pasado."],
+    ["a", "Elige un invento y explica cómo cambió la vida.", "Respuesta libre."],
+  ],
+  quiz: [
+    ["Un año tiene…", ["365 días", "100 días", "30 días"], "Calendario."],
+    ["«Jugaré» está en…", ["futuro", "pasado", "presente"], "Tiempo."],
+    ["Un juego de antes es la…", ["peonza", "tablet", "consola"], "Juegos."],
+    ["En el museo hay que…", ["no tocar", "correr", "comer"], "Museos."],
+    ["Hizo los libros más baratos la…", ["imprenta", "rueda", "bombilla"], "Inventos."],
+  ],
+  examen: [
+    ["En la lectura, ¿dónde está el baúl?", ["en el desván", "en el sótano", "en el jardín"], "Lectura."],
+    ["¿Cuántas niñas había en la clase de la abuela?", ["cuarenta", "diez", "veinte"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Calendario", "7 días, 12 meses, 365 días."],
+    ["Tiempo", "Pasado, presente y futuro."],
+  ],
+  glosario: [
+    ["Calendario", "Tabla con los días y meses del año."],
+    ["Pasado", "Lo que ya ocurrió."],
+    ["Presente", "Lo que ocurre ahora."],
+    ["Futuro", "Lo que aún no ha pasado."],
+    ["Peonza", "Juguete que gira sobre una punta."],
+    ["Plumier", "Estuche antiguo de madera."],
+    ["Tintero", "Bote para la tinta."],
+    ["Museo", "Lugar donde se exponen objetos valiosos."],
+    ["Desván", "Parte de arriba de la casa, bajo el tejado."],
+    ["Invento", "Algo nuevo creado por las personas."],
+  ],
+  situacion: {
+    titulo: "Museo de la clase",
+    reto: "La clase monta un museo con objetos antiguos de las familias y una línea del tiempo de inventos.",
+    pasos: ["Traer un objeto antiguo de casa y averiguar su historia.", "Escribir una cartela con el nombre, la época y el uso.", "Ordenar inventos en una línea del tiempo.", "Hacer de guías del museo para otra clase."],
+    producto: "Un museo de clase con cartelas y una línea del tiempo.",
+    evaluacion: ["Usa el calendario.", "Distingue pasado, presente y futuro.", "Compara la vida de antes y de ahora.", "Respeta las normas de un museo."],
+  },
+});
