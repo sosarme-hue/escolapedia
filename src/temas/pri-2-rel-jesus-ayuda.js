@@ -109,3 +109,93 @@ module.exports = P.tema({
   saberes: "Jesús, que pasa haciendo el bien: milagros (Bartimeo, Mc 10,46-52; panes y peces, Jn 6,1-13; la tempestad calmada, Mc 4,35-41) y la parábola del buen samaritano (Lc 10,25-37); el amor al prójimo",
   ideas: ["Dramatización de la parábola del buen samaritano.", "Cadena de favores de clase con eslabones de papel.", "Detectar situaciones de ayuda en el patio y el aula."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Descubrir cómo Jesús acogía a los niños", "Conocer la historia de Zaqueo", "Reconocer a los buenos samaritanos de hoy", "Conocer a Madre Teresa de Calcuta"],
+  lectura: { titulo: "El niño nuevo", html: `<p>A mitad de curso llegó a la clase un niño nuevo. Se llamaba <b>Amir</b> y venía de otro país. Todavía no hablaba bien español.</p><p>En el recreo, Amir se quedaba solo, apoyado en la pared. Algunos niños lo miraban y se reían bajito.</p><p>Marcos lo vio y se acordó de lo que habían leído en Religión: el <b>buen samaritano</b> no pasó de largo.</p><p>Se acercó a Amir con su balón.</p><p>—¿Quieres jugar? —le preguntó, señalando la pelota.</p><p>Amir no entendió todas las palabras, pero entendió la <b>sonrisa</b>. Asintió y corrió con él.</p><p>Resultó que Amir era un portero fantástico. Pronto, todos querían tenerlo en su equipo.</p><p>Con los días, Marcos le enseñó palabras en español, y Amir le enseñó a decir «hola» y «gracias» en su idioma.</p><p>Al final del curso, Amir le regaló un dibujo de los dos jugando. Debajo había escrito, con letras un poco torcidas: «<b>Gracias, amigo</b>».</p>` },
+  tras: {
+    "Los milagros de Jesús": [
+      ["Jesús y los niños", `<p>Un día, unas madres y padres llevaron a sus hijos para que <mark>Jesús</mark> los bendijera. Los discípulos querían echarlos: pensaban que los niños molestaban al Maestro (Mc 10).</p><p>Pero Jesús se <b>enfadó</b> con los discípulos y dijo:</p><ul><li>«<b>Dejad que los niños se acerquen a mí</b>; no se lo impidáis».</li><li>Los <b>abrazaba</b> y ponía las manos sobre ellos para bendecirlos.</li><li>Dijo que el Reino de Dios es de los que son <b>como niños</b>: sencillos, confiados y alegres.</li></ul><p>En tiempos de Jesús, los niños no eran importantes para mucha gente. Jesús, en cambio, les dio un lugar <b>especial</b>.</p><p>Esto nos dice que cada niño y cada niña es muy valioso para Dios.</p><p><b>Actividad</b>: dibuja a Jesús rodeado de niños de todo el mundo.</p>`,
+        H6.flujo("Los niños", ["llevan|niños", "discípulos|echan", "Jesús|dejadlos", "abraza|bendice"], cNA)],
+    ],
+    "¿Quién es mi prójimo?": [
+      ["Zaqueo baja del árbol", `<p><mark>Zaqueo</mark> era un hombre rico de la ciudad de Jericó. Cobraba impuestos y se quedaba con dinero que no era suyo. Por eso, nadie lo quería (Lc 19).</p><ul><li>Un día, Jesús pasó por Jericó y había mucha gente.</li><li>Zaqueo era <b>bajito</b> y no veía nada, así que se subió a un <b>árbol</b>.</li><li>Jesús se paró, lo miró y le dijo: «Zaqueo, baja, que hoy quiero ir a <b>tu casa</b>».</li><li>La gente murmuraba: «¡Va a casa de un pecador!».</li><li>Zaqueo, muy contento, <b>cambió</b>: dio la mitad de lo que tenía a los pobres y devolvió lo que había quitado.</li></ul><p>Jesús no dejó a nadie de lado, ni siquiera a quien se había portado mal. Le dio una oportunidad.</p><p><b>Actividad</b>: dramatizad en clase la historia de Zaqueo con una silla como árbol.</p>`,
+        L6.filas("Zaqueo", [["quién", "cobrador rico", cMO], ["problema", "bajito", cNA], ["Jesús", "voy a tu casa", cAZ], ["cambio", "da a los pobres", cVE]])],
+    ],
+    "El buen samaritano": [
+      ["Samaritanos de hoy", `<p>Hoy también hay muchas personas que, como el <mark>buen samaritano</mark>, no pasan de largo:</p><ul><li>Los <b>médicos y enfermeras</b> que cuidan a los enfermos, también de noche.</li><li>Los <b>bomberos</b> y los equipos de rescate que ayudan en accidentes.</li><li>Los <b>voluntarios</b> que reparten comida o acompañan a personas mayores.</li><li>Las <b>ONG</b> que llevan agua, medicinas y escuelas a lugares pobres.</li><li>Los vecinos que ayudan a alguien a subir la compra.</li></ul><p>Los niños también podemos ser samaritanos: ayudar a un compañero que se ha caído, acompañar al que está solo o compartir el almuerzo.</p><p>Jesús terminó la parábola diciendo: «<b>Vete y haz tú lo mismo</b>».</p><p><b>Actividad</b>: escribe el nombre de alguien que conozcas que ayuda a los demás y qué hace.</p>`,
+        H6.rueda("Samaritanos", "AYUDAR", [["médicos", cAZ], ["bomberos", cRO], ["voluntarios", cVE], ["vecinos", cNA]]),
+        ["XESL7avwOGk", "El ratón samaritano", "Con Amor a Los Niños", 27227190]],
+    ],
+    "Panes y peces para todos": [
+      ["No desperdiciar, compartir", `<p>Después de que todos comieron, Jesús pidió a sus amigos que <mark>recogieran las sobras</mark> para que no se perdiera nada (Jn 6). ¡Llenaron doce cestos!</p><p>Esto nos enseña dos cosas importantes:</p><ul><li><b>No tirar comida</b>: servirse solo lo que vamos a comer y aprovechar lo que sobra.</li><li><b>Compartir</b>: lo que a uno le sobra, a otro le puede faltar.</li></ul><p>Ideas para hacerlo:</p><ul><li>Terminar el plato en el comedor o pedir menos cantidad.</li><li>Usar el pan duro para hacer torrijas o pan rallado.</li><li>Llevar a un banco de alimentos lo que no vayamos a usar.</li><li>Compartir el almuerzo con quien se lo ha olvidado.</li></ul><p><b>Actividad</b>: durante una semana, apunta cuánta comida sobra en tu plato e intenta que cada día sea menos.</p>`,
+        H6.dos("Comida", ["NO TIRAR", ["servir poco", "aprovechar", "pan duro"], cRO], ["COMPARTIR", ["almuerzo", "banco", "sobras"], cVE])],
+    ],
+  },
+  final: [
+    ["Madre Teresa de Calcuta", `<p><mark>Madre Teresa</mark> fue una monja que dedicó su vida a ayudar a las personas más pobres, siguiendo el ejemplo de Jesús.</p><ul><li>Nació en Europa, pero se fue a vivir a <b>Calcuta</b>, una ciudad de la India.</li><li>Allí vio a mucha gente enferma y sola en la calle.</li><li>Recogía a los enfermos y les daba <b>cuidado, comida y cariño</b>.</li><li>Fundó las <b>Misioneras de la Caridad</b>, que llevan un sari blanco con rayas azules.</li><li>Decía: «No todos podemos hacer grandes cosas, pero sí cosas pequeñas con <b>gran amor</b>».</li><li>Recibió el <b>Premio Nobel de la Paz</b>.</li></ul><p>Hoy es <b>Santa Teresa de Calcuta</b> y sus hermanas siguen ayudando en muchos países.</p><p><b>Actividad</b>: piensa en una cosa pequeña que puedas hacer hoy con gran amor y hazla.</p>`,
+      L6.filas("Madre Teresa", [["dónde", "Calcuta, India", cNA], ["ayudaba", "pobres y enfermos", cRO], ["vestido", "sari blanco y azul", cAZ], ["premio", "Nobel de la Paz", cVE]])],
+    ["Repaso: el niño nuevo", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Amir llegó de <b>otro país</b> y no hablaba bien español.</li><li>En el recreo estaba <b>solo</b> y algunos se reían.</li><li>Marcos se acordó del <b>buen samaritano</b>.</li><li>Le invitó a jugar con una <b>sonrisa</b>.</li><li>Amir resultó ser un gran <b>portero</b>.</li><li>Se enseñaron <b>palabras</b> de sus idiomas y se hicieron amigos.</li></ul><p>Marcos fue un samaritano: vio a alguien que lo pasaba mal y <b>no pasó de largo</b>.</p><p><b>Actividad</b>: ¿hay alguien en el recreo que juegue solo? Piensa cómo podrías invitarle.</p>`,
+      H6.flujo("Marcos", ["ver|solo", "recordar|samaritano", "invitar|sonrisa", "amigos|gracias"], cAZ)],
+  ],
+  ejemplos: [
+    ["¿Por qué se subió Zaqueo a un árbol?", ["Había mucha gente."], "Porque era bajito y quería ver a Jesús."],
+    ["¿Qué hicieron con las sobras de los panes?", ["Jesús no quería que se perdiera nada."], "Las recogieron en doce cestos."],
+  ],
+  errores: ["Pensar que solo los mayores pueden ayudar.", "Dejar de lado a alguien porque se portó mal alguna vez."],
+  ejercicios: [
+    ["b", "¿Qué dijo Jesús sobre los niños?", "Dejad que los niños se acerquen a mí."],
+    ["b", "¿Dónde se subió Zaqueo?", "A un árbol."],
+    ["b", "Di un samaritano de hoy.", "Médicos, bomberos, voluntarios…"],
+    ["b", "¿En qué ciudad ayudaba Madre Teresa?", "En Calcuta."],
+    ["b", "¿De dónde venía Amir?", "De otro país."],
+    ["m", "¿Por qué nadie quería a Zaqueo?", "Porque se quedaba con dinero que no era suyo."],
+    ["m", "¿Cuántos cestos de sobras recogieron?", "Doce."],
+    ["m", "¿Qué hizo Zaqueo después de recibir a Jesús?", "Dio a los pobres y devolvió lo que había quitado."],
+    ["m", "¿Qué premio recibió Madre Teresa?", "El Nobel de la Paz."],
+    ["m", "Di una forma de no desperdiciar comida.", "Servirse poco o aprovechar el pan duro."],
+    ["a", "En la lectura, ¿qué hizo Marcos?", "Invitó a Amir a jugar."],
+    ["a", "¿Qué tienen en común Marcos y el buen samaritano?", "No pasaron de largo ante quien lo pasaba mal."],
+    ["a", "Explica la frase «cosas pequeñas con gran amor».", "Respuesta libre: ayudar en lo pequeño con cariño."],
+    ["a", "¿Por qué Jesús fue a casa de Zaqueo?", "Para darle una oportunidad de cambiar."],
+  ],
+  quiz: [
+    ["Jesús… a los niños", ["abrazaba", "echaba", "ignoraba"], "Niños."],
+    ["Zaqueo vivía en…", ["Jericó", "Belén", "Roma"], "Zaqueo."],
+    ["«Vete y haz tú…»", ["lo mismo", "lo que quieras", "nada"], "Samaritanos."],
+    ["Las sobras se…", ["recogieron", "tiraron", "quemaron"], "Comida."],
+    ["Madre Teresa ayudaba a los…", ["pobres", "ricos", "reyes"], "Madre Teresa."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué le gustaba hacer a Amir?", ["ser portero", "cantar", "dibujar"], "Lectura."],
+    ["¿Qué escribió Amir en el dibujo?", ["Gracias, amigo", "Adiós", "Hola"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Zaqueo", "Cobrador bajito que subió a un árbol; Jesús fue a su casa y él cambió."],
+    ["Samaritanos de hoy", "Personas que no pasan de largo: médicos, voluntarios, vecinos… y tú."],
+  ],
+  glosario: [
+    ["Bendecir", "Desear el bien en nombre de Dios."],
+    ["Discípulo", "Seguidor de Jesús."],
+    ["Zaqueo", "Cobrador de impuestos de Jericó."],
+    ["Impuesto", "Dinero que se paga para lo común."],
+    ["Voluntario", "Persona que ayuda sin cobrar."],
+    ["ONG", "Organización que ayuda a otros."],
+    ["Sobras", "Lo que queda tras comer."],
+    ["Banco de alimentos", "Lugar que reparte comida a quien la necesita."],
+    ["Calcuta", "Ciudad de la India."],
+    ["Caridad", "Amor que ayuda a los demás."],
+  ],
+  situacion: {
+    titulo: "La semana del samaritano",
+    reto: "Durante una semana, la clase busca ocasiones para ayudar y las anota en un mural de buenas acciones.",
+    pasos: ["Hacer un mural con el dibujo del camino del samaritano.", "Cada día, apuntar en un papelito una ayuda que hemos dado.", "Pegar los papelitos en el mural.", "El viernes, leerlos y dar gracias por todo lo hecho."],
+    producto: "Un mural lleno de buenas acciones.",
+    evaluacion: ["Sabe cómo Jesús acogía a los niños.", "Narra la historia de Zaqueo.", "Reconoce samaritanos de hoy.", "Conoce a Madre Teresa."],
+  },
+});

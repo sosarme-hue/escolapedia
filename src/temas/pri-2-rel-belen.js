@@ -118,3 +118,93 @@ module.exports = P.tema({
   saberes: "El nacimiento de Jesús en Belén (Lc 2,1-20; Mt 2,1-12); personajes del belén; el Adviento y la Navidad en el año litúrgico y en la tradición",
   ideas: ["Belén de aula con figuras hechas por los alumnos.", "Corona de Adviento de clase con compromisos semanales.", "Escucha y canto de villancicos populares."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer cómo fue el viaje de Nazaret a Belén", "Saber quién hizo el primer belén", "Conocer los villancicos y las tradiciones de Reyes", "Vivir la Navidad compartiendo con los demás"],
+  lectura: { titulo: "Un sitio en la mesa", html: `<p>Faltaban dos días para Nochebuena. En casa de Lucía todo estaba listo: el belén, el árbol y la comida.</p><p>Esa tarde, mamá colgó el teléfono con cara seria.</p><p>—Era el señor Julián, el vecino del quinto. Su hija vive lejos y este año no puede venir. Va a pasar la Nochebuena <b>solo</b>.</p><p>Lucía miró el belén. Allí estaban María y José, que tampoco encontraron sitio en Belén.</p><p>—Mamá, ¿y si le invitamos? —dijo—. Podemos poner <b>una silla más</b>.</p><p>Mamá sonrió y le dio un beso.</p><p>En Nochebuena, el señor Julián llegó con una caja de turrones y una sonrisa enorme. Contó historias de cuando era pequeño, cantó villancicos con la familia y hasta tocó la zambomba.</p><p>Al despedirse, le dijo a Lucía:</p><p>—Gracias por hacerme sitio. Ha sido la mejor Navidad en mucho tiempo.</p><p>Aquella noche, Lucía entendió que la Navidad es abrir la puerta a los demás, como los pastores abrieron su corazón a Jesús.</p>` },
+  tras: {
+    "El viaje a Belén": [
+      ["Un viaje largo", `<p>María y José vivían en <mark>Nazaret</mark>, pero tuvieron que viajar hasta <mark>Belén</mark> para apuntarse en el censo que había ordenado el emperador (Lc 2).</p><ul><li>Entre los dos pueblos había unos <b>150 kilómetros</b>.</li><li>No había coches ni trenes: viajaban <b>a pie</b>, y quizá María iba sobre un <b>burrito</b>.</li><li>Tardarían <b>varios días</b>, caminando por caminos de tierra y montañas.</li><li>Dormían al aire libre o en posadas.</li><li>María estaba a punto de tener a su bebé, por eso el viaje era aún más <b>duro</b>.</li></ul><p>Belén era el pueblo del rey <b>David</b>, antepasado de José. Por eso tenían que ir allí.</p><p><b>Actividad</b>: dibuja un mapa sencillo con Nazaret arriba y Belén abajo, y el camino que siguieron María y José.</p>`,
+        L6.filas("El viaje", [["desde", "Nazaret", cAZ], ["hasta", "Belén", cRO], ["distancia", "150 km", cNA], ["cómo", "a pie y en burro", cVE]])],
+    ],
+    "Nace Jesús": [
+      ["El primer belén", `<p>¿Sabes quién montó el <mark>primer belén</mark>? Fue <b>San Francisco de Asís</b>, hace unos ochocientos años.</p><ul><li>Estaba en un pueblo de Italia llamado <b>Greccio</b>.</li><li>Quería que la gente <b>viera</b> cómo había nacido Jesús: con pobreza y sencillez.</li><li>Preparó una <b>cueva</b> con un pesebre, paja, un <b>buey</b> y una <b>mula</b> de verdad.</li><li>Los vecinos llegaron con antorchas y velas, y celebraron allí la misa de Nochebuena.</li></ul><p>Desde entonces, se montan belenes en casas, iglesias y plazas de todo el mundo. Hay belenes <b>vivientes</b>, con personas, y belenes enormes con cientos de figuras.</p><p>En España son famosos los belenes de <b>Murcia</b> y de <b>Cataluña</b>, donde se pone el «caganer».</p><p><b>Actividad</b>: haz una figura del belén con plastilina o con un tubo de cartón.</p>`,
+        H6.flujo("Primer belén", ["Francisco|Asís", "Greccio|Italia", "cueva|buey y mula", "hoy|en el mundo"], cNA)],
+    ],
+    "La estrella y los Magos": [
+      ["Cabalgata y roscón", `<p>En España, la llegada de los <mark>Reyes Magos</mark> se celebra con muchas tradiciones:</p><ul><li>El <b>5 de enero</b> por la tarde, las calles se llenan con la <b>cabalgata</b>: carrozas, música, caramelos y los Reyes saludando.</li><li>Los niños escriben una <b>carta</b> a los Reyes y dejan los zapatos preparados.</li><li>También se deja agua para los camellos y algo de comer para los Reyes.</li><li>El <b>6 de enero</b> se comparte el <b>roscón de Reyes</b>, un bollo redondo con frutas que parecen joyas.</li><li>Dentro del roscón hay una <b>figurita</b> y un <b>haba</b>: ¡a ver a quién le tocan!</li></ul><p>Los regalos nos recuerdan los que llevaron los Magos a Jesús: <b>oro, incienso y mirra</b>.</p><p><b>Actividad</b>: escribe una carta a los Reyes pidiendo también algo para otra persona.</p>`,
+        L6.filas("Reyes", [["5 de enero", "cabalgata", cMO], ["noche", "zapatos", cAZ], ["6 de enero", "regalos", cRO], ["roscón", "figurita", cNA]])],
+    ],
+    "Preparamos la Navidad: el Adviento": [
+      ["Los villancicos", `<p>Los <mark>villancicos</mark> son canciones de Navidad que cuentan el nacimiento de Jesús con alegría.</p><ul><li>Se cantaban en las <b>villas</b> (pueblos), de ahí su nombre.</li><li>Muchos hablan de los <b>pastores</b>, la <b>Virgen</b>, la <b>estrella</b> o los animales del portal.</li><li>Se acompañan con instrumentos sencillos: <b>pandereta</b>, <b>zambomba</b>, botella de anís rascada con una cuchara, castañuelas…</li><li>Algunos muy conocidos son «Los peces en el río», «Campana sobre campana» y «Ande, ande, ande, la Marimorena».</li></ul><p>En muchos pueblos, los niños van por las casas cantando villancicos en Nochebuena.</p><p>Cantar juntos une a las familias y a los vecinos.</p><p><b>Actividad</b>: aprende «Los peces en el río» y acompáñalo con una pandereta.</p>`,
+        H6.rueda("Villancicos", "NAVIDAD", [["pandereta", cRO], ["zambomba", cNA], ["botella", cVE], ["voces", cAZ]]),
+        ["yfpBMrJZt1Q", "Los peces en el río, villancico animado", "Mundo Canticuentos", 212346028]],
+    ],
+  },
+  final: [
+    ["Navidad para compartir", `<p>Jesús nació <mark>pobre</mark>, en un establo. Por eso, en Navidad, muchas personas se acuerdan especialmente de quien más lo necesita:</p><ul><li><b>Recogidas de alimentos</b> en el colegio para familias que lo pasan mal.</li><li><b>Juguetes</b> en buen estado que se regalan a otros niños.</li><li><b>Visitas</b> a personas mayores que están solas.</li><li><b>Llamar</b> por teléfono a familiares lejanos.</li><li>Invitar a alguien a <b>casa</b>, como Lucía en la lectura.</li></ul><p>La Navidad no es solo recibir regalos: el mejor regalo es <b>darse</b> a los demás.</p><p>Muchas parroquias y organizaciones como Cáritas organizan campañas de Navidad para ayudar.</p><p><b>Actividad</b>: organizad en clase una caja solidaria con alimentos o juguetes.</p>`,
+      H6.dos("Compartir", ["DAR", ["alimentos", "juguetes", "tiempo"], cRO], ["VISITAR", ["mayores", "solos", "familia"], cVE])],
+    ["Repaso: un sitio en la mesa", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Faltaban dos días para <b>Nochebuena</b>.</li><li>El señor Julián iba a pasarla <b>solo</b>.</li><li>Lucía se acordó de que María y José <b>no encontraron sitio</b> en Belén.</li><li>Propuso poner <b>una silla más</b> en la mesa.</li><li>El señor Julián cantó villancicos y tocó la <b>zambomba</b>.</li><li>Dijo que fue su <b>mejor Navidad</b> en mucho tiempo.</li></ul><p>Lucía entendió que la Navidad es <b>abrir la puerta</b> a los demás.</p><p><b>Actividad</b>: piensa en alguien que podría estar solo en Navidad y escribe qué podrías hacer por esa persona.</p>`,
+      H6.flujo("Lucía", ["vecino|solo", "belén|sin sitio", "silla|más", "¡mejor|Navidad!"], cAZ)],
+  ],
+  ejemplos: [
+    ["¿Quién montó el primer belén?", ["Fue en Italia, en Greccio."], "San Francisco de Asís."],
+    ["¿Qué día es la cabalgata de Reyes?", ["La víspera de Reyes."], "El 5 de enero."],
+  ],
+  errores: ["Pensar que la Navidad es solo recibir regalos.", "Confundir la Nochebuena (24) con el día de Reyes (6 de enero)."],
+  ejercicios: [
+    ["b", "¿De dónde a dónde viajaron María y José?", "De Nazaret a Belén."],
+    ["b", "¿Quién hizo el primer belén?", "San Francisco de Asís."],
+    ["b", "¿Qué se come el 6 de enero?", "El roscón de Reyes."],
+    ["b", "¿Qué son los villancicos?", "Canciones de Navidad."],
+    ["b", "Di un instrumento para villancicos.", "Pandereta, zambomba…"],
+    ["m", "¿Cuántos kilómetros había entre Nazaret y Belén?", "Unos 150."],
+    ["m", "¿Qué animales puso San Francisco en el belén?", "Un buey y una mula."],
+    ["m", "¿Qué hay escondido en el roscón?", "Una figurita y un haba."],
+    ["m", "¿De dónde viene la palabra villancico?", "De villa, pueblo."],
+    ["m", "¿Qué es un belén viviente?", "Un belén con personas de verdad."],
+    ["a", "En la lectura, ¿por qué Lucía invitó al vecino?", "Porque iba a estar solo, como María y José sin sitio."],
+    ["a", "¿Por qué San Francisco montó el belén?", "Para que la gente viera cómo nació Jesús."],
+    ["a", "¿Por qué en Navidad nos acordamos de quien lo necesita?", "Porque Jesús nació pobre."],
+    ["a", "Propón una acción solidaria para Navidad.", "Respuesta libre: recogida de alimentos…"],
+  ],
+  quiz: [
+    ["María y José viajaron…", ["a pie", "en tren", "en avión"], "Viaje."],
+    ["El primer belén fue en…", ["Greccio", "Madrid", "París"], "Primer belén."],
+    ["La cabalgata es el…", ["5 de enero", "25 de diciembre", "31 de diciembre"], "Reyes."],
+    ["La zambomba es un…", ["instrumento", "dulce", "juguete"], "Villancicos."],
+    ["El mejor regalo es…", ["darse a los demás", "el más caro", "ninguno"], "Compartir."],
+  ],
+  examen: [
+    ["En la lectura, ¿quién iba a estar solo?", ["el señor Julián", "Lucía", "mamá"], "Lectura."],
+    ["¿Qué tocó el señor Julián?", ["la zambomba", "el piano", "la guitarra"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Primer belén", "San Francisco de Asís, en Greccio (Italia), con un buey y una mula."],
+    ["Reyes", "Cabalgata el 5 de enero; regalos y roscón el 6."],
+  ],
+  glosario: [
+    ["Censo", "Lista de todas las personas de un lugar."],
+    ["Nazaret", "Pueblo donde vivían María y José."],
+    ["Belén", "Pueblo donde nació Jesús."],
+    ["Greccio", "Pueblo de Italia del primer belén."],
+    ["Belén viviente", "Belén representado por personas."],
+    ["Cabalgata", "Desfile de los Reyes Magos."],
+    ["Roscón", "Bollo redondo del día de Reyes."],
+    ["Villancico", "Canción de Navidad."],
+    ["Zambomba", "Instrumento que suena al frotar una caña."],
+    ["Solidario", "Que ayuda a los demás."],
+  ],
+  situacion: {
+    titulo: "Nuestra Navidad compartida",
+    reto: "La clase monta un belén, canta villancicos y organiza una campaña solidaria para compartir con quien lo necesita.",
+    pasos: ["Montar el belén de clase con figuras hechas por los alumnos.", "Ensayar dos villancicos con instrumentos.", "Organizar una recogida de alimentos o juguetes.", "Hacer un pequeño festival y entregar lo recogido."],
+    producto: "Un belén, un festival de villancicos y una caja solidaria.",
+    evaluacion: ["Conoce el viaje a Belén.", "Sabe quién hizo el primer belén.", "Conoce villancicos y tradiciones de Reyes.", "Participa en compartir con los demás."],
+  },
+});

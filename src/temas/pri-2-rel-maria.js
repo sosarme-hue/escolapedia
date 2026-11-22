@@ -108,3 +108,93 @@ module.exports = P.tema({
   saberes: "María, madre de Jesús y madre de los creyentes; la Anunciación (Lc 1,26-38) y la Visitación (Lc 1,39-56); oraciones y fiestas marianas",
   ideas: ["Dramatización de la Anunciación y la Visitación.", "Mural de las advocaciones marianas de las comunidades de España.", "Aprendizaje del Ave María con gestos."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Imaginar la vida diaria en Nazaret", "Conocer el Magníficat, el canto de alegría de María", "Conocer la historia de las bodas de Caná", "Descubrir cómo se celebra a María en España"],
+  lectura: { titulo: "La fiebre de Irene", html: `<p>Una noche, Irene se despertó con mucho calor y le dolía la cabeza. Tenía <b>fiebre</b>.</p><p>—Mamá… —llamó con voz flojita.</p><p>Su madre llegó enseguida. Le puso la mano en la frente, le trajo agua fresca y una toalla mojada. Después se sentó en la cama a su lado.</p><p>—Duerme tranquila, que yo estoy aquí —le susurró, mientras le acariciaba el pelo.</p><p>Irene se despertó varias veces esa noche. Y siempre que abría los ojos, su madre seguía allí, <b>velando</b> por ella.</p><p>Por la mañana, la fiebre había bajado. Irene vio a su madre dormida en la silla, con cara de cansada.</p><p>En clase de Religión, la maestra habló de cómo <b>María cuidaba</b> a Jesús cuando era pequeño. Irene levantó la mano:</p><p>—Seguro que María se quedaba despierta cuando Jesús estaba malito. Como mi madre.</p><p>Esa tarde, Irene le hizo a su madre un dibujo con un corazón enorme. Debajo escribió: «<b>Gracias por cuidarme</b>».</p>` },
+  tras: {
+    "Una joven de Nazaret": [
+      ["La vida en Nazaret", `<p><mark>Nazaret</mark> era un pueblo pequeño de Galilea. ¿Cómo sería un día en la vida de María?</p><ul><li>Las casas eran <b>sencillas</b>, de piedra y barro, con el techo plano. Algunas estaban junto a una cueva.</li><li>Por la mañana, las mujeres iban al <b>pozo</b> o a la fuente a por agua, con cántaros.</li><li>Se molía el trigo para hacer <b>pan</b> cada día.</li><li>Se cuidaban las <b>cabras</b> y las gallinas, y se cultivaban olivos y viñas.</li><li>Se hilaba la lana y se tejía la ropa.</li><li>Los sábados, las familias iban a la <b>sinagoga</b> a rezar y escuchar las Escrituras.</li></ul><p>Era una vida de trabajo, sencilla y en familia. Allí creció también Jesús, ayudando a José en el taller de carpintería.</p><p><b>Actividad</b>: dibuja una casa de Nazaret con un pozo, un cántaro y un olivo.</p>`,
+        L6.filas("Nazaret", [["casa", "piedra y barro", cNA], ["agua", "pozo", cAZ], ["comida", "pan y aceite", cVE], ["sábado", "sinagoga", cMO]])],
+    ],
+    "La visita del ángel": [
+      ["La Anunciación en el arte", `<p>La visita del ángel Gabriel a María, la <mark>Anunciación</mark>, es una de las escenas más pintadas de la historia.</p><ul><li>El pintor <b>Fra Angelico</b> pintó una Anunciación muy famosa que está en el Museo del Prado, en Madrid.</li><li>Casi siempre aparece el <b>ángel</b> con alas de colores, a un lado.</li><li><b>María</b> está al otro lado, a menudo leyendo o rezando.</li><li>A veces se pinta una <b>paloma</b> blanca, que representa al Espíritu Santo.</li><li>Suelen aparecer <b>lirios</b> blancos, que son símbolo de pureza.</li></ul><p>Los artistas pintaban esta escena para que la gente, que muchas veces no sabía leer, pudiera conocer la historia mirando los cuadros.</p><p><b>Actividad</b>: dibuja la Anunciación con el ángel, María, la paloma y un lirio.</p>`,
+        H6.rueda("Anunciación", "MARÍA", [["ángel", cAZ], ["paloma", cVE], ["lirio", cNA], ["libro", cRO]]),
+        ["BMg5vLo2clo", "María y el ángel Gabriel para niños", "Sara Lo", 182431]],
+    ],
+    "María ayuda a su prima Isabel": [
+      ["El canto de María", `<p>Cuando María llegó a casa de Isabel, su prima la recibió con alegría: «¡Bendita tú entre las mujeres!». Entonces María cantó un canto precioso, llamado el <mark>Magníficat</mark> (Lc 1).</p><ul><li>Empieza así: «<b>Proclama mi alma la grandeza del Señor</b>».</li><li>María da gracias porque Dios se ha fijado en ella, que era <b>sencilla</b> y humilde.</li><li>Dice que Dios ayuda a los <b>pobres</b> y a los que tienen hambre.</li><li>Es un canto de <b>alegría</b> y de confianza.</li></ul><p>Hoy, muchas personas rezan o cantan el Magníficat cada tarde.</p><p>Como María, nosotros también podemos expresar con palabras o canciones nuestra alegría y nuestras gracias.</p><p><b>Actividad</b>: escribe tu propio canto de gracias con tres cosas que te hacen feliz.</p>`,
+        H6.flujo("Magníficat", ["llega|a casa", "Isabel|bendita", "María|canta", "gracias|alegría"], cMO)],
+    ],
+    "Una madre que cuida": [
+      ["Las bodas de Caná", `<p>Una vez, María y Jesús fueron invitados a una <mark>boda</mark> en un pueblo llamado <b>Caná</b> (Jn 2).</p><ul><li>En mitad de la fiesta, <b>se acabó el vino</b>. ¡Los novios iban a pasar una gran vergüenza!</li><li>María se dio cuenta antes que nadie, porque estaba <b>atenta</b> a los demás.</li><li>Fue a decírselo a Jesús: «No tienen vino».</li><li>Después dijo a los sirvientes: «<b>Haced lo que él os diga</b>».</li><li>Jesús mandó llenar seis tinajas de agua… ¡y el agua se convirtió en un vino buenísimo!</li></ul><p>Fue el <b>primer milagro</b> de Jesús, y ocurrió porque María se fijó en un problema y pidió ayuda.</p><p><b>Actividad</b>: piensa en alguien que necesite ayuda en tu clase o en tu casa, como los novios de Caná.</p>`,
+        L6.filas("Caná", [["dónde", "una boda", cRO], ["problema", "sin vino", cNA], ["María", "se da cuenta", cAZ], ["Jesús", "agua en vino", cVE]])],
+    ],
+  },
+  final: [
+    ["María en España", `<p>En España hay muchísimas fiestas y lugares dedicados a <mark>María</mark>. Cada pueblo la llama con un nombre especial:</p><ul><li><b>Virgen del Pilar</b> (Zaragoza): su fiesta es el 12 de octubre, con una gran ofrenda de flores.</li><li><b>Virgen de Montserrat</b> (Cataluña): está en una montaña con formas extrañas; la llaman «la Moreneta».</li><li><b>Virgen del Rocío</b> (Huelva): miles de personas van en romería con carretas.</li><li><b>Virgen de Covadonga</b> (Asturias): está en una cueva junto a una cascada.</li><li>El mes de <b>mayo</b> se llama el «mes de María», y en muchos colegios se le llevan flores.</li></ul><p>Aunque tenga muchos nombres, siempre es la misma María, madre de Jesús.</p><p><b>Actividad</b>: pregunta en casa si hay una Virgen especial en tu pueblo o ciudad y cómo se celebra.</p>`,
+      L6.filas("Advocaciones", [["Pilar", "Zaragoza", cRO], ["Montserrat", "Cataluña", cMO], ["Rocío", "Huelva", cNA], ["Covadonga", "Asturias", cVE]])],
+    ["Repaso: la fiebre de Irene", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Irene tenía <b>fiebre</b> por la noche.</li><li>Su madre le trajo <b>agua</b> y una toalla mojada.</li><li>Se quedó toda la noche <b>velando</b> a su lado.</li><li>Por la mañana, la madre estaba <b>dormida</b> en la silla.</li><li>Irene pensó que <b>María</b> también cuidaría así a Jesús.</li><li>Le hizo un dibujo: «<b>Gracias por cuidarme</b>».</li></ul><p>Las madres, los padres y quienes nos cuidan nos muestran un amor parecido al de María: atento y paciente.</p><p><b>Actividad</b>: haz un dibujo de agradecimiento para alguien que te cuide.</p>`,
+      H6.flujo("Irene", ["fiebre|noche", "madre|cuida", "velar|a su lado", "dibujo|¡gracias!"], cRO)],
+  ],
+  ejemplos: [
+    ["¿Qué dijo María a los sirvientes en Caná?", ["Confiaba en Jesús."], "«Haced lo que él os diga»."],
+    ["¿Qué fiesta de María es el 12 de octubre?", ["Se celebra en Zaragoza."], "La Virgen del Pilar."],
+  ],
+  errores: ["Pensar que cada advocación es una María diferente.", "Creer que la vida en Nazaret era como la de hoy."],
+  ejercicios: [
+    ["b", "¿Dónde iban a por agua en Nazaret?", "Al pozo o a la fuente."],
+    ["b", "¿Cómo se llama el canto de María?", "Magníficat."],
+    ["b", "¿Qué se acabó en la boda de Caná?", "El vino."],
+    ["b", "¿Qué mes se dedica a María?", "Mayo."],
+    ["b", "¿Qué tenía Irene por la noche?", "Fiebre."],
+    ["m", "¿Qué pintor hizo una Anunciación del Museo del Prado?", "Fra Angelico."],
+    ["m", "¿Qué representa la paloma en la Anunciación?", "El Espíritu Santo."],
+    ["m", "¿Cuál fue el primer milagro de Jesús?", "Convertir el agua en vino en Caná."],
+    ["m", "¿Dónde está la Virgen de Covadonga?", "En una cueva de Asturias."],
+    ["m", "¿Cómo empieza el Magníficat?", "Proclama mi alma la grandeza del Señor."],
+    ["a", "En la lectura, ¿qué pensó Irene sobre María?", "Que también cuidaría así a Jesús."],
+    ["a", "¿Por qué María se dio cuenta del problema en Caná?", "Porque estaba atenta a los demás."],
+    ["a", "¿Por qué los artistas pintaban la Anunciación?", "Para que la gente conociera la historia mirando."],
+    ["a", "¿Qué podemos aprender de María en Caná?", "A fijarnos en quien necesita ayuda."],
+  ],
+  quiz: [
+    ["En Nazaret las casas eran…", ["sencillas", "rascacielos", "de cristal"], "Nazaret."],
+    ["En la Anunciación suele haber un…", ["lirio", "coche", "reloj"], "Arte."],
+    ["El Magníficat es un canto de…", ["alegría", "tristeza", "guerra"], "Magníficat."],
+    ["En Caná, el agua se convirtió en…", ["vino", "leche", "zumo"], "Caná."],
+    ["La Moreneta es la Virgen de…", ["Montserrat", "el Pilar", "el Rocío"], "España."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué le trajo la madre a Irene?", ["agua y una toalla", "un helado", "un juguete"], "Lectura."],
+    ["¿Qué escribió Irene en el dibujo?", ["Gracias por cuidarme", "Buenas noches", "Feliz cumpleaños"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Bodas de Caná", "María ve que falta vino y dice: «Haced lo que él os diga». Primer milagro."],
+    ["Magníficat", "Canto de alegría de María en casa de Isabel."],
+  ],
+  glosario: [
+    ["Galilea", "Región donde estaba Nazaret."],
+    ["Cántaro", "Vasija para llevar agua."],
+    ["Sinagoga", "Lugar de oración de los judíos."],
+    ["Anunciación", "Visita del ángel a María."],
+    ["Lirio", "Flor blanca, símbolo de pureza."],
+    ["Magníficat", "Canto de María."],
+    ["Caná", "Pueblo de la boda."],
+    ["Tinaja", "Vasija grande de barro."],
+    ["Romería", "Viaje en grupo a un santuario."],
+    ["Velar", "Quedarse despierto cuidando a alguien."],
+  ],
+  situacion: {
+    titulo: "Flores para María",
+    reto: "En el mes de mayo, la clase prepara un rincón de María con flores de papel, cada una con un gesto de cuidado hacia los demás.",
+    pasos: ["Hacer flores de papel de colores.", "Escribir en cada flor un gesto de cuidado, como María en Caná.", "Montar un rincón con una imagen de María y las flores.", "Cantar o rezar juntos el final de la actividad."],
+    producto: "Un rincón de María con flores de gestos de cuidado.",
+    evaluacion: ["Describe la vida en Nazaret.", "Conoce el Magníficat.", "Narra las bodas de Caná.", "Nombra advocaciones de María en España."],
+  },
+});

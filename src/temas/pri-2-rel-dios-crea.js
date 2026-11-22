@@ -101,3 +101,93 @@ module.exports = P.tema({
   saberes: "La creación como don de Dios en el relato del Génesis; la persona, imagen de Dios; el cuidado de la casa común y la acción de gracias",
   ideas: ["Mural de la creación por grupos, un día cada grupo.", "Lectura dramatizada del Génesis 1 y 2 con una Biblia infantil.", "Compromiso de aula para el cuidado del entorno (reciclaje, agua, luz)."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer el Cántico de las criaturas de San Francisco", "Distinguir los días de la creación en el relato", "Cuidar el agua, la energía y los residuos", "Agradecer la naturaleza con una oración o un gesto"],
+  lectura: { titulo: "El huerto del colegio", html: `<p>En el colegio de Pablo había un rincón del patio lleno de piedras y papeles. Nadie le hacía caso.</p><p>Un día, la maestra propuso:</p><p>—¿Y si lo convertimos en un <b>huerto</b>?</p><p>Toda la clase se puso manos a la obra. Recogieron la basura, quitaron las piedras y removieron la tierra. Después plantaron <b>semillas</b> de lechuga, tomate y fresas, y unas flores para las abejas.</p><p>Cada día, un grupo se encargaba de <b>regar</b>. Pablo aprendió a no gastar demasiada agua: solo la necesaria, por la tarde, cuando no hace tanto calor.</p><p>Al principio no salía nada. Pero una mañana, Pablo gritó:</p><p>—¡Mirad! ¡Ya han salido!</p><p>Unas hojitas verdes asomaban de la tierra. Poco a poco crecieron las lechugas, se pusieron rojos los tomates y llegaron las mariposas.</p><p>En junio, hicieron una ensalada con lo que habían cultivado. Antes de comer, la maestra dijo:</p><p>—Demos gracias por este regalo.</p><p>Y Pablo pensó que nunca una ensalada le había sabido tan rica.</p>` },
+  tras: {
+    "Dios crea con su palabra": [
+      ["Los días de la creación", `<p>El libro del Génesis cuenta la creación como si fuera una <mark>semana</mark> de trabajo (Gn 1):</p><ul><li><b>Día 1</b>: la luz, separada de la oscuridad: el día y la noche.</li><li><b>Día 2</b>: el cielo.</li><li><b>Día 3</b>: la tierra, los mares y las plantas.</li><li><b>Día 4</b>: el sol, la luna y las estrellas.</li><li><b>Día 5</b>: los peces y las aves.</li><li><b>Día 6</b>: los animales de la tierra y las personas.</li><li><b>Día 7</b>: Dios <b>descansó</b>.</li></ul><p>Este relato no es una clase de ciencias: es una forma bonita de decir que todo lo que existe es <b>bueno</b> y viene del amor de Dios.</p><p>Por eso los cristianos dedican el domingo al descanso y a dar gracias.</p><p><b>Actividad</b>: haz un libro de siete páginas con un dibujo para cada día de la creación.</p>`,
+        L6.filas("Días", [["1-2", "luz y cielo", cNA], ["3-4", "tierra, plantas, astros", cVE], ["5-6", "animales y personas", cAZ], ["7", "descanso", cMO]])],
+    ],
+    "Cuidar la casa común": [
+      ["Pequeños gestos, gran cuidado", `<p>Cuidar la <mark>casa común</mark> empieza por gestos pequeños que hacemos cada día:</p><ul><li><b>Agua</b>: cerrar el grifo al lavarse los dientes; ducharse en vez de bañarse.</li><li><b>Energía</b>: apagar la luz al salir de una habitación y la tele si nadie la ve.</li><li><b>Residuos</b>: separar la basura en los contenedores: amarillo, azul, verde y orgánico.</li><li><b>Reutilizar</b>: usar las hojas por las dos caras, llevar la comida en un táper y no en papel de aluminio.</li><li><b>Moverse</b>: ir andando o en bici cuando se pueda.</li><li><b>Naturaleza</b>: no arrancar flores ni dejar basura en el campo.</li></ul><p>Si muchas personas hacen gestos pequeños, el cambio es <b>enorme</b>.</p><p><b>Actividad</b>: haz un cartel con tres gestos para cuidar el planeta y cuélgalo en tu casa.</p>`,
+        H6.rueda("Casa común", "CUIDAR", [["agua", cAZ], ["luz", cNA], ["reciclar", cVE], ["andar", cRO]])],
+    ],
+    "Dar gracias por todo": [
+      ["El Cántico de las criaturas", `<p><mark>San Francisco de Asís</mark> amaba tanto la naturaleza que escribió una oración llamada el <b>Cántico de las criaturas</b>. En ella da gracias a Dios por todo lo creado, llamándolo como a su familia:</p><ul><li>«<b>Hermano sol</b>», que nos da luz y calor.</li><li>«<b>Hermana luna</b> y las estrellas», claras y preciosas.</li><li>«<b>Hermano viento</b>», y el aire, las nubes y el buen tiempo.</li><li>«<b>Hermana agua</b>», útil, humilde y limpia.</li><li>«<b>Hermano fuego</b>», alegre y fuerte, que ilumina la noche.</li><li>«<b>Hermana madre tierra</b>», que nos da frutos y flores.</li></ul><p>Al llamar «hermanos» al sol o al agua, Francisco nos enseña a tratar la naturaleza con <b>cariño y respeto</b>.</p><p><b>Actividad</b>: escribe una estrofa nueva dando gracias por algo de la naturaleza que te guste.</p>`,
+        L6.filas("Cántico", [["hermano", "sol", cNA], ["hermana", "luna", cMO], ["hermana", "agua", cAZ], ["madre", "tierra", cVE]]),
+        ["PdEILre8vIU", "Cántico de las criaturas", "Juan Morales Montero", 255036]],
+    ],
+    "Las personas, a imagen de Dios": [
+      ["Todos somos diferentes y valiosos", `<p>Si Dios creó a cada persona a su imagen, todas las personas tienen la misma <mark>dignidad</mark>: todas son valiosas.</p><ul><li>Hay personas de muchos <b>colores</b> de piel, altas y bajas, con gafas o sin ellas.</li><li>Unas hablan otros <b>idiomas</b> o vienen de otros países.</li><li>Algunas tienen una <b>discapacidad</b>: usan silla de ruedas, no ven u oyen bien.</li><li>Cada persona tiene sus propios <b>talentos</b>: cantar, dibujar, ayudar, contar chistes…</li></ul><p>Las diferencias no nos separan: nos <b>enriquecen</b>. Un mundo con todos iguales sería muy aburrido.</p><p>Por eso nadie debe ser despreciado ni dejado de lado por ser diferente.</p><p><b>Actividad</b>: dibuja a tres compañeros y escribe un talento de cada uno.</p>`,
+        H6.dos("Somos", ["DIFERENTES", ["aspecto", "idioma", "talentos"], cRO], ["VALIOSOS", ["todos", "igual dignidad", "respeto"], cAZ])],
+    ],
+  },
+  final: [
+    ["Un huerto escolar", `<p>Cultivar un <mark>huerto</mark> es una forma estupenda de descubrir y cuidar la creación:</p><ul><li>Se elige un lugar con <b>sol</b> y se prepara la tierra.</li><li>Se plantan <b>semillas</b> o plantitas: lechugas, tomates, fresas, judías.</li><li>Se <b>riega</b> con cuidado, sin malgastar agua.</li><li>Se quitan las malas hierbas.</li><li>Se pueden plantar <b>flores</b> para atraer a abejas y mariposas, que ayudan a las plantas.</li><li>Con los restos de fruta y verdura se hace <b>compost</b>, abono para la tierra.</li></ul><p>En el huerto aprendemos <b>paciencia</b>: las plantas tardan en crecer. Y aprendemos a valorar la comida.</p><p>Si no hay patio, se puede hacer un huerto en <b>macetas</b> en la ventana.</p><p><b>Actividad</b>: planta una judía en un vaso con algodón húmedo y dibuja cómo crece cada día.</p>`,
+      H6.flujo("Huerto", ["tierra|preparar", "semillas|plantar", "regar|poco", "cosechar|¡gracias!"], cVE)],
+    ["Repaso: el huerto del colegio", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Había un rincón del patio <b>abandonado</b>.</li><li>La clase lo <b>limpió</b> y preparó la tierra.</li><li>Plantaron <b>lechugas, tomates, fresas</b> y flores para las abejas.</li><li>Pablo aprendió a regar <b>sin malgastar</b> agua.</li><li>Un día salieron las primeras <b>hojitas</b>.</li><li>En junio hicieron una <b>ensalada</b> y dieron <b>gracias</b>.</li></ul><p>Cuidando un pequeño trozo de tierra, la clase cuidó también la <b>casa común</b>.</p><p><b>Actividad</b>: dibuja el huerto de la lectura antes y después del trabajo de la clase.</p>`,
+      L6.filas("Huerto", [["antes", "piedras y papeles", cMO], ["trabajo", "limpiar y plantar", cNA], ["después", "plantas y mariposas", cVE], ["final", "ensalada", cRO]])],
+  ],
+  ejemplos: [
+    ["¿Qué se creó el día 4 según el relato?", ["El cielo ya estaba."], "El sol, la luna y las estrellas."],
+    ["¿Cómo llamaba San Francisco al agua?", ["Usaba palabras de familia."], "Hermana agua."],
+  ],
+  errores: ["Dejar el grifo abierto mientras nos lavamos los dientes.", "Reírse de alguien por ser diferente."],
+  ejercicios: [
+    ["b", "¿Qué hizo Dios el séptimo día?", "Descansó."],
+    ["b", "¿Quién escribió el Cántico de las criaturas?", "San Francisco de Asís."],
+    ["b", "Di un gesto para ahorrar agua.", "Cerrar el grifo."],
+    ["b", "¿Qué plantaron en el huerto de la lectura?", "Lechugas, tomates, fresas y flores."],
+    ["b", "¿Qué es la casa común?", "El planeta Tierra."],
+    ["m", "¿Qué se creó el día 5?", "Los peces y las aves."],
+    ["m", "¿Por qué Francisco llamaba hermanos al sol y al agua?", "Para tratarlos con cariño y respeto."],
+    ["m", "¿Qué es el compost?", "Abono hecho con restos de comida."],
+    ["m", "¿Qué significa que todos tienen la misma dignidad?", "Que todas las personas son valiosas."],
+    ["m", "¿Para qué se plantan flores en el huerto?", "Para atraer abejas y mariposas."],
+    ["a", "En la lectura, ¿cuándo regaba Pablo?", "Por la tarde."],
+    ["a", "¿Qué quiere decir el relato de la creación?", "Que todo lo creado es bueno y viene del amor de Dios."],
+    ["a", "¿Por qué las diferencias nos enriquecen?", "Porque cada uno aporta algo distinto."],
+    ["a", "Escribe una frase de gracias por la naturaleza.", "Respuesta libre."],
+  ],
+  quiz: [
+    ["El día 3 se crearon…", ["la tierra y las plantas", "los peces", "las personas"], "Días."],
+    ["Para ahorrar energía…", ["apaga la luz", "abre el grifo", "tira papel"], "Gestos."],
+    ["Francisco llamaba al sol…", ["hermano", "señor", "enemigo"], "Cántico."],
+    ["Todas las personas son…", ["valiosas", "iguales en todo", "aburridas"], "Somos."],
+    ["En el huerto aprendemos…", ["paciencia", "prisa", "a gritar"], "Huerto."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué había en el rincón al principio?", ["piedras y papeles", "flores", "un columpio"], "Lectura."],
+    ["¿Qué comieron en junio?", ["una ensalada", "una pizza", "un helado"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Días de la creación", "Luz, cielo, tierra y plantas, astros, peces y aves, animales y personas, descanso."],
+    ["Cántico de las criaturas", "Oración de San Francisco: hermano sol, hermana agua, madre tierra."],
+  ],
+  glosario: [
+    ["Génesis", "Primer libro de la Biblia."],
+    ["Cántico", "Canto u oración de alabanza."],
+    ["Criatura", "Todo lo que ha sido creado."],
+    ["Casa común", "El planeta Tierra, casa de todos."],
+    ["Dignidad", "Valor que tiene toda persona."],
+    ["Talento", "Algo que una persona hace bien."],
+    ["Residuo", "Lo que sobra y se tira."],
+    ["Huerto", "Terreno para cultivar verduras."],
+    ["Compost", "Abono hecho con restos orgánicos."],
+    ["Cosechar", "Recoger lo cultivado."],
+  ],
+  situacion: {
+    titulo: "Guardianes de la casa común",
+    reto: "La clase cuida un pequeño huerto o macetas y escribe su propio cántico de gracias por la creación.",
+    pasos: ["Plantar semillas en macetas o en el patio.", "Repartir turnos de riego y cuidado.", "Escribir entre todos un cántico al estilo de San Francisco.", "Presentar el huerto y el cántico a las familias."],
+    producto: "Un huerto de clase y un cántico de gracias.",
+    evaluacion: ["Conoce el Cántico de las criaturas.", "Ordena los días de la creación.", "Practica gestos para cuidar el planeta.", "Agradece la naturaleza."],
+  },
+});

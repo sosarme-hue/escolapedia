@@ -111,3 +111,93 @@ module.exports = P.tema({
   saberes: "Relatos del Antiguo Testamento: Noé y el arca (Génesis 6-9); la confianza en Dios y la alianza; el arcoíris y la paloma como signos",
   ideas: ["Narración con un arca de cartón y animales de juguete.", "Juego de parejas de animales para subir al arca.", "Mural del arcoíris con compromisos de paz de la clase."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Imaginar cómo era el arca y la vida dentro de ella", "Relacionar la historia de Noé con el cuidado de los animales", "Conocer la paloma como símbolo de la paz", "Valorar el cumplir las promesas"],
+  lectura: { titulo: "El refugio de la abuela Carmen", html: `<p>La abuela Carmen vive en un pueblo, junto a un río. Un otoño, el hombre del tiempo avisó en la radio: «Llegan lluvias muy fuertes. El río puede crecer».</p><p>Algunos vecinos no hicieron caso. Pero la abuela, sí.</p><p>—Hay que poner a salvo a los animales —dijo a sus nietos, Iker y Sara.</p><p>Entre los tres llevaron las <b>gallinas</b>, la <b>cabra</b>, el <b>perro</b> y los dos <b>gatos</b> al granero, que estaba en lo alto de una colina. Prepararon paja, agua y comida para varios días.</p><p>Esa noche llovió muchísimo. El río se desbordó y el agua llegó hasta la puerta de la casa. Pero en el granero, todos estaban secos y tranquilos.</p><p>Tres días después salió el sol. Sara gritó desde la ventana:</p><p>—¡Abuela, mira! ¡Un <b>arcoíris</b>!</p><p>Iker sonrió:</p><p>—Somos como Noé y su arca.</p><p>La abuela les dio un abrazo y, juntos, dieron gracias porque todos estaban bien.</p>` },
+  tras: {
+    "Un encargo muy raro": [
+      ["¿Cómo era el arca?", `<p>La Biblia cuenta cómo debía ser el <mark>arca</mark> (Gn 6). Era un barco enorme, distinto a los de hoy:</p><ul><li>Estaba hecha de <b>madera</b>.</li><li>Por dentro y por fuera tenía <b>brea</b>, una pasta negra que impide que entre el agua.</li><li>Tenía <b>tres pisos</b>, con muchos compartimentos para los animales.</li><li>Tenía una <b>puerta</b> en un lado y una <b>ventana</b> arriba, para que entrara la luz.</li><li>Era larguísima: ¡más que un campo de fútbol!</li><li>No tenía remos ni velas: flotaba y el agua la llevaba.</li></ul><p>Construirla llevó mucho tiempo y esfuerzo. Noé y sus hijos trabajaron con paciencia, día tras día.</p><p><b>Actividad</b>: dibuja el arca por dentro con sus tres pisos y coloca animales en cada uno.</p>`,
+        L6.filas("El arca", [["material", "madera", cNA], ["brea", "no entra agua", cMO], ["pisos", "tres", cAZ], ["ventana", "luz", cVE]]),
+        ["HVKDV1q-x54", "El arca de Noé: canción para niños", "Mundo Infantil", 99493673]],
+    ],
+    "Los animales de dos en dos": [
+      ["Cuidar a los animales hoy", `<p>Noé <mark>cuidó</mark> de todos los animales dentro del arca: les dio comida, agua y un lugar seguro. Hoy nosotros también podemos cuidarlos:</p><ul><li>Si tenemos una <b>mascota</b>, darle comida, agua, paseos y cariño todos los días.</li><li>Nunca <b>abandonar</b> a un animal.</li><li>No hacer daño a los <b>insectos</b> ni a los pájaros, ni romper sus nidos.</li><li>Respetar a los animales del <b>campo</b> y del bosque, sin molestarlos.</li><li>Conocer las <b>protectoras</b>, lugares donde cuidan a perros y gatos sin dueño.</li></ul><p>Hay animales en <b>peligro de extinción</b>, como el lince ibérico o el oso pardo. Personas de muchos lugares trabajan para protegerlos, como un «arca» moderna.</p><p><b>Actividad</b>: haz una lista de cinco cosas que necesita una mascota para estar bien.</p>`,
+        H6.rueda("Cuidar", "CUIDAR", [["comida", cNA], ["agua", cAZ], ["paseo", cVE], ["cariño", cRO]])],
+    ],
+    "La paloma y el ramo de olivo": [
+      ["La paloma de la paz", `<p>Desde la historia de Noé, la <mark>paloma</mark> con una rama de <b>olivo</b> es un símbolo de la <b>paz</b> en todo el mundo.</p><ul><li>El pintor <b>Pablo Picasso</b> dibujó una paloma famosa que se usó en carteles por la paz.</li><li>Muchos colegios celebran el <b>Día Escolar de la Paz</b> el <b>30 de enero</b>, y a veces sueltan globos o hacen palomas de papel.</li><li>La paz empieza en lo pequeño: <b>no pelearse</b>, pedir perdón y perdonar.</li><li>También es paz <b>escuchar</b> al otro y hablar sin gritar.</li></ul><p>Para los cristianos, Jesús es el «Príncipe de la paz» y pidió a sus amigos que vivieran en paz unos con otros.</p><p><b>Actividad</b>: dibuja una paloma con una rama de olivo y escribe debajo una forma de hacer las paces.</p>`,
+        H6.flujo("La paz", ["escuchar|al otro", "hablar|sin gritar", "pedir|perdón", "perdonar|abrazo"], cAZ)],
+    ],
+    "El arcoíris: una promesa": [
+      ["Cumplir lo que prometemos", `<p>En la historia de Noé, Dios hace una <mark>promesa</mark> y la cumple. Las promesas son muy importantes entre las personas:</p><ul><li>Prometer es decir: «Lo haré», y comprometerse de verdad.</li><li>Si prometemos algo y no lo cumplimos, la otra persona se pone <b>triste</b> y deja de confiar.</li><li>Antes de prometer, hay que pensar si <b>podemos</b> cumplirlo.</li><li>Si no podemos cumplir una promesa, hay que <b>avisar</b> y pedir perdón.</li></ul><p>Ejemplos de promesas que podemos cumplir: ayudar a poner la mesa, devolver un libro prestado, guardar un secreto bonito o jugar con un amigo en el recreo.</p><p>Cumplir las promesas nos hace personas de <b>confianza</b>.</p><p><b>Actividad</b>: escribe una promesa pequeña para esta semana y, el viernes, comprueba si la has cumplido.</p>`,
+        L6.filas("Promesas", [["pensar", "¿puedo?", cAZ], ["prometer", "lo haré", cVE], ["cumplir", "de verdad", cNA], ["si no", "pedir perdón", cRO]])],
+    ],
+  },
+  final: [
+    ["Noé en el arte", `<p>La historia de Noé ha inspirado a muchos <mark>artistas</mark> durante siglos:</p><ul><li>En las <b>catedrales</b> hay vidrieras y relieves de piedra con el arca y la paloma.</li><li>El gran pintor <b>Miguel Ángel</b> pintó el diluvio en el techo de la Capilla Sixtina, en Roma.</li><li>Hay <b>juguetes</b> antiguos de madera con el arca y parejas de animales.</li><li>Se han escrito <b>canciones</b> y cuentos infantiles sobre el arca.</li><li>En algunos lugares se han construido arcas de madera a tamaño real que se pueden visitar.</li></ul><p>Los símbolos de la historia, como la <b>paloma</b> y el <b>arcoíris</b>, aparecen en muchos dibujos que hablan de esperanza.</p><p><b>Actividad</b>: entre toda la clase, haced un mural del arca con un animal dibujado por cada alumno.</p>`,
+      H6.dos("Noé en el arte", ["DÓNDE", ["vidrieras", "Sixtina", "juguetes"], cAZ], ["SÍMBOLOS", ["arca", "paloma", "arcoíris"], cVE])],
+    ["Repaso: el refugio de la abuela", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>La radio avisó de <b>lluvias</b> muy fuertes.</li><li>La abuela Carmen <b>hizo caso</b>, como Noé.</li><li>Llevaron a los <b>animales</b> al granero de la colina.</li><li>Prepararon <b>paja, agua y comida</b>.</li><li>El río se desbordó, pero todos estaban <b>a salvo</b>.</li><li>Al final salió un <b>arcoíris</b> y dieron <b>gracias</b>.</li></ul><p>La historia muestra cómo escuchar los avisos, prepararse y cuidar a los demás nos protege a todos.</p><p><b>Actividad</b>: compara la historia de la abuela con la de Noé: ¿en qué se parecen?</p>`,
+      L6.filas("Abuela y Noé", [["aviso", "radio / Dios", cAZ], ["refugio", "granero / arca", cNA], ["animales", "a salvo", cVE], ["final", "arcoíris", cRO]])],
+  ],
+  ejemplos: [
+    ["¿Para qué servía la brea del arca?", ["Era una pasta negra."], "Para que no entrara el agua."],
+    ["¿Qué día se celebra el Día Escolar de la Paz?", ["Es en invierno."], "El 30 de enero."],
+  ],
+  errores: ["Prometer cosas sin pensar si se pueden cumplir.", "Pensar que cuidar a una mascota es solo darle comida."],
+  ejercicios: [
+    ["b", "¿De qué material era el arca?", "De madera."],
+    ["b", "¿Cuántos pisos tenía el arca?", "Tres."],
+    ["b", "¿Qué simboliza la paloma con el olivo?", "La paz."],
+    ["b", "Di algo que necesita una mascota.", "Comida, agua, paseos, cariño."],
+    ["b", "¿Qué vieron al final en la lectura?", "Un arcoíris."],
+    ["m", "¿Qué pintor dibujó una paloma de la paz?", "Picasso."],
+    ["m", "Nombra un animal en peligro de extinción.", "El lince ibérico o el oso pardo."],
+    ["m", "¿Qué hay que hacer si no puedes cumplir una promesa?", "Avisar y pedir perdón."],
+    ["m", "¿Dónde pintó Miguel Ángel el diluvio?", "En la Capilla Sixtina."],
+    ["m", "¿Qué es una protectora de animales?", "Un lugar donde cuidan animales sin dueño."],
+    ["a", "En la lectura, ¿por qué llevaron los animales a la colina?", "Porque el río podía crecer y allí estaban a salvo."],
+    ["a", "¿En qué se parece la abuela Carmen a Noé?", "Hizo caso al aviso y puso a salvo a los animales."],
+    ["a", "¿Por qué es importante cumplir las promesas?", "Para que los demás confíen en nosotros."],
+    ["a", "Di dos formas de vivir en paz en clase.", "Escuchar, hablar sin gritar, pedir perdón…"],
+  ],
+  quiz: [
+    ["El arca tenía una ventana…", ["arriba", "en el suelo", "ninguna"], "El arca."],
+    ["Nunca hay que… a un animal", ["abandonar", "acariciar", "alimentar"], "Cuidar."],
+    ["El Día Escolar de la Paz es el…", ["30 de enero", "25 de diciembre", "1 de mayo"], "La paz."],
+    ["Antes de prometer hay que…", ["pensar", "gritar", "correr"], "Promesas."],
+    ["Miguel Ángel pintó el diluvio en la…", ["Capilla Sixtina", "playa", "Alhambra"], "Arte."],
+  ],
+  examen: [
+    ["En la lectura, ¿quién avisó de las lluvias?", ["la radio", "un pájaro", "el alcalde"], "Lectura."],
+    ["¿Dónde se refugiaron los animales?", ["en el granero", "en el río", "en el coche"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Paloma de la paz", "Paloma con olivo: símbolo de la paz. Día de la Paz: 30 de enero."],
+    ["Promesa", "Pensar si puedo, cumplir de verdad y, si no puedo, pedir perdón."],
+  ],
+  glosario: [
+    ["Brea", "Pasta negra que impermeabiliza."],
+    ["Compartimento", "Espacio separado dentro de algo."],
+    ["Mascota", "Animal que vive con nosotros."],
+    ["Protectora", "Lugar que cuida animales sin dueño."],
+    ["Extinción", "Desaparición de una especie."],
+    ["Olivo", "Árbol que da aceitunas."],
+    ["Paz", "Vivir sin peleas, en armonía."],
+    ["Promesa", "Compromiso de hacer algo."],
+    ["Vidriera", "Ventana de cristales de colores."],
+    ["Desbordarse", "Salirse el agua de un río."],
+  ],
+  situacion: {
+    titulo: "El arca de la clase",
+    reto: "La clase se compromete a cuidar de los animales y de la paz: prepara un mural del arca y una campaña de promesas.",
+    pasos: ["Cada alumno dibuja un animal y escribe cómo cuidarlo.", "Montar el mural del arca con todos los animales.", "Hacer palomas de papel con una promesa de paz.", "Colgar las palomas alrededor del arca el Día de la Paz."],
+    producto: "Un mural del arca rodeado de palomas con promesas.",
+    evaluacion: ["Describe el arca.", "Sabe cuidar de los animales.", "Conoce la paloma como símbolo de paz.", "Valora cumplir las promesas."],
+  },
+});

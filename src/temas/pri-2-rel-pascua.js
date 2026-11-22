@@ -112,3 +112,93 @@ module.exports = P.tema({
   saberes: "La Semana Santa y la Pascua: entrada en Jerusalén, Última Cena, muerte y resurrección de Jesús (Mc 11; Lc 22-24; Jn 20); signos pascuales y la alegría cristiana",
   ideas: ["Línea del tiempo de la Semana Santa con dibujos de cada día.", "Cirio pascual de aula decorado por los alumnos.", "Juego del sepulcro vacío con mensajes de alegría."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer el gesto de Jesús lavando los pies", "Saber qué es la Cuaresma", "Conocer la Semana Santa en España", "Reconocer los encuentros de Jesús resucitado"],
+  lectura: { titulo: "Los ramos de olivo", html: `<p>El Domingo de Ramos, Hugo fue con sus abuelos a la plaza del pueblo. Todo el mundo llevaba en la mano <b>ramas de olivo</b> o <b>palmas</b> doradas.</p><p>—¿Por qué lleva todo el mundo ramas? —preguntó Hugo.</p><p>—Porque cuando Jesús entró en Jerusalén, la gente lo recibió así, con ramos y gritando «¡<b>Hosanna</b>!» —explicó el abuelo.</p><p>La procesión empezó. Delante iba una imagen de Jesús sobre un <b>burrito</b>, y detrás, los niños con sus palmas. Hugo levantó la suya bien alta.</p><p>Al volver a casa, la abuela colgó una ramita de olivo en el balcón.</p><p>—¿Y eso? —preguntó Hugo.</p><p>—Es una tradición. Nos recuerda que Jesús está con nosotros todo el año.</p><p>Una semana después, el Domingo de Pascua, Hugo vio que en la ramita del balcón había brotado una <b>hojita nueva</b>. Corrió a decírselo a su abuela.</p><p>—¿Ves? —sonrió ella—. Eso es la Pascua: la vida siempre vuelve.</p>` },
+  tras: {
+    "La Última Cena": [
+      ["Jesús lava los pies", `<p>En la Última Cena, antes de comer, Jesús hizo algo que sorprendió a todos sus amigos (Jn 13):</p><ul><li>Se quitó el manto y se ató una <b>toalla</b> a la cintura.</li><li>Echó agua en una jofaina y empezó a <b>lavar los pies</b> a sus discípulos, uno por uno.</li><li>En aquella época, lavar los pies era el trabajo de los <b>sirvientes</b>, porque la gente caminaba con sandalias por caminos de polvo.</li><li>Pedro no quería: «¿Tú, Señor, me vas a lavar los pies a mí?».</li><li>Jesús le explicó: «Os he dado <b>ejemplo</b> para que hagáis lo mismo unos con otros».</li></ul><p>Con este gesto, Jesús enseñó que el más importante es el que <b>sirve</b> a los demás.</p><p>El Jueves Santo, en muchas iglesias, el sacerdote repite este gesto.</p><p><b>Actividad</b>: piensa en un servicio que puedes hacer en casa esta semana sin que te lo pidan.</p>`,
+        H6.flujo("Servir", ["toalla|a la cintura", "agua|jofaina", "lavar|los pies", "ejemplo|servid"], cAZ)],
+    ],
+    "Jesús entra en Jerusalén": [
+      ["La Cuaresma: preparar la Pascua", `<p>Antes de la Semana Santa hay un tiempo de <mark>cuarenta días</mark> llamado <b>Cuaresma</b>, para preparar el corazón para la Pascua.</p><ul><li>Empieza el <b>Miércoles de Ceniza</b>: se pone un poco de ceniza en la frente.</li><li>Recuerda los cuarenta días que Jesús pasó en el <b>desierto</b>.</li><li>Es un tiempo para ser <b>mejores</b>: pedir perdón, ayudar y compartir.</li><li>Los cristianos rezan más, hacen pequeños <b>sacrificios</b> y ayudan a quien lo necesita.</li><li>En las iglesias se usa el color <b>morado</b>.</li></ul><p>Algunas familias hacen una hucha de Cuaresma: guardan lo que ahorran (por ejemplo, de chucherías) para dárselo a quien lo necesita.</p><p><b>Actividad</b>: haz un calendario de Cuaresma con una buena acción para cada semana.</p>`,
+        L6.filas("Cuaresma", [["dura", "40 días", cMO], ["empieza", "Miércoles de Ceniza", cNA], ["color", "morado", cAZ], ["hacer", "ayudar y compartir", cVE]]),
+        ["1HCQFlqeXiM", "La entrada triunfal de Jesús en Jerusalén", "Naalmi Kids", 166359]],
+    ],
+    "Jesús se aparece a sus amigos": [
+      ["Los discípulos de Emaús", `<p>El domingo de Pascua, dos amigos de Jesús caminaban <b>tristes</b> hacia un pueblo llamado <mark>Emaús</mark> (Lc 24).</p><ul><li>Hablaban de lo que había pasado en Jerusalén: Jesús había muerto.</li><li>Un hombre se unió a ellos y caminó a su lado. ¡Era Jesús, pero <b>no lo reconocieron</b>!</li><li>Por el camino, les explicó las Escrituras, y su corazón se llenaba de alegría.</li><li>Al llegar, le invitaron a <b>cenar</b>.</li><li>Jesús tomó el pan, lo bendijo y lo <b>partió</b>. En ese momento, ¡lo reconocieron!</li><li>Jesús desapareció, y ellos volvieron corriendo a Jerusalén a contarlo.</li></ul><p>Esta historia nos dice que Jesús camina con nosotros, incluso cuando estamos tristes.</p><p><b>Actividad</b>: dibuja la historia en cuatro viñetas: camino triste, conversación, cena y vuelta alegre.</p>`,
+        H6.flujo("Emaús", ["camino|tristes", "Jesús|acompaña", "partir|el pan", "volver|alegres"], cVE)],
+    ],
+    "Señales de vida nueva": [
+      ["La Semana Santa en España", `<p>En España, la <mark>Semana Santa</mark> se vive en la calle con muchas tradiciones:</p><ul><li><b>Procesiones</b>: se sacan imágenes de Jesús y de María en <b>pasos</b>, unas plataformas muy decoradas.</li><li>Los <b>costaleros</b> llevan los pasos sobre sus hombros.</li><li>Los <b>nazarenos</b> caminan con túnicas y capirotes, a veces con velas.</li><li>Las <b>bandas</b> de música tocan marchas y suenan los tambores.</li><li>En algunos sitios se cantan <b>saetas</b>: canciones muy sentidas desde un balcón.</li><li>Se comen dulces típicos: <b>torrijas</b>, pestiños y, en algunas zonas, la <b>mona de Pascua</b>.</li></ul><p>Son muy conocidas las de Sevilla, Málaga, Valladolid, Zamora o Cuenca.</p><p><b>Actividad</b>: pregunta en casa cómo se vive la Semana Santa en tu pueblo o ciudad.</p>`,
+        L6.filas("Semana Santa", [["pasos", "imágenes", cMO], ["costaleros", "llevan", cNA], ["nazarenos", "túnicas", cAZ], ["torrijas", "dulce", cRO]])],
+    ],
+  },
+  final: [
+    ["Cincuenta días de fiesta", `<p>La Pascua no dura un solo día. Para los cristianos es una fiesta de <mark>cincuenta días</mark>, el tiempo pascual.</p><ul><li>El color de las iglesias es el <b>blanco</b>, color de la alegría.</li><li>Se enciende el <b>cirio pascual</b>, símbolo de Jesús resucitado, luz del mundo.</li><li>Se canta mucho el <b>«aleluya»</b>.</li><li>A los cuarenta días se celebra la <b>Ascensión</b>: Jesús sube al cielo.</li><li>A los cincuenta días llega <b>Pentecostés</b>: el Espíritu Santo llena de fuerza a los discípulos para anunciar a Jesús por todo el mundo.</li></ul><p>Es un tiempo para vivir con <b>alegría</b>, como la primavera, cuando todo florece.</p><p><b>Actividad</b>: decora una vela blanca con dibujos de primavera y la palabra «aleluya».</p>`,
+      H6.dos("Tiempo pascual", ["SIGNOS", ["cirio", "blanco", "aleluya"], cNA], ["FIESTAS", ["Pascua", "Ascensión", "Pentecostés"], cAZ])],
+    ["Repaso: los ramos de olivo", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Hugo fue con sus abuelos el <b>Domingo de Ramos</b>.</li><li>La gente llevaba <b>ramas de olivo</b> y <b>palmas</b>.</li><li>Recordaban a Jesús entrando en <b>Jerusalén</b> en un burrito.</li><li>La gente gritaba: «¡<b>Hosanna</b>!».</li><li>La abuela colgó una ramita en el <b>balcón</b>.</li><li>El Domingo de Pascua brotó una <b>hojita nueva</b>: la vida vuelve.</li></ul><p>La lectura nos muestra cómo la Semana Santa empieza con ramos y termina con la alegría de la <b>vida nueva</b>.</p><p><b>Actividad</b>: dibuja la ramita del balcón antes y después de la Pascua.</p>`,
+      H6.flujo("Hugo", ["Ramos|palmas", "procesión|burrito", "balcón|olivo", "Pascua|hoja nueva"], cVE)],
+  ],
+  ejemplos: [
+    ["¿Cuántos días dura la Cuaresma?", ["Como Jesús en el desierto."], "Cuarenta."],
+    ["¿Cuándo reconocieron a Jesús los de Emaús?", ["Fue durante la cena."], "Al partir el pan."],
+  ],
+  errores: ["Pensar que la Pascua dura solo un día.", "Confundir los nazarenos con los costaleros."],
+  ejercicios: [
+    ["b", "¿Qué hizo Jesús antes de la cena?", "Lavó los pies a sus discípulos."],
+    ["b", "¿Cómo empieza la Cuaresma?", "Con el Miércoles de Ceniza."],
+    ["b", "¿Adónde iban los dos discípulos?", "A Emaús."],
+    ["b", "¿Qué dulce se come en Semana Santa?", "Torrijas."],
+    ["b", "¿Qué llevaba la gente en la lectura?", "Ramas de olivo y palmas."],
+    ["m", "¿Por qué Pedro no quería que le lavara los pies?", "Porque era trabajo de sirvientes."],
+    ["m", "¿Qué color se usa en Cuaresma?", "Morado."],
+    ["m", "¿Qué son los pasos?", "Plataformas con imágenes que se llevan en procesión."],
+    ["m", "¿Qué se celebra en Pentecostés?", "La llegada del Espíritu Santo."],
+    ["m", "¿Cuántos días dura el tiempo pascual?", "Cincuenta."],
+    ["a", "En la lectura, ¿qué vio Hugo el Domingo de Pascua?", "Una hojita nueva en la ramita."],
+    ["a", "¿Qué enseñó Jesús al lavar los pies?", "Que el más importante es el que sirve."],
+    ["a", "¿Por qué los de Emaús volvieron corriendo?", "Para contar que habían visto a Jesús resucitado."],
+    ["a", "Propón una buena acción para la Cuaresma.", "Respuesta libre."],
+  ],
+  quiz: [
+    ["Jesús se ató a la cintura una…", ["toalla", "cuerda", "espada"], "Servir."],
+    ["La Cuaresma dura…", ["40 días", "7 días", "1 día"], "Cuaresma."],
+    ["En Emaús reconocieron a Jesús al…", ["partir el pan", "cantar", "dormir"], "Emaús."],
+    ["Los costaleros…", ["llevan los pasos", "cantan saetas", "cocinan torrijas"], "Semana Santa."],
+    ["El color de la Pascua es el…", ["blanco", "morado", "negro"], "Tiempo pascual."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué gritaba la gente?", ["Hosanna", "Feliz Navidad", "Olé"], "Lectura."],
+    ["¿Dónde colgó la abuela la ramita?", ["en el balcón", "en el árbol", "en la cocina"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Cuaresma", "40 días desde el Miércoles de Ceniza para preparar la Pascua."],
+    ["Tiempo pascual", "50 días de fiesta: cirio, blanco, aleluya, Ascensión y Pentecostés."],
+  ],
+  glosario: [
+    ["Jofaina", "Recipiente para lavarse."],
+    ["Servir", "Ayudar a los demás."],
+    ["Cuaresma", "Cuarenta días antes de la Pascua."],
+    ["Ceniza", "Polvo gris que queda al quemar algo."],
+    ["Emaús", "Pueblo cercano a Jerusalén."],
+    ["Paso", "Plataforma con imágenes de procesión."],
+    ["Costalero", "Persona que lleva un paso."],
+    ["Nazareno", "Persona con túnica en la procesión."],
+    ["Pentecostés", "Fiesta del Espíritu Santo."],
+    ["Hosanna", "Grito de alegría y alabanza."],
+  ],
+  situacion: {
+    titulo: "Del ramo a la flor",
+    reto: "La clase recorre la Cuaresma, la Semana Santa y la Pascua con un mural que va cambiando: de ramas secas a ramas llenas de flores.",
+    pasos: ["Hacer un árbol de ramas secas en un mural al empezar la Cuaresma.", "Cada buena acción de la clase se convierte en una hoja.", "En Semana Santa, contar las historias de la Última Cena y Emaús.", "En Pascua, llenar el árbol de flores y cantar aleluya."],
+    producto: "Un árbol de Pascua lleno de hojas y flores.",
+    evaluacion: ["Explica el lavatorio de los pies.", "Sabe qué es la Cuaresma.", "Conoce la Semana Santa en España.", "Narra la historia de Emaús."],
+  },
+});
