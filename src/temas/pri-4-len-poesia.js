@@ -88,3 +88,91 @@ module.exports = P.tema({
   saberes: "Educación literaria: la poesía; prosa y verso; verso y estrofa; rima consonante y asonante; medida de los versos y sinalefa; pareado, terceto y cuarteta; comparación y personificación; recitado y creación de poemas",
   ideas: ["Recital de poemas de la clase con micrófono y fondo musical suave.", "Tendedero de pareados escritos por los alumnos.", "Caza de personificaciones en canciones infantiles y anuncios."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Escribir haikus de 5-7-5 sílabas", "Reconocer la metáfora, la repetición y la onomatopeya", "Conocer a Gloria Fuertes y otros poetas para niños", "Crear caligramas y valorar la poesía popular"],
+  lectura: { titulo: "La poeta del delantal", html: `<p>Había una vez una niña de Madrid que, en vez de jugar a las muñecas, jugaba con las palabras. Se llamaba <b>Gloria Fuertes</b> y nació en 1917 en un barrio humilde. Su madre era costurera y su padre, portero.</p><p>A los cinco años ya inventaba versos. A los catorce publicó su primer poema. Pero su familia no tenía dinero, y Gloria tuvo que trabajar en una oficina. Por las noches, al volver a casa, escribía y escribía.</p><p>Escribía de todo: de animales que hablan, de cosas que pasan en la calle, de la paz y de la tristeza. Le gustaban mucho los juegos de palabras y las rimas divertidas:</p><p><i>«Doña Pito Piturra<br>tiene unos guantes,<br>Doña Pito Piturra<br>muy elegantes».</i></p><p>Durante muchos años, Gloria salía en la televisión, en un programa para niños. Con su voz grave, su pelo corto y su corbata, recitaba poemas que los niños se aprendían de memoria.</p><p>Gloria decía que la poesía no es solo para los mayores ni para los sabios: es para todos. Por eso escribía con palabras sencillas, que todo el mundo podía entender.</p><p>Murió en 1998, pero sus libros siguen en las bibliotecas de todos los colegios. Y cada vez que un niño se ríe con un verso suyo, Gloria Fuertes, de algún modo, sigue jugando.</p>` },
+  tras: {
+    "Algunas estrofas": [
+      ["El haiku", `<p>El <mark>haiku</mark> es un poema muy breve que nació en <b>Japón</b> hace más de trescientos años. El poeta japonés más famoso de haikus fue <b>Matsuo Bashō</b>, en el siglo XVII.</p><p>Un haiku tiene <b>tres versos</b> y, en castellano, se escribe con esta medida:</p><ul><li>Primer verso: <b>5 sílabas</b>.</li><li>Segundo verso: <b>7 sílabas</b>.</li><li>Tercer verso: <b>5 sílabas</b>.</li></ul><p>Los haikus <b>no suelen rimar</b>. Su tema es casi siempre la <b>naturaleza</b> y las estaciones del año, y captan un instante, como si fueran una fotografía hecha con palabras.</p><p>Mira estos ejemplos escritos para este tema:</p><p><i>Cae una hoja<br>(Ca-eu-na-ho-ja: 5)<br>sobre el agua del charco:<br>(so-breel-a-gua-del-char-co: 7)<br>tiembla la luna.<br>(tiem-bla-la-lu-na: 5)</i></p><p><i>Llueve en el patio.<br>Los niños miran, quietos,<br>la fuente llena.</i></p><p>Para escribir un haiku:</p><ol><li>Sal a mirar algo de la naturaleza con atención.</li><li>Elige un momento concreto: una gota, una hormiga, el viento.</li><li>Escríbelo con palabras sencillas y cuenta las sílabas con palmadas.</li></ol><p>Recuerda que al contar sílabas en poesía, cuando una palabra acaba en vocal y la siguiente empieza por vocal, se juntan en una sola: <i>so-bre el</i> → <i>bre el</i> cuenta como una.</p>`,
+        L6.filas("El haiku", [["origen", "Japón", cRO], ["versos", "3", cAZ], ["sílabas", "5 · 7 · 5", cNA], ["tema", "la naturaleza", cVE]]), ["ARnctpmsBBc", "Haiku, la poesía más corta del mundo", "Japan Video Topics - Español", 116673]],
+    ],
+    "El lenguaje poético: comparación y personificación": [
+      ["Metáfora, repetición y onomatopeya", `<p>Además de la comparación y la personificación, los poetas usan otros <b>recursos</b> para que sus versos sean más bellos:</p><ul><li>La <mark>metáfora</mark>: es como una comparación, pero <b>sin la palabra «como»</b>. Se nombra una cosa con el nombre de otra que se le parece. Si en una comparación decimos <i>tus dientes son blancos como perlas</i>, en una metáfora decimos directamente <i>las perlas de tu boca</i>. Otros ejemplos: <i>la luna es un plato de plata</i>; <i>el río es una serpiente azul</i>.</li><li>La <mark>repetición</mark>: se repiten palabras o versos para dar ritmo o destacar una idea. Federico García Lorca escribió: <i>«Verde que te quiero verde. / Verde viento. Verdes ramas»</i>.</li><li>La <mark>onomatopeya</mark>: palabras que <b>imitan sonidos</b>. <i>Tic, tac</i> (reloj), <i>miau</i> (gato), <i>pum</i> (golpe), <i>glu, glu</i> (agua), <i>zzz</i> (sueño), <i>chof</i> (charco), <i>quiquiriquí</i> (gallo). Dan sonido al poema.</li><li>La <b>exageración</b> o <b>hipérbole</b>: decir algo de forma exagerada. <i>Te he llamado un millón de veces</i>; <i>lloró un río de lágrimas</i>.</li></ul><p>Estos recursos no solo aparecen en los poemas: también en las canciones, los anuncios y las conversaciones de cada día. ¡Búscalos!</p>`,
+        L6.filas("Recursos", [["metáfora", "la luna es un plato", cAZ], ["repetición", "verde que te quiero verde", cVE], ["onomatopeya", "tic, tac; miau", cNA], ["hipérbole", "un millón de veces", cRO]])],
+    ],
+    "Recitar un poema": [
+      ["Poetas para niños", `<p>Muchos grandes poetas escribieron versos para niños o versos que a los niños les encantan. Aquí tienes algunos:</p><ul><li><mark>Gloria Fuertes</mark> (Madrid, 1917-1998): la poeta más querida por los niños españoles. Sus poemas están llenos de humor, animales y juegos de palabras. Escribió libros como <i>El hada acaramelada</i> o <i>Pío Pío Pito, el pollito más bonito</i>.</li><li><b>Federico García Lorca</b> (Granada, 1898-1936): escribió canciones y poemas con el ritmo de la música popular, como <i>«El lagarto está llorando. / La lagarta está llorando»</i>.</li><li><b>Antonio Machado</b> (Sevilla, 1875-1939): poeta de los paisajes de Castilla y Andalucía. Sus versos <i>«Caminante, no hay camino, / se hace camino al andar»</i> son famosísimos.</li><li><b>Juan Ramón Jiménez</b> (Huelva, 1881-1958): escribió <i>Platero y yo</i>, sobre un burrito «pequeño, peludo, suave». Ganó el Premio Nobel.</li><li><b>Rafael Alberti</b> (Cádiz, 1902-1999): poeta del mar, con poemas como <i>«El mar. La mar. / El mar. ¡Solo la mar!»</i>.</li><li><b>Carmen Gil</b> y <b>Antonio Rubio</b>: autores actuales de poesía infantil.</li></ul><p>Busca en la biblioteca un libro de alguno de ellos y elige tu poema favorito para recitarlo.</p>`,
+        H6.rueda("Poetas", "POESÍA", [["Gloria Fuertes", cRO], ["Lorca", cVE], ["Machado", cAZ], ["Juan Ramón", cNA]])],
+    ],
+  },
+  final: [
+    ["Caligramas: poemas con forma", `<p>Un <mark>caligrama</mark> es un poema en el que las palabras se colocan formando un <b>dibujo</b> relacionado con lo que dice el poema. Así, el poema se lee y también se mira.</p><p>El nombre viene del griego: <i>calli</i>, «bello», y <i>grama</i>, «letra». Los hizo famosos el poeta francés <b>Guillaume Apollinaire</b> hace más de cien años, aunque ya en la antigua Grecia se escribían poemas con forma de huevo, de alas o de hacha.</p><p>Por ejemplo, un poema sobre la lluvia puede escribirse con las palabras cayendo en diagonal como gotas; uno sobre el sol, en forma de círculo con rayos; uno sobre un árbol, con el tronco y las ramas hechos de versos.</p><p>Para crear tu caligrama:</p><ol><li><b>Elige un tema</b> que tenga una forma clara: un pez, una estrella, un helado, una casa, una mariposa.</li><li><b>Escribe el poema</b> primero en sucio: unos versos sobre ese objeto.</li><li><b>Dibuja la silueta</b> del objeto a lápiz, muy suave.</li><li><b>Copia el poema</b> siguiendo la línea del dibujo con rotuladores de colores.</li><li><b>Borra</b> el lápiz. ¡Solo deben quedar las palabras!</li></ol><p>Los caligramas mezclan dos artes: la poesía y el dibujo. Son perfectos para decorar la clase.</p>`,
+      H6.flujo("Crear un caligrama", ["elegir|una forma", "escribir|el poema", "dibujar|la silueta", "copiar|sobre la línea"], cMO), ["SLRKwqUSYew", "Cómo hacer un caligrama", "Valeria Fasciglione", 184608]],
+    ["Poesía popular", `<p>Mucho antes de aprender a leer, ya conocías poesía. Las <mark>canciones de corro</mark>, las <b>nanas</b>, las <b>retahílas</b>, las <b>adivinanzas</b> y los <b>trabalenguas</b> son poesía <b>popular</b>: nadie sabe quién la inventó, y ha pasado de padres a hijos durante siglos.</p><ul><li>Las <b>nanas</b> son canciones para dormir a los bebés: <i>«Duérmete, niño, duérmete ya, / que viene el coco y te comerá»</i>.</li><li>Las <b>canciones de corro y de comba</b> se cantan jugando: <i>«El patio de mi casa / es particular, / cuando llueve se moja / como los demás»</i>.</li><li>Las <b>retahílas</b> son series de versos encadenados, a menudo para echar a suertes: <i>«Pito, pito, gorgorito, / ¿dónde vas tú tan bonito?»</i>.</li><li>Las <b>adivinanzas</b> describen algo con pistas en verso: <i>«Oro parece, / plata no es. / El que no lo adivine / bien tonto es»</i> (el plátano).</li><li>Los <b>villancicos</b> se cantan en Navidad.</li></ul><p>La poesía popular tiene versos cortos, mucha rima, repeticiones y un ritmo muy marcado. Así se recuerda con facilidad.</p><p>Pregunta a tus abuelos qué canciones cantaban de pequeños. Seguro que te sorprenden: ¡algunas son las mismas que tú conoces!</p>`,
+      L6.filas("Poesía popular", [["nanas", "para dormir", cAZ], ["corro y comba", "para jugar", cVE], ["retahílas", "para echar a suertes", cNA], ["adivinanzas", "con pistas", cMO]])],
+  ],
+  ejemplos: [
+    ["Cuenta las sílabas de «tiembla la luna» y di si sirve como verso de haiku.", ["tiem-bla-la-lu-na.", "5 sílabas: sirve para el 1.º o el 3.º."], "5 sílabas: sí, como primer o tercer verso."],
+    ["Convierte en metáfora: «Sus ojos brillan como estrellas».", ["Quita «como».", "Nombra los ojos con el nombre de lo comparado."], "Las estrellas de su cara / sus ojos son estrellas"],
+  ],
+  errores: ["Confundir metáfora y comparación: la comparación usa «como».", "Olvidar juntar las vocales entre palabras al contar sílabas de un verso."],
+  ejercicios: [
+    ["b", "¿De qué país es el haiku?", "De Japón."],
+    ["b", "¿Cuántas sílabas tiene cada verso de un haiku?", "5, 7 y 5."],
+    ["b", "Escribe tres onomatopeyas.", "Miau, tic tac, pum."],
+    ["b", "¿Quién escribió Platero y yo?", "Juan Ramón Jiménez."],
+    ["b", "¿Qué es un caligrama?", "Un poema con forma de dibujo."],
+    ["m", "Di si es comparación o metáfora: «El mar es un espejo».", "Metáfora."],
+    ["m", "¿Qué es una hipérbole? Pon un ejemplo.", "Una exageración: te lo he dicho mil veces."],
+    ["m", "Nombra dos libros de Gloria Fuertes.", "El hada acaramelada; Pío Pío Pito…"],
+    ["m", "¿Por qué la poesía popular se recuerda con facilidad?", "Versos cortos, rima, repeticiones, ritmo."],
+    ["m", "Escribe una adivinanza que conozcas.", "Respuesta abierta."],
+    ["a", "Escribe tres haikus sobre las estaciones del año.", "Respuesta abierta."],
+    ["a", "Crea un caligrama sobre tu animal favorito.", "Respuesta abierta."],
+    ["a", "Recita un poema de Gloria Fuertes ante la clase.", "Respuesta abierta."],
+    ["a", "Recoge tres canciones populares de tu familia.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El haiku tiene…", ["3 versos", "14 versos", "2 versos"], "Haiku."],
+    ["«Glu, glu» es una…", ["onomatopeya", "metáfora", "comparación"], "Recursos."],
+    ["Gloria Fuertes nació en…", ["Madrid", "Granada", "Japón"], "Poetas."],
+    ["Un caligrama es un poema…", ["con forma de dibujo", "sin palabras", "en japonés"], "Caligrama."],
+    ["Las nanas sirven para…", ["dormir a los bebés", "echar a suertes", "dar órdenes"], "Popular."],
+  ],
+  examen: [
+    ["En la lectura, ¿dónde recitaba Gloria Fuertes sus poemas para niños?", ["en la televisión", "en la radio", "en el teatro"], "Lectura."],
+    ["«La luna es un plato de plata» es una…", ["metáfora", "onomatopeya", "rima"], "Recursos."],
+  ],
+  tarjetas: [
+    ["Haiku", "Japón, Bashō; 3 versos de 5-7-5; naturaleza; sin rima."],
+    ["Recursos", "Metáfora sin «como», repetición, onomatopeya, hipérbole."],
+    ["Poetas", "Gloria Fuertes, Lorca, Machado, Juan Ramón, Alberti."],
+    ["Caligrama y popular", "Poema-dibujo; nanas, corro, retahílas, adivinanzas."],
+  ],
+  glosario: [
+    ["Haiku", "Poema japonés de tres versos."],
+    ["Metáfora", "Nombrar una cosa con el nombre de otra que se le parece."],
+    ["Onomatopeya", "Palabra que imita un sonido."],
+    ["Hipérbole", "Exageración."],
+    ["Repetición", "Recurso que repite palabras o versos."],
+    ["Recitar", "Decir un poema en voz alta."],
+    ["Caligrama", "Poema cuyas palabras forman un dibujo."],
+    ["Silueta", "Contorno de una figura."],
+    ["Poesía popular", "Poesía anónima transmitida de generación en generación."],
+    ["Nana", "Canción para dormir a los niños."],
+    ["Retahíla", "Serie de versos encadenados."],
+    ["Premio Nobel", "Gran premio internacional, también de literatura."],
+  ],
+  situacion: {
+    titulo: "Recital de primavera",
+    reto: "La clase organiza un recital de poesía con poemas propios y de autores conocidos.",
+    pasos: ["Cada alumno elige un poema de un autor y escribe uno propio (haiku, caligrama o estrofa).", "Ensayad la recitación: ritmo, pausas, volumen y gestos.", "Preparad un mural con los caligramas y los haikus.", "Celebrad el recital ante las familias o otra clase."],
+    producto: "Un recital de poesía y una exposición de poemas.",
+    evaluacion: ["Escribe un poema con recursos poéticos.", "Respeta la medida del haiku o la forma del caligrama.", "Recita con expresividad.", "Valora la poesía de otros autores."],
+  },
+});

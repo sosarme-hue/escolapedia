@@ -87,3 +87,92 @@ module.exports = P.tema({
   saberes: "Educación literaria: la narración; el cuento popular y de autor; la leyenda; narrador, personajes, tiempo y espacio; estructura (planteamiento, nudo, desenlace); conectores temporales; el diálogo con raya; creación de textos narrativos",
   ideas: ["Mapa de leyendas de la comunidad autónoma con un resumen escrito por cada grupo.", "Dados de cuentos (personaje, lugar, problema) para inventar historias.", "Cuentacuentos en la biblioteca para alumnos de cursos inferiores."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+module.exports.bloques.find((b) => /Cuento y leyenda: diferencias/.test(b.html)).svg = H6.dos("Cuento y leyenda", ["CUENTO", ["inventado", "lugar sin nombre", "«Érase una vez»"], cAZ], ["LEYENDA", ["real y fantástico", "lugar conocido", "«Cuentan que…»"], cNA]);
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Comparar versiones de un mismo cuento popular", "Conocer leyendas tradicionales de España", "Reconocer la fábula y su moraleja", "Inventar historias con técnicas de Rodari y escribir diálogos"],
+  lectura: { titulo: "Los amantes de Teruel", html: `<p>Cuentan que hace muchos siglos, en la ciudad de <b>Teruel</b>, vivían dos jóvenes que se querían desde niños: <b>Isabel de Segura</b>, hija de una familia muy rica, y <b>Diego de Marcilla</b>, un muchacho de familia sin fortuna.</p><p>Diego pidió casarse con Isabel, pero el padre de ella se negó: su hija no se casaría con un hombre pobre.</p><p>—Dadme cinco años —pidió Diego—. Me iré a la guerra y volveré rico.</p><p>El padre aceptó. Diego partió, y durante cinco años luchó en tierras lejanas. Isabel esperó cada día mirando el camino.</p><p>Pero los cinco años pasaron y Diego no volvía. El padre de Isabel la obligó a casarse con otro hombre.</p><p>El mismo día de la boda, Diego llegó a Teruel, cargado de riquezas. Había llegado tarde, solo por unas horas.</p><p>Esa noche fue a ver a Isabel y le pidió un último beso. Ella, que ya estaba casada, se lo negó. Y Diego, de tanta tristeza, cayó muerto a sus pies.</p><p>Al día siguiente, en el funeral, Isabel se acercó al cuerpo de Diego para darle el beso que le había negado. Y allí mismo, de pena, murió también.</p><p>Los enterraron juntos. Hoy, en Teruel, se pueden visitar sus sepulcros: dos estatuas de alabastro tumbadas, con las manos casi tocándose.</p>` },
+  tras: {
+    "El cuento": [
+      ["Un cuento, muchas versiones", `<p>Los <b>cuentos populares</b> se transmitieron durante siglos de forma <b>oral</b>, de boca en boca. Cada narrador cambiaba algún detalle, así que de un mismo cuento existen muchas <mark>versiones</mark>.</p><p>Fíjate en <b>Caperucita Roja</b>:</p><ul><li>En la versión de <b>Charles Perrault</b> (Francia, 1697), el lobo se come a Caperucita y a su abuela, y el cuento acaba ahí, con una moraleja para que las niñas no hablen con desconocidos.</li><li>En la versión de los <b>hermanos Grimm</b> (Alemania, 1812), aparece un <b>cazador</b> que abre la barriga del lobo y salva a las dos.</li><li>En muchas versiones modernas, el lobo solo se asusta y huye.</li></ul><p>Algo parecido ocurre con <b>La Cenicienta</b>: hay versiones de casi todos los países del mundo, ¡incluso una de China de hace más de mil años!</p><p>En España, <b>La ratita presumida</b>, <b>Garbancito</b> o <b>Juan sin miedo</b> se contaban junto a la chimenea. Muchos de ellos fueron recogidos por escritores como <b>Fernán Caballero</b> o <b>Aurelio M. Espinosa</b>, que viajaron por los pueblos para escribir lo que contaban los mayores.</p><p>Hoy también se crean versiones nuevas: con humor, contadas desde el punto de vista del lobo o con finales diferentes. ¿Te atreves a escribir la tuya?</p>`,
+        L6.filas("Caperucita", [["Perrault (1697)", "el lobo gana", cRO], ["Grimm (1812)", "las salva un cazador", cVE], ["versiones modernas", "el lobo huye", cAZ], ["la tuya", "¿cómo acabaría?", cMO]]), ["t-aiQyImc9c", "La ratita presumida, videocuento infantil", "Casa de Los Recuerdos", 44222252]],
+    ],
+    "La leyenda": [
+      ["Leyendas de España", `<p>Cada rincón de España tiene sus <mark>leyendas</mark>. Algunas de las más conocidas son:</p><ul><li><b>Los amantes de Teruel</b> (Aragón): la triste historia de amor de Isabel y Diego, que has leído en la lectura.</li><li><b>El acueducto de Segovia</b> (Castilla y León): cuentan que una muchacha, cansada de subir agua cada día, hizo un trato con el diablo: le daría su alma si antes del amanecer construía un acueducto. El diablo trabajó toda la noche, pero cuando cantó el gallo le faltaba una piedra. La muchacha se salvó, y dicen que las marcas de los dedos del diablo aún se ven en las piedras.</li><li><b>El lagarto de la Malena</b> (Jaén): un enorme lagarto salía de una cueva y se comía a quien se acercaba a la fuente de la Magdalena, hasta que un valiente lo engañó con un saco de pólvora.</li><li><b>Las mouras</b> (Galicia): mujeres encantadas que viven en los castros y fuentes, guardando tesoros, y que salen en la noche de San Juan peinando sus cabellos de oro.</li><li><b>El Cuélebre</b> (Asturias): una serpiente alada que vigila tesoros en las cuevas.</li></ul><p>Las leyendas explican el origen de lugares, nombres o monumentos, y nos conectan con la historia y la cultura de cada zona. Pregunta en casa: ¿hay alguna leyenda en tu pueblo o tu ciudad?</p>`,
+        L6.filas("Leyendas", [["Teruel", "los amantes", cRO], ["Segovia", "el diablo del acueducto", cMO], ["Jaén", "el lagarto", cVE], ["Asturias", "el Cuélebre", cAZ]])],
+    ],
+    "Cómo contar bien una historia": [
+      ["La fábula", `<p>La <mark>fábula</mark> es una narración breve, en prosa o en verso, cuyos personajes suelen ser <b>animales</b> que hablan y se comportan como personas. Al final tiene una <b>moraleja</b>: una enseñanza o un consejo.</p><p>Cada animal suele representar una cualidad o un defecto: la <b>zorra</b> es astuta, la <b>hormiga</b> trabajadora, el <b>león</b> poderoso, la <b>tortuga</b> constante.</p><p>Los fabulistas más famosos son:</p><ul><li><b>Esopo</b>, en la antigua Grecia, hace unos 2600 años: <i>La liebre y la tortuga</i>, <i>La zorra y las uvas</i>.</li><li><b>Jean de La Fontaine</b>, en Francia, en el siglo XVII.</li><li>En España, en el siglo XVIII, <b>Félix María Samaniego</b> y <b>Tomás de Iriarte</b>, que escribieron fábulas en verso.</li></ul><p>Recuerda una de las más conocidas: <b>La cigarra y la hormiga</b>. Durante el verano, la cigarra canta y se divierte, mientras la hormiga trabaja guardando comida. Cuando llega el invierno, la cigarra pasa hambre y pide ayuda a la hormiga.</p><p><i>Moraleja: hay que pensar en el futuro y no dejarlo todo para el último momento.</i></p><p>Para escribir una fábula: elige dos animales con caracteres opuestos, plantea un problema entre ellos y termina con una moraleja clara.</p>`,
+        H6.dos("La fábula", ["PERSONAJES", ["animales que hablan", "zorra astuta", "hormiga trabajadora"], cNA], ["MORALEJA", ["una enseñanza", "al final", "un consejo"], cVE]), ["OISlvjMXrxw", "La cigarra y la hormiga, teatro", "teatrocero", 1098685]],
+    ],
+  },
+  final: [
+    ["Inventar historias con Rodari", `<p><b>Gianni Rodari</b> fue un maestro y escritor italiano que dedicó su vida a enseñar a los niños a inventar historias. En su libro <i>Gramática de la fantasía</i> propuso muchos juegos. Aquí tienes algunos:</p><ul><li>El <mark>binomio fantástico</mark>: elige dos palabras que no tengan nada que ver, por ejemplo <i>perro</i> y <i>armario</i>, y une las dos en una historia: <i>Un perro que vivía dentro de un armario</i>, <i>Un armario que ladraba</i>…</li><li><b>¿Qué pasaría si…?</b>: hazte una pregunta disparatada. ¿Qué pasaría si un día te despertaras convertido en gigante? ¿Si los coches pudieran volar? ¿Si el colegio flotara en el mar?</li><li><b>Cuentos al revés</b>: cambia los papeles de un cuento conocido. Caperucita es mala y el lobo es bueno; los tres cerditos persiguen al lobo.</li><li><b>Ensalada de cuentos</b>: mezcla personajes de varios cuentos. ¿Qué pasa si Pinocho entra en la casa de Blancanieves?</li><li><b>La piedra en el estanque</b>: dices una palabra y, como las ondas en el agua, apuntas todas las palabras que te sugiere.</li></ul><p>Rodari decía que la imaginación se entrena como un músculo: cuanto más la usas, más fuerte se hace. Recibió el premio Hans Christian Andersen, el más importante de la literatura infantil.</p>`,
+      H6.rueda("Juegos de Rodari", "INVENTAR", [["binomio", cAZ], ["¿qué pasaría si…?", cNA], ["al revés", cRO], ["ensalada", cVE]]), ["wrP00GkPNBs", "El camino que no iba a ninguna parte, de Gianni Rodari", "Cuentacuentos Beatriz Montero", 212951]],
+    ["Los diálogos en la narración", `<p>En los cuentos, los personajes no solo hacen cosas: también <b>hablan</b>. Las conversaciones entre personajes se llaman <mark>diálogos</mark> y hacen que la historia parezca más viva.</p><p>Para escribir un diálogo hay que seguir unas normas:</p><ul><li>Cada intervención de un personaje empieza en una <b>línea nueva</b> y con una <b>raya</b> (—), que es más larga que el guion.</li><li>Si el narrador añade quién habla, se pone otra raya: <i>—Tengo hambre —dijo el lobo.</i></li><li>Si después de la aclaración sigue hablando el personaje, se abre otra raya: <i>—Tengo hambre —dijo el lobo—. ¿Qué hay de cena?</i></li></ul><p>Para que el diálogo sea más expresivo, cambia el verbo <i>decir</i> por otros que expresen cómo habla el personaje: <i>susurró</i>, <i>gritó</i>, <i>preguntó</i>, <i>respondió</i>, <i>exclamó</i>, <i>murmuró</i>, <i>sollozó</i>.</p><p>Ejemplo:</p><p><i>—¿Quién anda ahí? —preguntó la abuela con voz temblorosa.<br>—Soy yo, tu nieta —respondió el lobo, poniendo voz de niña.<br>—Pasa, cariño —contestó la abuela—. La puerta está abierta.</i></p><p>Los diálogos sirven para mostrar cómo son los personajes: si son educados, miedosos, simpáticos o gruñones.</p>`,
+      L6.filas("El diálogo", [["raya", "— al empezar", cAZ], ["narrador", "—dijo el lobo", cNA], ["verbos", "susurró, gritó", cVE], ["cada personaje", "línea nueva", cMO]])],
+  ],
+  ejemplos: [
+    ["¿Es cuento, leyenda o fábula? «Una zorra intenta alcanzar unas uvas; como no puede, dice que estaban verdes».", ["Personajes: animales que hablan.", "Tiene una enseñanza implícita."], "Una fábula (de Esopo)."],
+    ["Puntúa: Hola dijo Marta Vienes al parque", ["Raya al empezar y antes de la aclaración.", "Raya y punto después de la aclaración si sigue hablando."], "—Hola —dijo Marta—. ¿Vienes al parque?"],
+  ],
+  errores: ["Usar un guion corto en vez de la raya en los diálogos.", "Pensar que las leyendas son completamente verdad o completamente inventadas: mezclan las dos cosas."],
+  ejercicios: [
+    ["b", "¿Quiénes son los protagonistas de la leyenda de Teruel?", "Isabel de Segura y Diego de Marcilla."],
+    ["b", "¿Qué añaden los Grimm a Caperucita?", "Un cazador que las salva."],
+    ["b", "¿Qué es la moraleja?", "La enseñanza de una fábula."],
+    ["b", "¿Qué signo inicia cada intervención en un diálogo?", "La raya (—)."],
+    ["b", "¿Qué es un binomio fantástico?", "Dos palabras sin relación unidas en una historia."],
+    ["m", "¿Por qué hay tantas versiones de los cuentos populares?", "Porque se transmitían de boca en boca."],
+    ["m", "¿Qué explica la leyenda del acueducto de Segovia?", "Su origen y las marcas de las piedras."],
+    ["m", "Escribe la moraleja de La liebre y la tortuga.", "La constancia vence a la rapidez sin esfuerzo."],
+    ["m", "Escribe tres verbos para sustituir a «dijo».", "Susurró, gritó, respondió."],
+    ["m", "Nombra dos fabulistas españoles.", "Samaniego e Iriarte."],
+    ["a", "Escribe una versión nueva de Caperucita contada por el lobo.", "Respuesta abierta."],
+    ["a", "Investiga una leyenda de tu localidad y cuéntala.", "Respuesta abierta."],
+    ["a", "Escribe una fábula con moraleja.", "Respuesta abierta."],
+    ["a", "Inventa una historia con el binomio «nube» y «bicicleta».", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Los cuentos populares se transmitían…", ["de boca en boca", "por internet", "en el periódico"], "Versiones."],
+    ["La leyenda de los amantes es de…", ["Teruel", "Sevilla", "Bilbao"], "Leyendas."],
+    ["Las fábulas suelen tener…", ["moraleja", "rima siempre", "dragones"], "Fábula."],
+    ["Gianni Rodari era…", ["italiano", "español", "inglés"], "Rodari."],
+    ["En los diálogos se usa…", ["la raya", "el paréntesis", "el asterisco"], "Diálogos."],
+  ],
+  examen: [
+    ["En la lectura, ¿por qué no se casaron Isabel y Diego?", ["Diego llegó tarde", "Isabel no quería", "Diego no volvió nunca"], "Lectura."],
+    ["Esopo vivió en…", ["la antigua Grecia", "Teruel", "Italia moderna"], "Fábula."],
+  ],
+  tarjetas: [
+    ["Versiones", "Caperucita: Perrault, Grimm, modernas."],
+    ["Leyendas de España", "Teruel, Segovia, lagarto de Jaén, mouras, Cuélebre."],
+    ["Fábula", "Animales, moraleja; Esopo, Samaniego, Iriarte."],
+    ["Inventar y dialogar", "Binomio fantástico; raya y verbos de habla."],
+  ],
+  glosario: [
+    ["Versión", "Forma distinta de contar una misma historia."],
+    ["Tradición oral", "Lo que se transmite hablando, de generación en generación."],
+    ["Leyenda", "Narración que mezcla hechos reales y fantásticos."],
+    ["Sepulcro", "Tumba de piedra."],
+    ["Fábula", "Narración con animales y moraleja."],
+    ["Moraleja", "Enseñanza final de una fábula."],
+    ["Fabulista", "Autor de fábulas."],
+    ["Binomio fantástico", "Juego de unir dos palabras sin relación."],
+    ["Diálogo", "Conversación entre personajes."],
+    ["Raya", "Signo (—) que introduce lo que dice un personaje."],
+    ["Narrador", "Voz que cuenta la historia."],
+    ["Imaginación", "Capacidad de inventar."],
+  ],
+  situacion: {
+    titulo: "Antología de la clase",
+    reto: "La clase reúne un libro de cuentos, leyendas y fábulas propios y recogidos de las familias.",
+    pasos: ["Recoged una leyenda o un cuento popular de vuestra familia o pueblo.", "Escribid además un cuento propio con un juego de Rodari o una fábula.", "Revisad la estructura, los diálogos y la ortografía.", "Ilustrad y encuadernad la antología, y presentadla en una sesión de cuentacuentos."],
+    producto: "Una antología ilustrada y una sesión de cuentacuentos.",
+    evaluacion: ["Distingue cuento, leyenda y fábula.", "Respeta la estructura narrativa.", "Escribe diálogos correctamente.", "Narra oralmente con expresividad."],
+  },
+});

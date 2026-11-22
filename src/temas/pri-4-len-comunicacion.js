@@ -88,3 +88,91 @@ module.exports = P.tema({
   saberes: "Comunicación: elementos de la comunicación; lenguaje verbal y no verbal; diferencias entre comunicación oral y escrita; normas de la conversación; exposición oral; planificación, textualización y revisión de textos escritos; nota, invitación, correo y carta",
   ideas: ["Teléfono de vasos para identificar emisor, receptor y canal.", "Rueda de exposiciones de dos minutos con guion de tres palabras clave.", "Buzón de clase para escribirse notas y cartas con todas sus partes."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Valorar la lengua de signos como lengua completa", "Escribir cartas y correos electrónicos con sus partes", "Reconocer las partes de una noticia", "Comunicarse en internet con respeto y seguridad, y escuchar activamente"],
+  lectura: { titulo: "Las manos de Marina", html: `<p>El primer día de curso llegó una niña nueva a 4.º A. Se llamaba Marina y era <b>sorda</b>. Con ella venía una intérprete, Ana, que se sentaba a su lado y traducía con las manos todo lo que decía la maestra.</p><p>Al principio, los compañeros no sabían cómo hablar con Marina. Le hablaban muy alto o muy despacio, como si así fuera a oírlos mejor. Marina sonreía y negaba con la cabeza.</p><p>Un día, en el recreo, Marina cogió una tiza y escribió en el suelo del patio: «¿Queréis aprender a hablar con las manos?».</p><p>Todos dijeron que sí.</p><p>Empezó por lo más fácil: sus nombres. Cada uno tenía un <b>signo</b> especial. Al de Lucas, que siempre llevaba gorra, le puso un gesto como de tocarse la visera. A Sofía, que se reía mucho, un gesto junto a la boca.</p><p>Después aprendieron a decir «hola», «gracias», «¿jugamos?» y «amigo». Por las tardes practicaban delante del espejo.</p><p>Al final del trimestre, la clase preparó una sorpresa para la fiesta de Navidad: cantaron un villancico en voz alta y, a la vez, en <b>lengua de signos</b>. Marina, en primera fila, movía las manos con todos.</p><p>Las familias aplaudieron. Algunas, en vez de aplaudir con las palmas, levantaron las manos y las agitaron en el aire. Es el aplauso de la lengua de signos.</p>` },
+  tras: {
+    "Lenguaje verbal y no verbal": [
+      ["La lengua de signos", `<p>Las personas <b>sordas</b> pueden comunicarse con una lengua especial que no usa sonidos, sino <b>las manos</b>, los gestos de la cara y los movimientos del cuerpo: la <mark>lengua de signos</mark>.</p><p>Es una <b>lengua completa</b>, con su propio vocabulario y su propia gramática, igual que el castellano o el inglés. No es una mímica ni una traducción letra a letra: cada signo representa una palabra o una idea.</p><ul><li>En España hay dos lenguas de signos reconocidas por la ley desde <b>2007</b>: la <b>lengua de signos española (LSE)</b> y la <b>lengua de signos catalana (LSC)</b>.</li><li>No es universal: cada país tiene la suya. Un sordo de España y otro de Estados Unidos usan lenguas distintas.</li><li>También existe el <b>alfabeto dactilológico</b>, en el que cada letra tiene una posición de la mano. Se usa para deletrear nombres propios o palabras que no tienen signo.</li></ul><p>La expresión de la <b>cara</b> es muy importante: levantar las cejas puede convertir una frase en pregunta.</p><p>Las personas que traducen entre la lengua oral y la de signos se llaman <b>intérpretes</b>. Seguro que los has visto en la televisión, en las ruedas de prensa importantes.</p><p>Aprender algunos signos es una forma bonita de incluir a todas las personas.</p>`,
+        L6.filas("Lengua de signos", [["usa", "manos, cara, cuerpo", cAZ], ["en España", "LSE y LSC (2007)", cNA], ["deletrear", "alfabeto dactilológico", cVE], ["traduce", "intérprete", cMO]]), ["ERrV5XlInDw", "Buenos días en lengua de signos española", "Yo soy Ratón", 1590589]],
+    ],
+    "La comunicación escrita": [
+      ["La carta y el correo electrónico", `<p>La <mark>carta</mark> es un texto escrito que enviamos a una persona que no está con nosotros. Aunque hoy escribimos menos cartas en papel, sus partes se usan también en los correos electrónicos:</p><ol><li><b>Lugar y fecha</b>, arriba a la derecha: <i>Zaragoza, 15 de marzo de 2026</i>.</li><li><b>Saludo</b>: <i>Querida abuela:</i> (con dos puntos). Si es formal: <i>Estimado señor director:</i></li><li><b>Cuerpo</b>: lo que queremos contar, ordenado en párrafos.</li><li><b>Despedida</b>: <i>Un beso muy fuerte</i>, <i>Un abrazo</i>, <i>Atentamente</i>.</li><li><b>Firma</b>: nuestro nombre.</li><li>A veces, una <b>posdata</b> (<i>P. D.</i>) con algo que olvidamos.</li></ol><p>En el sobre se escribe el nombre y la dirección del <b>destinatario</b> en el centro, y los del <b>remitente</b> detrás. Se pega un sello.</p><p>El <mark>correo electrónico</mark> se envía por internet y llega en segundos. Además del saludo, el cuerpo y la despedida, tiene:</p><ul><li><b>Para</b>: la dirección del destinatario, con <b>@</b> (arroba).</li><li><b>Asunto</b>: un título breve que dice de qué trata.</li><li><b>Adjuntos</b>: archivos que enviamos, como fotos.</li></ul><p>Aunque sea más rápido, conviene escribirlo con cuidado: saludar, revisar la ortografía y despedirse.</p>`,
+        H6.flujo("Partes de la carta", ["lugar|y fecha", "saludo|Querida…:", "cuerpo|el mensaje", "despedida|y firma"], cNA), ["G_S5JTMljhU", "La carta y sus partes", "Aula chachi", 924572]],
+    ],
+    "Textos escritos de cada día": [
+      ["La noticia", `<p>La <mark>noticia</mark> es un texto que informa de un hecho <b>real</b>, <b>reciente</b> y que <b>interesa</b> a mucha gente. La encontramos en periódicos, en la radio, en la televisión y en internet. Tiene tres partes:</p><ul><li>El <b>titular</b>: una frase corta, en letra grande, que resume lo más importante y llama la atención. <i>Un colegio de Soria gana el concurso nacional de robótica</i>.</li><li>La <b>entradilla</b>: el primer párrafo, que cuenta lo esencial.</li><li>El <b>cuerpo</b>: los demás párrafos, con los detalles, de lo más importante a lo menos importante.</li></ul><p>Una buena noticia responde a las <b>seis preguntas</b> del periodismo:</p><ul><li>¿<b>Qué</b> ha pasado?</li><li>¿A <b>quién</b>?</li><li>¿<b>Cuándo</b>?</li><li>¿<b>Dónde</b>?</li><li>¿<b>Cómo</b>?</li><li>¿<b>Por qué</b>?</li></ul><p>La noticia debe ser <b>objetiva</b>: cuenta los hechos sin dar la opinión del periodista. Las opiniones van en otros textos, como los artículos de opinión.</p><p>¡Cuidado con las <b>noticias falsas</b>! En internet circulan noticias inventadas. Antes de creer o compartir una noticia, comprueba quién la publica, si aparece en otros medios fiables y si tiene fecha.</p>`,
+        H6.rueda("Las 6 preguntas", "NOTICIA", [["¿qué? ¿quién?", cAZ], ["¿cuándo?", cNA], ["¿dónde?", cVE], ["¿cómo? ¿por qué?", cRO]]), ["xU_Nn_ArxDw", "La noticia y sus partes para niños de Primaria", "Clases Particulares en Ávila", 712366]],
+    ],
+  },
+  final: [
+    ["Comunicarse en internet", `<p>Hoy nos comunicamos mucho por <b>internet</b>: mensajes, videollamadas, correos, juegos en línea. Es una forma rápida y útil, pero tiene sus propias normas de convivencia, que se llaman <mark>netiqueta</mark>:</p><ul><li><b>Saluda y despídete</b>, igual que harías en persona.</li><li>Escribe con <b>respeto</b>. Detrás de cada pantalla hay una persona con sentimientos. No escribas nada que no dirías a la cara.</li><li><b>No escribas todo en mayúsculas</b>: en internet equivale a gritar.</li><li>Los <b>emojis</b> ayudan a expresar emociones que en la escritura no se ven (el tono de voz, la cara). Pero úsalos con medida y asegúrate de que el otro los entiende igual.</li><li>Revisa la <b>ortografía</b>: también cuenta en los mensajes.</li><li>Piensa antes de enviar: lo que publicas en internet puede quedarse para siempre y difundirse.</li></ul><p>Normas de <b>seguridad</b>:</p><ul><li>No compartas datos personales: dirección, teléfono, colegio, contraseñas.</li><li>No hables con desconocidos ni aceptes su amistad.</li><li>No envíes fotos sin permiso de tus padres.</li><li>Si algo te hace sentir mal o te da miedo, <b>cuéntaselo</b> enseguida a un adulto de confianza.</li></ul>`,
+      H6.dos("En internet", ["SÍ", ["saludar", "respetar", "pedir ayuda"], cVE], ["NO", ["MAYÚSCULAS", "datos personales", "hablar con extraños"], cRO])],
+    ["Escuchar de verdad", `<p>Para comunicarnos bien no basta con hablar bien: también hay que <b>saber escuchar</b>. Escuchar no es lo mismo que oír. Oímos sin querer el ruido de la calle, pero <mark>escuchar</mark> es prestar atención para entender.</p><p>La <b>escucha activa</b> consiste en demostrar a la otra persona que nos interesa lo que dice. Se practica así:</p><ul><li><b>Mira</b> a la persona que habla.</li><li><b>No interrumpas</b>: espera a que termine.</li><li>Haz <b>gestos</b> que muestren que sigues la conversación: asentir con la cabeza, sonreír.</li><li>Deja a un lado otras cosas: el móvil, el lápiz, el juego.</li><li>Haz <b>preguntas</b> para entender mejor: <i>¿Y qué pasó después?</i></li><li><b>Resume</b> lo que has entendido: <i>O sea, que estás triste porque tu perro está enfermo</i>.</li><li><b>Ponte en su lugar</b>: intenta comprender cómo se siente.</li></ul><p>Cuando escuchamos de verdad, la otra persona se siente valorada, los malentendidos se evitan y las discusiones se resuelven mejor.</p><p>Haz la prueba: en parejas, uno cuenta algo durante un minuto y el otro solo escucha. Después, el que ha escuchado lo resume. ¿Lo ha entendido todo?</p>`,
+      H6.flujo("Escucha activa", ["mirar|a quien habla", "no|interrumpir", "preguntar|para entender", "resumir|lo dicho"], cAZ)],
+  ],
+  ejemplos: [
+    ["Ordena las partes de esta carta: «Un abrazo», «Querido Pablo:», «Cádiz, 3 de mayo», «Lucía», «Te escribo para…».", ["Primero lugar y fecha, luego saludo.", "Después cuerpo, despedida y firma."], "Cádiz, 3 de mayo / Querido Pablo: / Te escribo para… / Un abrazo / Lucía"],
+    ["Escribe un titular para esta noticia: los alumnos de 4.º plantan 50 árboles en el parque.", ["El titular es corto y resume lo esencial.", "Responde a qué y quién."], "Los alumnos de 4.º plantan 50 árboles en el parque"],
+  ],
+  errores: ["Escribir todo el mensaje en mayúsculas: en internet parece que gritas.", "Creer que la lengua de signos es igual en todos los países."],
+  ejercicios: [
+    ["b", "¿Qué lenguas de signos se reconocen en España?", "LSE y LSC."],
+    ["b", "Escribe las partes de una carta.", "Lugar y fecha, saludo, cuerpo, despedida, firma."],
+    ["b", "¿Qué es el asunto de un correo electrónico?", "Un título breve que dice de qué trata."],
+    ["b", "Escribe las seis preguntas de una noticia.", "Qué, quién, cuándo, dónde, cómo, por qué."],
+    ["b", "¿Qué significa escribir en mayúsculas en internet?", "Gritar."],
+    ["m", "¿Qué es el alfabeto dactilológico?", "Letras representadas con la mano."],
+    ["m", "¿Qué diferencia hay entre destinatario y remitente?", "Quien recibe / quien envía."],
+    ["m", "¿Por qué una noticia debe ser objetiva?", "Para informar sin opiniones."],
+    ["m", "Escribe tres normas de seguridad en internet.", "No dar datos, no hablar con extraños, avisar a un adulto."],
+    ["m", "¿En qué se diferencian oír y escuchar?", "Escuchar es prestar atención para entender."],
+    ["a", "Aprende a deletrear tu nombre con el alfabeto dactilológico.", "Respuesta abierta."],
+    ["a", "Escribe una carta a un familiar y envíala por correo postal.", "Respuesta abierta."],
+    ["a", "Escribe una noticia sobre algo que haya pasado en el colegio.", "Respuesta abierta."],
+    ["a", "Haz un decálogo de netiqueta para la clase.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["La lengua de signos es…", ["una lengua completa", "mímica", "igual en todo el mundo"], "Signos."],
+    ["En una carta, el saludo lleva…", ["dos puntos", "punto y coma", "guion"], "Carta."],
+    ["El titular de una noticia…", ["resume lo más importante", "es el último párrafo", "da la opinión"], "Noticia."],
+    ["Netiqueta son…", ["normas de convivencia en internet", "etiquetas de ropa", "contraseñas"], "Internet."],
+    ["En la escucha activa hay que…", ["no interrumpir", "mirar el móvil", "hablar a la vez"], "Escuchar."],
+  ],
+  examen: [
+    ["En la lectura, ¿cómo aplaudieron algunas familias?", ["agitando las manos en el aire", "dando palmas", "silbando"], "Lectura."],
+    ["En un correo, la @ forma parte de…", ["la dirección", "el asunto", "la firma"], "Correo."],
+  ],
+  tarjetas: [
+    ["Lengua de signos", "Lengua completa; LSE y LSC; intérpretes; dactilológico."],
+    ["Carta y correo", "Fecha, saludo, cuerpo, despedida, firma; para, asunto, adjuntos."],
+    ["Noticia", "Titular, entradilla, cuerpo; qué, quién, cuándo, dónde, cómo, por qué."],
+    ["Internet y escucha", "Netiqueta, seguridad; mirar, no interrumpir, resumir."],
+  ],
+  glosario: [
+    ["Lengua de signos", "Lengua que se expresa con las manos y la cara."],
+    ["Intérprete", "Persona que traduce entre lenguas."],
+    ["Dactilológico", "Alfabeto que representa letras con los dedos."],
+    ["Destinatario", "Persona que recibe un mensaje."],
+    ["Remitente", "Persona que envía un mensaje."],
+    ["Posdata", "Texto añadido al final de una carta."],
+    ["Asunto", "Título de un correo electrónico."],
+    ["Titular", "Título de una noticia."],
+    ["Entradilla", "Primer párrafo de una noticia."],
+    ["Objetivo", "Que cuenta hechos sin opinar."],
+    ["Netiqueta", "Normas de buena educación en internet."],
+    ["Escucha activa", "Escuchar con atención y mostrando interés."],
+  ],
+  situacion: {
+    titulo: "El periódico de la clase",
+    reto: "La clase publica un periódico con noticias, cartas y entrevistas del colegio.",
+    pasos: ["Repartid secciones: noticias, cartas al director, entrevistas, pasatiempos.", "Buscad información respondiendo a las seis preguntas.", "Escribid, revisad la ortografía y añadid titulares.", "Maquetad el periódico y repartidlo o enviadlo por correo a las familias."],
+    producto: "Un periódico escolar en papel o digital.",
+    evaluacion: ["Escribe noticias con sus partes.", "Redacta cartas y correos correctos.", "Escucha y recoge bien la información.", "Trabaja en equipo con respeto."],
+  },
+});
