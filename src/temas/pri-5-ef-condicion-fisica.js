@@ -137,3 +137,90 @@ module.exports = {
   fuentes: [RD, wiki("Capacidades físicas", "Capacidades_físicas"), wiki("Frecuencia cardíaca", "Frecuencia_cardíaca"), { t: "OMS: actividad física", url: "https://www.who.int/es/news-room/fact-sheets/detail/physical-activity" }],
   revisado: REV,
 };
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { L: L5, H: H5, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 85,
+  objetivos: ["Distinguir el esfuerzo aeróbico del anaeróbico", "Entrenar la fuerza de forma segura con el propio peso", "Conocer las pruebas de condición física y los principios del entrenamiento", "Saber cuánta actividad física recomienda la OMS a tu edad"],
+  lectura: { titulo: "El reto de las seis semanas", html: `<p>En el colegio de Iker, la profesora de Educación Física propuso un reto: durante seis semanas, cada alumno elegiría una capacidad física para mejorar y apuntaría sus progresos en un cuaderno.</p><p>Iker eligió la resistencia. El primer día hizo la prueba de la course navette y llegó al período 4. «Uf, qué poco», pensó. Pero la profesora le explicó que lo importante no era compararse con los demás, sino consigo mismo.</p><p>Así que Iker se organizó: tres días por semana salía a correr suave con su madre por el parque, al principio 10 minutos y después 15 y 20. Si podía hablar mientras corría, el ritmo era el bueno. Los otros días jugaba al fútbol en el recreo o iba en bici al colegio. Y siempre dormía sus nueve horas.</p><p>Algunas semanas fueron difíciles: llovió, tuvo un resfriado y se saltó dos entrenamientos. Pero no se rindió.</p><p>Seis semanas después repitió la prueba. Esta vez llegó al período 6. Su amiga Nora, que había entrenado la flexibilidad, había mejorado cinco centímetros en el test de sentarse y alcanzar.</p><p>—¿Ves? —le dijo la profesora—. El cuerpo es como una planta: si lo cuidas un poco cada día, crece.</p>` },
+  tras: {
+    "La resistencia": [
+      ["Aeróbico y anaeróbico", `<p>Los músculos necesitan energía para moverse, y la obtienen de dos maneras:</p><ul><li><b>Esfuerzo aeróbico</b> («con oxígeno»): es un esfuerzo de intensidad <b>moderada</b> y <b>larga duración</b>. El corazón y los pulmones llevan suficiente oxígeno a los músculos y podemos aguantar mucho tiempo. Ejemplos: correr suave, nadar varios largos, montar en bici o bailar durante un rato.</li><li><b>Esfuerzo anaeróbico</b> («sin oxígeno suficiente»): es un esfuerzo <b>muy intenso</b> y <b>corto</b>. Los músculos gastan energía más rápido de lo que llega el oxígeno, y nos cansamos enseguida. Ejemplos: un sprint de 50 metros, subir escaleras a toda velocidad o un salto con toda la fuerza.</li></ul><p>Un truco para saber en cuál estás es el <b>test del habla</b>: si mientras corres puedes hablar con un compañero con frases completas, estás en zona aeróbica. Si solo puedes decir palabras sueltas, estás cerca de la zona anaeróbica.</p><p>A vuestra edad, lo más saludable es trabajar sobre todo la <b>resistencia aeróbica</b>, con juegos y actividades variadas. Mejora el corazón, los pulmones y el ánimo. Los esfuerzos muy intensos también aparecen en los juegos, pero en momentos cortos y con descansos.</p>`,
+        H5.dos("Aeróbico o anaeróbico", ["Aeróbico", ["moderado y largo", "puedo hablar", "correr suave, bici"], cAZ], ["Anaeróbico", ["muy intenso y corto", "no puedo hablar", "sprint, salto"], cRO]), ["1eO2eo-gJno", "Ejercicio aeróbico vs. ejercicio anaeróbico", "Aprendi Lá ", 148976]],
+    ],
+    "La fuerza": [
+      ["Fuerza con el propio peso", `<p>A tu edad, la mejor forma de trabajar la fuerza es con el <b>peso de tu propio cuerpo</b>, con juegos de trepar, empujar, arrastrar o saltar, y con ejercicios sencillos bien hechos. No se necesitan pesas.</p><ul><li><b>Sentadilla</b>: pies separados a la anchura de los hombros, bajas como si fueras a sentarte en una silla, con la espalda recta y las rodillas en la dirección de los pies. Trabaja las piernas.</li><li><b>Plancha</b>: apoyado en los antebrazos y en las puntas de los pies, con el cuerpo recto como una tabla, sin hundir la cadera. Aguanta entre 15 y 30 segundos. Trabaja el abdomen y la espalda.</li><li><b>Flexiones</b>: si son difíciles, empieza apoyando las rodillas. Trabajan los brazos y el pecho.</li><li><b>Puente de glúteos</b>: tumbado boca arriba con las rodillas dobladas, eleva la cadera y bájala despacio.</li><li><b>Saltos</b> a pies juntos, a la pata coja o a la comba.</li></ul><p><b>Normas de seguridad</b>: prima la <b>técnica</b> sobre la cantidad, haz pocas repeticiones (entre 8 y 12) bien hechas, descansa entre series, no aguantes la respiración y para si sientes dolor. Un adulto debe supervisar los ejercicios nuevos.</p>`,
+        L5.filas("Ejercicios de fuerza con el propio peso", [["sentadilla", "piernas", cAZ], ["plancha", "abdomen y espalda", cVE], ["flexiones", "brazos y pecho", cNA], ["puente", "glúteos", cMO], ["saltos", "piernas y potencia", cRO]])],
+    ],
+    "¿Cómo conozco mi condición física?": [
+      ["Las pruebas de condición física", `<p>En muchos colegios se usan <b>pruebas</b> o <b>tests</b> para conocer el estado de cada capacidad física. Las más conocidas forman parte de baterías como la <b>batería ALPHA-Fitness</b>, diseñada por investigadores españoles para niños y adolescentes:</p><ul><li><b>Course navette</b> (resistencia): se corre de un lado a otro entre dos líneas separadas <b>20 metros</b>, siguiendo unos pitidos que cada minuto van más rápido. Cuando no llegas a la línea a tiempo dos veces seguidas, terminas. Se anota el último período completado.</li><li><b>Salto horizontal a pies juntos</b> (fuerza de piernas): desde parado, saltas lo más lejos posible y se mide la distancia.</li><li><b>Dinamometría manual</b> (fuerza de brazos): se aprieta un aparato llamado dinamómetro con la mano.</li><li><b>4 × 10 metros</b> (velocidad y agilidad): se corre ida y vuelta entre dos líneas cogiendo y dejando objetos.</li><li><b>Sentarse y alcanzar</b> (flexibilidad): sentado con las piernas estiradas, empujas una regla con las manos lo más lejos posible.</li></ul><p>Lo importante de estas pruebas no es ganar a los demás, sino <b>conocerte</b> y comparar tus resultados contigo mismo a lo largo del curso.</p>`,
+        L5.tabla("Pruebas de condición física y qué miden", ["prueba", "capacidad"], [["course navette", "resistencia"], ["salto horizontal", "fuerza piernas"], ["dinamometría", "fuerza brazos"], ["4 × 10 m", "velocidad"], ["sentarse y alcanzar", "flexibilidad"]], cVE), ["9Ndcuwm2ryQ", "Test de COURSE NAVETTE 🔊TRUCOS y EXPLICACIÓN🏃", "MasterD", 228020]],
+    ],
+  },
+  final: [
+    ["Los principios del entrenamiento", `<p>Para mejorar la condición física no basta con hacer ejercicio de vez en cuando. Los entrenadores siguen unos <b>principios</b> o reglas básicas:</p><ul><li><b>Continuidad</b>: hay que practicar con regularidad, varias veces por semana. Si paras mucho tiempo, lo ganado se pierde poco a poco.</li><li><b>Progresión</b>: el esfuerzo se aumenta <b>poco a poco</b>. Primero más tiempo o más repeticiones, y después más intensidad. Nunca de golpe.</li><li><b>Variedad</b>: alternar actividades distintas (correr, nadar, saltar, jugar, bailar) trabaja todo el cuerpo y es más divertido.</li><li><b>Descanso</b>: el cuerpo mejora <b>mientras descansa</b>. Después de un esfuerzo, el organismo se recupera y se prepara para hacerlo un poco mejor la próxima vez. Por eso dormir bien es parte del entrenamiento.</li><li><b>Individualidad</b>: cada persona es diferente. Lo que es fácil para uno puede ser difícil para otro, y cada uno mejora a su ritmo.</li></ul><p>Fíjate en que Iker, en la lectura, siguió estos principios: entrenó tres días por semana (continuidad), pasó de 10 a 20 minutos (progresión), combinó carrera, fútbol y bici (variedad), durmió bien (descanso) y se comparó solo consigo mismo (individualidad).</p>`,
+      L5.filas("Principios del entrenamiento", [["continuidad", "con regularidad", cAZ], ["progresión", "poco a poco", cVE], ["variedad", "actividades distintas", cNA], ["descanso", "dormir y recuperar", cMO], ["individualidad", "cada uno a su ritmo", cRO]])],
+    ["¿Cuánto movimiento necesito?", `<p>La <b>Organización Mundial de la Salud</b> (OMS) recomienda que los niños y adolescentes de <b>5 a 17 años</b>:</p><ul><li>Hagan <b>al menos 60 minutos al día</b> de actividad física de intensidad moderada o vigorosa, sobre todo aeróbica. No hace falta hacerlos seguidos: se pueden sumar ratos de 10 o 15 minutos.</li><li>Al menos <b>tres días por semana</b> incluyan actividades <b>vigorosas</b> y ejercicios que <b>fortalezcan</b> los músculos y los huesos, como saltar, trepar o correr rápido.</li><li><b>Limiten el tiempo sentados</b>, sobre todo delante de pantallas en el tiempo libre.</li></ul><p>¿Cómo llegar a 60 minutos? Ir andando o en bici al colegio (15 min), jugar activamente en el recreo (20 min), la clase de Educación Física o una extraescolar deportiva (45 min) y jugar en el parque por la tarde. ¡Es más fácil de lo que parece!</p><p>Según varios estudios, una gran parte de los niños españoles <b>no llega</b> a estos 60 minutos diarios, y muchos pasan más de dos horas al día frente a pantallas. Moverse más mejora el corazón, los huesos, el sueño, la concentración y el estado de ánimo.</p>`,
+      H5.barras("Ejemplo para sumar 60 minutos de actividad en un día", [["ir en bici", 15, cAZ, "15"], ["recreo", 20, cVE, "20"], ["parque", 25, cNA, "25"]], 30)],
+  ],
+  ejemplos: [
+    ["Lucía corre 10 minutos la primera semana. Si cada semana añade 2 minutos, ¿cuántos correrá la quinta semana?", ["Semana 1: 10 min.", "Cada semana suma 2: 10 + 2 × 4.", "Semana 5: 18 minutos."], "18 minutos (principio de progresión)"],
+    ["Hoy Pablo ha ido andando al cole 12 minutos, ha jugado en el recreo 25 y ha hecho 30 de baloncesto. ¿Cumple la recomendación de la OMS?", ["12 + 25 + 30 = 67 minutos.", "La OMS recomienda al menos 60.", "67 > 60."], "Sí, 67 minutos"],
+  ],
+  errores: ["Pensar que más intensidad siempre es mejor: a vuestra edad conviene sobre todo el esfuerzo aeróbico.", "Creer que el descanso es perder el tiempo: el cuerpo mejora al descansar."],
+  ejercicios: [
+    ["b", "¿Qué significa «aeróbico»?", "Con oxígeno: esfuerzo moderado y largo."],
+    ["b", "¿En qué consiste el test del habla?", "Si puedes hablar con frases completas mientras corres, estás en zona aeróbica."],
+    ["b", "¿Qué capacidad mide la course navette?", "La resistencia."],
+    ["b", "¿Cuántos minutos diarios de actividad recomienda la OMS de 5 a 17 años?", "Al menos 60."],
+    ["b", "Nombra tres ejercicios de fuerza con el propio peso.", "Sentadilla, plancha, flexiones, puente, saltos."],
+    ["m", "Clasifica en aeróbico o anaeróbico: sprint de 30 m, nadar 20 minutos, salto de longitud, bailar una hora.", "Anaeróbico, aeróbico, anaeróbico, aeróbico."],
+    ["m", "Explica cómo se hace bien una sentadilla.", "Pies a la anchura de los hombros, bajar como para sentarse, espalda recta, rodillas hacia los pies."],
+    ["m", "¿Qué principios del entrenamiento siguió Iker en la lectura?", "Continuidad, progresión, variedad, descanso e individualidad."],
+    ["m", "¿Por qué no hay que compararse con los demás en las pruebas físicas?", "Porque cada persona es distinta; lo útil es compararse con uno mismo."],
+    ["m", "Calcula tus minutos de actividad física de ayer. ¿Llegaste a 60?", "Respuesta libre."],
+    ["a", "Diseña un plan de seis semanas para mejorar una capacidad aplicando los principios del entrenamiento.", "Respuesta libre."],
+    ["a", "Crea un circuito de fuerza de cinco estaciones con el propio peso y sus normas de seguridad.", "Respuesta libre."],
+    ["a", "Registra durante una semana tu actividad física y tu tiempo de pantallas. Saca conclusiones.", "Respuesta libre."],
+    ["a", "Prepara una explicación para niños pequeños sobre qué es el esfuerzo aeróbico.", "Respuesta libre."],
+  ],
+  quiz: [
+    ["Un sprint de 50 metros es un esfuerzo…", ["anaeróbico", "aeróbico", "de flexibilidad"], "Intenso y corto."],
+    ["En la course navette las líneas están a…", ["20 metros", "5 metros", "100 metros"], "Ida y vuelta."],
+    ["La plancha trabaja sobre todo…", ["abdomen y espalda", "los gemelos", "el cuello"], "Core."],
+    ["El principio de progresión dice que…", ["el esfuerzo aumenta poco a poco", "hay que entrenar un día al mes", "todos entrenan igual"], "Poco a poco."],
+    ["La OMS recomienda reforzar músculos y huesos…", ["al menos 3 días por semana", "una vez al mes", "nunca"], "5–17 años."],
+  ],
+  examen: [
+    ["La prueba de sentarse y alcanzar mide…", ["la flexibilidad", "la velocidad", "la fuerza"], "Flexibilidad."],
+    ["El cuerpo mejora sobre todo…", ["mientras descansa tras el esfuerzo", "solo durante el ejercicio", "sin hacer nada nunca"], "Descanso."],
+  ],
+  tarjetas: [
+    ["Aeróbico / anaeróbico", "Moderado y largo / muy intenso y corto."],
+    ["Course navette", "Prueba de resistencia: 20 m al ritmo de pitidos."],
+    ["Principios del entrenamiento", "Continuidad, progresión, variedad, descanso, individualidad."],
+    ["Recomendación OMS", "60 minutos diarios de actividad moderada o vigorosa."],
+  ],
+  glosario: [
+    ["Aeróbico", "Esfuerzo moderado y largo en el que llega oxígeno suficiente."],
+    ["Anaeróbico", "Esfuerzo muy intenso y corto."],
+    ["Test del habla", "Truco para saber la intensidad: si puedes hablar, es aeróbico."],
+    ["Sentadilla", "Ejercicio de piernas bajando como para sentarse."],
+    ["Plancha", "Ejercicio isométrico apoyado en antebrazos y pies."],
+    ["Serie", "Grupo de repeticiones seguidas de un ejercicio."],
+    ["Course navette", "Prueba de resistencia de ida y vuelta en 20 m."],
+    ["Dinamómetro", "Aparato que mide la fuerza al apretar."],
+    ["Batería de pruebas", "Conjunto de tests de condición física."],
+    ["Progresión", "Aumentar el esfuerzo poco a poco."],
+    ["Sedentarismo", "Pasar mucho tiempo sentado y sin moverse."],
+    ["OMS", "Organización Mundial de la Salud."],
+  ],
+  situacion: {
+    titulo: "Mi reto de condición física",
+    reto: "Cada alumno elige una capacidad física, se hace una prueba inicial, sigue un plan de seis semanas y vuelve a medirse para comprobar su progreso.",
+    pasos: ["Haz la prueba inicial de la capacidad elegida y anota el resultado en tu cuaderno de entrenamiento.", "Diseña tu plan con los principios del entrenamiento: cuántos días, cuánto tiempo y cómo vas a progresar.", "Registra cada semana lo que haces, tus minutos de actividad diaria y cómo te sientes.", "Repite la prueba, compara con tu resultado inicial y presenta tus conclusiones a la clase."],
+    producto: "Un cuaderno de entrenamiento con plan, registro y resultados.",
+    evaluacion: ["Distingue las capacidades físicas y cómo se miden.", "Aplica los principios del entrenamiento en su plan.", "Realiza los ejercicios de fuerza con técnica segura.", "Valora su progreso comparándose consigo mismo."],
+  },
+});

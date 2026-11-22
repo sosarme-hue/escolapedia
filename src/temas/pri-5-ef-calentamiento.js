@@ -136,3 +136,90 @@ module.exports = {
   fuentes: [RD, wiki("Calentamiento (deporte)", "Calentamiento_(deporte)"), wiki("Estiramiento", "Estiramiento")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { L: L5, H: H5, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 85,
+  objetivos: ["Tomarse el pulso y comprobar el efecto del calentamiento", "Diseñar calentamientos con música y con material", "Estirar correctamente en la vuelta a la calma", "Saber cómo calientan los deportistas y actuar ante una lesión leve"],
+  lectura: { titulo: "El día que Marta no calentó", html: `<p>Marta llegó tarde al partido de baloncesto del sábado. El entrenador la miró y le dijo: «Calienta cinco minutos y entras». Pero el partido estaba muy igualado y Marta tenía muchas ganas de jugar, así que se quitó el chándal, hizo dos saltitos y se plantó en la banda.</p><p>—Estoy lista —dijo.</p><p>En su primera jugada, Marta salió disparada al contraataque. Al tercer paso, sintió un pinchazo en la parte de atrás del muslo, como si le hubieran dado una pedrada. Se paró en seco y se llevó la mano a la pierna. El entrenador pidió tiempo muerto.</p><p>—Es un tirón en los isquiotibiales —le explicó después la fisioterapeuta del club, mientras le ponía hielo envuelto en una toalla—. Tus músculos estaban fríos y les pediste de golpe el máximo esfuerzo. Es como intentar estirar un chicle recién sacado de la nevera: se rompe.</p><p>Marta estuvo dos semanas sin jugar. Cuando volvió, fue la primera en llegar al entrenamiento. Trotó, movió todas sus articulaciones, hizo skipping, desplazamientos laterales y unos cuantos lanzamientos suaves a canasta. Cuando su compañero Leo le preguntó por qué calentaba tanto, Marta sonrió:</p><p>—Porque prefiero perder diez minutos calentando que dos semanas en el banquillo.</p>` },
+  tras: {
+    "La movilidad articular, de arriba abajo": [
+      ["Tomarse el pulso", `<p>Una forma sencilla de comprobar que el calentamiento funciona es tomarse el <b>pulso</b>, es decir, contar cuántas veces late el corazón en un minuto. Se mide en <b>pulsaciones por minuto</b> (ppm).</p><p><b>Dónde se toma</b>:</p><ul><li>En la <b>muñeca</b> (pulso radial): coloca los dedos índice y corazón en la parte interior de la muñeca, por debajo del pulgar.</li><li>En el <b>cuello</b> (pulso carotídeo): coloca los dos dedos a un lado de la nuez, sin apretar fuerte.</li></ul><p>Nunca uses el dedo pulgar, porque tiene su propio pulso y te puedes confundir.</p><p><b>Cómo se cuenta</b>: cuenta los latidos durante <b>15 segundos</b> y multiplica por 4. Si cuentas 22 latidos, tu pulso es 22 × 4 = 88 ppm.</p><p><b>Qué valores esperar</b> a tu edad (son aproximados y cambian de una persona a otra):</p><ul><li>En reposo, sentado: entre <b>70 y 100 ppm</b>.</li><li>Después de un buen calentamiento: entre <b>110 y 130 ppm</b>.</li><li>Durante un ejercicio intenso: entre <b>150 y 190 ppm</b>.</li></ul><p>Si después de calentar tu pulso apenas ha subido, el calentamiento ha sido demasiado suave. Si estás agotado antes de empezar, ¡te has pasado!</p>`,
+        H5.barras("Pulso aproximado de un niño de 11 años", [["reposo", 85, cAZ, "85"], ["calentar", 120, cVE, "120"], ["intenso", 170, cRO, "170"]], 200), ["hBI6yk0DXUA", "APRENDO A MEDIR LA FRECUENCIA CARDÍACA 4°BÁSICO", "Profe Romina Burgos", 181178]],
+    ],
+    "Juegos para calentar": [
+      ["Calentar con música y con material", `<p>Además de los juegos, hay muchas formas divertidas de calentar:</p><p><b>Con música</b>: una canción alegre de unos tres minutos marca el ritmo. Se puede hacer una coreografía sencilla de movimientos articulares (círculos de brazos, giros de cintura, elevaciones de rodillas) o el juego de <b>«las estatuas»</b>: mientras suena la música, todos trotan; cuando se para, hay que quedarse quieto en una postura.</p><p><b>Con material</b>:</p><ul><li><b>Comba</b>: saltar suave con los pies juntos, alternando pies, hacia delante y hacia atrás.</li><li><b>Aros</b>: correr y saltar dentro de los aros colocados en el suelo, o hacerlos girar en la cintura y en los brazos.</li><li><b>Picas</b>: sujetarlas con los brazos estirados y hacer giros de tronco o pasarlas por encima de la cabeza.</li><li><b>Balones</b>: pases suaves por parejas mientras se trota, o botar con una mano y con la otra.</li><li><b>Conos</b>: hacer circuitos de zigzag, desplazamientos laterales y carreras hacia atrás.</li></ul><p>Elegir el material según la actividad que viene después es una buena idea: balones antes de baloncesto, comba antes de saltos, conos antes de un juego de persecución. Así el calentamiento general se convierte poco a poco en <b>específico</b>.</p>`,
+        L5.filas("Material para calentar y para qué sirve", [["comba", "saltos y ritmo", cAZ], ["aros", "saltos y coordinación", cVE], ["picas", "giros de tronco", cNA], ["balones", "pases y botes", cRO], ["conos", "zigzag y cambios", cMO]]), ["AwhRchz8MEA", "10 JUEGOS DE CALENTAMIENTO | Juegos Educación Física", "JuegosEF", 886938]],
+    ],
+    "La vuelta a la calma": [
+      ["Estirar bien: las reglas de oro", `<p>Los <b>estiramientos</b> son parte de la vuelta a la calma. Hay dos tipos:</p><ul><li><b>Dinámicos</b>: con movimiento suave, como balanceos de piernas o círculos de brazos. Son mejores en el <b>calentamiento</b>.</li><li><b>Estáticos</b>: se llega a una posición y se mantiene quieto. Son mejores en la <b>vuelta a la calma</b>.</li></ul><p><b>Reglas de oro para estirar</b>:</p><ul><li>Mantén cada estiramiento entre <b>15 y 20 segundos</b>.</li><li>Debes notar <b>tensión</b>, pero nunca <b>dolor</b>. Si duele, afloja.</li><li><b>Sin rebotes</b>: los rebotes pueden provocar pequeñas roturas en el músculo.</li><li><b>Respira</b> despacio y profundo; no aguantes el aire.</li><li>Estira los <b>dos lados</b> del cuerpo por igual.</li></ul><p><b>Estiramientos básicos</b>:</p><ul><li><b>Cuádriceps</b> (parte delantera del muslo): de pie, coge el pie con la mano y lleva el talón hacia el glúteo.</li><li><b>Isquiotibiales</b> (parte trasera del muslo): sentado con las piernas estiradas, intenta tocar las puntas de los pies.</li><li><b>Gemelos</b>: apoya las manos en la pared, una pierna atrás con el talón en el suelo.</li><li><b>Hombros</b>: cruza un brazo por delante del pecho y empújalo suave con el otro.</li><li><b>Cuello</b>: inclina la cabeza hacia un lado despacio, sin girarla en círculos completos.</li></ul>`,
+        L5.filas("Estiramientos básicos en la vuelta a la calma", [["cuádriceps", "talón al glúteo", cAZ], ["isquiotibiales", "tocar las puntas", cVE], ["gemelos", "talón en el suelo", cNA], ["hombros", "brazo cruzado", cMO], ["cuello", "inclinar despacio", cRO]]), ["GVY0u5Vx01E", "🎵 Vuelta a la calma | Canción infantil para relajar 🧘‍♂️🧘‍♀️", "La caja de cuentos y canciones infantiles.", 940288]],
+    ],
+  },
+  final: [
+    ["Cómo calientan los deportistas", `<p>Los deportistas profesionales dedican mucho tiempo a calentar, a veces <b>más de 30 minutos</b>. Cada deporte tiene su calentamiento específico:</p><ul><li><b>Atletismo</b>: trote suave, movilidad articular y después los «ejercicios de técnica de carrera»: <b>skipping</b> (elevar rodillas), <b>talones al glúteo</b>, zancadas largas y <b>progresiones</b>, que son carreras cortas en las que se va aumentando la velocidad.</li><li><b>Fútbol</b>: carrera con cambios de dirección, pases cortos y largos, rondos y tiros a puerta. Los porteros hacen su propio calentamiento con estiradas y blocajes.</li><li><b>Natación</b>: los nadadores calientan primero <b>en seco</b>, moviendo hombros y brazos, y luego nadan unos metros suaves en el agua antes de la prueba.</li><li><b>Baloncesto</b>: entradas a canasta en fila, tiros libres y pases mientras se corre.</li></ul><p>En el fútbol se usa mucho un calentamiento llamado <b>FIFA 11+</b>, diseñado por médicos para <b>prevenir lesiones</b>. Tiene ejercicios de carrera, de fuerza, de equilibrio y de saltos. Los estudios indican que los equipos que lo hacen con regularidad se lesionan bastante menos.</p><p>La lección es clara: los mejores del mundo nunca se saltan el calentamiento.</p>`,
+      L5.tabla("Calentamiento específico de varios deportes", ["deporte", "ejercicio típico"], [["atletismo", "skipping"], ["fútbol", "rondos y pases"], ["natación", "brazos en seco"], ["baloncesto", "entradas a canasta"]], cAZ)],
+    ["Si me hago daño: el método PRICE", `<p>Aunque calentemos bien, a veces ocurren <b>lesiones leves</b>. Las más frecuentes son:</p><ul><li><b>Esguince</b>: se estira o se rompe un poco un <b>ligamento</b>, normalmente en el tobillo, al torcerlo.</li><li><b>Tirón o contractura</b>: el músculo se estira demasiado o se queda tenso y duele.</li><li><b>Agujetas</b>: molestias musculares que aparecen uno o dos días después de un ejercicio al que no estamos acostumbrados. No son graves y se pasan solas.</li></ul><p>Ante un golpe o una torcedura, lo primero es <b>parar y avisar a un adulto</b>. Después se aplica el método <b>PRICE</b> (sus iniciales en inglés):</p><ul><li><b>P</b>rotección: no seguir jugando y proteger la zona.</li><li><b>R</b>eposo: no apoyar ni mover la parte dañada.</li><li><b>I</b>ce (hielo): aplicar frío <b>envuelto en un paño</b>, nunca directamente sobre la piel, durante unos 15 o 20 minutos.</li><li><b>C</b>ompresión: un vendaje que sujete sin apretar demasiado.</li><li><b>E</b>levación: poner la zona en alto, por encima del corazón, para que se hinche menos.</li></ul><p>Si el dolor es muy fuerte, la zona se deforma o no se puede apoyar el pie, hay que ir al médico. ¡Y nunca hay que volver a jugar con dolor!</p>`,
+      H5.flujo("El método PRICE ante una lesión leve", ["Protección|parar", "Reposo|no apoyar", "Hielo|en un paño", "Compresión|venda", "Elevación|en alto"], cAZ)],
+  ],
+  ejemplos: [
+    ["Ana cuenta 21 latidos en 15 segundos antes de calentar y 30 después. ¿Cuál es su pulso en cada caso?", ["Antes: 21 × 4 = 84 ppm.", "Después: 30 × 4 = 120 ppm.", "Ha subido 36 ppm: el calentamiento ha funcionado."], "84 ppm y 120 ppm"],
+    ["Un compañero se tuerce el tobillo en el recreo. ¿Qué hacemos?", ["Parar el juego y avisar a un adulto.", "Reposo y hielo envuelto en un paño 15–20 minutos.", "Vendaje suave y pie en alto."], "Avisar a un adulto y aplicar PRICE"],
+  ],
+  errores: ["Tomarse el pulso con el pulgar: tiene su propio latido.", "Estirar con rebotes o hasta que duela."],
+  ejercicios: [
+    ["b", "¿En qué dos lugares del cuerpo puedes tomarte el pulso?", "En la muñeca y en el cuello."],
+    ["b", "Si cuentas 25 latidos en 15 segundos, ¿cuál es tu pulso?", "25 × 4 = 100 ppm."],
+    ["b", "¿Cuánto tiempo se mantiene un estiramiento estático?", "Entre 15 y 20 segundos."],
+    ["b", "¿Qué significan las letras de PRICE?", "Protección, Reposo, Hielo (Ice), Compresión, Elevación."],
+    ["b", "Nombra tres materiales que sirven para calentar.", "Comba, aros, picas, balones, conos."],
+    ["m", "¿Qué diferencia hay entre estiramientos dinámicos y estáticos? ¿Cuándo se usa cada uno?", "Dinámicos con movimiento, en el calentamiento; estáticos quietos, en la vuelta a la calma."],
+    ["m", "¿Por qué se lesionó Marta en la lectura?", "Porque no calentó y exigió el máximo esfuerzo a unos músculos fríos."],
+    ["m", "Propón un calentamiento específico para un partido de balonmano.", "Ej.: trote, movilidad, pases en carrera, lanzamientos suaves a portería."],
+    ["m", "¿Por qué el hielo debe ir envuelto en un paño?", "Para no quemar la piel con el frío."],
+    ["m", "¿Qué son las agujetas y son graves?", "Molestias musculares uno o dos días después de un ejercicio nuevo; no son graves."],
+    ["a", "Tómate el pulso en reposo, tras calentar y tras correr un minuto. Haz una tabla y explica los cambios.", "Respuesta libre."],
+    ["a", "Diseña un calentamiento con música de tres minutos para tu clase.", "Respuesta libre."],
+    ["a", "Prepara una ficha con cinco estiramientos, cómo se hacen y qué músculo estiran.", "Respuesta libre."],
+    ["a", "Investiga el calentamiento de tu deporte favorito y explícalo a la clase.", "Respuesta libre."],
+  ],
+  quiz: [
+    ["Para calcular el pulso, cuentas 15 segundos y…", ["multiplicas por 4", "multiplicas por 2", "sumas 60"], "15 × 4 = 60 s."],
+    ["Al estirar se debe notar…", ["tensión sin dolor", "mucho dolor", "rebotes"], "Regla de oro."],
+    ["Un esguince afecta a…", ["un ligamento", "un hueso", "la piel"], "Torcedura."],
+    ["El FIFA 11+ sirve para…", ["prevenir lesiones", "marcar goles", "medir el pulso"], "Calentamiento preventivo."],
+    ["El skipping consiste en…", ["elevar las rodillas", "saltar a la comba", "estirar el cuello"], "Técnica de carrera."],
+  ],
+  examen: [
+    ["El hielo en una lesión se aplica…", ["envuelto en un paño", "directamente sobre la piel", "durante dos horas"], "15–20 min."],
+    ["Después de un buen calentamiento, el pulso de un niño ronda…", ["110–130 ppm", "40–50 ppm", "220–250 ppm"], "Valores aproximados."],
+  ],
+  tarjetas: [
+    ["Pulso", "Latidos del corazón por minuto (ppm): 15 s × 4."],
+    ["Estiramiento estático", "Posición quieta 15–20 s, sin dolor ni rebotes."],
+    ["PRICE", "Protección, Reposo, Hielo, Compresión, Elevación."],
+    ["Calentamiento específico", "Ejercicios propios del deporte que vamos a practicar."],
+  ],
+  glosario: [
+    ["Pulso", "Latido del corazón que se nota en las arterias."],
+    ["Ppm", "Pulsaciones por minuto."],
+    ["Pulso radial", "El que se toma en la muñeca."],
+    ["Pulso carotídeo", "El que se toma en el cuello."],
+    ["Estiramiento dinámico", "El que se hace con movimiento suave."],
+    ["Estiramiento estático", "El que se mantiene quieto en una posición."],
+    ["Cuádriceps", "Músculo de la parte delantera del muslo."],
+    ["Isquiotibiales", "Músculos de la parte trasera del muslo."],
+    ["Skipping", "Carrera elevando las rodillas."],
+    ["Esguince", "Lesión de un ligamento por una torcedura."],
+    ["Contractura", "Músculo que se queda tenso y dolorido."],
+    ["Agujetas", "Molestias musculares tras un ejercicio no habitual."],
+  ],
+  situacion: {
+    titulo: "Somos monitores de calentamiento",
+    reto: "Por grupos, la clase diseña y dirige el calentamiento de una sesión de Educación Física para otro curso del colegio.",
+    pasos: ["Elegid la actividad principal de la sesión y escribid un calentamiento general y específico de 10 minutos.", "Incluid un juego o una canción, movilidad de arriba abajo y material adecuado.", "Dirigid el calentamiento y pedid a los participantes que se tomen el pulso antes y después.", "Terminad con una vuelta a la calma con cinco estiramientos bien explicados y evaluad la experiencia."],
+    producto: "Una ficha de calentamiento y una sesión dirigida por el grupo.",
+    evaluacion: ["El calentamiento sigue un orden de menos a más intensidad.", "Mide el pulso correctamente y lo interpreta.", "Explica y corrige los estiramientos.", "Sabe actuar ante una lesión leve con el método PRICE."],
+  },
+});

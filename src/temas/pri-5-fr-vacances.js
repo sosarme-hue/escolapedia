@@ -93,3 +93,90 @@ module.exports = P.tema({
   saberes: "Comunicación: estaciones del año y el tiempo atmosférico; destinos de vacaciones con preposiciones (à, en, au, chez); medios de transporte con en y à; actividades de ocio con faire; el futuro próximo; la postal como texto; aspectos socioculturales del calendario de vacaciones en Francia",
   ideas: ["Parte meteorológico en francés grabado en vídeo por grupos.", "Postal de un viaje imaginado a una región de Francia.", "Juego de la maleta en cadena: «Dans ma valise, je mets…»."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { H } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Entender un parte meteorológico sencillo en francés", "Comprar un billete y moverse por una estación o un aeropuerto", "Contar unas vacaciones pasadas con el passé composé", "Conocer destinos francófonos y viajar de forma responsable"],
+  lectura: { titulo: "Les vacances de Manon", html: `<p>Manon ha vuelto al colegio después del verano. Su profesora pide a cada alumno que cuente sus vacaciones. Lee lo que escribe Manon. Las palabras difíciles llevan traducción.</p><p><i>Cet été, je suis allée en Bretagne avec ma famille. Nous avons pris le TGV à Paris. Le voyage a duré trois heures. À Saint-Malo, nous avons loué (alquilamos) une petite maison près de la plage.</i></p><p><i>Le premier jour, il a fait très beau et j'ai nagé dans la mer. L'eau était froide, brrr ! Ensuite, il a plu (llovió) pendant deux jours. Alors, nous avons visité un aquarium et j'ai vu des requins (tiburones). Mon frère a eu peur !</i></p><p><i>Le samedi, nous avons fait une excursion en bateau jusqu'au Mont-Saint-Michel. C'est une abbaye sur une île, et quand la marée monte (sube la marea), l'eau arrive très vite. C'était magnifique !</i></p><p><i>Le soir, nous avons mangé des crêpes et des galettes. J'ai acheté des cartes postales pour mes grands-parents et un souvenir pour ma meilleure amie: un petit phare (faro) en bois.</i></p><p><i>J'ai adoré mes vacances. L'année prochaine, je voudrais aller à la montagne !</i></p>` },
+  tras: {
+    "¿Qué tiempo hace?": [
+      ["La météo: el parte del tiempo", `<p>Antes de salir de viaje, todos miramos <b>la météo</b> (el tiempo) en la televisión o en el móvil. Los presentadores usan palabras que ya conoces y otras nuevas:</p><ul><li><b>le soleil</b> — el sol; <b>les nuages</b> — las nubes; <b>il fait nuageux</b> — está nublado</li><li><b>la pluie</b> — la lluvia; <b>une averse</b> — un chaparrón</li><li><b>l'orage</b> — la tormenta; <b>le brouillard</b> — la niebla</li><li><b>la neige</b> — la nieve; <b>il gèle</b> — hiela</li><li><b>le vent</b> — el viento</li></ul><p>Para hablar del <b>tiempo de mañana</b> se usa el futuro próximo, que ya conoces: <i>Demain, <b>il va pleuvoir</b> dans le nord.</i> (Mañana va a llover en el norte.) <i>Il va faire chaud dans le sud.</i></p><p>Las temperaturas se dicen en <b>degrés</b> (grados): <i>Il fait vingt-cinq degrés à Marseille.</i> Para temperaturas bajo cero: <i>moins deux degrés</i> (−2 °C).</p><p>Un parte del tiempo típico: <i>Bonjour ! Aujourd'hui, il fait beau sur la Côte d'Azur: trente degrés. En Bretagne, il y a des nuages et un peu de pluie. Dans les Alpes, attention aux orages cet après-midi !</i></p>`,
+        P.filas("Palabras del parte del tiempo en francés", [["le soleil", "el sol", NA], ["les nuages", "las nubes", AZ], ["la pluie", "la lluvia", VE], ["l'orage", "la tormenta", MO], ["le brouillard", "la niebla", RO]]), ["JjUMtIHHzLg", "【Bruits de FLE】 Quel temps fait-il ? (la météo)", "Enseignement du FLE", 525176]],
+    ],
+    "¿Cómo viajas?": [
+      ["En la estación y en el aeropuerto", `<p>Para viajar en tren en Francia vas a <b>la gare</b> (la estación). El tren de alta velocidad se llama <b>le TGV</b> (train à grande vitesse), y puede ir a más de 300 km/h.</p><ul><li><b>le billet</b> — el billete; <b>un aller simple</b> — solo ida; <b>un aller-retour</b> — ida y vuelta</li><li><b>le guichet</b> — la taquilla</li><li><b>le quai</b> — el andén; <b>la voie</b> — la vía</li><li><b>la place</b> — el asiento; <b>la voiture</b> — el vagón (¡no el coche!)</li><li><b>le départ</b> — la salida; <b>l'arrivée</b> — la llegada</li></ul><p>En el aeropuerto (<b>l'aéroport</b>) necesitas: <b>le passeport</b> o <b>la carte d'identité</b>, <b>la carte d'embarquement</b> (la tarjeta de embarque) y <b>la valise</b> (la maleta). Allí oirás: <i>Embarquement porte douze</i> (embarque por la puerta doce).</p><p>Frases para la taquilla: <i>Un aller-retour pour Nice, s'il vous plaît.</i> — <i>Le train part de quelle voie ?</i> (¿De qué vía sale el tren?) — <i>Il y a du retard ?</i> (¿Hay retraso?)</p>`,
+        P.dialogo("En la taquilla de la estación", [["Inès", "Un aller-retour pour Nice.", MO], ["Guichet", "Voilà, voie numéro 4.", VE], ["Inès", "Merci beaucoup !", MO]])],
+    ],
+    "Planes: el futuro próximo": [
+      ["Contar las vacaciones: el passé composé", `<p>Para contar lo que <b>hiciste</b> en las vacaciones, el francés usa el <b>passé composé</b>, un tiempo compuesto parecido a nuestro «he visitado». Se forma con <b>avoir</b> + el <b>participio</b>:</p><ul><li>Los verbos en <b>-er</b> hacen el participio en <b>-é</b>: visiter → <b>visité</b>, manger → <b>mangé</b>, nager → <b>nagé</b>.</li><li><i>J'<b>ai visité</b> un musée. Tu <b>as mangé</b> une glace. Nous <b>avons nagé</b> dans la mer.</i></li></ul><p>Algunos participios irregulares muy útiles: faire → <b>fait</b> (<i>j'ai fait du vélo</i>), voir → <b>vu</b> (<i>j'ai vu la mer</i>), prendre → <b>pris</b> (<i>j'ai pris l'avion</i>), avoir → <b>eu</b>.</p><p>Los verbos de movimiento como <b>aller</b> (ir), <b>partir</b> (marcharse) o <b>arriver</b> (llegar) usan <b>être</b> en lugar de avoir, y el participio concuerda como un adjetivo: <i>Je <b>suis allé</b> à la plage</i> (si lo dice un chico), <i>je <b>suis allée</b></i> (si lo dice una chica), <i>nous <b>sommes allés</b></i>.</p><p>Para el tiempo que hizo: <i>Il <b>a fait</b> beau. Il <b>a plu</b>.</i> (Ha hecho bueno. Ha llovido.)</p><p>Compara: <i>Demain, je vais nager</i> (futuro próximo) y <i>Hier, j'ai nagé</i> (passé composé).</p>`,
+        P.tabla("Passé composé de visiter y aller", ["", "visiter", "aller"], [["je / j'", "ai visité", "suis allé(e)"], ["tu", "as visité", "es allé(e)"], ["il / elle", "a visité", "est allé(e)"]], AZ), ["G2KHi4t5TfE", "Révise ta grammaire : le passé composé A1-A2", "Tout en français", 280501]],
+    ],
+  },
+  final: [
+    ["Destinos del mundo francófono", `<p>Si algún día viajas a un país donde se habla francés, estos son algunos lugares famosos:</p><ul><li><b>Paris</b>: la tour Eiffel (324 m), el museo del Louvre, el Arco del Triunfo y la catedral de Notre-Dame.</li><li><b>Le Mont-Saint-Michel</b>, en Normandía: una abadía sobre un islote. Cuando sube la marea, queda rodeada por el mar.</li><li><b>La Côte d'Azur</b> (la Costa Azul), en el sur: playas, sol y ciudades como Niza o Cannes.</li><li><b>Chamonix</b>, en los Alpes, al pie del <b>Mont Blanc</b>, la montaña más alta de Europa occidental (unos 4800 m).</li><li><b>Les châteaux de la Loire</b>: decenas de castillos del Renacimiento, como Chambord.</li><li><b>Genève</b> (Ginebra), en Suiza, junto al lago Lemán, con un chorro de agua de 140 m de altura.</li><li><b>Québec</b>, en Canadá: la única ciudad amurallada de Norteamérica al norte de México.</li><li><b>La Martinique</b>, en el Caribe: playas, volcanes y selva tropical.</li></ul><p>Para escribir sobre un destino puedes usar lo aprendido: <i>Je voudrais aller à Chamonix. Je vais faire du ski et je vais voir le Mont Blanc !</i></p>`,
+      P.filas("Destinos del mundo francófono", [["la tour Eiffel", "Paris", AZ], ["le Mont-Saint-Michel", "Normandie", VE], ["le Mont Blanc", "les Alpes", MO], ["le lac Léman", "Genève", NA], ["les volcans", "Martinique", RO]])],
+    ["Vacaciones responsables", `<p>Viajar es fantástico, pero también hay que cuidar los lugares que visitamos y cuidarnos a nosotros mismos. Estos consejos se dan en francés con <b>il faut</b> e <b>il ne faut pas</b>:</p><p><b>Cuidar el planeta</b>:</p><ul><li><i>Il faut jeter les déchets à la poubelle.</i> — Hay que tirar la basura a la papelera.</li><li><i>Il ne faut pas cueillir les fleurs</i> ni molestar a los animales.</li><li><i>Il faut économiser l'eau</i> (ahorrar agua), sobre todo en verano.</li><li><i>Il faut prendre le train ou le vélo</i> cuando sea posible: contaminan menos que el coche o el avión.</li></ul><p><b>Cuidarse del sol y del calor</b>:</p><ul><li><i>Il faut mettre de la crème solaire</i> y <i>une casquette</i> (una gorra) o <i>un chapeau</i>.</li><li><i>Il faut boire beaucoup d'eau.</i></li><li><i>Il ne faut pas rester au soleil</i> entre las doce y las cuatro de la tarde.</li></ul><p><b>Respetar a las personas</b>: aprender a decir <i>bonjour</i> y <i>merci</i> en la lengua del lugar, respetar las costumbres y no hacer ruido. ¡Un buen viajero deja los lugares igual o mejor de como los encontró!</p>`,
+      H.dos("Il faut o il ne faut pas", ["Il faut…", ["la crème solaire", "boire de l'eau", "prendre le train"], VE], ["Il ne faut pas…", ["jeter des déchets", "cueillir les fleurs", "rester au soleil"], RO])],
+  ],
+  ejemplos: [
+    ["Cuenta en pasado: «Je visite Paris et je vais à la tour Eiffel.»", ["visiter → j'ai visité (avoir)", "aller → je suis allé(e) (être)"], "J'ai visité Paris et je suis allé(e) à la tour Eiffel."],
+    ["Compra un billete de ida y vuelta a Lyon y pregunta la vía.", ["aller-retour pour + ciudad", "Le train part de quelle voie ?"], "Un aller-retour pour Lyon, s'il vous plaît. Le train part de quelle voie ?"],
+  ],
+  errores: ["Decir «j'ai allé»: aller va con être, «je suis allé(e)».", "Pensar que «la voiture» del tren es un coche: es el vagón."],
+  ejercicios: [
+    ["b", "Traduce: la niebla, la tormenta, las nubes.", "le brouillard, l'orage, les nuages."],
+    ["b", "¿Qué es un aller-retour?", "Un billete de ida y vuelta."],
+    ["b", "Escribe el participio de: visiter, faire, voir, prendre.", "visité, fait, vu, pris."],
+    ["b", "¿Dónde está el Mont-Saint-Michel?", "En Normandía (Francia)."],
+    ["b", "Traduce: «Hay que ponerse crema solar.»", "Il faut mettre de la crème solaire."],
+    ["m", "Escribe el parte del tiempo de mañana en tu ciudad con «il va…».", "Respuesta libre. Ej.: Demain, il va faire beau. Il va faire vingt degrés."],
+    ["m", "Pasa al passé composé: je mange, nous nageons, elle va à la plage.", "j'ai mangé, nous avons nagé, elle est allée à la plage."],
+    ["m", "Según la lectura, ¿qué vio Manon en el acuario y qué compró?", "Tiburones; postales y un pequeño faro de madera."],
+    ["m", "Escribe dos consejos para cuidar el planeta en vacaciones.", "Il faut jeter les déchets à la poubelle. Il ne faut pas cueillir les fleurs."],
+    ["m", "Escribe un diálogo de cuatro líneas en la taquilla de la estación.", "Respuesta libre."],
+    ["a", "Cuenta tus últimas vacaciones en seis frases con el passé composé.", "Respuesta libre."],
+    ["a", "Elige un destino francófono y escribe por qué quieres ir y qué vas a hacer.", "Respuesta libre."],
+    ["a", "Prepara un parte del tiempo de Francia para tres regiones y preséntalo.", "Respuesta libre."],
+    ["a", "Diseña un cartel de vacaciones responsables con seis consejos en francés.", "Respuesta libre."],
+  ],
+  quiz: [
+    ["«Il va pleuvoir» significa…", ["va a llover", "ha llovido", "llueve"], "Futuro próximo."],
+    ["«Le quai» es…", ["el andén", "la taquilla", "el billete"], "Gare."],
+    ["«Je ___ allée à la plage.»", ["suis", "ai", "vais"], "Être."],
+    ["El participio de «voir» es…", ["vu", "voiré", "vi"], "Irregular."],
+    ["El Mont Blanc está en…", ["los Alpes", "Bretaña", "Quebec"], "Chamonix."],
+  ],
+  examen: [
+    ["«Hier, j'___ mangé des crêpes.»", ["ai", "suis", "vais"], "Avoir."],
+    ["«Il faut boire beaucoup d'eau» es…", ["un consejo", "una pregunta", "un parte del tiempo"], "Il faut."],
+  ],
+  tarjetas: [
+    ["la météo", "el tiempo, el parte meteorológico"],
+    ["un aller-retour", "un billete de ida y vuelta"],
+    ["j'ai visité / je suis allé(e)", "he visitado / he ido"],
+    ["Il faut… / Il ne faut pas…", "Hay que… / No hay que…"],
+  ],
+  glosario: [
+    ["la météo", "El tiempo, el pronóstico."],
+    ["le brouillard", "La niebla."],
+    ["l'orage", "La tormenta."],
+    ["la gare", "La estación de tren."],
+    ["le billet", "El billete."],
+    ["le quai", "El andén."],
+    ["la valise", "La maleta."],
+    ["le passé composé", "Tiempo pasado compuesto."],
+    ["le participe", "El participio."],
+    ["la marée", "La marea."],
+    ["les déchets", "Los residuos, la basura."],
+    ["la crème solaire", "La crema solar."],
+  ],
+  situacion: {
+    titulo: "L'agence de voyages",
+    reto: "Por grupos, la clase organiza un viaje a un destino francófono y después escribe el diario del viaje imaginario en pasado.",
+    pasos: ["Elegid un destino francófono y buscad su tiempo habitual, sus lugares famosos y cómo llegar.", "Escribid el plan del viaje con el futuro próximo: on va prendre le TGV, on va visiter…", "Representad la compra del billete en la estación o el embarque en el aeropuerto.", "Escribid una postal en passé composé contando el viaje y añadid tres consejos de viaje responsable."],
+    producto: "Un plan de viaje, una escena en la estación y una postal en francés.",
+    evaluacion: ["Entiende y usa el vocabulario del tiempo.", "Se desenvuelve en la estación o el aeropuerto.", "Usa el passé composé con avoir y être.", "Da consejos de viaje responsable con il faut."],
+  },
+});
