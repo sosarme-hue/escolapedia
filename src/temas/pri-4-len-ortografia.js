@@ -88,3 +88,91 @@ module.exports = P.tema({
   saberes: "Ortografía: reglas de uso de b y v; g suave y diéresis; reglas de g y j; cambios ortográficos en la conjugación; reglas de la h; ha/a, hay/ahí/ay, hecho/echo; estrategias ortográficas",
   ideas: ["Detectives ortográficos: buscar palabras de cada regla en un libro de la biblioteca.", "Mural de excepciones con dibujos (hervir, servir, vivir; tejer, crujir).", "Cuaderno personal de palabras difíciles con frase y dibujo."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Distinguir homófonos con b y v", "Distinguir homófonos con h y sin h", "Aplicar las reglas de ll/y y de r/rr", "Preparar un dictado con estrategias eficaces"],
+  lectura: { titulo: "El tubo que tuvo", html: `<p>Pablo estaba escribiendo una nota para su madre antes de irse al entrenamiento:</p><p><i>«Mamá: el fontanero bino esta mañana. Dijo que el tuvo del lavabo estaba roto y que lo cambiará el lunes. Hay que hecharle un vistazo a la caldera. Me boy al fútbol. ¡Asta luego!»</i></p><p>Cuando su madre llegó y leyó la nota, se sentó en el sofá muerta de risa.</p><p>—Pablo, cariño —le dijo esa noche—, ven aquí, que vamos a jugar a los detectives.</p><p>Le enseñó la nota y le pidió que buscara las palabras con disfraz. Pablo la leyó despacio.</p><p>—«Bino»… el verbo es <b>venir</b>, con v. Entonces es <b>vino</b>. Aunque «vino» también es lo que bebe el abuelo, ¡qué lío!</p><p>—«Tuvo» es del verbo tener —siguió—. Pero yo quería decir el tubo del agua, así que es con b: <b>tubo</b>.</p><p>—«Hechar» viene de echar, que no lleva h. Y «boy»… ¡voy, del verbo ir! Y «asta» sin h es el cuerno de un toro. Quería decir <b>hasta</b>.</p><p>—¡Cinco errores en una nota! —se rió su madre—. Las palabras que suenan igual son muy traviesas.</p><p>Desde ese día, en la nevera de su casa hay una lista con las «palabras disfrazadas». Y cada vez que Pablo encuentra una nueva, la apunta.</p>` },
+  tras: {
+    "Se escriben con v": [
+      ["Homófonos con b y v", `<p>Las palabras <mark>homófonas</mark> son las que <b>suenan igual</b> pero se escriben de forma diferente y tienen <b>significados distintos</b>. En castellano, la b y la v suenan igual, así que hay muchas parejas que nos pueden confundir:</p><ul><li><b>tubo</b> (cilindro hueco: <i>el tubo de pasta</i>) / <b>tuvo</b> (del verbo tener: <i>tuvo suerte</i>).</li><li><b>baca</b> (portaequipajes del coche) / <b>vaca</b> (animal).</li><li><b>bello</b> (bonito) / <b>vello</b> (pelo fino del cuerpo).</li><li><b>botar</b> (dar botes: <i>bota la pelota</i>) / <b>votar</b> (dar el voto en unas elecciones).</li><li><b>bienes</b> (cosas que se poseen) / <b>vienes</b> (del verbo venir).</li><li><b>sabia</b> (que sabe mucho) / <b>savia</b> (líquido de las plantas).</li><li><b>baya</b> (fruto pequeño, como el arándano) / <b>vaya</b> (del verbo ir; o exclamación: <i>¡vaya!</i>) / <b>valla</b> (cerca, muro).</li><li><b>grabar</b> (registrar un sonido o una imagen) / <b>gravar</b> (poner un impuesto).</li></ul><p>¿Cómo saber cuál usar? Pregúntate qué <b>significa</b> en la frase y piensa en la <b>familia</b> de la palabra: <i>tuvo</i> es de <i>tener</i>; <i>votar</i> es de <i>voto</i> y <i>votación</i>; <i>vienes</i> es de <i>venir</i>.</p>`,
+        L6.filas("Suenan igual", [["tubo", "tuvo (tener)", cAZ], ["vaca", "baca (coche)", cNA], ["botar", "votar (voto)", cVE], ["sabia", "savia (planta)", cMO]]), ["SzrX2ZmY818", "Palabras homófonas para niños", "Clases Particulares en Ávila", 410785]],
+    ],
+    "La h": [
+      ["Homófonos con h y sin h", `<p>Como la <b>h</b> no suena, hay muchas palabras que se pronuncian igual pero unas llevan h y otras no. Estas son las más importantes:</p><ul><li><b>hola</b> (saludo) / <b>ola</b> (del mar).</li><li><b>hecho</b> (del verbo hacer: <i>he hecho los deberes</i>) / <b>echo</b> (del verbo echar: <i>echo sal</i>).</li><li><b>hay</b> (del verbo haber: <i>hay pan</i>) / <b>ay</b> (queja: <i>¡ay, qué daño!</i>) / <b>ahí</b> (lugar: <i>está ahí</i>).</li><li><b>haber</b> (verbo: <i>puede haber tormenta</i>) / <b>a ver</b> (preposición + ver: <i>vamos a ver la película</i>).</li><li><b>hasta</b> (límite: <i>hasta mañana</i>) / <b>asta</b> (palo de bandera; cuerno).</li><li><b>hora</b> (del reloj) / <b>ora</b> (del verbo orar, rezar).</li><li><b>hojear</b> (pasar las hojas de un libro) / <b>ojear</b> (echar un vistazo con los ojos).</li><li><b>honda</b> (profunda; tirachinas) / <b>onda</b> (curva del agua o del pelo).</li></ul><p>Trucos útiles:</p><ul><li><b>Hecho</b> va con <i>he</i>, <i>has</i>, <i>ha</i>: <i>Lo has hecho</i>. <b>Echo</b> es de echar.</li><li>Si puedes cambiarlo por «ver» con otra preposición, es <b>a ver</b>: <i>voy a ver</i>.</li><li><b>Hay</b>, <b>ahí</b> y <b>¡ay!</b>: <i>¡Ay, ahí hay un ratón!</i></li></ul>`,
+        H6.rueda("¡Ay, ahí hay…!", "SUENA IGUAL", [["hay: haber", cAZ], ["ahí: lugar", cNA], ["¡ay!: queja", cRO], ["a ver: mirar", cVE]])],
+    ],
+    "Trucos para no fallar": [
+      ["La ll y la y", `<p>En la mayor parte de España y de América, la <b>ll</b> y la <b>y</b> suenan igual. Este fenómeno se llama <b>yeísmo</b>. Por eso dudamos al escribir. Algunas reglas ayudan:</p><p>Se escribe <mark>ll</mark>:</p><ul><li>En las palabras terminadas en <b>-illo, -illa</b>: <i>martillo, ardilla, pasillo, bombilla, mantequilla</i>.</li><li>En la mayoría de verbos terminados en <b>-llar</b> y <b>-llir</b>: <i>callar, brillar, hallar, bullir</i>.</li></ul><p>Se escribe <mark>y</mark>:</p><ul><li>Al <b>final de palabra</b> cuando no lleva tilde: <i>rey, ley, hoy, muy, voy, estoy, buey</i>. (Pero <i>leí</i>, <i>caí</i>, con tilde, van con i.)</li><li>En la conjunción <b>y</b>: <i>pan y agua</i>.</li><li>En las formas de verbos que no tienen ll ni y en el infinitivo: <i>leer → leyó, leyendo</i>; <i>caer → cayó</i>; <i>oír → oyó</i>; <i>ir → yendo</i>; <i>construir → construyó</i>.</li><li>Detrás de los prefijos <b>ad-, dis-, sub-</b>: <i>adyacente, disyuntiva, subyacer</i>.</li></ul><p>Algunas parejas homófonas: <b>valla</b> (cerca) / <b>vaya</b> (del verbo ir); <b>halla</b> (de hallar, encontrar) / <b>haya</b> (de haber; árbol); <b>pollo</b> (cría de gallina) / <b>poyo</b> (banco de piedra).</p>`,
+        L6.filas("¿Ll o y?", [["-illo, -illa", "martillo, ardilla", cAZ], ["final de palabra", "rey, hoy, muy", cNA], ["leer, caer", "leyó, cayó", cVE], ["valla / vaya", "cerca / ir", cMO]]), ["XbZHLB0kOCI", "Dígrafo LL: ¿dónde está la llave?", "123 Andrés", 427341]],
+    ],
+  },
+  final: [
+    ["La r y la rr", `<p>La letra <b>r</b> tiene dos sonidos: uno <b>suave</b> (como en <i>pera</i>, <i>caro</i>) y otro <b>fuerte</b> (como en <i>perro</i>, <i>carro</i>, <i>ratón</i>). Para escribir el sonido fuerte usamos a veces <b>r</b> y a veces <b>rr</b>:</p><p>Se escribe <mark>r</mark> con sonido fuerte:</p><ul><li>Al <b>principio de palabra</b>: <i>rosa, ratón, rueda, reloj</i>.</li><li>Después de <b>l, n, s</b>: <i>alrededor, Enrique, honrado, Israel</i>.</li><li>Detrás del prefijo <b>sub-</b>: <i>subrayar</i>.</li></ul><p>Se escribe <mark>rr</mark>:</p><ul><li>Solo <b>entre dos vocales</b>, cuando suena fuerte: <i>perro, tierra, carretera, arroz, barril</i>.</li><li>En las palabras compuestas cuando la segunda empieza por r y queda entre vocales: <i>puerta + rico = puertorriqueño</i>, <i>contra + reloj = contrarreloj</i>, <i>pelo + rojo = pelirrojo</i>, <i>auto + retrato = autorretrato</i>.</li></ul><p>¡Atención a las parejas con significado distinto!</p><ul><li><b>pero</b> (sin embargo) / <b>perro</b> (animal).</li><li><b>caro</b> (que cuesta mucho) / <b>carro</b> (vehículo).</li><li><b>coro</b> (grupo que canta) / <b>corro</b> (círculo de personas; de correr).</li><li><b>para</b> (preposición) / <b>parra</b> (planta de la uva).</li></ul><p>Nunca se escribe <i>rr</i> al principio ni al final de una palabra, ni después de consonante.</p>`,
+      H6.dos("Sonido fuerte", ["R", ["al principio: rosa", "tras l, n, s:", "alrededor, honrado"], cAZ], ["RR", ["entre vocales:", "perro, tierra", "pelirrojo"], cRO])],
+    ["Preparar un dictado", `<p>Los dictados ayudan mucho a mejorar la ortografía, pero se aprovechan más si sabes prepararlos. Aquí tienes un método en cinco pasos:</p><ol><li><b>Lee el texto</b> en voz alta antes del dictado. Fíjate en lo que dice: entender el texto ayuda a escribir bien las palabras.</li><li><b>Busca las palabras difíciles</b>: las que llevan b o v, g o j, h, ll o y, tildes… Subráyalas con colores.</li><li><b>Piensa en la regla</b> de cada una: ¿es una terminación -aba? ¿Viene de un verbo con v? ¿Pertenece a una familia de palabras que ya conozco?</li><li><b>Escríbelas</b> varias veces de memoria, tapando el texto, y compruébalas.</li><li><b>Practica</b> con alguien que te dicte el texto completo. Después corrige con otro color.</li></ol><p>El día del dictado:</p><ul><li>Escucha la frase entera antes de empezar a escribir.</li><li>Escribe con letra clara y cuida los signos de puntuación.</li><li>Al terminar, <b>revisa</b> palabra por palabra: tildes, mayúsculas después de punto, letras dudosas.</li></ul><p>Y lo más importante: cuando te equivoques, apunta la palabra en tu <b>cuaderno de errores</b>. Repasar tus propios fallos es la forma más rápida de no repetirlos. ¡Leer mucho también ayuda, porque los ojos se acostumbran a ver las palabras bien escritas!</p>`,
+      H6.flujo("Preparar un dictado", ["leer|el texto", "subrayar|difíciles", "pensar|la regla", "practicar|y revisar"], cVE)],
+  ],
+  ejemplos: [
+    ["Elige: «El (tubo/tuvo) de pintura (tubo/tuvo) que tirarse».", ["Cilindro: tubo.", "Verbo tener: tuvo."], "El tubo de pintura tuvo que tirarse."],
+    ["Completa con hay, ahí o ay: «¡___! ___ ___ una avispa».", ["Queja: ¡ay!", "Lugar: ahí. Verbo haber: hay."], "¡Ay! Ahí hay una avispa."],
+  ],
+  errores: ["Escribir «echo» con h cuando es del verbo echar: «hecho sal».", "Confundir «a ver» con «haber»: «vamos haber la película»."],
+  ejercicios: [
+    ["b", "Escribe la pareja homófona de «vaca».", "Baca."],
+    ["b", "¿«Ola» o «hola» para saludar?", "Hola."],
+    ["b", "Completa: marti__o, ardi__a.", "ll: martillo, ardilla."],
+    ["b", "¿Con r o rr? «__atón», «pe__o».", "ratón, perro."],
+    ["b", "¿Por qué «rey» acaba en y?", "Final de palabra sin tilde."],
+    ["m", "Completa con botar o votar: «Los ciudadanos van a ___».", "Votar."],
+    ["m", "Completa con hecho o echo: «Ya he ___ la cama».", "Hecho."],
+    ["m", "Escribe el pasado de leer y de caer en 3.ª persona.", "Leyó, cayó."],
+    ["m", "Forma el compuesto: auto + retrato.", "Autorretrato."],
+    ["m", "Explica la diferencia entre «a ver» y «haber».", "A ver: preposición + ver; haber: verbo."],
+    ["a", "Escribe un texto corto con cinco parejas de homófonos.", "Respuesta abierta."],
+    ["a", "Corrige la nota de Pablo de la lectura.", "vino, tubo, echarle, voy, hasta."],
+    ["a", "Empieza tu cuaderno de errores con diez palabras.", "Respuesta abierta."],
+    ["a", "Prepara un dictado para la clase siguiendo los cinco pasos.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Del verbo tener:", ["tuvo", "tubo", "tuvio"], "B y v."],
+    ["«Vamos ___ qué pasa»", ["a ver", "haber", "aver"], "H."],
+    ["Se escribe con ll…", ["bombilla", "rey", "leyó"], "Ll y y."],
+    ["Se escribe con rr…", ["tierra", "honra", "rosa"], "R y rr."],
+    ["En un dictado, al terminar hay que…", ["revisar palabra por palabra", "entregar sin mirar", "borrar todo"], "Dictado."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué quería decir Pablo con «asta luego»?", ["hasta luego", "el cuerno de un toro", "un palo"], "Lectura."],
+    ["«Savia» con v es…", ["el líquido de las plantas", "una mujer que sabe mucho", "un árbol"], "Homófonos."],
+  ],
+  tarjetas: [
+    ["B y v", "tubo/tuvo, baca/vaca, botar/votar, sabia/savia."],
+    ["H", "hola/ola, hecho/echo, hay/ahí/ay, haber/a ver."],
+    ["Ll y y", "-illo, -illa con ll; rey, hoy, leyó con y."],
+    ["R y rr", "r inicial y tras l, n, s; rr entre vocales; pelirrojo."],
+  ],
+  glosario: [
+    ["Homófono", "Palabra que suena igual que otra pero se escribe distinto."],
+    ["Ortografía", "Normas para escribir correctamente."],
+    ["Savia", "Líquido que circula por las plantas."],
+    ["Baca", "Portaequipajes del techo de un coche."],
+    ["Gravar", "Poner un impuesto."],
+    ["Hojear", "Pasar las hojas de un libro."],
+    ["Yeísmo", "Pronunciar igual la ll y la y."],
+    ["Valla", "Cerca que rodea un lugar."],
+    ["Poyo", "Banco de piedra junto a una pared."],
+    ["Parra", "Planta trepadora que da uvas."],
+    ["Dictado", "Ejercicio de escribir lo que otro lee en voz alta."],
+    ["Cuaderno de errores", "Libreta donde se apuntan las palabras falladas."],
+  ],
+  situacion: {
+    titulo: "Museo de palabras disfrazadas",
+    reto: "La clase crea un museo de homófonos con explicaciones y dibujos.",
+    pasos: ["Recoged parejas de homófonos con b/v, h, ll/y y r/rr.", "Haced una ficha por pareja con dibujo y oración de ejemplo.", "Añadid un truco para no confundirlas.", "Organizad la exposición e invitad a otros cursos."],
+    producto: "Un museo de palabras homófonas.",
+    evaluacion: ["Distingue el significado de cada palabra.", "Escribe correctamente las parejas.", "Inventa trucos útiles.", "Explica la exposición con claridad."],
+  },
+});

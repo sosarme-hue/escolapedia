@@ -87,3 +87,92 @@ module.exports = P.tema({
   saberes: "Ortografía: acento y tilde; sílaba tónica; clasificación de palabras en agudas, llanas y esdrújulas; reglas generales de acentuación; monosílabos sin tilde; tilde diacrítica en tú/tu, él/el, mí/mi, sí/si",
   ideas: ["Tres cajas (agudas, llanas, esdrújulas) para clasificar tarjetas de palabras.", "Detectives de tildes: corregir un texto con tildes de más y de menos.", "Saltar en la sílaba tónica sobre una rayuela de sílabas."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+module.exports.bloques.find((b) => /Las tres reglas juntas/.test(b.html)).svg = L6.filas("Las tres reglas", [["agudas", "tilde en -n, -s o vocal", cRO], ["llanas", "tilde si NO en -n, -s, vocal", cAZ], ["esdrújulas", "siempre tilde", cVE], ["monosílabos", "normalmente sin tilde", cMO]]);
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Poner tilde también en las mayúsculas", "Usar la tilde diacrítica de los monosílabos", "Saber qué pasa con la tilde en el plural", "Acentuar palabras con diptongo e hiato y evitar errores frecuentes"],
+  lectura: { titulo: "El cartel de la panadería", html: `<p>En la panadería del barrio de Iván colgaron un cartel nuevo, enorme, con letras de colores:</p><p><b>«HOY PAPA CON SALSA Y PAN CALIENTE»</b></p><p>Iván se paró delante y se echó a reír.</p><p>—¿De qué te ríes? —le preguntó su abuela.</p><p>—De que el panadero quiere vender a su padre con salsa —contestó Iván.</p><p>La abuela leyó el cartel otra vez y no entendió nada. Entonces Iván se lo explicó: «papa», sin tilde, es la patata, como dicen en Canarias y en América. Pero si querían decir que hoy había patatas, todo estaba bien. Lo malo era que en la pizarra de al lado ponía:</p><p><b>«EL PAPA DE LUCÍA HACE EL MEJOR PAN DEL MUNDO»</b></p><p>—Ahí falta una tilde —dijo Iván—. Sin tilde, parece que el pan lo hace el Papa de Roma. Debería poner <b>PAPÁ</b>.</p><p>La abuela soltó una carcajada. Entraron en la panadería y se lo contaron al panadero, que era, precisamente, el papá de Lucía.</p><p>—¡Vaya! —dijo él, rascándose la cabeza—. Siempre pensé que en las mayúsculas no hacía falta poner tilde.</p><p>—Sí que hace falta —respondió Iván—. Nos lo ha enseñado la maestra.</p><p>Al día siguiente, el cartel estaba corregido. Y debajo, en letras pequeñas, ponía: <i>«Gracias, Iván»</i>.</p>` },
+  tras: {
+    "Palabras agudas": [
+      ["Las mayúsculas también llevan tilde", `<p>Mucha gente cree que las <b>mayúsculas</b> no llevan tilde. ¡Es un error! La Real Academia Española dice claramente que las mayúsculas deben llevar <mark>tilde</mark> igual que las minúsculas, siguiendo las mismas reglas.</p><p>Por eso escribimos:</p><ul><li><i><b>Á</b>frica</i>, <i><b>Á</b>ngel</i>, <i><b>Ó</b>scar</i>, <i><b>Á</b>lvaro</i>, <i><b>Í</b>ñigo</i>, <i><b>Ú</b>beda</i>.</li><li>En títulos y carteles: <i>CAMIÓN</i>, <i>CANCIÓN</i>, <i>MÚSICA</i>, <i>ATENCIÓN</i>, <i>PROHIBIDO EL PASO A PERSONAS AJENAS A LA ORGANIZACIÓN</i>.</li></ul><p>¿Por qué existe la idea de que no se acentúan? Antiguamente, en las imprentas y en las máquinas de escribir era difícil poner tildes en las letras mayúsculas, porque no cabían bien. Por eso muchas veces no se ponían. Pero hoy, con los ordenadores y los móviles, no hay ninguna excusa.</p><p>La tilde en las mayúsculas es importante porque puede cambiar el significado. Mira estos carteles:</p><ul><li><i>EL PAPA</i> (el jefe de la Iglesia) / <i>EL PAPÁ</i> (el padre).</li><li><i>CANTO</i> (yo canto) / <i>CANTÓ</i> (él cantó).</li></ul><p>Fíjate en los carteles de tu barrio. ¿Encuentras alguno con una tilde olvidada? Haz una lista y, si puedes, avisa con amabilidad a quien lo escribió: muchas personas aprendieron que no hacía falta y te lo agradecerán.</p>`,
+        H6.dos("En mayúsculas", ["BIEN", ["ÁFRICA", "CANCIÓN", "ÓSCAR"], cVE], ["MAL", ["AFRICA", "CANCION", "OSCAR"], cRO])],
+    ],
+    "Los monosílabos": [
+      ["La tilde diacrítica", `<p>Hemos visto que los monosílabos no llevan tilde. Pero hay una excepción: algunos monosílabos se escriben igual que otros y significan cosas diferentes. Para distinguirlos, uno de ellos lleva <mark>tilde diacrítica</mark>:</p><ul><li><b>tú</b> (pronombre): <i>Tú eres mi amigo.</i> / <b>tu</b> (posesivo): <i>Tu casa es grande.</i></li><li><b>él</b> (pronombre): <i>Él canta.</i> / <b>el</b> (artículo): <i>El perro ladra.</i></li><li><b>mí</b> (pronombre): <i>Es para mí.</i> / <b>mi</b> (posesivo): <i>Mi gato duerme.</i></li><li><b>sí</b> (afirmación): <i>Sí, quiero.</i> / <b>si</b> (condición): <i>Si llueve, no salgo.</i></li><li><b>té</b> (bebida): <i>Tomo té.</i> / <b>te</b> (pronombre): <i>Te quiero.</i></li><li><b>sé</b> (de saber o ser): <i>No sé nada.</i> / <b>se</b> (pronombre): <i>Se fue.</i></li><li><b>dé</b> (de dar): <i>Dile que me lo dé.</i> / <b>de</b> (preposición): <i>Vaso de agua.</i></li><li><b>más</b> (cantidad): <i>Quiero más.</i> / <b>mas</b> (pero, en textos antiguos): <i>Lo intentó, mas no pudo.</i></li></ul><p>Fíjate en que <b>ti</b>, <b>fue</b>, <b>dio</b>, <b>vio</b> y <b>fe</b> no llevan nunca tilde, porque no tienen pareja con la que confundirse.</p>`,
+        L6.filas("Tilde diacrítica", [["tú / tu", "pronombre / posesivo", cAZ], ["sí / si", "afirmación / condición", cNA], ["té / te", "bebida / pronombre", cVE], ["más / mas", "cantidad / pero", cMO]]), ["SeNdkh-kAvw", "Tilde diacrítica en monosílabos", "Susi Profe", 289660]],
+    ],
+    "La tilde cambia el significado": [
+      ["La tilde en el plural", `<p>Cuando una palabra pasa de <b>singular</b> a <b>plural</b>, la sílaba tónica casi siempre se queda en el mismo sitio, pero la palabra gana una sílaba. Por eso a veces <b>la tilde aparece o desaparece</b>. Hay que volver a aplicar las reglas.</p><p><b>Palabras que pierden la tilde en plural:</b> son agudas acabadas en -n o -s que, al añadir -es, se convierten en <b>llanas</b> acabadas en -s:</p><ul><li><i>camión → camiones</i></li><li><i>canción → canciones</i></li><li><i>autobús → autobuses</i></li><li><i>francés → franceses</i></li></ul><p><b>Palabras que ganan la tilde en plural:</b> son llanas acabadas en -n que, al añadir -es, se convierten en <b>esdrújulas</b>:</p><ul><li><i>examen → exámenes</i></li><li><i>joven → jóvenes</i></li><li><i>imagen → imágenes</i></li><li><i>origen → orígenes</i></li><li><i>resumen → resúmenes</i></li></ul><p><b>Casos especiales:</b> tres palabras cambian incluso la sílaba tónica en plural: <i>carácter → caracteres</i>, <i>régimen → regímenes</i> y <i>espécimen → especímenes</i>.</p><p>El truco: escribe el plural, sepáralo en sílabas, busca la tónica y aplica las reglas como si fuera una palabra nueva.</p>`,
+        L6.filas("Singular y plural", [["camión", "camiones", cAZ], ["examen", "exámenes", cNA], ["joven", "jóvenes", cVE], ["carácter", "caracteres", cRO]])],
+    ],
+  },
+  final: [
+    ["Tildes en diptongos e hiatos", `<p>Las palabras con <b>diptongo</b> o <b>hiato</b> también siguen las reglas de la tilde, pero hay que saber dónde colocarla.</p><p><b>En los diptongos</b>, se aplican las reglas generales. Si la palabra lleva tilde, se pone sobre la <b>vocal abierta</b> (a, e, o):</p><ul><li><i>camión</i> (aguda en -n), <i>después</i> (aguda en -s), <i>murciélago</i> (esdrújula), <i>huésped</i> (llana en -d).</li><li>Si el diptongo es de dos vocales cerradas (<i>iu</i>, <i>ui</i>), la tilde va en la segunda: <i>cuídate</i>, <i>interviú</i>.</li></ul><p><b>En los hiatos</b> hay dos casos:</p><ul><li>Hiato de <b>dos vocales abiertas</b>: siguen las reglas generales. <i>león</i> (aguda en -n), <i>poeta</i> (llana en vocal: sin tilde), <i>aéreo</i> (esdrújula).</li><li>Hiato con <b>vocal cerrada tónica</b> (í, ú) junto a una abierta: la cerrada <b>siempre lleva tilde</b>, aunque las reglas generales digan lo contrario. Así se marca que no es diptongo: <i>María</i>, <i>río</i>, <i>país</i>, <i>baúl</i>, <i>búho</i>, <i>oír</i>, <i>reír</i>, <i>tranvía</i>, <i>comía</i>.</li></ul><p>Fíjate en la diferencia: <i>continuo</i> (con-ti-nuo, diptongo) y <i>continúo</i> (yo con-ti-nú-o, hiato). ¡La tilde lo cambia todo!</p>`,
+      H6.dos("Diptongo o hiato", ["DIPTONGO", ["tilde en la abierta", "camión, después", "reglas normales"], cAZ], ["HIATO Í/Ú", ["tilde siempre", "río, país", "María, búho"], cRO]), ["LTFHJvOGd7E", "Tildes para niños: agudas, llanas, esdrújulas y diacríticas", "Smile and Learn - Español", 285910]],
+    ["Errores frecuentes con la tilde", `<p>Hay palabras que mucha gente escribe mal. Conocerlas te ayudará a no caer en la trampa:</p><ul><li><b>ti</b> nunca lleva tilde: <i>para ti</i> (no «para tí»).</li><li><b>fue</b>, <b>dio</b>, <b>vio</b>, <b>fui</b> son monosílabos: <i>fue</i>, no «fué».</li><li><b>guion</b> y <b>truhan</b> se consideran monosílabos y van sin tilde.</li><li><b>examen</b>, <b>resumen</b>, <b>origen</b>, <b>joven</b> son llanas acabadas en -n: <b>sin tilde</b>. ¡Pero sus plurales sí la llevan!</li><li><b>Exámenes</b>, <b>jóvenes</b>, <b>imágenes</b>: esdrújulas, con tilde.</li><li><b>Lápiz</b>, <b>árbol</b>, <b>fácil</b>, <b>difícil</b>, <b>útil</b>, <b>débil</b>: llanas no acabadas en -n, -s o vocal, con tilde.</li><li><b>Mamá</b>, <b>papá</b>, <b>sofá</b>, <b>café</b>: agudas en vocal, con tilde.</li><li>Los días <b>miércoles</b> y <b>sábado</b> llevan tilde (esdrújulas); <b>lunes</b>, <b>martes</b>, <b>jueves</b>, <b>viernes</b> y <b>domingo</b>, no.</li><li>Las formas de los verbos con pronombre siguen las reglas: <i>dámelo</i>, <i>cómetelo</i>, <i>dime</i> (sin tilde).</li></ul><p>Truco final: cuando dudes, <b>sepárala en sílabas</b>, encuentra la tónica, mira cómo termina y aplica la regla. ¡Nunca falla!</p>`,
+      L6.filas("Cuidado con…", [["ti, fue, dio", "sin tilde", cRO], ["examen", "sin tilde", cNA], ["exámenes", "con tilde", cAZ], ["miércoles, sábado", "con tilde", cVE]])],
+  ],
+  ejemplos: [
+    ["¿Lleva tilde «ANGEL» escrito en mayúsculas?", ["Án-gel: llana, acaba en -l.", "Llana no acabada en -n, -s o vocal: tilde. Las mayúsculas también."], "Sí: ÁNGEL."],
+    ["Escribe el plural de «canción» y de «origen».", ["can-cio-nes: llana en -s, sin tilde.", "o-rí-ge-nes: esdrújula, con tilde."], "canciones, orígenes"],
+  ],
+  errores: ["No poner tilde en las mayúsculas: «AFRICA».", "Escribir «para tí» o «fué» con tilde."],
+  ejercicios: [
+    ["b", "Pon tilde si hace falta: OSCAR, MUSICA, CAMION.", "ÓSCAR, MÚSICA, CAMIÓN."],
+    ["b", "Elige: «(Tu/Tú) tienes (tu/tú) libro».", "Tú; tu."],
+    ["b", "Escribe el plural de «joven».", "Jóvenes."],
+    ["b", "¿Lleva tilde «ti»?", "No, nunca."],
+    ["b", "Pon tilde: «rio», «pais», «baul».", "Río, país, baúl."],
+    ["m", "Explica por qué «camión» pierde la tilde en plural.", "Camiones es llana acabada en -s."],
+    ["m", "Elige: «(Si/Sí) vienes, (te/té) invito a un (te/té)».", "Si; te; té."],
+    ["m", "¿Por qué «oír» lleva tilde si es aguda acabada en -r?", "Porque la í tónica forma hiato y siempre lleva tilde."],
+    ["m", "Corrige: «Examen» → «examenes».", "Exámenes."],
+    ["m", "¿Por qué «búho» lleva tilde si es llana acabada en vocal?", "Porque la ú tónica en hiato siempre lleva tilde."],
+    ["a", "Busca en tu barrio cinco carteles y comprueba sus tildes.", "Respuesta abierta."],
+    ["a", "Escribe diez palabras que cambien de tilde en plural.", "Respuesta abierta."],
+    ["a", "Escribe un diálogo con cinco tildes diacríticas.", "Respuesta abierta."],
+    ["a", "Prepara un dictado para un compañero con palabras trampa.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Las mayúsculas…", ["llevan tilde", "nunca llevan tilde", "solo en títulos"], "Mayúsculas."],
+    ["«___ quiero ir» (afirmación)", ["Sí", "Si", "Sí,"], "Diacrítica."],
+    ["El plural de «examen» es…", ["exámenes", "examenes", "exámens"], "Plural."],
+    ["«Río» lleva tilde porque…", ["la í tónica forma hiato", "es esdrújula", "es monosílaba"], "Hiato."],
+    ["Se escribe sin tilde…", ["fue", "lápiz", "sábado"], "Errores."],
+  ],
+  examen: [
+    ["En la lectura, ¿a qué palabra del cartel le faltaba la tilde?", ["PAPÁ", "PAN", "SALSA"], "Lectura."],
+    ["«Carácter» en plural es…", ["caracteres", "carácteres", "caráteres"], "Plural."],
+  ],
+  tarjetas: [
+    ["Mayúsculas", "Llevan tilde: ÁFRICA, CANCIÓN, ÓSCAR."],
+    ["Diacrítica", "tú/tu, él/el, mí/mi, sí/si, té/te, sé/se, dé/de, más/mas."],
+    ["Plural", "camión→camiones; examen→exámenes; carácter→caracteres."],
+    ["Hiatos y errores", "río, país, búho; ti, fue, guion sin tilde."],
+  ],
+  glosario: [
+    ["Tilde", "Rayita que se escribe sobre la vocal tónica."],
+    ["Acento", "Mayor fuerza de voz en una sílaba."],
+    ["Tilde diacrítica", "Tilde que distingue palabras que se escriben igual."],
+    ["Monosílabo", "Palabra de una sola sílaba."],
+    ["Mayúscula", "Letra de mayor tamaño."],
+    ["Aguda", "Palabra con la tónica en la última sílaba."],
+    ["Llana", "Palabra con la tónica en la penúltima sílaba."],
+    ["Esdrújula", "Palabra con la tónica en la antepenúltima sílaba."],
+    ["Diptongo", "Dos vocales en la misma sílaba."],
+    ["Hiato", "Dos vocales seguidas en sílabas distintas."],
+    ["Real Academia Española", "Institución que establece las normas del castellano."],
+    ["Plural", "Forma de la palabra que indica más de uno."],
+  ],
+  situacion: {
+    titulo: "Patrulla de las tildes",
+    reto: "La clase revisa los carteles del colegio y el barrio y propone correcciones.",
+    pasos: ["Fotografiad o copiad carteles, menús y avisos.", "Revisad sus tildes aplicando las reglas.", "Preparad una ficha de corrección amable para cada error.", "Exponed los resultados en un mural «Cazadores de tildes»."],
+    producto: "Un mural con carteles corregidos y explicaciones.",
+    evaluacion: ["Aplica las reglas generales.", "Reconoce tildes diacríticas y de hiato.", "Explica cada corrección.", "Comunica con respeto."],
+  },
+});

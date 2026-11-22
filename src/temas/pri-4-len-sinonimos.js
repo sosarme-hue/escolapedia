@@ -88,3 +88,91 @@ module.exports = P.tema({
   saberes: "Vocabulario: sinónimos y antónimos; formación de antónimos con prefijos; palabras primitivas y derivadas; prefijos y sufijos; familia de palabras; campo semántico; uso del diccionario",
   ideas: ["Árbol genealógico de una palabra para cada familia.", "Muro de palabras comodín con alternativas más precisas.", "Dominó de antónimos y memory de sinónimos."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Reconocer palabras polisémicas", "Formar palabras con prefijos y sufijos", "Buscar con soltura en el diccionario", "Conocer frases hechas, refranes y palabras de otras lenguas"],
+  lectura: { titulo: "El banco del parque", html: `<p>Lola y su abuelo estaban sentados en el <b>banco</b> del parque cuando el abuelo dijo:</p><p>—Mañana tengo que ir al banco.</p><p>—Pero si ya estamos en el banco —contestó Lola, extrañada.</p><p>El abuelo se rio.</p><p>—No, a este no. Al banco donde se guarda el dinero.</p><p>En ese momento pasó por delante un niño con una pecera.</p><p>—¡Mira, abuelo, un banco de peces! —dijo Lola, señalando los cinco pececillos de colores.</p><p>—¡Y qué <b>sierra</b> tan bonita se ve desde aquí! —dijo el abuelo, mirando las montañas.</p><p>—¿Sierra? ¿Como la que usa papá para cortar madera?</p><p>—Exacto. Mira las cumbres: parecen los dientes de una sierra. Por eso se llama así.</p><p>Lola se quedó pensando un rato.</p><p>—Abuelo, entonces hay palabras que significan muchas cosas a la vez.</p><p>—Muchísimas. Y lo más curioso es que nunca nos confundimos, porque el resto de la frase nos dice cuál es el significado.</p><p>De vuelta a casa, Lola fue apuntando palabras en una libreta: <i>hoja</i> (de árbol y de papel), <i>ratón</i> (animal y del ordenador), <i>planta</i> (vegetal y piso de un edificio), <i>pico</i> (de pájaro y de montaña)…</p><p>Al llegar a casa, tenía catorce. Y su abuelo, que lo había visto todo, le regaló un diccionario.</p>` },
+  tras: {
+    "Los antónimos": [
+      ["Palabras polisémicas", `<p>Muchas palabras tienen <b>varios significados</b> distintos, aunque se escriban y se pronuncien igual. Se llaman <mark>palabras polisémicas</mark> (de <i>poli</i>, «muchos», y <i>sema</i>, «significado»).</p><p>Algunos ejemplos:</p><ul><li><b>Banco</b>: asiento para varias personas; empresa donde se guarda el dinero; grupo de peces.</li><li><b>Hoja</b>: de un árbol; de papel; de un cuchillo.</li><li><b>Ratón</b>: animal; aparato del ordenador.</li><li><b>Sierra</b>: herramienta para cortar; cordillera de montañas.</li><li><b>Pico</b>: boca de un ave; cumbre de una montaña; herramienta para cavar.</li><li><b>Planta</b>: ser vivo vegetal; piso de un edificio; parte de abajo del pie.</li><li><b>Cola</b>: de un animal; fila de personas; pegamento.</li><li><b>Copa</b>: vaso con pie; parte de arriba de un árbol; trofeo.</li></ul><p>Muchas veces, los significados están relacionados por su <b>forma</b> o su <b>función</b>: la sierra de montañas se llama así porque sus picos parecen los dientes de una sierra; el ratón del ordenador, porque su cable parecía una cola.</p><p>¿Cómo sabemos qué significado tiene? Por el <b>contexto</b>: las demás palabras de la frase. <i>Me senté en el banco</i> / <i>Saqué dinero del banco</i>. En el diccionario, cada significado aparece numerado: <b>1</b>, <b>2</b>, <b>3</b>…</p>`,
+        H6.rueda("Banco", "BANCO", [["asiento", cAZ], ["dinero", cNA], ["peces", cVE], ["de niebla", cMO]]), ["_JUKbTKQ0Z0", "Las palabras polisémicas para niños", "Clases Particulares en Ávila", 144795]],
+    ],
+    "Antónimos con prefijos": [
+      ["Prefijos y sufijos que crean palabras", `<p>Con los <b>prefijos</b> (que van delante) y los <b>sufijos</b> (que van detrás) podemos formar muchísimas palabras nuevas a partir de una sola. Conocer su significado te ayuda a entender palabras que nunca habías visto.</p><p>Algunos <mark>prefijos</mark> útiles:</p><ul><li><b>re-</b>: repetición. <i>releer, rehacer, reciclar</i>.</li><li><b>pre-</b>: antes. <i>prehistoria, prever, precalentar</i>.</li><li><b>sub-</b>: debajo. <i>submarino, subterráneo, subrayar</i>.</li><li><b>super-</b> o <b>sobre-</b>: encima, mucho. <i>superhéroe, sobresaliente</i>.</li><li><b>bi-</b>: dos. <i>bicicleta, bilingüe</i>. <b>tri-</b>: tres. <i>triciclo, triángulo</i>.</li><li><b>multi-</b>: muchos. <i>multicolor</i>.</li></ul><p>Algunos <mark>sufijos</mark> útiles:</p><ul><li><b>-ero, -era</b>: oficio o recipiente. <i>panadero, zapatero, azucarero</i>.</li><li><b>-ería</b>: tienda. <i>panadería, frutería, zapatería</i>.</li><li><b>-oso, -osa</b>: que tiene. <i>miedoso, sabroso, peligroso</i>.</li><li><b>-dor, -dora</b>: que hace algo. <i>nadador, ganador, lavadora</i>.</li><li><b>-al, -ar</b>: lugar con muchos. <i>pinar, olivar, maizal</i>.</li></ul><p>Con una sola palabra, como <i>pan</i>, y varios sufijos, nace toda una familia: <i>panadero, panadería, panecillo, empanada</i>.</p>`,
+        L6.filas("Formar palabras", [["re- + leer", "releer", cAZ], ["sub- + marino", "submarino", cNA], ["pan + -ería", "panadería", cVE], ["miedo + -oso", "miedoso", cMO]]), ["PTNpFbZs5tU", "Los prefijos", "La Profe Noemí", 557697]],
+    ],
+    "El diccionario, nuestro gran aliado": [
+      ["Buscar en el diccionario como un experto", `<p>El <mark>diccionario</mark> es un libro que recoge las palabras de una lengua ordenadas alfabéticamente y explica su significado. Para buscar con rapidez, sigue estos consejos:</p><ol><li><b>Abre por la letra</b>: si la palabra empieza por <i>m</i>, abre más o menos por la mitad.</li><li><b>Usa las palabras guía</b>: en la parte de arriba de cada página aparecen la primera y la última palabra de esa página. Si tu palabra está entre ellas alfabéticamente, ¡está ahí!</li><li><b>Fíjate en la segunda, tercera… letra</b>: <i>casa</i> va antes que <i>cesta</i>, y <i>cesta</i> antes que <i>cesto</i>.</li></ol><p>Ojo, porque en el diccionario las palabras aparecen en su <b>forma base</b>:</p><ul><li>Los <b>sustantivos</b> y <b>adjetivos</b>, en <b>masculino singular</b>: para buscar <i>bonitas</i>, busca <i>bonito</i>.</li><li>Los <b>verbos</b>, en <b>infinitivo</b>: para buscar <i>cantábamos</i>, busca <i>cantar</i>; para <i>tuve</i>, busca <i>tener</i>.</li></ul><p>En cada entrada encontrarás: la palabra, su <b>categoría</b> (sustantivo, adjetivo, verbo…) en abreviatura (<i>s.</i>, <i>adj.</i>, <i>v.</i>), los <b>significados</b> numerados y, a veces, ejemplos, sinónimos y su origen.</p><p>Hoy también hay diccionarios digitales, como el de la <b>Real Academia Española</b> (dle.rae.es), donde basta con escribir la palabra.</p>`,
+        H6.flujo("Buscar una palabra", ["forma base|cantar", "abrir|por la letra", "palabras|guía", "leer|el significado"], cAZ), ["UBdJfbbDl8E", "El diccionario y cómo buscar palabras", "Profa. Kempis", 608873]],
+    ],
+  },
+  final: [
+    ["Frases hechas y refranes", `<p>Las <mark>frases hechas</mark> son expresiones que usamos con un significado distinto del que tienen sus palabras por separado. No se pueden entender palabra por palabra:</p><ul><li><i>Estar en las nubes</i>: estar distraído.</li><li><i>Tomar el pelo</i>: burlarse de alguien.</li><li><i>Costar un ojo de la cara</i>: ser muy caro.</li><li><i>Meter la pata</i>: equivocarse.</li><li><i>Ser pan comido</i>: ser muy fácil.</li><li><i>Ponerse las pilas</i>: espabilarse, ponerse a trabajar.</li><li><i>Estar como una cabra</i>: estar un poco loco.</li></ul><p>Los <mark>refranes</mark> son frases populares, muchas veces con rima, que dan un <b>consejo</b> o una enseñanza aprendida por la experiencia:</p><ul><li><i>Más vale prevenir que curar.</i></li><li><i>A quien madruga, Dios le ayuda.</i></li><li><i>No por mucho madrugar amanece más temprano.</i></li><li><i>Perro ladrador, poco mordedor.</i></li><li><i>En boca cerrada no entran moscas.</i></li><li><i>Más vale pájaro en mano que ciento volando.</i></li></ul><p>Fíjate en que dos de estos refranes parecen decir lo contrario. Los refranes son sabiduría popular, pero no siempre tienen razón: cada uno sirve para una situación.</p><p>Pregunta en casa: seguro que tus abuelos conocen muchos.</p>`,
+      L6.filas("Frases hechas", [["en las nubes", "distraído", cAZ], ["meter la pata", "equivocarse", cRO], ["pan comido", "muy fácil", cVE], ["un ojo de la cara", "muy caro", cNA]]), ["-HGF1TTG9t8", "Ejemplos de refranes con su significado", "Escuela de Aprendices", 1238028]],
+    ["Palabras viajeras", `<p>El castellano viene sobre todo del <b>latín</b>, pero a lo largo de la historia ha recibido palabras de muchas otras lenguas. Son las <mark>palabras viajeras</mark> o préstamos:</p><ul><li>Del <b>árabe</b>, durante los siglos de al-Ándalus, nos llegaron más de cuatro mil palabras. Muchas empiezan por <b>al-</b>: <i>almohada, alfombra, aceite, aceituna, azúcar, arroz, algodón, alcalde, ajedrez, ojalá, hasta</i>.</li><li>De las <b>lenguas de América</b>, tras los viajes de Colón: <i>chocolate, tomate, cacahuete, patata, maíz, canoa, huracán, tiburón</i>.</li><li>Del <b>griego</b>: <i>teléfono, biblioteca, democracia, geografía</i>.</li><li>Del <b>francés</b>: <i>jardín, hotel, chef, menú, croqueta</i>.</li><li>Del <b>italiano</b>: <i>piano, pizza, espagueti, novela</i>.</li><li>Del <b>inglés</b>, sobre todo en el deporte y la tecnología: <i>fútbol, gol, líder, wifi, chat, robot</i> (que en realidad viene del checo).</li></ul><p>Muchos préstamos se adaptan a nuestra ortografía: <i>football → fútbol</i>, <i>leader → líder</i>, <i>spaghetti → espagueti</i>.</p><p>El castellano también ha prestado palabras a otras lenguas: el inglés usa <i>patio</i>, <i>siesta</i>, <i>mosquito</i>, <i>tornado</i> o <i>guerrilla</i>.</p>`,
+      L6.filas("De dónde vienen", [["árabe", "almohada, aceite", cNA], ["América", "chocolate, tomate", cRO], ["griego", "teléfono", cAZ], ["inglés", "fútbol, líder", cVE]])],
+  ],
+  ejemplos: [
+    ["¿Qué significa «planta» en «Vivo en la tercera planta»?", ["Planta es polisémica.", "El contexto habla de un edificio."], "Piso de un edificio."],
+    ["¿Qué palabra buscarías en el diccionario para entender «recalentábamos»?", ["Quita el prefijo y la terminación verbal.", "Forma base: infinitivo."], "recalentar (o calentar)"],
+  ],
+  errores: ["Buscar en el diccionario la palabra tal como aparece en el texto («comíamos») en lugar de su forma base («comer»).", "Interpretar las frases hechas al pie de la letra."],
+  ejercicios: [
+    ["b", "Escribe dos significados de «hoja».", "De árbol; de papel."],
+    ["b", "¿Qué significa el prefijo «re-»?", "Repetición."],
+    ["b", "¿En qué forma aparecen los verbos en el diccionario?", "En infinitivo."],
+    ["b", "¿Qué significa «meter la pata»?", "Equivocarse."],
+    ["b", "Escribe una palabra que venga del árabe.", "Almohada, aceite…"],
+    ["m", "Escribe una oración con cada significado de «cola».", "Respuesta abierta."],
+    ["m", "Forma palabras con -ería a partir de fruta, zapato y libro.", "Frutería, zapatería, librería."],
+    ["m", "Ordena alfabéticamente: cesto, casa, cesta, cosa.", "Casa, cesta, cesto, cosa."],
+    ["m", "Explica el refrán «Perro ladrador, poco mordedor».", "Quien amenaza mucho suele hacer poco."],
+    ["m", "¿De dónde vienen «chocolate» y «tomate»?", "De lenguas de América."],
+    ["a", "Dibuja tres frases hechas al pie de la letra y explica su significado.", "Respuesta abierta."],
+    ["a", "Busca en el diccionario cinco palabras nuevas y escribe una oración con cada una.", "Respuesta abierta."],
+    ["a", "Recoge diez refranes en tu familia.", "Respuesta abierta."],
+    ["a", "Inventa cinco palabras nuevas con prefijos y define su significado.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Una palabra con varios significados es…", ["polisémica", "sinónima", "antónima"], "Polisemia."],
+    ["«Submarino» lleva el prefijo…", ["sub-", "super-", "bi-"], "Prefijos."],
+    ["Para buscar «tuve» en el diccionario busco…", ["tener", "tuve", "tubo"], "Diccionario."],
+    ["«Ser pan comido» significa…", ["ser muy fácil", "tener hambre", "ser panadero"], "Frases hechas."],
+    ["«Almohada» viene del…", ["árabe", "inglés", "griego"], "Palabras viajeras."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué le regaló el abuelo a Lola?", ["un diccionario", "una libreta", "un pez"], "Lectura."],
+    ["Las palabras guía del diccionario están…", ["arriba de cada página", "al final del libro", "en la portada"], "Diccionario."],
+  ],
+  tarjetas: [
+    ["Polisemia", "Banco, hoja, ratón, sierra: el contexto decide."],
+    ["Prefijos y sufijos", "re-, pre-, sub-, bi-; -ero, -ería, -oso, -dor."],
+    ["Diccionario", "Forma base, palabras guía, significados numerados."],
+    ["Frases y préstamos", "Meter la pata; refranes; almohada, chocolate, fútbol."],
+  ],
+  glosario: [
+    ["Polisémica", "Palabra con varios significados."],
+    ["Contexto", "Palabras que rodean a otra y aclaran su significado."],
+    ["Prefijo", "Partícula que va delante de una palabra."],
+    ["Sufijo", "Partícula que va detrás de una palabra."],
+    ["Entrada", "Cada palabra explicada en el diccionario."],
+    ["Palabras guía", "Primera y última palabra de una página del diccionario."],
+    ["Forma base", "Forma en que aparece una palabra en el diccionario."],
+    ["Frase hecha", "Expresión con significado figurado."],
+    ["Refrán", "Dicho popular que da un consejo."],
+    ["Préstamo", "Palabra tomada de otra lengua."],
+    ["Al-Ándalus", "Territorio musulmán de la península en la Edad Media."],
+    ["Sabiduría popular", "Conocimientos que transmite el pueblo."],
+  ],
+  situacion: {
+    titulo: "El tesoro de las palabras",
+    reto: "La clase crea un libro de palabras curiosas: polisémicas, viajeras, frases hechas y refranes.",
+    pasos: ["Repartid secciones entre los equipos.", "Buscad ejemplos en el diccionario y preguntando en casa.", "Escribid cada entrada con significado y un dibujo.", "Presentad el libro en la biblioteca del colegio."],
+    producto: "Un libro ilustrado de palabras curiosas.",
+    evaluacion: ["Usa el diccionario con soltura.", "Explica bien los significados.", "Clasifica correctamente las palabras.", "Presenta un trabajo cuidado."],
+  },
+});
