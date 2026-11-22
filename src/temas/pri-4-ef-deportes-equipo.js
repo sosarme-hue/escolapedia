@@ -140,3 +140,91 @@ module.exports = {
   fuentes: [RD, wiki("Deporte de equipo", "Deporte_de_equipo"), wiki("Juego limpio", "Juego_limpio")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Distinguir los puestos y las funciones de un equipo", "Aplicar el pase y el desmarque para ayudar al equipo", "Conocer otros deportes de equipo y el deporte adaptado", "Respetar al árbitro y entender sus señales"],
+  lectura: { titulo: "El equipo de los once pases", html: `<p>El equipo de Nora llevaba tres partidos de minibasket perdidos. Siempre pasaba lo mismo: en cuanto alguno cogía el balón, botaba y botaba hasta tirar a canasta él solo. Y casi siempre fallaba.</p><p>Un martes, el entrenador, Héctor, les propuso un juego nuevo.</p><p>—Hoy no vale tirar a canasta hasta que el equipo haya dado <b>cinco pases</b> seguidos sin que el balón caiga al suelo.</p><p>—¡Cinco pases es muchísimo! —protestó Bruno.</p><p>Al principio fue un desastre. Los defensores interceptaban el balón una y otra vez. Pero poco a poco descubrieron el truco: cuando un compañero tenía el balón, los demás tenían que <b>moverse a un espacio libre</b> y levantar la mano para pedirla. Eso se llama <b>desmarcarse</b>.</p><p>Al final del entrenamiento, Nora contó once pases seguidos antes de que Aya encestara sin que nadie la defendiera.</p><p>—¿Lo veis? —dijo Héctor—. Un buen pase corre más que cualquier jugador. Cuando todos participáis, el rival no sabe a quién defender.</p><p>El sábado siguiente ganaron su primer partido. Lo mejor no fue el resultado: fue que los cinco jugadores de la pista habían metido canasta.</p>` },
+  tras: {
+    "Atacar y defender": [
+      ["Los puestos del equipo", `<p>En los deportes de equipo cada jugador tiene un <mark>puesto</mark> o posición, con unas funciones concretas. Pero, en las edades de Primaria, lo mejor es <b>probar todos los puestos</b> para aprender de todo.</p><p>En el <b>fútbol</b> hay:</p><ul><li>El <b>portero</b>: el único que puede tocar el balón con las manos, dentro de su área.</li><li>Los <b>defensas</b>: protegen su portería y quitan el balón al rival.</li><li>Los <b>centrocampistas</b>: unen la defensa con el ataque; recuperan y reparten el juego.</li><li>Los <b>delanteros</b>: buscan el gol.</li></ul><p>En el <b>baloncesto</b> se habla de <b>base</b> (organiza el juego), <b>aleros</b> (tiran y penetran) y <b>pívots</b> (juegan cerca de la canasta y cogen rebotes).</p><p>En el <b>balonmano</b>, además del portero, hay <b>extremos</b>, <b>laterales</b>, <b>central</b> y <b>pivote</b>.</p><p>La colocación del equipo en el campo se llama <b>sistema de juego</b>. Por ejemplo, en fútbol 7 un sistema muy usado es el <b>2-3-1</b>: dos defensas, tres centrocampistas y un delantero, más el portero.</p><p>Aunque cada uno tenga su puesto, todos atacan cuando su equipo tiene el balón y todos defienden cuando lo pierde.</p>`,
+        L6.filas("Fútbol", [["portero", "para con las manos", cAZ], ["defensas", "protegen", cVE], ["centrocampistas", "reparten", cNA], ["delanteros", "buscan el gol", cRO]])],
+    ],
+    "Principios para jugar en equipo": [
+      ["El pase y el desmarque", `<p>Las dos acciones más importantes para que el equipo funcione son el <mark>pase</mark> y el <mark>desmarque</mark>.</p><p>El <b>pase</b> es enviar el balón a un compañero. Para pasar bien:</p><ul><li>Mira antes de pasar: busca al compañero que está <b>libre</b>.</li><li>Pasa con la fuerza justa: ni tan flojo que lo intercepten, ni tan fuerte que no lo pueda controlar.</li><li>Pasa al <b>espacio</b> hacia donde va tu compañero, no adonde estaba.</li><li>En baloncesto y balonmano hay varios pases: de <b>pecho</b>, <b>picado</b> (botando en el suelo) y <b>por encima de la cabeza</b>.</li></ul><p>El <b>desmarque</b> es moverse para librarse del defensor y poder recibir el balón. Para desmarcarte:</p><ul><li>Busca un <b>espacio libre</b>, lejos de los defensores.</li><li>Haz un <b>cambio de ritmo</b> o de dirección para despistar a quien te marca.</li><li>Ponte en una línea de pase limpia y <b>pide el balón</b> con la mano o la voz.</li></ul><p>Recuerda: si tu compañero tiene el balón, tú no te quedas quieto mirando. ¡El jugador sin balón también juega!</p><p>Y en defensa ocurre lo contrario: hay que <b>marcar</b> al rival, colocarse entre él y la portería o la canasta y estar atento para <b>interceptar</b> los pases.</p>`,
+        H6.flujo("Jugada", ["veo|libre", "paso|al espacio", "me muevo|desmarque", "recibo|y sigo"], cAZ)],
+    ],
+    "El voleibol": [
+      ["Otros deportes de equipo", `<p>Además del fútbol, el baloncesto, el balonmano y el voleibol, hay muchos otros <mark>deportes de equipo</mark> que puedes practicar:</p><ul><li><b>Hockey</b>: se juega con un stick (palo) y una bola o pastilla. Hay hockey sobre hierba, sobre patines y sobre hielo. España ha ganado muchos campeonatos de hockey sobre patines.</li><li><b>Rugby</b>: se juega con un balón ovalado. El balón solo se puede pasar con la mano <b>hacia atrás</b>. Para marcar un <b>ensayo</b> hay que apoyar el balón detrás de la línea del rival.</li><li><b>Waterpolo</b>: se juega en una piscina, con siete jugadores por equipo, y se marca gol en una portería flotante.</li><li><b>Béisbol y softbol</b>: un equipo batea y el otro intenta eliminar a los corredores.</li><li><b>Ultimate</b>: se juega con un disco volador (frisbi). Es muy especial porque <b>no hay árbitro</b>: los propios jugadores resuelven las faltas con deportividad.</li><li><b>Korfbal</b>: un deporte holandés en el que juegan chicos y chicas en el mismo equipo, lanzando a una cesta sin tablero.</li></ul><p>Todos comparten las mismas ideas: cooperar con los compañeros, oponerse a los rivales y respetar las reglas.</p>`,
+        L6.filas("Deportes", [["hockey", "stick y bola", cAZ], ["rugby", "pase hacia atrás", cVE], ["waterpolo", "en la piscina", cNA], ["ultimate", "sin árbitro", cMO]])],
+    ],
+  },
+  final: [
+    ["El árbitro y sus señales", `<p>El <mark>árbitro</mark> es la persona que hace cumplir las reglas durante el partido. Su trabajo es muy difícil, porque tiene que decidir en un segundo. Por eso merece <b>respeto</b>, aunque a veces se equivoque.</p><p>Los árbitros usan el <b>silbato</b> y unas <b>señales con los brazos</b> para comunicarse con los jugadores. Algunas de las más conocidas son:</p><ul><li>En fútbol: la <b>tarjeta amarilla</b> es una amonestación; la <b>roja</b> significa expulsión. El brazo extendido hacia una portería indica falta a favor de un equipo.</li><li>En baloncesto: el árbitro hace girar los brazos para señalar <b>pasos</b> (andar con el balón sin botar). Los dedos levantados indican los puntos de una canasta: dos o tres.</li><li>En balonmano: se indica <b>dobles</b> (botar, coger el balón y volver a botar) y se puede excluir a un jugador <b>dos minutos</b>.</li></ul><p>Las <b>faltas personales</b> se pitan cuando un jugador empuja, agarra, golpea o hace la zancadilla a otro.</p><p>En clase, podéis turnaros para hacer de árbitro. Así descubriréis lo complicado que es y aprenderéis mejor las reglas.</p>`,
+      H6.dos("Tarjetas", ["AMARILLA", ["aviso", "amonestación", "cuidado"], cNA], ["ROJA", ["expulsión", "fuera del", "partido"], cRO]), ["HIzFblDsJ-w", "Los tipos de faltas en baloncesto", "SIKANA Español", 1886213]],
+    ["Deporte para todos", `<p>El deporte es para <mark>todas las personas</mark>, sin importar si son chicos o chicas, ni si tienen alguna discapacidad.</p><p>El <b>deporte femenino</b> ha crecido muchísimo. La selección española de fútbol femenino ganó el Mundial en 2023, y hay grandes jugadoras de baloncesto, balonmano, waterpolo o hockey. En clase, los equipos deben ser <b>mixtos</b>.</p><p>El <b>deporte adaptado</b> cambia algunas reglas o materiales para que puedan jugar personas con discapacidad:</p><ul><li><b>Baloncesto en silla de ruedas</b>: se juega con la misma canasta y la misma pista; los jugadores deben botar el balón cada dos impulsos de la silla.</li><li><b>Goalball</b>: lo juegan personas con discapacidad visual. Todos llevan los ojos tapados y el balón lleva <b>cascabeles</b> dentro para oírlo.</li><li><b>Fútbol para ciegos</b>: también con balón sonoro, y con un guía detrás de la portería.</li><li><b>Boccia</b>: un juego de precisión con bolas, parecido a la petanca.</li></ul><p>Los deportistas con discapacidad compiten en los <b>Juegos Paralímpicos</b>, que se celebran justo después de los Juegos Olímpicos.</p><p>Probar estos deportes en clase, por ejemplo jugar al goalball con los ojos tapados, nos ayuda a ponernos en el lugar de los demás.</p>`,
+      H6.rueda("Deporte para todos", "TODOS", [["mixto", cMO], ["silla", cAZ], ["goalball", cVE], ["boccia", cNA]]), ["2VgtcfA7Mvs", "Así es el baloncesto paralímpico", "Paralímpicos TV", 24901]],
+  ],
+  ejemplos: [
+    ["Tu compañero tiene el balón y tú estás detrás de un defensor. ¿Qué haces?", ["Así no te puede pasar: el defensor tapa la línea.", "Me muevo a un espacio libre y pido el balón."], "Desmarcarme a un espacio libre y pedir el balón."],
+    ["En fútbol 7 usáis un 2-3-1. ¿Cuántos jugadores hay en total?", ["2 + 3 + 1 = 6 jugadores de campo.", "Hay que sumar el portero."], "Siete jugadores."],
+  ],
+  errores: ["Botar o conducir el balón sin pasar nunca: el pase es más rápido que el jugador.", "Quedarse quieto cuando un compañero tiene el balón: hay que desmarcarse."],
+  ejercicios: [
+    ["b", "¿Qué jugador de fútbol puede tocar el balón con las manos?", "El portero, dentro de su área."],
+    ["b", "¿Qué es desmarcarse?", "Moverse para librarse del defensor y recibir el balón."],
+    ["b", "Nombra tres tipos de pase de baloncesto.", "De pecho, picado y por encima de la cabeza."],
+    ["b", "¿Qué significa la tarjeta roja?", "Expulsión."],
+    ["b", "¿Qué deporte se juega en una piscina?", "El waterpolo."],
+    ["m", "¿Por qué el balón del goalball lleva cascabeles?", "Porque los jugadores no ven y tienen que oírlo."],
+    ["m", "¿Hacia dónde se pasa el balón con la mano en rugby?", "Hacia atrás."],
+    ["m", "Explica qué es un sistema de juego 2-3-1.", "Dos defensas, tres centrocampistas y un delantero."],
+    ["m", "¿Por qué hay que pasar al espacio y no adonde está el compañero?", "Porque se está moviendo y así recibe en carrera."],
+    ["m", "¿Qué tiene de especial el ultimate?", "No hay árbitro; los jugadores resuelven las faltas."],
+    ["a", "Inventa un juego de pases con una regla que obligue a cooperar.", "Respuesta abierta."],
+    ["a", "Haz de árbitro en un partido y anota las faltas que pitas.", "Respuesta abierta."],
+    ["a", "Busca información sobre un deportista paralímpico español.", "Respuesta abierta."],
+    ["a", "Dibuja un campo y coloca a tu equipo en un sistema de juego.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El jugador que organiza el juego en baloncesto es el…", ["base", "pívot", "portero"], "Puestos."],
+    ["Moverse para recibir el balón es…", ["desmarcarse", "marcar", "interceptar"], "Desmarque."],
+    ["En rugby el pase con la mano va…", ["hacia atrás", "hacia delante", "hacia arriba"], "Rugby."],
+    ["La tarjeta amarilla es…", ["una amonestación", "una expulsión", "un gol"], "Árbitro."],
+    ["El goalball lo juegan personas con…", ["discapacidad visual", "patines", "raqueta"], "Deporte adaptado."],
+  ],
+  examen: [
+    ["En la lectura, ¿cuántos pases tenían que dar antes de tirar?", ["cinco", "once", "tres"], "Lectura."],
+    ["¿Dónde compiten los deportistas con discapacidad?", ["en los Juegos Paralímpicos", "solo en su ciudad", "en ningún sitio"], "Deporte adaptado."],
+  ],
+  tarjetas: [
+    ["Puestos", "Portero, defensas, centrocampistas y delanteros; base, alero y pívot."],
+    ["Pase y desmarque", "Pasar al compañero libre y moverse a un espacio libre."],
+    ["Otros deportes", "Hockey, rugby, waterpolo, ultimate, korfbal."],
+    ["Árbitro y deporte para todos", "Tarjetas y señales; deporte mixto y adaptado."],
+  ],
+  glosario: [
+    ["Puesto", "Posición y función de un jugador en el equipo."],
+    ["Sistema de juego", "Forma de colocar al equipo en el campo."],
+    ["Pase", "Envío del balón a un compañero."],
+    ["Desmarque", "Movimiento para librarse del defensor."],
+    ["Marcar", "Vigilar de cerca a un rival."],
+    ["Interceptar", "Cortar un pase del equipo contrario."],
+    ["Ensayo", "Forma de puntuar en rugby apoyando el balón."],
+    ["Pasos", "Falta de andar con el balón sin botarlo."],
+    ["Dobles", "Falta de volver a botar tras coger el balón."],
+    ["Deporte adaptado", "Deporte modificado para personas con discapacidad."],
+    ["Goalball", "Deporte con balón sonoro y ojos tapados."],
+    ["Juegos Paralímpicos", "Competición mundial de deporte adaptado."],
+  ],
+  situacion: {
+    titulo: "La liga de los pases",
+    reto: "La clase organiza una pequeña liga en la que se premia la cooperación tanto como los goles.",
+    pasos: ["Formar equipos mixtos y elegir un sistema de juego.", "Jugar partidos en los que cada gol vale doble si antes ha habido cinco pases.", "Turnarse para hacer de árbitro con las señales aprendidas.", "Jugar una jornada de deporte adaptado: goalball con los ojos tapados."],
+    producto: "Una clasificación de la liga con puntos por goles y por juego limpio.",
+    evaluacion: ["Ocupa su puesto y ayuda en ataque y defensa.", "Pasa y se desmarca.", "Respeta al árbitro y conoce sus señales.", "Valora el deporte adaptado y mixto."],
+  },
+});

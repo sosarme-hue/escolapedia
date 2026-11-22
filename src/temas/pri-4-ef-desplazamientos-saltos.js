@@ -136,3 +136,91 @@ module.exports = {
   fuentes: [RD, wiki("Habilidad motriz", "Habilidad_motriz"), wiki("Salto (atletismo)", "Salto_(atletismo)")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer las carreras y los saltos del atletismo", "Saltar a la comba con canciones tradicionales", "Practicar otros desplazamientos: reptar, trepar y cuadrupedias", "Medir y registrar tus marcas para ver cómo mejoras"],
+  lectura: { titulo: "La comba de la abuela", html: `<p>Un domingo, Irene fue a comer a casa de su abuela Pilar. Mientras recogían la mesa, Irene le contó que en clase de Educación Física estaban aprendiendo a saltar a la comba.</p><p>—¡La comba! —exclamó la abuela con los ojos brillantes—. Yo me pasaba las tardes saltando en la plaza del pueblo con mis amigas. No teníamos tablets, pero teníamos una cuerda vieja y un montón de canciones.</p><p>—¿Canciones? —preguntó Irene.</p><p>La abuela se levantó, cogió el cordón de una persiana que guardaba en un cajón y le pidió a Irene que sujetara un extremo atado a la silla.</p><p>—Tú das y yo salto. A ver si me acuerdo… «<i>Al pasar la barca, me dijo el barquero: las niñas bonitas no pagan dinero…</i>».</p><p>Irene no podía creerlo: su abuela, con setenta y dos años, saltaba siguiendo el ritmo de la canción sin tropezar ni una vez. Bueno, al final se cansó un poco y se sentó a reír.</p><p>—El secreto es el <b>ritmo</b> —le explicó—. La canción te marca cuándo tienes que saltar. Y hay que saltar poquito, con la punta de los pies, sin dar brincos enormes.</p><p>El lunes, Irene llegó al colegio y enseñó la canción a toda la clase. La profesora la apuntó en la pizarra y, desde entonces, en el recreo se oye cantar «Al pasar la barca» todos los días.</p>` },
+  tras: {
+    "Correr bien": [
+      ["Las carreras del atletismo", `<p>El <mark>atletismo</mark> es el deporte más antiguo del mundo: ya se practicaba en los Juegos Olímpicos de la antigua Grecia. Reúne carreras, saltos y lanzamientos. Las principales carreras son:</p><ul><li><b>Velocidad</b>: distancias cortas, como 60, 100, 200 y 400 metros. Se sale desde unos <b>tacos de salida</b> y se corre a la máxima velocidad. La voz de salida es: «A sus puestos… listos… ¡ya!» (o un disparo).</li><li><b>Medio fondo y fondo</b>: distancias más largas, como 800, 1500, 5000 y 10 000 metros. Hay que <b>dosificar</b> las fuerzas para no agotarse.</li><li><b>Maratón</b>: una carrera de 42,195 kilómetros por las calles.</li><li><b>Vallas</b>: carreras en las que hay que saltar obstáculos sin perder velocidad.</li><li><b>Relevos</b>: cuatro corredores de un equipo se pasan un <b>testigo</b> (un tubo) dentro de una zona marcada. El más famoso es el 4 × 100.</li><li><b>Campo a través</b> (cross): carreras por el campo, con barro, cuestas y hierba.</li></ul><p>Recuerda que en velocidad se corre con la parte delantera del pie, y en fondo, apoyando más el pie entero y respirando con calma.</p>`,
+        L6.filas("Carreras", [["velocidad", "60 a 400 m", cRO], ["fondo", "800 m o más", cAZ], ["vallas", "con obstáculos", cNA], ["relevos", "4 con testigo", cVE]]), ["zn_QPVN7cmM", "Tipos de pruebas en el atletismo", "TEACHER DEPORTES", 269812]],
+    ],
+    "Tipos de saltos": [
+      ["Los saltos del atletismo", `<p>En el atletismo hay cuatro pruebas de <mark>salto</mark>. Dos buscan la máxima <b>distancia</b> y dos, la máxima <b>altura</b>:</p><ul><li><b>Salto de longitud</b>: carrera, batida con un pie en una tabla y caída en un foso de arena. Se mide desde la tabla hasta la marca más cercana que dejes en la arena. ¡Por eso no hay que caer hacia atrás!</li><li><b>Triple salto</b>: después de la carrera se dan tres saltos seguidos: <b>salto, paso y salto</b>. Por ejemplo: derecha, derecha, izquierda y a la arena.</li><li><b>Salto de altura</b>: hay que pasar por encima de un listón y caer en una colchoneta gruesa. La técnica más usada es el <b>Fosbury</b>, en el que se pasa de espaldas al listón. La hizo famosa el estadounidense Dick Fosbury al ganar los Juegos Olímpicos de 1968.</li><li><b>Salto con pértiga</b>: se usa una vara larga y flexible para impulsarse y pasar un listón muy alto, a más de seis metros en los mejores atletas.</li></ul><p>En el colegio puedes practicar el <b>salto de longitud sin carrera</b> (con los pies juntos desde parado) y el <b>salto de altura con goma elástica</b>, que no hace daño si la tocas.</p>`,
+        H6.dos("Saltos", ["DISTANCIA", ["longitud", "triple salto", "foso de arena"], cNA], ["ALTURA", ["altura", "pértiga", "listón"], cAZ])],
+    ],
+    "Saltar a la comba": [
+      ["Juegos y canciones de comba", `<p>Saltar a la comba es un <mark>juego tradicional</mark> que han jugado generaciones de niños y niñas en patios y plazas. Muchas veces se acompaña con <b>canciones</b> que marcan el ritmo del salto. Algunas de las más conocidas son:</p><ul><li><b>«Al pasar la barca»</b>: «Al pasar la barca, me dijo el barquero: las niñas bonitas no pagan dinero…».</li><li><b>«El cocherito, leré»</b>: al decir «leré», se pasa la pierna por encima de la cuerda.</li><li><b>«Una, dos y tres, el soldado inglés»</b>.</li><li><b>«Soltera, casada, viuda, monja»</b>, que sirve para echar suertes: la palabra en la que fallas es la que «te toca».</li></ul><p>Hay muchos juegos con la comba larga, que dan dos compañeros:</p><ul><li><b>Entrar y salir</b>: entrar cuando la cuerda pasa por arriba, saltar una vez y salir por el otro lado.</li><li><b>El reloj</b>: cada jugador salta tantas veces como la hora que le toca: una a la una, dos a las dos…</li><li><b>La serpiente</b>: se mueve la cuerda por el suelo como una serpiente y hay que saltarla sin tocarla.</li><li><b>Tres en la comba</b>: varios jugadores saltan a la vez.</li></ul><p>Pregunta en casa: seguro que tus padres o abuelos conocen alguna canción de comba que puedas enseñar en clase.</p>`,
+        H6.flujo("Entrar en la comba", ["espero|al lado", "la cuerda|pasa arriba", "entro|y salto", "salgo|al otro lado"], cMO), ["kc23FvYyyMk", "Recordando las canciones de comba", "Valverdeando en el cole", 223245]],
+    ],
+  },
+  final: [
+    ["Otros desplazamientos: reptar, trepar y cuadrupedias", `<p>Además de andar, correr y saltar, el cuerpo puede desplazarse de otras <mark>maneras</mark> muy útiles en los juegos y en la naturaleza:</p><ul><li><b>Reptar</b>: avanzar tumbado en el suelo, boca abajo, arrastrándose con brazos y piernas, como una serpiente o un soldado. Sirve para pasar por debajo de obstáculos bajos.</li><li><b>Gatear</b>: avanzar apoyando las manos y las rodillas.</li><li><b>Cuadrupedias</b>: desplazarse apoyando manos y pies, como los animales. Hay muchas: la <b>marcha del oso</b> (boca abajo, con el culo arriba), la <b>del cangrejo</b> (boca arriba, con la barriga hacia el techo) o el <b>salto de la rana</b>.</li><li><b>Trepar</b>: subir agarrándose con las manos y los pies, por una espaldera, una cuerda o un rocódromo. Siempre con <b>tres puntos de apoyo</b>: mueves una mano o un pie y los otros tres se quedan sujetos.</li><li><b>Deslizarse</b>: con patines, en un tobogán o sobre una tela por el suelo del gimnasio.</li><li><b>Rodar</b>: girar sobre el cuerpo, como un tronco o haciendo una voltereta.</li></ul><p>Las cuadrupedias son un ejercicio muy completo porque trabajan los brazos, las piernas, el abdomen y la <b>coordinación</b>. ¡Prueba una carrera de cangrejos con tus compañeros!</p>`,
+      L6.filas("Desplazamientos", [["reptar", "tumbado", cVE], ["cuadrupedia", "manos y pies", cNA], ["trepar", "3 apoyos", cRO], ["rodar", "como un tronco", cAZ]])],
+    ["Medir mis marcas", `<p>Una de las cosas más motivadoras del deporte es comprobar que <mark>mejoras</mark>. Para eso hay que medir y anotar tus <b>marcas</b>.</p><ul><li>En las <b>carreras</b> se mide el <b>tiempo</b> con un cronómetro: cuanto menos tiempo, mejor. Por ejemplo, 30 metros en 6,2 segundos.</li><li>En los <b>saltos</b> se mide la <b>distancia</b> o la <b>altura</b> con una cinta métrica, en metros y centímetros. Por ejemplo, un salto de longitud sin carrera de 1,35 m.</li><li>En la <b>comba</b> se cuenta el número de <b>saltos</b> seguidos sin fallar o los saltos que haces en un minuto.</li></ul><p>Haz una <b>tabla de marcas</b> en tu cuaderno con la prueba, la fecha y el resultado. Repite las pruebas cada mes y compara.</p><p>Lo importante es <b>superarte a ti mismo</b>, no compararte con los demás. Cada persona tiene su ritmo y su cuerpo. Además, para mejorar de verdad hace falta:</p><ul><li>Practicar con <b>regularidad</b>.</li><li><b>Descansar</b> y dormir bien.</li><li><b>Comer</b> de forma equilibrada y beber agua.</li><li>Calentar antes y estirar después para no lesionarte.</li></ul><p>¡Esta forma de medir con números también es matemáticas!</p>`,
+      L6.filas("Mis marcas", [["30 metros", "6,2 s", cRO], ["longitud", "1,35 m", cNA], ["comba", "48 saltos", cMO], ["mejora", "¡a mí mismo!", cVE]])],
+  ],
+  ejemplos: [
+    ["En una carrera de 30 m, Ana hizo 6,8 s en octubre y 6,3 s en noviembre. ¿Ha mejorado?", ["En las carreras, menos tiempo es mejor.", "6,3 es menor que 6,8: ha bajado 0,5 s."], "Sí, ha mejorado medio segundo."],
+    ["¿Cuántos apoyos debes mantener al trepar por la espaldera?", ["Se mueve solo una mano o un pie cada vez.", "De cuatro extremidades, quedan tres sujetas."], "Tres puntos de apoyo."],
+  ],
+  errores: ["Caer hacia atrás en el salto de longitud: la marca se mide desde la huella más cercana.", "Dar brincos muy altos en la comba: hay que saltar poco y con la punta de los pies."],
+  ejercicios: [
+    ["b", "Nombra dos carreras de velocidad.", "Por ejemplo, 100 y 200 metros."],
+    ["b", "¿Qué se pasan los corredores en los relevos?", "El testigo."],
+    ["b", "¿Cuáles son los tres saltos del triple salto?", "Salto, paso y salto."],
+    ["b", "Escribe el principio de una canción de comba.", "Por ejemplo: «Al pasar la barca, me dijo el barquero…»."],
+    ["b", "¿Qué es reptar?", "Avanzar tumbado arrastrándose."],
+    ["m", "¿Cómo se pasa el listón en la técnica Fosbury?", "De espaldas."],
+    ["m", "¿Cuál es la diferencia entre la marcha del oso y la del cangrejo?", "El oso va boca abajo y el cangrejo boca arriba."],
+    ["m", "¿Por qué en el fondo hay que dosificar las fuerzas?", "Porque la distancia es larga y te agotarías."],
+    ["m", "¿Cuánto mide un maratón?", "42,195 kilómetros."],
+    ["m", "Explica el juego del reloj con la comba.", "Cada jugador salta tantas veces como la hora que le toca."],
+    ["a", "Crea tu tabla de marcas y mide tres pruebas.", "Respuesta abierta."],
+    ["a", "Aprende una canción de comba de tu familia y enséñala.", "Respuesta abierta."],
+    ["a", "Diseña una carrera de relevos con cuatro desplazamientos distintos.", "Respuesta abierta."],
+    ["a", "Repite tus marcas un mes después y calcula cuánto has mejorado.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Los 100 metros son una carrera de…", ["velocidad", "fondo", "maratón"], "Carreras."],
+    ["En el salto de altura se pasa por encima de un…", ["listón", "foso", "testigo"], "Saltos."],
+    ["Al trepar se mantienen…", ["tres puntos de apoyo", "dos apoyos", "ningún apoyo"], "Trepar."],
+    ["En las carreras, la mejor marca es la de…", ["menos tiempo", "más tiempo", "más pasos"], "Marcas."],
+    ["Desplazarse con manos y pies como los animales es una…", ["cuadrupedia", "carrera", "voltereta"], "Desplazamientos."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué canción cantaba la abuela?", ["Al pasar la barca", "El cocherito leré", "Una, dos y tres"], "Lectura."],
+    ["¿Con qué se mide la distancia de un salto?", ["con una cinta métrica", "con un cronómetro", "con un reloj"], "Marcas."],
+  ],
+  tarjetas: [
+    ["Carreras", "Velocidad, fondo, vallas, relevos y maratón."],
+    ["Saltos del atletismo", "Longitud, triple, altura (Fosbury) y pértiga."],
+    ["Comba", "Al pasar la barca, el cocherito; entrar y salir, el reloj."],
+    ["Otros desplazamientos", "Reptar, gatear, cuadrupedias, trepar y rodar; medir marcas."],
+  ],
+  glosario: [
+    ["Atletismo", "Deporte de carreras, saltos y lanzamientos."],
+    ["Tacos de salida", "Apoyos para los pies en la salida de velocidad."],
+    ["Testigo", "Tubo que se pasan los corredores de relevos."],
+    ["Maratón", "Carrera de 42,195 kilómetros."],
+    ["Batida", "Golpe del pie contra el suelo para saltar."],
+    ["Listón", "Barra que se salta en altura y pértiga."],
+    ["Fosbury", "Técnica de salto de altura de espaldas al listón."],
+    ["Pértiga", "Vara flexible para saltar muy alto."],
+    ["Reptar", "Avanzar arrastrándose por el suelo."],
+    ["Cuadrupedia", "Desplazamiento apoyando manos y pies."],
+    ["Trepar", "Subir agarrándose con manos y pies."],
+    ["Marca", "Resultado medido en tiempo, distancia o número."],
+  ],
+  situacion: {
+    titulo: "Nuestras miniolimpiadas",
+    reto: "La clase organiza unas miniolimpiadas de atletismo y juegos tradicionales para todo el colegio.",
+    pasos: ["Elegir las pruebas: una carrera, un relevo, un salto y un reto de comba.", "Preparar el material: conos, cinta métrica, cronómetro, cuerdas y testigos.", "Repartir los papeles: atletas, jueces de tiempo, medidores y anotadores.", "Celebrar las pruebas, anotar las marcas y entregar diplomas de superación."],
+    producto: "Un cuadro de marcas y diplomas para todos los participantes.",
+    evaluacion: ["Corre y salta con buena técnica.", "Salta a la comba siguiendo el ritmo.", "Mide y anota marcas con precisión.", "Valora su propia mejora."],
+  },
+});

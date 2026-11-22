@@ -136,3 +136,91 @@ module.exports = {
   fuentes: [RD, wiki("Equilibrio (cuerpo humano)", "Equilibrio_(fisiología)"), wiki("Coordinación motriz", "Coordinación_motriz")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Entender qué es el centro de gravedad y cómo influye en el equilibrio", "Construir figuras de acrosport en grupo con seguridad", "Aprender la voltereta hacia delante paso a paso", "Conocer el oído interno, el órgano del equilibrio"],
+  lectura: { titulo: "La pirámide de la clase", html: `<p>El día de la fiesta de fin de curso, la clase de 4.º B quería hacer algo especial. Después de muchas votaciones, eligieron preparar una exhibición de <b>acrosport</b>: figuras con los cuerpos de varios compañeros.</p><p>Las primeras semanas no fueron fáciles. Marco quería ponerse siempre arriba, y Sara tenía miedo de que la pisaran.</p><p>—En el acrosport hay tres papeles —explicó el profesor, Julián—: los <b>portores</b>, que sostienen desde abajo; los <b>ágiles</b>, que suben arriba; y los <b>ayudantes</b>, que vigilan y protegen. Todos son igual de importantes.</p><p>Les enseñó las reglas de oro: subir y bajar despacio, apoyarse solo en los hombros y en las caderas de los portores, nunca en la espalda, y mantener la figura tres segundos antes de deshacerla en orden inverso.</p><p>Poco a poco, todos se fueron soltando. Sara descubrió que era una portora excelente: con la espalda recta y las manos bien colocadas, era firme como una roca. Y Marco aprendió que hacer de ayudante también tenía su responsabilidad: si algo fallaba, él estaba ahí para sujetar.</p><p>El día de la fiesta, al ritmo de la música, la clase formó una gran pirámide de tres pisos. Cuando la deshicieron con cuidado y saludaron, el aplauso fue enorme.</p><p>—Esto no lo habría podido hacer nadie solo —dijo Sara—. Solo sale si confías en los demás.</p>` },
+  tras: {
+    "¿Qué ayuda a mantener el equilibrio?": [
+      ["El centro de gravedad", `<p>Todos los cuerpos tienen un punto en el que podríamos decir que se concentra todo su peso. Se llama <mark>centro de gravedad</mark>. En una persona de pie, está más o menos a la altura del <b>ombligo</b>, un poco por debajo.</p><p>El secreto del equilibrio es muy sencillo: un cuerpo está en equilibrio cuando su centro de gravedad queda <b>encima de la base de sustentación</b> (la zona entre los apoyos). Si el centro de gravedad se sale de esa zona, ¡nos caemos!</p><p>Por eso:</p><ul><li>Cuanto más <b>bajo</b> está el centro de gravedad, más estable eres. Los luchadores y los porteros flexionan las rodillas para ser más difíciles de derribar.</li><li>Cuanto más <b>amplia</b> es la base, más estable. Separar los pies da equilibrio.</li><li>Cuando llevas una mochila pesada a la espalda, te inclinas hacia delante para que el centro de gravedad no se vaya hacia atrás.</li><li>Los equilibristas sobre una cuerda llevan una <b>barra larga</b> que les ayuda a controlar el equilibrio.</li></ul><p><b>Experimento</b>: ponte de pie con la espalda y los talones pegados a la pared e intenta coger un objeto del suelo sin doblar las rodillas. ¡Es imposible! Tu centro de gravedad necesita ir hacia atrás y la pared no le deja.</p>`,
+        H6.dos("Estabilidad", ["MÁS ESTABLE", ["centro bajo", "base amplia", "rodillas flexionadas"], cVE], ["MENOS", ["centro alto", "base pequeña", "a la pata coja"], cRO])],
+    ],
+    "Ejercicios de equilibrio": [
+      ["El acrosport: equilibrio en grupo", `<p>El <mark>acrosport</mark> es una actividad en la que varios compañeros forman <b>figuras</b> y <b>pirámides</b> con sus cuerpos. Combina equilibrio, fuerza, coordinación y, sobre todo, <b>cooperación</b>.</p><p>En cada figura hay tres papeles:</p><ul><li><b>Portor</b>: está abajo y sostiene a los demás. Necesita una postura firme, con la espalda recta.</li><li><b>Ágil</b>: sube encima del portor. Debe ser cuidadoso y moverse despacio.</li><li><b>Ayudante</b>: vigila la figura y ayuda a subir y bajar con seguridad.</li></ul><p>Las <b>normas de seguridad</b> son muy importantes:</p><ul><li>Trabajar siempre sobre <b>colchonetas</b> y descalzos o con calcetines antideslizantes.</li><li>Apoyarse solo en los <b>puntos firmes</b> del portor: hombros y caderas, nunca en el centro de la espalda.</li><li>Subir y bajar <b>despacio</b>, sin saltar.</li><li>Mantener la figura unos <b>3 segundos</b> y deshacerla en orden <b>inverso</b>: baja primero el último que subió.</li><li>Comunicarse: si alguien dice «¡bajo!», se deshace la figura.</li></ul><p>Se empieza con figuras de <b>dos</b> personas y, cuando se dominan, se pasa a tríos y pirámides de grupo.</p>`,
+        L6.filas("Acrosport", [["portor", "sostiene abajo", cAZ], ["ágil", "sube arriba", cNA], ["ayudante", "vigila y ayuda", cVE], ["norma", "3 segundos y bajar", cRO]]), ["_ZJeXzJ352k", "Acrosport", "rucalatrucala", 828843]],
+    ],
+    "Los giros": [
+      ["La voltereta hacia delante", `<p>La <mark>voltereta hacia delante</mark> es un giro sobre el eje transversal (de lado a lado del cuerpo). Es uno de los ejercicios básicos de la gimnasia y se aprende en varios pasos:</p><ul><li><b>1. Posición de partida</b>: en cuclillas sobre la colchoneta, con las manos apoyadas delante, a la anchura de los hombros.</li><li><b>2. Mirar el ombligo</b>: mete la barbilla en el pecho. ¡Es lo más importante! Así la cabeza no se apoya y no te haces daño en el cuello.</li><li><b>3. Empujar</b>: estira las piernas y empuja con los pies, apoyando la <b>nuca</b> y los <b>hombros</b>, nunca la cabeza.</li><li><b>4. Rodar agrupado</b>: hazte una bolita, como un erizo, y rueda por la espalda redonda.</li><li><b>5. Levantarse</b>: abraza las rodillas y termina de pie o en cuclillas, sin apoyar las manos atrás.</li></ul><p>Para aprenderla, primero se practica el <b>balanceo</b>: tumbado boca arriba, agrupado, balancearse adelante y atrás como una mecedora. También ayuda hacerla en un <b>plano inclinado</b> (una colchoneta en cuesta).</p><p>Si te mareas o tienes miedo, pide ayuda al profesor. Y recuerda: nunca hagas volteretas sobre el suelo duro.</p>`,
+        H6.flujo("Voltereta", ["cuclillas|manos", "barbilla|al pecho", "rodar|agrupado", "levantarse|de pie"], cNA), ["sAuypGXijmg", "Progresión voltereta adelante agrupada", "INDIVIDUALESAG", 430672]],
+    ],
+  },
+  final: [
+    ["El oído interno: el órgano del equilibrio", `<p>¿Sabías que el equilibrio está en tus <mark>oídos</mark>? Dentro del oído, detrás del tímpano, está el <b>oído interno</b>. Allí, además del caracol que sirve para oír, hay una parte llamada <b>vestíbulo</b> con tres <b>canales semicirculares</b>.</p><p>Esos canales están llenos de un <b>líquido</b>. Cuando mueves la cabeza, el líquido se mueve y unos pelitos muy finos lo notan y envían la información al <b>cerebro</b>. Así el cerebro sabe si estás de pie, tumbado, girando o inclinado.</p><p>Pero el oído no trabaja solo. Para mantener el equilibrio, el cerebro junta información de tres fuentes:</p><ul><li>El <b>oído interno</b>: los movimientos y la posición de la cabeza.</li><li>La <b>vista</b>: lo que vemos a nuestro alrededor.</li><li>La <b>propiocepción</b>: los sensores de músculos y articulaciones.</li></ul><p>Cuando giras muchas veces y te paras, el líquido sigue moviéndose un rato. Por eso te <b>mareas</b>: el oído dice que sigues girando, pero los ojos dicen que estás quieto.</p><p>Los bailarines y patinadores usan un truco: fijan la mirada en un punto y giran la cabeza lo más tarde posible. Así se marean mucho menos.</p>`,
+      H6.rueda("Equilibrio", "CEREBRO", [["oído", cAZ], ["vista", cVE], ["músculos", cRO], ["pies", cNA]])],
+    ["El equilibrio en la vida diaria", `<p>No solo en clase de Educación Física: usamos el <mark>equilibrio y la coordinación</mark> a cada momento. Fíjate en estas actividades:</p><ul><li><b>Montar en bicicleta</b>: al principio cuesta, pero cuando vas rápido es más fácil mantener el equilibrio. Siempre con casco.</li><li><b>Patinar</b> o ir en <b>patinete</b>: hay que flexionar un poco las rodillas y mirar al frente. Con casco, rodilleras y coderas.</li><li><b>Slackline</b>: caminar sobre una cinta elástica tensada entre dos árboles, a poca altura del suelo.</li><li><b>Subir a un autobús</b> en marcha o caminar por un barco que se mueve.</li><li><b>Llevar una bandeja</b> con vasos sin derramar nada.</li><li><b>Atarse los cordones</b> de pie o ponerse los pantalones sin sentarse.</li></ul><p>Las personas mayores entrenan el equilibrio para evitar <b>caídas</b>, que pueden ser peligrosas a su edad. Actividades como el <b>taichí</b> o el <b>yoga</b> les ayudan mucho.</p><p><b>Reto para casa</b>: lávate los dientes cada noche a la pata coja, cambiando de pie a mitad. ¡En un mes notarás la diferencia!</p>`,
+      L6.filas("En la vida", [["bicicleta", "con casco", cAZ], ["patines", "rodillas flexionadas", cVE], ["slackline", "cinta tensada", cNA], ["bandeja", "sin derramar", cMO]])],
+  ],
+  ejemplos: [
+    ["¿Por qué un portero de fútbol flexiona las rodillas antes de un penalti?", ["Baja su centro de gravedad.", "Así es más estable y reacciona más rápido."], "Para bajar el centro de gravedad y estar más estable."],
+    ["En una figura de acrosport, Lola subió la última. ¿Quién baja primero?", ["La figura se deshace en orden inverso.", "La última en subir es la primera en bajar."], "Lola."],
+  ],
+  errores: ["Apoyar la cabeza en la voltereta: hay que meter la barbilla y apoyar la nuca y los hombros.", "Pisar el centro de la espalda del portor: solo se apoya en hombros y caderas."],
+  ejercicios: [
+    ["b", "¿Dónde está aproximadamente el centro de gravedad de una persona de pie?", "A la altura del ombligo, un poco por debajo."],
+    ["b", "Nombra los tres papeles del acrosport.", "Portor, ágil y ayudante."],
+    ["b", "¿Qué es lo más importante al empezar una voltereta?", "Meter la barbilla en el pecho."],
+    ["b", "¿En qué parte del cuerpo está el órgano del equilibrio?", "En el oído interno."],
+    ["b", "Di dos actividades diarias que necesitan equilibrio.", "Por ejemplo, montar en bici y patinar."],
+    ["m", "¿Por qué separar los pies te hace más estable?", "Porque aumenta la base de sustentación."],
+    ["m", "¿Por qué nos mareamos después de girar mucho?", "Porque el líquido del oído sigue moviéndose."],
+    ["m", "¿Cuánto tiempo se mantiene una figura de acrosport?", "Unos tres segundos."],
+    ["m", "¿Qué tres fuentes usa el cerebro para el equilibrio?", "Oído interno, vista y propiocepción."],
+    ["m", "¿Qué truco usan los bailarines para no marearse?", "Fijar la mirada en un punto."],
+    ["a", "Diseña una figura de acrosport de tres personas y dibújala.", "Respuesta abierta."],
+    ["a", "Haz el experimento de la pared y explica qué pasa.", "Respuesta abierta."],
+    ["a", "Practica el reto de los dientes a la pata coja durante una semana.", "Respuesta abierta."],
+    ["a", "Explica a un compañero los pasos de la voltereta.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Somos más estables con el centro de gravedad…", ["bajo", "alto", "fuera de la base"], "Centro de gravedad."],
+    ["En acrosport, quien sostiene desde abajo es el…", ["portor", "ágil", "árbitro"], "Acrosport."],
+    ["En la voltereta se apoya…", ["la nuca y los hombros", "la frente", "la coronilla"], "Voltereta."],
+    ["Los canales semicirculares están en el…", ["oído interno", "pie", "codo"], "Oído."],
+    ["La slackline es…", ["una cinta elástica tensada", "un tipo de balón", "una canción"], "Vida diaria."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué papel descubrió Sara que se le daba bien?", ["portora", "ágil", "ayudante"], "Lectura."],
+    ["¿En qué orden se deshace una figura de acrosport?", ["en orden inverso", "todos a la vez", "saltando"], "Acrosport."],
+  ],
+  tarjetas: [
+    ["Centro de gravedad", "Junto al ombligo; estable si queda sobre la base."],
+    ["Acrosport", "Portor, ágil y ayudante; 3 segundos y orden inverso."],
+    ["Voltereta", "Barbilla al pecho, nuca y hombros, rodar agrupado."],
+    ["Oído interno", "Canales semicirculares con líquido; oído, vista y propiocepción."],
+  ],
+  glosario: [
+    ["Centro de gravedad", "Punto donde se concentra el peso del cuerpo."],
+    ["Base de sustentación", "Zona entre los puntos de apoyo."],
+    ["Estabilidad", "Facilidad para mantener el equilibrio."],
+    ["Acrosport", "Actividad de figuras y pirámides humanas."],
+    ["Portor", "Quien sostiene a los demás desde abajo."],
+    ["Ágil", "Quien sube encima del portor."],
+    ["Voltereta", "Giro rodando sobre la espalda."],
+    ["Agrupado", "Con el cuerpo encogido como una bola."],
+    ["Oído interno", "Parte del oído donde está el órgano del equilibrio."],
+    ["Canales semicirculares", "Tubos con líquido que detectan el movimiento."],
+    ["Mareo", "Sensación de pérdida de equilibrio."],
+    ["Slackline", "Cinta elástica tensada para caminar en equilibrio."],
+  ],
+  situacion: {
+    titulo: "Exhibición de acrosport",
+    reto: "La clase prepara una exhibición de acrosport con música para la fiesta del colegio.",
+    pasos: ["Formar grupos de tres o cuatro y repartir los papeles.", "Aprender las normas de seguridad y practicar figuras de dos.", "Crear tres figuras de grupo y unirlas con volteretas y giros.", "Ensayar con música y presentar la exhibición."],
+    producto: "Una coreografía de acrosport con tres figuras y transiciones.",
+    evaluacion: ["Mantiene el equilibrio en su papel.", "Cumple las normas de seguridad.", "Realiza la voltereta con buena técnica.", "Coopera y confía en sus compañeros."],
+  },
+});
