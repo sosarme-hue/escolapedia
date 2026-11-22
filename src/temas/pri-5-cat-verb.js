@@ -88,3 +88,89 @@ module.exports = P.tema({
   saberes: "Reflexió sobre la llengua: el verb; infinitiu i conjugacions; arrel i desinència; persona, nombre, temps i mode; el passat perifràstic; temps simples i compostos de l'indicatiu; subjuntiu i imperatiu; correcció de castellanismes (tenir que, anar a + infinitiu)",
   ideas: ["Mural de conjugació amb cantar, perdre i dormir.", "Teatret d'ordres per practicar l'imperatiu amb pronoms.", "Reescriure un diari en passat perifràstic i després en futur."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Conjugar els verbs incoatius de la tercera conjugació", "Reconèixer l'infinitiu, el gerundi i el participi", "Conjugar en present els verbs irregulars més freqüents", "Fer servir perífrasis verbals i verbs pronominals correctament"],
+  lectura: { titulo: "El robot que no sabia dir «serveixo»", html: `<p>A la classe de cinquè havien construït un robot de cartró amb un altaveu i una tauleta. L'havien batejat amb el nom de Verbot, perquè la seva feina era ajudar els alumnes a conjugar verbs.</p><p>El primer dia, la Laia li va preguntar:</p><p>—Verbot, com es diu el present de <i>servir</i> amb «jo»?</p><p>—Jo <b>servo</b> —va contestar el robot amb veu metàl·lica.</p><p>Tota la classe va esclafir a riure. El mestre va obrir el programa del robot i va trobar l'error: en Verbot conjugava tots els verbs de la tercera conjugació com <i>dormir</i>: jo dormo, jo servo, jo llegeo…</p><p>—Molts verbs acabats en <b>-ir</b> afegeixen un trosset entre l'arrel i la desinència —va explicar el mestre—. Diem <i>jo serv<b>eix</b>o</i>, <i>tu llegeixes</i>, <i>ell pat<b>eix</b></i>. Aquests verbs s'anomenen <b>incoatius</b>.</p><p>Els alumnes van passar la tarda ensenyant al robot la llista dels verbs <b>incoatius</b>. A més, li van afegir els verbs irregulars: <i>jo sóc, jo vaig, jo faig, jo tinc, jo puc, jo vull</i>.</p><p>L'endemà, la Laia va tornar a preguntar:</p><p>—Verbot, què fas?</p><p>—Jo <b>serveixo</b> la classe de cinquè i <b>estic aprenent</b> verbs nous —va respondre el robot.</p><p>I aquest cop tothom va aplaudir.</p>` },
+  tras: {
+    "Arrel i desinència": [
+      ["Els verbs incoatius de la tercera conjugació", `<p>La majoria dels verbs de la <b>tercera conjugació</b> (els acabats en <b>-ir</b>) són <b>incoatius</b>. Això vol dir que en alguns temps afegeixen l'increment <b>-eix-</b> entre l'arrel i la desinència.</p><p>Fixa't en el present d'indicatiu de <i>servir</i>: jo serv<b>eix</b>o, tu serv<b>eix</b>es, ell serv<b>eix</b>, nosaltres servim, vosaltres serviu, ells serv<b>eix</b>en. L'increment apareix a les persones <b>jo, tu, ell/ella</b> i <b>ells/elles</b>, però no a <b>nosaltres</b> ni a <b>vosaltres</b>.</p><p>Són incoatius verbs molt habituals com <b>llegir, patir, decidir, oferir, preferir, repartir, construir, unir, avorrir</b> o <b>servir</b>: <i>Llegeixo un conte. Prefereixes la platja? Construeixen una cabana.</i></p><p>En canvi, alguns verbs de la tercera conjugació <b>no</b> són incoatius i es conjuguen com <b>dormir</b>: <i>jo dormo, tu dorms, ell dorm</i>. Els principals són <b>dormir, sortir, obrir, sentir, morir, fugir, collir, cosir, bullir, tossir</b> i <b>cobrir</b>.</p><p>En alguns parlars, com el valencià, l'increment pot ser <b>-ix-</b> (<i>servix</i>, <i>servixen</i>), i en la primera persona es diu <i>servisc</i>. Totes aquestes formes són correctes.</p><p>Un truc per saber si un verb és incoatiu: prova de dir-lo amb «jo» i amb «ells». Si et sona natural <i>jo llegeixo</i> i <i>ells llegeixen</i>, és incoatiu. Si et sona natural <i>jo dormo</i> i <i>ells dormen</i>, no ho és. En cas de dubte, consulta el diccionari o una taula de conjugació.</p>`,
+        L.tabla("Present de servir i dormir", ["persona", "servir", "dormir"], [["jo", "serveixo", "dormo"], ["tu", "serveixes", "dorms"], ["ell / ella", "serveix", "dorm"], ["nosaltres", "servim", "dormim"], ["vosaltres", "serviu", "dormiu"], ["ells / elles", "serveixen", "dormen"]], VE)],
+    ],
+    "Els temps de l'indicatiu": [
+      ["Verbs irregulars freqüents", `<p>Els <b>verbs irregulars</b> són els que canvien l'arrel o tenen desinències diferents del model de la seva conjugació. Són pocs, però els fem servir tot el dia, i per això convé saber-los de memòria.</p><p>Aquests són els més importants en <b>present d'indicatiu</b>:</p><ul><li><b>ser</b>: sóc, ets, és, som, sou, són</li><li><b>estar</b>: estic, estàs, està, estem, esteu, estan</li><li><b>anar</b>: vaig, vas, va, anem, aneu, van</li><li><b>fer</b>: faig, fas, fa, fem, feu, fan</li><li><b>tenir</b>: tinc, tens, té, tenim, teniu, tenen</li><li><b>poder</b>: puc, pots, pot, podem, podeu, poden</li><li><b>voler</b>: vull, vols, vol, volem, voleu, volen</li><li><b>saber</b>: sé, saps, sap, sabem, sabeu, saben</li></ul><p>Fixa't que molts d'aquests verbs fan la primera persona acabada en <b>-c</b> o <b>-g</b>: <i>estic, tinc, puc, faig, vaig, dic, veig</i>. És una característica molt típica del català.</p><p>Compte amb els accents: <b>sóc</b>, <b>és</b>, <b>són</b> i <b>sé</b> porten accent, i <b>té</b> també, per distingir-lo de <i>te</i> (la beguda o el pronom).</p>`,
+        L.tabla("Irregulars en present", ["verb", "jo", "ell / ella", "ells"], [["ser", "sóc", "és", "són"], ["anar", "vaig", "va", "van"], ["fer", "faig", "fa", "fan"], ["tenir", "tinc", "té", "tenen"], ["poder", "puc", "pot", "poden"], ["voler", "vull", "vol", "volen"]], AZ), ["daHFzV_MBlc", "Catalán🟡20 Verbos Irregulares en Presente (1a Parte)", "CATALÁN FÁCIL con Olga", 29486]],
+    ],
+    "Els modes verbals": [
+      ["Les formes no personals", `<p>Hi ha tres formes del verb que <b>no indiquen persona</b> ni temps: per això s'anomenen <b>formes no personals</b>.</p><ul><li><b>Infinitiu</b>: és el nom del verb. Acaba en <b>-ar</b>, <b>-re / -er</b> o <b>-ir</b>: <i>cantar, perdre, témer, dormir</i>.</li><li><b>Gerundi</b>: expressa una acció que dura. Acaba en <b>-ant</b>, <b>-ent</b> o <b>-int</b>: <i>cantant, perdent, dormint</i>. «Va arribar <b>corrent</b>.»</li><li><b>Participi</b>: expressa una acció acabada i serveix per formar els temps compostos. Acaba en <b>-at</b>, <b>-ut</b> o <b>-it</b>: <i>cantat, perdut, dormit</i>. «He <b>acabat</b> els deures.»</li></ul><p>El participi pot funcionar com un adjectiu i llavors té <b>femení i plural</b>: <i>la porta tancada, els llibres llegits, les cartes escrites</i>.</p><p>Molts participis són <b>irregulars</b>: <i>fet</i> (fer), <i>dit</i> (dir), <i>escrit</i> (escriure), <i>vist</i> (veure), <i>pres</i> (prendre), <i>obert</i> (obrir), <i>mort</i> (morir), <i>après</i> (aprendre), <i>viscut</i> (viure), <i>begut</i> (beure), <i>conegut</i> (conèixer) o <i>tingut</i> (tenir).</p><p>Recorda: el gerundi no s'ha d'usar per a una acció posterior. No diem «Va caure, trencant-se el braç», sinó «Va caure <b>i es va trencar</b> el braç».</p>`,
+        L.filas("Formes no personals", [["infinitiu", "cantar, perdre", AZ], ["gerundi", "cantant, perdent", VE], ["participi", "cantat, perdut", NA], ["irregular", "fet, dit, escrit", MO]]), ["vV2rttNErF0", "📚 VERBOS - INFINITIVO, GERUNDIO y PARTICIPIO │ Formas no personales", "Clases Particulares en Ávila", 172702]],
+    ],
+  },
+  final: [
+    ["Les perífrasis verbals", `<p>Una <b>perífrasi verbal</b> és un grup de dos verbs (de vegades amb una preposició al mig) que funcionen junts com si fossin un de sol. El primer verb, l'<b>auxiliar</b>, va conjugat; el segon va en infinitiu o en gerundi i és el que aporta el significat principal.</p><ul><li><b>haver de + infinitiu</b>: obligació. <i>He d'estudiar per a l'examen.</i> (És la forma correcta, no «tinc que estudiar».)</li><li><b>estar + gerundi</b>: acció que està passant. <i>Estem llegint un conte.</i></li><li><b>acabar de + infinitiu</b>: acció acabada fa molt poc. <i>Acabo d'arribar a casa.</i></li><li><b>deure + infinitiu</b>: probabilitat o suposició. <i>Deuen ser les cinc. La Marta deu estar cansada.</i></li><li><b>començar a</b> o <b>posar-se a + infinitiu</b>: inici d'una acció. <i>Es va posar a ploure.</i></li><li><b>tornar a + infinitiu</b>: repetició. <i>Torna a trucar, sisplau.</i></li><li><b>soler + infinitiu</b>: costum. <i>Solem sopar a les vuit.</i></li></ul><p>No confonguis la perífrasi <b>anar + infinitiu</b> (passat perifràstic: <i>vaig menjar</i> = ahir) amb el castellanisme «vaig a menjar» per dir el futur. En català diem <b>menjaré</b> o <b>ara menjaré</b>.</p>`,
+      L.filas("Perífrasis verbals", [["haver de + inf.", "obligació", RO], ["estar + gerundi", "acció en curs", AZ], ["acabar de + inf.", "fa molt poc", VE], ["deure + inf.", "probabilitat", NA], ["tornar a + inf.", "repetició", MO]]), ["AMxqsYhJyP0", "Perífrasis Verbal/Lengua 2 ESO/AulaFacil.com", "AulaFacil CuRsoS OnLiNe GrAtiS", 182096]],
+    ["Els verbs pronominals", `<p>Els <b>verbs pronominals</b> són els que es conjuguen sempre amb un <b>pronom feble</b> de la mateixa persona que el subjecte: <i>jo <b>em</b> rento, tu <b>et</b> rentes, ell <b>es</b> renta, nosaltres <b>ens</b> rentem, vosaltres <b>us</b> renteu, ells <b>es</b> renten</i>.</p><p>L'infinitiu s'escriu amb el pronom darrere i un guionet: <b>rentar-se, llevar-se, adonar-se, queixar-se, penedir-se, emportar-se</b>. Si l'infinitiu acaba en vocal, el pronom s'apostrofa: <b>seure's</b>, <b>moure's</b>.</p><p>El pronom va <b>davant</b> del verb conjugat (<i>em llevo</i>) i <b>darrere</b> de l'infinitiu, el gerundi i l'imperatiu (<i>he de llevar-me, rentant-se, renta't!</i>).</p><p>Alguns verbs són pronominals en castellà però <b>no en català</b>, i al revés:</p><ul><li>«Me he caído» → <b>He caigut</b> (caure no és pronominal).</li><li>«Se ha bajado del autobús» → <b>Ha baixat</b> de l'autobús.</li><li>«Me he dado cuenta» → <b>M'he adonat</b>.</li><li>«Me voy» → <b>Me'n vaig</b> (amb el pronom <i>en</i>).</li></ul><p>Fixar-se en aquestes diferències ajuda a parlar un català més genuí.</p>`,
+      H.dos("Amb pronom o sense?", ["Pronominal", ["em rento", "m'adono", "me'n vaig"], VE], ["Sense pronom", ["he caigut", "he baixat", "he pujat"], RO])],
+  ],
+  ejemplos: [
+    ["Conjuga el present de «llegir» amb jo, tu i ells.", ["Llegir és un verb incoatiu.", "Afegim -eix- a jo, tu, ell i ells."], "jo llegeixo, tu llegeixes, ells llegeixen."],
+    ["Corregeix: «Tinc que acabar els deures perquè vaig a sortir.»", ["Obligació: haver de + infinitiu.", "Futur: no fem servir «anar a»."], "He d'acabar els deures perquè sortiré."],
+  ],
+  errores: ["Conjugar «jo servo» o «jo llegeo» en lloc de «jo serveixo» i «jo llegeixo».", "Fer pronominals verbs que no ho són, com «m'he caigut» en lloc de «he caigut»."],
+  ejercicios: [
+    ["b", "Escriu el gerundi i el participi de cantar, perdre i dormir.", "cantant, cantat; perdent, perdut; dormint, dormit."],
+    ["b", "Conjuga «servir» amb jo i amb nosaltres.", "jo serveixo, nosaltres servim."],
+    ["b", "Escriu la primera persona del present de fer, tenir i poder.", "faig, tinc, puc."],
+    ["b", "Quin és el participi de escriure, veure i obrir?", "escrit, vist, obert."],
+    ["b", "Quina perífrasi expressa obligació?", "haver de + infinitiu."],
+    ["m", "Classifica: dormir, llegir, sortir, patir, obrir, decidir.", "Incoatius: llegir, patir, decidir. No incoatius: dormir, sortir, obrir."],
+    ["m", "Escriu una frase amb «acabar de» i una amb «deure».", "Exemple: Acabo de dinar. Deuen ser les tres."],
+    ["m", "Corregeix: «Ahir em vaig caure al pati.»", "Ahir vaig caure al pati."],
+    ["m", "Conjuga «llevar-se» en present amb totes les persones.", "em llevo, et lleves, es lleva, ens llevem, us lleveu, es lleven."],
+    ["m", "Corregeix: «Va obrir la porta, entrant a casa.»", "Va obrir la porta i va entrar a casa."],
+    ["a", "Escriu un text sobre el teu dia amb cinc verbs irregulars en present.", "Resposta oberta."],
+    ["a", "Inventa un diàleg on aparegui una perífrasi de cada tipus.", "Resposta oberta."],
+    ["a", "Fes una llista de deu verbs incoatius i escriu-ne una frase amb cadascun.", "Resposta oberta."],
+    ["a", "Busca en un conte cinc participis usats com a adjectius i explica de quin nom parlen.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["«Jo ___ el menjar» (servir)", ["serveixo", "servo", "serveix"], "Verb incoatiu."],
+    ["El gerundi de «perdre» és…", ["perdent", "perdut", "perdant"], "Segona conjugació."],
+    ["La primera persona del present de «poder» és…", ["puc", "podo", "pot"], "Irregular."],
+    ["«___ estudiar més» (obligació)", ["He d'", "Tinc que", "Vaig a"], "haver de + inf."],
+    ["Quin verb no és pronominal en català?", ["caure", "adonar-se", "queixar-se"], "He caigut."],
+  ],
+  examen: [
+    ["El participi de «fer» és…", ["fet", "fat", "fit"], "Participi irregular."],
+    ["«Deuen ser les sis» expressa…", ["probabilitat", "obligació", "repetició"], "deure + inf."],
+  ],
+  tarjetas: [
+    ["Incoatius", "-eix- a jo, tu, ell i ells: serveixo, llegeixes, pateix."],
+    ["Formes no personals", "Infinitiu (cantar), gerundi (cantant), participi (cantat)."],
+    ["Irregulars", "sóc, vaig, faig, tinc, puc, vull, sé."],
+    ["Perífrasis", "haver de, estar + gerundi, acabar de, deure, tornar a."],
+  ],
+  glosario: [
+    ["Incoatiu", "Verb en -ir que afegeix -eix- en algunes persones."],
+    ["Increment", "Tros que s'afegeix entre l'arrel i la desinència."],
+    ["Verb irregular", "Verb que no segueix el model de la seva conjugació."],
+    ["Forma no personal", "Forma verbal sense persona: infinitiu, gerundi o participi."],
+    ["Gerundi", "Forma acabada en -ant, -ent o -int que indica acció en curs."],
+    ["Participi", "Forma acabada en -at, -ut o -it que indica acció acabada."],
+    ["Temps compost", "Temps format amb haver i un participi."],
+    ["Perífrasi verbal", "Grup de dos verbs que funcionen com un de sol."],
+    ["Auxiliar", "Verb conjugat d'una perífrasi o d'un temps compost."],
+    ["Verb pronominal", "Verb que es conjuga sempre amb un pronom feble."],
+    ["Pronom feble", "Pronom curt com em, et, es, ens, us."],
+    ["Castellanisme", "Forma presa del castellà sense necessitat."],
+  ],
+  situacion: {
+    titulo: "Ensenyem verbs a un robot",
+    reto: "Per grups, creeu un «robot conjugador» de cartró amb fitxes que expliquin com es conjuguen els verbs més difícils, i poseu-lo a prova amb la classe.",
+    pasos: ["Repartiu-vos els temes: incoatius, irregulars, formes no personals, perífrasis i pronominals.", "Prepareu fitxes amb la regla, una taula de conjugació i tres exemples.", "Construïu el robot amb una capsa i poseu-hi les fitxes en calaixos.", "Feu un concurs: un company diu un verb i una persona, i el robot (el grup) respon."],
+    producto: "Un robot de cartró amb fitxes de conjugació.",
+    evaluacion: ["Conjuga bé els verbs incoatius.", "Coneix els irregulars més freqüents.", "Identifica infinitiu, gerundi i participi.", "Usa perífrasis i verbs pronominals sense castellanismes."],
+  },
+});

@@ -88,3 +88,89 @@ module.exports = P.tema({
   saberes: "Comunicació escrita: la narració (elements, narrador i estructura); la descripció de persones, animals, llocs i objectes; el diàleg, estil directe i indirecte i ús del guió; planificació, textualització i revisió de textos",
   ideas: ["Daus de contes (personatge, lloc, problema) per inventar narracions.", "Galeria de retrats escrits de personatges de llibres llegits a classe.", "Transformar una vinyeta de còmic en un diàleg amb guions i després en estil indirecte."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Escriure textos instructius clars i ordenats", "Fer servir connectors per enllaçar les idees d'un text", "Resumir un text amb paraules pròpies", "Escriure una carta, un correu i una ressenya de llibre"],
+  lectura: { titulo: "La bústia de la classe", html: `<p>A principi de curs, la tutora de cinquè va penjar una capsa de sabates folrada de paper blau al costat de la porta. A sobre hi havia un cartell: «Bústia de la classe».</p><p>—Aquí podreu deixar cartes, notes, receptes, recomanacions de llibres… el que vulgueu —va explicar—. Cada divendres obrirem la bústia i llegirem el que hi hagi.</p><p>El primer divendres hi havia poques coses: un dibuix i una nota que deia «Bon cap de setmana a tothom!». Però, a poc a poc, la bústia es va anar omplint.</p><p>L'Ona hi va deixar la recepta del pa amb tomàquet de la seva àvia, amb els ingredients i els passos numerats. En Marc hi va posar una carta per a un alumne nou que havia arribat del Marroc, donant-li la benvinguda. La Txell va escriure la ressenya d'un llibre que l'havia fet riure i plorar alhora, sense explicar-ne el final per no espatllar-lo als altres.</p><p>A final de trimestre, la tutora va reunir tots els textos en un llibre. Hi havia instruccions, cartes, correus, resums i ressenyes.</p><p>—Fixeu-vos —va dir—: cada text té una manera diferent d'escriure's, perquè cadascun té una finalitat diferent. No s'escriu igual una recepta que una carta a un amic.</p><p>I des d'aquell dia, a la classe de cinquè, tothom va voler tenir un text publicat al llibre de la bústia.</p>` },
+  tras: {
+    "Tres maneres d'escriure": [
+      ["El text instructiu", `<p>A més de narrar, descriure i dialogar, hi ha textos que serveixen per <b>explicar com es fa alguna cosa</b>: són els <b>textos instructius</b>. Els trobem a les receptes de cuina, a les regles d'un joc, als manuals d'aparells o a les instruccions per muntar un moble.</p><p>Un bon text instructiu té aquestes parts:</p><ul><li><b>Títol</b>: diu què aprendrem a fer. <i>Com fer un avió de paper.</i></li><li><b>Materials o ingredients</b>: una llista de tot el que necessitem.</li><li><b>Passos</b>: numerats i en l'ordre en què s'han de fer.</li><li><b>Imatges</b> o esquemes, si ajuden a entendre-ho.</li></ul><p>Els verbs van en <b>imperatiu</b> (<i>talla, barreja, posa</i>) o en <b>infinitiu</b> (<i>tallar, barrejar, posar</i>). És important triar-ne una de les dues formes i mantenir-la en tot el text.</p><p>Les frases han de ser <b>curtes i clares</b>, sense paraules innecessàries. També podem fer servir connectors d'ordre: <i>primer, a continuació, després, finalment</i>.</p><p>Un truc per saber si el teu text instructiu funciona: dona'l a un company i mira si és capaç de seguir les instruccions sense preguntar-te res.</p>`,
+        L.filas("Parts d'un text instructiu", [["títol", "què farem", AZ], ["materials", "què necessitem", VE], ["passos", "numerats i en ordre", NA], ["imatges", "ajuden a entendre", MO]]), ["mo0myrNwT9E", "Text instructiu", "Marisol unmundodeletras", 4655]],
+    ],
+    "L'estructura de la narració": [
+      ["Els connectors", `<p>Els <b>connectors</b> són paraules o expressions que serveixen per <b>enllaçar</b> frases i idees. Fan que el text sigui més clar i que el lector entengui la relació entre el que passa.</p><ul><li><b>De temps</b>: indiquen quan passen les coses. <i>Primer, després, mentre, de sobte, l'endemà, finalment.</i></li><li><b>De causa</b>: expliquen per què. <i>Perquè, ja que, com que.</i></li><li><b>De conseqüència</b>: diuen què en resulta. <i>Per això, així doncs, per tant.</i></li><li><b>D'oposició</b>: presenten una idea contrària. <i>Però, en canvi, tanmateix, malgrat que.</i></li><li><b>D'addició</b>: afegeixen informació. <i>I, també, a més, a més a més.</i></li></ul><p>Compara aquests dos textos: «Plovia. Vam sortir. Ens vam mullar.» i «<b>Com que</b> plovia, vam agafar el paraigua; <b>tanmateix</b>, en sortir ens vam mullar». El segon és molt més clar.</p><p>En una narració, els connectors de temps ajuden a ordenar el plantejament, el nus i el desenllaç: <i>Fa molts anys… Un dia… De sobte… Finalment…</i></p><p>Compte de no repetir sempre el mateix connector («i després… i després… i després»). Varia'ls per fer el text més ric.</p>`,
+        L.filas("Tipus de connectors", [["temps", "primer, després", AZ], ["causa", "perquè, ja que", VE], ["conseqüència", "per això", NA], ["oposició", "però, en canvi", RO], ["addició", "a més, també", MO]])],
+    ],
+    "Escriure un conte pas a pas": [
+      ["El resum", `<p>Fer un <b>resum</b> vol dir explicar les <b>idees més importants</b> d'un text amb menys paraules i amb paraules pròpies. És una eina molt útil per estudiar i per explicar a algú de què tracta un conte o un llibre.</p><p>Per fer un bon resum, segueix aquests passos:</p><ol><li><b>Llegeix</b> el text sencer, almenys dues vegades, fins que l'entenguis bé.</li><li><b>Subratlla</b> les idees principals de cada paràgraf.</li><li><b>Elimina</b> els detalls, els exemples i les repeticions.</li><li><b>Escriu</b> el resum amb les teves paraules, sense copiar frases senceres.</li><li><b>Revisa</b> que s'entengui sense haver llegit l'original.</li></ol><p>Un resum ha de ser <b>breu</b> (més o menys la quarta part del text original), <b>objectiu</b> (no hi posem la nostra opinió) i ha de mantenir l'<b>ordre</b> de les idees.</p><p>Per resumir una narració, pots respondre aquestes preguntes: qui és el protagonista?, on i quan passa?, quin problema té?, com el resol?, com acaba?</p><p>No confonguis resum amb esquema: l'esquema ordena les idees amb fletxes i paraules clau, i el resum és un text seguit, amb frases completes.</p>`,
+        H.flujo("Com fer un resum", ["Llegir", "Subrat-|llar", "Elimi-|nar", "Escriure"], VE), ["cfUdk-qbyUQ", "Cómo hacer un resumen", "educalive", 969732]],
+    ],
+  },
+  final: [
+    ["La carta i el correu electrònic", `<p>La <b>carta</b> és un text que escrivim per comunicar-nos amb algú que no és present. Pot ser <b>personal</b> (a un amic, a la família) o <b>formal</b> (a l'ajuntament, a una empresa, a la directora de l'escola).</p><p>Les parts d'una carta són:</p><ul><li><b>Lloc i data</b>: a dalt a la dreta. <i>Girona, 3 de maig de 2026.</i></li><li><b>Salutació</b>: <i>Estimada Anna,</i> (personal) o <i>Benvolguda senyora,</i> (formal).</li><li><b>Cos</b>: el missatge, ordenat en paràgrafs.</li><li><b>Comiat</b>: <i>Una abraçada,</i> o <i>Atentament,</i></li><li><b>Signatura</b>: el nom de qui escriu.</li></ul><p>El <b>correu electrònic</b> té les mateixes parts, però a més cal omplir el <b>destinatari</b> (l'adreça electrònica) i l'<b>assumpte</b>, que resumeix de què tracta en poques paraules: <i>Excursió de dijous</i>. La data i el lloc no cal escriure-les, perquè les posa el programa automàticament.</p><p>En una carta formal fem servir el tractament de <b>vostè</b> i un llenguatge més acurat. En una carta personal podem fer servir <b>tu</b> i un to més proper.</p><p>Abans d'enviar qualsevol carta o correu, rellegeix-lo per corregir les faltes i comprova que el destinatari és el correcte.</p>`,
+      L.filas("Parts d'una carta", [["data", "Girona, 3 de maig", AZ], ["salutació", "Estimada Anna,", VE], ["cos", "el missatge", NA], ["comiat", "Una abraçada,", RO], ["signatura", "Pol", MO]]), ["rhbXw28iHGg", "LA CARTA para niños ✉️ Características y elementos 📮​​ Lengua para niños", "Smile and Learn - Español", 392494]],
+    ["La ressenya d'un llibre", `<p>Una <b>ressenya</b> és un text breu on expliquem de què tracta un llibre i donem la nostra <b>opinió</b> sobre ell. Serveix perquè altres lectors decideixin si el volen llegir.</p><p>Una ressenya de llibre té aquestes parts:</p><ul><li><b>Dades del llibre</b>: títol, autor o autora, il·lustrador, editorial i any.</li><li><b>Resum breu</b>: qui són els personatges, on passa i quin és el problema. Molt important: <b>no expliquis el final</b>, per no espatllar la sorpresa.</li><li><b>Opinió argumentada</b>: què t'ha agradat i què no, i <b>per què</b>. No n'hi ha prou de dir «m'ha agradat molt»: cal donar raons. <i>M'ha agradat perquè la protagonista és valenta i divertida.</i></li><li><b>Recomanació</b>: a qui el recomanaries? <i>És ideal per a lectors a qui agraden les aventures.</i></li><li><b>Valoració</b>: una puntuació, per exemple de l'1 al 5.</li></ul><p>Per expressar l'opinió, fes servir expressions com <i>al meu parer, crec que, des del meu punt de vista, el que més m'ha agradat és</i>.</p><p>Les ressenyes es poden publicar al blog de l'escola, en un mural de la biblioteca o en un vídeo curt.</p>`,
+      L.filas("Fitxa d'una ressenya", [["títol", "Pippi Calcesllargues", AZ], ["autora", "Astrid Lindgren", VE], ["resum", "sense dir el final", NA], ["opinió", "per què m'agrada", RO], ["nota", "4 de 5", MO]]), ["k3EzQI3juKY", "RESEÑA - ELEMENTOS - CARACTERÍSTICAS", "Rocio Carreon", 506853]],
+  ],
+  ejemplos: [
+    ["Uneix amb un connector: «Tenia gana. Vaig menjar una poma.»", ["La primera frase és la causa.", "Fem servir un connector de causa o de conseqüència."], "Com que tenia gana, vaig menjar una poma. (O: Tenia gana; per això vaig menjar una poma.)"],
+    ["Ordena les parts d'una carta: comiat, salutació, data, signatura, cos.", ["Comença per la data.", "Acaba amb el comiat i la signatura."], "Data, salutació, cos, comiat, signatura."],
+  ],
+  errores: ["Explicar el final del llibre en una ressenya: s'espatlla la sorpresa als altres lectors.", "Copiar frases senceres de l'original quan fem un resum, en lloc d'escriure-les amb paraules pròpies."],
+  ejercicios: [
+    ["b", "Escriu tres connectors de temps.", "Exemple: primer, després, finalment."],
+    ["b", "Quines parts té un text instructiu?", "Títol, materials, passos i imatges."],
+    ["b", "Com comença una carta formal?", "Amb el lloc i la data i una salutació com «Benvolguda senyora,»."],
+    ["b", "Què és l'assumpte d'un correu electrònic?", "Unes poques paraules que diuen de què tracta."],
+    ["b", "Què no s'ha d'explicar mai en una ressenya?", "El final del llibre."],
+    ["m", "Classifica: però, perquè, per això, a més, ja que.", "Oposició: però. Causa: perquè, ja que. Conseqüència: per això. Addició: a més."],
+    ["m", "Escriu les instruccions per rentar-se les dents en cinc passos.", "Resposta oberta amb passos numerats i verbs en imperatiu."],
+    ["m", "Resumeix en tres frases un conte que coneguis.", "Resposta oberta."],
+    ["m", "Transforma una salutació i un comiat personals en formals.", "Estimat Joan → Benvolgut senyor; Una abraçada → Atentament."],
+    ["m", "Millora: «Vam arribar i després vam dinar i després vam jugar i després vam marxar.»", "Exemple: Primer vam arribar; a continuació, vam dinar. Després vam jugar i, finalment, vam marxar."],
+    ["a", "Escriu la recepta del teu plat preferit amb totes les parts.", "Resposta oberta."],
+    ["a", "Escriu un correu a l'ajuntament per proposar una millora al teu barri.", "Resposta oberta."],
+    ["a", "Escriu la ressenya de l'últim llibre que hagis llegit.", "Resposta oberta."],
+    ["a", "Fes el resum d'un tema de Ciències Naturals amb els passos apresos.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["Quin connector indica causa?", ["perquè", "però", "finalment"], "Explica per què."],
+    ["En un text instructiu, els passos van…", ["numerats i en ordre", "desordenats", "en vers"], "Per seguir-los."],
+    ["Un resum ha de ser…", ["breu i objectiu", "més llarg que l'original", "amb la nostra opinió"], "Idees principals."],
+    ["«Atentament» és un comiat…", ["formal", "personal", "incorrecte"], "Carta formal."],
+    ["En una ressenya, l'opinió ha de ser…", ["argumentada", "secreta", "molt curta"], "Amb raons."],
+  ],
+  examen: [
+    ["«Tanmateix» és un connector…", ["d'oposició", "de temps", "de causa"], "Com però."],
+    ["Què té el correu electrònic que no té la carta?", ["assumpte", "salutació", "signatura"], "Resumeix el tema."],
+  ],
+  tarjetas: [
+    ["Text instructiu", "Títol, materials, passos numerats; verbs en imperatiu o infinitiu."],
+    ["Connectors", "Temps, causa, conseqüència, oposició i addició."],
+    ["Resum", "Llegir, subratllar, eliminar detalls, escriure amb paraules pròpies."],
+    ["Ressenya", "Dades, resum sense final, opinió amb raons, recomanació."],
+  ],
+  glosario: [
+    ["Text instructiu", "Text que explica com fer alguna cosa."],
+    ["Connector", "Paraula que enllaça frases i idees."],
+    ["Resum", "Text breu amb les idees principals d'un altre text."],
+    ["Idea principal", "Informació més important d'un paràgraf."],
+    ["Esquema", "Organització visual de les idees amb paraules clau."],
+    ["Carta", "Text escrit per comunicar-se amb algú que no és present."],
+    ["Destinatari", "Persona a qui va adreçat un text."],
+    ["Remitent", "Persona que envia una carta o un correu."],
+    ["Assumpte", "Tema d'un correu electrònic resumit en poques paraules."],
+    ["Ressenya", "Text que resumeix i valora un llibre o una obra."],
+    ["Opinió argumentada", "Opinió acompanyada de raons."],
+    ["Finalitat", "Allò per a què serveix un text."],
+  ],
+  situacion: {
+    titulo: "El llibre de la bústia",
+    reto: "La classe crea una bústia i, durant un trimestre, cada alumne hi deixa textos de diferents tipus per publicar-los al final en un llibre col·lectiu.",
+    pasos: ["Folreu una capsa i feu un calendari: cada setmana, un tipus de text (instruccions, carta, resum, ressenya).", "Escriviu el text seguint l'estructura apresa i fent servir connectors.", "Cada divendres, llegiu en veu alta els textos i comenteu-ne els punts forts.", "Corregiu-los, il·lustreu-los i enquaderneu-los en un llibre per a la biblioteca."],
+    producto: "Un llibre col·lectiu amb textos de diferents tipus.",
+    evaluacion: ["Escriu un text instructiu clar i ordenat.", "Fa servir connectors variats.", "Resumeix amb paraules pròpies.", "Escriu cartes, correus i ressenyes amb totes les parts."],
+  },
+});

@@ -88,3 +88,89 @@ module.exports = P.tema({
   saberes: "Ortografia: els dígrafs; la ela geminada (l·l) i la ll; la ny; el so de la xeix (x, ix) i de la txeix (tx, ig); canvis en el femení i el plural; famílies lèxiques com a estratègia ortogràfica",
   ideas: ["Mural de dígrafs amb paraules aportades per l'alumnat.", "Dictats en parelles amb autocorrecció.", "Joc de cartes: aparellar paraules de la mateixa família lèxica."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Aplicar les regles bàsiques de la b i la v", "Distingir la essa sorda de la sonora i escriure s, ss, c, ç o z", "Escriure correctament g, j, tg i tj", "Saber quan s'escriu la h i com resoldre els dubtes de les vocals àtones"],
+  lectura: { titulo: "El dictat de les trampes", html: `<p>Cada divendres, la mestra de cinquè preparava un dictat especial que anomenava «el dictat de les trampes». Era un text curt, però ple de paraules que s'escriuen diferent en català i en castellà.</p><p>Aquella setmana, el dictat deia així: «L'advocat va sortir a passejar pel bosc d'avets. Feia un dia de núvols i una mica de vent. Va trobar un ou al costat d'un os vell i va pensar que algun corb l'hi havia deixat. Quan va arribar a la plaça, va demanar una orxata i va seure en un banc.»</p><p>En Biel va lliurar el full molt content, però la mestra li va tornar ple de cercles vermells: havia escrit «abogat», «nubols», «huevo», «hueso», «cuervo» i «horxata».</p><p>—No pateixis —li va dir la mestra—. Són les trampes del català! En català escrivim <b>advocat</b> amb <i>v</i>, <b>núvol</b> amb <i>v</i>, <b>ou</b> i <b>os</b> sense <i>h</i>, <b>corb</b> amb <i>b</i> i <b>orxata</b> sense <i>h</i>.</p><p>—I com puc recordar-ho? —va preguntar en Biel.</p><p>—Llegint molt, fent servir les famílies de paraules i aprenent unes quantes regles que t'ajudaran. Les veurem avui.</p><p>Al divendres següent, en Biel només va fer una falta. I la va trobar ell mateix abans de lliurar el full.</p>` },
+  tras: {
+    "Paraules que s'assemblen": [
+      ["La b i la v", `<p>En gran part del territori, la <b>b</b> i la <b>v</b> es pronuncien igual, i per això és fàcil confondre-les. En algunes zones, com les Illes Balears, el Camp de Tarragona o part del País Valencià, encara es distingeix el so de la <i>v</i> (labiodental), cosa que ajuda molt a escriure-les bé.</p><p>Hi ha algunes <b>regles</b> que funcionen sempre:</p><ul><li>Darrere de <b>m</b> s'escriu <b>b</b>: <i>ambició, embolic, tomba</i>.</li><li>Darrere de <b>n</b> s'escriu <b>v</b>: <i>canvi, enviar, invent, convidar</i>.</li><li>Les terminacions de l'imperfet de la 1a conjugació porten <b>v</b>: <i>cantava, jugàvem, miraven</i>.</li><li>Si una paraula acaba en <b>-u</b> i a la família apareix una consonant, és una <b>v</b>: <i>blau → blava, neu → nevar, beure → bevia, escriure → escrivim</i>.</li><li>Si acaba en <b>-p</b>, a la família sol aparèixer una <b>b</b>: <i>sap → saber, llop → lloba</i>.</li></ul><p>Compte amb les paraules que es diferencien del castellà: amb <b>v</b> en català, <i>advocat, avet, govern, haver, núvol, savi, provar</i>; amb <b>b</b> en català, <i>corb, rebentar, berruga, biga</i>.</p>`,
+        L.tabla("B o v?", ["regla", "exemple"], [["mb", "tomba"], ["nv", "canvi"], ["-ava", "cantava"], ["-u → v", "blau, blava"], ["-p → b", "llop, lloba"]], AZ), ["vmn_Arwoev4", "¿Por qué tenemos la B y la V en español si suenan igual? | BBC Mundo", "BBC News Mundo", 694256]],
+    ],
+    "El so de la xeix: x i ix": [
+      ["La essa sorda i la essa sonora", `<p>El català té dos sons de essa que el castellà no distingeix: la <b>essa sorda</b>, que sona com la del castellà (<i>sol, passar</i>), i la <b>essa sonora</b>, que vibra com el brunzit d'una abella (<i>casa, zero</i>). Posa't la mà al coll i digues «zzz»: notaràs la vibració.</p><p><b>Essa sonora</b>:</p><ul><li><b>s</b> entre vocals: <i>casa, rosa, cosí, música</i>.</li><li><b>z</b> a l'inici de paraula o darrere de consonant: <i>zero, zona, onze, dotze, quinze, setze</i>.</li></ul><p><b>Essa sorda</b>:</p><ul><li><b>ss</b> entre vocals: <i>passar, tassa, grossa, rossa</i>.</li><li><b>ç</b> davant de <i>a, o, u</i> i a final de paraula: <i>plaça, forçut, braç, feliç</i>.</li><li><b>c</b> davant de <i>e, i</i>: <i>cel, cinc, ciutat</i>.</li><li><b>s</b> a l'inici de paraula o darrere de consonant: <i>sol, pensar, salsa</i>.</li></ul><p>Una sola lletra pot canviar el significat: <b>casa</b> (on vivim) i <b>caça</b> (caçar animals); <b>rosa</b> (la flor) i <b>rossa</b> (de cabell clar). Per això és important pronunciar bé i escriure amb compte.</p><p>Recorda també que la <b>ç</b> no va mai davant de <i>e</i> ni <i>i</i>: <i>braç → braços</i>, però <i>caçar → cacem</i>.</p>`,
+        L.filas("Sonora o sorda?", [["casa", "sonora: s", VE], ["caça", "sorda: ç", RO], ["rosa", "sonora: s", VE], ["rossa", "sorda: ss", RO], ["zero", "sonora: z", AZ]]), ["m82Df6-9m5M", "CATALAN PRONUNCIATION - CONSONANTS (Ç, Z, SS, X, TG, TJ...) - Subtitles: Eng, Esp, Cat", "Català al Natural", 49900]],
+    ],
+    "El so de la txeix: tx i ig": [
+      ["G o j? I tg o tj?", `<p>El so de la <b>j</b> catalana (com a <i>joc</i> o <i>gent</i>) es pot escriure amb <b>g</b> o amb <b>j</b>:</p><ul><li>Davant de <b>a, o, u</b> s'escriu sempre <b>j</b>: <i>jardí, joc, jugar, menjar</i>.</li><li>Davant de <b>e, i</b> s'escriu normalment <b>g</b>: <i>gent, gener, gelat, girar, gimnàs</i>.</li><li>Hi ha unes quantes paraules amb <b>j</b> davant de <i>e, i</i>: <i>Jesús, jersei, jeure, objecte, projecte, subjecte, injecció</i>.</li></ul><p>Quan conjuguem un verb, la lletra canvia per mantenir el so: <i>menjar → mengem, mengi</i>; <i>pujar → pugem, pugi</i>.</p><p>Quan aquest so va després d'una <b>t</b>, tenim els dígrafs <b>tg</b> i <b>tj</b>:</p><ul><li><b>tg</b> davant de <i>e, i</i>: <i>metge, fetge, jutge, rellotge</i>.</li><li><b>tj</b> davant de <i>a, o, u</i>: <i>platja, mitjó, mitjà, jutjar</i>.</li></ul><p>Les famílies ens ajuden: <i>jutge → jutjar</i>, <i>viatge → viatjar</i>, <i>platja → platges</i>. La lletra canvia segons la vocal que ve darrere.</p>`,
+        L.filas("G, j, tg o tj?", [["ja, jo, ju", "jardí, joc", AZ], ["ge, gi", "gent, girar", VE], ["tja, tjo", "platja, mitjó", NA], ["tge, tgi", "metge, jutge", MO], ["menjar", "mengem", RO]])],
+    ],
+  },
+  final: [
+    ["La h", `<p>La <b>h</b> és una lletra muda: en català no es pronuncia mai. Per això no ens podem guiar per l'orella i hem de fixar-nos en la paraula escrita.</p><p>Pot anar a l'<b>inici</b> de la paraula (<i>home, hora, hivern, herba, història</i>) o al <b>mig</b>, i llavors s'anomena <b>h intercalada</b> (<i>ahir, prohibir, vehicle, subhasta</i>).</p><p>Moltes paraules porten h en castellà però <b>no en català</b>:</p><ul><li><b>ou</b> (huevo), <b>os</b> (hueso), <b>orfe</b> (huérfano)</li><li><b>orxata</b> (horchata), <b>avui</b> (hoy), <b>safanòria</b> (zanahoria)</li><li><b>desfer</b> (deshacer), <b>desfet</b> (deshecho)</li></ul><p>Moltes paraules que en castellà comencen per h, en català comencen per <b>f</b>: <i>fer</i> (hacer), <i>farina</i> (harina), <i>fil</i> (hilo), <i>forn</i> (horno), <i>fum</i> (humo).</p><p>I algunes porten h en català i no en castellà: <b>harmonia</b> (armonía) i <b>subhasta</b> (subasta).</p><p>Hi ha un truc útil: les paraules de la mateixa família mantenen la h. Si <i>home</i> porta h, també la porten <i>homenet</i> i <i>homenatge</i>; si <i>hora</i> porta h, també <i>horari</i>.</p><p>Compte amb els parells que sonen igual: <b>ha</b> (del verb haver: <i>ha menjat</i>) i <b>a</b> (preposició: <i>va a casa</i>); <b>hi</b> (pronom: <i>hi vaig</i>) i <b>i</b> (conjunció: <i>pa i aigua</i>).</p>`,
+      H.dos("Amb h o sense?", ["Sense h", ["ou", "os", "orxata"], AZ], ["Amb h", ["harmonia", "subhasta", "ahir"], VE])],
+    ["Les vocals àtones", `<p>En el català central i en altres parlars orientals, les vocals <b>a</b> i <b>e</b> sonen igual quan són àtones (sense força): fan un so neutre. També la <b>o</b> i la <b>u</b> àtones sonen igual, com una <i>u</i>. Per això dubtem entre <i>pomer</i> i «pumer», o entre <i>llibreria</i> i «llibraria».</p><p>El millor truc és buscar una <b>paraula de la mateixa família</b> on aquella vocal sigui <b>tònica</b> (la que sona més forta). Allà la sentirem clara:</p><ul><li><i>pomer</i>: ve de <b>poma</b>, amb o tònica → s'escriu amb <b>o</b>.</li><li><i>cuiner</i>: ve de <b>cuina</b>, amb u tònica → <b>u</b>.</li><li><i>fumar</i>: ve de <b>fum</b> → <b>u</b>.</li><li><i>gelat</i>: ve de <b>gel</b> → <b>e</b>.</li><li><i>taronger</i>: ve de <b>taronja</b> → <b>a</b>.</li></ul><p>En els parlars occidentals, com el lleidatà o el valencià, aquestes vocals se senten més clares i el dubte és menor. Per això conèixer diferents parlars també ens ajuda a escriure millor!</p><p>Quan no trobem cap paraula de la família, cal consultar el diccionari. Amb la pràctica, moltes paraules ens quedaran a la memòria visual.</p>`,
+      L.filas("Busca la tònica", [["pomer", "poma", AZ], ["cuiner", "cuina", VE], ["fumar", "fum", NA], ["gelat", "gel", MO], ["taronger", "taronja", RO]]), ["8d7roXCDTX0", "Vocals o/u àtones | Gramàtica, lèxic i ortografia | 5è i 6è primària | SuperCampus", "SuperCampus y SX3", 57094]],
+  ],
+  ejemplos: [
+    ["Escriu b o v: «ca_i», «tom_a», «canta_a».", ["Darrere de n va v: canvi.", "Darrere de m va b: tomba.", "Imperfet de la 1a conjugació: -ava."], "canvi, tomba, cantava."],
+    ["Com s'escriu el plural de «braç» i la forma «nosaltres» de «caçar»?", ["Davant de o mantenim la ç.", "Davant de e canviem la ç per c."], "braços; cacem."],
+  ],
+  errores: ["Escriure «huevo», «hueso» o «horxata» amb h, com en castellà: en català és ou, os i orxata.", "Escriure ç davant de e o i, com «braçet»: ha de ser «bracet»."],
+  ejercicios: [
+    ["b", "Completa amb b o v: em_olic, en_iar, a_et.", "embolic, enviar, avet."],
+    ["b", "Escriu s o ss: ca_a, pa_ar, ro_a (flor).", "casa, passar, rosa."],
+    ["b", "Escriu g o j: _ardí, _ent, men_ar.", "jardí, gent, menjar."],
+    ["b", "Escriu en català: huevo, hueso, horchata.", "ou, os, orxata."],
+    ["b", "Escriu tg o tj: me_e, pla_a, rello_e.", "metge, platja, rellotge."],
+    ["m", "Explica per què «blau» fa «blava» i no «blaba».", "Les paraules acabades en -u alternen amb v."],
+    ["m", "Escriu el plural de feliç, braç i dolç.", "feliços, braços, dolços."],
+    ["m", "Conjuga «pujar» i «menjar» amb nosaltres en present.", "pugem, mengem."],
+    ["m", "Busca la paraula tònica de: llibreria, cuiner, fumar.", "llibre, cuina, fum."],
+    ["m", "Completa amb ha o a, hi o i: «___ anat ___ l'escola ___ ___ ha jugat.»", "Ha anat a l'escola i hi ha jugat."],
+    ["a", "Escriu un dictat de cinc frases amb paraules trampa per a un company.", "Resposta oberta."],
+    ["a", "Fes una llista de deu parells que es diferencien només per s o ss, o per s o ç.", "Exemples: casa / caça, rosa / rossa."],
+    ["a", "Crea un joc de cartes amb paraules amb h i sense h en català.", "Resposta oberta."],
+    ["a", "Revisa un text teu i classifica les faltes segons la regla que no has aplicat.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["Darrere de m s'escriu…", ["b", "v", "qualsevol"], "tomba, embolic."],
+    ["«Advocat» s'escriu amb…", ["v", "b", "w"], "Diferent del castellà."],
+    ["Quina paraula té essa sonora?", ["casa", "passar", "plaça"], "s entre vocals."],
+    ["«Me_e» (doctor) s'escriu amb…", ["tg", "tj", "j"], "Davant de e."],
+    ["«Huevo» en català és…", ["ou", "hou", "uou"], "Sense h."],
+  ],
+  examen: [
+    ["El plural de «braç» és…", ["braços", "braces", "brassos"], "Davant de o, ç."],
+    ["Per saber si «pomer» va amb o, busquem…", ["poma", "pomes", "pomeres"], "Vocal tònica."],
+  ],
+  tarjetas: [
+    ["B i v", "mb, nv; -ava; -u → v (blau, blava); -p → b (llop, lloba)."],
+    ["Essa", "Sonora: s entre vocals, z. Sorda: ss, ç, c (e, i), s inicial."],
+    ["G, j, tg, tj", "j davant a, o, u; g davant e, i; tge/tgi; tja/tjo/tju."],
+    ["La h", "Muda. Sense h: ou, os, orxata. Amb h: harmonia, subhasta."],
+  ],
+  glosario: [
+    ["Labiodental", "So que es fa amb les dents i el llavi, com la v en alguns parlars."],
+    ["Essa sorda", "So de s sense vibració: sol, passar, plaça."],
+    ["Essa sonora", "So de s amb vibració: casa, zero."],
+    ["Ce trencada", "La lletra ç, que sona com una essa sorda."],
+    ["Alternança", "Canvi de lletra dins d'una família: blau, blava."],
+    ["H intercalada", "H al mig d'una paraula: ahir, vehicle."],
+    ["Lletra muda", "Lletra que s'escriu però no es pronuncia."],
+    ["Vocal tònica", "Vocal de la síl·laba que sona més forta."],
+    ["Vocal àtona", "Vocal d'una síl·laba que sona feble."],
+    ["Parlar", "Manera de parlar una llengua en una zona concreta."],
+    ["Parell mínim", "Dues paraules que només es diferencien per un so: casa, caça."],
+    ["Memòria visual", "Record de com és escrita una paraula."],
+  ],
+  situacion: {
+    titulo: "El dictat de les trampes",
+    reto: "Cada grup prepara un dictat ple de «trampes» ortogràfiques per a un altre grup, el corregeix i fa un rànquing de les faltes més freqüents de la classe.",
+    pasos: ["Repartiu-vos les regles: b/v, essa sorda i sonora, g/j i tg/tj, h i vocals àtones.", "Escriviu un text curt de cinc o sis frases amb deu paraules trampa.", "Dicteu el text a un altre grup i corregiu-lo junts explicant cada regla.", "Feu un gràfic amb les faltes més repetides i un cartell de consells per a la classe."],
+    producto: "Un dictat amb solucionari i un cartell de consells.",
+    evaluacion: ["Aplica les regles de b i v.", "Distingeix la essa sorda de la sonora.", "Escriu bé g, j, tg i tj.", "Sap quan va la h i resol dubtes de vocals àtones."],
+  },
+});
