@@ -88,3 +88,91 @@ module.exports = P.tema({
   saberes: "Reflexión sobre la lengua: el sustantivo; clases (común y propio, concreto y abstracto, individual y colectivo, contable e incontable); género y número; diminutivos, aumentativos y despectivos; el sustantivo como núcleo",
   ideas: ["Tarjetas de sustantivos para clasificar en grupos según cada pregunta.", "Bingo de colectivos de animales.", "Detectives de mayúsculas: corregir un texto con nombres propios en minúscula."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Reconocer el grupo nominal y su núcleo", "Usar bien el género y el número en los casos difíciles", "Elegir sustantivos precisos al escribir"],
+  lectura: { titulo: "La caja de los nombres", html: `<p>La abuela de Leo tenía una caja de lata llena de etiquetas. En cada una había escrito el <b>nombre</b> de algo: «botones», «llaves viejas», «semillas de girasol», «cartas de Tomás».</p><p>—Abuela, ¿por qué lo etiquetas todo? —preguntó Leo.</p><p>—Porque sin nombres, las cosas se pierden —respondió ella—. Si te digo «tráeme eso de allí», ¿sabrás qué quiero? Pero si te digo «tráeme las tijeras del cajón azul», lo encontrarás enseguida.</p><p>Leo se quedó pensando. Esa tarde decidió ponerle nombre a todo lo que veía desde la ventana: el <b>roble</b>, la <b>farola</b>, una <b>bandada</b> de gorriones, el <b>río</b> Duero a lo lejos. Luego intentó algo más difícil: ¿qué nombre tenía lo que sentía al mirar el atardecer? Tras pensarlo mucho, escribió: «<b>tranquilidad</b>».</p><p>—Has nombrado cosas que se tocan y cosas que no —le dijo la abuela al leer su lista—. Eso es lo que hacen los <b>sustantivos</b>.</p><p>En este tema conocerás todas las clases de sustantivos y aprenderás a usarlos con precisión.</p>` },
+  tras: {
+    "Qué es el sustantivo": [
+      ["El grupo nominal", `<p>El sustantivo casi nunca aparece solo. Normalmente va acompañado de otras palabras con las que forma un <b>grupo nominal</b>. Dentro del grupo, el sustantivo es el <b>núcleo</b>: la palabra más importante, la que no se puede quitar.</p><p>Un grupo nominal puede tener estas partes:</p><ul><li><b>Determinante</b>: va delante del núcleo y lo presenta: <i><b>la</b> casa, <b>mis</b> amigos, <b>tres</b> gatos</i>.</li><li><b>Núcleo</b>: el sustantivo: <i>la <b>casa</b></i>.</li><li><b>Complementos</b>: dan más información sobre el núcleo. Puede ser un <b>adjetivo</b> (<i>la casa <b>blanca</b></i>) o un grupo de palabras que empieza por una <b>preposición</b> (<i>la casa <b>de mi abuela</b></i>).</li></ul><p>Así, en el grupo nominal <i>«aquellos dos perros grandes del vecino»</i>, el núcleo es <b>perros</b>; <i>aquellos</i> y <i>dos</i> son determinantes, y <i>grandes</i> y <i>del vecino</i> son complementos.</p><p>Todas las palabras del grupo <b>concuerdan</b> en género y número con el núcleo: si el núcleo es femenino plural, el determinante y el adjetivo también lo son: <i>las casas blancas</i>.</p>`,
+        L.filas("Un grupo nominal", [["Determinante", "aquellos · dos", AZ], ["Núcleo", "perros (el sustantivo)", RO], ["Adjetivo", "grandes", VE], ["Preposición +", "del vecino", NA]])],
+    ],
+    "El género del sustantivo": [
+      ["Casos especiales de género", `<p>Algunos sustantivos tienen un comportamiento curioso con el género:</p><ul><li><b>Epicenos</b>: nombres de animales que tienen un solo género para el macho y la hembra. Para distinguirlos se añade <i>macho</i> o <i>hembra</i>: <i>la jirafa macho</i>, <i>el búho hembra</i>, <i>la serpiente macho</i>, <i>el mosquito hembra</i>. También hay epicenos de persona: <i>la persona</i>, <i>la víctima</i>, <i>el bebé</i>.</li><li><b>Ambiguos</b>: pueden usarse en masculino o en femenino sin cambiar su significado: <i>el mar / la mar</i>, <i>el azúcar / la azúcar</i>, <i>el calor / la calor</i> (este último, solo en algunas zonas).</li><li><b>Sustantivos que cambian de significado</b> según el género: <i>el cometa</i> (astro) / <i>la cometa</i> (juguete); <i>el capital</i> (dinero) / <i>la capital</i> (ciudad); <i>el orden</i> (organización) / <i>la orden</i> (mandato); <i>el cura</i> / <i>la cura</i>; <i>el corte</i> / <i>la corte</i>.</li></ul><p>Y un caso que confunde mucho: los sustantivos <b>femeninos</b> que empiezan por <b>a</b> o <b>ha</b> tónica llevan el artículo <i>el</i> o <i>un</i> en singular para que suene mejor: <i>el agua</i>, <i>el águila</i>, <i>un hacha</i>. Pero siguen siendo femeninos: <i>el agua fría</i>, <i>las aguas</i>, <i>esta agua</i>.</p>`,
+        L.tabla("Cambian con el género", ["Masculino", "Femenino"], [["el cometa (astro)", "la cometa (juguete)"], ["el capital (dinero)", "la capital (ciudad)"], ["el orden", "la orden"], ["el corte", "la corte"]])],
+    ],
+    "El número del sustantivo": [
+      ["Plurales difíciles", `<p>Algunos plurales generan muchas dudas. Estas son las reglas para los casos difíciles:</p><ul><li><b>Palabras compuestas</b> que ya acaban en -s no cambian: <i>el sacapuntas → los sacapuntas</i>, <i>el paraguas → los paraguas</i>.</li><li><b>Palabras acabadas en -y</b>: si son antiguas, forman el plural en -es: <i>rey → reyes</i>, <i>ley → leyes</i>, <i>buey → bueyes</i>. Si son más recientes, cambian la y por i: <i>jersey → jerséis</i>, <i>espray → espráis</i>.</li><li><b>Palabras con tilde que la pierden o la ganan</b>: <i>camión → camiones</i>, <i>joven → jóvenes</i>, <i>examen → exámenes</i>, <i>carácter → caracteres</i> (este cambia incluso la sílaba tónica).</li><li><b>Palabras tomadas de otras lenguas</b>: <i>club → clubes</i>, <i>champú → champús</i>, <i>menú → menús</i>, <i>récord → récords</i>.</li><li><b>Apellidos</b>: muchas veces no cambian: <i>los García</i>, <i>los Martínez</i>; pero <i>los Borbones</i>.</li><li><b>Letras y notas musicales</b>: <i>las aes, las íes, las oes</i>; <i>los dos, los res, los mis</i>.</li></ul><p>Si dudas, consulta el diccionario o el <i>Diccionario panhispánico de dudas</i> de la RAE.</p>`,
+        L.filas("Plurales con truco", [["sacapuntas", "los sacapuntas", AZ], ["rey · jersey", "reyes · jerséis", VE], ["examen", "los exámenes", RO], ["club · menú", "clubes · menús", NA], ["García", "los García", MO]])],
+    ],
+  },
+  final: [
+    ["Sustantivos abstractos que nacen de otras palabras", `<p>Muchos sustantivos <b>abstractos</b> se forman a partir de <b>adjetivos</b> o de <b>verbos</b> añadiendo un sufijo. Saber formarlos enriquece mucho tu forma de escribir:</p><ul><li>De <b>adjetivos</b>, con los sufijos <b>-eza</b>, <b>-dad</b>, <b>-ura</b>, <b>-ez</b>, <b>-ía</b>, <b>-ismo</b>: <i>bello → belleza</i>, <i>bueno → bondad</i>, <i>dulce → dulzura</i>, <i>rápido → rapidez</i>, <i>alegre → alegría</i>, <i>heroico → heroísmo</i>.</li><li>De <b>verbos</b>, con los sufijos <b>-ción</b>, <b>-miento</b>, <b>-anza</b>, <b>-ida</b>, <b>-aje</b>: <i>crear → creación</i>, <i>pensar → pensamiento</i>, <i>enseñar → enseñanza</i>, <i>salir → salida</i>, <i>aterrizar → aterrizaje</i>.</li></ul><p>Estos sustantivos te permiten decir lo mismo de forma más breve y elegante. En lugar de escribir <i>«Me sorprendió lo rápido que corría»</i> puedes escribir <i>«Me sorprendió su rapidez»</i>. En lugar de <i>«Cuando el avión aterrizó, aplaudimos»</i>, <i>«Tras el aterrizaje, aplaudimos»</i>.</p><p>Fíjate en la ortografía: los sustantivos en <b>-ción</b> llevan siempre tilde, y los acabados en <b>-dad</b> y <b>-tad</b> se escriben con <b>d</b> final: <i>verdad</i>, <i>libertad</i>, <i>amistad</i>.</p>`,
+      L.filas("Fábrica de abstractos", [["bello", "→ belleza", AZ], ["rápido", "→ rapidez", VE], ["crear", "→ creación", RO], ["pensar", "→ pensamiento", NA], ["enseñar", "→ enseñanza", MO]]), ["Oj9g2JXp5XU", "Clases de sustantivos (2/4): concreto y abstracto. Lengua primaria. Aprendo y me divierto con Miguel", "Miguel Ruiz Pina", 217488]],
+    ["Escribir con sustantivos precisos", `<p>Un buen escritor elige el sustantivo <b>más preciso</b> para cada cosa. Para ello conviene conocer la diferencia entre:</p><ul><li><b>Hiperónimos</b>: sustantivos de significado general que incluyen a otros: <i>animal</i>, <i>flor</i>, <i>mueble</i>, <i>instrumento</i>.</li><li><b>Hipónimos</b>: sustantivos de significado más concreto incluidos en el hiperónimo: <i>perro, gato, águila</i> son hipónimos de <i>animal</i>; <i>rosa, margarita, tulipán</i>, de <i>flor</i>.</li></ul><p>Cuando escribas, intenta evitar las <b>palabras comodín</b>, como <i>cosa</i>, <i>sitio</i>, <i>tema</i> o <i>algo</i>, que sirven para todo pero no dicen nada concreto:</p><ul><li><i>«Hay muchas cosas en la mochila»</i> → <i>«Hay libros, estuches y cuadernos en la mochila»</i>.</li><li><i>«Fuimos a un sitio con árboles»</i> → <i>«Fuimos a un pinar»</i>.</li></ul><p>Los hiperónimos también son útiles para <b>no repetir</b>: si ya has escrito <i>«el roble»</i>, más adelante puedes decir <i>«el árbol»</i>. Así el texto resulta más variado y claro. También puedes usar <b>sinónimos</b> (<i>casa, hogar, vivienda</i>) o una <b>expresión</b> que resuma lo dicho (<i>«el viejo árbol del patio»</i>).</p><p>Un ejercicio muy útil es la <b>escalera de palabras</b>: escribe un hiperónimo en el peldaño de arriba y ve bajando hacia palabras cada vez más concretas: <i>ser vivo → animal → ave → rapaz → águila real</i>. Cuanto más abajo, más precisa es la palabra. Leer mucho es la mejor manera de ampliar tu vocabulario de sustantivos.</p>`,
+      H.dos("De lo general a lo concreto", ["Hiperónimo", ["animal", "flor", "mueble"], AZ], ["Hipónimos", ["perro · águila", "rosa · tulipán", "silla · armario"], VE])],
+  ],
+  ejemplos: [
+    ["Analiza el grupo nominal «esas tres bicicletas rojas de mi primo».", ["Núcleo: bicicletas.", "Determinantes: esas (demostrativo), tres (numeral).", "Complementos: rojas (adjetivo) y de mi primo (preposición + grupo nominal)."], "Núcleo bicicletas, con dos determinantes y dos complementos"],
+    ["Escribe en plural: el jersey, el examen, el paraguas, el club.", ["Jersey es reciente: la y pasa a i → jerséis.", "Examen gana tilde al hacerse esdrújula → exámenes.", "Paraguas no cambia; club añade -es → clubes."], "los jerséis, los exámenes, los paraguas, los clubes"],
+  ],
+  errores: ["Decir «la agua» o «esta agua está frío»: es el agua fría, porque agua es femenino aunque lleve el.", "Escribir «los jerseys» o «los clubs»: lo correcto es jerséis y clubes."],
+  ejercicios: [
+    ["b", "Subraya el núcleo del grupo nominal: «la mochila azul de Ana».", "Mochila."],
+    ["b", "Escribe el plural de: rey, ley, buey.", "Reyes, leyes, bueyes."],
+    ["b", "Forma sustantivos abstractos: bello, alegre, crear.", "Belleza, alegría, creación."],
+    ["b", "Escribe tres hipónimos de «flor».", "Por ejemplo: rosa, margarita, tulipán."],
+    ["b", "¿Qué artículo lleva «águila» en singular? ¿Es masculino o femenino?", "El águila; es femenino."],
+    ["m", "Explica la diferencia entre «el cometa» y «la cometa».", "El cometa es un astro; la cometa es un juguete que vuela con el viento."],
+    ["m", "¿Cómo distinguimos el macho y la hembra de un sustantivo epiceno? Pon un ejemplo.", "Añadiendo macho o hembra: la jirafa macho, la jirafa hembra."],
+    ["m", "Escribe el plural de: examen, joven, carácter.", "Exámenes, jóvenes, caracteres."],
+    ["m", "Sustituye la palabra comodín: «En la nevera hay muchas cosas».", "Por ejemplo: «En la nevera hay leche, fruta y yogures»."],
+    ["m", "Forma sustantivos a partir de estos verbos: pensar, enseñar, salir.", "Pensamiento, enseñanza, salida."],
+    ["a", "Escribe tres grupos nominales con determinante, núcleo y dos complementos.", "Respuesta abierta. Por ejemplo: «mi gato negro de ojos verdes»."],
+    ["a", "Reescribe usando un sustantivo abstracto: «Me sorprendió lo amable que era».", "Me sorprendió su amabilidad."],
+    ["a", "Corrige: «El agua está frío y los jerseys están mojados».", "El agua está fría y los jerséis están mojados."],
+    ["a", "Escribe un texto de cinco líneas sobre tu barrio sin usar las palabras cosa, sitio ni algo.", "Respuesta abierta con sustantivos precisos."],
+    ["a", "Escribe una oración con «el capital» y otra con «la capital».", "Por ejemplo: «La empresa necesita más capital». «Madrid es la capital de España»."],
+    ["a", "Clasifica: el mar, la jirafa, el orden/la orden, el bebé. ¿Ambiguo, epiceno o cambia de significado?", "El mar: ambiguo. La jirafa y el bebé: epicenos. El orden/la orden: cambia de significado."],
+  ],
+  quiz: [
+    ["En «la casa blanca de mi tía», el núcleo es…", ["casa", "blanca", "tía"], "El sustantivo principal."],
+    ["«La jirafa macho» es un ejemplo de sustantivo…", ["Epiceno", "Ambiguo", "Colectivo"], "Un solo género para los dos sexos."],
+    ["El plural de «club» es…", ["clubes", "clubs", "clus"], "Según la RAE."],
+    ["El abstracto de «rápido» es…", ["rapidez", "rapidamente", "rapidar"], "Sufijo -ez."],
+    ["«Animal» respecto a «perro» es…", ["Un hiperónimo", "Un hipónimo", "Un sinónimo"], "Es más general."],
+  ],
+  examen: [
+    ["Se dice…", ["el agua fría", "la agua fría", "el agua frío"], "Femenino con artículo el."],
+    ["El plural de «sacapuntas» es…", ["los sacapuntas", "los sacapuntases", "los sacaspuntas"], "No cambia."],
+  ],
+  tarjetas: [
+    ["Grupo nominal", "Determinante + núcleo + complementos."],
+    ["Epiceno", "Un solo género: la jirafa macho."],
+    ["Hiperónimo", "Palabra general: flor (rosa, tulipán)."],
+    ["Abstractos", "bello → belleza; crear → creación."],
+  ],
+  glosario: [
+    ["Sustantivo", "Palabra que nombra personas, animales, cosas, lugares o ideas."],
+    ["Núcleo", "Palabra principal de un grupo de palabras."],
+    ["Grupo nominal", "Conjunto de palabras cuyo núcleo es un sustantivo."],
+    ["Común", "Sustantivo que nombra de forma general."],
+    ["Propio", "Sustantivo que nombra a un ser concreto y va con mayúscula."],
+    ["Abstracto", "Sustantivo que nombra lo que no se percibe con los sentidos."],
+    ["Colectivo", "Sustantivo que en singular nombra un conjunto."],
+    ["Epiceno", "Sustantivo con un solo género para macho y hembra."],
+    ["Ambiguo", "Sustantivo que admite los dos géneros: el mar, la mar."],
+    ["Hiperónimo", "Palabra de significado general."],
+    ["Hipónimo", "Palabra de significado concreto incluida en otra."],
+    ["Concordancia", "Coincidencia de género y número entre palabras."],
+  ],
+  situacion: {
+    titulo: "El museo de los nombres",
+    reto: "La clase organiza un museo en el que cada objeto expuesto lleva una etiqueta con su nombre y la clase de sustantivo que es.",
+    pasos: ["Cada alumno trae un objeto o una foto y escribe su etiqueta con un grupo nominal completo.", "Clasificad las etiquetas: común o propio, concreto o abstracto, individual o colectivo.", "Añadid una sala de «sustantivos invisibles» con dibujos que representen sentimientos e ideas.", "Haced visitas guiadas para otra clase explicando los casos especiales de género y número."],
+    producto: "Un museo de clase con etiquetas, una sala de abstractos y una guía de visita.",
+    evaluacion: ["Reconoce el sustantivo como núcleo del grupo nominal.", "Clasifica sustantivos con criterio.", "Aplica bien el género y el número en casos difíciles.", "Usa sustantivos precisos al escribir."],
+  },
+});

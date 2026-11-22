@@ -88,3 +88,89 @@ module.exports = P.tema({
   saberes: "Reflexión sobre la lengua: el adjetivo calificativo; concordancia; adjetivos de una y dos terminaciones; grados positivo, comparativo y superlativo; comparativos y superlativos especiales; uso del adjetivo en la descripción",
   ideas: ["Termómetro de adjetivos: ordenar de menos a más intensidad (templado, caliente, ardiente).", "Ruleta de grados: girar y transformar un adjetivo en el grado que salga.", "Retrato escrito de un personaje usando al menos diez adjetivos distintos."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Distinguir adjetivos explicativos y especificativos", "Usar bien la apócope, los antónimos y los gentilicios", "Describir personas, lugares y objetos con adjetivos precisos"],
+  lectura: { titulo: "Se busca: gato perdido", html: `<p>Una mañana apareció en la puerta de la panadería un cartel escrito a toda prisa: «SE BUSCA GATO. ES BONITO. RESPONDE AL NOMBRE DE MICHI».</p><p>Durante tres días nadie llamó. El panadero, que había visto pasar al menos diez gatos por la calle, no sabía cuál de ellos era Michi. ¿Era blanco? ¿Negro? ¿Grande o pequeño?</p><p>Entonces Irene, la vecina del tercero, que estaba en quinto de Primaria, propuso a la dueña cambiar el cartel. Se sentaron juntas y lo reescribieron: «SE BUSCA GATO ATIGRADO, GRIS Y NARANJA, CON UNA OREJA DOBLADA Y LA COLA MUY LARGA. ES TÍMIDO, PERO CARIÑOSO. LLEVA UN COLLAR ROJO CON CASCABEL».</p><p>Aquella misma tarde sonó el teléfono. Un señor del parque había visto un gato atigrado con la oreja doblada escondido bajo un banco. ¡Era Michi!</p><p>—¿Ves? —le dijo Irene a la dueña—. «Bonito» no ayuda a nadie a encontrarlo, porque todos los gatos nos parecen bonitos. Pero «atigrado», «gris», «oreja doblada» y «collar rojo» lo distinguen de todos los demás.</p><p>En este tema aprenderás a usar los <b>adjetivos</b> con la misma precisión que Irene.</p>` },
+  tras: {
+    "Qué es el adjetivo": [
+      ["Explicativos y especificativos", `<p>Según la información que aportan y su posición, los adjetivos pueden ser de dos tipos:</p><ul><li><b>Especificativos</b>: van normalmente <b>detrás</b> del sustantivo y sirven para <b>distinguirlo</b> de otros de su clase. En <i>«Ponte la camiseta roja»</i>, el adjetivo <i>roja</i> sirve para saber cuál de todas las camisetas tienes que ponerte. Si lo quitamos, la información queda incompleta.</li><li><b>Explicativos</b>: suelen ir <b>delante</b> del sustantivo y expresan una cualidad que no sirve para distinguirlo, sino para <b>adornarlo</b> o destacar algo. En <i>«la blanca nieve»</i> o <i>«el fiero león»</i>, ya sabíamos que la nieve es blanca y que el león es fiero. Los adjetivos explicativos que expresan una cualidad propia del sustantivo se llaman <b>epítetos</b> y son muy frecuentes en la poesía.</li></ul><p>Ojo: algunos adjetivos <b>cambian de significado</b> según vayan delante o detrás:</p><ul><li><i>un gran hombre</i> (importante) / <i>un hombre grande</i> (de tamaño).</li><li><i>un pobre niño</i> (que da pena) / <i>un niño pobre</i> (sin dinero).</li><li><i>un viejo amigo</i> (de hace mucho tiempo) / <i>un amigo viejo</i> (de edad avanzada).</li></ul>`,
+        L.filas("Delante o detrás", [["gran hombre", "importante", AZ], ["hombre grande", "de gran tamaño", VE], ["pobre niño", "que da pena", RO], ["niño pobre", "sin dinero", NA]]), ["YwZY0Tfeins", "Los Adjetivos", "MARIO CARREÓN", 770350]],
+    ],
+    "Una o dos terminaciones": [
+      ["La apócope del adjetivo", `<p>Algunos adjetivos <b>pierden letras</b> cuando van delante de un sustantivo. Este fenómeno se llama <b>apócope</b>:</p><ul><li><b>bueno → buen</b>: <i>un buen libro</i> (pero <i>un libro bueno</i>).</li><li><b>malo → mal</b>: <i>un mal día</i>.</li><li><b>grande → gran</b>: <i>una gran idea</i>, <i>un gran edificio</i>. Fíjate en que <i>gran</i> sirve también para el femenino.</li><li><b>santo → san</b>: <i>San Pedro</i>, <i>San Juan</i>. Pero se mantiene <i>Santo</i> delante de <i>Tomás, Tomé, Toribio</i> y <i>Domingo</i>: <i>Santo Domingo</i>.</li><li><b>primero → primer</b> y <b>tercero → tercer</b>: <i>el primer día</i>, <i>el tercer piso</i>.</li><li><b>alguno → algún</b>, <b>ninguno → ningún</b>, <b>cualquiera → cualquier</b>: <i>algún día</i>, <i>cualquier persona</i>.</li></ul><p>La apócope solo se produce delante del sustantivo en <b>singular</b>: decimos <i>un buen amigo</i>, pero <i>unos buenos amigos</i>. Y no se produce si el adjetivo va detrás: <i>un amigo bueno</i>, <i>el piso tercero</i>.</p><p>Es un error frecuente decir <i>«la primer vez»</i>: con sustantivos femeninos lo correcto es <i>«la primera vez»</i>.</p>`,
+        L.filas("Adjetivos que se acortan", [["bueno", "un buen libro", VE], ["malo", "un mal día", RO], ["grande", "una gran idea", AZ], ["santo", "San Pedro", NA], ["primero", "el primer día", MO]])],
+    ],
+    "Los grados del adjetivo": [
+      ["Antónimos: los adjetivos contrarios", `<p>Los <b>antónimos</b> son palabras que tienen significados <b>opuestos</b>. Los adjetivos tienen muchos antónimos y conocerlos te ayuda a describir y a comparar. Hay dos formas de formarlos:</p><ul><li><b>Antónimos con palabras distintas</b>: <i>alto / bajo</i>, <i>rápido / lento</i>, <i>caliente / frío</i>, <i>valiente / cobarde</i>, <i>generoso / tacaño</i>, <i>ancho / estrecho</i>.</li><li><b>Antónimos con prefijos</b>: se añade un prefijo de negación al adjetivo:<ul><li><b>in-</b>: <i>útil → inútil</i>, <i>feliz → infeliz</i>, <i>visible → invisible</i>.</li><li><b>im-</b> (delante de p o b): <i>posible → imposible</i>, <i>paciente → impaciente</i>.</li><li><b>i-</b> (delante de l o r): <i>legal → ilegal</i>, <i>real → irreal</i>, <i>responsable → irresponsable</i>.</li><li><b>des-</b>: <i>leal → desleal</i>, <i>ordenado → desordenado</i>, <i>agradable → desagradable</i>.</li><li><b>a-</b> o <b>anti-</b>: <i>normal → anormal</i>, <i>higiénico → antihigiénico</i>.</li></ul></li></ul><p>Fíjate en la ortografía de <i>irreal</i> e <i>irresponsable</i>: al añadir <i>i-</i> delante de una palabra que empieza por <i>r</i>, se escribe <b>rr</b> para mantener el sonido fuerte.</p>`,
+        L.filas("Antónimos con prefijo", [["in-", "útil → inútil", AZ], ["im-", "posible → imposible", VE], ["i-", "legal → ilegal · irreal", RO], ["des-", "leal → desleal", NA]])],
+    ],
+  },
+  final: [
+    ["Los gentilicios", `<p>Los <b>gentilicios</b> son adjetivos que indican el <b>lugar de origen</b> de una persona o una cosa: un país, una comunidad, una provincia o una ciudad. Se escriben siempre en <b>minúscula</b>: <i>los niños andaluces</i>, <i>la tortilla española</i>.</p><p>Se forman con muchos sufijos distintos: <b>-ano</b> (<i>valenciano, toledano</i>), <b>-ense</b> (<i>conquense, almeriense</i>), <b>-eño</b> (<i>madrileño, extremeño</i>), <b>-ino</b> (<i>alicantino, granadino</i>), <b>-és</b> (<i>aragonés, leonés, francés</i>), <b>-í</b> (<i>marroquí, ceutí</i>), <b>-ero</b> (<i>habanero</i>) o <b>-ego</b> (<i>gallego, manchego</i>).</p><p>Algunos gentilicios son muy curiosos, porque vienen del <b>nombre antiguo</b> de la ciudad en tiempos de los romanos o de los árabes:</p><ul><li>Los de <b>Huelva</b> son <i>onubenses</i> (de <i>Onuba</i>).</li><li>Los de <b>Ávila</b>, <i>abulenses</i>; los de <b>Huesca</b>, <i>oscenses</i>.</li><li>Los de <b>Badajoz</b>, <i>pacenses</i>; los de <b>Ciudad Rodrigo</b>, <i>mirobrigenses</i>.</li><li>Los de <b>Alcalá de Henares</b>, <i>complutenses</i>; los de <b>Calatayud</b>, <i>bilbilitanos</i>.</li></ul><p>¿Sabes cuál es el gentilicio de tu pueblo o tu ciudad? Muchos ayuntamientos lo explican en su página web.</p>`,
+      L.tabla("Gentilicios curiosos", ["Lugar", "Gentilicio"], [["Huelva", "onubense"], ["Ávila", "abulense"], ["Badajoz", "pacense"], ["Alcalá de Henares", "complutense"]])],
+    ["Describir a una persona", `<p>Cuando describimos a una persona, los adjetivos son la herramienta principal. Una descripción completa tiene dos partes:</p><ul><li><b>Descripción física</b>: cómo es por fuera. Empieza por lo general (estatura, complexión, edad) y pasa a los detalles: el pelo (<i>rizado, castaño, corto</i>), los ojos (<i>grandes, verdes, vivarachos</i>), la cara (<i>redonda, pecosa</i>), la ropa que suele llevar.</li><li><b>Descripción del carácter</b>: cómo es por dentro y cómo se comporta. <i>Generosa, alegre, despistada, trabajadora, tímida, valiente, curiosa</i>.</li></ul><p>Para que el retrato quede bien:</p><ol><li><b>Ordena</b> la descripción: de arriba abajo o de lo general a lo particular, y después el carácter.</li><li><b>Elige adjetivos precisos</b> y evita los comodines como <i>bonito</i> o <i>bueno</i>.</li><li><b>Usa comparaciones</b>: <i>«tiene los ojos azules como el mar»</i>, <i>«es más rápida que el viento»</i>.</li><li><b>Añade un ejemplo</b> que demuestre el carácter: <i>«Es tan generosa que siempre comparte su merienda»</i>.</li></ol><p>Los mismos trucos sirven para describir <b>lugares</b> y <b>objetos</b>. En un lugar, ordena de lo cercano a lo lejano o de izquierda a derecha, y usa adjetivos de los <b>cinco sentidos</b>: lo que se ve (<i>luminoso, sombrío</i>), lo que se oye (<i>silencioso, ruidoso</i>), lo que se huele (<i>perfumado, húmedo</i>), lo que se toca (<i>áspero, suave</i>) e incluso lo que se saborea (<i>salado, dulce</i>). En un objeto, indica su forma, su tamaño, su color, su material y para qué sirve: <i>«una caja pequeña, rectangular, de madera oscura, con una cerradura dorada»</i>. Cuantos más sentidos uses, más fácil será para el lector imaginarlo.</p><p>Recuerda: describir con respeto. Nunca uses adjetivos para burlarte del aspecto de nadie.</p>`,
+      H.dos("Un buen retrato", ["Por fuera", ["estatura · pelo", "ojos · cara", "ropa"], AZ], ["Por dentro", ["carácter", "gustos", "un ejemplo"], VE])],
+  ],
+  ejemplos: [
+    ["Explica la diferencia: «un gran coche» y «un coche grande».", ["Delante del sustantivo, gran (apócope de grande) significa importante o excelente.", "Detrás, grande se refiere al tamaño."], "Gran coche: muy bueno; coche grande: de gran tamaño"],
+    ["Escribe el antónimo con prefijo de: posible, legal, ordenado, responsable.", ["posible empieza por p → im-: imposible.", "legal empieza por l → i-: ilegal.", "ordenado → des-: desordenado; responsable empieza por r → i- con rr: irresponsable."], "imposible, ilegal, desordenado, irresponsable"],
+  ],
+  errores: ["Decir «la primer vez»: con femenino no hay apócope, es la primera vez.", "Escribir «irresponsable» con una sola r: «iresponsable»."],
+  ejercicios: [
+    ["b", "Escribe la apócope: bueno libro, grande ciudad, primero día.", "Buen libro, gran ciudad, primer día."],
+    ["b", "Escribe el antónimo de: alto, rápido, generoso.", "Bajo, lento, tacaño."],
+    ["b", "Escribe el gentilicio de: Madrid, Galicia, Valencia.", "Madrileño, gallego, valenciano."],
+    ["b", "Escribe tres adjetivos de carácter y tres físicos.", "Por ejemplo: alegre, tímido, valiente; alto, rubio, delgado."],
+    ["b", "Forma antónimos con prefijo: útil, leal, visible.", "Inútil, desleal, invisible."],
+    ["m", "¿El adjetivo es explicativo o especificativo? «la verde hierba», «el coche azul».", "Verde: explicativo (epíteto). Azul: especificativo."],
+    ["m", "Explica la diferencia entre «un viejo amigo» y «un amigo viejo».", "Viejo amigo: de hace mucho tiempo; amigo viejo: de edad avanzada."],
+    ["m", "Corrige: «Es la primer vez que voy y fue un día bueno, un grande día».", "Es la primera vez que voy y fue un buen día, un gran día."],
+    ["m", "¿Por qué los gentilicios se escriben con minúscula?", "Porque son adjetivos, no nombres propios."],
+    ["m", "¿De qué ciudades son los onubenses y los abulenses?", "De Huelva y de Ávila."],
+    ["a", "Reescribe el cartel del gato con adjetivos precisos para buscar a tu mascota o a la de alguien que conozcas.", "Respuesta abierta con adjetivos físicos y de carácter."],
+    ["a", "Escribe el retrato de un personaje de un libro: tres líneas de físico y tres de carácter.", "Respuesta abierta, ordenada y con comparaciones."],
+    ["a", "Explica por qué «irreal» se escribe con rr.", "Porque al añadir el prefijo i- a real, la r queda entre vocales y se duplica para mantener el sonido fuerte."],
+    ["a", "Busca el gentilicio de tu localidad y explica cómo se forma.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["En «la blanca nieve», blanca es un…", ["Epíteto", "Gentilicio", "Comparativo"], "Adjetivo explicativo."],
+    ["La apócope de «grande» es…", ["gran", "grand", "gra"], "Una gran idea."],
+    ["El antónimo de «legal» es…", ["ilegal", "inlegal", "deslegal"], "Delante de l, i-."],
+    ["Los nacidos en Huelva son…", ["onubenses", "huelvanos", "huelveños"], "De Onuba."],
+    ["En un retrato, «generoso» describe…", ["el carácter", "el físico", "la ropa"], "Cómo es por dentro."],
+  ],
+  examen: [
+    ["«Un pobre niño» significa…", ["Que da pena", "Que no tiene dinero", "Que es pequeño"], "Delante cambia el sentido."],
+    ["Es correcto…", ["la primera vez", "la primer vez", "la primero vez"], "No hay apócope en femenino."],
+  ],
+  tarjetas: [
+    ["Especificativo", "Distingue: la camiseta roja."],
+    ["Apócope", "buen, mal, gran, san, primer, tercer."],
+    ["Antónimos", "in-, im-, i-, des-: inútil, imposible, ilegal, desleal."],
+    ["Gentilicio", "Indica origen y va en minúscula."],
+  ],
+  glosario: [
+    ["Adjetivo", "Palabra que expresa cualidades del sustantivo."],
+    ["Concordancia", "Coincidencia de género y número con el sustantivo."],
+    ["Especificativo", "Adjetivo que distingue al sustantivo de otros."],
+    ["Explicativo", "Adjetivo que destaca una cualidad sin distinguir."],
+    ["Epíteto", "Adjetivo que expresa una cualidad propia del sustantivo."],
+    ["Apócope", "Pérdida de letras al final de una palabra."],
+    ["Grado positivo", "Expresa la cualidad sin comparar."],
+    ["Comparativo", "Compara la cualidad entre dos seres."],
+    ["Superlativo", "Expresa la cualidad en su grado más alto."],
+    ["Antónimo", "Palabra de significado contrario."],
+    ["Gentilicio", "Adjetivo que indica el lugar de origen."],
+    ["Retrato", "Descripción física y de carácter de una persona."],
+  ],
+  situacion: {
+    titulo: "La galería de retratos",
+    reto: "La clase prepara una exposición de retratos escritos e ilustrados de personajes de libros y de personas admiradas.",
+    pasos: ["Cada alumno elige un personaje o una persona admirada y recoge adjetivos físicos y de carácter.", "Escribe un borrador del retrato ordenado, con comparaciones y un ejemplo de su carácter.", "Revisa en pareja la concordancia, la apócope y la precisión de los adjetivos.", "Pasa el retrato a limpio con un dibujo y lo expone en la galería de la clase."],
+    producto: "Una galería de retratos escritos e ilustrados.",
+    evaluacion: ["Usa adjetivos precisos y bien concordados.", "Distingue adjetivos explicativos y especificativos.", "Aplica la apócope y forma antónimos.", "Describe con orden y respeto."],
+  },
+});
