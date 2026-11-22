@@ -91,3 +91,91 @@ module.exports = tema({
   ideas: ["Diseño de un «dream town» con mapa y descripción.", "Juego de indicaciones en un plano: «Is there a…? Where is it?».", "Comparar el pueblo propio con una ciudad de un país de habla inglesa."],
   fuentes: [["Cambridge Dictionary: there is, there are", "https://dictionary.cambridge.org/grammar/british-grammar/there-is-there-are"], ["British Council LearnEnglish Kids: word games", "https://learnenglishkids.britishcouncil.org/word-games"]],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Talk about transport: by bus, on foot", "Ask for and give directions in a town", "Learn about London, a big city", "Use there was and there were to compare a town in the past and now"],
+  lectura: { titulo: "Lost in London", html: `<p>Last summer, Carla and her family went on holiday to <b>London</b>. On the third day, Carla and her brother Dani wanted to visit the <b>Natural History Museum</b>, but they couldn't find it.</p><p>Carla saw a police officer and asked politely:</p><p>"Excuse me, <b>how do we get to</b> the Natural History Museum, please?"</p><p>"It's easy," said the police officer. "<b>Go straight on</b> along this street. Then <b>turn left</b> at the traffic lights. Walk past the <b>bank</b> and the <b>post office</b>. The museum is <b>on the right</b>, <b>opposite</b> a big park. You can't miss it!"</p><p>"Is it far?" asked Dani.</p><p>"No, it isn't. It's about ten minutes <b>on foot</b>. Or you can take the number 74 <b>bus</b>."</p><p>"Thank you very much!"</p><p>They decided to walk. On the way, they saw <b>red double-decker buses</b>, black taxis and lots of people. <b>There were</b> shops, cafés and a beautiful <b>church</b>. <b>There was</b> even a man playing the bagpipes in the street!</p><p>Finally, they arrived at the museum. In the main hall, <b>there was</b> an enormous whale skeleton hanging from the ceiling. <b>There were</b> dinosaurs, too!</p><p>"This is the best museum in the world!" said Dani.</p><p>Carla smiled. Asking for directions in English was easier than she thought.</p>` },
+  tras: {
+    "Places in town": [
+      ["Getting around: transport", `<p>How do you get to school? How do people travel in a town or a city? Here are the most common types of <mark>transport</mark>:</p><ul><li><b>by bus</b> (en autobús), <b>by car</b>, <b>by taxi</b>, <b>by bike</b>, <b>by train</b>, <b>by underground</b> / <b>by metro</b>, <b>by tram</b>, <b>by plane</b>, <b>by boat</b>.</li><li>But: <b>on foot</b> (a pie). We say «I go to school <b>on foot</b>» or «I <b>walk</b> to school».</li></ul><p>Questions and answers:</p><ul><li>«<b>How do</b> you <b>get to</b> school?» → «I go <b>by bus</b>.»</li><li>«<b>How does</b> your dad go to work?» → «He goes <b>by train</b>.»</li><li>«<b>How long does it take</b>?» (¿Cuánto tardas?) → «About fifteen minutes.»</li></ul><p>Places for transport:</p><ul><li><b>bus stop</b> (parada de autobús)</li><li><b>train station</b> (estación de tren)</li><li><b>underground station</b> (estación de metro)</li><li><b>airport</b> (aeropuerto)</li><li><b>car park</b> (aparcamiento)</li><li><b>bike lane</b> (carril bici)</li></ul><p>Which transport is the best for the planet? Walking and cycling don't pollute at all! Buses, trams and trains are also good, because many people travel together. Cars and planes pollute the most.</p><p>Remember: <b>by</b> + transport, with no <i>the</i>: «by bus», not «by the bus».</p>`,
+        L6.filas("How do you go?", [["by bus", "en autobús", cAZ], ["by bike", "en bici", cVE], ["by train", "en tren", cNA], ["on foot", "a pie", cMO]]), ["SWSbejC47hk", "What do you see? Vehicles and transport", "Dream English Kids", 58445604]],
+    ],
+    "Where is it? Prepositions of place": [
+      ["Asking for and giving directions", `<p>When you are in a new town and you are <b>lost</b> (perdido), you need to ask for <mark>directions</mark>.</p><p><b>Asking:</b></p><ul><li>«Excuse me, <b>where is</b> the station, please?»</li><li>«Excuse me, <b>how do I get to</b> the museum?»</li><li>«<b>Is there</b> a bank near here?»</li><li>«Is it far?» (¿Está lejos?)</li></ul><p><b>Giving directions:</b></p><ul><li><b>Go straight on</b> (sigue recto).</li><li><b>Turn left</b> (gira a la izquierda) / <b>Turn right</b> (gira a la derecha).</li><li><b>Take the first / second street on the left</b>.</li><li><b>Go past</b> the bank (pasa el banco).</li><li><b>Cross</b> the road (cruza la calle).</li><li>It's <b>on the corner</b> (en la esquina).</li><li>It's <b>on the left / on the right</b>.</li><li>It's <b>opposite</b> the park (enfrente del parque).</li><li>It's <b>between</b> the café and the cinema.</li><li>It's <b>next to</b> the library.</li></ul><p>Notice that we use the <b>imperative</b> to give directions: <i>Go, Turn, Take, Cross</i>.</p><p>And always finish politely: «Thank you very much!» → «You're welcome!» (¡De nada!)</p>`,
+        H6.flujo("Directions", ["go|straight on", "turn|left", "go past|the bank", "it's on|the right"], cAZ), ["jWY6N9QXmEY", "Where is it? Asking the way", "English Singsing", 2357039]],
+    ],
+    "Town or city?": [
+      ["London: a big city", `<p><mark>London</mark> is the capital city of the <b>United Kingdom</b> and of <b>England</b>. About nine million people live there. It's one of the most visited cities in the world. What is there in London?</p><ul><li><b>The River Thames</b> (el río Támesis) goes through the city. There are lots of bridges. The most famous is <b>Tower Bridge</b>: it opens in the middle to let big boats pass!</li><li><b>Big Ben</b> is the famous bell in the clock tower of the <b>Houses of Parliament</b>.</li><li><b>Buckingham Palace</b> is where the King lives when he's in London. You can watch the <b>Changing of the Guard</b>, with soldiers in red jackets and tall black hats.</li><li>The <b>London Eye</b> is a giant wheel next to the river. From the top, you can see the whole city.</li><li>There are fantastic <b>museums</b>, like the <b>Natural History Museum</b> and the <b>British Museum</b>. Many of them are free!</li><li>There are big <b>parks</b>, like <b>Hyde Park</b>.</li></ul><p>To travel around London, people take the <b>red double-decker buses</b> (autobuses de dos pisos), the black <b>taxis</b> called <i>cabs</i>, or the <b>Underground</b>, which Londoners call <b>the Tube</b>. It's the oldest underground railway in the world!</p><p>Would you like to visit London? What would you like to see first?</p>`,
+        L6.filas("London", [["Tower Bridge", "opens in the middle", cAZ], ["Big Ben", "a big bell", cVE], ["London Eye", "a giant wheel", cNA], ["the Tube", "the Underground", cRO]]), ["WFRR0zC70-0", "London sightseeing", "Loescher Editore", 2613268]],
+    ],
+  },
+  final: [
+    ["There was, there were: my town in the past", `<p>To talk about a place in the <b>past</b>, we use <mark>there was</mark> (singular) and <mark>there were</mark> (plural). It's like <i>there is / there are</i>, but in the past:</p><ul><li>«<b>There was</b> a cinema in my street.» (Había un cine.)</li><li>«<b>There were</b> lots of farms near the town.» (Había muchas granjas.)</li></ul><p><b>Negative</b>: <i>there wasn't</i>, <i>there weren't</i>.</p><ul><li>«<b>There wasn't</b> a supermarket.» «<b>There weren't</b> any traffic lights.»</li></ul><p><b>Questions</b>: <i>Was there…? Were there…?</i></p><ul><li>«<b>Was there</b> a school?» → «Yes, there was.» / «No, there wasn't.»</li><li>«<b>Were there</b> any cars?» → «Yes, there were, but not many.»</li></ul><p>Read how Grandpa Luis describes his town seventy years ago:</p><p><i>When I was a boy, my town was very small. <b>There was</b> one school, one church and one little shop. <b>There were</b> lots of fields around the town and <b>there were</b> many horses and donkeys. <b>There weren't</b> many cars. <b>There wasn't</b> a swimming pool, so we swam in the river!</i></p><p>Now compare: «Now <b>there is</b> a big sports centre. <b>There are</b> three schools.»</p><p>Ask an older person in your family: what was your town like in the past?</p>`,
+      H6.dos("Then and now", ["THEN", ["there was a river", "there were horses", "there wasn't a pool"], cNA], ["NOW", ["there is a pool", "there are cars", "there are 3 schools"], cAZ])],
+    ["A poster about your town", `<p>Let's make a <mark>poster</mark> in English to show visitors the best things in your town or city! Follow these steps:</p><ol><li><b>Title</b>: «Welcome to…!» or «Visit…!»</li><li><b>Introduction</b>: where is your town? How big is it? «Calatayud is a town in Aragón, in the north-east of Spain. About twenty thousand people live there.»</li><li><b>Places to visit</b>: use <i>there is / there are</i>. «There is a beautiful old castle on a hill. There are lots of churches and a long river.»</li><li><b>Things to do</b>: use <i>you can</i>. «You can walk along the river. You can eat delicious food in the restaurants.»</li><li><b>How to get there</b>: «You can go by train or by bus from Zaragoza.»</li><li><b>A final sentence</b>: «Come and visit us!»</li></ol><p>Tips for a great poster:</p><ul><li>Add <b>photos</b> or <b>drawings</b> with short labels.</li><li>Use <b>big letters</b> for the title.</li><li>Include a simple <b>map</b> with the most important places.</li><li>Check your spelling and capital letters (names of places always start with a capital letter).</li></ul><p>When the posters are ready, the class can make a tourist exhibition!</p>`,
+      L6.filas("My poster", [["title", "Welcome to…!", cRO], ["places", "There is / are…", cAZ], ["things to do", "You can…", cVE], ["transport", "by train, by bus", cNA]])],
+  ],
+  ejemplos: [
+    ["Give directions: the museum is the second street on the left.", ["Use the imperative.", "Take + the second street + on the left."], "Take the second street on the left. The museum is there."],
+    ["Write in the past: There are many trees.", ["Plural: there are → there were."], "There were many trees."],
+  ],
+  errores: ["Saying «by foot» instead of «on foot».", "Saying «There was many cars» instead of «There were»."],
+  ejercicios: [
+    ["b", "Complete: I go to school ___ bus.", "by"],
+    ["b", "How do you say «sigue recto»?", "Go straight on."],
+    ["b", "What is the Tube?", "The London Underground."],
+    ["b", "Complete: ___ was a castle.", "There"],
+    ["b", "Answer to «Thank you very much!»", "You're welcome!"],
+    ["m", "Complete: ___ there any shops? Yes, there were.", "Were"],
+    ["m", "Write a question to ask where the station is.", "Excuse me, where is the station, please?"],
+    ["m", "Name three famous places in London.", "For example: Big Ben, Tower Bridge, the London Eye."],
+    ["m", "How do you get to school? Answer.", "Open answer."],
+    ["m", "Correct: There weren't a supermarket.", "There wasn't a supermarket."],
+    ["a", "Give directions from your school to your house.", "Open answer."],
+    ["a", "Make a poster about your town.", "Open answer."],
+    ["a", "Compare your town in the past and now.", "Open answer."],
+    ["a", "Plan a day in London: what would you visit?", "Open answer."],
+  ],
+  quiz: [
+    ["I walk to school = I go to school…", ["on foot", "by foot", "by walk"], "Transport."],
+    ["«Gira a la izquierda» is…", ["Turn left", "Turn right", "Go straight on"], "Directions."],
+    ["The famous bell in London is…", ["Big Ben", "Tower Bridge", "the Tube"], "London."],
+    ["___ were lots of horses.", ["There", "It", "They"], "There was / were."],
+    ["Was there a pool? No, there ___ .", ["wasn't", "weren't", "isn't"], "There was / were."],
+  ],
+  examen: [
+    ["In the reading, what was in the main hall of the museum?", ["a whale skeleton", "a red bus", "a bagpipe"], "Reading."],
+    ["Which bus could Carla and Dani take?", ["the number 74", "the number 12", "a double-decker to Paris"], "Reading."],
+  ],
+  tarjetas: [
+    ["Transport", "by bus, by train, by bike; on foot."],
+    ["Directions", "Go straight on, turn left, it's opposite the park."],
+    ["London", "Big Ben, Tower Bridge, London Eye, the Tube."],
+    ["There was / were", "There was a cinema. There were horses."],
+  ],
+  glosario: [
+    ["on foot", "a pie"],
+    ["bus stop", "parada de autobús"],
+    ["underground", "metro"],
+    ["lost", "perdido"],
+    ["go straight on", "seguir recto"],
+    ["turn left", "girar a la izquierda"],
+    ["opposite", "enfrente de"],
+    ["corner", "esquina"],
+    ["capital city", "capital"],
+    ["double-decker", "autobús de dos pisos"],
+    ["there was", "había (singular)"],
+    ["there were", "había (plural)"],
+  ],
+  situacion: {
+    titulo: "Welcome to our town!",
+    reto: "The class makes a tourist guide in English for visitors to their town.",
+    pasos: ["Make a map of the town with the most important places.", "Write directions from the school to three places.", "Write a poster with there is, there are and you can.", "Interview an older person and add a «then and now» page with there was and there were."],
+    producto: "A tourist guide of the town in English.",
+    evaluacion: ["Uses there is / are and there was / were correctly.", "Gives clear directions.", "Talks about transport.", "Presents the guide neatly."],
+  },
+});

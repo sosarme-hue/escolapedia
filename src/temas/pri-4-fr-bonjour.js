@@ -91,3 +91,91 @@ module.exports = P.tema({
   saberes: "Comunicación: saludos y despedidas, fórmulas de cortesía, presentarse y preguntar el nombre, registro formal e informal (tu / vous); aspectos culturales de los saludos en Francia",
   ideas: ["Rueda de saludos: cada alumno saluda al siguiente con una fórmula distinta.", "Juego de roles en una tienda francesa usando vous y la cortesía.", "Cartel de la clase con saludos según el momento del día."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer cómo se saludan los franceses: la bise y el apretón de manos", "Deletrear tu nombre con el alfabeto francés", "Decir tu edad, dónde vives y tu nacionalidad", "Descubrir los países donde se habla francés y saludar por teléfono y por escrito"],
+  lectura: { titulo: "La nouvelle élève", html: `<p>Hoy llega una alumna nueva a la clase de Léo, en Lyon. Lee el diálogo. Las palabras difíciles llevan traducción.</p><p><i>La maîtresse : <b>Bonjour</b> les enfants ! Je vous présente une nouvelle élève (os presento a una alumna nueva).</i></p><p><i>Les enfants : <b>Bonjour, Madame !</b></i></p><p><i>Léo : <b>Salut !</b> Je m'appelle Léo. <b>Et toi, comment tu t'appelles ?</b></i></p><p><i>La fille : Je m'appelle <b>Aïcha</b>.</i></p><p><i>Léo : Aïcha ? <b>Ça s'écrit comment ?</b> (¿cómo se escribe?)</i></p><p><i>Aïcha : <b>A - I tréma - C - H - A</b>.</i></p><p><i>Léo : C'est joli ! <b>Tu as quel âge ?</b></i></p><p><i>Aïcha : <b>J'ai neuf ans.</b> Et toi ?</i></p><p><i>Léo : Moi aussi ! (¡Yo también!) <b>Tu es d'où ?</b> (¿De dónde eres?)</i></p><p><i>Aïcha : <b>Je suis sénégalaise</b>. Je viens de Dakar, au Sénégal. Mais maintenant, <b>j'habite à Lyon</b>.</i></p><p><i>Léo : Au Sénégal, on parle français ?</i></p><p><i>Aïcha : Oui ! On parle français et wolof.</i></p><p><i>Léo : <b>Enchanté</b>, Aïcha ! Bienvenue dans la classe ! (¡Bienvenida a la clase!)</i></p><p><i>Aïcha : <b>Merci</b>, Léo !</i></p><p>Al final del día, Léo y Aïcha ya son amigos. Y Aïcha le ha enseñado a decir «hola» en wolof: <b>Salaam aleekum</b>.</p>` },
+  tras: {
+    "Salut ! Entre amigos": [
+      ["La bise y otros saludos", `<p>En Francia, igual que en España, la gente no solo se saluda con palabras: también con <mark>gestos</mark>. Pero hay algunas diferencias curiosas.</p><ul><li><b>La bise</b> (el beso): entre amigos y familiares, los franceses se dan besos en las mejillas. Normalmente son <b>dos</b>, como en España, pero en algunas regiones se dan <b>tres</b> o incluso <b>cuatro</b>. ¡Hay que estar atento para no quedarse con la cara a medio camino! Los chicos también se dan la bise entre ellos cuando son familia o muy amigos.</li><li><b>La poignée de main</b> (el apretón de manos): es el saludo más habitual entre personas que no se conocen, en el trabajo o con adultos. En Francia es muy normal dar la mano cada mañana a los compañeros de trabajo.</li><li><b>Le check</b>: entre niños y jóvenes, es muy común chocar los puños o las manos, como en España.</li></ul><p>En clase, los alumnos franceses saludan a su maestro o maestra con <b>Bonjour, Madame</b> o <b>Bonjour, Monsieur</b>, nunca solo con <i>Bonjour</i>. Decir el tratamiento es una forma de respeto muy importante.</p><p>¿Y tú? ¿Cómo saludas a tus amigos? ¿Y a tus abuelos? ¿Y a una persona que no conoces?</p>`,
+        H6.dos("Saludar en Francia", ["AMIGOS", ["Salut !", "la bise", "le check"], cAZ], ["ADULTOS", ["Bonjour, Madame", "la poignée de main", "vous"], cNA]), ["fOAJTxdcrZA", "La chanson des salutations en français", "KidsMusicTime", 6768212]],
+    ],
+    "Me llamo…": [
+      ["Deletrear: el alfabeto francés", `<p>Cuando alguien no entiende tu nombre, te preguntará <mark>Ça s'écrit comment ?</mark> (¿Cómo se escribe?). Para responder, tienes que saber decir las letras en francés. Fíjate en las que suenan más distintas del español (la pronunciación es aproximada):</p><ul><li><b>A</b> «a», <b>B</b> «bé», <b>C</b> «sé», <b>D</b> «dé»</li><li><b>E</b> «ə» (una e muy cerrada, casi como «eu»)</li><li><b>G</b> «yé», <b>J</b> «yi» (con un sonido parecido a la «y» de algunos acentos argentinos)</li><li><b>H</b> «ash», <b>I</b> «i», <b>K</b> «ka»</li><li><b>Q</b> «kü», <b>R</b> «er», <b>U</b> «ü» (pon los labios como para decir «u» y di «i»)</li><li><b>W</b> «dubləvé», <b>X</b> «iks», <b>Y</b> «igrék», <b>Z</b> «sed»</li></ul><p>Cuidado: la <b>G</b> y la <b>J</b> suenan casi al revés que en español. Y la <b>E</b> y la <b>I</b> también se confunden: en francés la <i>e</i> suena «ə» y la <i>i</i> suena «i».</p><p>Para las letras con acento o con signos, se dice:</p><ul><li><b>é</b>: «e accent aigu»; <b>è</b>: «e accent grave»</li><li><b>ç</b>: «c cédille»</li><li><b>ï</b>: «i tréma»</li></ul><p>Un juego para practicar: <b>le pendu</b> (el ahorcado). Un compañero piensa una palabra en francés y los demás dicen letras en francés para adivinarla. Si dices la letra con la pronunciación española, ¡no vale!</p><p>Practica deletreando tu nombre y tu apellido: <i>Je m'appelle Marta : M - A - R - T - A.</i></p>`,
+        L6.filas("Letras difíciles", [["E", "«ə»", cAZ], ["G", "«yé»", cVE], ["J", "«yi»", cNA], ["U", "«ü»", cMO], ["Y", "«igrék»", cRO]])],
+    ],
+    "Tu y vous": [
+      ["Me presento: edad, ciudad y nacionalidad", `<p>Ya sabes decir tu nombre. Ahora vamos a dar <mark>más información</mark> sobre nosotros.</p><p><b>La edad:</b> en francés no se dice «soy nueve años», sino «<b>tengo</b> nueve años», igual que en español:</p><ul><li><b>Tu as quel âge ?</b> — ¿Cuántos años tienes?</li><li><b>J'ai neuf ans.</b> — Tengo nueve años. (<i>J'ai dix ans, j'ai huit ans</i>.)</li></ul><p><b>Dónde vives:</b></p><ul><li><b>Tu habites où ?</b> — ¿Dónde vives?</li><li><b>J'habite à</b> Valencia. — Vivo en Valencia. (Con ciudades se usa <b>à</b>.)</li><li><b>J'habite en</b> Espagne. — Vivo en España. (Con muchos países se usa <b>en</b>.)</li></ul><p><b>La nacionalidad:</b> cambia si eres chico o chica. El femenino suele añadir una <b>-e</b>:</p><ul><li><b>Je suis espagnol</b> (chico) / <b>Je suis espagnole</b> (chica). Estas dos suenan igual.</li><li><b>français / française</b>: aquí sí se nota la diferencia, porque con la <i>-e</i> se pronuncia la <i>s</i> final: «fransé» / «fransés».</li><li><b>anglais / anglaise</b></li><li><b>marocain / marocaine</b></li><li><b>sénégalais / sénégalaise</b></li></ul><p>Fíjate: en francés, las nacionalidades se escriben con <b>minúscula</b>, como en español.</p><p>Ahora tú: <i>Je m'appelle… J'ai… ans. J'habite à… Je suis…</i></p>`,
+        H6.flujo("Me presento", ["Je m'appelle|Marta", "J'ai|9 ans", "J'habite|à Valencia", "Je suis|espagnole"], cAZ)],
+    ],
+  },
+  final: [
+    ["La francofonía: el francés en el mundo", `<p>El francés no solo se habla en Francia. Más de <b>300 millones</b> de personas lo hablan en todo el mundo, en los cinco continentes. Los países y las personas que hablan francés forman la <mark>francofonía</mark> (la Francophonie).</p><ul><li><b>Europa</b>: Francia, Bélgica, Suiza, Luxemburgo y Mónaco. En Bélgica y Suiza se habla francés junto con otras lenguas.</li><li><b>América</b>: en <b>Canadá</b>, sobre todo en la región de <b>Quebec</b>, se habla francés. También en Haití y en algunas islas del Caribe, como Martinica y Guadalupe.</li><li><b>África</b>: es el continente con más hablantes de francés. Se habla en Senegal, Costa de Marfil, Camerún, Malí, la República Democrática del Congo y muchos otros países. En Marruecos, Argelia y Túnez se usa mucho junto con el árabe.</li><li><b>Oceanía</b>: en islas como Nueva Caledonia y la Polinesia Francesa (Tahití).</li></ul><p>Cada lugar tiene sus palabras propias. Por ejemplo, en Quebec, para decir «el fin de semana» dicen <i>la fin de semaine</i>, mientras que en Francia dicen <i>le week-end</i>. ¡Y en Bélgica y Suiza no cuentan igual el 70 o el 90!</p><p>Por eso, aprender francés te permitirá hablar con niños y niñas de muchísimos países distintos.</p><p>El <b>20 de marzo</b> se celebra el Día Internacional de la Francofonía.</p>`,
+      L6.filas("Se habla francés", [["Europa", "Francia, Bélgica, Suiza", cAZ], ["América", "Quebec, Haití", cVE], ["África", "Senegal, Camerún", cNA], ["Oceanía", "Tahití", cMO]]), ["_Hm5T2kEPQY", "Bonjour mes amis, comment ça va", "Chanson", 19627898]],
+    ["Saludar por teléfono y por escrito", `<p>No siempre saludamos cara a cara. A veces hablamos por <mark>teléfono</mark> o escribimos un <mark>mensaje</mark> o una carta.</p><p><b>Por teléfono:</b></p><ul><li><b>Allô ?</b> — ¿Diga? / ¿Sí? (Es lo primero que se dice al contestar.)</li><li><b>Allô, c'est Lucas.</b> — Hola, soy Lucas.</li><li><b>Je peux parler à Emma, s'il vous plaît ?</b> — ¿Puedo hablar con Emma, por favor?</li><li><b>Ne quitte pas !</b> — ¡No cuelgues! (Espera un momento.)</li><li><b>À plus !</b> — ¡Hasta luego! (muy informal)</li></ul><p><b>Por escrito:</b></p><ul><li>Para empezar una carta o un correo a un amigo: <b>Cher Paul</b> (si es chico) o <b>Chère Julie</b> (si es chica). Significa «Querido / Querida».</li><li>Para un mensaje rápido: <b>Coucou !</b> (¡Hola! muy cariñoso).</li><li>Para despedirse: <b>Bisous !</b> (¡Besos!), <b>Gros bisous !</b> (¡Muchos besos!), <b>À bientôt !</b> (¡Hasta pronto!), <b>Amitiés</b> (Un saludo afectuoso).</li></ul><p>Y según el momento del día:</p><ul><li><b>Bonne journée !</b> — ¡Que tengas un buen día!</li><li><b>Bonne soirée !</b> — ¡Que pases una buena tarde-noche!</li><li><b>Bonne nuit !</b> — ¡Buenas noches! (solo para ir a dormir)</li></ul>`,
+      L6.filas("Mensaje", [["empezar", "Cher Paul / Chère Julie", cAZ], ["hola", "Coucou !", cVE], ["teléfono", "Allô ?", cNA], ["despedirse", "Bisous ! À bientôt !", cRO]])],
+  ],
+  ejemplos: [
+    ["Preséntate en francés: Marta, 9 años, vive en Valencia, española.", ["Je m'appelle + nombre.", "J'ai + edad + ans. J'habite à + ciudad. Je suis + nacionalidad (femenino: espagnole)."], "Je m'appelle Marta. J'ai neuf ans. J'habite à Valencia. Je suis espagnole."],
+    ["Empieza un correo a tu amiga Julie y despídete.", ["Para una chica: Chère.", "Despedida cariñosa: Bisous !"], "Chère Julie, … Bisous !"],
+  ],
+  errores: ["Decir «Je suis neuf ans»: en francés la edad va con avoir: J'ai neuf ans.", "Saludar a la maestra solo con «Salut !»: se dice Bonjour, Madame."],
+  ejercicios: [
+    ["b", "¿Cómo se dice «¿Cómo se escribe?»?", "Ça s'écrit comment ?"],
+    ["b", "¿Qué se dice al contestar el teléfono?", "Allô ?"],
+    ["b", "¿Qué es la bise?", "Los besos en las mejillas para saludar."],
+    ["b", "Di tu edad en francés.", "J'ai … ans."],
+    ["b", "Nombra dos países donde se habla francés.", "Por ejemplo: Bélgica y Canadá."],
+    ["m", "Deletrea tu nombre en francés.", "Respuesta abierta."],
+    ["m", "Escribe el femenino de français y de espagnol.", "française, espagnole"],
+    ["m", "Completa: J'habite ___ Madrid. J'habite ___ Espagne.", "à, en"],
+    ["m", "¿Cómo empiezas un correo para tu amigo Paul?", "Cher Paul,"],
+    ["m", "¿Cómo saludas a tu maestra francesa por la mañana?", "Bonjour, Madame !"],
+    ["a", "Escribe una presentación completa con cinco frases.", "Respuesta abierta."],
+    ["a", "Escribe un mensaje corto a un amigo francés.", "Respuesta abierta."],
+    ["a", "Representa con un compañero una llamada de teléfono en francés.", "Respuesta abierta."],
+    ["a", "Busca en un mapa cinco países francófonos de África.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Entre amigos franceses es normal saludarse con…", ["la bise", "una reverencia", "un abrazo de oso"], "Saludos."],
+    ["La letra J en francés suena…", ["«yi»", "«jota»", "«ye»"], "Alfabeto."],
+    ["«Tengo diez años» es…", ["J'ai dix ans.", "Je suis dix ans.", "J'ai dix."], "Presentarse."],
+    ["En Quebec se habla…", ["francés", "solo inglés", "español"], "Francofonía."],
+    ["«Chère» se usa para empezar una carta a…", ["una chica", "un chico", "un desconocido"], "Por escrito."],
+  ],
+  examen: [
+    ["En la lectura, ¿de dónde es Aïcha?", ["de Senegal", "de Lyon", "de Bélgica"], "Lectura."],
+    ["¿Cuántos años tiene Aïcha?", ["nueve", "diez", "ocho"], "Lectura."],
+  ],
+  tarjetas: [
+    ["Saludos", "la bise, la poignée de main; Bonjour, Madame."],
+    ["Deletrear", "Ça s'écrit comment ? G «yé», J «yi», U «ü»."],
+    ["Presentarse", "J'ai 9 ans. J'habite à… Je suis espagnol(e)."],
+    ["Francofonía y mensajes", "Francia, Bélgica, Quebec, Senegal; Allô ? Bisous !"],
+  ],
+  glosario: [
+    ["la bise", "beso en la mejilla"],
+    ["la poignée de main", "apretón de manos"],
+    ["Ça s'écrit comment ?", "¿Cómo se escribe?"],
+    ["J'ai … ans", "Tengo … años"],
+    ["J'habite à", "Vivo en (ciudad)"],
+    ["Je suis espagnol(e)", "Soy español(a)"],
+    ["la francophonie", "la francofonía"],
+    ["Allô ?", "¿Diga?"],
+    ["Ne quitte pas !", "¡No cuelgues!"],
+    ["Cher / Chère", "Querido / Querida"],
+    ["Bisous !", "¡Besos!"],
+    ["Bonne journée !", "¡Buen día!"],
+  ],
+  situacion: {
+    titulo: "Une carte d'identité",
+    reto: "La clase prepara fichas de presentación para intercambiar con un colegio francófono.",
+    pasos: ["Diseña tu carnet con foto o dibujo: nombre, edad, ciudad y nacionalidad en francés.", "Escribe un mensaje corto de saludo con Cher o Chère y una despedida.", "Graba un audio presentándote y deletreando tu nombre.", "Señalad en un mapa los países francófonos a los que os gustaría escribir."],
+    producto: "Fichas de presentación y mensajes para un intercambio.",
+    evaluacion: ["Se presenta con nombre, edad, ciudad y nacionalidad.", "Deletrea su nombre en francés.", "Usa los saludos adecuados según la persona.", "Escribe un mensaje con fórmulas de inicio y despedida."],
+  },
+});

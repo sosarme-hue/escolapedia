@@ -91,3 +91,91 @@ module.exports = tema({
   ideas: ["Cuento colectivo: cada alumno añade una frase con un conector.", "Esquema «story map» antes de escribir.", "Lectura de los cuentos de la clase a un curso más pequeño."],
   fuentes: [["British Council LearnEnglish Kids: grammar practice", "https://learnenglishkids.britishcouncil.org/grammar-practice"], ["Cambridge Dictionary: story", "https://dictionary.cambridge.org/dictionary/english/story"]],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Describe characters with adjectives of personality", "Use common irregular verbs in the past", "Read fables and find their moral", "Write dialogues with speech marks and use story starters and endings"],
+  lectura: { titulo: "The Lion and the Mouse", html: `<p><b>Once upon a time</b>, a big <b>lion</b> was sleeping under a tree in the jungle. A little <b>mouse</b> was running and playing near him. Suddenly, the mouse <b>ran</b> over the lion's nose!</p><p>The lion <b>woke</b> up. He was very angry. He <b>caught</b> the mouse with his enormous paw.</p><p>"Please, don't eat me!" <b>cried</b> the little mouse. "Let me go, and one day I will help you."</p><p>The lion laughed. "<b>You</b>? Help <b>me</b>? You are so small!" But he was in a good mood, so he <b>let</b> the mouse go.</p><p>A few days later, some hunters <b>came</b> to the jungle. They <b>put</b> a big net between two trees. When the lion walked past, the net <b>fell</b> on him. He couldn't move!</p><p>"Help! Help!" <b>roared</b> the lion.</p><p>The little mouse <b>heard</b> him. She <b>ran</b> to the tree as fast as she could. Then she started to bite the ropes of the net with her sharp little teeth. She bit and bit and bit… until the lion was free!</p><p>"Thank you, little friend," <b>said</b> the lion. "You were right. Small friends can be great friends."</p><p>From that day, the lion and the mouse were best friends.</p><p><b>Moral: Little friends may prove great friends.</b></p><p><i>(A fable by Aesop)</i></p>` },
+  tras: {
+    "Characters and setting": [
+      ["Describing characters", `<p>Good stories have interesting <mark>characters</mark>. To describe them, we can talk about their <b>appearance</b> (what they look like) and their <b>personality</b> (what they are like).</p><p><b>Appearance:</b></p><ul><li>tall, short, big, small, thin, strong</li><li>long / short / curly / straight hair</li><li>«The giant was <b>enormous</b> and he had a long <b>grey</b> beard.»</li></ul><p><b>Personality</b> (positive):</p><ul><li><b>brave</b> (valiente), <b>kind</b> (amable), <b>clever</b> (listo), <b>friendly</b> (simpático), <b>generous</b>, <b>honest</b> (sincero), <b>funny</b> (gracioso), <b>hard-working</b> (trabajador).</li></ul><p><b>Personality</b> (negative):</p><ul><li><b>greedy</b> (avaricioso), <b>lazy</b> (perezoso), <b>selfish</b> (egoísta), <b>mean</b> (malo, tacaño), <b>rude</b> (maleducado), <b>proud</b> (orgulloso), <b>bossy</b> (mandón).</li></ul><p>In many stories, there's a <b>hero</b> (the main character) and a <b>villain</b> (the bad character). The hero is usually brave and kind; the villain is greedy or mean.</p><p>Tip: don't just say «He was nice». <b>Show</b> it with an action: «He gave his last piece of bread to a hungry dog.» Now the reader knows he is <b>generous</b>!</p><p>In the reading, the mouse is <b>brave</b> and <b>loyal</b>, and the lion is <b>proud</b> at first, but then he's <b>grateful</b> (agradecido).</p>`,
+        H6.dos("Personality", ["HERO", ["brave", "kind", "clever"], cVE], ["VILLAIN", ["greedy", "selfish", "mean"], cRO])],
+    ],
+    "Stories in the past": [
+      ["Irregular verbs in stories", `<p>Many verbs in English add <b>-ed</b> in the past: <i>walk → walked</i>, <i>play → played</i>, <i>shout → shouted</i>. But the most common verbs in stories are <mark>irregular</mark>: they change completely! Learn these by heart:</p><ul><li>go → <b>went</b> (fue)</li><li>see → <b>saw</b> (vio)</li><li>say → <b>said</b> (dijo)</li><li>have → <b>had</b> (tenía, tuvo)</li><li>come → <b>came</b> (vino)</li><li>find → <b>found</b> (encontró)</li><li>run → <b>ran</b> (corrió)</li><li>take → <b>took</b> (cogió)</li><li>eat → <b>ate</b> (comió)</li><li>make → <b>made</b> (hizo)</li><li>give → <b>gave</b> (dio)</li><li>get → <b>got</b> (consiguió, llegó)</li><li>fall → <b>fell</b> (cayó)</li><li>catch → <b>caught</b> (atrapó)</li><li>hear → <b>heard</b> (oyó)</li><li>be → <b>was / were</b> (era, estaba)</li></ul><p>Good news: in the past, the verb is the <b>same for everybody</b>: «I went, you went, she went, they went». No <i>-s</i> for <i>he</i> and <i>she</i>!</p><p>Look at this paragraph: «One day, Jack <b>went</b> to the market. He <b>saw</b> an old man. The man <b>gave</b> him some magic beans. Jack <b>took</b> them home.» Find the irregular verbs in the reading!</p>`,
+        L6.filas("Irregular past", [["go", "went", cAZ], ["see", "saw", cVE], ["say", "said", cNA], ["run", "ran", cMO], ["find", "found", cRO]])],
+    ],
+    "Understanding the story": [
+      ["Fables and their morals", `<p>A <mark>fable</mark> (fábula) is a short story, usually with <b>animals</b> that talk and act like people. At the end, there's a <b>moral</b> (moraleja): a lesson about how to behave.</p><p>The most famous writer of fables is <b>Aesop</b>, who lived in ancient Greece about 2,500 years ago. Here are some of his fables:</p><ul><li><b>The Tortoise and the Hare</b> (La tortuga y la liebre): the hare is very fast but very proud. He stops to sleep during a race, and the slow tortoise wins. <i>Moral: Slow and steady wins the race.</i></li><li><b>The Ant and the Grasshopper</b> (La hormiga y la cigarra): the ant works all summer and saves food. The grasshopper only sings and plays. In winter, the grasshopper has no food. <i>Moral: Work today and you will have tomorrow.</i></li><li><b>The Boy Who Cried Wolf</b> (Pedro y el lobo): a shepherd boy lies about a wolf many times. When a real wolf comes, nobody believes him. <i>Moral: Nobody believes a liar, even when he tells the truth.</i></li><li><b>The Fox and the Grapes</b> (La zorra y las uvas): a fox can't reach some grapes, so he says they're sour. <i>Moral: It's easy to hate what you can't have.</i></li></ul><p>Fables are told all over the world. In Spain, the writer <b>Félix María de Samaniego</b> wrote fables in verse, and in France, <b>Jean de La Fontaine</b> wrote very famous ones.</p><p>To find the moral, ask: <i>What did the character learn? What can I learn from the story?</i></p>`,
+        L6.filas("Fables", [["Tortoise + Hare", "slow and steady", cVE], ["Ant + Grasshopper", "work today", cNA], ["Boy + Wolf", "don't lie", cRO], ["Lion + Mouse", "small friends help", cAZ]]), ["jKi2SvWOCXc", "The Bear and the Bee", "The Fable Cottage", 17829821]],
+    ],
+  },
+  final: [
+    ["Dialogue in stories", `<p><mark>Dialogue</mark> (the words the characters say) makes stories more alive. In English, we write dialogue with <b>speech marks</b> (comillas): <b>"…"</b>.</p><p>Look at these rules:</p><ul><li>Put the exact words inside the speech marks: <i>"Help me!" said the mouse.</i></li><li>Start a <b>new line</b> every time a different character speaks.</li><li>Put the punctuation (, ? !) <b>inside</b> the speech marks: <i>"Where are you going?" asked the wolf.</i></li><li>Use a comma before the closing speech mark if the sentence continues: <i>"I'm hungry," said the bear.</i></li></ul><p>Instead of <i>said</i> every time, use more interesting <b>speaking verbs</b>:</p><ul><li><b>asked</b> (preguntó): for questions.</li><li><b>answered</b> / <b>replied</b> (respondió).</li><li><b>shouted</b> / <b>cried</b> (gritó).</li><li><b>whispered</b> (susurró).</li><li><b>laughed</b> (rió).</li><li><b>roared</b> (rugió): for a lion!</li></ul><p>Example:</p><p><i>"Who's there?" whispered Lucy.<br>"It's me, Tom," replied a voice.<br>"Tom! You scared me!" laughed Lucy.</i></p><p>Notice that in Spanish we use a dash (—) for dialogue, but in English we use speech marks.</p>`,
+      L6.dialogo("Speech marks", [["Lucy", "\"Who's there?\" whispered Lucy.", cAZ], ["Tom", "\"It's me,\" replied Tom.", cRO], ["Lucy", "\"You scared me!\"", cAZ]]), ["NpWHZJZQDSE", "Plot mountain: the plot diagram song", "Scratch Garden", 3577782]],
+    ["Story starters and endings", `<p>The first and the last sentences of a story are very important. A good <mark>beginning</mark> makes the reader want to continue, and a good <mark>ending</mark> leaves the reader happy or surprised.</p><p><b>Story starters:</b></p><ul><li><i>Once upon a time…</i> (Érase una vez): perfect for fairy tales.</li><li><i>A long time ago, in a faraway land…</i></li><li><i>One cold winter morning…</i></li><li><i>It was a dark and stormy night…</i></li><li><i>Nobody believed me when I said…</i></li></ul><p><b>Words for the middle:</b> <i>One day, Suddenly, Then, After that, Later, At that moment, Meanwhile</i> (mientras tanto).</p><p><b>Story endings:</b></p><ul><li><i>…and they lived happily ever after.</i> (…y vivieron felices para siempre.)</li><li><i>In the end, they became best friends.</i></li><li><i>Finally, everybody went home, tired but happy.</i></li><li><i>From that day on, she never lied again.</i></li><li><i>And that's why the elephant has a long trunk!</i></li></ul><p>Remember the plan: <b>beginning</b> (characters and setting) → <b>middle</b> (a problem) → <b>end</b> (the solution).</p><p>Challenge: choose a starter, a problem and an ending, and write a story of three paragraphs!</p>`,
+      H6.flujo("My story", ["Once upon|a time…", "One day…|a problem", "Suddenly…|action", "In the end…|solution"], cVE)],
+  ],
+  ejemplos: [
+    ["Write in the past: «The fox sees the grapes and says they are sour.»", ["see → saw, say → said (irregular).", "are → were."], "The fox saw the grapes and said they were sour."],
+    ["Punctuate: Help me said the lion", ["Put the exact words in speech marks.", "Add the exclamation mark inside."], "\"Help me!\" said the lion."],
+  ],
+  errores: ["Writing «goed» or «runned» instead of went and ran.", "Using a dash for dialogue in English instead of speech marks."],
+  ejercicios: [
+    ["b", "Write the past of go and see.", "went, saw"],
+    ["b", "What is a fable?", "A short story with animals and a moral."],
+    ["b", "Opposite of brave?", "Scared / afraid."],
+    ["b", "How do fairy tales often start?", "Once upon a time…"],
+    ["b", "Write a speaking verb for questions.", "asked"],
+    ["m", "What is the moral of The Tortoise and the Hare?", "Slow and steady wins the race."],
+    ["m", "Write the past: The mouse runs and finds the lion.", "The mouse ran and found the lion."],
+    ["m", "Describe the lion in the reading with two adjectives.", "For example: proud, grateful."],
+    ["m", "Punctuate: Where are you going asked the wolf", "\"Where are you going?\" asked the wolf."],
+    ["m", "Write two story endings.", "Open answer."],
+    ["a", "Write a fable with two animals and a moral.", "Open answer."],
+    ["a", "Rewrite the lion and the mouse from the mouse's point of view.", "Open answer."],
+    ["a", "Write a dialogue between a hero and a villain.", "Open answer."],
+    ["a", "Write a story with five irregular verbs in the past.", "Open answer."],
+  ],
+  quiz: [
+    ["The past of «take» is…", ["took", "taked", "taken"], "Irregular verbs."],
+    ["A person who never wants to work is…", ["lazy", "brave", "kind"], "Characters."],
+    ["The lesson of a fable is the…", ["moral", "setting", "title"], "Fables."],
+    ["In English, dialogue goes in…", ["speech marks", "dashes", "brackets"], "Dialogue."],
+    ["«…and they lived happily ever after» is…", ["an ending", "a starter", "a title"], "Starters and endings."],
+  ],
+  examen: [
+    ["In the reading, how did the mouse help the lion?", ["She bit the ropes of the net.", "She called the hunters.", "She brought food."], "Reading."],
+    ["Who wrote The Lion and the Mouse?", ["Aesop", "Shakespeare", "Roald Dahl"], "Fables."],
+  ],
+  tarjetas: [
+    ["Characters", "Hero: brave, kind. Villain: greedy, mean."],
+    ["Irregular past", "went, saw, said, had, came, found, ran, took."],
+    ["Fables", "Animals + a moral. Aesop."],
+    ["Dialogue and endings", "\"Help!\" cried the mouse. …happily ever after."],
+  ],
+  glosario: [
+    ["character", "personaje"],
+    ["brave", "valiente"],
+    ["greedy", "avaricioso"],
+    ["hero", "héroe"],
+    ["villain", "villano"],
+    ["irregular verb", "verbo irregular"],
+    ["fable", "fábula"],
+    ["moral", "moraleja"],
+    ["speech marks", "comillas"],
+    ["whisper", "susurrar"],
+    ["once upon a time", "érase una vez"],
+    ["happily ever after", "felices para siempre"],
+  ],
+  situacion: {
+    titulo: "Our book of fables",
+    reto: "The class writes and illustrates its own book of fables in English.",
+    pasos: ["In pairs, choose two animals with opposite personalities.", "Plan the fable: beginning, problem, ending and moral.", "Write it in the past with dialogue and speech marks.", "Illustrate it and read it aloud to a younger class."],
+    producto: "A class book of fables.",
+    evaluacion: ["Uses irregular verbs in the past.", "Describes characters with personality adjectives.", "Writes dialogue with speech marks.", "The fable has a clear moral."],
+  },
+});
