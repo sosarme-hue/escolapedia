@@ -137,3 +137,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer las figuras en movimiento de Keith Haring", "Dibujar siluetas y sombras", "Comparar figuras humanas de distintos artistas", "Dibujar grupos de personas y personajes con su ropa"],
+  lectura: { titulo: "El dibujo de la familia", html: `<p>La maestra pidió a la clase que dibujara a su familia. Lía se puso muy contenta y empezó enseguida.</p><p>Dibujó a su padre con un círculo para la cabeza y un palito para el cuerpo. Después, a su madre, a su abuela y a su hermano pequeño. Todos eran palitos.</p><p>Cuando terminó, lo miró y frunció el ceño.</p><p>—Parecen todos iguales —dijo—. ¡Y mi padre es muy alto y mi hermano es muy bajito!</p><p>La maestra se acercó.</p><p>—Fíjate en lo que hace especial a cada uno —le sugirió.</p><p>Lía empezó de nuevo. Al padre lo dibujó <b>alto</b>, con <b>gafas</b> y su jersey de rayas. A la madre, con el <b>pelo rizado</b> y los brazos abiertos, porque siempre da abrazos. La abuela llevaba su <b>bastón</b> y su chal morado. Su hermano, <b>pequeñito</b>, saltaba con los brazos hacia arriba.</p><p>Esta vez, cuando miró el dibujo, sonrió. Ahora sí era su familia.</p>` },
+  tras: {
+    "Personas en movimiento": [
+      ["Keith Haring, figuras que bailan", `<p><mark>Keith Haring</mark> fue un artista estadounidense que dibujaba figuras humanas muy sencillas, pero llenas de <b>movimiento</b>.</p><ul><li>Sus personajes no tienen cara: solo una <b>silueta</b> con un contorno grueso.</li><li>Los rellenaba con un <b>color liso</b> y muy vivo: rojo, amarillo, azul, verde.</li><li>Alrededor dibujaba <b>rayitas</b> que indican que se mueven o vibran.</li><li>Sus figuras <b>bailan, saltan, se abrazan</b> y juegan.</li><li>Pintaba en el metro, en paredes enormes y en hospitales para niños.</li></ul><p>Haring quería que el arte fuera para <b>todo el mundo</b>, no solo para los museos.</p><p><b>Actividad</b>: dibuja tres figuras al estilo Haring haciendo tres movimientos distintos y añade rayitas de movimiento.</p>`,
+        L6.filas("Haring", [["contorno", "grueso", cMO], ["relleno", "color liso", cRO], ["rayitas", "movimiento", cNA], ["sin cara", "silueta", cAZ]]),
+        ["E-Lsw0ba1LM", "Biografía de Keith Haring: arte para niños", "Dentro del arte", 40984]],
+    ],
+    "Del palito al volumen": [
+      ["Siluetas y sombras", `<p>Una <mark>silueta</mark> es la forma de una figura rellena de un solo color, sin detalles por dentro. Es como una sombra.</p><ul><li>Pon a un compañero de lado, delante de una pared, y enciende una lámpara: su <b>sombra</b> aparece en la pared.</li><li>Pega un papel en la pared y dibuja el <b>contorno</b> de la sombra.</li><li>Recórtalo y pégalo sobre una cartulina de otro color.</li></ul><p>Así hacían retratos hace muchos años, antes de que existiera la fotografía.</p><p>También podemos tumbarnos sobre papel continuo y que un compañero dibuje nuestro <b>contorno</b> a tamaño real. ¡Así vemos lo grandes que somos!</p><p>Con las manos también podemos hacer <b>sombras chinescas</b>: un perro, un pájaro o un conejo.</p><p><b>Actividad</b>: dibuja tu contorno a tamaño real en papel continuo y píntalo con tu ropa de hoy.</p>`,
+        H6.flujo("Silueta", ["lámpara|sombra", "papel|contorno", "recortar|forma", "pegar|cartulina"], cAZ)],
+    ],
+    "¿Cuánto mide cada parte?": [
+      ["Figuras de muchos artistas", `<p>Cada artista dibuja o esculpe a las personas a su <mark>manera</mark>:</p><ul><li><b>Botero</b>, de Colombia, hace figuras muy <b>redondas</b> y grandes, con mucho volumen.</li><li><b>Giacometti</b>, de Suiza, hacía esculturas <b>muy delgadas</b> y alargadas, como palitos.</li><li><b>Picasso</b> dibujaba a veces las caras con los ojos de frente y la nariz de lado.</li><li>En el <b>antiguo Egipto</b>, pintaban la cabeza y las piernas de lado, pero el cuerpo de frente.</li></ul><p>Ninguna forma es incorrecta: los artistas cambian las proporciones a propósito para expresar algo.</p><p>Cuando queremos dibujar a alguien de forma <b>realista</b>, en cambio, sí miramos bien cuánto mide cada parte.</p><p><b>Actividad</b>: dibuja a la misma persona dos veces: una muy redonda, como Botero, y otra muy alargada, como Giacometti.</p>`,
+        H6.dos("Estilos", ["REDONDAS", ["Botero", "volumen", "grandes"], cNA], ["DELGADAS", ["Giacometti", "alargadas", "palitos"], cVE])],
+    ],
+    "Detalles que dan vida": [
+      ["La ropa cuenta quién es", `<p>La <mark>ropa</mark> y los objetos que lleva una persona nos dan pistas sobre quién es o qué hace:</p><ul><li>Un <b>bombero</b>: casco, traje con rayas brillantes y manguera.</li><li>Una <b>médica</b>: bata blanca y fonendoscopio.</li><li>Un <b>cocinero</b>: gorro alto y delantal.</li><li>Una <b>futbolista</b>: camiseta con número, pantalón corto y botas.</li><li>Un <b>astronauta</b>: traje grande y casco con cristal.</li></ul><p>También nos dicen el <b>tiempo</b> que hace: abrigo y bufanda en invierno; bañador y gorra en verano.</p><p>Al dibujar la ropa, piensa en sus <b>dibujos</b>: rayas, cuadros, lunares o flores. ¡Dan mucha vida!</p><p><b>Actividad</b>: dibuja a una persona con la ropa de la profesión que te gustaría tener de mayor.</p>`,
+        L6.filas("Oficios", [["bombero", "casco", cRO], ["médica", "bata", cAZ], ["cocinero", "gorro", cNA], ["astronauta", "traje", cMO]])],
+    ],
+  },
+  final: [
+    ["Dibujar un grupo de personas", `<p>Cuando dibujamos a <mark>varias personas</mark> juntas, como una familia o un equipo, hay algunos trucos:</p><ul><li>Dibuja a cada persona con su <b>tamaño real</b>: los adultos más altos, los niños más bajos.</li><li>Ponlas sobre la <b>misma línea de suelo</b> para que no parezca que flotan.</li><li>Si alguien está <b>delante</b>, tapa un poco a quien está detrás.</li><li>Las personas <b>lejanas</b> se dibujan más pequeñas y más arriba en el papel.</li><li>Haz que <b>interactúen</b>: que se den la mano, se miren o jueguen juntas.</li></ul><p>Así el dibujo cuenta una <b>historia</b>: no son personas sueltas, sino un grupo que hace algo junto.</p><p><b>Actividad</b>: dibuja a tu familia o a tus amigos haciendo algo juntos, como un pícnic.</p>`,
+      H6.flujo("Grupo", ["tamaños|reales", "suelo|común", "delante|tapa", "juntos|historia"], cVE)],
+    ["Repaso: el dibujo de la familia", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Lía dibujó primero a toda su familia con <b>palitos</b>.</li><li>Todos parecían <b>iguales</b>.</li><li>La maestra le dijo que buscara lo que hace <b>especial</b> a cada uno.</li><li>El padre: <b>alto</b>, con gafas y jersey de rayas.</li><li>La madre: <b>pelo rizado</b> y brazos abiertos.</li><li>La abuela: <b>bastón</b> y chal morado. El hermano: <b>pequeño</b> y saltando.</li></ul><p>Los detalles, el tamaño y la postura hacen que cada persona sea única en el dibujo.</p><p><b>Actividad</b>: dibuja a un compañero con un detalle que lo haga especial y pide a la clase que adivine quién es.</p>`,
+      L6.filas("Lía", [["padre", "alto, gafas", cAZ], ["madre", "pelo rizado", cRO], ["abuela", "bastón", cMO], ["hermano", "salta", cVE]])],
+  ],
+  ejemplos: [
+    ["¿Qué indican las rayitas de Haring?", ["Están alrededor de las figuras."], "Que se mueven."],
+    ["¿Cómo dibujas a alguien que está lejos?", ["Pensar en el tamaño."], "Más pequeño y más arriba."],
+  ],
+  errores: ["Dibujar a todas las personas del mismo tamaño.", "Hacer flotar las figuras sin una línea de suelo."],
+  ejercicios: [
+    ["b", "¿De dónde era Keith Haring?", "De Estados Unidos."],
+    ["b", "¿Qué es una silueta?", "Una figura rellena de un color, sin detalles."],
+    ["b", "¿Cómo son las figuras de Botero?", "Redondas y grandes."],
+    ["b", "¿Qué lleva un bombero?", "Casco, traje y manguera."],
+    ["b", "Di un detalle de la abuela de Lía.", "Bastón o chal morado."],
+    ["m", "¿Cómo son las esculturas de Giacometti?", "Muy delgadas y alargadas."],
+    ["m", "¿Cómo pintaban el cuerpo en el antiguo Egipto?", "Cabeza y piernas de lado y cuerpo de frente."],
+    ["m", "¿Dónde pintaba Keith Haring?", "En el metro, en paredes y en hospitales."],
+    ["m", "¿Qué ropa indica que es invierno?", "Abrigo y bufanda."],
+    ["m", "¿Cómo se hacían retratos antes de la fotografía?", "Con siluetas de sombras."],
+    ["a", "En la lectura, ¿por qué Lía no estaba contenta?", "Porque todos parecían iguales."],
+    ["a", "¿Qué hace que un dibujo de grupo cuente una historia?", "Que las personas hagan algo juntas."],
+    ["a", "¿Por qué los artistas cambian las proporciones?", "Para expresar algo."],
+    ["a", "Dibuja una figura saltando al estilo Haring.", "Respuesta libre."],
+  ],
+  quiz: [
+    ["Las figuras de Haring no tienen…", ["cara", "brazos", "color"], "Haring."],
+    ["Para hacer una sombra necesitas…", ["una luz", "agua", "plastilina"], "Siluetas."],
+    ["Botero hace figuras…", ["redondas", "de palitos", "invisibles"], "Estilos."],
+    ["El gorro alto es del…", ["cocinero", "bombero", "astronauta"], "Oficios."],
+    ["Quien está delante… al de detrás", ["tapa", "borra", "agranda"], "Grupo."],
+  ],
+  examen: [
+    ["En la lectura, ¿cómo dibujó Lía primero a su familia?", ["con palitos", "con plastilina", "con fotos"], "Lectura."],
+    ["¿Qué hace el hermano en el dibujo final?", ["salta", "duerme", "come"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Keith Haring", "Figuras sin cara, contorno grueso, color liso y rayitas de movimiento."],
+    ["Grupo de personas", "Tamaños reales, suelo común, delante tapa y hacen algo juntos."],
+  ],
+  glosario: [
+    ["Silueta", "Forma rellena de un color."],
+    ["Contorno", "Línea que rodea una figura."],
+    ["Sombra", "Zona oscura que deja un cuerpo ante la luz."],
+    ["Haring", "Artista de figuras que bailan."],
+    ["Botero", "Artista de figuras redondas."],
+    ["Giacometti", "Escultor de figuras delgadas."],
+    ["Proporción", "Tamaño de cada parte respecto a las demás."],
+    ["Postura", "Posición del cuerpo."],
+    ["Fonendoscopio", "Aparato del médico para escuchar el corazón."],
+    ["Realista", "Que se parece a la realidad."],
+  ],
+  situacion: {
+    titulo: "Nuestra clase a tamaño real",
+    reto: "Cada alumno dibuja su contorno a tamaño real, lo decora con su ropa y detalles, y formamos un gran mural de la clase.",
+    pasos: ["Por parejas, dibujar el contorno del compañero en papel continuo.", "Pintar la ropa y añadir detalles personales.", "Recortar las figuras.", "Colocarlas juntas en el pasillo como un grupo."],
+    producto: "Un mural de la clase a tamaño real.",
+    evaluacion: ["Conoce a Keith Haring.", "Dibuja siluetas.", "Compara estilos de artistas.", "Dibuja grupos con detalles."],
+  },
+});

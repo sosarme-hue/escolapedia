@@ -140,3 +140,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer a Mondrian y su uso de los primarios", "Recordar el orden de los colores del arcoíris", "Distinguir colores cálidos y fríos", "Elegir el material de color adecuado: ceras, rotuladores, témperas y acuarelas"],
+  lectura: { titulo: "El pueblo gris", html: `<p>Había una vez un pueblo donde todo era <b>gris</b>: las casas, las calles, los árboles y hasta la ropa de la gente. Nadie sonreía mucho.</p><p>Un día llegó una pintora con tres botes: uno <b>rojo</b>, uno <b>amarillo</b> y uno <b>azul</b>.</p><p>—¿Solo tres colores? —se burló el alcalde—. Con eso no pintarás nada.</p><p>La pintora sonrió. Mezcló el amarillo y el azul, y pintó la hierba de <b>verde</b>. Mezcló el rojo y el amarillo, y las naranjas del mercado brillaron de <b>naranja</b>. Mezcló el rojo y el azul, y las flores se volvieron <b>moradas</b>.</p><p>Después añadió un poco de blanco y pintó el cielo de azul clarito.</p><p>Los vecinos salieron a las calles. Los niños pidieron pinceles y pintaron sus puertas de colores.</p><p>Al final, el alcalde se rascó la cabeza y dijo:</p><p>—Con tres colores… ¡has pintado el mundo entero!</p><p>Desde entonces, al pueblo le llaman Arcoíris.</p>` },
+  tras: {
+    "Los tres primarios": [
+      ["Mondrian y los primarios", `<p><mark>Piet Mondrian</mark> fue un pintor holandés que pintaba cuadros muy especiales, usando casi solo los <b>tres colores primarios</b>.</p><ul><li>Dibujaba <b>líneas negras</b> rectas, horizontales y verticales.</li><li>Las líneas formaban <b>rectángulos</b> y cuadrados de distintos tamaños.</li><li>Pintaba algunos de <b>rojo</b>, <b>amarillo</b> o <b>azul</b>.</li><li>El resto los dejaba en <b>blanco</b>.</li></ul><p>Sus cuadros parecen sencillos, pero pensaba mucho dónde poner cada color para que todo estuviera <b>equilibrado</b>.</p><p>Su estilo es tan famoso que hoy se ve en vestidos, muebles, edificios y hasta en zapatillas.</p><p><b>Actividad</b>: con una regla, dibuja líneas negras en un folio y colorea algunos rectángulos de rojo, amarillo y azul, al estilo Mondrian.</p>`,
+        L6.filas("Mondrian", [["líneas", "negras y rectas", cMO], ["rojo", "algunos", cRO], ["amarillo", "algunos", cNA], ["azul", "algunos", cAZ]])],
+    ],
+    "El círculo de colores": [
+      ["Los colores del arcoíris", `<p>El <mark>arcoíris</mark> aparece cuando el sol ilumina las gotas de lluvia. La luz del sol, que parece blanca, se separa en <b>siete colores</b>, siempre en el mismo orden:</p><ul><li><b>Rojo</b> (arriba del todo).</li><li><b>Naranja</b>.</li><li><b>Amarillo</b>.</li><li><b>Verde</b>.</li><li><b>Azul</b>.</li><li><b>Añil</b>: un azul muy oscuro.</li><li><b>Violeta</b> (abajo del todo).</li></ul><p>Para verlo, el sol tiene que estar <b>detrás de nosotros</b> y la lluvia, delante.</p><p>También podemos crear un pequeño arcoíris con una manguera, echando agua al sol, o con un vaso de agua junto a la ventana.</p><p><b>Actividad</b>: pinta un arcoíris con témperas, siguiendo el orden correcto de los siete colores.</p>`,
+        H6.flujo("Arcoíris", ["rojo|naranja", "amarillo|verde", "azul|añil", "violeta|abajo"], cAZ)],
+    ],
+    "Colores con sentimiento": [
+      ["Cálidos y fríos", `<p>Los colores se pueden separar en dos <mark>familias</mark>:</p><ul><li><b>Colores cálidos</b>: rojo, naranja y amarillo. Nos recuerdan al <b>fuego</b> y al <b>sol</b>. Dan sensación de calor y energía.</li><li><b>Colores fríos</b>: azul, verde y violeta. Nos recuerdan al <b>agua</b>, al <b>hielo</b> y a la noche. Dan sensación de frescor y calma.</li></ul><p>Los artistas eligen una familia u otra según lo que quieren contar:</p><ul><li>Un día de verano en la playa: mejor <b>cálidos</b>.</li><li>Un paisaje nevado o el fondo del mar: mejor <b>fríos</b>.</li></ul><p>Si mezclas muchos cálidos y fríos en un dibujo, crearás <b>contraste</b>: los colores destacan mucho.</p><p><b>Actividad</b>: dibuja dos veces el mismo árbol: uno solo con colores cálidos (otoño) y otro solo con fríos (invierno).</p>`,
+        H6.dos("Familias", ["CÁLIDOS", ["rojo", "naranja", "amarillo"], cRO], ["FRÍOS", ["azul", "verde", "violeta"], cAZ])],
+    ],
+    "Cómo se mezcla": [
+      ["Materiales para dar color", `<p>Hay muchos <mark>materiales</mark> para dar color, y cada uno sirve para algo:</p><ul><li><b>Ceras</b>: colores intensos. Se pueden mezclar frotando una encima de otra.</li><li><b>Lápices de colores</b>: para detalles finos. Apretando poco, salen claros; apretando más, oscuros.</li><li><b>Rotuladores</b>: colores muy vivos, pero no se pueden mezclar bien.</li><li><b>Témperas</b>: pintura espesa que cubre mucho. Ideal para mezclar colores en la paleta.</li><li><b>Acuarelas</b>: pintura con mucha agua. Los colores quedan transparentes y suaves.</li></ul><p>Al terminar hay que <b>cuidar el material</b>: tapar los rotuladores, lavar los pinceles y cerrar los botes.</p><p><b>Actividad</b>: pinta el mismo círculo con cada material y compara cómo queda.</p>`,
+        L6.filas("Materiales", [["ceras", "intensas", cRO], ["lápices", "detalles", cVE], ["témperas", "cubren", cNA], ["acuarelas", "transparentes", cAZ]]),
+        ["MbGnfg2yAn0", "La magia de los colores primarios", "toycantando", 1632459]],
+    ],
+  },
+  final: [
+    ["Colores para esconderse", `<p>En la naturaleza, algunos animales usan sus colores para <mark>esconderse</mark>. Esto se llama <b>camuflaje</b>:</p><ul><li>El <b>camaleón</b> cambia de color según dónde está.</li><li>El <b>oso polar</b> es blanco, como la nieve.</li><li>Los <b>saltamontes</b> verdes se confunden con la hierba.</li><li>Las <b>lechuzas</b> tienen plumas del color de la corteza de los árboles.</li></ul><p>Otros animales hacen lo contrario: usan colores <b>muy llamativos</b> para avisar de que son peligrosos, como algunas ranas venenosas, que son rojas, amarillas o azules brillantes.</p><p>También nosotros usamos colores para que nos vean: los chalecos amarillos de seguridad o las señales rojas de peligro.</p><p><b>Actividad</b>: dibuja una mariposa con los mismos colores que la flor donde está posada, ¡a ver si tus compañeros la encuentran!</p>`,
+      H6.dos("Colores", ["ESCONDERSE", ["camaleón", "oso polar", "saltamontes"], cVE], ["AVISAR", ["rana roja", "chaleco", "señal"], cRO])],
+    ["Repaso: el pueblo gris", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>En el pueblo todo era <b>gris</b> y nadie sonreía.</li><li>La pintora traía <b>tres colores</b>: rojo, amarillo y azul.</li><li>Amarillo + azul = <b>verde</b> para la hierba.</li><li>Rojo + amarillo = <b>naranja</b> para las naranjas.</li><li>Rojo + azul = <b>morado</b> para las flores.</li><li>Con <b>blanco</b> aclaró el azul del cielo.</li></ul><p>El cuento nos recuerda que con solo los tres <b>primarios</b> se pueden conseguir muchísimos colores.</p><p><b>Actividad</b>: con tres témperas primarias y blanco, intenta conseguir el mayor número de colores distintos.</p>`,
+      L6.filas("Mezclas", [["amarillo+azul", "verde", cVE], ["rojo+amarillo", "naranja", cNA], ["rojo+azul", "morado", cMO], ["azul+blanco", "azul claro", cAZ]])],
+  ],
+  ejemplos: [
+    ["¿Qué color va justo después del amarillo en el arcoíris?", ["Rojo, naranja, amarillo…"], "El verde."],
+    ["¿El naranja es cálido o frío?", ["Recuerda al fuego y al sol."], "Cálido."],
+  ],
+  errores: ["Pensar que el verde es un color cálido.", "Dejar los rotuladores destapados al terminar."],
+  ejercicios: [
+    ["b", "¿Qué colores usaba Mondrian?", "Rojo, amarillo y azul, con negro y blanco."],
+    ["b", "¿Cuántos colores tiene el arcoíris?", "Siete."],
+    ["b", "Di un color cálido.", "Rojo, naranja o amarillo."],
+    ["b", "Di un color frío.", "Azul, verde o violeta."],
+    ["b", "¿Qué material lleva mucha agua?", "La acuarela."],
+    ["m", "¿Qué color está arriba en el arcoíris?", "El rojo."],
+    ["m", "¿Qué es el añil?", "Un azul muy oscuro."],
+    ["m", "¿Qué es el camuflaje?", "Usar los colores para esconderse."],
+    ["m", "¿Qué material cubre mucho y se mezcla en la paleta?", "La témpera."],
+    ["m", "¿Dónde tiene que estar el sol para ver el arcoíris?", "Detrás de nosotros."],
+    ["a", "En la lectura, ¿cómo consiguió la pintora el verde?", "Mezclando amarillo y azul."],
+    ["a", "¿Qué familia de colores usarías para un paisaje nevado? ¿Por qué?", "Fríos, porque recuerdan el hielo."],
+    ["a", "¿Por qué algunas ranas tienen colores muy vivos?", "Para avisar de que son peligrosas."],
+    ["a", "Ordena: verde, rojo, azul, amarillo, violeta.", "Rojo, amarillo, verde, azul, violeta."],
+  ],
+  quiz: [
+    ["Mondrian pintaba con líneas…", ["negras y rectas", "curvas", "de puntos"], "Mondrian."],
+    ["El último color del arcoíris es el…", ["violeta", "rojo", "verde"], "Arcoíris."],
+    ["Los colores cálidos recuerdan al…", ["fuego", "hielo", "mar"], "Familias."],
+    ["Las acuarelas quedan…", ["transparentes", "espesas", "negras"], "Materiales."],
+    ["El oso polar se camufla con el…", ["blanco", "rojo", "azul"], "Camuflaje."],
+  ],
+  examen: [
+    ["En la lectura, ¿cómo era el pueblo al principio?", ["gris", "rojo", "verde"], "Lectura."],
+    ["¿Cuántos botes traía la pintora?", ["tres", "siete", "uno"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Arcoíris", "Rojo, naranja, amarillo, verde, azul, añil y violeta."],
+    ["Cálidos y fríos", "Cálidos: rojo, naranja, amarillo. Fríos: azul, verde, violeta."],
+  ],
+  glosario: [
+    ["Mondrian", "Pintor de líneas negras y primarios."],
+    ["Arcoíris", "Arco de siete colores en el cielo."],
+    ["Añil", "Azul muy oscuro."],
+    ["Cálido", "Color que da sensación de calor."],
+    ["Frío", "Color que da sensación de frescor."],
+    ["Témpera", "Pintura espesa que cubre mucho."],
+    ["Acuarela", "Pintura con mucha agua."],
+    ["Paleta", "Tabla donde se mezclan colores."],
+    ["Camuflaje", "Esconderse con los colores."],
+    ["Contraste", "Diferencia grande entre colores."],
+  ],
+  situacion: {
+    titulo: "Devolvemos el color al pueblo gris",
+    reto: "La clase pinta un gran mural del pueblo gris de la lectura usando solo los tres primarios, el blanco y sus mezclas.",
+    pasos: ["Dibujar el pueblo en papel continuo.", "Mezclar en la paleta los secundarios a partir de los primarios.", "Pintar el cielo y el agua en fríos y el sol y los tejados en cálidos.", "Exponer el mural y explicar qué mezclas usamos."],
+    producto: "Un mural colorido hecho con mezclas de primarios.",
+    evaluacion: ["Conoce a Mondrian.", "Ordena el arcoíris.", "Distingue cálidos y fríos.", "Usa el material adecuado."],
+  },
+});

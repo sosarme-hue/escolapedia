@@ -139,3 +139,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer los papeles recortados de Matisse", "Hacer un mosaico con trocitos de papel", "Crear un retrato divertido con recortes de revista", "Construir esculturas con cajas y envases"],
+  lectura: { titulo: "Las tijeras del señor Matisse", html: `<p>Henri Matisse era un pintor francés muy famoso. Pintaba cuadros llenos de colores alegres.</p><p>Cuando se hizo mayor, se puso enfermo y tuvo que pasar mucho tiempo en una silla de ruedas. Ya no podía estar de pie delante del caballete para pintar.</p><p>—¿Tendré que dejar el arte? —se preguntaba triste.</p><p>Pero Matisse no se rindió. Pidió a sus ayudantes que pintaran grandes hojas de papel de colores. Después, cogió unas <b>tijeras</b> y empezó a recortar: hojas de algas, estrellas, pájaros, bailarines…</p><p>Sus ayudantes pegaban las formas en la pared siguiendo sus indicaciones. Matisse decía que <b>dibujaba con las tijeras</b>.</p><p>Poco a poco, las paredes de su habitación se llenaron de formas que parecían bailar. Algunas obras eran tan grandes que ocupaban una pared entera.</p><p>Hoy, esos <b>papeles recortados</b> están en los museos más importantes del mundo. Matisse demostró que siempre hay una forma de seguir creando.</p>` },
+  tras: {
+    "¿Qué es un collage?": [
+      ["Matisse, dibujar con tijeras", `<p><mark>Henri Matisse</mark> fue un pintor francés que, al final de su vida, inventó una forma nueva de hacer arte: los <b>papeles recortados</b>.</p><ul><li>Pintaba hojas grandes de papel con <b>colores vivos</b>: azul, rojo, amarillo, verde.</li><li>Las recortaba sin dibujar antes: ¡directamente con las tijeras!</li><li>Hacía formas de la naturaleza: <b>hojas, algas, estrellas, pájaros</b>.</li><li>Sus formas son <b>curvas</b> y parecen moverse.</li><li>Una de sus obras más conocidas es <b>Ícaro</b>: una figura negra sobre fondo azul con estrellas amarillas.</li></ul><p>Matisse decía que recortar papel de color era como esculpir el color.</p><p><b>Actividad</b>: recorta sin dibujar antes una forma de hoja o de alga y pégala sobre un fondo de color contrario.</p>`,
+        L6.filas("Matisse", [["pintar", "papel grande", cAZ], ["recortar", "sin dibujo", cRO], ["formas", "hojas, algas", cVE], ["pegar", "en la pared", cNA]]),
+        ["pp2ZqJoHPXE", "Cómo crear un collage de Henri Matisse para niños", "National Gallery of Art", 109780]],
+    ],
+    "Pegar bien": [
+      ["El mosaico de papel", `<p>Un <mark>mosaico</mark> es una imagen hecha con muchos trocitos pequeños, colocados uno al lado del otro. Los romanos hacían mosaicos con piedrecitas en los suelos de sus casas.</p><p>Nosotros podemos hacerlo con <b>papel</b>:</p><ul><li>Dibuja una forma sencilla: un pez, una flor o un sol.</li><li>Corta tiras de papel de colores y después, <b>cuadraditos</b> pequeños.</li><li>Pega los cuadraditos dentro del dibujo, dejando un <b>espacio</b> fino entre ellos.</li><li>Usa un color para la figura y otro distinto para el fondo.</li></ul><p>Cada trocito se llama <b>tesela</b>. Hace falta mucha paciencia, ¡pero el resultado es precioso!</p><p><b>Actividad</b>: haz un mosaico de un pez con teselas de papel de revista de tonos azules y verdes.</p>`,
+        H6.flujo("Mosaico", ["dibujar|forma", "cortar|cuadraditos", "pegar|con espacio", "fondo|otro color"], cAZ)],
+    ],
+    "Componer la imagen": [
+      ["Retratos de revista", `<p>Con recortes de <mark>revistas</mark> podemos hacer retratos muy divertidos y sorprendentes:</p><ul><li>Busca en revistas viejas <b>ojos, narices, bocas</b> y peinados de distintos tamaños.</li><li>Recórtalos con cuidado.</li><li>Dibuja el óvalo de una cara en una cartulina.</li><li>Prueba combinaciones: ¡un ojo grande y otro pequeño, una boca enorme!</li><li>Cuando te guste, pega las piezas.</li><li>Termina con pelo de lana o de papel rasgado.</li></ul><p>No tiene que parecerse a nadie: es un retrato <b>imaginario</b>. A veces queda gracioso y otras, un poco raro.</p><p>Algunos artistas, como <b>Arcimboldo</b>, hacían caras con frutas y verduras.</p><p><b>Actividad</b>: crea un personaje de revista y ponle un nombre inventado.</p>`,
+        H6.dos("Retrato", ["BUSCAR", ["ojos", "nariz", "boca"], cMO], ["AÑADIR", ["pelo de lana", "orejas", "sombrero"], cNA])],
+    ],
+    "Crear con reciclaje": [
+      ["Esculturas con cajas", `<p>Con cajas y envases vacíos podemos construir <mark>esculturas</mark> en tres dimensiones, que se pueden mirar por todos los lados.</p><ul><li><b>Cajas</b> de cereales, de zapatos o de galletas.</li><li><b>Tubos</b> de cartón del papel de cocina.</li><li><b>Tapones</b> de colores para ojos o ruedas.</li><li><b>Hueveras</b> para escamas o caparazones.</li></ul><p>Pasos:</p><ul><li>Piensa qué quieres hacer: un robot, un castillo, un dinosaurio.</li><li>Une las piezas con cola blanca o cinta adhesiva.</li><li>Cuando esté seco, píntalo con témpera.</li><li>Añade los detalles al final.</li></ul><p>Las esculturas grandes se pueden hacer entre toda la clase: ¡una ciudad entera de cajas!</p><p><b>Actividad</b>: construye un robot con una caja, dos tubos y tapones.</p>`,
+        L6.filas("Robot", [["caja", "cuerpo", cAZ], ["tubos", "brazos", cVE], ["tapones", "ojos", cRO], ["témpera", "color", cNA]])],
+    ],
+  },
+  final: [
+    ["Exponemos nuestros collages", `<p>Cuando terminamos nuestras obras, podemos hacer una <mark>exposición</mark> en clase o en el pasillo, como en un museo de verdad.</p><ul><li>Cada obra lleva una <b>cartela</b>: un papelito con el título, el nombre del artista y los materiales.</li><li>Colgamos las obras a la <b>altura de los ojos</b>.</li><li>Dejamos espacio entre una y otra para que se vean bien.</li><li>Invitamos a otras clases o a las familias a <b>visitarla</b>.</li><li>Cada artista explica su obra: qué quiso hacer y cómo lo hizo.</li></ul><p>Al mirar las obras de los demás, decimos lo que nos gusta con <b>respeto</b>: «Me gustan tus colores», «¡Qué idea tan original!».</p><p><b>Actividad</b>: escribe la cartela de tu collage: título, tu nombre y los materiales.</p>`,
+      H6.flujo("Exposición", ["cartela|título", "colgar|a la vista", "visitar|familias", "explicar|mi obra"], cVE)],
+    ["Repaso: las tijeras de Matisse", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Matisse era un <b>pintor francés</b>.</li><li>De mayor se puso enfermo y usaba <b>silla de ruedas</b>.</li><li>No podía pintar de pie, pero <b>no se rindió</b>.</li><li>Sus ayudantes pintaban <b>papeles de colores</b>.</li><li>Él los recortaba: decía que <b>dibujaba con tijeras</b>.</li><li>Sus obras están hoy en <b>museos</b> de todo el mundo.</li></ul><p>La historia de Matisse nos enseña que el arte se adapta: si una forma no funciona, se puede buscar otra.</p><p><b>Actividad</b>: entre todos, haced un mural grande al estilo de Matisse con formas recortadas.</p>`,
+      H6.flujo("Matisse", ["pintor|colores", "enfermo|silla", "tijeras|recortar", "museos|hoy"], cRO)],
+  ],
+  ejemplos: [
+    ["¿Cómo se llama cada trocito de un mosaico?", ["Se colocan uno junto a otro."], "Tesela."],
+    ["¿Qué hacía Matisse con las tijeras?", ["Recortaba papeles pintados."], "Dibujaba recortando formas."],
+  ],
+  errores: ["Pegar las teselas sin dejar espacio entre ellas.", "Pintar una escultura de cajas antes de que se seque la cola."],
+  ejercicios: [
+    ["b", "¿De qué país era Matisse?", "De Francia."],
+    ["b", "¿Qué es un mosaico?", "Una imagen hecha con trocitos."],
+    ["b", "Di un material para una escultura reciclada.", "Cajas, tubos, tapones…"],
+    ["b", "¿Qué formas recortaba Matisse?", "Hojas, algas, estrellas, pájaros."],
+    ["b", "¿Qué es una cartela?", "El papel con el título y el autor de la obra."],
+    ["m", "¿Quién hacía mosaicos en los suelos?", "Los romanos."],
+    ["m", "¿Qué artista hacía caras con frutas?", "Arcimboldo."],
+    ["m", "¿Cómo se llama la obra de Matisse con una figura negra?", "Ícaro."],
+    ["m", "¿Con qué se pinta una escultura de cajas?", "Con témpera."],
+    ["m", "¿A qué altura se cuelgan las obras?", "A la altura de los ojos."],
+    ["a", "En la lectura, ¿por qué Matisse empezó a recortar?", "Porque estaba enfermo y no podía pintar de pie."],
+    ["a", "¿Qué nos enseña la historia de Matisse?", "Que siempre hay una forma de seguir creando."],
+    ["a", "Explica los pasos de un mosaico de papel.", "Dibujar, cortar cuadraditos, pegarlos con espacio y hacer el fondo."],
+    ["a", "Diseña un robot con materiales reciclados.", "Respuesta libre."],
+  ],
+  quiz: [
+    ["Matisse dibujaba con…", ["tijeras", "lápiz", "ordenador"], "Matisse."],
+    ["Un trocito de mosaico es una…", ["tesela", "cartela", "paleta"], "Mosaico."],
+    ["Para el retrato usamos…", ["revistas", "arena", "agua"], "Retrato."],
+    ["Una escultura se mira…", ["por todos lados", "solo de frente", "con los ojos cerrados"], "Esculturas."],
+    ["En una exposición, decimos lo que nos gusta con…", ["respeto", "gritos", "prisa"], "Exposición."],
+  ],
+  examen: [
+    ["En la lectura, ¿quién pintaba los papeles?", ["los ayudantes", "Matisse de pie", "nadie"], "Lectura."],
+    ["¿Dónde están hoy sus obras?", ["en museos", "en la basura", "en una caja"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Matisse", "Pintor francés que dibujaba con tijeras: papeles recortados."],
+    ["Mosaico", "Imagen hecha con teselas, trocitos colocados con un espacio."],
+  ],
+  glosario: [
+    ["Matisse", "Pintor francés de colores alegres."],
+    ["Mosaico", "Imagen de trocitos pequeños."],
+    ["Tesela", "Cada trocito de un mosaico."],
+    ["Escultura", "Obra de arte con volumen."],
+    ["Exposición", "Muestra de obras para que se vean."],
+    ["Cartela", "Papel con el título y el autor de una obra."],
+    ["Arcimboldo", "Pintor que hacía caras con frutas."],
+    ["Caballete", "Soporte para pintar de pie."],
+    ["Envase", "Recipiente que guarda un producto."],
+    ["Mural", "Obra grande en una pared."],
+  ],
+  situacion: {
+    titulo: "El museo reciclado",
+    reto: "La clase prepara una exposición con collages al estilo de Matisse, mosaicos y esculturas de cajas.",
+    pasos: ["Recoger papeles, revistas, cajas y tapones limpios.", "Cada alumno hace un collage o un mosaico.", "En grupos, construir una escultura con cajas.", "Montar la exposición con cartelas e invitar a otra clase."],
+    producto: "Una exposición de arte con materiales reciclados.",
+    evaluacion: ["Conoce a Matisse.", "Hace un mosaico de papel.", "Compone un retrato con recortes.", "Construye una escultura con envases."],
+  },
+});
