@@ -91,3 +91,93 @@ module.exports = P.tema({
   saberes: "Comunicación: describir el entorno escolar, expresar gustos y opiniones justificadas; léxico del material escolar, lugares y asignaturas; negación ne … pas; la hora y los días de la semana",
   ideas: ["Diseñar el emploi du temps ideal de la clase en francés.", "Juego «Jacques a dit» (Simón dice) con las instrucciones de clase.", "Encuesta de asignaturas favoritas y gráfico con frases en francés."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer cómo se organizan los estudios en Francia", "Decir la fecha con los meses del año", "Pedir ayuda y aclaraciones en clase", "Describir tu colegio con il y a"],
+  lectura: { titulo: "Mon premier jour au collège", html: `<p>Léo tiene once años y acaba de empezar el <i>collège</i>, el instituto francés. Esto es lo que escribe en su diario. Fíjate en las palabras en negrita:</p><p><i>Lundi 2 septembre</i></p><p><i>Aujourd'hui, c'est mon premier jour au <b>collège</b>. Je suis en <b>sixième</b>. Le collège est très grand : il y a une <b>cour</b>, une <b>cantine</b>, une <b>bibliothèque</b> et un gymnase. J'ai un peu peur !</i></p><p><i>Ma classe s'appelle « 6e B ». Il y a vingt-quatre élèves. Mon professeur principal s'appelle <b>Madame Martin</b>. Elle est professeure de français. Elle est gentille.</i></p><p><i>Le matin, j'ai maths, histoire-géo et anglais. À midi, je mange à la cantine avec Hugo, mon meilleur ami. L'après-midi, j'ai sciences et sport. J'adore le sport, mais je n'aime pas beaucoup les maths !</i></p><p><i>Le mercredi après-midi, je n'ai pas cours. Super !</i></p><p><i>Ce soir, je suis fatigué, mais content.</i></p><p>¿Has entendido en qué curso está Léo? En Francia, el primer curso del collège se llama <b>sixième</b> (sexto), porque los cursos se cuentan hacia atrás.</p>` },
+  tras: {
+    "Los lugares del colegio": [
+      ["El colegio en Francia", `<p>En Francia, los estudios se organizan de forma un poco diferente a España:</p><ul><li><b>L'école maternelle</b> (de 3 a 6 años): la educación infantil.</li><li><b>L'école élémentaire</b> (de 6 a 11 años): la primaria. Son cinco cursos con nombres curiosos: <b>CP</b> (cours préparatoire), <b>CE1</b> y <b>CE2</b> (cours élémentaire), <b>CM1</b> y <b>CM2</b> (cours moyen). Un niño de 6º de Primaria en España tendría en Francia la edad de CM2 o de sixième.</li><li><b>Le collège</b> (de 11 a 15 años): cuatro cursos que se cuentan <b>hacia atrás</b>: <i>sixième</i> (6e), <i>cinquième</i> (5e), <i>quatrième</i> (4e) y <i>troisième</i> (3e). Al final hay un examen llamado <b>le brevet</b>.</li><li><b>Le lycée</b> (de 15 a 18 años): <i>seconde</i>, <i>première</i> y <i>terminale</i>. Termina con el famoso <b>bac</b> (baccalauréat).</li></ul><p>Otras diferencias: las notas se ponen <b>sobre 20</b> (un 10/20 es un aprobado y un 16/20 es una nota muy buena), y en muchos colegios no hay clase el <b>miércoles por la tarde</b>. Las vacaciones de verano empiezan a principios de julio y la vuelta al cole se llama <b>la rentrée</b>.</p>`,
+        L6.filas("Les études en France", [["maternelle", "3–6 años", cMO], ["élémentaire", "6–11: CP a CM2", cVE], ["collège", "11–15: 6e a 3e", cAZ], ["lycée", "15–18: bac", cRO]]), ["HwdasnkhGsI", "Pourquoi les rythmes scolaires ont-ils changé ? - 1 jour, 1 question", "1 jour, 1 question", 1097630]],
+    ],
+    "Los días de la semana": [
+      ["Los meses y la fecha", `<p>Los meses del año en francés también se escriben con <b>minúscula</b>:</p><p><i>janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre.</i></p><p>Fíjate en los que llevan acento: <b>février</b>, <b>août</b> (que se pronuncia «ut») y <b>décembre</b>.</p><p>Para decir la fecha:</p><ul><li><b>Quelle est la date aujourd'hui ?</b> — ¿Qué fecha es hoy?</li><li><b>Nous sommes le</b> lundi 3 mars. / <b>On est le</b> 3 mars. — Estamos a 3 de marzo.</li><li>El día 1 se dice <b>le premier</b>: <i>le premier janvier</i> (1er janvier). Los demás días se dicen con el número normal: <i>le deux, le trois, le quatorze juillet</i>.</li></ul><p>Para el cumpleaños: <b>Ton anniversaire, c'est quand ?</b> — <i>C'est le 12 octobre.</i></p><p>Fechas importantes en Francia: <b>le 14 juillet</b> (fiesta nacional, con desfiles y fuegos artificiales), <b>le premier mai</b> (fiesta del trabajo, cuando se regalan ramitos de muguete) y <b>la rentrée</b>, a principios de septiembre.</p>`,
+        H6.rueda("Les saisons", "L'ANNÉE", [["printemps", cVE], ["été", cNA], ["automne", cRO], ["hiver", cAZ]]), ["7_u2SigckNQ", "Les mois de l'année - alain le lait (French months of the year)", "tialela99", 10874473]],
+    ],
+    "Las instrucciones de clase": [
+      ["Pedir ayuda en clase", `<p>Ya sabes entender lo que dice el profesor. Ahora aprende a <b>hablar tú</b> en clase de francés. Estas frases te sacarán de muchos apuros:</p><ul><li><b>Je ne comprends pas.</b> — No lo entiendo.</li><li><b>Vous pouvez répéter, s'il vous plaît ?</b> — ¿Puede repetir, por favor?</li><li><b>Comment dit-on «goma» en français ?</b> — ¿Cómo se dice «goma» en francés?</li><li><b>Qu'est-ce que ça veut dire ?</b> — ¿Qué significa eso?</li><li><b>Je peux aller aux toilettes ?</b> — ¿Puedo ir al baño?</li><li><b>Tu me prêtes ta gomme ?</b> — ¿Me prestas tu goma?</li><li><b>J'ai fini !</b> — ¡He terminado!</li><li><b>J'ai oublié mon cahier.</b> — Me he olvidado el cuaderno.</li></ul><p>Recuerda que con el profesor se usa <b>vous</b> y con los compañeros <b>tu</b>. Y para llamar la atención del profesor se levanta la mano y se dice <b>Madame !</b> o <b>Monsieur !</b>, no su nombre de pila.</p>`,
+        H6.dos("En clase", ["Al profesor", ["vous pouvez…?", "je ne comprends pas", "Madame !"], cAZ], ["Al compañero", ["tu me prêtes…?", "j'ai fini !", "merci !"], cVE])],
+    ],
+  },
+  final: [
+    ["Il y a: describir mi colegio", `<p>Para describir lo que hay en un lugar se usa <b>il y a</b> (hay). Sirve para singular y para plural, igual que en español:</p><ul><li>Dans mon école, <b>il y a</b> une grande cour. — En mi colegio hay un patio grande.</li><li><b>Il y a</b> vingt-cinq élèves dans ma classe. — Hay veinticinco alumnos en mi clase.</li><li><b>Il y a</b> un tableau, des tables et des chaises. — Hay una pizarra, mesas y sillas.</li></ul><p>En negativo, <b>il n'y a pas de</b>: <i>Il n'y a pas de piscine.</i> (No hay piscina.) Fíjate en que tras la negación <i>un, une, des</i> se convierten en <b>de</b> (o <b>d'</b> delante de vocal): <i>Il n'y a pas <b>d'</b>ordinateurs.</i></p><p>Para preguntar: <b>Qu'est-ce qu'il y a dans ta trousse ?</b> — ¿Qué hay en tu estuche? <i>Il y a deux stylos, un crayon et une gomme.</i></p><p>Con il y a, los adjetivos de tamaño se colocan normalmente <b>delante</b>: <i>une <b>grande</b> cour, un <b>petit</b> jardin</i>. Pero los colores van <b>detrás</b>: <i>une porte <b>verte</b></i>.</p>`,
+      L6.filas("Il y a / il n'y a pas", [["il y a", "une cour", cVE], ["il y a", "des élèves", cAZ], ["il n'y a pas", "de piscine", cRO], ["il n'y a pas", "d'ordinateurs", cNA]])],
+    ["El recreo y el comedor", `<p>Dos momentos muy importantes del día en un colegio francés son <b>la récré</b> (el recreo, abreviatura de <i>récréation</i>) y <b>la cantine</b> (el comedor).</p><p>En el recreo, los niños franceses juegan a juegos parecidos a los nuestros: <i>jouer au foot</i>, <i>jouer à chat</i> (pillar), <i>jouer à cache-cache</i> (escondite), <i>sauter à la corde</i> (saltar a la comba) o <i>jouer aux billes</i> (canicas).</p><p>La comida en la cantine tiene varios platos, como en España: <b>une entrée</b> (un entrante, por ejemplo una ensalada), <b>un plat principal</b> (carne o pescado con verduras), <b>du fromage</b> (¡casi siempre hay queso!) y <b>un dessert</b> (fruta, yogur o un pastel). Se come con <b>pain</b> (pan), normalmente la famosa baguette.</p><p>Muchos alumnos vuelven a casa a mediodía, y por la tarde, al salir a las cuatro y media, toman <b>le goûter</b> (la merienda): pan con chocolate, una fruta o unas galletas.</p><p>Frases útiles: <i>À la récré, je joue au foot avec mes amis. À la cantine, je mange avec Hugo.</i></p>`,
+      H6.flujo("Une journée", ["8 h 30|les cours", "10 h 30|la récré", "12 h|la cantine", "16 h 30|le goûter"], cMO)],
+    ["Los colores del material", `<p>Para describir tu material escolar necesitas los <b>colores</b>. En francés, los colores son adjetivos y van <b>detrás</b> del nombre: <i>un stylo <b>bleu</b></i> (un bolígrafo azul), <i>une règle <b>verte</b></i> (una regla verde).</p><p>Como otros adjetivos, cambian en femenino y en plural:</p><ul><li><b>bleu → bleue</b>, <b>vert → verte</b>, <b>gris → grise</b>, <b>noir → noire</b>: se añade -e en femenino. <b>Blanc</b> es especial: <i>blanche</i>.</li><li><b>rouge</b>, <b>jaune</b>, <b>rose</b>: ya terminan en -e, así que no cambian en femenino.</li><li>En plural se añade <b>-s</b>: <i>des crayons rouges</i>, <i>des gommes blanches</i>.</li><li><b>Orange</b> y <b>marron</b> (marrón) no cambian nunca: <i>des trousses orange</i>, <i>une gomme marron</i>.</li></ul><p>Para preguntar: <b>De quelle couleur est ta trousse ?</b> — ¿De qué color es tu estuche? <i>Ma trousse est rouge et noire.</i></p><p>Un juego para clase: «<i>Dans mon cartable, il y a un cahier jaune…</i>», y cada alumno repite lo anterior y añade un objeto con su color.</p>`,
+      L6.filas("Les couleurs", [["un stylo bleu", "une règle bleue", cAZ], ["un cahier vert", "une gomme verte", cVE], ["un livre rouge", "une trousse rouge", cRO], ["un crayon blanc", "une feuille blanche", cMO]])],
+  ],
+  ejemplos: [
+    ["Escribe la fecha en francés: 1 de mayo.", ["El día 1 es premier.", "Mes en minúscula."], "le premier mai (1er mai)."],
+    ["Pasa a negativo: «Il y a une bibliothèque.»", ["ne … pas alrededor de y a.", "une → de."], "Il n'y a pas de bibliothèque."],
+  ],
+  errores: ["Escribir los meses con mayúscula: se escribe janvier, no Janvier.", "Decir «il n'y a pas une piscine»: tras la negación se usa de."],
+  ejercicios: [
+    ["b", "Escribe los doce meses del año en francés.", "janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre."],
+    ["b", "¿Cómo se llama el primer curso del collège?", "La sixième (6e)."],
+    ["b", "¿Cómo se dice «No lo entiendo»?", "Je ne comprends pas."],
+    ["b", "¿Sobre cuántos puntos se ponen las notas en Francia?", "Sobre 20."],
+    ["b", "¿Qué es la récré?", "El recreo."],
+    ["m", "Di la fecha de tu cumpleaños en francés.", "Respuesta abierta: C'est le … ."],
+    ["m", "Escribe tres cosas que hay en tu clase con il y a.", "Il y a un tableau, des tables et des chaises."],
+    ["m", "¿Cómo pides a la profesora que repita?", "Vous pouvez répéter, s'il vous plaît ?"],
+    ["m", "Ordena los cursos del collège: troisième, sixième, quatrième, cinquième.", "sixième, cinquième, quatrième, troisième."],
+    ["m", "¿Qué pasa el 14 juillet?", "Es la fiesta nacional francesa, con desfiles y fuegos artificiales."],
+    ["a", "Describe tu colegio en 6 frases usando il y a e il n'y a pas de.", "Respuesta abierta."],
+    ["a", "Escribe el diario de tu primer día en un colegio francés imaginario.", "Respuesta abierta."],
+    ["a", "Compara el colegio francés y el español: tres diferencias.", "Notas sobre 20, cursos contados hacia atrás, miércoles por la tarde libre…"],
+    ["a", "Prepara con un compañero un diálogo en el que uno ha olvidado el material.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["«août» es el mes de…", ["agosto", "abril", "octubre"], "Meses."],
+    ["El examen final del lycée se llama…", ["le bac", "le brevet", "le CP"], "Estudios."],
+    ["«¿Qué significa eso?» se dice…", ["Qu'est-ce que ça veut dire ?", "Comment ça va ?", "Il y a quoi ?"], "Ayuda en clase."],
+    ["La merienda en francés es…", ["le goûter", "la cantine", "la récré"], "Vocabulario."],
+    ["«Hay veinte alumnos» es…", ["Il y a vingt élèves.", "Il est vingt élèves.", "Il a vingt élèves."], "Il y a."],
+  ],
+  examen: [
+    ["Léo está en…", ["sixième", "CM2", "troisième"], "Lectura."],
+    ["El 1 de enero se dice…", ["le premier janvier", "le un janvier", "le une janvier"], "Fecha."],
+  ],
+  tarjetas: [
+    ["Les études", "maternelle, élémentaire (CP–CM2), collège (6e–3e), lycée (bac)."],
+    ["La date", "Nous sommes le 3 mars. El día 1: le premier."],
+    ["En classe", "Je ne comprends pas. Vous pouvez répéter ? Comment dit-on… ?"],
+    ["Il y a", "Hay. Negativo: il n'y a pas de."],
+  ],
+  glosario: [
+    ["Le collège", "Centro de estudios de 11 a 15 años."],
+    ["Le lycée", "Centro de estudios de 15 a 18 años."],
+    ["Le bac", "Examen final del lycée."],
+    ["La rentrée", "La vuelta al colegio en septiembre."],
+    ["Les mois", "Los meses."],
+    ["Les saisons", "Las estaciones."],
+    ["L'anniversaire", "El cumpleaños."],
+    ["Comprendre", "Entender, comprender."],
+    ["Répéter", "Repetir."],
+    ["Il y a", "Hay."],
+    ["La récré", "El recreo."],
+    ["Le goûter", "La merienda."],
+  ],
+  situacion: {
+    titulo: "Bienvenue dans notre école",
+    reto: "Un grupo de alumnos franceses va a visitar el colegio y la clase prepara una guía de bienvenida en francés.",
+    pasos: ["Haced un plano del colegio con los nombres de los lugares en francés.", "Escribid frases con il y a para describir cada lugar.", "Preparad el horario de un día y el calendario con las fechas importantes del curso.", "Ensayad las frases útiles para ayudar a los visitantes en clase."],
+    producto: "Una guía de bienvenida con plano, horario, calendario y frases útiles.",
+    evaluacion: ["Nombra lugares y materias del colegio.", "Describe con il y a e il n'y a pas de.", "Dice fechas con meses y premier.", "Conoce diferencias entre la escuela francesa y la española."],
+  },
+});

@@ -92,3 +92,91 @@ module.exports = P.tema({
   saberes: "Comunicación: hablar de aficiones y deportes, expresar gustos y proponer planes; léxico del ocio y el deporte; jouer à / faire de y contracciones; presente de los verbos en -er y de faire; adverbios de frecuencia",
   ideas: ["Encuesta de clase sobre deportes y aficiones con gráfico y frases en francés.", "Juego de mímica: un alumno representa una afición y los demás dicen la frase en francés.", "Agenda semanal de actividades extraescolares escrita en francés."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conjugar los verbos irregulares aller y faire", "Hablar del tiempo atmosférico y de lo que haces según el tiempo", "Conocer grandes acontecimientos deportivos franceses", "Explicar por qué el deporte es bueno para la salud"],
+  lectura: { titulo: "Le week-end de Hugo", html: `<p>Hugo escribe un mensaje a su amigo español Pablo para contarle qué hace los fines de semana. Lee y busca las actividades:</p><p><i>Salut Pablo !</i></p><p><i>Comment ça va ? Moi, je suis très content parce que c'est bientôt le week-end !</i></p><p><i>Le samedi matin, je <b>vais</b> à la piscine avec mon père. Je <b>fais</b> de la natation depuis trois ans. L'après-midi, s'il <b>fait beau</b>, je joue au foot au parc avec mes copains. S'il <b>pleut</b>, nous jouons aux jeux vidéo ou aux cartes chez moi.</i></p><p><i>Le dimanche, je fais du vélo avec ma famille au bord du lac. En hiver, nous allons à la montagne et nous faisons du ski. J'adore ça !</i></p><p><i>En juillet, je regarde toujours le <b>Tour de France</b> à la télé avec mon grand-père. Il est fan de cyclisme.</i></p><p><i>Et toi, qu'est-ce que tu fais le week-end ? Tu fais du sport ?</i></p><p><i>À plus !<br>Hugo</i></p><p><i>À plus</i> es una despedida informal, como «hasta luego».</p>` },
+  tras: {
+    "Los deportes": [
+      ["Le Tour de France y otros grandes eventos", `<p>Francia organiza algunos de los acontecimientos deportivos más famosos del mundo:</p><ul><li><b>Le Tour de France</b>: la carrera ciclista más famosa. Se celebra desde 1903, cada año en julio. Dura unas tres semanas, tiene 21 <b>étapes</b> (etapas) y recorre más de 3 000 kilómetros, con subidas a grandes montañas como los Alpes y los Pirineos. Tradicionalmente termina en París, en los Campos Elíseos.</li><li>Los ciclistas llevan <b>maillots</b> (maillots) de colores: el <b>maillot jaune</b> (amarillo) es para el líder de la carrera, el <b>vert</b> (verde) para el mejor sprinter, el de <b>pois</b> (blanco con lunares rojos) para el mejor escalador y el <b>blanc</b> para el mejor joven.</li><li><b>Roland-Garros</b>: el gran torneo de tenis de París, que se juega sobre tierra batida (<i>terre battue</i>) a finales de mayo y en junio.</li><li><b>Les Jeux Olympiques</b>: París organizó los Juegos Olímpicos en 1900, 1924 y 2024.</li></ul><p>Y un juego muy francés que se practica en plazas y parques: <b>la pétanque</b>, en la que se lanzan bolas metálicas lo más cerca posible de una bolita llamada <i>cochonnet</i>.</p>`,
+        L6.filas("Les maillots du Tour", [["jaune", "le leader", cNA], ["vert", "le sprinter", cVE], ["à pois", "le grimpeur", cRO], ["blanc", "le jeune", cAZ]]), ["h7wPa1Hl5ZA", "Le Tour de France expliqué en animation", "InfobytesTV", 2401062]],
+    ],
+    "Los verbos en -er": [
+      ["Dos verbos irregulares: aller y faire", `<p>No todos los verbos siguen la regla de -er. Dos verbos muy usados en el tiempo libre son <b>irregulares</b> y hay que aprenderlos de memoria.</p><p><b>Aller</b> (ir): <i>je vais, tu vas, il/elle/on va, nous allons, vous allez, ils/elles vont</i>.</p><p>Con aller se usa <b>à</b>, que se une al artículo como con jouer: <i>Je vais <b>au</b> cinéma</i> (à + le), <i>Tu vas <b>à la</b> piscine</i>, <i>Nous allons <b>à l'</b>école</i>, <i>Ils vont <b>aux</b> toilettes</i>. Con ciudades solo <b>à</b>: <i>Je vais à Paris</i>.</p><p><b>Faire</b> (hacer): <i>je fais, tu fais, il/elle/on fait, nous faisons, vous faites, ils/elles font</i>.</p><p>Fíjate en que <b>vous faites</b> no termina en -ez, y que <i>nous faisons</i> se pronuncia «fesón».</p><p>El pronombre <b>on</b> es muy usado en francés hablado y significa «nosotros» (o «la gente»). Se conjuga como il: <i><b>On va</b> au parc ?</i> — ¿Vamos al parque? <i><b>On fait</b> du vélo.</i> — Montamos en bici.</p>`,
+        H6.dos("Aller / faire", ["ALLER", ["je vais", "nous allons", "ils vont"], cAZ], ["FAIRE", ["je fais", "vous faites", "ils font"], cVE])],
+    ],
+    "Proponer un plan": [
+      ["Quel temps fait-il ?", `<p>Muchas veces lo que hacemos en nuestro tiempo libre depende del tiempo. Para preguntar qué tiempo hace se dice <b>Quel temps fait-il ?</b> Y se responde con el verbo <b>faire</b> o con otras expresiones:</p><ul><li><b>Il fait beau.</b> — Hace buen tiempo. / <b>Il fait mauvais.</b> — Hace mal tiempo.</li><li><b>Il fait chaud.</b> — Hace calor. / <b>Il fait froid.</b> — Hace frío.</li><li><b>Il y a du soleil.</b> — Hace sol. / <b>Il y a du vent.</b> — Hace viento.</li><li><b>Il pleut.</b> — Llueve. / <b>Il neige.</b> — Nieva.</li><li><b>Il y a des nuages.</b> — Hay nubes. / <b>Il y a de l'orage.</b> — Hay tormenta.</li></ul><p>Para decir lo que haces según el tiempo, usa <b>quand</b> (cuando) o <b>s'il</b> (si):</p><ul><li><i><b>Quand il fait beau</b>, je joue au foot au parc.</i></li><li><i><b>Quand il pleut</b>, je lis ou je joue aux cartes.</i></li><li><i><b>S'il neige</b>, on fait un bonhomme de neige</i> (un muñeco de nieve).</li></ul><p>Fíjate: «si il» se contrae siempre en <b>s'il</b>.</p><p>Para hablar de las estaciones: <i>en été</i> (en verano), <i>en automne</i> (en otoño), <i>en hiver</i> (en invierno), pero <i><b>au</b> printemps</i> (en primavera). Por ejemplo: <i>En hiver, il fait froid et il neige à la montagne. Au printemps, il y a du soleil et je fais du vélo.</i> En el norte de Francia llueve bastante durante todo el año, mientras que en el sur, cerca del Mediterráneo, hace calor y sol casi todo el verano.</p>`,
+        L6.filas("Quel temps fait-il ?", [["il fait beau", "je joue au parc", cNA], ["il pleut", "je lis", cAZ], ["il neige", "je fais du ski", cMO], ["il fait chaud", "je nage", cRO]])],
+    ],
+  },
+  final: [
+    ["El deporte es salud", `<p>Hacer deporte no solo es divertido: también es muy bueno para el cuerpo y para la mente. Los médicos recomiendan que los niños hagan al menos <b>una hora de actividad física al día</b>.</p><p>Algunas ventajas del deporte, dichas en francés:</p><ul><li><i>Le sport est bon pour le cœur.</i> — El deporte es bueno para el corazón.</li><li><i>On a des muscles plus forts.</i> — Tenemos músculos más fuertes.</li><li><i>On dort mieux.</i> — Dormimos mejor.</li><li><i>On se fait des amis.</i> — Hacemos amigos.</li><li><i>On est de bonne humeur.</i> — Estamos de buen humor.</li></ul><p>Para practicar deporte de forma sana hay que <b>beber agua</b> (<i>boire de l'eau</i>), <b>calentar</b> antes (<i>s'échauffer</i>), llevar ropa y calzado adecuados y descansar. Y lo más importante es el <b>fair-play</b>: respetar a los compañeros, a los rivales y al árbitro, ganar sin presumir y perder sin enfadarse.</p><p>Expresiones útiles para animar: <i>Allez ! Bravo ! Bien joué !</i> (¡Bien jugado!) y <i>Ce n'est pas grave !</i> (¡No pasa nada!).</p><p>¿Y tú? ¿Cuántas horas de deporte haces a la semana?</p>`,
+      H6.rueda("Le sport", "LA SANTÉ", [["le cœur", cRO], ["les muscles", cAZ], ["le sommeil", cMO], ["les amis", cVE]]), ["Wb06TyFQ8BQ", "À quoi ça sert de faire du sport ? - 1 jour, 1 question", "1 jour, 1 question", 801729]],
+    ["Las actividades culturales", `<p>El tiempo libre no es solo deporte. Hay muchas actividades culturales, y casi todas se dicen con <b>aller à</b>:</p><ul><li><b>aller au cinéma</b> — ir al cine</li><li><b>aller au théâtre</b> — ir al teatro</li><li><b>aller au musée</b> — ir al museo</li><li><b>aller à la bibliothèque</b> — ir a la biblioteca</li><li><b>aller à un concert</b> — ir a un concierto</li></ul><p>Otras se dicen con <b>faire</b> o con <b>jouer de</b> cuando se trata de un instrumento musical: <i>faire du théâtre</i> (actuar), <i>faire de la peinture</i> (pintar), <i>jouer <b>du</b> piano</i>, <i>jouer <b>de la</b> guitare</i>, <i>jouer <b>de la</b> flûte</i>.</p><p>¡Atención! <b>jouer à</b> es para deportes y juegos, pero <b>jouer de</b> es para instrumentos: <i>Je joue <b>au</b> tennis et je joue <b>du</b> violon.</i></p><p>Francia es famosa por sus museos, como el <b>Louvre</b> de París, donde está la Mona Lisa (<i>La Joconde</i>), y por sus <b>bandes dessinées</b> (cómics), como las aventuras de muchos héroes conocidos en todo el mundo.</p>`,
+      H6.dos("Jouer à / jouer de", ["JOUER À", ["au foot", "aux cartes", "deportes y juegos"], cVE], ["JOUER DE", ["du piano", "de la guitare", "instrumentos"], cMO])],
+  ],
+  ejemplos: [
+    ["Conjuga aller con nous y faire con vous.", ["aller es irregular: nous allons.", "faire es irregular: vous faites."], "nous allons, vous faites."],
+    ["Traduce: «Cuando llueve, voy al cine».", ["Cuando llueve → Quand il pleut.", "Voy al cine → je vais au cinéma (à + le)."], "Quand il pleut, je vais au cinéma."],
+  ],
+  errores: ["Decir «vous faisez»: lo correcto es vous faites.", "Decir «je joue au piano»: con instrumentos se usa jouer du / de la."],
+  ejercicios: [
+    ["b", "Conjuga aller en presente.", "je vais, tu vas, il va, nous allons, vous allez, ils vont."],
+    ["b", "¿Cómo se pregunta qué tiempo hace?", "Quel temps fait-il ?"],
+    ["b", "¿De qué color es el maillot del líder del Tour?", "Amarillo (le maillot jaune)."],
+    ["b", "Traduce: il pleut, il neige, il fait chaud.", "llueve, nieva, hace calor."],
+    ["b", "¿Qué deporte se juega en Roland-Garros?", "El tenis."],
+    ["m", "Completa: Je vais ___ cinéma, ___ piscine, ___ musée.", "au, à la, au."],
+    ["m", "Completa: Je joue ___ foot et ___ guitare.", "au, de la."],
+    ["m", "Escribe dos frases con quand il fait beau y quand il pleut.", "Respuesta abierta."],
+    ["m", "Conjuga faire en presente.", "je fais, tu fais, il fait, nous faisons, vous faites, ils font."],
+    ["m", "Di tres ventajas del deporte en francés.", "Le sport est bon pour le cœur; on dort mieux; on se fait des amis."],
+    ["a", "Responde al mensaje de Hugo contando tu fin de semana (6 frases).", "Respuesta abierta."],
+    ["a", "Haz el pronóstico del tiempo de tres ciudades francesas y di qué se puede hacer en cada una.", "Respuesta abierta."],
+    ["a", "Prepara una presentación sobre el Tour de France.", "Respuesta abierta."],
+    ["a", "Escribe las normas de fair-play de tu clase en francés.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["«Ils ___ au parc.» (aller)", ["vont", "allent", "vais"], "Aller."],
+    ["«Il y a du vent» significa…", ["hace viento", "hace sol", "llueve"], "Tiempo."],
+    ["El Tour de France se celebra en…", ["julio", "diciembre", "marzo"], "Deporte."],
+    ["«On va au parc ?» significa…", ["¿Vamos al parque?", "¿Vas al parque?", "¿Van al parque?"], "On."],
+    ["«Je joue ___ piano.»", ["du", "au", "à la"], "Instrumentos."],
+  ],
+  examen: [
+    ["Hugo hace natación…", ["el sábado por la mañana", "el domingo", "el miércoles"], "Lectura."],
+    ["«vous ___» (faire)", ["faites", "faisez", "font"], "Faire."],
+  ],
+  tarjetas: [
+    ["Aller", "je vais, tu vas, il va, nous allons, vous allez, ils vont."],
+    ["Faire", "je fais, tu fais, il fait, nous faisons, vous faites, ils font."],
+    ["Quel temps fait-il ?", "Il fait beau / froid / chaud. Il pleut. Il neige."],
+    ["Jouer à / de", "à: deportes y juegos. de: instrumentos."],
+  ],
+  glosario: [
+    ["Aller", "Ir."],
+    ["On", "Nosotros (informal), la gente."],
+    ["Le temps", "El tiempo (atmosférico y libre)."],
+    ["Il pleut", "Llueve."],
+    ["Il neige", "Nieva."],
+    ["Le nuage", "La nube."],
+    ["L'étape", "La etapa."],
+    ["Le maillot jaune", "El maillot amarillo del líder del Tour."],
+    ["La pétanque", "Juego de bolas metálicas."],
+    ["S'échauffer", "Calentar antes del ejercicio."],
+    ["Bien joué !", "¡Bien jugado!"],
+    ["Le musée", "El museo."],
+  ],
+  situacion: {
+    titulo: "Le guide du week-end",
+    reto: "La clase prepara una guía en francés con planes de fin de semana para todos los tiempos.",
+    pasos: ["Haced una lista de actividades deportivas y culturales de vuestra localidad.", "Clasificadlas según el tiempo: quand il fait beau, quand il pleut, quand il fait froid.", "Escribid invitaciones con on va… ? y respuestas para aceptar o rechazar.", "Presentad la guía con un pronóstico del tiempo inventado y un consejo de salud."],
+    producto: "Una guía de planes de fin de semana en francés con invitaciones y pronóstico del tiempo.",
+    evaluacion: ["Conjuga aller, faire y los verbos en -er.", "Usa jouer à / jouer de y faire du / de la.", "Habla del tiempo atmosférico.", "Valora el deporte, la salud y el fair-play."],
+  },
+});

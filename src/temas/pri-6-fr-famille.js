@@ -89,3 +89,93 @@ module.exports = P.tema({
   saberes: "Comunicación: presentar y describir a personas; léxico de la familia, aspecto físico y carácter; posesivos; concordancia de género del adjetivo; pronombres personales sujeto",
   ideas: ["Árbol genealógico ilustrado de una familia inventada con frases en francés.", "Juego de adivinanzas: describir a un compañero sin decir su nombre.", "Álbum de clase «Mon meilleur ami» con retratos y descripciones."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Hacer y explicar un árbol genealógico en francés", "Contar hasta 100 para decir la edad de los mayores", "Hablar de las mascotas", "Conocer celebraciones familiares francesas"],
+  lectura: { titulo: "La famille d'Inès", html: `<p>Inès vive en Marsella y presenta a su familia en un vídeo para su clase. Lee lo que dice:</p><p><i>Bonjour à tous ! Je m'appelle Inès et voici ma famille.</i></p><p><i>Nous habitons à Marseille, dans un appartement près de la mer. Mon père s'appelle Karim. Il a quarante-deux ans. Il est cuisinier et il est très drôle. Ma mère s'appelle Sophie. Elle a les cheveux blonds et les yeux verts. Elle est professeure de musique.</i></p><p><i>J'ai un petit frère, Adam. Il a six ans. Il est mignon, mais un peu bavard ! Nous avons aussi un chien, Biscuit. Il est petit et marron.</i></p><p><i>Le dimanche, nous déjeunons chez mes grands-parents. Mon grand-père a soixante-quinze ans. Il adore jouer à la pétanque. Ma grand-mère prépare toujours un gâteau au chocolat. C'est délicieux !</i></p><p><i>J'aime beaucoup ma famille. Et vous, comment est votre famille ?</i></p><p>¿Cuántos años tiene el abuelo de Inès? <b>Soixante-quinze</b> son 75: en francés se dice «sesenta y quince».</p>` },
+  tras: {
+    "Los miembros de la familia": [
+      ["El árbol genealógico", `<p>El árbol genealógico se llama en francés <b>l'arbre généalogique</b>. Para explicarlo necesitas más palabras de la familia:</p><ul><li><b>les grands-parents</b>: le grand-père (abuelo) y la grand-mère (abuela). Los niños los llaman cariñosamente <i>papi</i> y <i>mamie</i>.</li><li><b>l'oncle</b> (tío) y <b>la tante</b> (tía).</li><li><b>le cousin</b> (primo) y <b>la cousine</b> (prima).</li><li><b>le neveu</b> (sobrino) y <b>la nièce</b> (sobrina).</li><li><b>le petit-fils</b> (nieto) y <b>la petite-fille</b> (nieta); en plural, <b>les petits-enfants</b>.</li><li><b>le fils</b> (hijo) y <b>la fille</b> (hija); la palabra <i>fille</i> también significa «chica».</li></ul><p>Para explicar las relaciones se usa <b>de</b> (de) o <b>du</b> (del): <i>Lucas est le fils <b>de</b> ma tante. C'est mon cousin.</i> — Lucas es el hijo de mi tía. Es mi primo.</p><p>Otras familias: <i>une famille nombreuse</i> (numerosa), <i>une famille monoparentale</i> (con un solo padre o madre), <i>une famille recomposée</i> (cuando los padres tienen nueva pareja): <i>mon beau-père</i> (mi padrastro), <i>ma belle-mère</i>, <i>mon demi-frère</i> (mi medio hermano).</p>`,
+        H6.flujo("L'arbre", ["grands-|parents", "parents|oncles, tantes", "moi|cousins", "neveux|nièces"], cVE), ["snsisuI3I_s", "Apprendre l'arbre généalogique en français | Let's Learn", "Let's Learn | هيا نتعلم", 84573]],
+    ],
+    "Presentar a la familia": [
+      ["Contar hasta 100", `<p>Para decir la edad de tus padres o tus abuelos necesitas números más grandes. Las decenas son:</p><p><b>20</b> vingt · <b>30</b> trente · <b>40</b> quarante · <b>50</b> cinquante · <b>60</b> soixante · <b>100</b> cent.</p><p>Del 21 al 69 se forman como en español, con guion: <i>vingt-deux, trente-cinq, quarante-huit</i>. Los que terminan en 1 llevan <b>et</b>: <i>vingt et un, trente et un, soixante et un</i>.</p><p>A partir de 70, el francés de Francia cuenta de una forma muy curiosa:</p><ul><li><b>70</b> = soixante-dix («sesenta y diez»); 71 = soixante et onze; 75 = soixante-quinze.</li><li><b>80</b> = quatre-vingts («cuatro veintes»); 81 = quatre-vingt-un.</li><li><b>90</b> = quatre-vingt-dix («cuatro veintes y diez»); 99 = quatre-vingt-dix-neuf.</li></ul><p>En <b>Bélgica</b> y <b>Suiza</b> es más fácil: dicen <i>septante</i> (70) y <i>nonante</i> (90), y en algunas zonas de Suiza también <i>huitante</i> (80).</p><p>Ejemplo: <i>Ma grand-mère a quatre-vingt-deux ans.</i> — Mi abuela tiene 82 años.</p><p>Un truco para no equivocarte: cuando oigas <i>quatre-vingt</i>, multiplica 4 × 20 y suma lo que venga detrás.</p>`,
+        L6.filas("Les grands nombres", [["70", "soixante-dix", cAZ], ["75", "soixante-quinze", cVE], ["80", "quatre-vingts", cNA], ["90", "quatre-vingt-dix", cRO]])],
+    ],
+    "Describir el carácter": [
+      ["Las mascotas", `<p>Las mascotas también son parte de la familia. En francés se llaman <b>les animaux de compagnie</b>:</p><ul><li><b>un chien</b> (perro) y <b>un chat</b> (gato)</li><li><b>un lapin</b> (conejo) y <b>un hamster</b> (hámster)</li><li><b>un cochon d'Inde</b> (cobaya, literalmente «cerdo de la India»)</li><li><b>un poisson rouge</b> (pez rojo) y <b>une tortue</b> (tortuga)</li><li><b>un oiseau</b> (pájaro); en plural, <i>des oiseaux</i></li></ul><p>Para hablar de tu mascota usas lo que ya sabes:</p><ul><li><i>J'ai un chat. <b>Il</b> s'appelle Moustache. Il a trois ans.</i></li><li><i>Il est noir et blanc. Il est très paresseux</i> (perezoso).</li><li>Si no tienes: <i>Je n'ai pas <b>d'</b>animal.</i> (tras la negación, un se convierte en de).</li></ul><p>Para preguntar: <b>Tu as un animal ?</b> — ¿Tienes una mascota? <b>Il s'appelle comment ?</b> — ¿Cómo se llama?</p><p>Tener una mascota es una responsabilidad: hay que darle de comer (<i>nourrir</i>), sacarla a pasear (<i>promener le chien</i>) y llevarla al veterinario (<i>le vétérinaire</i>).</p><p>Francia es uno de los países de Europa con más mascotas: en casi la mitad de los hogares hay al menos un animal, y el gato es el más popular, por delante del perro. Muchos franceses llevan a su perro a restaurantes y tiendas, algo que allí está bastante permitido. Y fíjate en una curiosidad: los animales también hacen ruidos distintos en francés. El perro dice <i>ouaf ouaf</i>, el gato <i>miaou</i> y el gallo <i>cocorico</i>, que se ha convertido en un símbolo de Francia.</p>`,
+        H6.rueda("Les animaux", "MON ANIMAL", [["chien", cNA], ["chat", cAZ], ["lapin", cVE], ["tortue", cMO]]), ["dF7NC5HVjyw", "🎵 Ellie chante : Les animaux de compagnie 🐱 | Chanson pour enfants", "ZIG ZAG ZOOM", 179473]],
+    ],
+  },
+  final: [
+    ["Las fiestas en familia", `<p>En Francia, como en España, hay celebraciones que se viven en familia:</p><ul><li><b>L'anniversaire</b>: se canta <i>Joyeux anniversaire</i> con la misma música que nuestro «Cumpleaños feliz» y se soplan las velas (<i>souffler les bougies</i>).</li><li><b>Noël</b> (Navidad): el 24 por la noche se celebra <i>le réveillon</i>, una cena especial. Los regalos los trae <b>le Père Noël</b> la noche del 24 al 25. De postre se come <b>la bûche de Noël</b>, un pastel con forma de tronco.</li><li><b>La galette des rois</b>: en enero, en lugar del roscón, se come un hojaldre relleno de crema de almendra. Dentro hay una figurita, <b>la fève</b>. Quien la encuentra se convierte en rey o reina y lleva una corona de papel.</li><li><b>Pâques</b> (Pascua): los niños buscan huevos de chocolate escondidos en el jardín.</li></ul><p>Para felicitar: <b>Joyeux anniversaire !</b>, <b>Joyeux Noël !</b>, <b>Bonne année !</b> (¡Feliz año!) y <b>Joyeuses Pâques !</b></p>`,
+      L6.filas("Les fêtes", [["anniversaire", "les bougies", cRO], ["Noël", "la bûche", cVE], ["janvier", "la galette", cNA], ["Pâques", "les œufs", cMO]])],
+    ["Comparar personas", `<p>Para comparar a dos personas de tu familia se usa:</p><ul><li><b>plus … que</b> (más … que): <i>Mon frère est <b>plus</b> grand <b>que</b> moi.</i></li><li><b>moins … que</b> (menos … que): <i>Ma sœur est <b>moins</b> bavarde <b>que</b> ma cousine.</i></li><li><b>aussi … que</b> (tan … como): <i>Mon père est <b>aussi</b> drôle <b>que</b> mon oncle.</i></li></ul><p>Recuerda que el adjetivo concuerda con la persona: <i>Ma mère est plus grand<b>e</b> que ma tante.</i></p><p>Fíjate en los pronombres que se usan después de <i>que</i>: <b>moi</b> (yo), <b>toi</b> (tú), <b>lui</b> (él), <b>elle</b> (ella). <i>Il est plus âgé que <b>moi</b>.</i> — Es mayor que yo.</p><p>Para la edad se usa <b>âgé</b> (mayor) y <b>jeune</b> (joven): <i>Mon cousin est plus jeune que moi.</i> También se puede decir <b>l'aîné</b> (el mayor de los hermanos) y <b>le cadet</b> (el pequeño): <i>Je suis l'aînée de la famille.</i></p><p>Un comparativo especial: <b>bon → meilleur</b>. No se dice «plus bon», sino <i>Ce gâteau est <b>meilleur</b>.</i></p>`,
+      H6.dos("Comparer", ["plus … que", ["plus grand", "que moi", "más … que"], cAZ], ["moins … que", ["moins bavard", "que toi", "menos … que"], cRO])],
+    ["Las tareas de casa", `<p>En una familia todos ayudan en casa. Las tareas domésticas se llaman <b>les tâches ménagères</b>, y muchas se dicen con el verbo <b>faire</b>:</p><ul><li><b>faire la vaisselle</b> — fregar los platos</li><li><b>faire son lit</b> — hacer la cama</li><li><b>faire les courses</b> — hacer la compra</li><li><b>faire le ménage</b> — limpiar la casa</li><li><b>mettre la table</b> — poner la mesa</li><li><b>ranger sa chambre</b> — ordenar la habitación</li><li><b>sortir la poubelle</b> — sacar la basura</li></ul><p>Para decir quién hace qué: <i>Mon père fait la cuisine. Ma sœur met la table et moi, je range ma chambre.</i></p><p>Y para decir con qué frecuencia: <i>Je fais mon lit <b>tous les jours</b></i> (todos los días). <i>Je fais la vaisselle <b>le week-end</b>.</i></p><p>¿Qué tareas haces tú en casa? Compartir las tareas es una forma de cuidar a la familia.</p>`,
+      L6.filas("À la maison", [["faire son lit", "hacer la cama", cAZ], ["mettre la table", "poner la mesa", cVE], ["ranger", "ordenar", cNA], ["la vaisselle", "fregar", cMO]])],
+  ],
+  ejemplos: [
+    ["¿Qué es para ti el hijo de tu tía?", ["fils de ma tante.", "Es mi primo."], "C'est mon cousin."],
+    ["Escribe 75 y 92 en francés.", ["75 = 60 + 15.", "92 = 4 × 20 + 12."], "soixante-quinze, quatre-vingt-douze."],
+  ],
+  errores: ["Decir «septante» o «nonante» en Francia: allí se usa soixante-dix y quatre-vingt-dix (en Bélgica y Suiza sí).", "Decir «plus bon»: el comparativo de bon es meilleur."],
+  ejercicios: [
+    ["b", "Escribe en francés: tío, tía, primo, prima.", "l'oncle, la tante, le cousin, la cousine."],
+    ["b", "Escribe en letra: 30, 40, 50, 60.", "trente, quarante, cinquante, soixante."],
+    ["b", "Nombra cuatro mascotas en francés.", "un chien, un chat, un lapin, une tortue."],
+    ["b", "¿Cómo se felicita la Navidad en francés?", "Joyeux Noël !"],
+    ["b", "¿Qué es la fève?", "La figurita escondida en la galette des rois."],
+    ["m", "Escribe en letra: 71, 80, 99.", "soixante et onze, quatre-vingts, quatre-vingt-dix-neuf."],
+    ["m", "Compara: «Mi hermano es más alto que yo».", "Mon frère est plus grand que moi."],
+    ["m", "Presenta a tu mascota (o di que no tienes) en tres frases.", "Respuesta abierta. Ej.: J'ai un chien. Il s'appelle Rex. Il est noir."],
+    ["m", "¿Qué tareas haces en casa? Escribe dos frases.", "Respuesta abierta: Je fais mon lit. Je mets la table."],
+    ["m", "¿Cuántos años tiene el padre de Inès?", "Quarante-deux ans (42)."],
+    ["a", "Dibuja tu árbol genealógico y explícalo en 6 frases en francés.", "Respuesta abierta."],
+    ["a", "Compara a tres personas de tu familia con plus, moins y aussi.", "Respuesta abierta."],
+    ["a", "Prepara un vídeo como el de Inès presentando a tu familia.", "Respuesta abierta."],
+    ["a", "Explica en español cómo se forman 70, 80 y 90 en francés y en Bélgica.", "Francia: soixante-dix, quatre-vingts, quatre-vingt-dix. Bélgica: septante, quatre-vingts, nonante."],
+  ],
+  quiz: [
+    ["«la nièce» es…", ["la sobrina", "la nieta", "la tía"], "Familia."],
+    ["80 en francés es…", ["quatre-vingts", "huitante-dix", "soixante-vingt"], "Números."],
+    ["«un lapin» es…", ["un conejo", "un perro", "un pájaro"], "Mascotas."],
+    ["El postre de Navidad francés es…", ["la bûche de Noël", "la galette", "el roscón"], "Fiestas."],
+    ["«Ma sœur est ___ grande que moi.»", ["plus", "plus que", "más"], "Comparar."],
+  ],
+  examen: [
+    ["Inès vive en…", ["Marseille", "Paris", "Lyon"], "Lectura."],
+    ["«faire la vaisselle» es…", ["fregar los platos", "hacer la cama", "poner la mesa"], "Tareas."],
+  ],
+  tarjetas: [
+    ["L'arbre généalogique", "oncle, tante, cousin(e), neveu, nièce, petits-enfants."],
+    ["70 · 80 · 90", "soixante-dix · quatre-vingts · quatre-vingt-dix."],
+    ["Les animaux", "chien, chat, lapin, cochon d'Inde, poisson rouge, tortue."],
+    ["Comparer", "plus … que, moins … que, aussi … que. bon → meilleur."],
+  ],
+  glosario: [
+    ["L'arbre généalogique", "El árbol genealógico."],
+    ["Le cousin / la cousine", "El primo / la prima."],
+    ["Le neveu / la nièce", "El sobrino / la sobrina."],
+    ["Les petits-enfants", "Los nietos."],
+    ["Soixante-dix", "Setenta."],
+    ["Quatre-vingts", "Ochenta."],
+    ["Les animaux de compagnie", "Las mascotas."],
+    ["Le lapin", "El conejo."],
+    ["La fève", "La figurita de la galette des rois."],
+    ["Joyeux anniversaire", "Feliz cumpleaños."],
+    ["Plus … que", "Más … que."],
+    ["Les tâches ménagères", "Las tareas de casa."],
+  ],
+  situacion: {
+    titulo: "Notre album de famille",
+    reto: "La clase crea un álbum digital en francés en el que cada alumno presenta a su familia, real o inventada.",
+    pasos: ["Dibujad o haced con fotos vuestro árbol genealógico con los nombres en francés.", "Escribid una ficha de cada persona: nombre, edad en letra, aspecto y carácter.", "Añadid vuestra mascota y una fiesta familiar favorita.", "Presentad el álbum a la clase comparando a dos miembros de la familia."],
+    producto: "Un álbum de familia en francés con árbol genealógico, fichas y presentación oral.",
+    evaluacion: ["Usa el vocabulario de la familia y los posesivos.", "Escribe números hasta 100.", "Describe y compara personas.", "Respeta los distintos tipos de familia."],
+  },
+});
