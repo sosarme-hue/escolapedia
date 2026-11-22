@@ -94,3 +94,92 @@ module.exports = tema({
   ideas: ["Plano de la ciudad en la pizarra para dar indicaciones.", "Juego de esconder la goma con pistas.", "Pirámide de in, on, at con tarjetas de expresiones de tiempo."],
   fuentes: [["British Council LearnEnglish Kids: prepositions of place", "https://learnenglishkids.britishcouncil.org/grammar-practice/prepositions-place"], ["Cambridge Dictionary: at, in, on (time)", "https://dictionary.cambridge.org/grammar/british-grammar/at-on-and-in-time"]],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { H } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Use prepositions of movement and more prepositions of place", "Ask for and give directions to places in town", "Use more prepositions of time and fixed expressions like at home or on the bus"],
+  lectura: { titulo: "The treasure map", html: `<p>Last summer, Marco and his cousin Elsa found an old map <b>in</b> a box <b>under</b> Grandpa's bed. At the top, it said: «The treasure is waiting for you.»</p><p>They followed the instructions carefully:</p><p><i>«Walk <b>out of</b> the house and go <b>across</b> the garden. Go <b>through</b> the little gate and walk <b>along</b> the river. Go <b>over</b> the old wooden bridge and walk <b>past</b> the big rock. Climb <b>up</b> the hill. <b>At</b> the top, there is a tall pine tree. The treasure is <b>between</b> the tree and the stone wall, <b>under</b> the ground.»</i></p><p>Marco and Elsa ran <b>up</b> the hill. They were tired, but they started to dig <b>next to</b> the wall. After ten minutes, they found a metal box. They opened it and… <b>inside</b> there were old photos, some coins and a letter!</p><p>The letter said: «Dear grandchildren, the real treasure is the adventure. Now come back home <b>before</b> dinner. Grandma has made a cake. Love, Grandpa.»</p><p>They ran <b>down</b> the hill laughing. It was the best treasure hunt <b>of</b> the summer.</p><p><i>(Las preposiciones de movimiento indican hacia dónde vamos: across, through, along, over, past, up, down.)</i></p>` },
+  tras: {
+    "Next to, between, behind…": [
+      ["Prepositions of movement", `<p>Prepositions of place tell us <b>where</b> something is. Prepositions of <b>movement</b> tell us <b>where something goes</b>. We use them with verbs like <i>go, walk, run, jump, swim, drive, fly</i>:</p><ul><li><b>into</b> (hacia dentro de) / <b>out of</b> (fuera de): «The cat jumped <b>into</b> the box.» «She ran <b>out of</b> the classroom.»</li><li><b>up</b> (hacia arriba) / <b>down</b> (hacia abajo): «We climbed <b>up</b> the mountain and ran <b>down</b>.»</li><li><b>across</b> (de un lado a otro, cruzando): «Walk <b>across</b> the street.»</li><li><b>through</b> (a través de, por dentro): «The train goes <b>through</b> a tunnel.»</li><li><b>along</b> (a lo largo de): «We walked <b>along</b> the beach.»</li><li><b>over</b> (por encima de): «The horse jumped <b>over</b> the fence.»</li><li><b>under</b> (por debajo de): «The boat went <b>under</b> the bridge.»</li><li><b>past</b> (por delante de, pasando): «Walk <b>past</b> the church.»</li><li><b>around</b> (alrededor de): «The Earth goes <b>around</b> the Sun.»</li><li><b>towards</b> (hacia): «The dog ran <b>towards</b> me.»</li></ul><p>Compare: <b>in</b> the box (place, quieto) and <b>into</b> the box (movement, entra).</p>`,
+        L.filas("Prepositions of movement", [["into · out of", "jump into the box", AZ], ["up · down", "climb up the hill", VE], ["across", "walk across the street", RO], ["through", "go through the tunnel", NA], ["over · under", "jump over the fence", AM]])],
+    ],
+    "Giving directions": [
+      ["Places in town and asking the way", `<p>To ask and give directions, you need to know the names of <b>places in town</b>:</p><ul><li>Shops: <b>bakery</b> (panadería), <b>butcher's</b> (carnicería), <b>chemist's</b> / <b>pharmacy</b> (farmacia), <b>bookshop</b> (librería), <b>supermarket</b>.</li><li>Services: <b>post office</b> (correos), <b>bank</b>, <b>hospital</b>, <b>police station</b>, <b>fire station</b>, <b>town hall</b> (ayuntamiento), <b>library</b> (biblioteca, ¡no librería!).</li><li>Leisure: <b>cinema</b>, <b>museum</b>, <b>park</b>, <b>sports centre</b>, <b>swimming pool</b>, <b>square</b> (plaza).</li><li>Transport: <b>bus stop</b>, <b>train station</b>, <b>traffic lights</b> (semáforo), <b>roundabout</b> (rotonda), <b>corner</b> (esquina).</li></ul><p>To <b>ask the way</b> politely, start with <b>Excuse me</b>:</p><ul><li>«Excuse me, <b>how do I get to</b> the museum?»</li><li>«Excuse me, <b>is there a</b> chemist's <b>near here</b>?»</li><li>«Excuse me, <b>where is</b> the train station?»</li></ul><p>Possible answers: «Go straight on and turn left at the traffic lights. The museum is <b>on the right</b>, <b>opposite</b> the park.» «It's <b>on the corner</b> of Main Street and Sun Street.» «It's about five minutes on foot.»</p><p>Don't forget to say <b>Thank you!</b> And if you don't understand, ask: «Sorry, can you repeat that, please?»</p>`,
+        L.dialogo("Asking the way", [["Man", "Where is the museum?", AZ], ["Lola", "Go straight on and turn left.", RO], ["Man", "Is it far?", AZ], ["Lola", "No, it's five minutes on foot.", RO]])],
+    ],
+    "When? In, on and at": [
+      ["At home, in bed, on the bus", `<p>Some expressions with prepositions are <b>fixed</b>: we must learn them as a block, because Spanish uses different prepositions or none.</p><ul><li>With <b>at</b>: <b>at home</b>, <b>at school</b>, <b>at work</b>, <b>at the cinema</b>, <b>at a party</b>, <b>at the top</b> / <b>at the bottom</b>, <b>at the door</b>. «I'm <b>at home</b>.» (not «in home»)</li><li>With <b>in</b>: <b>in bed</b>, <b>in hospital</b>, <b>in the car</b>, <b>in a taxi</b>, <b>in the sky</b>, <b>in the picture</b>, <b>in the middle</b>. «There's a bird <b>in</b> the sky.»</li><li>With <b>on</b>: <b>on the bus</b>, <b>on the train</b>, <b>on a plane</b>, <b>on a bike</b>, <b>on TV</b>, <b>on the radio</b>, <b>on the internet</b>, <b>on the left</b> / <b>on the right</b>, <b>on the wall</b>. «I saw it <b>on TV</b>.»</li><li>With <b>by</b> (transport, without «the»): <b>by bus</b>, <b>by car</b>, <b>by train</b>, <b>by plane</b>. But: <b>on foot</b> (a pie).</li></ul><p>Notice the difference: «I go to school <b>by bus</b>» (how) but «I read a book <b>on the bus</b>» (where).</p><p>And remember: we say <b>go home</b>, without «to»: «I go home at five.» But «I go <b>to</b> school», «I go <b>to</b> the park».</p>`,
+        L.filas("Fixed expressions", [["at", "at home · at school", AZ], ["in", "in bed · in the car", VE], ["on", "on the bus · on TV", RO], ["by", "by bus · by plane", NA], ["on foot", "a pie", AM]]), ["fRrVkXG0-v4", "Prepositions of Time – English Grammar Lessons", "Ellii (formerly ESL Library)", 1412284]],
+    ],
+    "Time and place together": [
+      ["Before, after, during, until…", `<p>Besides <b>in</b>, <b>on</b> and <b>at</b>, there are other prepositions of time that you will need very often:</p><ul><li><b>before</b> (antes de): «Wash your hands <b>before</b> lunch.»</li><li><b>after</b> (después de): «We play football <b>after</b> school.»</li><li><b>during</b> (durante): «Don't talk <b>during</b> the exam.» «I sleep <b>during</b> the journey.»</li><li><b>from… to / until</b> (de… a / hasta): «The shop is open <b>from</b> nine <b>to</b> two.» «I study <b>from</b> Monday <b>to</b> Friday.» «Wait <b>until</b> six.»</li><li><b>for</b> (durante, con una cantidad de tiempo): «I played <b>for</b> two hours.» «We stayed in London <b>for</b> a week.»</li><li><b>since</b> (desde): «I've lived here <b>since</b> 2020.» (You will use it more in the future.)</li></ul><p>Careful with <b>during</b> and <b>for</b>: both can be «durante» in Spanish. Use <b>during</b> + an event or period (during the film, during the summer) and <b>for</b> + a quantity of time (for ten minutes, for three days).</p><p>«<b>During</b> the summer holidays I went to the beach <b>for</b> two weeks.»</p>`,
+        H.dos("During or for?", ["during + event", ["during the film", "during the summer", "during the exam"], AZ], ["for + time", ["for two hours", "for a week", "for ten minutes"], VE])],
+    ],
+  },
+  final: [
+    ["Above, below, inside, outside", `<p>Here are some more prepositions of place that will help you describe pictures and places with more detail:</p><ul><li><b>above</b> (encima de, por encima, sin tocar) / <b>below</b> (debajo de, por debajo, sin tocar): «The lamp is <b>above</b> the table.» «The temperature is <b>below</b> zero.» Compare: <i>on</i> the table (touching) and <i>above</i> the table (not touching).</li><li><b>inside</b> (dentro) / <b>outside</b> (fuera): «It's raining. Let's stay <b>inside</b>.» «The children are playing <b>outside</b>.»</li><li><b>among</b> (entre muchos): «I found my pen <b>among</b> the books.» Compare: <i>between</i> two things, <i>among</i> three or more.</li><li><b>against</b> (apoyado en, contra): «The bike is <b>against</b> the wall.»</li><li><b>at the top of</b> / <b>at the bottom of</b>: «The castle is <b>at the top of</b> the hill.» «Write your name <b>at the bottom of</b> the page.»</li><li><b>in the middle of</b> (en medio de): «There's a fountain <b>in the middle of</b> the square.»</li><li><b>in the corner of</b> (en la esquina, dentro de una habitación): «The TV is <b>in the corner of</b> the living room.»</li></ul><p>Use them to describe a picture: «<b>In the middle of</b> the picture there is a house. <b>Above</b> the house there are some birds. <b>Outside</b> the house, two children are playing <b>among</b> the trees…» This is a great game for pairs: one describes a picture and the other draws it without looking.</p>`,
+      L.filas("More places", [["above / below", "above the table", AZ], ["inside / outside", "stay inside", VE], ["among", "among the books", RO], ["in the middle of", "the square", NA]])],
+  ],
+  ejemplos: [
+    ["Choose: «The cat is ___ the box.» / «The cat jumped ___ the box.» (in / into)", ["Is = position, no movement → in.", "Jumped = movement towards the inside → into."], "The cat is in the box. The cat jumped into the box."],
+    ["During or for? «I slept ___ the film. I slept ___ two hours.»", ["The film is an event → during.", "Two hours is a quantity of time → for."], "I slept during the film. I slept for two hours."],
+  ],
+  errores: ["Decir «in home» o «go to home»: es «at home» y «go home».", "Confundir library (biblioteca) con bookshop (librería)."],
+  ejercicios: [
+    ["b", "Translate: a través de, a lo largo de, cruzando.", "through, along, across."],
+    ["b", "Complete: «I go to school ___ bus. My friend goes ___ foot.»", "by, on."],
+    ["b", "Write three places in town where you can buy things.", "Example: bakery, chemist's, supermarket."],
+    ["b", "Complete: «Wash your hands ___ lunch.» (before / during)", "before."],
+    ["b", "Complete with at, in or on: «___ home», «___ bed», «___ TV».", "at home, in bed, on TV."],
+    ["m", "Write the question to ask the way to the library politely.", "Excuse me, how do I get to the library?"],
+    ["m", "Correct: «I go to home at five and I watch a film in TV.»", "I go home at five and I watch a film on TV."],
+    ["m", "Between or among? «Lucía sits ___ Ana and Pablo.» / «There's a mouse ___ the leaves.»", "between, among."],
+    ["m", "Complete: «The shop is open ___ nine ___ two.»", "from, to."],
+    ["m", "Describe the route in the treasure map with four prepositions of movement.", "Example: out of the house, across the garden, through the gate, over the bridge."],
+    ["a", "Draw a map of your neighbourhood and write directions from your house to your school.", "Open answer."],
+    ["a", "Write a treasure hunt for the classroom with five instructions using prepositions of movement and place.", "Open answer."],
+    ["a", "Describe a picture of a square with above, in the middle of, next to, in front of and behind.", "Open answer."],
+    ["a", "Write a dialogue between a tourist and you in your town: asking the way, giving directions and saying thank you.", "Open answer."],
+  ],
+  quiz: [
+    ["«The train goes ___ the tunnel.»", ["through", "across", "over"], "Por dentro."],
+    ["«Excuse me, how do I get ___ the station?»", ["to", "at", "in"], "get to."],
+    ["«I read a book ___ the bus.»", ["on", "by", "in"], "On the bus."],
+    ["«We stayed in Paris ___ a week.»", ["for", "during", "since"], "Quantity of time."],
+    ["«Biblioteca» in English is…", ["library", "bookshop", "bookstore"], "False friend."],
+  ],
+  examen: [
+    ["«The horse jumped ___ the fence.»", ["over", "under", "into"], "Por encima."],
+    ["«I'm ___ home.»", ["at", "in", "on"], "Fixed expression."],
+  ],
+  tarjetas: [
+    ["Movement", "into, out of, up, down, across, through, along, over, past."],
+    ["Asking the way", "Excuse me, how do I get to…?"],
+    ["Fixed", "at home · in bed · on the bus · by car · on foot."],
+    ["during / for", "during the film; for two hours."],
+  ],
+  glosario: [
+    ["into", "Hacia dentro de."],
+    ["out of", "Fuera de (movimiento)."],
+    ["across", "Cruzando, de un lado a otro."],
+    ["through", "A través de."],
+    ["along", "A lo largo de."],
+    ["past", "Pasando por delante de."],
+    ["above", "Por encima de (sin tocar)."],
+    ["among", "Entre (muchos)."],
+    ["library", "Biblioteca."],
+    ["chemist's", "Farmacia."],
+    ["traffic lights", "Semáforo."],
+    ["during", "Durante (un evento)."],
+  ],
+  situacion: {
+    titulo: "A tourist guide to our town",
+    reto: "La clase elabora en inglés una guía turística de su localidad con un mapa, rutas e información de horarios.",
+    pasos: ["Draw a map of the centre of your town with the main places in English.", "Write three routes from the school to interesting places using directions and prepositions of movement.", "Add opening times with from… to, before, after and on + days.", "Role-play: some students are tourists who ask the way and the others give directions with the guide."],
+    producto: "Una guía turística ilustrada con mapa y rutas.",
+    evaluacion: ["Uses prepositions of place and movement correctly.", "Asks and gives directions politely.", "Uses prepositions of time and fixed expressions.", "Describes routes clearly."],
+  },
+});

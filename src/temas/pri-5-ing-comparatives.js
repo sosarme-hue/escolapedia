@@ -91,3 +91,90 @@ module.exports = tema({
   ideas: ["Concurso de clase: ordenar a los alumnos por altura y describirlo con comparativos.", "Fichas de animales con datos reales para comparar.", "Juego «Who is it?» con pistas comparativas."],
   fuentes: [["British Council LearnEnglish Kids: comparative adjectives", "https://learnenglishkids.britishcouncil.org/grammar-practice/comparative-adjectives"], ["Cambridge Dictionary: comparison of adjectives", "https://dictionary.cambridge.org/grammar/british-grammar/adjectives-forms"]],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { H } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Make comparisons stronger with much, a lot and a bit", "Take a first look at superlatives", "Compare places and animals with real data and write a comparison"],
+  lectura: { titulo: "The great animal contest", html: `<p>Every year, the animals of the forest have a contest. This year the question was: «Who is the best animal?»</p><p>The cheetah ran first. «I'm <b>faster than</b> all of you!» she said. «I can run at 110 kilometres per hour.»</p><p>«But I'm <b>stronger than</b> you,» said the elephant, and he lifted a tree with his trunk. «And I'm <b>much bigger</b>!»</p><p>The owl looked down from a branch. «Maybe. But I'm <b>wiser than</b> both of you. And I can see <b>better</b> at night.»</p><p>Then a tiny ant spoke. «I'm <b>smaller than</b> a leaf, but I can carry things fifty times <b>heavier than</b> my body!»</p><p>Everybody was surprised. The turtle, who arrived last, as usual, said: «I'm <b>slower than</b> everyone, that's true. But I'm <b>older than</b> all of you. I'm 120 years old! And I think this contest is silly.»</p><p>«Why?» asked the animals.</p><p>«Because every animal is special. The cheetah is <b>the fastest</b>, the elephant is <b>the strongest</b>, the owl is <b>the wisest</b>… and the ant is <b>the most hard-working</b>. Nobody is <b>better than</b> the others. We are just different.»</p><p>And that year, for the first time, every animal won a prize.</p>` },
+  tras: {
+    "Irregular: better, worse, further": [
+      ["A first look at superlatives", `<p>Comparatives compare <b>two</b> things. When we compare <b>one thing with all the others in a group</b>, we use the <mark>superlative</mark>. In Spanish: «el más alto», «la más bonita».</p><ul><li>Short adjectives: <b>the + adjective + -est</b>: tall → <b>the tallest</b>, fast → <b>the fastest</b>, big → <b>the biggest</b>, happy → <b>the happiest</b>.</li><li>Long adjectives: <b>the most + adjective</b>: beautiful → <b>the most beautiful</b>, interesting → <b>the most interesting</b>.</li><li>Irregular: good → <b>the best</b>, bad → <b>the worst</b>, far → <b>the furthest</b>.</li></ul><p>The spelling rules are the same as for comparatives: <i>nice → the nicest</i>, <i>hot → the hottest</i>, <i>funny → the funniest</i>.</p><p>We often add <b>in</b> + a place or group, or <b>of</b> + a number or period:</p><ul><li>«The blue whale is <b>the biggest</b> animal <b>in</b> the world.»</li><li>«Lola is <b>the tallest</b> girl <b>in</b> my class.»</li><li>«It was <b>the best</b> day <b>of</b> my life!»</li></ul><p>Compare the three forms: <i>tall – taller – the tallest</i>; <i>good – better – the best</i>. You will study superlatives in more detail in 6th grade.</p><p>Superlatives are perfect for <b>records</b> and quizzes: «What is <b>the longest</b> river in the world?» (the Nile or the Amazon: scientists still discuss it!) «What is <b>the fastest</b> land animal?» (the cheetah). «Which is <b>the coldest</b> continent?» (Antarctica). Make your own quiz and test your family.</p>`,
+        L.tabla("Three forms", ["Adjective", "Comparative", "Superlative"], [["tall", "taller", "the tallest"], ["big", "bigger", "the biggest"], ["happy", "happier", "the happiest"], ["good", "better", "the best"]]), ["jz8Fy5qQXu8", "Comparatives and Superlatives | Learn English | EasyTeaching", "EasyTeaching", 966203]],
+    ],
+    "As… as and not as… as": [
+      ["Much bigger, a bit taller", `<p>Sometimes the difference between two things is <b>big</b> and sometimes it is <b>small</b>. We can show this with words before the comparative:</p><ul><li><b>Big difference</b>: <b>much</b>, <b>a lot</b>, <b>far</b>. «An elephant is <b>much bigger than</b> a mouse.» «A plane is <b>a lot faster than</b> a bike.» «Summer in Seville is <b>far hotter than</b> in Santander.»</li><li><b>Small difference</b>: <b>a bit</b>, <b>a little</b>, <b>slightly</b>. «I'm <b>a bit taller than</b> my sister.» «This book is <b>a little more expensive than</b> that one.»</li></ul><p>Never use <b>very</b> with comparatives: say «<b>much</b> bigger», not «very bigger».</p><p>We can also repeat the comparative to show that something is changing: «It's getting <b>colder and colder</b>.» (cada vez más frío) «The film was <b>more and more exciting</b>.»</p><p>And to talk about two things that change together, we use <b>the… the…</b>: «<b>The more</b> you read, <b>the better</b> you write.» (Cuanto más lees, mejor escribes.) This is a very common expression in English!</p>`,
+        L.filas("How big is the difference?", [["much", "much bigger than", RO], ["a lot", "a lot faster than", NA], ["a bit", "a bit taller than", VE], ["more and more", "colder and colder", AZ]])],
+    ],
+    "Comparing with numbers": [
+      ["Comparing places in Spain", `<p>Comparatives are very useful in Geography. Look at these real data about Spain and compare:</p><ul><li><b>Mountains</b>: the Teide, in Tenerife, is 3,715 metres high. The Mulhacén, in Granada, is 3,479 metres high. → «The Teide is <b>higher than</b> the Mulhacén.» In fact, the Teide is the highest mountain in Spain.</li><li><b>Rivers</b>: the Tajo is about 1,000 kilometres long. The Ebro is about 930 kilometres long. → «The Tajo is <b>longer than</b> the Ebro.»</li><li><b>Cities</b>: Madrid has more than 3 million people. Barcelona has about 1.6 million. → «Madrid is <b>bigger than</b> Barcelona.» But Barcelona is on the coast, so we can say: «Barcelona is <b>closer to</b> the sea.»</li><li><b>Weather</b>: in August, Córdoba is often <b>hotter than</b> Bilbao. Bilbao is usually <b>rainier than</b> Córdoba.</li></ul><p>When you write numbers in English, remember that we use a <b>comma</b> for thousands (3,715) and a <b>point</b> for decimals (1.6). It's the opposite of Spanish!</p><p>Now find data about your town or region and write three comparisons. You can use a map, an encyclopedia or a reliable website.</p>`,
+        H.barras("Mountains (metres)", [["Teide", 3715, RO, "3,715 m"], ["Mulhacén", 3479, AZ, "3,479 m"], ["Aneto", 3404, VE, "3,404 m"]], 3800)],
+    ],
+  },
+  final: [
+    ["Than me or than I am?", `<p>After <b>than</b> we often compare with a person. There are two correct ways to do it:</p><ul><li><b>than + object pronoun</b> (me, you, him, her, us, them). This is the most common in everyday English: «My brother is taller <b>than me</b>.» «She runs faster <b>than him</b>.» «They are older <b>than us</b>.»</li><li><b>than + subject pronoun + verb</b> (I am, he is, they do…). This is a bit more formal: «My brother is taller <b>than I am</b>.» «She runs faster <b>than he does</b>.»</li></ul><p>Don't say «taller than I» alone in normal conversation: it sounds strange. Choose <i>than me</i> or <i>than I am</i>.</p><p>We can also compare with a name or a noun: «Pablo is funnier <b>than Marcos</b>.» «Cats are quieter <b>than dogs</b>.»</p><p>And to avoid repeating a noun, use <b>one</b> or <b>ones</b>: «This T-shirt is nicer than <b>that one</b>.» «These shoes are cheaper than <b>the red ones</b>.»</p><p>Remember that in English we always need <b>than</b>, not «that» or «of»: «bigger <b>than</b>», never «bigger that».</p>`,
+      L.filas("After than", [["than me", "He is taller than me.", AZ], ["than I am", "He is taller than I am.", VE], ["than Pablo", "funnier than Pablo", RO], ["than that one", "nicer than that one", NA]])],
+    ["Writing: cats or dogs?", `<p>A <b>comparison text</b> describes two things and shows how they are similar and different. Let's write one about cats and dogs. Follow these steps:</p><ol><li><b>Make a table</b> with information about the two animals: size, food, character, care.</li><li><b>Introduction</b>: present the topic. «Cats and dogs are the most popular pets in Spain. But which is better for you?»</li><li><b>Differences</b>: use comparatives. «Dogs are usually bigger than cats. They are more active and they need more exercise: you must walk them every day. Cats are more independent and quieter.»</li><li><b>Similarities</b>: use <b>both</b> and <b>as… as</b>. «<b>Both</b> animals are friendly and intelligent. A cat can be <b>as</b> loving <b>as</b> a dog.»</li><li><b>Conclusion</b>: give your opinion. «I think dogs are better for active families, but cats are better for small flats. My favourite? Cats, of course!»</li></ol><p>Use connectors to link your ideas: <b>but</b>, <b>however</b>, <b>also</b>, <b>both</b>, <b>on the other hand</b>.</p><p>Before you hand in your text, check: did you use <b>than</b> after every comparative? Did you spell the adjectives correctly (<i>bigger, quieter, more active</i>)?</p>`,
+      H.dos("Cats or dogs?", ["Dogs", ["bigger", "more active", "need walks"], AZ], ["Cats", ["smaller", "more independent", "quieter"], NA])],
+  ],
+  ejemplos: [
+    ["Write the comparative and superlative of: hot, interesting, good.", ["hot: short, CVC → double t: hotter, the hottest.", "interesting: long → more interesting, the most interesting.", "good: irregular → better, the best."], "hotter / the hottest; more interesting / the most interesting; better / the best"],
+    ["Compare with the data: Teide 3,715 m, Mulhacén 3,479 m. Use «a bit» or «much».", ["The difference is about 240 metres: not very big for mountains.", "Small difference → a bit."], "The Teide is a bit higher than the Mulhacén."],
+  ],
+  errores: ["Usar very con comparativos: «very bigger» → «much bigger».", "Escribir that en vez de than: «taller that me» → «taller than me»."],
+  ejercicios: [
+    ["b", "Write the superlative: tall, big, happy, good.", "the tallest, the biggest, the happiest, the best."],
+    ["b", "Complete: «An elephant is ___ bigger than a mouse.» (much / very)", "much."],
+    ["b", "Complete: «My sister is taller than ___.» (I / me)", "me (or: than I am)."],
+    ["b", "Which is longer: the Tajo or the Ebro?", "The Tajo is longer than the Ebro."],
+    ["b", "Translate: «Cada vez más frío».", "Colder and colder."],
+    ["m", "Write a sentence with «the best … in».", "Example: She is the best player in the team."],
+    ["m", "Correct: «This film is very more interesting that the book.»", "This film is much more interesting than the book."],
+    ["m", "Complete: «The ___ you practise, the ___ you play.» (much, good)", "The more you practise, the better you play."],
+    ["m", "Use «one»: «This bag is heavier than that bag.»", "This bag is heavier than that one."],
+    ["m", "Write two similarities between cats and dogs using both and as… as.", "Example: Both are pets. A cat can be as friendly as a dog."],
+    ["a", "Find data about two Spanish cities and write four comparisons.", "Open answer with real data."],
+    ["a", "Write a comparison text about two sports (introduction, differences, similarities, conclusion).", "Open answer."],
+    ["a", "Write the animal contest from the ant's point of view with five comparatives.", "Open answer."],
+    ["a", "Make a quiz of five questions for your class: «Which is bigger: … or …?»", "Open answer."],
+  ],
+  quiz: [
+    ["«The blue whale is ___ animal in the world.»", ["the biggest", "the bigger", "bigger"], "Superlative."],
+    ["«A plane is ___ faster than a bike.»", ["much", "very", "more"], "Big difference."],
+    ["«He is older than ___.»", ["me", "I", "my"], "Object pronoun."],
+    ["«The ___ you read, the better you write.»", ["more", "most", "much"], "The more… the better."],
+    ["The Teide is ___ the Mulhacén.", ["higher than", "lower than", "as high as"], "3,715 m vs 3,479 m."],
+  ],
+  examen: [
+    ["Superlative of «good» is…", ["the best", "the goodest", "the better"], "Irregular."],
+    ["«This shirt is nicer than that ___.»", ["one", "ones", "it"], "Avoid repeating shirt."],
+  ],
+  tarjetas: [
+    ["Superlative", "the tallest, the most beautiful, the best."],
+    ["much / a bit", "much bigger; a bit taller."],
+    ["the more… the better", "Cuanto más…, mejor."],
+    ["than me", "He is taller than me."],
+  ],
+  glosario: [
+    ["comparative", "Comparativo: taller, more beautiful."],
+    ["superlative", "Superlativo: the tallest."],
+    ["than", "Que (en comparaciones)."],
+    ["as… as", "Tan… como."],
+    ["much", "Mucho (con comparativos)."],
+    ["a bit", "Un poco."],
+    ["both", "Los dos, ambos."],
+    ["however", "Sin embargo."],
+    ["high", "Alto (montaña)."],
+    ["long", "Largo."],
+    ["wise", "Sabio."],
+    ["contest", "Concurso."],
+  ],
+  situacion: {
+    titulo: "The record book",
+    reto: "La clase elabora en inglés un libro de récords con comparaciones y superlativos sobre animales, lugares y la propia clase.",
+    pasos: ["Choose a topic in groups: animals, Spanish places, planets or our class.", "Find real data (numbers) and write comparisons with than, much and a bit.", "Write the record of each category with superlatives: the biggest, the longest, the best.", "Make the pages of the book with pictures and present your records to the class."],
+    producto: "Un «Record book» de la clase en inglés.",
+    evaluacion: ["Forms comparatives and superlatives correctly.", "Uses much and a bit to show the difference.", "Compares with real data.", "Writes a short comparison text."],
+  },
+});

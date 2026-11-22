@@ -91,3 +91,90 @@ module.exports = tema({
   ideas: ["Encuesta de clase con gráfico de barras.", "Escala humana: los alumnos se colocan en una fila de always a never según una pregunta.", "Diario de hábitos saludables de una semana."],
   fuentes: [["British Council LearnEnglish Kids: adverbs of frequency", "https://learnenglishkids.britishcouncil.org/grammar-practice/adverbs-frequency"], ["Cambridge Dictionary: adverbs of frequency", "https://dictionary.cambridge.org/grammar/british-grammar/adverbs-and-adverb-phrases-position"]],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { H } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Ask Do you ever…? and answer with short answers", "Review the present simple with he, she and it", "Describe a daily routine and report the results of a survey"],
+  lectura: { titulo: "A day in the life of an astronaut", html: `<p>Have you ever imagined living in space? Astronauts on the International Space Station have a very special routine.</p><p>They <b>usually</b> wake up at six o'clock. There is no up or down in space, so they <b>always</b> sleep in sleeping bags tied to the wall. Otherwise, they float around!</p><p>Astronauts <b>never</b> have a shower. Water floats in little balls, so they wash with wet towels and special shampoo that they <b>don't</b> rinse.</p><p>Exercise is very important. Without gravity, muscles and bones become weak, so astronauts exercise for about <b>two hours every day</b>. They <b>often</b> run on a special treadmill with straps.</p><p>For lunch they <b>sometimes</b> eat fresh fruit, but they <b>usually</b> eat food from packets. They <b>hardly ever</b> eat bread, because crumbs can float into the machines.</p><p>In their free time, astronauts <b>often</b> look out of the window. The station goes around the Earth about <b>sixteen times a day</b>, so they can see sixteen sunrises and sixteen sunsets every day!</p><p>Would you like to be an astronaut?</p><p><i>(Busca los adverbios de frecuencia y las expresiones como every day o sixteen times a day.)</i></p>` },
+  tras: {
+    "Six adverbs": [
+      ["Hardly ever and other adverbs", `<p>Besides the six main adverbs, there are a few more that are very common:</p><ul><li><b>hardly ever</b> (casi nunca, about 5%): «I <b>hardly ever</b> watch horror films.» It means the same as <i>rarely</i>, but it is more common in conversation.</li><li><b>normally</b> (normalmente): similar to <i>usually</i>. «I <b>normally</b> have lunch at school.»</li><li><b>frequently</b> (frecuentemente): similar to <i>often</i>, but more formal.</li><li><b>occasionally</b> (de vez en cuando): similar to <i>sometimes</i>. «We <b>occasionally</b> eat out.»</li><li><b>seldom</b> (rara vez): it means the same as <i>rarely</i>, but it is old-fashioned and very formal.</li></ul><p>Here is the complete scale, from 100% to 0%:</p><p><b>always → usually / normally → often → sometimes → occasionally → rarely / hardly ever → never</b></p><p>Careful with <b>hardly ever</b>: it has a negative meaning, so we don't use <i>don't</i> with it. «I hardly ever eat sweets», not «I don't hardly ever eat sweets».</p><p>The position rules are the same for all these adverbs: before the main verb («I <b>hardly ever</b> cry»), but after the verb <i>to be</i> («She is <b>normally</b> happy»). <b>Occasionally</b>, like <i>sometimes</i>, can also go at the beginning of the sentence: «<b>Occasionally</b>, we eat out.» A good idea is to draw the scale in your notebook with a colour for each adverb, from green (always) to red (never).</p>`,
+        L.filas("More adverbs", [["hardly ever", "casi nunca (5%)", RO], ["normally", "= usually", AZ], ["frequently", "= often (formal)", VE], ["occasionally", "= sometimes", NA], ["seldom", "= rarely (formal)", AM]]), ["y1l7OTgbC7Y", "Adverbios de frecuencia para niños | Gramática inglesa", "Interesting English", 59412]],
+    ],
+    "Questions: How often…?": [
+      ["Do you ever…?", `<p>Another way to ask about habits is with <b>ever</b> (alguna vez): <b>Do / Does + subject + ever + verb?</b></p><ul><li>«<b>Do</b> you <b>ever</b> eat sushi?»</li><li>«<b>Does</b> your dad <b>ever</b> cook?»</li><li>«<b>Are</b> you <b>ever</b> late for school?» (with <i>be</i>, the question starts with <i>Are / Is</i>).</li></ul><p>We can answer with a <b>short answer</b> and an adverb. Look at the position of the adverb: it goes <b>before</b> <i>do</i>, <i>does</i>, <i>am</i>, <i>is</i> or <i>are</i> in short answers:</p><ul><li>«Yes, I <b>sometimes</b> do.» / «Yes, I <b>often</b> do.»</li><li>«Yes, he <b>always</b> does. He's a great cook!»</li><li>«No, I <b>never</b> do.» (Notice: with never, we don't say «don't».)</li><li>«No, I'm <b>never</b> late!»</li></ul><p>We use <b>ever</b> in questions, but not in affirmative sentences: say «I <b>sometimes</b> eat sushi», not «I ever eat sushi».</p><p>To continue the conversation, ask a second question: «Do you ever go to the cinema?» – «Yes, I often do.» – «<b>What</b> kind of films do you like?» Good conversations are like a ball game: you answer, then you ask.</p>`,
+        L.dialogo("Do you ever…?", [["Ana", "Do you ever eat sushi?", AZ], ["Leo", "Yes, I sometimes do.", RO], ["Ana", "Does your dad ever cook?", AZ], ["Leo", "Yes, he always does!", RO]])],
+    ],
+    "Healthy routines": [
+      ["Present simple review: he, she, it", `<p>Adverbs of frequency go with the <b>present simple</b>. Remember that with <b>he</b>, <b>she</b> and <b>it</b> we add <b>-s</b> to the verb: «She <b>always</b> play<b>s</b> the piano.» The adverb doesn't change anything.</p><p>Spelling rules for the third person:</p><ul><li>Most verbs: add <b>-s</b>: play → plays, read → reads, eat → eats.</li><li>Verbs ending in <b>-s, -sh, -ch, -x, -o</b>: add <b>-es</b>: watch → watches, wash → washes, go → goes, do → does.</li><li>Consonant + <b>y</b>: change to <b>-ies</b>: study → studies, fly → flies. But vowel + y: play → plays.</li><li>Irregular: have → <b>has</b>.</li></ul><p>In negatives and questions, we use <b>doesn't</b> and <b>does</b>, and the verb loses the -s:</p><ul><li>«He <b>doesn't</b> usually walk to school.» (not «doesn't walks»)</li><li>«<b>Does</b> she often <b>go</b> swimming?» (not «does she goes»)</li></ul><p>Notice where the adverb goes in negatives: after <i>doesn't / don't</i> and before the verb: «I <b>don't usually</b> eat meat.»</p>`,
+        L.filas("He / she / it", [["+ s", "plays · reads · eats", AZ], ["+ es", "watches · goes · does", VE], ["y → ies", "studies · flies", RO], ["irregular", "have → has", NA]])],
+    ],
+  },
+  final: [
+    ["My daily routine", `<p>A <b>routine</b> is what we do every day, usually in the same order. These verbs and expressions are very useful to describe it:</p><ul><li><b>Morning</b>: wake up, get up, have a shower, get dressed, brush my teeth, have breakfast, go to school.</li><li><b>Afternoon</b>: have lunch, do my homework, go to football / music / swimming, play with friends.</li><li><b>Evening</b>: have dinner, watch TV, read a book, go to bed.</li></ul><p>To tell the time, use <b>at</b>: «I <b>usually</b> get up <b>at</b> half past seven.» «I <b>always</b> have dinner <b>at</b> nine.»</p><p>To order your routine, use sequencing words: <b>first</b>, <b>then</b>, <b>after that</b>, <b>finally</b>. And remember: on weekdays and at the weekend your routine is probably different! «On weekdays I get up at 7:30, but <b>at the weekend</b> I <b>usually</b> get up at ten.»</p><p>Example: «I <b>always</b> wake up at seven. <b>First</b>, I have a shower and get dressed. <b>Then</b> I have breakfast: I <b>usually</b> have milk and toast. <b>After that</b>, I walk to school. In the afternoon, I <b>often</b> play basketball. <b>Finally</b>, I go to bed at half past nine. I <b>never</b> go to bed late on weekdays!»</p>`,
+      H.flujo("My day", ["wake up|7:00", "breakfast|7:30", "school|9:00", "homework|5:00", "dinner|8:30", "bed|9:30"], AZ)],
+    ["Reporting a survey", `<p>After a class survey, it's time to <b>report the results</b>. To say how many people do something, use these expressions:</p><ul><li><b>All of us</b> / <b>Everybody</b>: 100%. «<b>Everybody</b> brushes their teeth every day.» (Notice: everybody + verb with -s.)</li><li><b>Most of us</b>: more than half. «<b>Most of us</b> play video games at the weekend.»</li><li><b>Half of the class</b>: 50%. «<b>Half of the class</b> walks to school.»</li><li><b>Some of us</b> / <b>A few of us</b>: a small number. «<b>A few of us</b> play an instrument.»</li><li><b>Nobody</b>: 0%. «<b>Nobody</b> goes to bed after eleven.» (nobody + verb with -s, and no «don't»).</li></ul><p>You can also use numbers: «<b>Twelve students</b> often eat vegetables. <b>Three students</b> never read comics.»</p><p>Present your results with a <b>bar chart</b>: write the activities on one side and the number of students on the other. Then write a short conclusion: «Our class is quite healthy. Most of us eat fruit every day, but we sometimes go to bed late.»</p>`,
+      H.barras("Our class: eat fruit", [["every day", 14, VE, "14"], ["often", 6, AZ, "6"], ["sometimes", 4, NA, "4"], ["never", 1, RO, "1"]], 15)],
+  ],
+  ejemplos: [
+    ["Answer with a short answer and an adverb: «Do you ever play chess?» (sometimes)", ["Short answer: Yes, I do.", "The adverb goes before do in short answers."], "Yes, I sometimes do."],
+    ["Write in the third person: «I always watch TV and I usually go to bed at ten.» (My brother)", ["watch → watches (-ch + es).", "go → goes (-o + es). Adverbs stay in the same place."], "My brother always watches TV and he usually goes to bed at ten."],
+  ],
+  errores: ["Usar ever en frases afirmativas: «I ever eat sushi» → «I sometimes eat sushi».", "Mantener la -s tras doesn't: «She doesn't usually walks» → «She doesn't usually walk»."],
+  ejercicios: [
+    ["b", "Order from 100% to 0%: never, usually, always, hardly ever, sometimes.", "always, usually, sometimes, hardly ever, never."],
+    ["b", "Write the he/she form: watch, study, have, go, play.", "watches, studies, has, goes, plays."],
+    ["b", "Short answer: «Do you ever eat fish?» (often)", "Yes, I often do."],
+    ["b", "Write three things you do in the morning.", "Example: I get up, I have a shower, I have breakfast."],
+    ["b", "Complete: «___ of the class walks to school.» (50%)", "Half."],
+    ["m", "Correct: «She doesn't usually goes to the park.»", "She doesn't usually go to the park."],
+    ["m", "Write a question with ever about your teacher.", "Example: Does our teacher ever sing in class?"],
+    ["m", "Translate: «Casi nunca como dulces.»", "I hardly ever eat sweets."],
+    ["m", "Write two sentences: one about weekdays and one about the weekend.", "Example: On weekdays I get up at 7:30, but at the weekend I usually get up at ten."],
+    ["m", "How many sunrises can astronauts see every day?", "About sixteen."],
+    ["a", "Write your daily routine in eight sentences with times, sequencing words and adverbs.", "Open answer."],
+    ["a", "Interview a family member and write their routine in the third person.", "Open answer with -s endings."],
+    ["a", "Do a survey of ten classmates and report the results with most of us, half, a few and nobody.", "Open answer."],
+    ["a", "Write five sentences comparing your routine with an astronaut's routine.", "Example: I always have a shower, but astronauts never have a shower."],
+  ],
+  quiz: [
+    ["«Hardly ever» means…", ["casi nunca", "casi siempre", "a menudo"], "About 5%."],
+    ["«Do you ever play tennis?» «Yes, I ___.»", ["sometimes do", "do sometimes play", "ever do"], "Adverb + do."],
+    ["He ___ his teeth every day.", ["brushes", "brushs", "brush"], "-sh + es."],
+    ["«Nobody ___ to bed after eleven.»", ["goes", "go", "doesn't go"], "Nobody + -s."],
+    ["Astronauts sleep…", ["in sleeping bags on the wall", "in normal beds", "on the floor"], "No gravity."],
+  ],
+  examen: [
+    ["«Does she ever ___ late?»", ["arrive", "arrives", "arrived"], "Base form after does."],
+    ["«___ of us play video games.» (more than half)", ["Most", "Nobody", "Every"], "Most of us."],
+  ],
+  tarjetas: [
+    ["hardly ever", "casi nunca (5%)."],
+    ["Do you ever…?", "¿Alguna vez…? Yes, I sometimes do."],
+    ["he / she / it", "plays, watches, studies, has."],
+    ["Survey report", "everybody, most of us, half, a few, nobody."],
+  ],
+  glosario: [
+    ["always", "Siempre."],
+    ["usually", "Normalmente."],
+    ["often", "A menudo."],
+    ["sometimes", "A veces."],
+    ["hardly ever", "Casi nunca."],
+    ["never", "Nunca."],
+    ["ever", "Alguna vez (en preguntas)."],
+    ["How often?", "¿Con qué frecuencia?"],
+    ["routine", "Rutina."],
+    ["survey", "Encuesta."],
+    ["most of us", "La mayoría de nosotros."],
+    ["nobody", "Nadie."],
+  ],
+  situacion: {
+    titulo: "Healthy habits survey",
+    reto: "La clase investiga en inglés los hábitos de los alumnos del colegio y presenta los resultados con gráficos y recomendaciones.",
+    pasos: ["Write six questions with How often…? and Do you ever…? about food, sleep, sport and screens.", "Ask students from your class and another class and write the answers in a table.", "Make bar charts and write the results with most of us, half, a few and nobody.", "Present your report and give three healthy tips with always, often and never."],
+    producto: "Un informe de hábitos saludables con gráficos y consejos.",
+    evaluacion: ["Uses adverbs of frequency in the correct position.", "Asks and answers questions with ever and How often.", "Uses the third person -s correctly.", "Reports survey results clearly."],
+  },
+});
