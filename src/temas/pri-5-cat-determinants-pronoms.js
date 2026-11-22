@@ -88,3 +88,89 @@ module.exports = P.tema({
   saberes: "Reflexió sobre la llengua: els determinants (articles, demostratius, possessius, numerals, quantitatius, indefinits, interrogatius i exclamatius); apòstrof i contraccions; pronoms personals forts; introducció als pronoms febles; distinció entre determinant i pronom",
   ideas: ["Semàfor de demostratius amb objectes de l'aula.", "Detectiu del nom: decidir si cada paraula és determinant o pronom.", "Jocs de preguntes i respostes amb en i hi."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Conèixer els possessius àtons mon, ton, son", "Escriure ordinals i partitius amb les abreviatures correctes", "Usar els pronoms relatius que, què, qui i on", "Evitar els castellanismes més freqüents amb determinants i pronoms"],
+  lectura: { titulo: "Ma mare i sa casa", html: `<p>La Joana havia anat de vacances a Menorca, a casa d'uns cosins. Quan va tornar a l'escola, va explicar a classe el que més li havia sorprès:</p><p>—Allà diuen «<b>sa</b> platja», «<b>es</b> cotxe» i «<b>ses</b> cases»! I la meva tia, quan parla de la seva mare, diu «<b>ma</b> mare» i, del seu germà, «<b>mon</b> germà».</p><p>El mestre va somriure i va escriure a la pissarra dues columnes.</p><p>—Aquí hi ha dues coses diferents que sovint es confonen —va explicar—. A les Illes Balears s'usa l'<b>article salat</b>: <i>es, sa, ets, ses</i>. Són articles, com el nostre <i>el, la, els, les</i>. En canvi, <b>mon</b>, <b>ma</b>, <b>ton</b>, <b>ta</b>, <b>son</b>, <b>sa</b> són <b>possessius</b>: volen dir «el meu», «la meva», «el teu»… I aquests no són només de les Illes: també els fem servir a tot arreu amb algunes paraules, com «ma mare» o «mon pare».</p><p>—Llavors «sa casa» pot voler dir dues coses? —va preguntar en Pau.</p><p>—Exacte! A Mallorca pot ser «la casa» (article salat); en un altre lloc, «la seva casa» (possessiu). El context ens ho aclareix.</p><p>La Joana va quedar ben satisfeta. Havia tornat de vacances amb un bronzejat i una lliçó de gramàtica.</p>` },
+  tras: {
+    "Demostratius i possessius": [
+      ["Els possessius àtons: mon, ton, son", `<p>A més dels possessius que ja coneixes (<i>el meu, la teva, els seus</i>…), el català té unes formes més curtes que s'anomenen <b>possessius àtons</b>, perquè es pronuncien sense força i van sempre davant del nom, <b>sense article</b>:</p><ul><li>1a persona: <b>mon</b> (masculí), <b>ma</b> (femení), <b>mos</b>, <b>mes</b> (plural)</li><li>2a persona: <b>ton</b>, <b>ta</b>, <b>tos</b>, <b>tes</b></li><li>3a persona: <b>son</b>, <b>sa</b>, <b>sos</b>, <b>ses</b></li></ul><p>Avui s'usen sobretot amb noms de <b>família</b> i amb la paraula <b>casa</b>: <i>mon pare, ma mare, ton germà, sa padrina, a ca ma tia</i>. També apareixen en textos literaris i en molts parlars, especialment a les Illes Balears i en zones del País Valencià.</p><p>Davant de vocal, <b>ma, ta, sa</b> s'apostrofen: <i>m'àvia, s'amiga</i>. En la llengua estàndard és més habitual dir <i>la meva àvia</i>.</p><p>Compte amb el diacrític: <b>mon</b> (possessiu) no porta accent, però <b>món</b> (planeta) sí.</p>`,
+        L.tabla("Possessius àtons", ["persona", "masc.", "fem.", "plural"], [["1a", "mon", "ma", "mos / mes"], ["2a", "ton", "ta", "tos / tes"], ["3a", "son", "sa", "sos / ses"]], AZ), ["QC3wnEKr4ms", "La familia y los pronombres posesivos en catalán", "3CatCampus", 33106]],
+    ],
+    "Numerals, quantitatius i indefinits": [
+      ["Ordinals i partitius", `<p>Els <b>numerals ordinals</b> indiquen l'<b>ordre</b>: primer, segon, tercer… Els quatre primers són irregulars; a partir del cinquè es formen afegint <b>-è</b> (o <b>-ena</b> en femení) al número:</p><ul><li><b>primer, primera</b> · <b>segon, segona</b> · <b>tercer, tercera</b> · <b>quart, quarta</b></li><li><b>cinquè, cinquena</b> · <b>sisè, sisena</b> · <b>setè</b> · <b>vuitè</b> · <b>novè</b> · <b>desè</b></li><li><b>onzè</b> · <b>dotzè</b> · <b>vintè</b> · <b>centè</b></li></ul><p>Les <b>abreviatures</b> s'escriuen amb el número i l'última lletra (o les dues últimes) de la paraula:</p><ul><li>1r (primer), 1a (primera), 2n (segon), 2a (segona), 3r (tercer), 4t (quart)</li><li>5è (cinquè), 5a (cinquena), 6è, 10è…</li></ul><p>Els <b>numerals partitius</b> indiquen una <b>part</b> d'un tot: <b>mig</b> o <b>meitat</b> (1/2), <b>terç</b> (1/3), <b>quart</b> (1/4), <b>cinquè</b> (1/5), <b>sisè</b> (1/6)… <b>dècim</b> (1/10), <b>centèsim</b> (1/100). Per exemple: «M'he menjat <b>un quart</b> de pizza», «En falten <b>tres cinquens</b>».</p><p>Recorda: en català no diem «el cinco piso», sinó «el <b>cinquè</b> pis», i escrivim «5è pis».</p>`,
+        L.tabla("Ordinals i abreviatures", ["número", "ordinal", "abreviatura"], [["1", "primer / primera", "1r / 1a"], ["2", "segon / segona", "2n / 2a"], ["3", "tercer", "3r"], ["4", "quart", "4t"], ["5", "cinquè", "5è / 5a"]], VE)],
+    ],
+    "Determinant o pronom?": [
+      ["Els pronoms relatius: que, què, qui, on", `<p>Els <b>pronoms relatius</b> serveixen per unir dues frases i evitar repetir una paraula. Fan referència a un nom que ja ha aparegut abans, que s'anomena <b>antecedent</b>.</p><p>«Tinc un gos. El gos es diu Rufus.» → «Tinc un gos <b>que</b> es diu Rufus.»</p><ul><li><b>que</b> (àton): el més usat, sense preposició. <i>El llibre <b>que</b> llegeixo és d'aventures.</i></li><li><b>què</b> (tònic, amb accent): després d'una preposició quan l'antecedent és una cosa. <i>El llibre de <b>què</b> et parlava.</i> <i>La raó per <b>què</b> ho he fet.</i></li><li><b>qui</b>: després d'una preposició quan l'antecedent és una persona. <i>La noia amb <b>qui</b> jugo a tennis.</i> <i>El mestre a <b>qui</b> vaig preguntar.</i></li><li><b>on</b>: quan l'antecedent és un lloc. <i>El poble <b>on</b> vaig néixer.</i></li></ul><p>També es pot usar <b>el qual, la qual, els quals, les quals</b>, sobretot en textos formals: <i>La casa davant de <b>la qual</b> hi ha un arbre.</i></p><p>Un error freqüent és fer servir «que» on cal «on» o «qui»: no diem «el poble que vaig néixer», sinó «el poble <b>on</b> vaig néixer».</p>`,
+        L.filas("Pronoms relatius", [["que", "el llibre que llegeixo", AZ], ["què", "el llibre de què parlo", VE], ["qui", "la noia amb qui jugo", NA], ["on", "el poble on visc", MO]]), ["OlPJngdgXvs", "💛 Quan porta accent QUÈ en català? | Aprèn a distingir entre QUÈ i QUE", "Parlem d'escriure en català", 61057]],
+    ],
+  },
+  final: [
+    ["Tu, vostè i vós: el tractament", `<p>Quan ens adrecem a algú, podem triar diferents <b>tractaments</b>, segons la confiança i el respecte:</p><ul><li><b>Tu</b> (tractament de confiança): amb amics, família, companys. El verb va en 2a persona del singular: <i>Tu <b>vens</b> demà?</i></li><li><b>Vostè</b> (tractament de respecte): amb adults que no coneixem o en situacions formals. El verb va en <b>3a persona</b>: <i>Vostè <b>ve</b> demà?</i> En plural, <b>vostès</b> va amb el verb en 3a persona del plural: <i>Vostès <b>arriben</b> demà?</i></li><li><b>Vós</b> (tractament de respecte tradicional): s'adreça a una sola persona però el verb va en <b>2a persona del plural</b>: <i>Vós <b>sou</b> molt amable.</i> S'usa en la literatura, en zones del País Valencià i amb persones grans.</li></ul><p>Els pronoms febles també canvien: amb <i>tu</i> diem «<b>et</b> veig», amb <i>vostè</i> «<b>el</b> veig» o «<b>la</b> veig», i amb <i>vós</i> «<b>us</b> veig».</p><p>En una carta formal, una entrevista o quan parlem amb la directora de l'escola, és adequat fer servir <i>vostè</i>. Amb els companys de classe, <i>tu</i>.</p>`,
+      H.dos("Tractament de confiança i de respecte", ["Tu", ["tu vens", "et veig", "amics, família"], VE], ["Vostè", ["vostè ve", "el / la veig", "formal"], AZ])],
+    ["Castellanismes amb determinants i pronoms", `<p>Com que el català i el castellà conviuen, de vegades se'ns escapen paraules o construccions castellanes, que s'anomenen <b>castellanismes</b>. Aquests són alguns dels més freqüents amb determinants i pronoms:</p><ul><li><b>«lo»</b> neutre no existeix en català: no diem «lo bo» sinó <b>el que és bo</b>; no «lo mateix» sinó <b>el mateix</b>; no «lo de sempre» sinó <b>allò de sempre</b>.</li><li><b>«algo»</b> → <b>alguna cosa</b> o <b>quelcom</b>: «Vols <b>alguna cosa</b>?»</li><li><b>«vàrios»</b> → <b>diversos, uns quants</b>: «Tinc <b>uns quants</b> llibres».</li><li><b>«ningun»</b> → <b>cap</b>: «No tinc <b>cap</b> germà».</li><li><b>«els dos»</b> (en el sentit d'«ambos») → <b>tots dos</b> o <b>ambdós</b>: «Vam venir <b>tots dos</b>».</li><li><b>«demés»</b> → <b>els altres, la resta</b>: «Els <b>altres</b> ja han marxat».</li><li><b>«tal vegada»</b> és correcte, però també <b>potser</b>.</li></ul><p>Detectar aquests errors ens ajuda a parlar i escriure un català més ric i genuí. No es tracta de tenir por d'equivocar-se, sinó de conèixer les formes pròpies de la nostra llengua.</p>`,
+      L.filas("Castellanismes i forma correcta", [["lo bo", "el que és bo", RO], ["algo", "alguna cosa", AZ], ["vàrios", "uns quants", VE], ["ningun", "cap", NA], ["els demés", "els altres", MO]]), ["toj2AUseOf4", "Top 40 castellanismes, i les alternatives en català | OK CATALÀ | 4K", "OK CATALÀ", 48649]],
+  ],
+  ejemplos: [
+    ["Uneix amb un relatiu: «Aquesta és la plaça. A la plaça jugo cada tarda.»", ["L'antecedent és un lloc: la plaça.", "Fem servir «on»."], "Aquesta és la plaça on jugo cada tarda."],
+    ["Corregeix: «No tinc ningun llapis i vull algo per escriure.»", ["ningun → cap.", "algo → alguna cosa."], "No tinc cap llapis i vull alguna cosa per escriure."],
+  ],
+  errores: ["Dir «lo mateix» o «lo bo»: en català no hi ha article neutre «lo».", "Escriure «el poble que vaig néixer» en lloc de «el poble on vaig néixer»."],
+  ejercicios: [
+    ["b", "Escriu l'abreviatura de: primer, segona, quart, cinquè.", "1r, 2a, 4t, 5è."],
+    ["b", "Completa amb mon, ma o mos: ___ pare, ___ mare, ___ cosins.", "mon, ma, mos."],
+    ["b", "Quin relatiu fem servir per a un lloc?", "on."],
+    ["b", "Com es diu «algo» en català?", "alguna cosa (o quelcom)."],
+    ["b", "Amb quin tractament ens adrecem a un adult desconegut?", "Amb vostè."],
+    ["m", "Uneix: «La noia és la meva cosina. Jugo amb la noia.»", "La noia amb qui jugo és la meva cosina."],
+    ["m", "Diferència entre «sa casa» a Mallorca i en un text estàndard.", "A Mallorca pot ser l'article salat (la casa); en estàndard, possessiu (la seva casa)."],
+    ["m", "Escriu en lletres: 3r, 6a, 10è.", "tercer, sisena, desè."],
+    ["m", "Corregeix: «Lo millor de vàrios llibres és lo final.»", "El millor de diversos llibres és el final."],
+    ["m", "Passa a vostè: «Tu vens a la reunió?»", "Vostè ve a la reunió?"],
+    ["a", "Escriu un text curt sobre la teva família fent servir tres possessius àtons.", "Resposta oberta."],
+    ["a", "Escriu cinc frases amb que, què, qui, on i el qual.", "Resposta oberta."],
+    ["a", "Recull castellanismes que sentis durant una setmana i escriu-ne la forma correcta.", "Resposta oberta."],
+    ["a", "Escriu una carta formal a la directora fent servir el tractament de vostè.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["«Mon pare» vol dir…", ["el meu pare", "el món del pare", "el teu pare"], "Possessiu àton."],
+    ["L'abreviatura de «segona» és…", ["2a", "2n", "2na"], "Femení."],
+    ["«El llibre de ___ et parlava»", ["què", "que", "qui"], "Preposició + cosa."],
+    ["«No tinc ___ germà»", ["cap", "ningun", "algun"], "Negació."],
+    ["Amb «vostè», el verb va en…", ["3a persona", "2a persona", "1a persona"], "Vostè ve."],
+  ],
+  examen: [
+    ["«La noia amb ___ parlo»", ["qui", "què", "on"], "Persona."],
+    ["«Lo mateix» en català correcte és…", ["el mateix", "lo mateix", "l'idèntic"], "Sense article neutre."],
+  ],
+  tarjetas: [
+    ["Possessius àtons", "mon, ma, mos, mes; ton, ta…; son, sa, sos, ses."],
+    ["Ordinals", "1r, 2n, 3r, 4t, 5è; femení 1a, 2a…"],
+    ["Relatius", "que, què (prep. + cosa), qui (prep. + persona), on (lloc)."],
+    ["Castellanismes", "lo → el / allò; algo → alguna cosa; ningun → cap."],
+  ],
+  glosario: [
+    ["Possessiu àton", "Possessiu curt que va davant del nom sense article."],
+    ["Article salat", "Article de les Illes Balears: es, sa, ets, ses."],
+    ["Ordinal", "Numeral que indica ordre."],
+    ["Partitiu", "Numeral que indica una part d'un tot."],
+    ["Abreviatura", "Forma escurçada d'una paraula."],
+    ["Relatiu", "Pronom que uneix frases i es refereix a un antecedent."],
+    ["Antecedent", "Paraula a què es refereix un relatiu."],
+    ["Tractament", "Manera d'adreçar-se a una persona."],
+    ["Vostè", "Tractament de respecte amb el verb en 3a persona."],
+    ["Vós", "Tractament de respecte amb el verb en 2a persona del plural."],
+    ["Castellanisme", "Paraula o construcció presa del castellà sense necessitat."],
+    ["Genuí", "Propi i autèntic d'una llengua."],
+  ],
+  situacion: {
+    titulo: "La patrulla del bon català",
+    reto: "La classe crea una «patrulla» que durant dues setmanes recull errors amb determinants i pronoms i proposa la forma correcta en un mural divertit.",
+    pasos: ["Repartiu-vos les famílies: possessius, ordinals, relatius, tractaments i castellanismes.", "Durant dues setmanes, apunteu frases que sentiu o llegiu amb errors (sense dir qui les ha dit).", "Escriviu cada error amb la forma correcta i la regla en una targeta.", "Feu un mural i un concurs de preguntes amb les targetes per a tota la classe."],
+    producto: "Un mural de targetes amb errors i correccions.",
+    evaluacion: ["Usa correctament possessius àtons i ordinals.", "Tria el pronom relatiu adequat.", "Adequa el tractament a la situació.", "Detecta i corregeix castellanismes."],
+  },
+});
