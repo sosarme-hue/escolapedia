@@ -95,3 +95,100 @@ module.exports = tema({
   ideas: ["Animal relleno de texturas con rotulador fino y grueso.", "Dibujar emociones solo con líneas.", "Mural puntillista colectivo con bastoncillos y témpera."],
   fuentes: [["Museo Nacional Thyssen-Bornemisza: EducaThyssen", "https://www.educathyssen.org/"], ["Fundació Joan Miró", "https://www.fmirobcn.org/"]],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Formar imágenes con puntos", "Usar líneas paralelas, tramas y contornos", "Elegir el material adecuado para cada trazo", "Crear patrones decorativos con líneas"],
+  lectura: { titulo: "El lápiz de Paula", html: `<p>Paula siempre pedía lápices de colores nuevos por su cumpleaños. Pero aquel año, su tío Andrés, que era arquitecto, le regaló algo muy raro: un solo lápiz negro y un cuaderno con las hojas en blanco.</p><p>—¿Solo un lápiz? —preguntó Paula, un poco decepcionada.</p><p>—Un lápiz es suficiente para dibujar el mundo entero —contestó su tío—. Mira.</p><p>Se sentó a su lado y, con trazos suaves, dibujó un árbol. Después, apretando un poco más, hizo las sombras del tronco con rayitas muy juntas. Con puntitos dibujó la arena del suelo y con líneas onduladas, el viento entre las hojas.</p><p>Paula estaba asombrada. Con un solo lápiz había hojas suaves, corteza rugosa, sombras oscuras y nubes ligeras.</p><p>—El secreto está en cómo mueves la mano —dijo el tío—: rápido o despacio, apretando o casi sin tocar.</p><p>Aquella semana, Paula llenó medio cuaderno. Dibujó a su gato con líneas suaves y una tormenta con líneas en zigzag. Descubrió que el lápiz negro podía hacer muchas más cosas de las que ella pensaba.</p>` },
+  tras: {
+    "El punto": [
+      ["Imágenes hechas de puntos", `<p>Si ponemos muchos puntos juntos, de lejos nuestros ojos los unen y vemos una <mark>imagen completa</mark>. Este truco se usa en muchas partes:</p><ul><li><b>El puntillismo</b>: el pintor francés <b>Georges Seurat</b> pintó cuadros enormes, como <i>Tarde de domingo en la isla de la Grande Jatte</i>, solo con puntitos de colores puros. Si pones un punto azul junto a uno amarillo, de lejos ves verde.</li><li><b>Las pantallas</b>: la tele, el ordenador y el móvil forman sus imágenes con millones de puntitos de luz llamados <b>píxeles</b>. Con una lupa se pueden ver.</li><li><b>Los mosaicos</b>: los romanos hacían suelos con miles de piedrecitas de colores, las <b>teselas</b>.</li><li><b>La impresión</b>: las fotos de las revistas están hechas de puntos de cuatro colores. Mira una con lupa.</li><li><b>El arte aborigen</b> de Australia usa puntos de colores para pintar animales, caminos y sueños.</li></ul><p>Cuanto más <b>juntos</b> están los puntos, más oscura parece la zona; cuanto más <b>separados</b>, más clara. Así se hacen sombras solo con puntos.</p><p><b>Actividad</b>: con la punta de un bastoncillo y témpera, pinta una fruta a la manera de Seurat, solo con puntos.</p>`,
+        L6.filas("Puntos", [["puntillismo", "Seurat", cAZ], ["píxeles", "pantallas", cMO], ["teselas", "mosaicos", cNA], ["aborigen", "Australia", cRO]]),
+        ["PY5cW4ZCKZI", "Georges Seurat. Breve biografía y sus obras. Ideal para niños", "Inma", 79813]],
+    ],
+    "Posición de las líneas rectas": [
+      ["Paralelas, cruzadas y tramas", `<p>Las líneas pueden relacionarse entre ellas de distintas formas.</p><ul><li><b>Líneas paralelas</b>: van una al lado de la otra, siempre a la misma distancia, y nunca se juntan, como las vías del tren o las líneas de un cuaderno.</li><li><b>Líneas que se cortan</b> o <b>secantes</b>: se cruzan en un punto, como una X.</li><li><b>Líneas perpendiculares</b>: se cortan formando una esquina recta, como una cruz «+» o la esquina de una hoja.</li></ul><p>Cuando repetimos muchas líneas juntas formamos una <mark>trama</mark>:</p><ul><li><b>Rayado</b>: muchas líneas paralelas.</li><li><b>Cuadrícula</b>: líneas paralelas cruzadas con otras perpendiculares, como una red o un tablero.</li><li><b>Sombreado cruzado</b>: rayas en una dirección y encima en otra. Cuantas más capas, más oscuro.</li></ul><p>Los dibujantes de cómics y los grabadores usan tramas para hacer <b>sombras</b> sin usar color, igual que con los puntos.</p><p>También las encontramos en la vida diaria: en los tejidos de la ropa (cuadros, rayas), en las vallas, en las rejas y en las cestas de mimbre.</p><p><b>Actividad</b>: dibuja cuatro cuadrados y rellena cada uno con una trama: rayado, cuadrícula, rayado diagonal y sombreado cruzado.</p>`,
+        H6.flujo("Tramas", ["paralelas|rayado", "cruzadas|red", "dos capas|sombra", "tres capas|oscuro"], cAZ)],
+    ],
+    "El trazo: fino, grueso, suave y fuerte": [
+      ["Materiales para trazar", `<p>Cada material deja un <mark>trazo diferente</mark>. Conocerlos nos ayuda a elegir el adecuado.</p><ul><li><b>Lápiz de grafito</b>: hay lápices duros (letra <b>H</b>), que hacen líneas finas y claras, y lápices blandos (letra <b>B</b>), que hacen líneas oscuras y suaves. El <b>HB</b> está en medio, y es el de escribir. Para dibujar sombras va muy bien el 2B.</li><li><b>Lápices de colores</b>: trazo fino; se pueden superponer y mezclar.</li><li><b>Ceras</b>: trazo grueso y brillante; muy buenas para colorear superficies grandes.</li><li><b>Rotuladores</b>: trazo limpio y de color intenso; los de punta fina sirven para repasar contornos.</li><li><b>Carboncillo</b>: un palito de madera quemada que hace trazos muy negros y que se difuminan con el dedo. ¡Mancha mucho!</li><li><b>Pincel y tinta</b>: según cuánto apretemos, la línea se hace fina o gruesa en un mismo trazo. Así escriben los calígrafos japoneses y chinos.</li></ul><p>También importa el <b>papel</b>: en un papel liso el trazo resbala; en uno rugoso, deja más granitos de material.</p><p><b>Actividad</b>: haz una tabla con una línea de cada material y anota cómo es su trazo: fino, grueso, suave o fuerte.</p>`,
+        L6.filas("Materiales", [["lápiz H", "fino, claro", cAZ], ["lápiz B", "oscuro, suave", cMO], ["ceras", "grueso", cNA], ["carboncillo", "muy negro", cRO]])],
+    ],
+    "Líneas que expresan": [
+      ["Contorno y silueta", `<p>El <mark>contorno</mark> es la línea que rodea una figura y la separa del fondo. Es como su borde. Con solo el contorno ya reconocemos muchas cosas: una manzana, una casa o una mano.</p><p>Si rellenamos el contorno de un solo color oscuro, sin detalles, obtenemos una <b>silueta</b>. Las siluetas se reconocen por su forma: un gato, una bicicleta, una persona corriendo. Por eso se usan en las señales de tráfico y en los iconos.</p><p>Dos ejercicios que usan los artistas para mejorar el contorno:</p><ul><li><b>Contorno ciego</b>: mira un objeto (tu mano, una taza) y dibuja su contorno <b>sin mirar el papel</b>, despacio, siguiendo con los ojos el borde. El resultado es raro y divertido, pero entrena muchísimo la mirada.</li><li><b>Línea continua</b>: dibuja algo <b>sin levantar el lápiz</b> en ningún momento. El pintor <b>Picasso</b> hizo así dibujos famosos de animales, como un perro o un camello, con una sola línea.</li></ul><p>Las sombras chinescas son siluetas hechas con las manos delante de una luz. ¡Puedes hacer un conejo, un pájaro o un perro en la pared!</p><p><b>Actividad</b>: dibuja tu mano con contorno ciego y después un animal con una sola línea continua.</p>`,
+        H6.dos("Bordes", ["CONTORNO", ["línea borde", "sin relleno", "ciego"], cAZ], ["SILUETA", ["relleno oscuro", "solo forma", "señales"], cMO])],
+    ],
+    "Texturas con puntos y líneas": [
+      ["El frottage: calcar texturas", `<p>El <mark>frottage</mark> es una técnica muy divertida para capturar las texturas reales. Su nombre viene del francés <i>frotter</i>, que significa «frotar».</p><p>Así se hace:</p><ul><li><b>1.</b> Busca una superficie con relieve: la corteza de un árbol, una hoja, una moneda, una rejilla, una suela de zapato o un ladrillo.</li><li><b>2.</b> Pon encima una hoja de papel fino.</li><li><b>3.</b> Frota por encima con una cera o un lápiz <b>tumbado</b>, sin la punta.</li><li><b>4.</b> ¡La textura aparece en el papel como por arte de magia!</li></ul><p>Lo inventó el pintor alemán <b>Max Ernst</b> en 1925, cuando se fijó en las vetas de madera del suelo de su casa. Después recortaba sus frottages y los usaba para crear bosques y animales fantásticos.</p><p>Con frottage puedes crear un <b>muestrario de texturas</b> y después usarlas en collages: la textura de una hoja puede ser el ala de un pájaro, y la de una rejilla, la piel de un dinosaurio.</p><p>Una técnica hermana es el <b>estampado</b>: mojar un objeto en pintura y apretarlo sobre el papel, como un sello.</p><p><b>Actividad</b>: sal al patio con papel y ceras y recoge diez texturas distintas con frottage. Después haz un animal con ellas.</p>`,
+        H6.flujo("Frottage", ["buscar|relieve", "papel|encima", "frotar|cera", "¡aparece!|textura"], cVE)],
+    ],
+  },
+  final: [
+    ["Patrones y cenefas", `<p>Un <mark>patrón</mark> es un dibujo que se <b>repite</b> siempre igual, siguiendo un orden. Los patrones hechos con líneas y puntos están en todas partes: en la ropa, en el papel de regalo, en los azulejos y en los manteles.</p><p>Una <b>cenefa</b> es una tira decorativa con un patrón que se repite a lo largo, como un borde. Se usa para adornar paredes, platos, vestidos y libros.</p><p>Una cenefa famosa es la <b>greca</b>, de la antigua Grecia: una línea recta que se dobla en ángulos rectos formando una especie de laberinto que se repite.</p><p>Para hacer una cenefa:</p><ul><li><b>1.</b> Dibuja dos líneas paralelas para hacer una tira.</li><li><b>2.</b> Inventa un <b>motivo</b>: por ejemplo, una ola, un zigzag o un círculo con un punto.</li><li><b>3.</b> Repite el motivo siempre igual y a la misma distancia.</li><li><b>4.</b> Puedes <b>alternar</b> dos motivos: ola, punto, ola, punto…</li></ul><p>En la <b>Alhambra</b> de Granada hay paredes llenas de patrones geométricos hechos con líneas que se cruzan. Los artistas andalusíes eran maestros del patrón.</p><p><b>Actividad</b>: decora el borde de una hoja con tres cenefas distintas hechas solo con puntos y líneas.</p>`,
+      L6.filas("Patrones", [["cenefa", "tira que se repite", cNA], ["greca", "Grecia", cAZ], ["motivo", "dibujo base", cVE], ["Alhambra", "geometría", cRO]])],
+    ["Líneas a nuestro alrededor", `<p>Si miramos con atención, encontramos <mark>líneas por todas partes</mark>.</p><ul><li>En la <b>naturaleza</b>: las vetas de la madera, los anillos de un tronco, las rayas de la cebra, las nervaduras de una hoja, las ondas del agua, las líneas de la palma de la mano o las huellas dactilares.</li><li>En la <b>ciudad</b>: los pasos de cebra, los cables, las vías del tren, las rejas, las líneas de la carretera y las fachadas de los edificios.</li><li>En los <b>planos y mapas</b>: los arquitectos y los ingenieros dibujan con líneas muy precisas, usando regla y escuadra, para que se pueda construir una casa o un puente.</li><li>En la <b>escritura</b>: las letras son líneas. La <b>caligrafía</b> es el arte de escribir con letra bonita, y en Japón y China es un arte muy valorado.</li><li>En los <b>gráficos</b>: las líneas sirven para mostrar cómo sube o baja la temperatura, por ejemplo.</li></ul><p>Las líneas organizan, decoran, informan y expresan. Por eso decimos que la línea es el elemento más importante del dibujo, después del punto.</p><p><b>Actividad</b>: haz un «cazador de líneas»: fotografía o dibuja diez líneas que encuentres en el colegio y clasifícalas en rectas, curvas, quebradas y onduladas.</p>`,
+      H6.rueda("Líneas", "MUNDO", [["naturaleza", cVE], ["ciudad", cAZ], ["planos", cNA], ["letras", cRO]])],
+  ],
+  ejemplos: [
+    ["¿Cómo haces una zona más oscura solo con puntos?", ["La oscuridad depende de la separación.", "Puntos muy juntos parecen más oscuros."], "Poniendo los puntos más juntos."],
+    ["¿Qué lápiz eliges para una sombra oscura y suave?", ["H es duro y claro; B es blando y oscuro.", "Para sombras va bien el 2B."], "Un lápiz B, como el 2B."],
+  ],
+  errores: ["Frotar con la punta del lápiz en el frottage: hay que usarlo tumbado.", "Confundir líneas paralelas (no se juntan) con perpendiculares (se cortan en esquina recta)."],
+  ejercicios: [
+    ["b", "¿Cómo se llaman los puntos de luz de una pantalla?", "Píxeles."],
+    ["b", "¿Qué son líneas paralelas?", "Líneas que van a la misma distancia y nunca se juntan."],
+    ["b", "¿Qué material deja un trazo muy negro que se difumina con el dedo?", "El carboncillo."],
+    ["b", "¿Qué es una silueta?", "Una figura rellena de un color oscuro, sin detalles."],
+    ["b", "¿Qué significa «frotter»?", "Frotar."],
+    ["m", "¿Quién inventó el puntillismo?", "Georges Seurat."],
+    ["m", "Explica qué es el sombreado cruzado.", "Rayas en una dirección y encima en otra para oscurecer."],
+    ["m", "¿Qué diferencia hay entre un lápiz H y uno B?", "El H es duro y claro; el B, blando y oscuro."],
+    ["m", "¿Qué es el contorno ciego?", "Dibujar el borde de un objeto sin mirar el papel."],
+    ["m", "¿Qué es una cenefa?", "Una tira decorativa con un motivo que se repite."],
+    ["a", "En la lectura, ¿qué quiere decir el tío con «el secreto está en cómo mueves la mano»?", "Que el trazo cambia según la velocidad y la presión, y así se logran efectos distintos."],
+    ["a", "Haz un frottage y transforma la textura en un animal.", "Respuesta abierta."],
+    ["a", "Diseña una cenefa alternando dos motivos.", "Respuesta abierta."],
+    ["a", "Busca cinco ejemplos de tramas en la ropa o en objetos de casa.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Las piedrecitas de un mosaico se llaman…", ["teselas", "píxeles", "tramas"], "Puntos."],
+    ["Dos líneas que forman una esquina recta son…", ["perpendiculares", "paralelas", "onduladas"], "Líneas."],
+    ["El lápiz de escribir normal es el…", ["HB", "6B", "carboncillo"], "Materiales."],
+    ["Dibujar sin levantar el lápiz se llama…", ["línea continua", "frottage", "trama"], "Contorno."],
+    ["El frottage lo inventó…", ["Max Ernst", "Seurat", "Picasso"], "Frottage."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué regalo le hace el tío a Paula?", ["un lápiz negro y un cuaderno", "lápices de colores", "un pincel"], "Lectura."],
+    ["La greca es una cenefa de…", ["la antigua Grecia", "Japón", "Australia"], "Patrones."],
+  ],
+  tarjetas: [
+    ["Imágenes de puntos", "Puntillismo, píxeles, mosaicos, impresión."],
+    ["Tramas", "Rayado, cuadrícula y sombreado cruzado."],
+    ["Materiales", "H claro, B oscuro, ceras, carboncillo, pincel."],
+    ["Frottage", "Papel encima de un relieve y frotar con cera tumbada."],
+  ],
+  glosario: [
+    ["Puntillismo", "Pintura hecha con puntos de colores."],
+    ["Píxel", "Punto de luz de una pantalla."],
+    ["Tesela", "Piedrecita de un mosaico."],
+    ["Paralelas", "Líneas que nunca se juntan."],
+    ["Perpendiculares", "Líneas que se cortan en ángulo recto."],
+    ["Trama", "Repetición de líneas o puntos."],
+    ["Grafito", "Material negro de la mina del lápiz."],
+    ["Carboncillo", "Palito de madera quemada para dibujar."],
+    ["Contorno", "Línea que rodea una figura."],
+    ["Silueta", "Figura rellena de un color, sin detalles."],
+    ["Frottage", "Técnica de frotar para copiar texturas."],
+    ["Cenefa", "Tira decorativa que se repite."],
+  ],
+  situacion: {
+    titulo: "El museo de las líneas",
+    reto: "La clase crea un pequeño museo con obras hechas solo con puntos y líneas, para demostrar que no hace falta color para hacer arte.",
+    pasos: ["Recoger texturas del patio con frottage.", "Pintar una fruta con puntillismo.", "Dibujar un animal con línea continua y otro con tramas.", "Decorar los marcos con cenefas y montar la exposición."],
+    producto: "Un museo de obras de puntos y líneas con cartelas explicativas.",
+    evaluacion: ["Usa puntos y tramas para hacer sombras.", "Elige el material adecuado a cada trazo.", "Aplica bien el frottage y la línea continua.", "Crea patrones ordenados."],
+  },
+});

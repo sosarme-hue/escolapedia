@@ -95,3 +95,100 @@ module.exports = tema({
   ideas: ["Paisaje en tres planos con papel rasgado.", "Comparar paisajes de Sorolla, Monet y Van Gogh.", "Fotografiar el paisaje del colegio en cada estación."],
   fuentes: [["Museo Sorolla", "https://www.culturaydeporte.gob.es/msorolla/inicio.html"], ["Museo Nacional del Prado: Beruete", "https://www.museodelprado.es/"]],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Reconocer paisajes de España", "Dibujar un camino con punto de fuga", "Pintar el cielo en distintos momentos del día", "Crear arte con la naturaleza y cuidarla"],
+  lectura: { titulo: "El cuaderno de viaje de Carlota", html: `<p>Ese verano, Carlota y su familia recorrieron España en una furgoneta. Antes de salir, su abuelo le regaló un cuaderno con tapas de cartón y una cajita de acuarelas.</p><p>—En vez de hacer solo fotos, pinta lo que veas —le dijo—. Así lo recordarás mejor.</p><p>En Asturias, Carlota pintó montañas muy verdes y nubes bajas, y tuvo que mezclar muchos verdes distintos. En Castilla, el paisaje era casi plano: campos dorados de trigo hasta el horizonte y un cielo enorme. En Andalucía pintó pueblos blancos colgados de las colinas. Y en Lanzarote descubrió algo que nunca había visto: tierra negra de volcán y montañas de color rojizo.</p><p>Cada tarde se sentaba un rato a pintar. Primero el horizonte, luego el cielo, después las montañas del fondo, más pálidas, y al final lo que tenía más cerca, con más detalle.</p><p>Al volver a casa, el cuaderno estaba lleno de manchas de colores, flores secas pegadas y pequeñas notas.</p><p>Su abuelo lo hojeó despacio.</p><p>—¿Ves? Ahora tienes tu propio mapa de España, pintado por ti.</p>` },
+  tras: {
+    "Paisajes naturales y urbanos": [
+      ["Paisajes de España", `<p>España tiene paisajes muy <mark>variados</mark>, como descubre Carlota en la lectura.</p><ul><li><b>Montaña</b>: en los Pirineos, los Picos de Europa o Sierra Nevada hay cumbres altas, bosques y nieve en invierno. Predominan los <b>verdes</b>, los grises y el blanco.</li><li><b>Meseta</b>: en el centro de la península el terreno es llano y amplio, con campos de cereal y olivos. El horizonte se ve muy lejos y el cielo ocupa mucho espacio. Predominan los <b>amarillos y ocres</b>.</li><li><b>Costa</b>: playas, acantilados y puertos. En el norte, el mar es bravo y la costa, verde; en el Mediterráneo, el mar es tranquilo y muy azul.</li><li><b>Islas</b>: las Baleares tienen calas de agua transparente; las Canarias, paisajes <b>volcánicos</b> con tierra negra y roja, como el Teide o Lanzarote.</li><li><b>Desierto</b>: en Almería está el desierto de Tabernas, uno de los pocos de Europa, donde se han rodado muchas películas del oeste.</li></ul><p>Cada paisaje tiene sus colores, sus líneas y su luz. Un buen pintor de paisajes observa todo eso antes de pintar.</p><p><b>Actividad</b>: elige un paisaje de España y haz una paleta con sus cinco colores principales.</p>`,
+        L6.filas("España", [["montaña", "verdes, blanco", cVE], ["meseta", "ocres, amarillo", cNA], ["costa", "azules", cAZ], ["Canarias", "negro volcánico", cRO]])],
+    ],
+    "Cerca y lejos: tamaño y posición": [
+      ["El punto de fuga", `<p>¿Te has fijado en que las vías del tren o los bordes de una carretera recta parecen <b>juntarse</b> a lo lejos? En realidad siguen igual de separadas, pero nuestros ojos las ven acercarse hasta unirse en un punto sobre el horizonte. Ese punto se llama <mark>punto de fuga</mark>.</p><p>Los pintores usan este truco, llamado <b>perspectiva</b>, para que sus cuadros tengan <b>profundidad</b>. Así se dibuja un camino que se aleja:</p><ul><li><b>1.</b> Traza la línea del horizonte.</li><li><b>2.</b> Marca un punto en el horizonte: es el punto de fuga.</li><li><b>3.</b> Desde abajo del papel, traza dos líneas que vayan desde los lados hasta el punto de fuga: es el camino, ancho delante y estrecho al fondo.</li><li><b>4.</b> Dibuja árboles o farolas a los lados: los de delante, grandes; los del fondo, cada vez más pequeños, siguiendo también las líneas hacia el punto de fuga.</li></ul><p>Los artistas del <b>Renacimiento</b>, en Italia, hace unos 600 años, estudiaron la perspectiva con mucho cuidado. Antes, los cuadros parecían más planos.</p><p>Encontramos puntos de fuga en pasillos, calles rectas, ríos, filas de árboles y vías del tren.</p><p><b>Actividad</b>: dibuja una carretera con árboles a los lados usando un punto de fuga.</p>`,
+        H6.flujo("Perspectiva", ["horizonte|línea", "punto|de fuga", "camino|2 líneas", "árboles|menguan"], cAZ)],
+    ],
+    "El color y la distancia": [
+      ["El cielo y la hora del día", `<p>El <mark>cielo</mark> ocupa a menudo la mitad de un paisaje, y cambia muchísimo a lo largo del día.</p><ul><li><b>Amanecer</b>: tonos rosas, naranjas suaves y amarillos pálidos cerca del horizonte.</li><li><b>Mediodía</b>: azul intenso arriba y más claro cerca del horizonte. La luz es blanca y las sombras, cortas.</li><li><b>Atardecer</b>: naranjas, rojos y violetas. El sol se ve grande y las sombras se alargan mucho.</li><li><b>Noche</b>: azul oscuro casi negro, con la luna y las estrellas. Las ventanas de las casas brillan amarillas.</li></ul><p>Las <b>nubes</b> también cambian el paisaje: los <b>cúmulos</b> son blancos y esponjosos, como algodón; los <b>estratos</b>, capas grises que tapan el cielo; los <b>cumulonimbos</b>, nubes enormes y oscuras de tormenta.</p><p><b>Truco para pintar el cielo</b>: empieza por arriba con el color más intenso y, al bajar hacia el horizonte, añade agua o blanco para que se aclare. Las nubes se pueden hacer quitando pintura con un papel arrugado cuando aún está húmeda.</p><p>El pintor <b>Claude Monet</b> pintó la misma catedral muchas veces a distintas horas para mostrar cómo cambiaba la luz.</p><p><b>Actividad</b>: pinta el mismo paisaje dos veces: de día y de noche.</p>`,
+        L6.filas("Cielos", [["amanecer", "rosa, amarillo", cNA], ["mediodía", "azul intenso", cAZ], ["atardecer", "naranja, rojo", cRO], ["noche", "azul oscuro", cMO]]),
+        ["cCnZLHFKTSo", "Cómo dibujar un PAISAJE DÍA Y NOCHE con lápices de colores - ideas de dibujos fáciles", "RaniDraws Dibujo!", 8291818]],
+    ],
+    "Las estaciones en el paisaje": [
+      ["Pintar al aire libre", `<p>Durante mucho tiempo, los pintores pintaban los paisajes dentro de su taller, de memoria o a partir de bocetos. Pero hace unos 150 años, un grupo de pintores franceses, los <mark>impresionistas</mark>, decidió salir a pintar <b>al aire libre</b>, delante del paisaje.</p><p>Esto fue posible gracias a un invento: los <b>tubos de pintura</b>, que se podían llevar en una caja. Antes, los pintores tenían que preparar sus colores moliendo pigmentos en el taller.</p><p>Los impresionistas, como <b>Claude Monet</b>, querían captar la <b>impresión</b> de un momento: la luz del sol sobre el agua, la niebla o el reflejo de los árboles. Pintaban con <b>pinceladas rápidas y sueltas</b>, porque la luz cambia enseguida.</p><p>Para pintar al aire libre se usa:</p><ul><li>Un <b>caballete</b> plegable o una carpeta rígida.</li><li>Un <b>cuaderno de viaje</b> y acuarelas o ceras, como Carlota.</li><li>Un taburete, agua y un trapo.</li><li>¡Y gorra y crema solar!</li></ul><p>Pintar al aire libre nos obliga a <b>observar</b> con mucha atención: los colores reales, las sombras y cómo cambian.</p><p><b>Actividad</b>: salid al patio o a un parque y pintad en 20 minutos lo que veáis, con pinceladas rápidas.</p>`,
+        H6.dos("Pintar", ["EN EL TALLER", ["de memoria", "con calma", "bocetos"], cMO], ["AL AIRE LIBRE", ["observando", "rápido", "luz real"], cVE])],
+    ],
+    "Pintores de paisajes": [
+      ["Paisajes con técnicas distintas", `<p>Un paisaje se puede hacer con muchas <mark>técnicas</mark>, y cada una da un resultado distinto.</p><ul><li><b>Acuarela</b>: pintura con mucha agua, transparente y ligera. Ideal para cielos, mares y nieblas. Se pinta de lo claro a lo oscuro.</li><li><b>Témpera</b>: pintura espesa que cubre bien. Permite pintar colores claros encima de los oscuros.</li><li><b>Ceras y acuarela</b>: si dibujas con cera blanca y luego pintas encima con acuarela, la cera rechaza el agua y aparecen las líneas. ¡Perfecto para la nieve o las estrellas!</li><li><b>Esgrafiado</b>: pinta el papel con ceras de colores, cúbrelo con cera negra y raspa con un palillo. Aparecen líneas de colores sobre fondo negro, como un paisaje nocturno.</li><li><b>Collage</b>: recorta papeles de revistas o de seda y pégalos por planos: cielo, montañas, campo.</li><li><b>Estampado</b>: con esponjas se hacen copas de árboles; con hojas mojadas en pintura, bosques enteros.</li></ul><p>No hay una técnica mejor que otra: depende de lo que queramos expresar. Un mar tranquilo queda bonito con acuarela; una noche de fuegos artificiales, con esgrafiado.</p><p><b>Actividad</b>: haz un paisaje nocturno con la técnica del esgrafiado.</p>`,
+        H6.rueda("Técnicas", "PAISAJE", [["acuarela", cAZ], ["esgrafiado", cMO], ["collage", cNA], ["esponja", cVE]])],
+    ],
+  },
+  final: [
+    ["Land art: arte con la naturaleza", `<p>El <mark>land art</mark> o «arte de la tierra» es un tipo de arte que se hace <b>en el propio paisaje</b> y con materiales de la naturaleza: piedras, hojas, ramas, arena, nieve o flores.</p><p>Los artistas de land art no pintan el paisaje: lo <b>transforman</b> un poco para crear algo bello. Por ejemplo:</p><ul><li>Una espiral de piedras en la orilla de un lago.</li><li>Un círculo de hojas ordenadas del verde al rojo, en otoño.</li><li>Un camino de flores en un prado.</li><li>Una figura dibujada en la arena de la playa.</li></ul><p>El artista británico <b>Andy Goldsworthy</b> hace obras con hielo, hojas y piedras. Muchas duran solo unas horas: el viento, el agua o el sol las deshacen. Por eso las <b>fotografía</b>, para que queden en el recuerdo.</p><p>En el land art hay una regla muy importante: <b>respetar la naturaleza</b>. No se arrancan plantas vivas, no se molestan los animales y, al terminar, se deja todo como estaba o la obra se deshace sola.</p><p><b>Actividad</b>: en el patio o en una excursión, cread en grupo una obra de land art con hojas, piedras y palitos caídos. Fotografiadla y después devolved los materiales a su sitio.</p>`,
+      H6.flujo("Land art", ["recoger|caídos", "ordenar|formas", "foto|recuerdo", "devolver|respetar"], cVE)],
+    ["Cuidar el paisaje", `<p>Los paisajes que pintamos son también lugares donde viven plantas, animales y personas. Por eso tenemos que <mark>cuidarlos</mark>.</p><p>En España hay <b>parques nacionales</b>, espacios protegidos por su gran valor natural, como Doñana (Andalucía), los Picos de Europa, el Teide (Canarias), Ordesa (Aragón) o las Islas Atlánticas de Galicia. En ellos hay normas especiales para protegerlos.</p><p>Algunos paisajes son también <b>Patrimonio de la Humanidad</b> de la UNESCO por su belleza o su historia, como los paisajes de olivos o los campos de viñas.</p><p>Todos podemos ayudar a cuidar el paisaje:</p><ul><li>No dejar basura en el campo, la playa o la montaña.</li><li>No arrancar flores ni romper ramas.</li><li>Ir por los caminos señalados.</li><li>No hacer fuego fuera de los sitios permitidos.</li><li>Respetar a los animales y no hacer ruido.</li></ul><p>Los artistas también ayudan: sus cuadros y fotos muestran lo bonitos que son los paisajes y nos animan a protegerlos. Un paisaje contaminado o quemado ya no inspira a nadie.</p><p><b>Actividad</b>: diseñad un cartel con un paisaje y un mensaje para cuidarlo, y colgadlo en el colegio.</p>`,
+      L6.filas("Parques", [["Doñana", "Andalucía", cVE], ["Teide", "Canarias", cRO], ["Ordesa", "Aragón", cAZ], ["Picos", "de Europa", cNA]])],
+  ],
+  ejemplos: [
+    ["¿Cómo dibujas unas vías de tren que se alejan?", ["Se marca un punto de fuga en el horizonte.", "Las dos vías van hacia ese punto."], "Con dos líneas que se juntan en el punto de fuga."],
+    ["¿Qué colores usarías para un cielo al atardecer?", ["Al atardecer el sol está bajo.", "Predominan los colores cálidos."], "Naranjas, rojos y violetas."],
+  ],
+  errores: ["Dibujar los árboles del fondo del mismo tamaño que los de delante: los lejanos deben ser más pequeños.", "Arrancar plantas vivas para hacer land art: solo se usan materiales caídos."],
+  ejercicios: [
+    ["b", "¿Qué colores predominan en la meseta?", "Amarillos y ocres."],
+    ["b", "¿Qué es el punto de fuga?", "El punto del horizonte donde parecen juntarse las líneas que se alejan."],
+    ["b", "¿Cómo son las nubes cúmulos?", "Blancas y esponjosas, como algodón."],
+    ["b", "¿Qué invento permitió pintar al aire libre?", "Los tubos de pintura."],
+    ["b", "Nombra un parque nacional de España.", "Doñana, Teide, Ordesa, Picos de Europa…"],
+    ["m", "¿Cómo son los paisajes de Canarias?", "Volcánicos, con tierra negra y roja."],
+    ["m", "Explica la técnica de cera y acuarela.", "Se dibuja con cera y se pinta encima con acuarela; la cera rechaza el agua."],
+    ["m", "¿Qué querían captar los impresionistas?", "La impresión de un momento y la luz."],
+    ["m", "¿Qué es el land art?", "Arte hecho en la naturaleza con materiales naturales."],
+    ["m", "¿Por qué Goldsworthy fotografía sus obras?", "Porque duran poco y se deshacen."],
+    ["a", "En la lectura, ¿en qué orden pinta Carlota sus paisajes y por qué?", "Horizonte, cielo, montañas del fondo y primer plano: de lo lejano a lo cercano."],
+    ["a", "Dibuja una calle con edificios usando un punto de fuga.", "Respuesta abierta."],
+    ["a", "Pinta el mismo paisaje al amanecer y por la noche, y explica los cambios.", "Respuesta abierta."],
+    ["a", "Escribe cinco normas para cuidar un paisaje natural.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El desierto de Tabernas está en…", ["Almería", "Asturias", "Galicia"], "Paisajes."],
+    ["La perspectiva se estudió mucho en el…", ["Renacimiento", "Prehistoria", "siglo XXI"], "Perspectiva."],
+    ["Las nubes de tormenta se llaman…", ["cumulonimbos", "cúmulos", "estratos"], "Cielo."],
+    ["Raspar cera negra para ver colores es…", ["esgrafiado", "collage", "acuarela"], "Técnicas."],
+    ["Andy Goldsworthy hace…", ["land art", "cómics", "mosaicos"], "Land art."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué le regala el abuelo a Carlota?", ["un cuaderno y acuarelas", "una cámara", "un mapa"], "Lectura."],
+    ["Monet pintó varias veces la misma…", ["catedral", "playa de Valencia", "cueva"], "Cielo."],
+  ],
+  tarjetas: [
+    ["Paisajes de España", "Montaña, meseta, costa, islas y desierto."],
+    ["Punto de fuga", "Donde se juntan las líneas que se alejan."],
+    ["El cielo", "Amanecer, mediodía, atardecer y noche; cúmulos y estratos."],
+    ["Land art", "Arte con la naturaleza, respetándola."],
+  ],
+  glosario: [
+    ["Meseta", "Terreno alto y llano."],
+    ["Paisaje volcánico", "Paisaje formado por volcanes."],
+    ["Punto de fuga", "Punto donde se juntan las líneas que se alejan."],
+    ["Perspectiva", "Técnica para dar profundidad."],
+    ["Cúmulo", "Nube blanca y esponjosa."],
+    ["Impresionismo", "Estilo que capta la luz de un momento."],
+    ["Caballete", "Soporte para pintar."],
+    ["Cuaderno de viaje", "Cuaderno con dibujos de un viaje."],
+    ["Esgrafiado", "Técnica de raspar una capa de color."],
+    ["Acuarela", "Pintura transparente con agua."],
+    ["Land art", "Arte hecho en la naturaleza."],
+    ["Parque nacional", "Espacio natural protegido."],
+  ],
+  situacion: {
+    titulo: "Nuestro cuaderno de paisajes",
+    reto: "Como Carlota, cada alumno crea un cuaderno de paisajes con técnicas distintas, y la clase hace una obra de land art en el patio.",
+    pasos: ["Elegir tres paisajes de España y hacer su paleta de colores.", "Dibujar un camino con punto de fuga y un cielo a dos horas del día.", "Pintar al aire libre y probar el esgrafiado o el collage.", "Crear una obra de land art, fotografiarla y devolver los materiales."],
+    producto: "Un cuaderno de paisajes y la foto de la obra de land art.",
+    evaluacion: ["Usa horizonte, planos y punto de fuga.", "Elige colores según el lugar y la hora.", "Experimenta con varias técnicas.", "Respeta la naturaleza al crear."],
+  },
+});

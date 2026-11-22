@@ -93,3 +93,100 @@ module.exports = tema({
   ideas: ["Máscara de animal con tres técnicas de volumen.", "Exposición de máscaras del mundo con fotos y mapa.", "Esculturas de plastilina vistas desde cuatro lados."],
   fuentes: [["Museo Nacional de Antropología: máscaras", "https://www.culturaydeporte.gob.es/mnantropologia/"], ["Museo del Carnaval y la Máscara (Galicia)", "https://www.turismo.gal/"]],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer esculturas y escultores famosos", "Aplicar técnicas de modelado y papel maché", "Descubrir las máscaras de las fiestas de España", "Construir títeres y esculturas con material reciclado"],
+  lectura: { titulo: "El cigarrón de Verín", html: `<p>Iker vive en Bilbao, pero ese febrero viaja con sus padres a Verín, un pueblo de Ourense, para ver el carnaval. Su prima Uxía le ha dicho que allí hay unos personajes que dan un poco de miedo: los cigarrones.</p><p>El domingo por la mañana, la plaza está llena de gente. De repente se oye un estruendo de cencerros: ¡clon, clon, clon! Aparecen los cigarrones, con chaquetas de colores, pantalones blancos, grandes cencerros atados a la cintura y una máscara de madera pintada, con una sonrisa enorme y un gorro alto decorado.</p><p>Iker se esconde detrás de su padre.</p><p>—No pasa nada —le dice Uxía, riéndose—. Solo persiguen a la gente con un látigo de juguete. ¡Es parte de la fiesta!</p><p>Uno de los cigarrones se acerca, hace una reverencia y se levanta un momento la máscara. ¡Es el panadero del pueblo! Le guiña un ojo y se la vuelve a poner.</p><p>Por la tarde, Uxía lleva a Iker al taller de un artesano que talla las máscaras. Huele a madera y a pintura. El artesano le enseña que cada máscara tarda semanas en hacerse.</p><p>—Una máscara no es un disfraz —dice el artesano—. Es la memoria del pueblo.</p>` },
+  tras: {
+    "Relieve y bulto redondo": [
+      ["Grandes esculturas", `<p>Las <mark>esculturas</mark> son obras de arte con volumen. Algunas son tan famosas que viajan millones de personas para verlas.</p><ul><li><b>El David</b>, de <b>Miguel Ángel</b> (Italia, hace unos 500 años): un joven de mármol de más de cinco metros de altura, tallado en un solo bloque de piedra.</li><li><b>El pensador</b>, de <b>Auguste Rodin</b> (Francia): un hombre de bronce sentado con la mano en la barbilla, pensando.</li><li><b>Mamá</b>, de <b>Louise Bourgeois</b>: una araña gigante de metal de nueve metros. Hay una junto al museo Guggenheim de Bilbao.</li><li><b>El peine del viento</b>, de <b>Eduardo Chillida</b> (San Sebastián): esculturas de hierro clavadas en las rocas del mar, donde rompen las olas.</li><li>Los <b>guerreros de terracota</b> (China): miles de soldados de barro de tamaño real, cada uno con una cara distinta.</li></ul><p>Los escultores trabajan con distintas técnicas: <b>tallar</b> (quitar material de un bloque de piedra o madera), <b>modelar</b> (dar forma a un material blando, como el barro), <b>fundir</b> (echar metal líquido en un molde) y <b>construir</b> (unir piezas).</p><p><b>Actividad</b>: busca una foto de una de estas esculturas e intenta imitar su postura con tu cuerpo. ¡Haced un museo de estatuas vivientes!</p>`,
+        L6.filas("Esculturas", [["David", "Miguel Ángel", cAZ], ["El pensador", "Rodin", cMO], ["Mamá", "Bourgeois", cRO], ["Peine del viento", "Chillida", cVE]])],
+    ],
+    "Materiales para modelar": [
+      ["Técnicas de modelado", `<p>Para modelar con barro, arcilla o plastilina hay unas <mark>técnicas básicas</mark> que usan los ceramistas desde hace miles de años.</p><ul><li><b>Pellizco</b>: haz una bola, mete el pulgar en el centro y ve pellizcando las paredes mientras giras la bola. Así sale un cuenco pequeño.</li><li><b>Churros</b>: haz rodar el barro sobre la mesa hasta formar tiras largas, como churros. Enróscalas una encima de otra para hacer un jarrón.</li><li><b>Placas</b>: aplana el barro con un rodillo, como una masa de galletas, y recorta formas. Se pueden unir para hacer una caja o una casita.</li><li><b>Vaciado</b>: a una pieza maciza se le quita barro de dentro con una cuchara o un palillo.</li></ul><p>Para <b>unir</b> dos piezas de barro hay que rayar las dos superficies con un palillo y untarlas con <b>barbotina</b> (barro mezclado con agua, como un pegamento). Si no, al secarse se despegan.</p><p>Para <b>decorar</b>, se pueden hacer marcas con palillos, tenedores, conchas o hojas, o pegar bolitas y churritos encima.</p><p>Y una regla importante: las piezas no deben ser muy gruesas, porque si se cuecen en el horno, pueden romperse.</p><p><b>Actividad</b>: modela un cuenco con la técnica del pellizco y decóralo con huellas de hojas.</p>`,
+        H6.flujo("Modelado", ["pellizco|cuenco", "churros|jarrón", "placas|caja", "unir|barbotina"], cNA)],
+    ],
+    "Volumen con papel y cartón": [
+      ["El papel maché", `<p>El <mark>papel maché</mark> es una técnica para crear volumen con papel de periódico y cola. Es barata, ligera y muy resistente. Con ella se hacen máscaras, piñatas, títeres, cabezudos y figuras de las Fallas.</p><p><b>Qué necesitas</b>: papel de periódico en tiras, cola blanca mezclada con agua (o engrudo de harina y agua), un recipiente, un pincel y un molde: un globo, un plato o una forma de cartón.</p><p><b>Cómo se hace</b>:</p><ul><li><b>1.</b> Rasga el papel en tiras (rasgado se pega mejor que cortado con tijera).</li><li><b>2.</b> Moja cada tira en la cola y pégala sobre el molde, alisándola con los dedos.</li><li><b>3.</b> Cubre el molde con <b>varias capas</b>, cruzando las tiras. Lo ideal son tres o cuatro capas.</li><li><b>4.</b> Deja secar uno o dos días.</li><li><b>5.</b> Quita el molde (si es un globo, explótalo) y recorta los bordes.</li><li><b>6.</b> Pinta con témperas y, si quieres, barniza con cola para que brille.</li></ul><p>Para hacer narices, cuernos u orejas, pega antes bolas de papel arrugado o trozos de cartón y cúbrelos también con tiras.</p><p><b>Actividad</b>: con un globo y papel maché, haz la base de una máscara o de una piñata para la fiesta de la clase.</p>`,
+        L6.filas("Papel maché", [["papel", "en tiras", cAZ], ["cola", "con agua", cNA], ["molde", "globo", cRO], ["capas", "3 o 4", cVE]]),
+        ["eeUkuC42raA", "¿Cómo hacer una máscara con papel periódico y un globo? parte 1", "Educación Artística Primaria SB", 1532174]],
+    ],
+    "Máscaras del mundo": [
+      ["Máscaras de las fiestas de España", `<p>En muchos pueblos de España se celebran fiestas antiguas con <mark>máscaras tradicionales</mark>, sobre todo en el carnaval y en invierno.</p><ul><li><b>Cigarrones</b> de Verín y <b>peliqueiros</b> de Laza (Ourense): máscaras de madera con sonrisas grandes, gorros altos y cencerros en la cintura, como en la lectura.</li><li><b>Zamarrones</b> y <b>vaquilla</b> (Cantabria y Castilla): personajes cubiertos de pieles, con cuernos y cencerros.</li><li><b>Joaldunak</b> (Navarra): con cencerros enormes en la espalda y gorros puntiagudos con cintas.</li><li><b>Botargas</b> (Guadalajara): trajes de muchos colores y máscaras pintadas.</li><li><b>Gigantes y cabezudos</b>: figuras enormes y cabezas gigantes de cartón piedra que bailan en las fiestas de muchos pueblos y ciudades.</li><li><b>Ninots</b> de las Fallas (Valencia): figuras de cartón y madera que se queman el día de San José.</li></ul><p>Muchas de estas máscaras se hacen a mano por <b>artesanos</b> y pasan de padres a hijos. Algunas fiestas se han declarado de interés turístico o cultural para protegerlas.</p><p><b>Actividad</b>: investiga si en tu comunidad hay máscaras tradicionales y dibuja una con sus colores.</p>`,
+        H6.rueda("España", "FIESTAS", [["cigarrones", cRO], ["zamarrones", cNA], ["botargas", cVE], ["cabezudos", cAZ]])],
+    ],
+    "Luz y sombra en el volumen": [
+      ["Esculturas con objetos reciclados", `<p>No hace falta comprar materiales para hacer una escultura. Muchos artistas crean obras increíbles con <mark>objetos reciclados</mark>: cajas, botellas, tapones, latas, cartones de huevos o piezas viejas.</p><p>Esta técnica se llama <b>ensamblaje</b>: unir objetos que ya existen para crear algo nuevo.</p><ul><li><b>Pablo Picasso</b> hizo una <b>Cabeza de toro</b> uniendo solo el sillín y el manillar de una bicicleta vieja. ¡Con dos piezas!</li><li>Otros artistas hacen animales gigantes con plásticos recogidos de la playa para concienciar sobre la contaminación del mar.</li><li>En muchos países se fabrican juguetes con latas y alambre.</li></ul><p>Para construir tu escultura:</p><ul><li><b>1.</b> Recoge materiales limpios: rollos de papel, cajitas, tapones, botellas pequeñas.</li><li><b>2.</b> Mira sus formas e imagina qué pueden ser: un rollo puede ser una pata; un tapón, un ojo.</li><li><b>3.</b> Únelos con cinta de carrocero, cola o pistola de silicona (esta última, con un adulto).</li><li><b>4.</b> Cúbrela con papel maché o píntala de un color para que parezca una sola pieza.</li></ul><p>Así, además de crear arte, damos una <b>segunda vida</b> a los objetos.</p><p><b>Actividad</b>: con material reciclado, construye un robot o un animal fantástico.</p>`,
+        H6.dos("Ensamblaje", ["MATERIALES", ["cajas", "tapones", "botellas"], cVE], ["UNIR", ["cinta", "cola", "silicona"], cNA])],
+    ],
+  },
+  final: [
+    ["Títeres y marionetas", `<p>Los <mark>títeres</mark> son figuras con volumen que se mueven para contar historias. Hay muchos tipos:</p><ul><li><b>De guante</b>: se meten en la mano como un guante; el dedo índice mueve la cabeza y los otros, los brazos. Es el títere clásico de los teatrillos, como el famoso Don Cristóbal Polichinela.</li><li><b>De dedo</b>: muy pequeños, uno en cada dedo.</li><li><b>De varilla</b>: se mueven con palos desde abajo.</li><li><b>Marionetas de hilos</b>: se mueven desde arriba con hilos atados a una cruz de madera.</li><li><b>De sombras</b>: siluetas planas que se mueven detrás de una tela iluminada. Son muy antiguas en China, Indonesia y Turquía.</li><li><b>Bunraku</b> (Japón): grandes muñecos movidos por tres personas vestidas de negro que el público ve.</li></ul><p>Para hacer un títere de guante sencillo puedes usar un calcetín viejo: ponle botones de ojos, lana de pelo y una lengua de fieltro. O haz la cabeza con papel maché sobre una bola de papel y un rollo de cartón para meter el dedo.</p><p>Los títeres unen <b>plástica</b>, <b>teatro</b> y <b>lengua</b>.</p><p><b>Actividad</b>: en grupo, haced títeres de calcetín y representad un cuento corto en un teatrillo de cartón.</p>`,
+      L6.filas("Títeres", [["guante", "la mano", cRO], ["varilla", "desde abajo", cAZ], ["hilos", "desde arriba", cVE], ["sombras", "tras una tela", cMO]])],
+    ["Esculturas en la calle", `<p>No todas las esculturas están en los museos. Muchas están en la <mark>calle</mark>, a la vista de todos: es el <b>arte público</b>.</p><ul><li><b>Monumentos</b>: estatuas que recuerdan a personas o hechos importantes, como la estatua de Cervantes en la plaza de España de Madrid, con Don Quijote y Sancho Panza.</li><li><b>Fuentes</b>: como la fuente de Cibeles, en Madrid, o la de los Leones de la Alhambra.</li><li><b>Esculturas modernas</b>: formas abstractas en rotondas, parques y plazas.</li><li><b>Relieves</b> en las fachadas de iglesias, catedrales y edificios antiguos, que contaban historias a quien no sabía leer.</li></ul><p>Las esculturas de la calle están hechas de materiales <b>resistentes</b> a la lluvia y al sol: piedra, bronce, hierro o acero.</p><p>Todas ellas son de todos, por eso hay que <b>cuidarlas</b>: no pintarlas, no subirse a ellas si está prohibido y no romperlas.</p><p>Además, algunas ciudades tienen esculturas divertidas e interactivas en las que se puede sentar uno o hacerse fotos, como bancos con estatuas de personajes famosos sentados.</p><p><b>Actividad</b>: haz un mapa de tu barrio o pueblo con las esculturas que encuentres y anota de qué material son.</p>`,
+      H6.rueda("Calle", "ARTE", [["monumentos", cAZ], ["fuentes", cVE], ["relieves", cNA], ["modernas", cRO]])],
+  ],
+  ejemplos: [
+    ["¿Cómo unes dos piezas de barro para que no se despeguen?", ["Hay que rayar las dos superficies.", "Se untan con barbotina."], "Rayando y uniendo con barbotina."],
+    ["¿Por qué se rasga el papel para el papel maché?", ["El borde rasgado es irregular.", "Se adhiere mejor que uno cortado."], "Porque así se pega mejor."],
+  ],
+  errores: ["Poner una sola capa de papel maché: queda débil; hacen falta tres o cuatro.", "Hacer piezas de barro muy gruesas, que se agrietan o se rompen al cocerse."],
+  ejercicios: [
+    ["b", "¿Quién esculpió el David?", "Miguel Ángel."],
+    ["b", "¿Qué es la barbotina?", "Barro mezclado con agua para unir piezas."],
+    ["b", "¿Qué molde se usa a menudo para el papel maché?", "Un globo."],
+    ["b", "¿Qué llevan los cigarrones en la cintura?", "Cencerros."],
+    ["b", "¿Qué es un títere de guante?", "Un muñeco que se mete en la mano como un guante."],
+    ["m", "Nombra tres técnicas de modelado.", "Pellizco, churros y placas."],
+    ["m", "¿Qué hizo Picasso con una bicicleta vieja?", "Una cabeza de toro con el sillín y el manillar."],
+    ["m", "¿Qué diferencia hay entre tallar y modelar?", "Tallar es quitar material de un bloque; modelar es dar forma a un material blando."],
+    ["m", "¿Cuántas capas de papel maché se recomiendan?", "Tres o cuatro."],
+    ["m", "Nombra dos tipos de marionetas o títeres.", "De hilos, de varilla, de guante, de sombras…"],
+    ["a", "En la lectura, ¿qué quiere decir el artesano con «la máscara es la memoria del pueblo»?", "Que guarda las tradiciones y la historia del pueblo y pasa de generación en generación."],
+    ["a", "Diseña una escultura de material reciclado y escribe qué objetos usarás.", "Respuesta abierta."],
+    ["a", "Explica paso a paso cómo harías una piñata con papel maché.", "Inflar globo, pegar capas de tiras con cola, secar, explotar el globo, pintar y rellenar."],
+    ["a", "Compara una escultura de museo con una de la calle.", "Respuesta abierta (materiales, público, cuidado)."],
+  ],
+  quiz: [
+    ["La araña gigante «Mamá» es de…", ["Louise Bourgeois", "Rodin", "Chillida"], "Esculturas."],
+    ["Para hacer un jarrón enroscando tiras se usa la técnica de…", ["churros", "pellizco", "frottage"], "Modelado."],
+    ["Unir objetos ya existentes para crear una escultura se llama…", ["ensamblaje", "tallado", "fundido"], "Reciclado."],
+    ["Los ninots se queman en…", ["las Fallas", "el carnaval de Verín", "Navidad"], "Fiestas."],
+    ["Las marionetas de hilos se mueven…", ["desde arriba", "desde abajo", "con la mano dentro"], "Títeres."],
+  ],
+  examen: [
+    ["En la lectura, ¿quién está debajo de la máscara del cigarrón?", ["el panadero del pueblo", "la prima Uxía", "el artesano"], "Lectura."],
+    ["El Peine del viento está en…", ["San Sebastián", "Madrid", "Sevilla"], "Esculturas."],
+  ],
+  tarjetas: [
+    ["Escultores", "Miguel Ángel, Rodin, Bourgeois, Chillida."],
+    ["Modelado", "Pellizco, churros, placas; unir con barbotina."],
+    ["Papel maché", "Tiras, cola, molde y 3 o 4 capas."],
+    ["Títeres", "Guante, dedo, varilla, hilos, sombras."],
+  ],
+  glosario: [
+    ["Escultura", "Obra de arte con volumen."],
+    ["Tallar", "Quitar material de un bloque."],
+    ["Fundir", "Echar metal líquido en un molde."],
+    ["Pellizco", "Técnica de modelar un cuenco con los dedos."],
+    ["Churro", "Tira de barro enrollada."],
+    ["Barbotina", "Barro con agua para unir piezas."],
+    ["Papel maché", "Papel con cola para crear volumen."],
+    ["Ensamblaje", "Escultura hecha uniendo objetos."],
+    ["Cigarrón", "Personaje enmascarado del carnaval de Verín."],
+    ["Cabezudo", "Gran cabeza de cartón de las fiestas."],
+    ["Títere", "Muñeco que se mueve para contar historias."],
+    ["Arte público", "Obras de arte en la calle."],
+  ],
+  situacion: {
+    titulo: "El carnaval de la clase",
+    reto: "La clase organiza un carnaval con máscaras de papel maché y un teatrillo de títeres hechos con material reciclado.",
+    pasos: ["Investigar las máscaras tradicionales de España y del mundo.", "Construir una máscara con papel maché sobre un globo.", "Crear títeres con calcetines y material reciclado.", "Desfilar con las máscaras y representar una historia con los títeres."],
+    producto: "Un desfile de máscaras y una función de títeres.",
+    evaluacion: ["Aplica correctamente la técnica del papel maché.", "Da volumen con pliegues, bolas y materiales reciclados.", "Relaciona su máscara con una tradición.", "Coopera en el teatrillo y cuida los materiales."],
+  },
+});
