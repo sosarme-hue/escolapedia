@@ -94,3 +94,91 @@ module.exports = P.tema({
   saberes: "Sentido numérico y algebraico: proporcionalidad directa, regla de tres simple, porcentajes, aumentos y disminuciones porcentuales en contextos de consumo",
   ideas: ["Folletos de supermercado reales para calcular ofertas y descuentos.", "Cuadrados de 100 casillas para colorear porcentajes.", "Receta de cocina escalada para toda la clase."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bmmmbbmmaa",
+  objetivos: ["Distinguir la proporcionalidad directa de la inversa", "Calcular qué porcentaje representa una cantidad y hallar el total", "Entender el IVA y el interés simple", "Usar escalas en mapas y planos, y porcentajes en gráficos de sectores"],
+  lectura: { titulo: "El truco de las rebajas", html: `<p>En el escaparate de una tienda de deportes, Raúl vio unas zapatillas que le encantaban. Costaban 100 euros. Su madre le dijo que esperaran a las rebajas.</p><p>Un mes después volvieron. El cartel decía: «¡Rebaja del 20 %!». Raúl calculó rápido: el 20 % de 100 son 20 euros, así que ahora costaban 80. Pero no tenían su número y decidieron volver otro día.</p><p>Cuando terminaron las rebajas, las zapatillas habían vuelto a subir. Esta vez el cartel decía: «Nuevo precio: +20 %».</p><p>—Bueno —dijo Raúl—, si bajaron un 20 % y ahora suben un 20 %, volverán a costar 100 euros.</p><p>Pero en la etiqueta ponía 96 euros.</p><p>—¿Cómo puede ser? —se extrañó.</p><p>Su madre sacó el móvil e hizo la cuenta: el 20 % de 80 no son 20 euros, sino 16. Así que 80 + 16 = 96.</p><p>—El porcentaje siempre se calcula sobre la cantidad que hay en ese momento —le explicó—. Bajar un 20 % y subir un 20 % no es lo mismo, porque la base ha cambiado.</p><p>Raúl se quedó pensativo. Los porcentajes parecían fáciles, pero tenían trampa. Y le pareció que merecía la pena aprender a calcularlos bien.</p>` },
+  tras: {
+    "La regla de tres simple directa": [
+      ["La proporcionalidad inversa", `<p>Hay magnitudes que también están relacionadas, pero al revés: cuando una <b>aumenta</b>, la otra <b>disminuye</b> en la misma proporción. Se llaman <b>inversamente proporcionales</b>.</p><p>Ejemplo: si 4 obreros tardan 6 días en pintar un colegio, 8 obreros (el doble) tardarán 3 días (la mitad). Y 2 obreros (la mitad) tardarán 12 días (el doble).</p><p>En la proporcionalidad inversa, el <b>producto</b> de las dos cantidades es siempre el mismo: 4 × 6 = 8 × 3 = 2 × 12 = 24.</p><p>Para resolver un problema, calculamos ese producto y lo dividimos entre el nuevo dato:</p><ul><li>Un grifo llena un depósito en 12 horas. ¿Cuánto tardan 3 grifos iguales? 1 × 12 = 12; 12 : 3 = <b>4 horas</b>.</li><li>Con la comida de una excursión, 6 amigos tienen para 10 días. ¿Para cuántos días tendrían 4 amigos? 6 × 10 = 60; 60 : 4 = <b>15 días</b>.</li></ul><p>¡Cuidado! No todo es proporcional. Si un pintor tarda 2 horas en pintar una pared, 100 pintores no tardan un minuto y pico: no caben todos delante de la pared.</p>`,
+        H6.dos("Proporcionalidad", ["Directa", ["más → más", "cociente fijo", "kilos y precio"], cAZ], ["Inversa", ["más → menos", "producto fijo", "obreros y días"], cRO]), ["X_2Ooogxqn4", "Regla de tres Simple Inversa | Ejemplo 1", "Matemáticas profe Alex", 1946788]],
+    ],
+    "Calcular el porcentaje de una cantidad": [
+      ["¿Qué porcentaje es? ¿Cuál es el total?", `<p>Con los porcentajes podemos plantear tres tipos de preguntas:</p><ol><li><b>Calcular la parte</b>: ¿cuánto es el 30 % de 60? 60 × 30 : 100 = 18.</li><li><b>Calcular el porcentaje</b>: ¿qué porcentaje es 18 de 60? Dividimos la parte entre el total y multiplicamos por 100: 18 : 60 × 100 = <b>30 %</b>.</li><li><b>Calcular el total</b>: si el 20 % de una cantidad es 15, ¿cuál es la cantidad? Si el 20 % son 15, el 1 % es 15 : 20 = 0,75, y el 100 % es 0,75 × 100 = <b>75</b>.</li></ol><p>Ejemplos de la vida diaria:</p><ul><li>En un examen de 40 preguntas has acertado 34. ¿Qué porcentaje es? 34 : 40 × 100 = 85 %.</li><li>En una clase, 6 alumnos, que son el 25 %, van en bici al colegio. ¿Cuántos alumnos hay? 6 : 25 × 100 = 24.</li></ul><p>Un buen truco para comprobar: el porcentaje de la parte siempre debe ser menor que 100 % si la parte es menor que el total.</p>`,
+        L6.filas("Tres preguntas", [["la parte", "30 % de 60 = 18", cAZ], ["el porcentaje", "18 de 60 = 30 %", cVE], ["el total", "20 % es 15 → 75", cNA]])],
+    ],
+    "Aumentos con porcentajes": [
+      ["El IVA y los intereses", `<p>Dos aumentos con porcentajes muy importantes en la vida diaria son el IVA y los intereses.</p><p>El <b>IVA</b> (impuesto sobre el valor añadido) es un impuesto que se paga al comprar casi cualquier producto o servicio. En España, el tipo general es del <b>21 %</b>. Hay tipos reducidos para algunos productos, como el 10 % o el 4 % para alimentos básicos. Con ese dinero, el Estado paga colegios, hospitales y carreteras.</p><ul><li>Un producto cuesta 50 € sin IVA. Con el 21 %: 50 + 50 × 0,21 = 50 + 10,50 = <b>60,50 €</b>.</li><li>Si un precio con IVA del 21 % es 121 €, sin IVA era 100 €, porque 121 es el 121 % del precio sin impuesto.</li></ul><p>Los <b>intereses</b> son el dinero extra que un banco paga por guardar nuestros ahorros (o que nos cobra si nos presta dinero). Si ahorramos 200 € al 3 % anual, al año ganamos 200 × 3 : 100 = <b>6 €</b>. En dos años, con interés simple, 12 €.</p><p>Por eso es importante entender los porcentajes: aparecen en las facturas, en los préstamos y en las cuentas de ahorro.</p>`,
+        L6.filas("IVA e intereses", [["IVA general", "21 %", cRO], ["50 € + IVA", "60,50 €", cNA], ["ahorro 200 €", "al 3 % → 6 € al año", cVE]])],
+    ],
+  },
+  final: [
+    ["Escalas en mapas y planos", `<p>Un mapa o un plano es una representación <b>proporcional</b> de la realidad, pero mucho más pequeña. La <b>escala</b> indica cuántas veces se ha reducido.</p><p>Una escala <b>1 : 50 000</b> significa que 1 cm en el mapa equivale a 50 000 cm en la realidad, es decir, a <b>500 m</b>.</p><ul><li>Si en ese mapa dos pueblos están a 4 cm, en la realidad están a 4 × 500 m = 2 000 m = <b>2 km</b>.</li><li>En un mapa a escala 1 : 100 000, 1 cm equivale a 1 km.</li><li>En el plano de una casa a escala 1 : 100, 1 cm equivale a 1 m. Una habitación que mide 4 cm por 3 cm en el plano mide 4 m por 3 m en la realidad.</li></ul><p>También hay escalas <b>gráficas</b>: una pequeña barra dibujada en el mapa que indica la distancia real que representa. Son útiles porque, si se amplía o reduce el mapa, la barra cambia con él.</p><p>Las maquetas de trenes o de edificios también se hacen a escala. Y en las aplicaciones de mapas del móvil, la escala cambia cada vez que haces zoom.</p><p>También podemos <b>calcular la escala</b> de un dibujo. Si un campo de fútbol de 100 m de largo aparece en un plano con 20 cm, dividimos la medida real entre la del plano, en la misma unidad: 10 000 cm : 20 cm = 500. La escala es 1 : 500. Cuanto mayor es el segundo número, más pequeño se ve todo en el plano.</p>`,
+      L6.filas("Escalas", [["1 : 100", "1 cm = 1 m", cAZ], ["1 : 50 000", "1 cm = 500 m", cVE], ["1 : 100 000", "1 cm = 1 km", cNA], ["4 cm a 1 : 50 000", "2 km", cRO]])],
+    ["Porcentajes en gráficos de sectores", `<p>Los <b>gráficos de sectores</b> (o «de quesitos») sirven para mostrar cómo se reparte un total en partes. El círculo completo representa el <b>100 %</b>, que corresponde a <b>360°</b>.</p><p>Para dibujar cada sector, calculamos su ángulo:</p><ul><li>50 % → 180° (medio círculo).</li><li>25 % → 90° (un cuarto, un ángulo recto).</li><li>10 % → 36°.</li><li>En general: ángulo = porcentaje × 360 : 100, o lo que es lo mismo, porcentaje × 3,6.</li></ul><p>Ejemplo: en una encuesta de la clase, el 40 % prefiere el fútbol, el 35 % el baloncesto y el 25 % la natación. Los ángulos son 144°, 126° y 90°. Comprobamos: 144 + 126 + 90 = 360°.</p><p>Al leer un gráfico de sectores en una noticia, fíjate en que los porcentajes sumen 100 %. Si no suman, puede que falte alguna categoría o que el gráfico esté mal hecho. Y desconfía de los gráficos en 3D muy inclinados: pueden hacer que un sector parezca más grande de lo que es.</p>`,
+      H6.barras("Encuesta de deportes", [["fútbol", 40, cAZ, "40 %"], ["baloncesto", 35, cNA, "35 %"], ["natación", 25, cVE, "25 %"]], 40)],
+  ],
+  ejemplos: [
+    ["¿Qué porcentaje es 18 de 60?", ["Dividimos la parte entre el total: 18 : 60 = 0,3.", "Multiplicamos por 100."], "30 %."],
+    ["4 obreros tardan 6 días en hacer una obra. ¿Cuánto tardan 8?", ["Es proporcionalidad inversa: producto fijo 4 × 6 = 24.", "24 : 8."], "3 días."],
+  ],
+  errores: ["Pensar que bajar un 20 % y después subir un 20 % devuelve el precio inicial.", "Resolver con regla de tres directa un problema de proporcionalidad inversa."],
+  ejercicios: [
+    ["b", "Si 4 obreros tardan 6 días, ¿cuántos días tardan 8 obreros?", "3 días."],
+    ["b", "¿Qué porcentaje es 18 de 60?", "30 %."],
+    ["b", "Calcula el IVA del 21 % de un producto de 100 €.", "21 €."],
+    ["b", "En un mapa a escala 1 : 100 000, ¿cuánto representa 1 cm?", "1 km."],
+    ["b", "¿Cuántos grados ocupa un sector del 50 %?", "180°."],
+    ["m", "Si el 20 % de una cantidad es 15, ¿cuál es la cantidad?", "75."],
+    ["m", "Un grifo llena un depósito en 12 horas. ¿Cuánto tardan 3 grifos iguales?", "4 horas."],
+    ["m", "Un producto cuesta 50 € sin IVA. ¿Cuánto cuesta con el 21 %?", "60,50 €."],
+    ["m", "En un mapa a escala 1 : 50 000, dos pueblos están a 4 cm. ¿Qué distancia real los separa?", "2 km."],
+    ["m", "¿Cuántos grados corresponden a un sector del 35 %?", "126°."],
+    ["a", "Un producto de 100 € baja un 20 % y luego sube un 20 %. ¿Cuál es el precio final? ¿Por qué no es 100 €?", "96 €: el segundo porcentaje se calcula sobre 80."],
+    ["a", "Ahorras 200 € al 3 % de interés simple anual. ¿Cuánto ganas en 2 años?", "12 €."],
+    ["a", "6 amigos tienen comida para 10 días. ¿Para cuántos días tendrían 4 amigos?", "15 días."],
+    ["a", "Un precio con IVA del 21 % es 121 €. ¿Cuál era el precio sin IVA?", "100 €."],
+  ],
+  quiz: [
+    ["En la proporcionalidad inversa, si una magnitud se duplica, la otra…", ["se reduce a la mitad", "se duplica", "no cambia"], "Producto fijo."],
+    ["El IVA general en España es del…", ["21 %", "10 %", "4 %"], "Impuesto."],
+    ["En un mapa 1 : 50 000, 1 cm equivale a…", ["500 m", "50 m", "5 km"], "Escala."],
+    ["Un sector del 25 % mide…", ["90°", "25°", "180°"], "360 : 4."],
+    ["Si el 20 % de una cantidad es 15, la cantidad es…", ["75", "35", "300"], "15 : 20 × 100."],
+  ],
+  examen: [
+    ["El 30 % de 60 es…", ["18", "20", "30"], "60 × 0,3."],
+    ["Un sector del 10 % mide…", ["36°", "10°", "100°"], "10 × 3,6."],
+  ],
+  tarjetas: [
+    ["Inversa", "Más → menos; el producto es constante."],
+    ["Porcentaje", "Parte : total × 100. Total = parte : % × 100."],
+    ["IVA e intereses", "IVA general 21 %; interés = capital × % : 100."],
+    ["Escalas y sectores", "1 : 50 000 → 1 cm = 500 m; 100 % = 360°."],
+  ],
+  glosario: [
+    ["Proporcionalidad inversa", "Relación en la que si una magnitud aumenta, la otra disminuye en la misma proporción."],
+    ["Constante", "Que no cambia."],
+    ["IVA", "Impuesto sobre el valor añadido."],
+    ["Impuesto", "Dinero que se paga al Estado para servicios públicos."],
+    ["Interés", "Dinero que se gana por ahorrar o se paga por un préstamo."],
+    ["Capital", "Cantidad de dinero que se ahorra o se presta."],
+    ["Escala", "Relación entre la medida en un mapa y la real."],
+    ["Escala gráfica", "Barra que indica la distancia real en un mapa."],
+    ["Maqueta", "Reproducción a escala de un objeto o edificio."],
+    ["Gráfico de sectores", "Círculo dividido en partes proporcionales."],
+    ["Sector circular", "Parte de un círculo limitada por dos radios."],
+    ["Encuesta", "Preguntas a un grupo para conocer su opinión."],
+  ],
+  situacion: {
+    titulo: "Encuesta y gráfico de la clase",
+    reto: "La clase realiza una encuesta, calcula los porcentajes y los representa en un gráfico de sectores y en un plano a escala del aula.",
+    pasos: ["Diseñad una pregunta con tres o cuatro respuestas posibles y preguntad a todo el curso.", "Calculad el porcentaje de cada respuesta y el ángulo de su sector.", "Dibujad el gráfico de sectores con transportador y comprobad que suma 360°.", "Haced un plano del aula a escala 1 : 50 y situad en él dónde colgaréis el gráfico."],
+    producto: "Un gráfico de sectores y un plano a escala del aula.",
+    evaluacion: ["Calcula porcentajes correctamente.", "Convierte porcentajes en ángulos.", "Usa la escala con precisión.", "Presenta los resultados con orden."],
+  },
+});

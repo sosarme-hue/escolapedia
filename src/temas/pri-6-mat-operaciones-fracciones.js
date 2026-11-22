@@ -91,3 +91,95 @@ module.exports = P.tema({
   saberes: "Sentido numérico: comparación de fracciones, suma y resta con igual y distinto denominador, multiplicación y división de fracciones, fracción de una cantidad",
   ideas: ["Tiras de fracciones de papel para sumar visualmente.", "Recetas de cocina reales para operar con fracciones.", "Dominó de operaciones con fracciones por parejas."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbmbmbbmma",
+  objetivos: ["Reducir a común denominador usando el m.c.m.", "Usar la fracción inversa para dividir", "Pasar de fracción impropia a número mixto y al revés", "Aplicar fracciones en la música, la cocina y la historia"],
+  lectura: { titulo: "La herencia de los camellos", html: `<p>Cuenta una vieja historia que un comerciante del desierto dejó en herencia a sus tres hijos 17 camellos. En su testamento decía: «El mayor recibirá la mitad; el mediano, la tercera parte; y el pequeño, la novena parte».</p><p>Los hermanos se pusieron a discutir. ¿Cómo iban a dividir 17 camellos entre 2, entre 3 o entre 9? ¡No salía exacto! Nadie quería partir un camello por la mitad.</p><p>Entonces pasó por allí un sabio montado en su camello. Escuchó el problema, sonrió y dijo:</p><p>—Os presto mi camello. Ahora tenéis 18.</p><p>El mayor se llevó la mitad: 9. El mediano, la tercera parte: 6. El pequeño, la novena parte: 2. En total, 9 + 6 + 2 = 17 camellos.</p><p>Sobraba uno: el del sabio, que se subió a él y siguió su camino, dejando a los tres hermanos contentos y asombrados.</p><p>¿Cuál era el truco? Si sumas las fracciones del testamento, 1/2 + 1/3 + 1/9, no da 1 entero, sino 17/18. El padre, sin darse cuenta, no había repartido toda la herencia.</p><p>Para descubrir trucos como este, hay que saber sumar fracciones con distinto denominador. Es lo que vas a practicar en este tema.</p>` },
+  tras: {
+    "Comparar fracciones": [
+      ["Comparar fracciones con decimales", `<p>Hay otra forma muy práctica de comparar fracciones: <b>pasarlas a número decimal</b> dividiendo el numerador entre el denominador.</p><p>¿Qué es mayor, 5/8 o 3/5? Calculamos: 5 : 8 = 0,625 y 3 : 5 = 0,6. Como 0,625 &gt; 0,6, entonces <b>5/8 &gt; 3/5</b>.</p><p>Este método es muy útil cuando hay que ordenar varias fracciones a la vez. Ordena 2/3, 3/4 y 5/7:</p><ul><li>2/3 = 0,666…</li><li>3/4 = 0,75</li><li>5/7 = 0,714…</li></ul><p>De menor a mayor: 2/3 &lt; 5/7 &lt; 3/4.</p><p>También ayuda comparar cada fracción con <b>1/2</b>. Una fracción es mayor que la mitad si el numerador es más de la mitad del denominador: 5/8 es mayor que 1/2, porque 5 es más que 4. Y 3/7 es menor que 1/2, porque 3 es menos que 3,5.</p><p>En las encuestas y en las noticias deportivas, a veces se comparan resultados como «7 de cada 10» y «3 de cada 4». Pasándolos a decimal (0,7 y 0,75) se ve enseguida cuál es mayor.</p>`,
+        L6.filas("Ordenar con decimales", [["2/3", "0,666...", cAZ], ["5/7", "0,714...", cVE], ["3/4", "0,75", cNA], ["orden", "2/3 < 5/7 < 3/4", cRO]])],
+    ],
+    "Reducir a común denominador": [
+      ["Común denominador con el m.c.m.", `<p>Para reducir fracciones a común denominador, podemos multiplicar los denominadores, pero a veces salen números muy grandes. Es más cómodo usar el <b>mínimo común múltiplo</b> (m.c.m.) de los denominadores.</p><p>Ejemplo: 5/6 + 3/4.</p><ol><li>Calculamos el m.c.m. de 6 y 4: <b>12</b>.</li><li>Dividimos 12 entre cada denominador y multiplicamos el resultado por el numerador: 12 : 6 = 2, así que 5/6 = 10/12. 12 : 4 = 3, así que 3/4 = 9/12.</li><li>Sumamos: 10/12 + 9/12 = <b>19/12</b>.</li></ol><p>Si hubiéramos multiplicado los denominadores (6 × 4 = 24), habríamos obtenido 20/24 + 18/24 = 38/24, y luego tendríamos que simplificar hasta 19/12. Con el m.c.m., el resultado sale ya más sencillo.</p><p>Comprueba el truco de la lectura: 1/2 + 1/3 + 1/9. El m.c.m. de 2, 3 y 9 es 18. Entonces: 9/18 + 6/18 + 2/18 = <b>17/18</b>. ¡Faltaba 1/18 de la herencia!</p>`,
+        H6.flujo("Con el m.c.m.", ["Calcular|m.c.m.", "Equiva-|lentes", "Sumar|arriba", "Simplificar"], cAZ), ["qJtoI1ipxs8", "SUMA Y RESTA DE FRACCIONES CON DIFERENTE DENOMINADOR Super facil - Para principiantes", "Daniel Carreón", 4886818]],
+    ],
+    "Dividir fracciones": [
+      ["La fracción inversa", `<p>La <b>fracción inversa</b> de una fracción se obtiene <b>dando la vuelta</b> al numerador y al denominador. La inversa de 3/5 es 5/3. La inversa de 7 (que es 7/1) es 1/7.</p><p>Una fracción multiplicada por su inversa siempre da <b>1</b>: 3/5 × 5/3 = 15/15 = 1.</p><p>La inversa nos da otra forma de entender la división: <b>dividir entre una fracción es multiplicar por su inversa</b>.</p><ul><li>4/5 : 2/3 = 4/5 × 3/2 = 12/10 = <b>6/5</b>.</li><li>3/8 : 3/4 = 3/8 × 4/3 = 12/24 = <b>1/2</b>.</li></ul><p>¿Tiene sentido? Piensa en «¿cuántos medios caben en 3?». 3 : 1/2 = 3 × 2 = <b>6</b>. Efectivamente, en 3 pizzas hay 6 medias pizzas.</p><p>Por eso, al dividir entre una fracción menor que 1, el resultado es <b>mayor</b> que el dividendo: caben muchos trozos pequeños.</p><p>El único número que no tiene inversa es el 0, porque no se puede dividir entre 0.</p>`,
+        L6.filas("Fracción inversa", [["3/5", "inversa 5/3", cAZ], ["7", "inversa 1/7", cVE], ["3/5 × 5/3", "= 1", cNA], [": 1/2", "es × 2", cRO]])],
+    ],
+    "La fracción de un número": [
+      ["Números mixtos", `<p>Cuando el numerador es mayor que el denominador, la fracción es <b>impropia</b>: vale más que una unidad. Por ejemplo, 7/4 son siete cuartos, es decir, una unidad entera y tres cuartos más.</p><p>Esa cantidad se puede escribir como <b>número mixto</b>: una parte entera y una fracción propia. 7/4 = <b>1 3/4</b>, que se lee «uno y tres cuartos».</p><p><b>De fracción impropia a número mixto</b>: divide el numerador entre el denominador. El cociente es la parte entera; el resto, el nuevo numerador. 9/4: 9 : 4 = 2 y sobra 1, así que 9/4 = 2 1/4.</p><p><b>De número mixto a fracción</b>: multiplica la parte entera por el denominador y suma el numerador. 2 1/3 = (2 × 3 + 1)/3 = 7/3.</p><p>Para sumar o restar números mixtos, lo más seguro es pasarlos primero a fracción: 1 2/3 + 2 1/2 = 5/3 + 5/2 = 10/6 + 15/6 = 25/6 = 4 1/6.</p><p>Los números mixtos se usan mucho en las recetas («1 1/2 tazas de harina») y en las medidas de las tiendas de bricolaje.</p>`,
+        L6.filas("Mixtos", [["7/4", "1 3/4", cAZ], ["9/4", "2 1/4", cVE], ["2 1/3", "7/3", cNA], ["3 1/2", "7/2", cMO]])],
+    ],
+  },
+  final: [
+    ["Fracciones en la música y la cocina", `<p>Las fracciones están en lugares donde a lo mejor no esperas:</p><p><b>En la música</b>, la duración de las notas se basa en fracciones. Si la <b>redonda</b> dura 1, la <b>blanca</b> dura 1/2, la <b>negra</b> 1/4, la <b>corchea</b> 1/8 y la <b>semicorchea</b> 1/16. Cada figura dura la mitad que la anterior. Además, los compases se escriben como fracciones: en un compás de <b>3/4</b> caben tres negras, como en un vals.</p><p><b>En la cocina</b>, las recetas usan fracciones para las cantidades, y hay que operar con ellas cuando cambia el número de comensales. Si una receta para 4 personas lleva 3/4 kg de harina y queremos hacerla para 6, multiplicamos por 6/4:</p><p>3/4 × 6/4 = 18/16 = <b>9/8 kg</b>, es decir, 1 1/8 kg o 1,125 kg.</p><p>Si la queremos para 2 personas, la mitad: 3/4 × 1/2 = 3/8 kg.</p><p>También en el deporte (medio tiempo, un cuarto de final), en los relojes (un cuarto de hora, media hora) y en el dinero (medio euro) usamos fracciones a diario.</p>`,
+      L6.filas("Figuras musicales", [["redonda", "1", cAZ], ["blanca", "1/2", cVE], ["negra", "1/4", cNA], ["corchea", "1/8", cRO]])],
+    ["Fracciones en el antiguo Egipto", `<p>Los antiguos egipcios ya usaban fracciones hace casi 4 000 años. El <b>papiro Rhind</b>, copiado hacia el año 1650 a. C. por un escriba llamado Ahmes, contiene decenas de problemas con fracciones.</p><p>Pero los egipcios tenían una costumbre curiosa: casi solo usaban fracciones <b>unitarias</b>, es decir, con numerador 1 (1/2, 1/3, 1/4…). Para escribir 3/4, por ejemplo, escribían 1/2 + 1/4. Y 2/5 lo escribían como 1/3 + 1/15.</p><p>Según una interpretación muy conocida, las partes del <b>ojo de Horus</b>, un símbolo sagrado, representaban fracciones para medir el grano: 1/2, 1/4, 1/8, 1/16, 1/32 y 1/64.</p><p>Si las sumamos: 1/2 + 1/4 + 1/8 + 1/16 + 1/32 + 1/64 = 63/64. ¡Falta 1/64 para el entero! Según la leyenda, el dios Thot añadió esa parte que faltaba con su magia.</p><p>La barra horizontal que usamos hoy para escribir fracciones se extendió por Europa gracias a matemáticos como Fibonacci, que la tomó de los árabes en el siglo XIII.</p>`,
+      H6.barras("El ojo de Horus", [["1/2", 32, cAZ, "32/64"], ["1/4", 16, cVE, "16/64"], ["1/8", 8, cNA, "8/64"], ["1/16", 4, cMO, "4/64"], ["1/32", 2, cRO, "2/64"], ["1/64", 1, cRO, "1/64"]], 32), ["kWg0rEJqbEo", "Fracciones Egipcias: Las Matemáticas Misteriosas Que Nos Acompañan Desde La Época De Las Pirámides", "Derivando", 95579]],
+  ],
+  ejemplos: [
+    ["Calcula 5/6 + 3/4 usando el m.c.m.", ["m.c.m. (6, 4) = 12.", "10/12 + 9/12."], "19/12 = 1 7/12."],
+    ["Calcula 4/5 : 2/3 multiplicando por la inversa.", ["La inversa de 2/3 es 3/2.", "4/5 × 3/2 = 12/10."], "6/5."],
+  ],
+  errores: ["Sumar numeradores y denominadores por separado: 1/2 + 1/3 no es 2/5.", "Dar la vuelta a la primera fracción al dividir: se invierte la segunda (el divisor)."],
+  ejercicios: [
+    ["b", "Calcula usando el m.c.m.: 5/6 + 3/4.", "19/12."],
+    ["b", "Escribe la inversa de 7/2.", "2/7."],
+    ["b", "Escribe 9/4 como número mixto.", "2 1/4."],
+    ["b", "Escribe 3 1/2 como fracción.", "7/2."],
+    ["b", "¿Qué figura musical dura 1/4 de redonda?", "La negra."],
+    ["m", "Calcula: 2/3 − 1/4.", "8/12 − 3/12 = 5/12."],
+    ["m", "Calcula: 3/8 : 3/4.", "3/8 × 4/3 = 12/24 = 1/2."],
+    ["m", "Calcula: 1 2/3 + 2 1/2.", "25/6 = 4 1/6."],
+    ["m", "Calcula y simplifica: 5/6 × 3/10.", "15/60 = 1/4."],
+    ["m", "¿Cuántos medios hay en 3 unidades?", "3 : 1/2 = 6."],
+    ["a", "Una receta para 4 personas lleva 3/4 kg de harina. ¿Cuánta harina hace falta para 6 personas?", "3/4 × 6/4 = 9/8 kg = 1,125 kg."],
+    ["a", "Un depósito está lleno en sus 2/5 partes y se añade 1/3 de su capacidad. ¿Qué fracción falta para llenarlo?", "2/5 + 1/3 = 11/15; faltan 4/15."],
+    ["a", "¿Cuántos vasos de 1/8 L se llenan con una botella de 3/4 L?", "3/4 : 1/8 = 6 vasos."],
+    ["a", "Suma las fracciones del ojo de Horus. ¿Cuánto falta para la unidad?", "63/64; falta 1/64."],
+  ],
+  quiz: [
+    ["La inversa de 2/9 es…", ["9/2", "2/9", "1/9"], "Dar la vuelta."],
+    ["1 1/2 escrito como fracción es…", ["3/2", "2/3", "1/2"], "1 × 2 + 1."],
+    ["El m.c.m. de 4 y 6 es…", ["12", "24", "2"], "Común denominador."],
+    ["La negra dura…", ["1/4 de redonda", "1/2 de redonda", "1/8 de redonda"], "Música."],
+    ["Los egipcios usaban sobre todo fracciones de numerador…", ["1", "2", "10"], "Unitarias."],
+  ],
+  examen: [
+    ["3/4 : 1/8 = …", ["6", "3/32", "1/6"], "3/4 × 8."],
+    ["2 1/4 escrito como fracción es…", ["9/4", "6/4", "3/4"], "2 × 4 + 1."],
+  ],
+  tarjetas: [
+    ["Común denominador", "Usa el m.c.m. de los denominadores."],
+    ["Fracción inversa", "Dar la vuelta; dividir = multiplicar por la inversa."],
+    ["Números mixtos", "7/4 = 1 3/4; 2 1/3 = 7/3."],
+    ["Fracciones en la vida", "Música (negra 1/4), recetas, Egipto (ojo de Horus)."],
+  ],
+  glosario: [
+    ["Común denominador", "Mismo denominador para varias fracciones."],
+    ["m.c.m.", "Mínimo común múltiplo."],
+    ["Fracción inversa", "La que se obtiene intercambiando numerador y denominador."],
+    ["Fracción impropia", "Fracción mayor que la unidad."],
+    ["Número mixto", "Número con parte entera y fracción propia."],
+    ["Fracción propia", "Fracción menor que la unidad."],
+    ["Fracción unitaria", "Fracción con numerador 1."],
+    ["Compás", "Grupo de pulsos en que se divide una obra musical."],
+    ["Comensal", "Persona que come en una comida."],
+    ["Papiro", "Material de escritura del antiguo Egipto."],
+    ["Escriba", "Persona que escribía y copiaba textos en la Antigüedad."],
+    ["Testamento", "Documento con lo que alguien deja a sus herederos."],
+  ],
+  situacion: {
+    titulo: "El recetario de la clase",
+    reto: "La clase crea un recetario con cantidades en fracciones y las adapta para distinto número de personas.",
+    pasos: ["Cada pareja aporta una receta sencilla y escribe las cantidades en fracciones.", "Calculad las cantidades para la mitad de personas y para el doble.", "Expresad los resultados como fracción, número mixto y decimal.", "Reunid las recetas en un libro y comprobad una cocinándola en casa con ayuda."],
+    producto: "Un recetario con cantidades adaptadas.",
+    evaluacion: ["Opera con fracciones correctamente.", "Usa números mixtos.", "Relaciona fracciones y decimales.", "Presenta el trabajo con claridad."],
+  },
+});

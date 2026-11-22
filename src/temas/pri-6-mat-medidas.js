@@ -94,3 +94,91 @@ module.exports = P.tema({
   saberes: "Sentido de la medida: unidades del Sistema Métrico Decimal de longitud, masa y capacidad, conversiones, forma compleja e incompleja, estimación y elección de la unidad adecuada",
   ideas: ["Mercado de clase con balanza y recipientes graduados.", "Escalera de unidades dibujada en el suelo para practicar conversiones saltando.", "Estimar y medir objetos del aula y comparar el error."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbbbmmmaa",
+  objetivos: ["Conocer la historia del metro y del Sistema Métrico Decimal", "Distinguir masa y peso", "Relacionar capacidad y volumen: 1 L = 1 dm³", "Convertir unidades antiguas, anglosajonas y de tiempo"],
+  lectura: { titulo: "Siete años midiendo un meridiano", html: `<p>En 1792, en plena Revolución francesa, dos astrónomos salieron de París con una misión enorme: medir la Tierra. Jean-Baptiste Delambre partió hacia el norte, hasta Dunkerque. Pierre Méchain, hacia el sur, hasta Barcelona.</p><p>Francia quería crear una medida nueva, igual para todo el mundo, que no dependiera del pie de un rey ni de las costumbres de cada pueblo. Decidieron que el <b>metro</b> sería la diezmillonésima parte de la distancia entre el Polo Norte y el ecuador. Para calcularla, había que medir con exactitud un trozo del meridiano que pasa por París.</p><p>El trabajo fue durísimo. Subían a montañas y torres de iglesias con instrumentos pesados, medían ángulos entre lugares lejanos y hacían cálculos interminables. Algunos los tomaron por espías y los detuvieron. Méchain, que pasó años en España, se obsesionó con un pequeño error en sus medidas que nunca se atrevió a confesar.</p><p>Tardaron siete años. En 1799 se fabricó una barra de platino que medía exactamente un metro, según sus cálculos.</p><p>Hoy sabemos que tenían un error pequeñísimo: el metro que crearon es unos dos décimas de milímetro más corto de lo que pretendían. Pero su idea cambió el mundo: casi todos los países miden hoy con el mismo sistema.</p>` },
+  tras: {
+    "El Sistema Métrico Decimal": [
+      ["Historia del metro", `<p>Antes del Sistema Métrico Decimal, cada país, e incluso cada ciudad, tenía sus propias medidas: varas, pies, palmos, leguas, arrobas… Una vara de Castilla no medía lo mismo que una de Aragón, y eso causaba muchos problemas en el comercio.</p><p>Para acabar con ese desorden, en Francia, a finales del siglo XVIII, se creó un sistema <b>decimal</b>, basado en el 10 y con unidades relacionadas entre sí. El metro se definió en 1791 como la diezmillonésima parte de la distancia entre el polo y el ecuador.</p><p>En España, el Sistema Métrico Decimal se adoptó por ley en <b>1849</b>, aunque tardó muchos años en usarse en todas partes. En 1875, varios países firmaron en París la <b>Convención del Metro</b> para unificar las medidas en todo el mundo.</p><p>Con el tiempo, la definición del metro ha cambiado para ser más precisa. Desde <b>1983</b>, el metro es la distancia que recorre la <b>luz</b> en el vacío en 1/299 792 458 de segundo. Así, cualquier laboratorio del mundo puede reproducirlo sin necesidad de una barra de metal.</p><p>Hoy casi todos los países usan el sistema métrico. Las principales excepciones son Estados Unidos, que sigue usando sobre todo pies, millas y libras en la vida diaria.</p>`,
+        L6.filas("Historia del metro", [["1791", "se define el metro", cAZ], ["1849", "España lo adopta", cRO], ["1875", "Convención del Metro", cVE], ["1983", "se define con la luz", cNA]]), ["dasGBnQBHPA", "magnitudes: el metro. Su historia e importancia en el mundo", "Alejandro Jose Croce", 69875]],
+    ],
+    "Unidades de masa": [
+      ["Masa y peso no son lo mismo", `<p>En la vida diaria decimos «peso 40 kilos», pero en ciencias se distingue entre <b>masa</b> y <b>peso</b>:</p><ul><li>La <b>masa</b> es la <b>cantidad de materia</b> que tiene un cuerpo. Se mide en kilogramos y <b>no cambia</b> aunque el cuerpo se traslade a otro lugar.</li><li>El <b>peso</b> es la <b>fuerza</b> con la que la gravedad atrae a ese cuerpo. Depende del lugar donde esté.</li></ul><p>Un astronauta con una masa de 72 kg tiene 72 kg de masa en la Tierra, en la Luna y en el espacio. Pero en la Luna, donde la gravedad es unas seis veces menor, su peso es unas seis veces menor: allí podría saltar mucho más alto. En el espacio, lejos de los planetas, flotaría.</p><p>Las básculas de baño, en realidad, miden el peso, pero lo muestran en kilos porque están preparadas para la gravedad de la Tierra. Si te subieras a una en la Luna, marcaría mucho menos.</p><p>Otras unidades de masa que se usan para grandes cantidades son la <b>tonelada</b> (1 t = 1 000 kg), con la que se mide la carga de los camiones, y el <b>quintal métrico</b> (100 kg), usado en agricultura.</p>`,
+        H6.dos("Masa y peso", ["Masa", ["cantidad de materia", "en kilogramos", "no cambia"], cAZ], ["Peso", ["fuerza de gravedad", "depende del lugar", "en la Luna, menos"], cRO]), ["XZB924RFXJ8", "Diferencia entre Masa y Peso", "Tegon Storm", 422465]],
+    ],
+    "Unidades de capacidad": [
+      ["Capacidad y volumen: 1 L = 1 dm³", `<p>La <b>capacidad</b> es lo que cabe dentro de un recipiente; el <b>volumen</b> es el espacio que ocupa un cuerpo. Las dos magnitudes están muy relacionadas:</p><ul><li>Un cubo hueco de <b>1 dm</b> de arista (10 cm × 10 cm × 10 cm) tiene un volumen de 1 dm³ y en él cabe exactamente <b>1 litro</b>. Por eso, <b>1 L = 1 dm³</b>.</li><li>Un cubo de 1 cm de arista (1 cm³) contiene <b>1 mL</b>. Por eso, a veces los médicos hablan de «centímetros cúbicos» para las inyecciones.</li><li>Un cubo de 1 m de arista (1 m³) contiene <b>1 000 L</b>.</li></ul><p>Además, 1 L de agua tiene una masa aproximada de <b>1 kg</b>. Así, 1 mL de agua tiene una masa de 1 g, y 1 m³ de agua, unos 1 000 kg: ¡una tonelada!</p><p>Esto sirve para calcular, por ejemplo, cuánta agua cabe en una piscina. Una piscina de 10 m de largo, 5 m de ancho y 2 m de profundidad tiene 10 × 5 × 2 = 100 m³, es decir, <b>100 000 litros</b>.</p><p>Las facturas del agua se miden en metros cúbicos: si en un mes gastáis 10 m³, habéis usado 10 000 litros.</p>`,
+        L6.filas("Capacidad y volumen", [["1 mL", "1 cm³", cAZ], ["1 L", "1 dm³", cVE], ["1 000 L", "1 m³", cNA], ["1 L de agua", "unos 1 kg", cMO]]), ["NR0d_9wXCFE", "Litro y decímetro cúbico", "ingeniat", 258272]],
+    ],
+  },
+  final: [
+    ["Unidades antiguas y de otros países", `<p>Aunque usemos el sistema métrico, todavía aparecen otras unidades:</p><ul><li><b>Unidades anglosajonas</b>, usadas sobre todo en Estados Unidos y en parte del Reino Unido: la <b>pulgada</b> (2,54 cm), el <b>pie</b> (30,48 cm), la <b>milla</b> (unos 1,609 km), la <b>libra</b> (unos 453,6 g) y el <b>galón</b> estadounidense (unos 3,785 L).</li><li>Las pantallas de televisores y móviles se miden en <b>pulgadas</b>: una tele de 50 pulgadas tiene una diagonal de 50 × 2,54 = 127 cm.</li><li>En aviación y navegación se usan el <b>pie</b> para la altitud de los aviones y la <b>milla náutica</b> (1 852 m) para las distancias en el mar.</li><li><b>Unidades tradicionales españolas</b>: la <b>vara</b> castellana (unos 0,84 m), la <b>legua</b> (unos 5,5 km, lo que se andaba en una hora) y la <b>arroba</b> (unos 11,5 kg). Todavía se oyen en algunos refranes y mercados.</li></ul><p>Para convertir, multiplica por la equivalencia: 10 millas ≈ 10 × 1,609 = 16,09 km. 5 libras ≈ 5 × 0,4536 = 2,268 kg.</p>`,
+      L6.filas("Otras unidades", [["pulgada", "2,54 cm", cAZ], ["pie", "30,48 cm", cVE], ["milla", "1,609 km", cNA], ["libra", "453,6 g", cRO]])],
+    ["Medir el tiempo", `<p>El tiempo es una magnitud que <b>no</b> sigue el sistema decimal. Usamos el sistema <b>sexagesimal</b>, basado en el 60, heredado de los antiguos babilonios:</p><ul><li>1 hora = 60 minutos.</li><li>1 minuto = 60 segundos.</li><li>1 hora = 60 × 60 = 3 600 segundos.</li></ul><p>Además, 1 día = 24 horas, 1 semana = 7 días y 1 año = 365 días (366 en los bisiestos).</p><p>Por eso hay que tener cuidado con los decimales: <b>2,5 horas</b> no son 2 horas y 50 minutos, sino 2 horas y <b>30</b> minutos, porque media hora son 30 minutos. Y 1,25 horas son 1 hora y 15 minutos.</p><p>Para pasar de forma compleja a minutos: 1 h 45 min = 60 + 45 = <b>105 min</b>. Y al revés: 200 min = 3 h 20 min, porque 200 : 60 = 3 y sobran 20.</p><p>Los cronómetros deportivos miden también décimas y centésimas de segundo. En ese caso, las fracciones de segundo sí son decimales: 9,58 s son 9 segundos y 58 centésimas.</p>`,
+      H6.flujo("Unidades de tiempo", ["Día|24 h", "Hora|60 min", "Minuto|60 s"], cMO)],
+  ],
+  ejemplos: [
+    ["¿Cuántos litros caben en 3 m³?", ["1 m³ = 1 000 L.", "3 × 1 000."], "3 000 L."],
+    ["¿Cuántos centímetros mide la diagonal de una pantalla de 50 pulgadas?", ["1 pulgada = 2,54 cm.", "50 × 2,54."], "127 cm."],
+  ],
+  errores: ["Pensar que 2,5 horas son 2 horas y 50 minutos: son 2 horas y 30 minutos.", "Confundir masa y peso: la masa no cambia en la Luna; el peso sí."],
+  ejercicios: [
+    ["b", "¿En qué país se creó el metro?", "En Francia."],
+    ["b", "¿Cuántos cm³ caben en 1 L?", "1 000 cm³."],
+    ["b", "¿Cuántos centímetros mide una pulgada?", "2,54 cm."],
+    ["b", "¿Qué masa aproximada tiene 1 L de agua?", "1 kg."],
+    ["b", "Expresa 2,5 horas en horas y minutos.", "2 h 30 min."],
+    ["m", "¿Cuántos litros son 3 m³?", "3 000 L."],
+    ["m", "¿Cuántos centímetros mide la diagonal de una pantalla de 50 pulgadas?", "127 cm."],
+    ["m", "¿A cuántos kilómetros equivalen 10 millas?", "Unos 16,09 km."],
+    ["m", "Expresa 250 mL en cm³ y en dm³.", "250 cm³ = 0,25 dm³."],
+    ["m", "Pasa a minutos: 1 h 45 min.", "105 min."],
+    ["a", "Una piscina mide 10 m × 5 m × 2 m. ¿Cuántos litros de agua caben?", "100 m³ = 100 000 L."],
+    ["a", "Un astronauta tiene una masa de 72 kg. ¿Qué masa tendrá en la Luna? ¿Y su peso?", "Masa: 72 kg. Peso: unas seis veces menor."],
+    ["a", "¿Cuántos kilos son 5 libras?", "Unos 2,27 kg."],
+    ["a", "Un tren recorre 150 km en 1 h 15 min. ¿Cuántos kilómetros recorre por minuto?", "150 : 75 = 2 km por minuto."],
+  ],
+  quiz: [
+    ["1 litro equivale a…", ["1 dm³", "1 cm³", "1 m³"], "Capacidad y volumen."],
+    ["En la Luna, la masa de una persona…", ["no cambia", "es seis veces menor", "es cero"], "Masa."],
+    ["Una pulgada mide…", ["2,54 cm", "30,48 cm", "1,609 km"], "Anglosajonas."],
+    ["España adoptó el Sistema Métrico Decimal en…", ["1849", "1791", "1983"], "Ley."],
+    ["1 m³ equivale a…", ["1 000 L", "100 L", "10 L"], "Volumen."],
+  ],
+  examen: [
+    ["1 mL equivale a…", ["1 cm³", "1 dm³", "1 m³"], "Capacidad."],
+    ["3 h 20 min son…", ["200 min", "320 min", "180 min"], "3 × 60 + 20."],
+  ],
+  tarjetas: [
+    ["Historia del metro", "1791 Francia; España 1849; desde 1983, con la luz."],
+    ["Masa y peso", "Masa: materia, no cambia. Peso: fuerza, depende del lugar."],
+    ["1 L = 1 dm³", "1 mL = 1 cm³; 1 m³ = 1 000 L; 1 L de agua ≈ 1 kg."],
+    ["Otras unidades", "Pulgada 2,54 cm; pie 30,48 cm; milla 1,609 km; tiempo en base 60."],
+  ],
+  glosario: [
+    ["Meridiano", "Línea imaginaria que va de polo a polo."],
+    ["Sistema Métrico Decimal", "Sistema de medidas basado en el 10."],
+    ["Masa", "Cantidad de materia de un cuerpo."],
+    ["Peso", "Fuerza con la que la gravedad atrae un cuerpo."],
+    ["Gravedad", "Fuerza que atrae los cuerpos hacia un planeta."],
+    ["Tonelada", "1 000 kilogramos."],
+    ["Capacidad", "Lo que cabe dentro de un recipiente."],
+    ["Volumen", "Espacio que ocupa un cuerpo."],
+    ["Decímetro cúbico", "Volumen de un cubo de 1 dm de arista."],
+    ["Pulgada", "Unidad anglosajona de longitud: 2,54 cm."],
+    ["Sistema sexagesimal", "Sistema basado en el 60, como el del tiempo."],
+    ["Legua", "Antigua unidad de longitud de unos 5,5 km."],
+  ],
+  situacion: {
+    titulo: "Laboratorio de medidas",
+    reto: "La clase organiza un laboratorio para medir objetos, recipientes y tiempos y convertir los resultados a distintas unidades.",
+    pasos: ["Medid la longitud, la masa y la capacidad de cinco objetos del aula con instrumentos reales.", "Construid un cubo de cartulina de 1 dm de arista y comprobad con arroz o agua que cabe 1 litro.", "Convertid algunas medidas a pulgadas, pies o libras.", "Cronometrad una actividad y expresad los tiempos en forma compleja e incompleja."],
+    producto: "Un cuaderno de laboratorio con mediciones y conversiones.",
+    evaluacion: ["Mide con precisión.", "Convierte unidades correctamente.", "Relaciona capacidad y volumen.", "Opera con el sistema sexagesimal."],
+  },
+});
