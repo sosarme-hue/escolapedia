@@ -87,3 +87,92 @@ module.exports = P.tema({
   saberes: "Coneixement de la llengua: el verb; infinitiu; arrel i desinència; les tres conjugacions i els verbs incoatius; persona i nombre; temps passat (perifràstic), present i futur; verbs irregulars freqüents; errors habituals",
   ideas: ["Dau de persones i dau de temps per conjugar verbs a l'atzar.", "Arrels en cartolina i desinències en pinces per «vestir» verbs.", "Diari de la setmana: una frase en passat, una en present i una en futur."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+module.exports.bloques.find((b) => /Conjugar un verb/.test(b.html)).svg = L6.filas("Menjar: present", [["jo", "menjo", cAZ], ["tu", "menges", cVE], ["ell, ella", "menja", cNA], ["nosaltres", "mengem", cMO], ["ells, elles", "mengen", cRO]]);
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Fer concordar el verb amb el subjecte", "Distingir el present, el passat i el futur", "Fer servir bé els verbs ser i estar", "Donar ordres amb l'imperatiu i triar verbs precisos per explicar contes"],
+  lectura: { titulo: "El robot que no sabia conjugar", html: `<p>A la classe de 4t havia arribat un robot nou. Es deia <b>Bip</b> i era molt llest, però tenia un problema: no sabia conjugar els verbs.</p><p>—Jo <b>menjar</b> piles —deia el Bip—. Ahir jo <b>jugar</b> a futbol. Demà jo <b>anar</b> d'excursió.</p><p>Els nens i les nenes es miraven i reien.</p><p>—Bip, no es diu així! —li va explicar la Laia—. Has de canviar el final del verb segons qui fa l'acció i quan la fa. Si ets tu i és ara, <b>menges</b>. Si va ser ahir, <b>vas jugar</b>. I si serà demà, <b>aniràs</b>.</p><p>El Bip va fer uns quants sorolls estranys i els llums del cap li van fer pampallugues.</p><p>—Processant… Ara jo… <b>menjo</b> piles. Ahir <b>vaig jugar</b> a futbol. Demà <b>aniré</b> d'excursió!</p><p>—Molt bé! —van cridar tots.</p><p>Des d'aquell dia, el Bip practicava els verbs cada matí. Una setmana després, ja deia frases molt boniques:</p><p>—Quan <b>era</b> petit, no <b>sabia</b> conjugar. Ara <b>parlo</b> molt bé. I quan <b>sigui</b> gran, <b>escriuré</b> un llibre de contes!</p><p>La mestra va somriure. Aquell robot havia après la cosa més important dels verbs: que ens diuen <b>qui</b> fa l'acció i <b>quan</b> la fa.</p>` },
+  tras: {
+    "Persona i nombre": [
+      ["El subjecte i el verb concorden", `<p>A una oració, el <b>subjecte</b> és qui fa l'acció, i el <b>verb</b> diu què fa. Tots dos han de <mark>concordar</mark>: han d'anar en la mateixa <b>persona</b> i el mateix <b>nombre</b>.</p><ul><li><i>El gat <b>dorm</b>.</i> → subjecte singular, verb singular.</li><li><i>Els gats <b>dormen</b>.</i> → subjecte plural, verb plural.</li><li><i>Tu i jo <b>juguem</b>.</i> → <i>tu i jo</i> és com <i>nosaltres</i>.</li><li><i>La Laia i en Pau <b>canten</b>.</i> → dues persones: plural.</li></ul><p>Per trobar el subjecte, pregunta al verb <b>qui?</b>: <i>Qui canta? La Laia i en Pau.</i> Després, comprova que el verb vagi en la mateixa persona.</p><p>Alguns casos on ens solem equivocar:</p><ul><li>Quan el subjecte va <b>després</b> del verb: <i>Ahir <b>van arribar</b> els meus cosins</i> (no «va arribar»).</li><li>Amb els <b>col·lectius</b>: <i>La colla <b>juga</b></i> (singular, encara que siguin molts).</li><li>Amb <b>haver-hi</b>, a l'escrit és habitual deixar el verb en singular: <i><b>Hi ha</b> un gat</i> i <i><b>Hi ha</b> molts gats</i>.</li></ul><p>Un bon truc per comprovar la concordança és canviar el subjecte de singular a plural i mirar si el verb també ha de canviar: <i>El nen <b>corre</b> → Els nens <b>corren</b></i>. Si el verb canvia, vol dir que concorda amb aquest subjecte. Si no canvia, potser el subjecte és un altre!</p><p>En català, sovint no cal dir el subjecte, perquè el verb ja ens diu qui és: <i><b>Cantem</b></i> vol dir <i>nosaltres cantem</i>. Per això la terminació del verb és tan important.</p>`,
+        H6.flujo("Trobar el subjecte", ["verb|canten", "qui?|pregunta", "subjecte|Laia i Pau", "concorda?|plural"], cVE)],
+    ],
+    "El temps i el passat perifràstic": [
+      ["Present, passat i futur", `<p>Els verbs ens diuen <mark>quan</mark> passa una acció. Hi ha tres grans temps:</p><ul><li><b>Present</b>: l'acció passa <b>ara</b> o passa sovint. <i>Ara <b>llegeixo</b>. Cada dia <b>esmorzo</b> torrades.</i> Paraules que l'acompanyen: <i>ara, avui, cada dia, sempre</i>.</li><li><b>Passat</b>: l'acció ja ha passat. <i>Ahir <b>vaig llegir</b>. L'estiu passat <b>vam anar</b> a la platja. Quan era petit, <b>jugava</b> amb cotxes.</i> Paraules: <i>ahir, abans, l'any passat, fa temps</i>.</li><li><b>Futur</b>: l'acció encara no ha passat. <i>Demà <b>llegiré</b>. L'any que ve <b>anirem</b> a la muntanya.</i> Paraules: <i>demà, després, la setmana que ve, aviat</i>.</li></ul><p>En català, hi ha diverses maneres d'expressar el passat:</p><ul><li><b>Passat perifràstic</b>: <i>vaig cantar</i>. És el més habitual per explicar coses acabades.</li><li><b>Pretèrit perfet</b>: <i>he cantat</i>. Per a coses que han passat <b>avui</b> o en un temps que encara dura: <i>Aquest matí <b>he esmorzat</b> torrades.</i></li><li><b>Imperfet</b>: <i>cantava</i>. Per a coses que passaven sovint o per descriure: <i>Quan era petit, <b>cantava</b> a la dutxa.</i></li></ul><p>Un consell: quan escriguis un conte, tria un temps i mantén-lo. Si comences en passat, no passis al present sense motiu!</p>`,
+        L6.filas("Temps", [["present", "ara llegeixo", cVE], ["passat", "ahir vaig llegir", cAZ], ["perfet", "avui he llegit", cMO], ["futur", "demà llegiré", cNA]]), ["0ZB5WR_1luA", "Verbos en presente, pasado y futuro", "MissStephy", 686128]],
+    ],
+    "Verbs irregulars i errors freqüents": [
+      ["Ser i estar", `<p>Els verbs <mark>ser</mark> i <mark>estar</mark> són dels més usats, però sovint els confonem. Mira quan es fa servir cadascun:</p><p><b>Ser</b> s'utilitza:</p><ul><li>Per dir <b>com és</b> una persona o una cosa de manera permanent: <i>La Júlia <b>és</b> alta. El mar <b>és</b> salat.</i></li><li>Per dir <b>qui és</b> o <b>què és</b>: <i><b>Soc</b> en Marc. Això <b>és</b> una guitarra.</i></li><li>Per dir d'on és algú: <i><b>Som</b> de Tarragona.</i></li><li>Per dir <b>on</b> és algú o alguna cosa: <i>La mare <b>és</b> a la feina. Les claus <b>són</b> al calaix.</i> (També es diu <i>està a la feina</i>.)</li></ul><p><b>Estar</b> s'utilitza:</p><ul><li>Per dir com està algú en aquell moment, un <b>estat</b> que canvia: <i><b>Estic</b> cansat. La sopa <b>està</b> calenta.</i></li><li>Amb el gerundi, per dir que una acció està passant: <i><b>Estem</b> estudiant.</i></li><li>Per dir quant de temps es queda algú en un lloc: <i><b>Vam estar</b> tres dies a Menorca.</i></li></ul><p>Fixa't en la diferència: <i>En Pau <b>és</b> alegre</i> (sempre ho és) i <i>En Pau <b>està</b> alegre</i> (avui ho està).</p><p>Recorda que <b>soc</b>, des del 2017, ja no porta accent. En canvi, <b>és</b> (verb) sí que en porta, per distingir-lo de <i>es</i> (pronom).</p>`,
+        H6.dos("Ser o estar?", ["SER", ["és alta", "som de Reus", "és a casa"], cAZ], ["ESTAR", ["estic cansat", "està calenta", "estem llegint"], cNA])],
+    ],
+  },
+  final: [
+    ["L'imperatiu: donar ordres", `<p>Quan volem <b>donar una ordre</b>, fer un <b>consell</b> o una <b>petició</b>, fem servir l'<mark>imperatiu</mark>: <i><b>Tanca</b> la porta! <b>Escolteu</b> bé. <b>Vine</b> aquí.</i></p><p>L'imperatiu només té les persones a qui parlem:</p><ul><li><b>Tu</b>: <i>canta, menja, dorm, llegeix</i>.</li><li><b>Vostè</b>: <i>canti, mengi, dormi, llegeixi</i>.</li><li><b>Nosaltres</b>: <i>cantem, mengem</i> (quan ens incloem: <i>Anem-hi!</i>).</li><li><b>Vosaltres</b>: <i>canteu, mengeu, dormiu, llegiu</i>.</li><li><b>Vostès</b>: <i>cantin, mengin</i>.</li></ul><p>Alguns imperatius són irregulars i convé aprendre'ls: <i>ser → <b>sigues</b></i>, <i>anar → <b>ves</b></i>, <i>venir → <b>vine</b></i>, <i>fer → <b>fes</b></i>, <i>dir → <b>digues</b></i>, <i>tenir → <b>tingues</b></i>, <i>veure → <b>mira</b></i>.</p><p>Quan l'ordre és <b>negativa</b>, no fem servir l'imperatiu sinó el subjuntiu: <i>Canta! → <b>No cantis!</b></i>; <i>Corre! → <b>No corris!</b></i>; <i>Feu soroll → <b>No feu soroll</b></i>.</p><p>On trobem imperatius? A les <b>receptes</b> (<i>talla la ceba, afegeix-hi sal</i>), a les <b>instruccions</b> d'un joc (<i>tira el dau</i>), als <b>cartells</b> i als <b>anuncis</b> (<i>compra ara!</i>). I recorda: una ordre és més amable si hi afegeixes <i>si us plau</i>!</p>`,
+      L6.filas("Imperatiu", [["tu", "canta, vine", cAZ], ["vosaltres", "canteu, veniu", cVE], ["irregular", "fes, ves, digues", cNA], ["negatiu", "no cantis!", cRO]]), ["j_z3QAZjiIU", "El imperativo: explicación y actividades", "ProfeDeELE.es", 360041]],
+    ["Verbs per explicar contes", `<p>Quan escrivim un conte, el verb <i>dir</i> se'ns repeteix moltíssim: <i>va dir, va dir, va dir…</i> Per fer el text més viu, el podem substituir per <mark>verbs més precisos</mark>, que ens expliquen <b>com</b> parla el personatge:</p><ul><li>Si parla fluix: <i>va <b>xiuxiuejar</b></i>, <i>va <b>murmurar</b></i>.</li><li>Si parla fort: <i>va <b>cridar</b></i>, <i>va <b>exclamar</b></i>.</li><li>Si pregunta: <i>va <b>preguntar</b></i>, <i>va <b>demanar</b></i>.</li><li>Si contesta: <i>va <b>respondre</b></i>, <i>va <b>contestar</b></i>.</li><li>Si està enfadat: <i>va <b>protestar</b></i>, <i>va <b>remugar</b></i>.</li><li>Si està trist: <i>va <b>sospirar</b></i>, <i>va <b>sanglotar</b></i>.</li></ul><p>El mateix passa amb altres verbs molt generals:</p><ul><li><b>Anar</b>: <i>córrer, caminar, passejar, fugir, trotar, arrossegar-se</i>.</li><li><b>Mirar</b>: <i>observar, espiar, contemplar, ullar</i>.</li><li><b>Menjar</b>: <i>devorar, mastegar, assaborir, rosegar</i>.</li></ul><p>Compara: <i>El llop va <b>anar</b> cap a la casa</i> i <i>El llop va <b>córrer</b> cap a la casa</i>. Quina et fa més por?</p><p>Ara bé, no cal canviar-los tots: si ho fas, el text quedarà estrany. L'important és variar.</p><p>Quan rellegeixis un text teu, subratlla els verbs <i>dir, anar, fer</i> i <i>posar</i>, i mira si en pots canviar algun per un de més precís.</p>`,
+      H6.rueda("En lloc de dir", "DIR", [["cridar", cRO], ["xiuxiuejar", cAZ], ["respondre", cVE], ["sospirar", cMO]])],
+  ],
+  ejemplos: [
+    ["Corregeix: «Ahir va arribar els meus cosins».", ["Pregunto qui?: els meus cosins (plural).", "El verb ha d'anar en plural."], "Ahir van arribar els meus cosins."],
+    ["Passa a negatiu: «Corre pel passadís!».", ["L'ordre negativa no fa servir l'imperatiu.", "Fem servir el subjuntiu: corris."], "No corris pel passadís!"],
+  ],
+  errores: ["No fer concordar el verb quan el subjecte va darrere: «Va venir els avis».", "Fer servir l'imperatiu en negatiu: «No canta!» en lloc de «No cantis!»."],
+  ejercicios: [
+    ["b", "Troba el subjecte: «Els ocells canten al matí».", "Els ocells."],
+    ["b", "En quin temps està «menjaré»?", "Futur."],
+    ["b", "Completa amb ser o estar: «La sopa ___ calenta».", "Està."],
+    ["b", "Escriu l'imperatiu de tu de «tancar».", "Tanca."],
+    ["b", "Escriu un verb per substituir «dir» quan algú parla fluix.", "Xiuxiuejar o murmurar."],
+    ["m", "Passa a passat perifràstic: «Jugo a futbol».", "Vaig jugar a futbol."],
+    ["m", "Corregeix: «La colla juguen al parc».", "La colla juga al parc."],
+    ["m", "Passa a negatiu: «Feu soroll».", "No feu soroll."],
+    ["m", "Escriu l'imperatiu de tu de fer, anar i dir.", "Fes, ves, digues."],
+    ["m", "Explica la diferència: «és alegre» / «està alegre».", "Sempre ho és / ho està ara."],
+    ["a", "Escriu una recepta senzilla amb cinc imperatius.", "Resposta oberta."],
+    ["a", "Reescriu un diàleg canviant tots els «va dir».", "Resposta oberta."],
+    ["a", "Explica què vas fer ahir, què fas avui i què faràs demà.", "Resposta oberta."],
+    ["a", "Inventa un final per al conte del robot Bip.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["«Els gats ___» concorda amb…", ["dormen", "dorm", "dormim"], "Concordança."],
+    ["«Vaig llegir» està en…", ["passat", "present", "futur"], "Temps."],
+    ["«La sopa ___ freda»", ["està", "és", "soc"], "Ser i estar."],
+    ["L'ordre negativa de «canta» és…", ["no cantis", "no canta", "no cantar"], "Imperatiu."],
+    ["Un verb per a parlar fort és…", ["cridar", "murmurar", "sospirar"], "Verbs precisos."],
+  ],
+  examen: [
+    ["Al principi, què deia el robot Bip?", ["Jo menjar piles", "Jo menjo piles", "Menjaré piles"], "Lectura."],
+    ["L'imperatiu de «venir» per a tu és…", ["vine", "venis", "véns"], "Imperatiu."],
+  ],
+  tarjetas: [
+    ["Concordança", "Subjecte i verb en la mateixa persona i nombre."],
+    ["Temps", "Present: llegeixo. Passat: vaig llegir. Futur: llegiré."],
+    ["Ser i estar", "Ser: com és. Estar: com està ara."],
+    ["Imperatiu", "Canta! / No cantis! Irregulars: fes, ves, digues."],
+  ],
+  glosario: [
+    ["Verb", "Paraula que expressa una acció o un estat."],
+    ["Subjecte", "Qui fa l'acció del verb."],
+    ["Concordança", "Coincidència de persona i nombre."],
+    ["Present", "Temps de les accions que passen ara."],
+    ["Passat", "Temps de les accions que ja han passat."],
+    ["Futur", "Temps de les accions que passaran."],
+    ["Perifràstic", "Passat format amb vaig, vas, va…"],
+    ["Imperfet", "Passat per a accions habituals: cantava."],
+    ["Imperatiu", "Forma per donar ordres."],
+    ["Subjuntiu", "Forma per a ordres negatives: no cantis."],
+    ["Irregular", "Verb que canvia l'arrel."],
+    ["Xiuxiuejar", "Parlar molt fluix."],
+  ],
+  situacion: {
+    titulo: "El manual del robot",
+    reto: "La classe escriu un manual d'instruccions per ensenyar al robot Bip a fer coses.",
+    pasos: ["Trieu tasques (fer una truita, plantar una llavor, jugar a un joc).", "Escriviu les instruccions amb imperatius i ordres negatives.", "Afegiu un diari del Bip en passat i els seus plans en futur.", "Llegiu el manual en veu alta i comproveu la concordança."],
+    producto: "Un manual d'instruccions i un diari del robot.",
+    evaluacion: ["Fa servir bé l'imperatiu i el negatiu.", "Distingeix present, passat i futur.", "Fa concordar subjecte i verb.", "Tria verbs precisos."],
+  },
+});

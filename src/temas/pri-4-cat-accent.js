@@ -88,3 +88,91 @@ module.exports = P.tema({
   saberes: "Ortografia: accent fonètic i gràfic; síl·laba tònica; paraules agudes, planes i esdrúixoles; regles generals d'accentuació; accent obert i tancat; monosíl·labs i accent diacrític (normativa de l'IEC del 2017)",
   ideas: ["Tres capses (agudes, planes, esdrúixoles) per classificar targetes.", "Detectius d'accents: corregir un text amb accents de més i de menys.", "Semàfor d'accents: verd per a obert, vermell per a tancat."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Saber quan perden o guanyen l'accent els plurals i els femenins", "Conèixer la llista dels accents diacrítics", "Entendre per què l'accent de la e canvia segons el parlar", "Accentuar les formes verbals i les majúscules"],
+  lectura: { titulo: "La bossa dels accents", html: `<p>Una nit, mentre tothom dormia, els accents de la classe de 4t van decidir fugir de les paraules. Estaven cansats de treballar.</p><p>L'endemà, quan la mestra va escriure a la pissarra, va passar una cosa molt estranya:</p><p><i>El cafe de la mama es al sofa.</i></p><p>—Què vol dir això? —va preguntar la Rita—. El <i>cafe</i>? La <i>mama</i>?</p><p>—I <i>es</i> sense accent no és el verb <i>ser</i>! —va afegir en Nil.</p><p>Tot era un embolic. Les <i>cançons</i> eren <i>cançons</i>, però la <i>canço</i> ja no sonava bé. Els <i>telefons</i> no funcionaven, el <i>Peru</i> semblava una fruita i ningú no sabia si <i>te</i> volia dir «tenir» o la beguda calenta.</p><p>Llavors la Rita va trobar, a sota de la taula de la mestra, una <b>bossa</b> plena de petites ratlletes: eren els accents fugitius!</p><p>—Tornem-los a lloc! —va dir.</p><p>Tota la classe es va posar a treballar. Primer van buscar la síl·laba tònica de cada paraula. Després van mirar si era aguda, plana o esdrúixola, i com acabava. I finalment van decidir si l'accent havia de ser obert o tancat.</p><p><i>El <b>cafè</b> de la <b>mamà</b> <b>és</b> al <b>sofà</b>.</i></p><p>Els accents, en veure que tothom els trobava a faltar, van entendre que eren molt importants i van prometre no tornar a fugir mai més.</p>` },
+  tras: {
+    "Les paraules planes i esdrúixoles": [
+      ["Plurals i femenins: l'accent va i ve", `<p>Quan posem una paraula en <b>plural</b> o en <b>femení</b>, li afegim lletres al final. Com que la paraula canvia, potser ara ja no és del mateix tipus i <mark>l'accent pot desaparèixer o aparèixer</mark>.</p><p><b>Paraules que perden l'accent:</b></p><ul><li><i>ca-mi-<b>ó</b></i> → <i>ca-mi-<b>ons</b></i>: continua sent aguda, però ara acaba en <i>-ns</i>, i aquesta terminació no porta accent: <i>camions</i>.</li><li><i>fran<b>cès</b></i> → <i>france<b>sa</b></i>, <i>france<b>sos</b></i>: planes acabades en vocal o vocal + s: sense accent.</li><li><i>a<b>nglès</b></i> → <i>anglesos</i>; <i>ca<b>nçó</b></i> → <i>cançons</i>; <i>ve<b>í</b></i> → <i>veïns</i> (amb dièresi).</li><li><i>pa<b>ís</b></i> → <i>països</i>.</li></ul><p><b>Paraules que mantenen l'accent:</b></p><ul><li><i>ca<b>fè</b></i> → <i>cafès</i>: continua sent aguda acabada en vocal + s.</li><li><i>so<b>fà</b></i> → <i>sofàs</i>; <i>me<b>nú</b></i> → <i>menús</i>.</li><li>Les <b>esdrúixoles</b> sempre: <i>pàgina → pàgines</i>, <i>música → músiques</i>.</li></ul><p><b>Paraules que guanyen l'accent:</b></p><ul><li><i>ex<b>a</b>men</i> (plana acabada en -en: sense accent) → <i>ex<b>à</b>mens</i>! Ara acaba en <i>-ens</i>, que no és cap de les terminacions que eviten l'accent a les planes.</li><li><i>o-<b>ri</b>-gen</i> → <i>orígens</i>, i <i><b>jo</b>ve</i>… no canvia: <i>joves</i>, perquè acaba en vocal + s.</li></ul><p>Per no equivocar-te, cada vegada que facis un plural, torna a aplicar les regles des del principi.</p>`,
+        L6.filas("Plurals", [["camió", "camions", cRO], ["francès", "francesos", cRO], ["cafè", "cafès", cVE], ["examen", "exàmens", cAZ]])],
+    ],
+    "Accent obert (`) o tancat (´)": [
+      ["Accent i parlars", `<p>Ja saps que la <b>e</b> i la <b>o</b> poden portar accent <b>obert</b> (è, ò) o <b>tancat</b> (é, ó) segons com sonen. Però <mark>no tothom les pronuncia igual</mark>!</p><p>El català té diferents maneres de parlar-se segons el territori: són els <b>parlars</b> o <b>dialectes</b>. Una de les diferències més clares és com sona la <b>e</b> tònica:</p><ul><li>A <b>Catalunya</b> i a les <b>Balears</b>, diem <i>anglès</i>, <i>francès</i>, <i>cafè</i>, <i>conèixer</i>, amb la <i>e</i> oberta.</li><li>Al <b>País Valencià</b>, moltes d'aquestes <i>e</i> sonen tancades, i per això s'escriuen <i>anglés</i>, <i>francés</i>, <i>café</i>, <i>conéixer</i>.</li></ul><p>Les dues formes són <b>correctes</b>! L'Institut d'Estudis Catalans i l'Acadèmia Valenciana de la Llengua les accepten totes dues. Cada persona escriu segons com pronuncia.</p><p>Altres paraules que canvien:</p><ul><li><i>què</i> / <i>qué</i></li><li><i>perquè</i> / <i>perqué</i></li><li><i>vèncer</i> / <i>véncer</i></li><li><i>també</i>, <i>vostè</i>… (en tots dos casos, <i>també</i> porta accent tancat!)</li></ul><p>Amb la <b>o</b> no passa: <i>cançó</i>, <i>això</i>, <i>dijous</i>… són iguals a tot arreu.</p><p>El que no pot canviar mai és la <b>a</b> (sempre oberta: <i>à</i>) i la <b>i</b> i la <b>u</b> (sempre tancades: <i>í</i>, <i>ú</i>).</p><p>Aquesta varietat és una riquesa de la nostra llengua.</p>`,
+        H6.dos("Correcte?", ["CATALUNYA", ["anglès", "francès", "cafè"], cAZ], ["VALÈNCIA", ["anglés", "francés", "café"], cNA]), ["jHQOinHnHZU", "L'accentuació en valencià", "Cocinando y más", 69121]],
+    ],
+    "Els monosíl·labs i l'accent diacrític": [
+      ["Tots els diacrítics", `<p>Des de la reforma del <b>2017</b>, en català només queden <mark>quinze parelles</mark> amb accent diacrític. Són poques, així que les pots aprendre totes:</p><ul><li><b>bé</b> (bo, correcte) / <b>be</b> (xai): <i>Ho has fet <b>bé</b>. El <b>be</b> fa bee.</i></li><li><b>déu</b> (divinitat) / <b>deu</b> (número, verb deure).</li><li><b>dóna</b> (verb donar) / <b>dona</b> (persona). <i>Actualment també s'accepta <b>dona</b> per al verb.</i></li><li><b>és</b> (verb ser) / <b>es</b> (pronom).</li><li><b>mà</b> (del cos) / <b>ma</b> (possessiu).</li><li><b>més</b> (quantitat) / <b>mes</b> (de l'any).</li><li><b>món</b> (la Terra) / <b>mon</b> (possessiu).</li><li><b>pèl</b> (cabell) / <b>pel</b> (per + el).</li><li><b>què</b> (pronom) / <b>que</b> (conjunció).</li><li><b>sé</b> (verb saber) / <b>se</b> (pronom).</li><li><b>sí</b> (afirmació) / <b>si</b> (condició).</li><li><b>sòl</b> (terra) / <b>sol</b> (astre; sense companyia).</li><li><b>té</b> (verb tenir) / <b>te</b> (pronom, beguda).</li><li><b>ús</b> (utilització) / <b>us</b> (pronom).</li><li><b>vós</b> (tractament) / <b>vos</b> (pronom).</li></ul><p>Els compostos segueixen la regla general: <i>adeu</i> no porta accent, però <i>rebé</i> sí, perquè és aguda acabada en vocal.</p><p>Moltes paraules que abans en portaven, ara <b>no</b>: <i>soc, net, os, ves, vens, sec</i>…</p>`,
+        L6.filas("Diacrítics", [["és / es", "verb / pronom", cAZ], ["més / mes", "quantitat / mes", cVE], ["sí / si", "afirmació / condició", cNA], ["té / te", "tenir / beguda", cMO], ["què / que", "pronom / conjunció", cRO]]), ["1QyuNPoF85M", "Lista de tildes diacríticas en catalán", "Parlem d'escriure en català", 35537]],
+    ],
+  },
+  final: [
+    ["L'accent als verbs", `<p>Els <mark>verbs</mark> tenen moltes formes, i algunes porten accent. Si coneixes les regles, no t'equivocaràs:</p><ul><li><b>Futur</b>: les persones <i>jo</i>, <i>tu</i> i <i>ell</i> són agudes acabades en vocal o vocal + s, i porten accent: <i>cantaré</i>, <i>cantaràs</i>, <i>cantarà</i>. En canvi, <i>cantarem</i>, <i>cantareu</i> i <i>cantaran</i> són agudes acabades en <i>-em</i>, <i>-eu</i> i <i>-an</i>, i no en porten.</li><li><b>Imperfet</b>: les persones <i>nosaltres</i> i <i>vosaltres</i> són esdrúixoles i porten sempre accent: <i>cantàvem</i>, <i>cantàveu</i>, <i>llegíem</i>, <i>llegíeu</i>.</li><li><b>Condicional</b>: <i>cantaríem</i>, <i>cantaríeu</i> (també esdrúixoles).</li><li><b>Passat simple</b> (més literari): <i>cantà</i>, <i>cantàrem</i>.</li><li><b>Infinitius</b> plans acabats en <b>-er</b>: <i>córrer</i>, <i>vèncer</i>, <i>conèixer</i>, <i>néixer</i>, <i>créixer</i>. Són planes que no acaben en vocal, vocal + s, -en ni -in, i per això porten accent.</li></ul><p>Fixa't que <i>cantem</i> i <i>canteu</i> (present) no porten accent: són agudes acabades en <i>-em</i> i <i>-eu</i>.</p><p>Una bona estratègia: escriu el verb conjugat en una taula i aplica les regles a cada persona.</p>`,
+      L6.filas("Verbs", [["futur", "cantaré, cantarà", cAZ], ["imperfet", "cantàvem, cantàveu", cVE], ["condicional", "cantaríem", cNA], ["infinitiu -er", "córrer, néixer", cMO]])],
+    ["Majúscules i noms propis", `<p>Les <mark>majúscules</mark> també porten accent quan els toca: <i><b>À</b>frica</i>, <i><b>È</b>lia</i>, <i><b>Ò</b>scar</i>, <i><b>Í</b>ngrid</i>, <i><b>Ú</b>rsula</i>. No és cap excepció: la regla és la mateixa que per a les minúscules. Als títols i als cartells escrits tot en majúscules, també: <i>CAMIÓ</i>, <i>MÚSICA</i>.</p><p>Els <b>noms propis</b> segueixen les regles d'accentuació del català:</p><ul><li>Noms de persona: <i>Martí</i>, <i>Agnès</i>, <i>Josep</i> (aguda acabada en <i>-p</i>: sense accent), <i>Mònica</i>, <i>Àngel</i>.</li><li>Noms de lloc catalans: <i>Lleida</i>, <i>Mataró</i>, <i>Alacant</i>, <i>Sóller</i>, <i>Maó</i>, <i>Tàrrega</i>.</li><li>Noms de països adaptats: <i>Perú</i>, <i>Japó</i>, <i>Canadà</i>, <i>Mèxic</i>, <i>Itàlia</i>, <i>Àustria</i>, <i>Panamà</i>.</li></ul><p>Fixa't que alguns noms de lloc tenen un accent diferent en català i en castellà: <i>Canadà</i> (Canadá), <i>Mèxic</i> (México). D'altres canvien del tot: <i>Londres</i>, <i>Alemanya</i>, <i>Grècia</i> (Grecia).</p><p>Els noms estrangers que no s'han adaptat conserven la seva forma original: <i>Michael</i>, <i>Zoe</i>, <i>München</i>.</p><p>Un consell: quan escriguis el teu nom, comprova si porta accent. N'hi ha molts que el porten i la gent sovint se n'oblida!</p>`,
+      H6.rueda("Amb accent", "MAJÚSCULES", [["Àfrica", cAZ], ["Òscar", cVE], ["Mèxic", cNA], ["Japó", cMO]])],
+  ],
+  ejemplos: [
+    ["Escriu el plural de «camió» i de «cafè» i explica-ho.", ["camions: plana acabada en -ns → sense accent.", "cafès: aguda acabada en vocal + s → accent."], "camions, cafès"],
+    ["Completa: «En Pau ___ (té/te) un ___ (té/te) calent».", ["Primer, verb tenir → té.", "Segon, la beguda → te."], "En Pau té un te calent."],
+  ],
+  errores: ["Mantenir l'accent als plurals que el perden: «camións», «francésos».", "Posar accent a monosíl·labs que no en porten: «sóc», «més» de l'any."],
+  ejercicios: [
+    ["b", "Escriu el plural de cançó.", "Cançons."],
+    ["b", "Porta accent la majúscula d'Àfrica?", "Sí: Àfrica."],
+    ["b", "Escriu la forma correcta: «Vull (més/mes) aigua».", "Més."],
+    ["b", "Escriu el femení d'anglès.", "Anglesa."],
+    ["b", "Escriu el futur de cantar per a jo.", "Cantaré."],
+    ["m", "Escriu el plural d'examen i explica per què porta accent.", "Exàmens: plana acabada en -ens."],
+    ["m", "Escriu cinc parelles amb accent diacrític.", "Per exemple: és/es, més/mes, sí/si, té/te, mà/ma."],
+    ["m", "Escriu l'imperfet de cantar per a nosaltres.", "Cantàvem."],
+    ["m", "Són correctes «anglès» i «anglés»? Per què?", "Sí, segons el parlar."],
+    ["m", "Accentua: «La mama es al sofa».", "La mamà és al sofà."],
+    ["a", "Escriu un text breu amb deu paraules accentuades i justifica-les.", "Resposta oberta."],
+    ["a", "Busca cinc noms de països amb accent en català.", "Per exemple: Perú, Japó, Mèxic, Itàlia, Canadà."],
+    ["a", "Conjuga el futur de beure i marca els accents.", "Beuré, beuràs, beurà, beurem, beureu, beuran."],
+    ["a", "Pregunta a familiars com pronuncien «cafè».", "Resposta oberta."],
+  ],
+  quiz: [
+    ["El plural de «francès» és…", ["francesos", "francèsos", "francésos"], "Plurals."],
+    ["Quina parella té diacrític?", ["més / mes", "soc / sóc", "os / ós"], "Diacrítics."],
+    ["«Anglés» és correcte…", ["al País Valencià", "mai", "només en castellà"], "Parlars."],
+    ["Quina forma és correcta?", ["cantàvem", "cantavem", "cantávem"], "Verbs."],
+    ["Les majúscules porten accent?", ["sí, quan els toca", "mai", "només a l'inici"], "Majúscules."],
+  ],
+  examen: [
+    ["A la lectura, on van trobar els accents?", ["a sota de la taula de la mestra", "al pati", "a la pissarra"], "Lectura."],
+    ["El plural d'«examen» és…", ["exàmens", "examens", "exámens"], "Plurals."],
+  ],
+  tarjetas: [
+    ["Plurals", "camió → camions, cafè → cafès, examen → exàmens."],
+    ["Diacrítics", "15 parelles: bé, déu, dóna, és, mà, més, món, pèl, què, sé, sí, sòl, té, ús, vós."],
+    ["Parlars", "anglès / anglés: totes dues són correctes."],
+    ["Verbs i majúscules", "cantaré, cantàvem; Àfrica, Òscar, Mèxic."],
+  ],
+  glosario: [
+    ["Accent gràfic", "Signe que es posa sobre la vocal tònica."],
+    ["Accent obert", "Signe (`) sobre à, è, ò."],
+    ["Accent tancat", "Signe (´) sobre é, í, ó, ú."],
+    ["Accent diacrític", "Accent que distingeix paraules iguals."],
+    ["Aguda", "Paraula amb la tònica a l'última síl·laba."],
+    ["Plana", "Paraula amb la tònica a la penúltima síl·laba."],
+    ["Esdrúixola", "Paraula amb la tònica a l'antepenúltima."],
+    ["Plural", "Forma que indica més d'un."],
+    ["Parlar", "Manera de parlar una llengua en un territori."],
+    ["Dialecte", "Variant d'una llengua."],
+    ["Futur", "Temps verbal del que passarà."],
+    ["Majúscula", "Lletra gran a l'inici dels noms propis."],
+  ],
+  situacion: {
+    titulo: "Els caçadors d'accents",
+    reto: "La classe busca errors d'accentuació en cartells i textos de l'entorn.",
+    pasos: ["Recolliu fotos de cartells, menús i anuncis en català.", "Busqueu-hi paraules amb accent i comproveu si estan bé.", "Corregiu els errors i expliqueu la regla que s'aplica.", "Feu un mural amb el «abans» i el «després»."],
+    producto: "Un mural de correccions d'accents.",
+    evaluacion: ["Identifica la síl·laba tònica.", "Aplica les regles d'accentuació.", "Tria entre accent obert i tancat.", "Explica la regla de cada correcció."],
+  },
+});

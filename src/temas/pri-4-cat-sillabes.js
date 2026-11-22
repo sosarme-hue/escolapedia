@@ -88,3 +88,91 @@ module.exports = P.tema({
   saberes: "Coneixement de la llengua: la síl·laba; classificació de les paraules pel nombre de síl·labes; separació sil·làbica i dígrafs; síl·laba tònica i àtona; diftongs decreixents i creixents; hiat; dièresi",
   ideas: ["Picar de mans i saltar a cada síl·laba al pati.", "Targetes amb vocals grans i petites per formar diftongs i hiats.", "Dictat de paraules amb ll, ny, rr, ss i l·l per partir al final de ratlla."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Jugar amb les síl·labes per formar paraules noves", "Observar com es mou la síl·laba tònica a les famílies de paraules", "Saber quan no cal posar dièresi", "Partir correctament les paraules a final de ratlla"],
+  lectura: { titulo: "El joc de les síl·labes", html: `<p>Era un dia de pluja i la Bruna i el seu germà Biel s'avorrien a casa. Llavors l'avi va treure una capsa plena de cartrons. A cada cartró hi havia escrita una <b>síl·laba</b>.</p><p>—Juguem a fer paraules! —va proposar.</p><p>La Bruna va agafar <b>ca</b> i <b>sa</b>, i va formar <b>casa</b>. En Biel va ajuntar <b>ma</b> i <b>ri</b> i <b>ner</b>: <b>mariner</b>!</p><p>—I si les poso al revés? —va preguntar en Biel. Va girar <b>sa</b> i <b>ca</b>, i va sortir <b>saca</b>.</p><p>—També existeix! —va riure l'avi—. És un sac gran.</p><p>Després van jugar a les <b>paraules encadenades</b>: cada paraula havia de començar amb la darrera síl·laba de l'anterior. <i>pi-lo-<b>ta</b></i>, <i><b>ta</b>-ron-<b>ja</b></i>, <i><b>ja</b>-que-<b>ta</b></i>, <i><b>ta</b>-ron-ja</i>… Ja havien fet una volta sencera!</p><p>—I ara, un embarbussament! —va dir l'avi—: <i>Setze jutges d'un jutjat mengen fetge d'un penjat.</i></p><p>La Bruna i en Biel s'hi van embolicar tant que van acabar rodolant per terra de riure.</p><p>Quan va sortir el sol, ni se'n van adonar. Estaven massa ocupats inventant la paraula més llarga del món: <i>su-per-ca-li-fra-gi-lís-tic</i>!</p>` },
+  tras: {
+    "Paraules segons el nombre de síl·labes": [
+      ["Jocs amb síl·labes", `<p>Les síl·labes són com peces de construcció: les podem <b>combinar</b> per fer paraules noves. Aquí tens alguns <mark>jocs</mark> per practicar:</p><ul><li><b>Paraules encadenades</b>: cada paraula comença amb la darrera síl·laba de l'anterior: <i>ca-<b>sa</b> → <b>sa</b>-<b>bó</b> → <b>bo</b>-ti-ga → <b>ga</b>-li-na…</i></li><li><b>Paraules dins de paraules</b>: busca paraules amagades. A <i><b>mar</b>-ti-ell</i> hi ha <i>mar</i>; a <i>so-<b>pa</b></i> hi ha <i>pa</i>; i a <i>pa-<b>raigua</b></i> hi ha <i>aigua</i>!</li><li><b>Paraules capgirades</b>: si llegim les síl·labes al revés, de vegades surt una altra paraula: <i>ca-sa → sa-ca</i>, <i>to-ca → ca-to</i>… No sempre funciona, però és divertit provar-ho.</li><li><b>Afegir una síl·laba</b>: <i>pa → pa-tí</i>, <i>sol → sol-dat</i>, <i>mar → mar-cià</i>. Com més síl·labes, més llarga és la paraula.</li><li><b>Picar de mans</b>: digues el teu nom i fes un cop de mans per a cada síl·laba: <i>Ma-ri-na</i> (3), <i>Pol</i> (1), <i>Mont-ser-rat</i> (3).</li></ul><p>També pots jugar a qui troba la paraula amb <b>més síl·labes</b>: <i>a-gra-da-bi-lís-sim</i> en té sis, i <i>in-com-pre-hen-si-bi-li-tat</i> en té nou!</p><p>Aquests jocs ens ajuden a escoltar bé les paraules, i això és molt útil per escriure-les sense faltes.</p>`,
+        H6.flujo("Encadenades", ["ca-SA", "SA-bó", "BO-ti-GA", "GA-li-na"], cAZ), ["4-xfLtUaN84", "Juguemos a las rimas separando por sílabas", "Veo, Juego, y Aprendo", 875126]],
+    ],
+    "La síl·laba tònica": [
+      ["La tònica es mou", `<p>La <mark>síl·laba tònica</mark> és la que pronunciem amb més força. Però, compte: quan formem paraules noves a partir d'una altra, la tònica sovint <b>canvia de lloc</b>.</p><p>Mira aquestes <b>famílies de paraules</b>:</p><ul><li><i><b>mar</b> → ma-<b>ri</b>-na → ma-ri-<b>ner</b></i></li><li><i><b>flor</b> → flo-<b>ris</b>-ta → flo-<b>re</b>-ta</i></li><li><i><b>pa</b> → pa-<b>ner</b> → pa-<b>net</b></i></li><li><i><b>peix</b> → pei-<b>xet</b> → pei-xa-te-<b>ri</b>-a</i></li><li><i><b>mú</b>-si-ca → mu-<b>si</b>-cal → mu-si-<b>cò</b>-leg</i></li></ul><p>Com que la tònica es mou, també canvia l'<b>accent gràfic</b>: <i>música</i> porta accent, però <i>musical</i> no.</p><p>En canvi, quan fem el <b>plural</b>, la tònica es queda al mateix lloc. El que pot passar és que la paraula canviï de tipus:</p><ul><li><i>ca-<b>mió</b> → ca-<b>mi</b>-ons</i> (aguda → plana; perd l'accent).</li><li><i>fran-<b>cès</b> → fran-<b>ce</b>-sos</i></li><li><i>ca-<b>fè</b> → ca-<b>fès</b></i> (continua sent aguda; manté l'accent).</li></ul><p>Per trobar la tònica, prova de <b>cridar</b> la paraula com si cridessis algú de lluny: <i>Ma-ri-<b>naaa</b>!</i> No: <i>Ma-<b>riii</b>-na!</i> La síl·laba que allargues és la tònica.</p>`,
+        L6.filas("Família de mar", [["mar", "1 síl·laba", cAZ], ["ma-RI-na", "tònica: ri", cVE], ["ma-ri-NER", "tònica: ner", cNA], ["mú-si-ca", "mu-si-cal", cMO]])],
+    ],
+    "La dièresi": [
+      ["Quan no cal dièresi", `<p>Ja saps que la <b>dièresi</b> (¨) ens indica que dues vocals que semblarien un diftong formen <b>hiat</b>: <i>veïna, raïm, països</i>. Però hi ha casos en què, tot i que hi ha hiat, <mark>no cal posar dièresi</mark>:</p><ul><li>A les terminacions <b>-isme</b> i <b>-ista</b>: <i>egoisme</i>, <i>egoista</i>, <i>altruisme</i>, <i>taoisme</i>. (Pronunciem <i>e-go-is-ta</i>, però no hi posem dièresi.)</li><li>Als <b>infinitius</b> dels verbs acabats en <b>-ir</b>: <i>conduir</i>, <i>traduir</i>, <i>lluir</i>, <i>agrair</i>, <i>reduir</i>.</li><li>Al <b>gerundi</b>: <i>conduint</i>, <i>traduint</i>, <i>lluint</i>.</li><li>Al <b>futur</b> i al <b>condicional</b>: <i>conduiré</i>, <i>traduiria</i>, <i>lluiràs</i>, <i>agrairia</i>.</li><li>Quan hi ha un <b>prefix</b>: <i>reunir</i> (re + unir), <i>reincidir</i>, <i>contraindicació</i>.</li></ul><p>Però, compte! Els altres temps d'aquests verbs <b>sí</b> que porten dièresi: <i>jo conduïa</i>, <i>ell ha traduït</i>, <i>que lluïs</i>. En canvi, amb prefix no se'n posa mai: <i>reunim</i>, <i>reuneixo</i>.</p><p>Un altre cas: quan la vocal ja porta <b>accent</b>, no cal dièresi, perquè l'accent ja indica l'hiat: <i>país</i> (no «païs»), <i>raó</i>, <i>veí</i>. En plural, quan perd l'accent, apareix la dièresi: <i>país → països</i>, <i>veí → veïns</i>.</p>`,
+        H6.dos("Dièresi?", ["SÍ", ["veïna, raïm", "països", "ha traduït"], cAZ], ["NO", ["egoista", "traduir", "reunir, país"], cRO])],
+    ],
+  },
+  final: [
+    ["Partir paraules a final de ratlla", `<p>Quan escrivim a mà i una paraula no cap al final d'una línia, la podem <mark>partir</mark> amb un <b>guionet</b> (-) i continuar-la a la línia següent. Però no la podem tallar per on vulguem: sempre s'ha de partir <b>entre síl·labes</b>.</p><p>Normes per partir bé:</p><ul><li>Partim <b>per síl·labes</b>: <i>ma-</i> / <i>ri-ner</i>, <i>mari-</i> / <i>ner</i>.</li><li><b>No</b> deixem una <b>vocal sola</b> a final o a principi de ratlla: no <i>a-</i> / <i>mic</i>, ni <i>bo-</i> / <i>a</i>. Millor deixar la paraula sencera.</li><li><b>No</b> partim els diftongs ni els dígrafs <b>ll</b>, <b>ny</b>, <b>qu</b>, <b>gu</b>: <i>ca-</i> / <i>vall</i>, <i>mun-</i> / <i>tanya</i>.</li><li>Els dígrafs <b>rr</b>, <b>ss</b>, <b>l·l</b>, <b>ix</b>, <b>tx</b>, <b>tg</b>, <b>tj</b> es parteixen: <i>car-</i> / <i>ro</i>, <i>pas-</i> / <i>sar</i>, <i>col-</i> / <i>legi</i> (la ela geminada es converteix en guionet!), <i>cot-</i> / <i>xe</i>, <i>met-</i> / <i>ge</i>.</li><li>Les paraules amb <b>apòstrof</b> no es parteixen per l'apòstrof: no <i>l'</i> / <i>aigua</i>.</li><li>Si la paraula ja porta un <b>guionet</b>, com <i>gira-sol</i>, la partim pel guionet.</li></ul><p>Recorda: si no estàs segur de com partir una paraula, és millor passar-la sencera a la ratlla següent. A l'ordinador, el programa ho fa automàticament.</p>`,
+      L6.filas("Partir bé", [["ma-riner", "per síl·labes", cVE], ["ca-vall", "ll no es parteix", cAZ], ["col-legi", "l·l es parteix", cNA], ["a-mic", "vocal sola: no!", cRO]])],
+    ["Embarbussaments i rodolins", `<p>Els <mark>embarbussaments</mark> són frases difícils de pronunciar perquè repeteixen sons i síl·labes semblants. Són perfectes per entrenar la llengua i la pronunciació! Alguns de molt coneguts:</p><ul><li><i>Setze jutges d'un jutjat mengen fetge d'un penjat.</i></li><li><i>Una gallina xica, pica, polla, sorda i pigalla.</i></li><li><i>Plou poc, però pel poc que plou, plou prou.</i></li><li><i>En cap cap cap el que cap en aquest cap.</i></li><li><i>Si el Papa sap que el Pep pipa, el Papa pega el Pep.</i></li></ul><p>Els <mark>rodolins</mark> són dos versos que <b>rimen</b>, és a dir, que acaben amb les mateixes síl·labes finals a partir de la tònica:</p><ul><li><i>Plou i fa sol, / les bruixes es pentinen al sol.</i></li><li><i>Qui menja sopes / se les pensa totes.</i></li><li><i>Al llit de la tieta / hi ha una sargantaneta.</i></li></ul><p>Per fer un rodolí, busca paraules que tinguin la mateixa terminació des de la síl·laba tònica: <i><b>ca</b>-sa</i> rima amb <i><b>bra</b>-sa</i> i <i><b>ra</b>-sa</i>; <i>ca-mi-<b>ó</b></i> rima amb <i>ra-<b>ó</b></i>, <i>can-<b>çó</b></i> i <i>bo-<b>tó</b></i>.</p><p>Repte: digues un embarbussament tres vegades seguides, cada cop més ràpid. I inventa'n un amb el teu nom!</p>`,
+      H6.rueda("Juga", "SONS", [["setze", cAZ], ["jutges", cVE], ["plou", cNA], ["prou", cMO]]), ["FZgEH3pDKn8", "Trabalenguas cortos para niños", "Cosas de Peques", 1539726]],
+  ],
+  ejemplos: [
+    ["Separa i compta: «ciutat», «piano», «veïna».", ["ciu-tat: iu és diftong → 2.", "pi-a-no: i davant de vocal → hiat → 3.", "ve-ï-na: la dièresi indica hiat → 3."], "ciu-tat (2), pi-a-no (3), ve-ï-na (3)"],
+    ["Escriu: «traduir» en passat i en futur.", ["Futur: no cal dièresi (traduiré).", "Participi: sí que en cal (traduït)."], "he traduït / traduiré"],
+  ],
+  errores: ["Posar dièresi a l'infinitiu o a -isme: «traduïr», «egoïsme».", "Deixar una vocal sola a final de ratlla: «a- / mic»."],
+  ejercicios: [
+    ["b", "Separa en síl·labes: «muntanya».", "mun-ta-nya."],
+    ["b", "Quina és la síl·laba tònica de «mariner»?", "ner."],
+    ["b", "Porta dièresi «egoista»?", "No."],
+    ["b", "Fes una paraula encadenada a partir de «casa».", "Per exemple: sabó."],
+    ["b", "Com partiries «carro» a final de ratlla?", "car- / ro."],
+    ["m", "Escriu tres paraules de la família de «flor» i marca la tònica.", "flo-RIS-ta, flo-RE-ta, flo-RIR."],
+    ["m", "Corregeix: «Vaig a traduïr el text».", "Vaig a traduir el text."],
+    ["m", "Escriu el plural de «país» i de «veí».", "Països, veïns."],
+    ["m", "Com partiries «col·legi»?", "col- / legi."],
+    ["m", "Troba una paraula amagada dins de «paraigua».", "Aigua."],
+    ["a", "Inventa un rodolí amb el teu nom.", "Resposta oberta."],
+    ["a", "Escriu la paraula més llarga que coneguis i separa-la.", "Resposta oberta."],
+    ["a", "Inventa un embarbussament amb la síl·laba «pa».", "Resposta oberta."],
+    ["a", "Explica per què «reunir» no porta dièresi.", "Perquè té el prefix re-."],
+  ],
+  quiz: [
+    ["«Pi-a-no» té…", ["3 síl·labes", "2 síl·labes", "4 síl·labes"], "Hiat."],
+    ["Quina paraula no porta dièresi?", ["egoista", "veïna", "països"], "Quan no cal."],
+    ["La tònica de «mariner» és…", ["ner", "ma", "ri"], "La tònica es mou."],
+    ["Com es parteix «cavall»?", ["ca-vall", "cav-all", "caval-l"], "Partir paraules."],
+    ["Un rodolí són dos versos que…", ["rimen", "no rimen", "són molt llargs"], "Rodolins."],
+  ],
+  examen: [
+    ["A la lectura, quina paraula van formar amb ca i sa?", ["casa", "saca", "cassa"], "Lectura."],
+    ["«Conduint» porta dièresi?", ["no", "sí", "només en plural"], "Gerundi."],
+  ],
+  tarjetas: [
+    ["Jocs", "Paraules encadenades, amagades i capgirades."],
+    ["Tònica", "Es mou a les famílies: mar, marina, mariner."],
+    ["Sense dièresi", "-isme, -ista, infinitiu, gerundi, futur, prefixos."],
+    ["Partir paraules", "Per síl·labes; mai una vocal sola; ll i ny no es parteixen."],
+  ],
+  glosario: [
+    ["Síl·laba", "So o grup de sons que es pronuncien d'un sol cop."],
+    ["Tònica", "Síl·laba que es pronuncia amb més força."],
+    ["Àtona", "Síl·laba que es pronuncia més fluix."],
+    ["Diftong", "Dues vocals a la mateixa síl·laba."],
+    ["Hiat", "Dues vocals en síl·labes diferents."],
+    ["Dièresi", "Signe (¨) que marca un hiat o fa sonar la u."],
+    ["Prefix", "Partícula davant d'una paraula: re-, in-."],
+    ["Dígraf", "Dues lletres que fan un sol so."],
+    ["Guionet", "Signe (-) per partir paraules."],
+    ["Família de paraules", "Paraules amb la mateixa arrel."],
+    ["Embarbussament", "Frase difícil de pronunciar."],
+    ["Rodolí", "Dos versos que rimen."],
+  ],
+  situacion: {
+    titulo: "La festa dels sons",
+    reto: "La classe organitza un concurs de jocs amb síl·labes.",
+    pasos: ["Prepareu cartrons amb síl·labes per formar paraules.", "Feu rondes de paraules encadenades i de paraules amagades.", "Inventeu embarbussaments i rodolins en grups.", "Presenteu-los i voteu el més divertit."],
+    producto: "Un recull d'embarbussaments i rodolins de la classe.",
+    evaluacion: ["Separa bé les síl·labes.", "Identifica la síl·laba tònica.", "Aplica les normes de la dièresi.", "Crea rimes i embarbussaments."],
+  },
+});
