@@ -87,3 +87,96 @@ module.exports = P.tema({
   saberes: "Educació literària: el text poètic (vers, estrofa, rima, mesura fins a l'última tònica); recursos (comparació, personificació, repetició); poesia popular catalana (cançons, endevinalles, embarbussaments); creació i recitació de poemes",
   ideas: ["Recital de poemes amb micròfon de joguina.", "Mural de rimes: parelles de paraules que rimen.", "Recull d'endevinalles i embarbussaments de les famílies."],
 });
+
+// ---------- Nivell llibre (3r de Primària) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  dibujos: {
+    "Repàs: analitzem un poema": H6.flujo("Analitzar", ["prosa|o vers?", "compta|versos", "busca|la rima", "busca|els trucs"], cMO),
+  },
+  objetivos: ["Distingir la rima consonant de l'assonant", "Dir embarbussaments i endevinalles de la tradició catalana", "Conèixer poetes catalans que han escrit per a infants", "Escriure acròstics, cal·ligrames i corrandes"],
+  lectura: { titulo: "El mar de l'avi", html: `<p>La Júlia va escriure aquest poema a la tornada de les vacances. El va llegir a classe i la mestra el va penjar al suro.</p><p><i>Cada estiu, a cal meu avi,<br>el mar em ve a saludar;<br>porta escuma a la barbeta<br>i un cargol per escoltar.</i></p><p><i>Les gavines fan rotllana<br>damunt la barca del port,<br>i el sol, com una taronja,<br>s'adorm a l'aigua, mig mort.</i></p><p><i>De nit, les ones m'expliquen<br>contes vells de mariners,<br>i jo m'adormo escoltant-les<br>sota el cel ple d'estels.</i></p><p><i>Quan s'acaba el mes d'agost<br>i tornem cap a ciutat,<br>porto el mar dins la motxilla:<br>un grapat de sorra i sal.</i></p><p>Els companys li van preguntar com se li havia acudit. «Vaig fer una llista de tot el que veia des de la finestra de l'avi», va dir la Júlia. «Després vaig buscar paraules que rimessin.»</p>` },
+  tras: {
+    "La rima": [
+      ["Rima consonant i rima assonant", `<p>No totes les rimes són iguals. Hi ha dues menes de <mark>rima</mark>:</p><ul><li><b>Rima consonant</b>: a partir de l'última vocal tònica, coincideixen <b>totes les lletres</b>, vocals i consonants. <i>saludar / escoltar</i> (-ar), <i>port / mort</i> (-ort). És la rima més fàcil de notar, perquè sona exactament igual.</li><li><b>Rima assonant</b>: a partir de l'última vocal tònica, coincideixen <b>només les vocals</b>. <i>ciutat / sal</i> (a), <i>mariners / estels</i> (e): les vocals són iguals, però les consonants canvien.</li></ul><p>Com saber quina rima és:</p><ul><li><b>1.</b> Busca l'última síl·laba tònica de cada vers: <i>sa-lu-<b>DAR</b></i>, <i>es-col-<b>TAR</b></i>.</li><li><b>2.</b> Copia des de la vocal d'aquesta síl·laba fins al final: <i>-ar</i> i <i>-ar</i>.</li><li><b>3.</b> Compara: si tot és igual, consonant; si només les vocals, assonant.</li></ul><p>Moltes cançons populars i els romanços fan servir la rima assonant, perquè és més lliure i sona molt natural. Les endevinalles i els poemes per a infants solen fer servir la consonant.</p><p>Al poema de la lectura, a cada estrofa rimen el segon i el quart vers. Fixa't que el primer i el tercer no rimen: és una manera molt habitual de fer estrofes de quatre versos.</p><p><b>Activitat</b>: digues quina rima tenen els versos de cada estrofa de la lectura.</p>`,
+        L6.filas("Rima", [["saludar", "escoltar: -ar", cAZ], ["port", "mort: -ort", cVE], ["ciutat", "sal: a", cNA], ["mariners", "estels: e", cRO]])],
+    ],
+    "Els trucs dels poetes": [
+      ["Poetes que escriuen per a nosaltres", `<p>Molts poetes catalans han escrit poemes pensant en els <mark>nens i les nenes</mark>. Alguns noms que val la pena conèixer:</p><ul><li><b>Joana Raspall</b> (1913–2013) va escriure centenars de poemes per a infants, molt musicals i plens de jocs de paraules. Va viure gairebé cent anys i va continuar escrivint fins a molt gran.</li><li><b>Miquel Desclot</b> (nascut el 1952) ha escrit llibres de poemes molt divertits per a nens, plens d'animals, de rimes sorprenents i d'humor.</li><li><b>Miquel Martí i Pol</b> (1929–2003), de Roda de Ter, és un dels poetes més estimats. També té poemes que es llegeixen molt a les escoles.</li><li><b>Jacint Verdaguer</b> (1845–1902), conegut com <i>mossèn Cinto</i>, va escriure grans poemes sobre Catalunya i els Pirineus, i també va recollir rondalles.</li></ul><p>Moltes escoles i biblioteques porten el nom d'aquests poetes. A més, cada any, per <b>Sant Jordi</b> (el 23 d'abril), es fan recitals de poesia per tot arreu i se'n regalen llibres.</p><p>Una bona manera de descobrir poesia és anar a la <b>biblioteca</b> i buscar la secció de poesia infantil. Tria un llibre, llegeix-ne uns quants poemes i queda't el que més t'agradi per aprendre'l de memòria.</p><p><b>Activitat</b>: busca a la biblioteca un poema d'un d'aquests autors i copia'l al teu quadern de poesia.</p>`,
+        H6.rueda("Poetes", "POESIA", [["Raspall", cAZ], ["Desclot", cVE], ["Martí i Pol", cNA], ["Verdaguer", cRO]]),
+        ["5EwMLRw9Oa4", "Poesia per Nens de Primària.avi", "Núria Albertí", 9560]],
+    ],
+    "Poesia popular catalana": [
+      ["Embarbussaments i endevinalles", `<p>La poesia popular no és només per llegir-la: és per <mark>jugar-hi</mark>! I tu també en pots inventar.</p><p><b>Embarbussaments</b>. Són frases difícils de dir de pressa perquè repeteixen sons semblants. Prova de dir-los tres vegades seguides sense equivocar-te:</p><ul><li><i>«Setze jutges d'un jutjat mengen fetge d'un penjat.»</i> És el més famós de tots, perquè té molts sons de la nostra llengua que costen als qui l'aprenen.</li><li><i>«Un plat blat»</i>: prova de dir-lo deu vegades seguides molt de pressa!</li></ul><p><b>Endevinalles</b>. Descriuen una cosa sense dir-ne el nom, sovint amb rima:</p><ul><li><i>«Blanc per dins, / verd per fora; / si vols que t'ho digui, / espera't una estona.»</i> (La pera.)</li><li>Per inventar-ne una, pensa en un objecte, digues com és i què fa sense anomenar-lo i busca dues paraules que rimin.</li></ul><p><b>Corrandes</b>. Són estrofes de quatre versos curts, sovint improvisades, que es canten amb una música coneguda. A les festes, abans, la gent s'hi responia l'un a l'altre com en un joc.</p><p>Tot això es transmet <b>de boca en boca</b>. Pregunta als teus avis quines endevinalles i embarbussaments coneixen: segur que en saben algun que tu no coneixies.</p><p><b>Activitat</b>: inventa una endevinalla sobre un objecte de la classe.</p>`,
+        L6.filas("Jugar", [["embarbussament", "Setze jutges…", cAZ], ["endevinalla", "Blanc per dins…", cVE], ["corranda", "4 versos", cNA], ["cançó", "Cargol, treu banya", cRO]]),
+        ["8cV_B71WSWM", "embarbussaments", "ESCOLABAIXERAS", 3246]],
+    ],
+  },
+  final: [
+    ["Acròstics i cal·ligrames", `<p>Hi ha poemes que juguen també amb la <mark>forma</mark> de les lletres al paper.</p><p>Un <b>acròstic</b> és un poema en què les <b>primeres lletres</b> de cada vers, llegides de dalt a baix, formen una paraula. Per exemple, amb <b>MAR</b>:</p><p><i><b>M</b>untanyes d'aigua blava,<br><b>A</b>renes daurades i fines,<br><b>R</b>iu que s'acaba a la platja.</i></p><p>És molt divertit fer acròstics amb el teu <b>nom</b> o amb el d'un amic. Cada vers pot dir alguna cosa de com és aquella persona.</p><p>Un <b>cal·ligrama</b> és un poema en què les paraules es col·loquen formant un <b>dibuix</b> d'allò de què parla. Un poema sobre la pluja es pot escriure en línies que cauen com gotes; un sobre una serp, en una línia que s'enrosca; un sobre un arbre, amb un tronc i una copa de paraules.</p><p>Per fer un cal·ligrama:</p><ul><li><b>1.</b> Escriu primer el poema normal, en versos.</li><li><b>2.</b> Dibuixa amb llapis, molt suau, la silueta de l'objecte.</li><li><b>3.</b> Copia el poema seguint la línia de la silueta.</li><li><b>4.</b> Esborra el llapis i pinta, si vols.</li></ul><p>El poeta català <b>Joan Salvat-Papasseit</b> va fer poemes visuals molt originals fa més de cent anys, jugant amb la forma de les lletres i la seva mida.</p><p><b>Activitat</b>: escriu un acròstic amb el teu nom.</p>`,
+      H6.dos("Formes", ["ACRÒSTIC", ["M: Muntanyes…", "A: Arenes…", "R: Riu…"], cAZ], ["CAL·LIGRAMA", ["pluja", "serp", "arbre"], cVE])],
+    ["Fem un recital", `<p>Un <mark>recital</mark> és una sessió en què diverses persones diuen poemes en veu alta davant d'un públic. És una manera molt bonica de compartir la poesia.</p><p><b>Com preparar-lo</b>:</p><ul><li><b>1.</b> Cada alumne <b>tria</b> un poema: pot ser d'un autor conegut, popular o escrit per ell mateix.</li><li><b>2.</b> El <b>llegeix</b> diverses vegades fins que l'entén bé i, si pot, l'aprèn de memòria.</li><li><b>3.</b> Marca amb llapis on ha de fer les <b>pauses</b>: una de curta al final de cada vers i una de més llarga al final de cada estrofa.</li><li><b>4.</b> <b>Assaja</b> davant del mirall o de la família, cuidant la veu i la mirada.</li><li><b>5.</b> Prepara una <b>presentació</b> curta: «Us diré el poema <i>El mar de l'avi</i>, de la Júlia».</li></ul><p><b>El dia del recital</b>:</p><ul><li>Posem les cadires en rotllana o en fila, com en un teatre.</li><li>Un o dos alumnes fan de <b>presentadors</b> i diuen el nom de cada recitador.</li><li>El públic escolta en <b>silenci</b> i aplaudeix al final de cada poema.</li></ul><p>Podeu acompanyar alguns poemes amb <b>música</b> suau o amb <b>dibuixos</b> que il·lustrin el que diuen. I, si voleu, podeu fer el recital per <b>Sant Jordi</b>, el dia del llibre i de la rosa.</p>`,
+      H6.flujo("Recital", ["tria|el poema", "marca|les pauses", "assaja|molt", "recita|amb calma"], cNA)],
+  ],
+  ejemplos: [
+    ["Quina rima tenen «port» i «mort»?", ["Des de l'última vocal tònica: -ort i -ort.", "Coincideixen vocals i consonants."], "Rima consonant."],
+    ["Quina rima tenen «ciutat» i «sal»?", ["Des de l'última vocal tònica: -at i -al.", "Només coincideix la vocal a."], "Rima assonant."],
+  ],
+  errores: ["Pensar que dues paraules rimen només perquè acaben amb la mateixa lletra (casa / taula no rimen).", "Llegir un poema de pressa, sense fer pauses al final dels versos."],
+  ejercicios: [
+    ["b", "Què és un acròstic?", "Un poema en què les primeres lletres dels versos formen una paraula."],
+    ["b", "Digues l'embarbussament més famós en català.", "Setze jutges d'un jutjat mengen fetge d'un penjat."],
+    ["b", "Quin dia es fan recitals de poesia a tot Catalunya?", "Per Sant Jordi, el 23 d'abril."],
+    ["b", "Com es diu una sessió en què es diuen poemes davant del públic?", "Recital."],
+    ["b", "A la lectura, què porta la Júlia dins la motxilla?", "Un grapat de sorra i sal."],
+    ["m", "Quina rima tenen «mariners» i «estels»?", "Assonant (e)."],
+    ["m", "Digues el nom de dos poetes catalans que han escrit per a infants.", "Per exemple: Joana Raspall i Miquel Desclot."],
+    ["m", "Copia de la lectura una comparació.", "El sol, com una taronja."],
+    ["m", "Què és una corranda?", "Una estrofa de quatre versos curts que sovint s'improvisa i es canta."],
+    ["m", "Inventa una endevinalla sobre la lluna.", "Resposta oberta."],
+    ["a", "Escriu un acròstic amb la paraula SOL.", "Resposta oberta."],
+    ["a", "Busca a la lectura dos exemples de personificació.", "Per exemple: el mar em ve a saludar; les ones m'expliquen contes."],
+    ["a", "Fes un cal·ligrama sobre la pluja o un arbre.", "Resposta oberta."],
+    ["a", "Prepara la presentació del poema que diràs en un recital.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["«Saludar» i «escoltar» tenen rima…", ["consonant", "assonant", "cap"], "Rima."],
+    ["«Setze jutges d'un jutjat…» és un…", ["embarbussament", "acròstic", "cal·ligrama"], "Jugar."],
+    ["En un cal·ligrama, les paraules…", ["formen un dibuix", "van en prosa", "no rimen mai"], "Formes."],
+    ["Joana Raspall va escriure sobretot…", ["poemes per a infants", "notícies", "receptes"], "Poetes."],
+    ["En un recital, el públic…", ["escolta en silenci i aplaudeix", "parla alhora", "recita a la vegada"], "Recital."],
+  ],
+  examen: [
+    ["A la lectura, què va fer la Júlia per començar el poema?", ["una llista del que veia", "copiar un altre poema", "una cançó"], "Lectura."],
+    ["Les corrandes sovint…", ["s'improvisen i es canten", "s'escriuen en prosa", "no tenen versos"], "Popular."],
+  ],
+  tarjetas: [
+    ["Rimes", "Consonant: totes les lletres (port/mort). Assonant: només vocals (ciutat/sal)."],
+    ["Poetes", "Joana Raspall, Miquel Desclot, Martí i Pol, Verdaguer."],
+    ["Jocs populars", "Embarbussaments, endevinalles, corrandes, cançons."],
+    ["Acròstic, cal·ligrama, recital", "Lletres que formen paraula; dibuix de paraules; dir poemes en públic."],
+  ],
+  glosario: [
+    ["Vers", "Cada una de les línies d'un poema."],
+    ["Estrofa", "Grup de versos."],
+    ["Rima consonant", "Coincideixen vocals i consonants des de l'última vocal tònica."],
+    ["Rima assonant", "Coincideixen només les vocals des de l'última vocal tònica."],
+    ["Embarbussament", "Frase difícil de dir de pressa."],
+    ["Endevinalla", "Text que descriu una cosa perquè l'endevinin."],
+    ["Corranda", "Estrofa popular de quatre versos que es canta."],
+    ["Acròstic", "Poema en què les primeres lletres formen una paraula."],
+    ["Cal·ligrama", "Poema escrit formant un dibuix."],
+    ["Recital", "Sessió en què es diuen poemes en públic."],
+    ["Personificació", "Fer que les coses actuïn com persones."],
+    ["Gavina", "Ocell blanc i gris que viu a prop del mar."],
+  ],
+  situacion: {
+    titulo: "Recital de Sant Jordi",
+    reto: "La classe prepara un recital per Sant Jordi amb poemes d'autors catalans, poemes populars i poemes escrits pels alumnes.",
+    pasos: ["Buscar a la biblioteca poemes de poetes catalans per a infants.", "Escriure un poema propi amb rima i un acròstic amb el nom.", "Assajar la lectura en veu alta marcant les pauses i el ritme.", "Fer el recital i regalar als assistents un punt de llibre amb un embarbussament."],
+    producto: "Un recital de poesia i un recull de poemes de la classe.",
+    evaluacion: ["Distingeix la rima consonant i l'assonant.", "Coneix poetes catalans.", "Escriu un acròstic o un cal·ligrama.", "Recita amb bona veu i pauses."],
+  },
+});
