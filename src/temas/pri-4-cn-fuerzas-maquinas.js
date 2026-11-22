@@ -139,3 +139,91 @@ module.exports = {
   fuentes: [RD, wiki("Fuerza", "Fuerza"), wiki("Máquina simple", "Máquina_simple"), wiki("Palanca", "Palanca")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Explicar la gravedad y la diferencia entre masa y peso", "Usar la brújula y entender el magnetismo de la Tierra", "Reconocer engranajes y máquinas compuestas como la bicicleta", "Medir fuerzas con un dinamómetro"],
+  lectura: { titulo: "La manzana de Newton", html: `<p>En el año 1666, una terrible enfermedad obligó a cerrar las universidades de Inglaterra. Un joven estudiante llamado <b>Isaac Newton</b> volvió a la granja de su familia y pasaba las tardes pensando bajo un manzano.</p><p>Un día, una manzana cayó del árbol. Newton la miró y se hizo una pregunta que a nadie se le había ocurrido:</p><p>—¿Por qué la manzana cae siempre hacia abajo? ¿Por qué no sale hacia un lado, o hacia arriba?</p><p>Después miró la Luna, que brillaba en el cielo.</p><p>—Y si la Tierra atrae a la manzana… ¿también atraerá a la Luna? ¿Por qué la Luna no cae?</p><p>Newton pasó años pensando y haciendo cálculos. Al final descubrió que la misma fuerza que hace caer la manzana es la que mantiene a la Luna girando alrededor de la Tierra, y a la Tierra girando alrededor del Sol. La llamó <b>gravedad</b>.</p><p>Nadie sabe si la manzana le cayó de verdad en la cabeza, como dicen algunos cuentos. Pero sí sabemos que una pregunta sencilla, hecha con curiosidad, cambió para siempre nuestra forma de entender el universo.</p><p>Hoy, en su honor, la unidad con la que medimos las fuerzas se llama <b>newton</b>.</p>` },
+  tras: {
+    "Fuerzas por contacto y a distancia": [
+      ["La gravedad", `<p>La <mark>gravedad</mark> es la fuerza con la que la Tierra atrae hacia su centro a todos los cuerpos. Es una fuerza <b>a distancia</b>: actúa sin tocar.</p><p>Gracias a la gravedad:</p><ul><li>Los objetos <b>caen</b> al suelo cuando los soltamos.</li><li>Tenemos los pies en el suelo y no salimos flotando.</li><li>La lluvia cae y los ríos bajan desde las montañas hasta el mar.</li><li>La Luna gira alrededor de la Tierra, y los planetas alrededor del Sol.</li></ul><p>Todos los cuerpos se atraen, pero la fuerza es mayor cuanta más masa tienen. Por eso la Tierra, que es enorme, nos atrae mucho, y nosotros no notamos que nos atraiga un lápiz.</p><p><b>Masa y peso no son lo mismo.</b> La <b>masa</b> es la cantidad de materia y no cambia. El <b>peso</b> es la fuerza con que la gravedad tira de esa masa. En la Luna, la gravedad es unas seis veces menor que en la Tierra: un astronauta tiene la misma masa, pero pesa seis veces menos, y por eso da grandes saltos.</p><p>Si dejas caer a la vez una pelota y una hoja de papel, la hoja tarda más porque el <b>aire</b> la frena. Pero si arrugas el papel en una bola, ¡caen casi juntos!</p>`,
+        L6.filas("Masa y peso", [["masa", "cantidad de materia", cAZ], ["peso", "fuerza de la gravedad", cRO], ["en la Luna", "pesa 6 veces menos", cMO], ["unidad fuerza", "newton (N)", cVE]]), ["RbLVKuexyYg", "¿Qué es la Ley de la Gravedad? | Videos Educativos para Niños", "FlexFlix Kids en Español", 1303817]],
+    ],
+    "Los imanes": [
+      ["La brújula y el imán gigante", `<p>La Tierra se comporta como un <mark>imán gigante</mark>: tiene un campo magnético, con dos polos magnéticos cerca de los polos geográficos Norte y Sur.</p><p>La <b>brújula</b> es un instrumento con una aguja imantada que puede girar libremente. Como los polos opuestos se atraen, la aguja siempre se orienta en dirección <b>norte-sur</b>. Así, aunque no veamos el Sol ni las estrellas, podemos saber hacia dónde está el norte.</p><p>La brújula la inventaron los <b>chinos</b> hace unos mil años y llegó a Europa en la Edad Media. Gracias a ella, los marineros pudieron navegar en mar abierto, lejos de la costa, y se hicieron grandes viajes de exploración.</p><p>Puedes fabricar una brújula casera:</p><ol><li>Frota una aguja de coser con un imán, siempre en el mismo sentido, unas treinta veces.</li><li>Pincha la aguja en un trocito de corcho.</li><li>Ponla a flotar en un plato con agua.</li><li>La aguja girará hasta señalar el norte.</li></ol><p>El campo magnético de la Tierra también nos protege: desvía partículas que llegan del Sol. Cuando algunas chocan con la atmósfera cerca de los polos, producen las <b>auroras polares</b>, luces de colores en el cielo.</p>`,
+        H6.flujo("Brújula casera", ["frotar|la aguja", "pinchar|en corcho", "flotar|en agua", "señala|el norte"], cAZ)],
+    ],
+    "La rueda y la polea": [
+      ["Los engranajes", `<p>Los <mark>engranajes</mark> son ruedas con <b>dientes</b> que encajan unas con otras. Cuando una gira, hace girar a la otra.</p><p>Los engranajes sirven para:</p><ul><li><b>Transmitir</b> el movimiento de una pieza a otra.</li><li><b>Cambiar el sentido</b> de giro: si una rueda gira hacia la derecha, la que engrana con ella gira hacia la izquierda.</li><li><b>Cambiar la velocidad</b>: si una rueda grande mueve a una pequeña, la pequeña gira más deprisa. Si una pequeña mueve a una grande, la grande gira más despacio pero con más fuerza.</li></ul><p>Hay engranajes en los <b>relojes</b> de agujas, en los batidores manuales, en los abrelatas, en los coches de juguete con cuerda y en muchas máquinas de las fábricas.</p><p>A veces las ruedas dentadas no se tocan, sino que están unidas por una <b>cadena</b>, como en la bicicleta, o por una <b>correa</b>, como en algunas lavadoras.</p><p>Un engranaje puede ser una máquina sencilla, pero juntando muchos engranajes se construyen máquinas muy precisas. Los relojes antiguos tenían cientos de ellos.</p>`,
+        H6.dos("Engranajes", ["GRANDE", ["mueve a la pequeña", "que gira rápido", "con menos fuerza"], cAZ], ["PEQUEÑA", ["mueve a la grande", "que gira lento", "con más fuerza"], cNA]), ["1oUIs5X6-xU", "La polea", "Krismar Educación", 270436]],
+    ],
+  },
+  final: [
+    ["La bicicleta, una máquina compuesta", `<p>Las <mark>máquinas compuestas</mark> están formadas por varias máquinas simples que trabajan juntas. Un buen ejemplo es la <b>bicicleta</b>. Fíjate en cuántas máquinas simples tiene:</p><ul><li><b>Ruedas</b>: giran sobre sus ejes y reducen el rozamiento con el suelo.</li><li><b>Pedales y bielas</b>: funcionan como palancas; con un pequeño empujón del pie hacemos girar el plato.</li><li><b>Plato, piñones y cadena</b>: son engranajes unidos por una cadena que transmiten el movimiento a la rueda trasera.</li><li><b>Manillar</b>: es una palanca que nos permite girar la rueda delantera con poco esfuerzo.</li><li><b>Frenos</b>: aprovechan el rozamiento para detener la bici; la maneta del freno es una palanca.</li><li><b>Tornillos</b>: sujetan las piezas.</li></ul><p>Con las <b>marchas</b> cambiamos el tamaño de los piñones: en una cuesta usamos un piñón grande para pedalear con menos fuerza, aunque avancemos más despacio.</p><p>Otras máquinas compuestas son las tijeras (dos palancas y una cuña), la grúa o la carretilla.</p><p>Recuerda: para usar la bici con seguridad, lleva siempre <b>casco</b>, revisa los frenos y usa luces si hay poca luz.</p>`,
+      H6.rueda("La bicicleta", "BICI", [["ruedas", cAZ], ["palancas", cNA], ["engranajes", cMO], ["frenos", cRO]])],
+    ["Medir las fuerzas: el dinamómetro", `<p>Las fuerzas se pueden <b>medir</b>. Para ello se usa el <mark>dinamómetro</mark>, un instrumento con un <b>muelle</b> en su interior y una escala graduada.</p><p>¿Cómo funciona? Cuando colgamos un objeto del gancho, el muelle se <b>estira</b>. Cuanto mayor es la fuerza, más se estira el muelle, y la aguja marca un número mayor en la escala.</p><p>La unidad de fuerza es el <b>newton</b>, que se escribe <b>N</b>, en honor de Isaac Newton. Para hacerte una idea:</p><ul><li>Una manzana pequeña pesa alrededor de <b>1 N</b>.</li><li>Un litro de agua pesa unos <b>10 N</b>.</li><li>Un niño de 30 kilos pesa unos <b>300 N</b>.</li></ul><p>El dinamómetro funciona gracias a una propiedad de los muelles: la <b>elasticidad</b>. Si el muelle se estira demasiado, se deforma y ya no vuelve a su forma, y el aparato deja de medir bien.</p><p>Las básculas de baño antiguas también tenían muelles por dentro. Las modernas usan sensores electrónicos.</p><p>Puedes fabricar un dinamómetro casero con una goma elástica, un vaso de plástico colgado y una regla: mete objetos en el vaso y mide cuánto se estira la goma.</p>`,
+      L6.filas("Fuerzas en newton", [["manzana", "unos 1 N", cVE], ["litro de agua", "unos 10 N", cAZ], ["niño de 30 kg", "unos 300 N", cNA], ["instrumento", "dinamómetro", cMO]])],
+  ],
+  ejemplos: [
+    ["Un astronauta de 60 kg va a la Luna. ¿Cambia su masa? ¿Y su peso?", ["La masa es la cantidad de materia.", "El peso depende de la gravedad."], "La masa sigue siendo 60 kg; su peso es unas 6 veces menor."],
+    ["Un engranaje grande mueve uno pequeño. ¿Cuál gira más deprisa?", ["Cada diente del grande empuja un diente del pequeño.", "El pequeño da más vueltas."], "El pequeño gira más deprisa."],
+  ],
+  errores: ["Creer que masa y peso son exactamente lo mismo.", "Pensar que los objetos pesados caen mucho más rápido en el vacío."],
+  ejercicios: [
+    ["b", "¿Qué fuerza hace caer los objetos al suelo?", "La gravedad."],
+    ["b", "¿Hacia dónde señala la aguja de una brújula?", "Hacia el norte."],
+    ["b", "¿Qué son los engranajes?", "Ruedas con dientes que encajan."],
+    ["b", "¿Con qué instrumento se miden las fuerzas?", "El dinamómetro."],
+    ["b", "¿Cuál es la unidad de fuerza?", "El newton (N)."],
+    ["m", "¿Por qué un astronauta salta más en la Luna?", "Porque la gravedad es menor y pesa menos."],
+    ["m", "¿Quién inventó la brújula y para qué sirvió?", "Los chinos; para navegar en mar abierto."],
+    ["m", "Nombra tres máquinas simples de la bicicleta.", "Rueda, palanca, engranajes."],
+    ["m", "¿Por qué una hoja de papel cae más despacio que una pelota?", "Porque el aire la frena más."],
+    ["m", "¿Qué propiedad del muelle aprovecha el dinamómetro?", "La elasticidad."],
+    ["a", "Fabrica una brújula casera y comprueba si funciona.", "Respuesta abierta."],
+    ["a", "Busca en casa tres objetos con engranajes.", "Respuesta abierta."],
+    ["a", "Construye un dinamómetro con una goma y compara objetos.", "Respuesta abierta."],
+    ["a", "Explica por qué usamos marchas cortas para subir una cuesta en bici.", "Pedaleamos con menos fuerza aunque más despacio."],
+  ],
+  quiz: [
+    ["La gravedad es una fuerza…", ["a distancia", "por contacto", "magnética"], "Gravedad."],
+    ["En la Luna, un astronauta…", ["pesa menos", "tiene menos masa", "pesa más"], "Masa y peso."],
+    ["La brújula funciona porque la Tierra…", ["es como un imán", "gira", "tiene agua"], "Brújula."],
+    ["La bicicleta es una máquina…", ["compuesta", "simple", "eléctrica"], "Bicicleta."],
+    ["El dinamómetro tiene dentro un…", ["muelle", "imán", "engranaje"], "Dinamómetro."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué vio caer Newton?", ["una manzana", "una pera", "una piedra"], "Lectura."],
+    ["La unidad de fuerza se llama…", ["newton", "kilogramo", "litro"], "Dinamómetro."],
+  ],
+  tarjetas: [
+    ["Gravedad", "Atracción de la Tierra; peso = fuerza de la gravedad sobre la masa."],
+    ["Brújula", "Aguja imantada que señala el norte; la Tierra es un imán."],
+    ["Engranajes", "Ruedas dentadas que transmiten giro y cambian velocidad."],
+    ["Dinamómetro", "Mide fuerzas en newtons con un muelle."],
+  ],
+  glosario: [
+    ["Gravedad", "Fuerza con que la Tierra atrae los cuerpos."],
+    ["Peso", "Fuerza con que la gravedad tira de un cuerpo."],
+    ["Masa", "Cantidad de materia de un cuerpo."],
+    ["Brújula", "Instrumento con aguja imantada que señala el norte."],
+    ["Campo magnético", "Zona donde actúa la fuerza de un imán."],
+    ["Aurora polar", "Luces de colores en el cielo cerca de los polos."],
+    ["Engranaje", "Rueda dentada que transmite el movimiento."],
+    ["Piñón", "Rueda dentada pequeña."],
+    ["Máquina compuesta", "Máquina formada por varias máquinas simples."],
+    ["Dinamómetro", "Instrumento para medir fuerzas."],
+    ["Newton", "Unidad de fuerza (N)."],
+    ["Elasticidad", "Propiedad de recuperar la forma al dejar de estirar."],
+  ],
+  situacion: {
+    titulo: "Inventores de máquinas",
+    reto: "Cada equipo diseña y construye una máquina con materiales reciclados que resuelva un problema del aula.",
+    pasos: ["Elegid un problema: subir objetos, abrir algo, transportar material…", "Decidid qué máquinas simples usaréis.", "Construid un prototipo con cartón, pajitas, hilo y tapones.", "Probadlo, medid la fuerza con un dinamómetro casero y presentadlo."],
+    producto: "Un prototipo de máquina con su ficha técnica.",
+    evaluacion: ["Identifica las máquinas simples usadas.", "Construye un prototipo funcional.", "Mide y compara fuerzas.", "Explica su invento con claridad."],
+  },
+});

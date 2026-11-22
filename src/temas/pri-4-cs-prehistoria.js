@@ -141,3 +141,91 @@ module.exports = {
   fuentes: [RD, { t: "Museo Nacional y Centro de Investigación de Altamira", url: "https://www.culturaydeporte.gob.es/mnaltamira/" }, wiki("Prehistoria", "Prehistoria"), wiki("Prehistoria en la península ibérica", "Prehistoria_en_la_península_ibérica")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Valorar la importancia del dominio del fuego", "Conocer Altamira y Atapuerca como patrimonio de la humanidad", "Descubrir cómo vivía Ötzi en la Edad del Cobre", "Comprender cómo trabajan los arqueólogos"],
+  lectura: { titulo: "¡Papá, mira, toros!", html: `<p>Era el verano de 1879. Marcelino Sanz de Sautuola, un señor aficionado a la historia, excavaba el suelo de una cueva cerca de Santillana del Mar, en Cantabria. Buscaba huesos y herramientas de piedra.</p><p>Con él había ido su hija <b>María</b>, que tenía ocho años. Mientras su padre trabajaba agachado, María se aburría y se adentró con una vela en una sala baja de la cueva. Levantó la vista hacia el techo y se quedó con la boca abierta.</p><p>—¡Papá, mira, toros pintados! —gritó.</p><p>Marcelino corrió hacia ella. En el techo había decenas de bisontes rojos y negros, tan bien pintados que parecían moverse con la luz temblorosa de la vela.</p><p>Era la cueva de <b>Altamira</b>. Marcelino estaba seguro de que aquellas pinturas eran de la Prehistoria, pero muchos expertos no le creyeron. Decían que eran demasiado bonitas para haberlas hecho «hombres primitivos» y le acusaron de falsificarlas.</p><p>Marcelino murió sin que le dieran la razón. Años después se descubrieron otras cuevas pintadas en Francia, y los expertos tuvieron que reconocer su error.</p><p>Hoy Altamira es Patrimonio de la Humanidad, y todo empezó con la mirada curiosa de una niña.</p>` },
+  tras: {
+    "El Paleolítico": [
+      ["El dominio del fuego", `<p>Uno de los mayores descubrimientos de la humanidad fue aprender a <mark>controlar el fuego</mark>. Al principio, las personas aprovechaban el fuego que producían los rayos o los incendios y lo mantenían encendido con mucho cuidado. Más tarde aprendieron a <b>encenderlo</b> ellas mismas:</p><ul><li><b>Por frotamiento</b>: haciendo girar muy deprisa un palo sobre una madera seca hasta que salía humo y una brasa.</li><li><b>Por percusión</b>: golpeando dos piedras, como el sílex y la pirita, para sacar chispas sobre hierba seca.</li></ul><p>El fuego cambió la vida de los grupos humanos:</p><ul><li>Daba <b>calor</b> en los inviernos fríos de las glaciaciones.</li><li>Daba <b>luz</b> en las cuevas y por la noche.</li><li>Servía para <b>cocinar</b> los alimentos, que así eran más fáciles de masticar y digerir.</li><li><b>Protegía</b> de los animales salvajes.</li><li>Servía para endurecer la punta de las lanzas de madera.</li></ul><p>Además, alrededor de la hoguera la gente se reunía, compartía comida y seguramente se contaba historias. El fuego ayudó a que los grupos estuvieran más unidos.</p>`,
+        H6.rueda("El fuego", "FUEGO", [["calor", cRO], ["luz", cNA], ["cocinar", cMO], ["protección", cAZ]])],
+    ],
+    "El arte del Paleolítico": [
+      ["Altamira, la «Capilla Sixtina» del arte rupestre", `<p>La cueva de <mark>Altamira</mark>, en Santillana del Mar (Cantabria), es una de las cuevas con pinturas prehistóricas más famosas del mundo. Por su belleza la llaman «la Capilla Sixtina del arte rupestre».</p><p>Sus pinturas tienen entre <b>36 000 y 13 000 años</b>. La sala más famosa es el <b>techo de los polícromos</b>, con una manada de bisontes pintados en rojo, negro y ocre. Los artistas:</p><ul><li>Aprovechaban los <b>bultos de la roca</b> para dar volumen a los animales.</li><li>Usaban colores de <b>minerales</b> (óxido de hierro, carbón) mezclados con grasa animal.</li><li>Pintaban con los dedos, con pinceles de pelo o soplando el color.</li><li>Se iluminaban con <b>lámparas de piedra</b> que quemaban grasa.</li></ul><p>Altamira fue declarada <b>Patrimonio de la Humanidad</b> en 1985, junto con otras cuevas del norte de España, como El Castillo o Tito Bustillo.</p><p>Para protegerla, la cueva original apenas se puede visitar: el calor y la respiración de los visitantes estropeaban las pinturas. Por eso se construyó al lado una <b>réplica exacta</b>, la Neocueva, en el Museo de Altamira, donde cualquiera puede ver cómo era.</p>`,
+        L6.filas("Altamira", [["dónde", "Cantabria", cVE], ["antigüedad", "hasta 36 000 años", cNA], ["animal estrella", "el bisonte", cRO], ["Patrimonio", "desde 1985", cAZ]]), ["OaG7dM-9tSA", "Altamira, la cueva animada", "Museo de Altamira", 209842]],
+    ],
+    "La Edad de los Metales": [
+      ["Ötzi, el hombre del hielo", `<p>En 1991, dos excursionistas que caminaban por los <b>Alpes</b>, en la frontera entre Italia y Austria, encontraron un cuerpo atrapado en el hielo. Pensaron que era un montañero perdido, pero resultó ser algo asombroso: una persona que había muerto hace unos <mark>5300 años</mark>, en la <b>Edad del Cobre</b>. Lo llamaron <b>Ötzi</b>.</p><p>El hielo lo había conservado tan bien que los científicos pudieron estudiar cómo vivía:</p><ul><li>Llevaba un <b>hacha de cobre</b> con mango de madera, un cuchillo de sílex, un arco y flechas.</li><li>Vestía ropa de <b>cuero y pieles</b> de distintos animales, un gorro de piel de oso y zapatos rellenos de hierba para no pasar frío.</li><li>Tenía <b>tatuajes</b>: más de sesenta pequeñas rayas en la piel.</li><li>Su última comida fue carne de cabra montés y cereales.</li><li>Llevaba un pequeño botiquín con un hongo medicinal.</li></ul><p>Los científicos descubrieron también una punta de flecha clavada en su hombro: probablemente murió por un ataque.</p><p>Hoy Ötzi se conserva en un museo de Bolzano, en Italia, en una cámara fría que imita las condiciones del glaciar.</p>`,
+        L6.filas("Ötzi", [["hallazgo", "1991, Alpes", cAZ], ["antigüedad", "unos 5300 años", cNA], ["época", "Edad del Cobre", cMO], ["llevaba", "hacha de cobre", cRO]])],
+    ],
+  },
+  final: [
+    ["Atapuerca, una ventana al pasado", `<p>En la <b>sierra de Atapuerca</b>, cerca de Burgos, hay uno de los yacimientos prehistóricos más importantes del mundo. Sus cuevas guardan restos de seres humanos de distintas épocas, desde hace más de <mark>un millón de años</mark>.</p><p>Algunos hallazgos famosos:</p><ul><li>En la <b>Sima del Elefante</b> se encontró un trozo de mandíbula de hace 1,2 millones de años, uno de los restos humanos más antiguos de Europa.</li><li>En la <b>Gran Dolina</b> apareció una especie humana nueva, el <b>Homo antecessor</b>, que significa «el que fue antes».</li><li>En la <b>Sima de los Huesos</b> se han encontrado miles de huesos de unas treinta personas de hace unos 430 000 años, antepasados de los neandertales.</li></ul><p>Atapuerca es <b>Patrimonio de la Humanidad</b> desde el año 2000. Cada verano llegan decenas de científicos que excavan con muchísima paciencia, centímetro a centímetro.</p><p>En Burgos se puede visitar el <b>Museo de la Evolución Humana</b>, y en el propio yacimiento hay talleres donde se aprende a hacer fuego, tallar piedra o lanzar con propulsor como en la Prehistoria.</p>`,
+      L6.filas("Atapuerca", [["Sima del Elefante", "1,2 millones años", cRO], ["Gran Dolina", "Homo antecessor", cNA], ["Sima de los Huesos", "430 000 años", cMO], ["Patrimonio", "desde 2000", cAZ]]), ["BmFqB5nFaXk", "Descubre con Tadeo: Atapuerca", "TadeoJonesOficial", 179497]],
+    ["Cómo trabaja un arqueólogo", `<p>Los <mark>arqueólogos</mark> son los científicos que estudian el pasado a partir de los restos materiales. Su trabajo es parecido al de un detective.</p><p>Las fases de una excavación son:</p><ol><li><b>Prospección</b>: buscan un lugar donde puede haber restos, observando el terreno, fotos aéreas o noticias de hallazgos.</li><li><b>Excavación</b>: dividen el terreno en cuadrículas con cuerdas y retiran la tierra capa a capa con paletas, pinceles e incluso cepillos de dientes.</li><li><b>Registro</b>: antes de sacar cada objeto, lo fotografían, lo dibujan y anotan exactamente dónde estaba.</li><li><b>Laboratorio</b>: limpian, estudian y datan los restos.</li></ol><p>Las capas de tierra se llaman <b>estratos</b>. Normalmente, las capas de abajo son más antiguas y las de arriba más recientes, como las hojas de un periódico que se van apilando día a día.</p><p>Muchas veces lo más valioso no es un objeto bonito, sino pequeños detalles: semillas quemadas que dicen qué comían, huesos con marcas de corte o polen que dice cómo era el paisaje.</p><p>Si alguna vez encuentras algo que parece antiguo, no lo muevas: avisa al ayuntamiento. Es patrimonio de todos.</p>`,
+      H6.flujo("Excavación", ["buscar|el lugar", "excavar|por capas", "registrar|cada resto", "analizar|los restos"], cNA)],
+  ],
+  ejemplos: [
+    ["En una excavación aparece una punta de flecha en el estrato 1 (arriba) y una de sílex tallado en el estrato 4 (abajo). ¿Cuál es más antigua?", ["Las capas de abajo son más antiguas.", "El estrato 4 está debajo."], "La del estrato 4."],
+    ["Ötzi murió hace unos 5300 años. Si estamos en 2026, ¿en qué siglo aproximado vivió?", ["5300 − 2026 = 3274 años antes de Cristo.", "Del 3300 al 3201 a. C. es el siglo XXXIII a. C."], "Hacia el siglo XXXIII antes de Cristo."],
+  ],
+  errores: ["Pensar que las personas del Paleolítico eran incapaces de hacer arte bello.", "Creer que los arqueólogos buscan tesoros para quedárselos."],
+  ejercicios: [
+    ["b", "Escribe dos formas de encender fuego en la Prehistoria.", "Frotamiento y percusión."],
+    ["b", "¿En qué comunidad autónoma está Altamira?", "En Cantabria."],
+    ["b", "¿Qué animal es el más famoso de Altamira?", "El bisonte."],
+    ["b", "¿Dónde se encontró a Ötzi?", "En los Alpes, entre Italia y Austria."],
+    ["b", "¿Cerca de qué ciudad está Atapuerca?", "Burgos."],
+    ["m", "Escribe cuatro ventajas del fuego.", "Calor, luz, cocinar, protección."],
+    ["m", "¿Por qué se construyó una réplica de Altamira?", "Para proteger las pinturas originales."],
+    ["m", "¿Qué metal era su hacha? ¿En qué etapa vivió?", "Cobre; Edad del Cobre."],
+    ["m", "¿Qué significa Homo antecessor?", "El que fue antes."],
+    ["m", "¿Qué es un estrato?", "Una capa de tierra."],
+    ["a", "Imagina que eres María en Altamira y escribe tu diario de ese día.", "Respuesta abierta."],
+    ["a", "Haz una ficha de Ötzi con dibujos de su equipo.", "Respuesta abierta."],
+    ["a", "Simula una excavación en una caja con arena y objetos.", "Respuesta abierta."],
+    ["a", "Busca un yacimiento prehistórico de tu comunidad.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El fuego por percusión se hacía…", ["golpeando piedras", "frotando hojas", "con agua"], "Fuego."],
+    ["Altamira es Patrimonio de la Humanidad desde…", ["1985", "1879", "2010"], "Altamira."],
+    ["Ötzi vivió en la…", ["Edad del Cobre", "Edad Media", "Edad Moderna"], "Ötzi."],
+    ["En Atapuerca se descubrió el…", ["Homo antecessor", "Homo romanus", "Homo modernus"], "Atapuerca."],
+    ["Las capas de abajo de una excavación son…", ["más antiguas", "más modernas", "iguales"], "Arqueología."],
+  ],
+  examen: [
+    ["En la lectura, ¿quién descubrió las pinturas de Altamira?", ["una niña llamada María", "un pastor", "un rey"], "Lectura."],
+    ["Los arqueólogos registran cada resto…", ["antes de sacarlo", "después de venderlo", "nunca"], "Arqueología."],
+  ],
+  tarjetas: [
+    ["Fuego", "Frotamiento y percusión; calor, luz, cocina y protección."],
+    ["Altamira", "Cantabria; bisontes polícromos; Patrimonio desde 1985."],
+    ["Ötzi", "Hombre de hielo de los Alpes, 5300 años, Edad del Cobre."],
+    ["Atapuerca", "Burgos; Homo antecessor; restos de más de un millón de años."],
+  ],
+  glosario: [
+    ["Yacimiento", "Lugar donde hay restos del pasado."],
+    ["Arqueólogo", "Científico que estudia el pasado por sus restos."],
+    ["Estrato", "Capa de tierra de una excavación."],
+    ["Sílex", "Piedra dura que se tallaba para hacer herramientas."],
+    ["Pintura rupestre", "Pintura hecha en paredes de cuevas o rocas."],
+    ["Polícromo", "De varios colores."],
+    ["Réplica", "Copia exacta de algo."],
+    ["Glaciación", "Época de mucho frío en la Tierra."],
+    ["Homo antecessor", "Especie humana descubierta en Atapuerca."],
+    ["Momia", "Cuerpo que se ha conservado sin descomponerse."],
+    ["Patrimonio de la Humanidad", "Lugar de valor protegido por la UNESCO."],
+    ["Propulsor", "Herramienta para lanzar lanzas más lejos."],
+  ],
+  situacion: {
+    titulo: "Museo de la Prehistoria",
+    reto: "La clase monta un museo de la Prehistoria con réplicas hechas por los alumnos.",
+    pasos: ["Repartid salas: Paleolítico, Neolítico, Metales, Altamira, Atapuerca.", "Fabricad réplicas: pinturas rupestres, herramientas, vasijas.", "Escribid cartelas explicativas para cada objeto.", "Haced de guías para las familias u otros cursos."],
+    producto: "Un museo de aula con réplicas y cartelas.",
+    evaluacion: ["Sitúa cada objeto en su etapa.", "Elabora réplicas cuidadas.", "Redacta cartelas con información correcta.", "Explica oralmente el contenido."],
+  },
+});

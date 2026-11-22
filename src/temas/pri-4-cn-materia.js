@@ -139,3 +139,91 @@ module.exports = {
   fuentes: [RD, wiki("Materia", "Materia"), wiki("Estado de agregación de la materia", "Estado_de_agregación_de_la_materia"), wiki("Mezcla", "Mezcla")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Explicar por qué los objetos flotan gracias al empuje", "Relacionar los cambios de estado con el ciclo del agua", "Distinguir materiales naturales y artificiales y cambios físicos y químicos", "Aplicar la regla de las tres erres"],
+  lectura: { titulo: "¡Eureka!", html: `<p>Hace más de dos mil años, en la ciudad de Siracusa, vivía un sabio llamado <b>Arquímedes</b>. Un día, el rey le hizo un encargo difícil.</p><p>—He mandado hacer una corona de oro —le dijo—, pero sospecho que el orfebre me ha engañado y ha mezclado el oro con plata. Averigua la verdad sin estropear la corona.</p><p>Arquímedes pensó durante días. La corona pesaba lo mismo que el oro que el rey había entregado, así que la balanza no servía. Tenía que descubrir otra cosa: cuánto espacio ocupaba.</p><p>Una tarde, al meterse en la bañera, vio que el agua subía y se derramaba. ¡Su cuerpo ocupaba un lugar y empujaba el agua fuera!</p><p>Cuenta la leyenda que salió corriendo por la calle gritando: «¡Eureka! ¡Eureka!», que significa «¡Lo encontré!».</p><p>Metió la corona en un recipiente lleno de agua y midió el agua que se derramaba. Después hizo lo mismo con un trozo de oro puro del mismo peso. La corona derramó más agua: ocupaba más volumen, así que no era de oro puro.</p><p>El orfebre había engañado al rey, y Arquímedes había descubierto una forma de medir el volumen de cualquier objeto.</p>` },
+  tras: {
+    "La densidad: flotar o hundirse": [
+      ["Arquímedes y el empuje", `<p>Cuando metes un objeto en el agua, el agua lo empuja hacia arriba. Esa fuerza se llama <mark>empuje</mark>, y la descubrió el sabio griego <b>Arquímedes</b>.</p><p>Puedes notarlo tú mismo: en la piscina te cuesta mucho menos levantar a un amigo que fuera de ella, y si intentas hundir un balón, el agua lo empuja con fuerza hacia arriba.</p><p>Sobre un objeto en el agua actúan dos fuerzas:</p><ul><li>Su <b>peso</b>, que tira hacia abajo.</li><li>El <b>empuje</b>, que lo empuja hacia arriba.</li></ul><p>Si el empuje es mayor que el peso, el objeto <b>flota</b>; si es menor, se <b>hunde</b>.</p><p>El empuje es mayor cuanta más agua aparta el objeto. Por eso un barco de acero flota: aunque el acero es muy denso, el barco tiene forma de cuenco, está lleno de aire y aparta muchísima agua. Una bola de plastilina se hunde, pero si la moldeas en forma de barquita, ¡flota!</p><p>También influye el líquido. En el <b>mar Muerto</b> el agua es tan salada y densa que las personas flotan sin esfuerzo, como si estuvieran tumbadas en un colchón.</p>`,
+        H6.dos("Flotar o hundirse", ["FLOTA", ["empuje mayor", "aparta mucha agua", "barco, corcho"], cAZ], ["SE HUNDE", ["peso mayor", "aparta poca agua", "piedra, canica"], cRO]), ["LgNOEs1RU2E", "Hundir o flotar experimento de densidad para niños con refrescos", "Ryan's World Español", 5658945]],
+    ],
+    "Los cambios de estado": [
+      ["El ciclo del agua", `<p>Los cambios de estado no ocurren solo en la cocina: el agua del planeta cambia de estado continuamente en un viaje sin fin llamado <mark>ciclo del agua</mark>.</p><ul><li><b>Evaporación</b>: el Sol calienta el agua de mares, ríos y lagos, que se convierte en vapor y sube a la atmósfera. Las plantas también expulsan vapor por sus hojas.</li><li><b>Condensación</b>: arriba hace más frío, el vapor se enfría y se convierte en gotitas diminutas que forman las <b>nubes</b>.</li><li><b>Precipitación</b>: cuando las gotas se juntan y pesan demasiado, caen como <b>lluvia</b>; si hace mucho frío, como <b>nieve</b> o <b>granizo</b> (solidificación).</li><li><b>Fusión</b> y <b>escorrentía</b>: la nieve de las montañas se funde en primavera; el agua corre por ríos o se filtra bajo tierra y vuelve al mar.</li></ul><p>Gracias a este ciclo, el agua que bebes hoy puede haber sido, hace mucho tiempo, parte de una nube, de un glaciar o del océano. ¡Incluso pudo beberla un dinosaurio!</p><p>El agua de la Tierra no se gasta, pero sí se puede <b>ensuciar</b>. Por eso es tan importante cuidarla.</p>`,
+        H6.flujo("Ciclo del agua", ["evaporación|sube vapor", "condensación|nubes", "precipitación|lluvia", "escorrentía|al mar"], cAZ)],
+    ],
+    "Separar mezclas": [
+      ["Materiales naturales y artificiales", `<p>Los objetos que usamos están hechos de <b>materiales</b>. Según su origen, se clasifican en dos grandes grupos:</p><ul><li><mark>Materiales naturales</mark>: se obtienen directamente de la naturaleza. Pueden ser de origen <b>vegetal</b> (madera, algodón, corcho), <b>animal</b> (lana, cuero, seda) o <b>mineral</b> (piedra, arena, arcilla, metales).</li><li><mark>Materiales artificiales</mark>: los fabrican las personas transformando materiales naturales. El <b>vidrio</b> se hace con arena; el <b>papel</b>, con madera; el <b>plástico</b>, con petróleo; el <b>acero</b>, con hierro y carbono; el <b>hormigón</b>, con cemento, arena y agua.</li></ul><p>Elegimos cada material por sus <b>propiedades</b>:</p><ul><li>Las ventanas son de vidrio porque es <b>transparente</b>.</li><li>Los cables tienen metal por dentro porque <b>conduce</b> la electricidad, y plástico por fuera porque <b>aísla</b>.</li><li>Las sartenes tienen mango de plástico o madera porque no conducen bien el calor.</li><li>Los tapones son de corcho porque es <b>ligero</b> y <b>flexible</b>.</li></ul><p>Mira a tu alrededor: ¿de qué material es tu mesa, tu estuche o tu ropa? ¿Por qué crees que se eligió ese material?</p>`,
+        L6.filas("Materiales", [["madera", "natural, vegetal", cVE], ["lana", "natural, animal", cNA], ["vidrio", "artificial, de arena", cAZ], ["plástico", "artificial, de petróleo", cMO]])],
+    ],
+  },
+  final: [
+    ["Cambios físicos y cambios químicos", `<p>La materia puede cambiar de dos formas muy diferentes:</p><ul><li>En un <mark>cambio físico</mark>, la sustancia <b>sigue siendo la misma</b>. Solo cambia su forma, su tamaño o su estado. Romper un papel, doblar un alambre, fundir hielo o disolver azúcar en agua son cambios físicos: el papel sigue siendo papel y el agua sigue siendo agua.</li><li>En un <mark>cambio químico</mark>, las sustancias se <b>transforman en otras nuevas</b>, con propiedades distintas. Normalmente no se puede volver atrás.</li></ul><p>Ejemplos de cambios químicos:</p><ul><li><b>Quemar</b> papel o madera: se convierten en ceniza y humo.</li><li><b>Cocinar</b>: un huevo frito o un bizcocho horneado no pueden volver a ser crudos.</li><li>La <b>oxidación</b>: el hierro se cubre de óxido rojizo si se deja a la intemperie.</li><li>Una manzana cortada se pone <b>marrón</b>.</li><li>La leche se convierte en <b>yogur</b>.</li></ul><p>Pistas para reconocer un cambio químico: aparece un color nuevo, sale gas (burbujas), se produce luz o calor, o cambia el olor.</p><p>Un experimento fácil: mezcla bicarbonato y vinagre. ¡Las burbujas te dirán que se ha formado una sustancia nueva, un gas!</p>`,
+      H6.dos("Tipos de cambios", ["FÍSICO", ["misma sustancia", "romper, fundir", "a veces reversible"], cAZ], ["QUÍMICO", ["sustancia nueva", "quemar, cocinar", "no hay vuelta atrás"], cRO])],
+    ["Reducir, reutilizar, reciclar", `<p>Fabricar materiales gasta recursos naturales, agua y energía, y produce residuos. Para cuidar el planeta seguimos la regla de las <mark>tres erres</mark>:</p><ul><li><b>Reducir</b>: consumir menos. Usar bolsas de tela, botellas reutilizables y evitar productos con demasiado envoltorio.</li><li><b>Reutilizar</b>: dar una segunda vida a las cosas. Un bote de cristal puede ser un lapicero; la ropa pequeña puede pasar a un hermano; el papel usado por una cara sirve de borrador.</li><li><b>Reciclar</b>: separar los residuos para que se conviertan en materiales nuevos.</li></ul><p>En España separamos los residuos en contenedores de colores:</p><ul><li><b>Azul</b>: papel y cartón.</li><li><b>Amarillo</b>: envases de plástico, latas y briks.</li><li><b>Verde</b>: vidrio.</li><li><b>Marrón</b>: restos orgánicos (comida).</li><li><b>Gris</b>: el resto.</li></ul><p>Las pilas, los aparatos eléctricos y los aceites se llevan al <b>punto limpio</b>.</p><p>Reciclar es útil, pero lo más importante es lo primero: reducir. El mejor residuo es el que no se produce.</p>`,
+      L6.filas("Contenedores", [["azul", "papel y cartón", cAZ], ["amarillo", "envases", cNA], ["verde", "vidrio", cVE], ["marrón", "orgánico", cMO]]), ["YiHTNfKJwAw", "¿Cómo reciclar? - Guía completa de reciclaje", "Algo hay que hacer", 1620556]],
+  ],
+  ejemplos: [
+    ["Una bola de plastilina se hunde, pero con forma de barco flota. ¿Por qué?", ["El peso es el mismo.", "Con forma de barco aparta más agua: más empuje."], "Porque el empuje es mayor que el peso."],
+    ["¿Freír un huevo es un cambio físico o químico?", ["¿Aparece una sustancia nueva?", "¿Se puede volver atrás?"], "Químico: el huevo se transforma y no vuelve a ser crudo."],
+  ],
+  errores: ["Pensar que los objetos grandes siempre se hunden y los pequeños siempre flotan.", "Confundir disolver (cambio físico) con un cambio químico."],
+  ejercicios: [
+    ["b", "¿Cómo se llama la fuerza con la que el agua empuja hacia arriba?", "Empuje."],
+    ["b", "Ordena: precipitación, evaporación, condensación.", "Evaporación, condensación, precipitación."],
+    ["b", "Escribe dos materiales naturales y dos artificiales.", "Madera, lana; plástico, vidrio."],
+    ["b", "¿En qué contenedor va una botella de vidrio?", "En el verde."],
+    ["b", "¿Qué significan las tres erres?", "Reducir, reutilizar, reciclar."],
+    ["m", "¿Por qué un barco de acero flota?", "Porque tiene aire y aparta mucha agua: el empuje supera su peso."],
+    ["m", "¿Qué cambio de estado forma las nubes?", "La condensación."],
+    ["m", "¿De qué material natural se obtiene el vidrio? ¿Y el papel?", "De la arena; de la madera."],
+    ["m", "Clasifica: quemar papel, romper papel, oxidarse un clavo, fundir hielo.", "Químico, físico, químico, físico."],
+    ["m", "¿Por qué los mangos de las sartenes son de plástico o madera?", "Porque no conducen bien el calor."],
+    ["a", "Haz el experimento de la plastilina y explica lo que observas.", "Respuesta abierta."],
+    ["a", "Dibuja el ciclo del agua con sus cambios de estado.", "Respuesta abierta."],
+    ["a", "Inventa tres formas de reutilizar objetos de casa.", "Respuesta abierta."],
+    ["a", "Mezcla bicarbonato y vinagre y explica por qué es un cambio químico.", "Aparece una sustancia nueva (gas)."],
+  ],
+  quiz: [
+    ["Un objeto flota si…", ["el empuje es mayor que su peso", "es muy grande", "es de metal"], "Empuje."],
+    ["Las nubes se forman por…", ["condensación", "fusión", "solidificación"], "Ciclo del agua."],
+    ["El plástico se fabrica con…", ["petróleo", "arena", "madera"], "Materiales."],
+    ["Es un cambio químico…", ["cocinar un bizcocho", "romper un papel", "fundir hielo"], "Cambios."],
+    ["El contenedor amarillo es para…", ["envases", "vidrio", "papel"], "Reciclar."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué quería averiguar Arquímedes?", ["si la corona era de oro puro", "cuánto pesaba el rey", "la profundidad del mar"], "Lectura."],
+    ["Reutilizar es…", ["dar otra vida a un objeto", "tirarlo", "comprar otro"], "Tres erres."],
+  ],
+  tarjetas: [
+    ["Empuje", "Fuerza del agua hacia arriba; si supera al peso, el objeto flota."],
+    ["Ciclo del agua", "Evaporación, condensación, precipitación y escorrentía."],
+    ["Cambios", "Físico: misma sustancia. Químico: sustancia nueva."],
+    ["Tres erres", "Reducir, reutilizar, reciclar; contenedores de colores."],
+  ],
+  glosario: [
+    ["Empuje", "Fuerza hacia arriba de un líquido sobre un objeto."],
+    ["Densidad", "Cuánta masa hay en un volumen."],
+    ["Evaporación", "Paso de líquido a gas."],
+    ["Condensación", "Paso de gas a líquido."],
+    ["Precipitación", "Caída de agua de las nubes."],
+    ["Material natural", "El que se obtiene directamente de la naturaleza."],
+    ["Material artificial", "El que fabrican las personas."],
+    ["Cambio físico", "Cambio en el que la sustancia sigue siendo la misma."],
+    ["Cambio químico", "Cambio en el que aparecen sustancias nuevas."],
+    ["Oxidación", "Cambio químico del hierro al contacto con el aire y el agua."],
+    ["Residuo", "Lo que se tira tras usar algo."],
+    ["Punto limpio", "Lugar para residuos especiales como pilas o aparatos."],
+  ],
+  situacion: {
+    titulo: "Laboratorio de la materia",
+    reto: "La clase organiza una feria de experimentos sobre la materia para otros cursos.",
+    pasos: ["Elegid un experimento: flotar, cambios de estado, mezclas o cambios químicos.", "Preparad los materiales y una hipótesis.", "Realizad el experimento y anotad lo que ocurre.", "Explicad el resultado a los visitantes con un cartel."],
+    producto: "Un puesto de feria con experimento y cartel explicativo.",
+    evaluacion: ["Formula una hipótesis.", "Realiza el experimento con seguridad.", "Explica el resultado con vocabulario científico.", "Comunica con claridad."],
+  },
+});
