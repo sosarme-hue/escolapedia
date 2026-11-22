@@ -87,3 +87,100 @@ module.exports = P.tema({
   saberes: "Coneixement de la llengua: el nom; noms comuns i propis; l'article personal; gènere i formació del femení; nombre i formació del plural; concordança en el grup nominal",
   ideas: ["Capsa misteriosa: treure objectes i anomenar-los amb el, la, els, les.", "Bingo de plurals en -s, -es, -ns i -os.", "Mural de noms propis de la classe amb el seu article personal."],
 });
+
+// ---------- Nivell llibre (3r de Primària) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  dibujos: {
+    "Repàs: analitzem noms": H6.flujo("Analitzar", ["comú|o propi?", "el|o la?", "un|o més?", "omple|la taula"], cMO),
+  },
+  objetivos: ["Distingir noms individuals i col·lectius, concrets i abstractes", "Formar femenins especials", "Formar plurals que fan dubtar", "Fer servir diminutius i augmentatius"],
+  lectura: { titulo: "La granja de la tieta Rosa", html: `<p>Aquest estiu, la Mariona i el seu germà Biel han passat una setmana a la granja de la tieta Rosa, a prop de Vic.</p><p>Cada matí, molt d'hora, el gall els despertava amb el seu cant. Després anaven a l'estable a veure la vaca i el seu vedellet, que tenia una taca blanca al front. La tieta els va ensenyar a donar menjar a les gallines i a buscar els ous per tota la palla.</p><p>A la tarda, el pastor tornava de la muntanya amb el ramat d'ovelles. El gos, un gossàs enorme i molt bonàs, corria al voltant perquè cap ovella no es perdés. Al costat del rierol hi havia un eixam d'abelles, i la tieta els va dir que no s'hi acostessin.</p><p>A la nit, sota un cel ple d'estrelles, el Biel va dir:</p><p>—Tieta, aquí tot té un nom diferent del de la ciutat!</p><p>La tieta Rosa va riure.</p><p>—Doncs encara te'n falten molts per aprendre. Demà et presentaré l'euga i el seu poltre.</p><p>Quan van marxar, la Mariona es va endur una cosa que no es veu ni es toca: l'alegria d'una setmana inoblidable.</p>` },
+  tras: {
+    "Noms comuns i propis": [
+      ["Noms individuals i col·lectius", `<p>Alguns noms anomenen <b>un sol</b> ésser o objecte, encara que estiguin en singular: <i>ovella, abella, arbre</i>. Són noms <mark>individuals</mark>.</p><p>Altres noms, encara que estiguin en <b>singular</b>, anomenen <b>un grup</b> de coses o d'éssers iguals. Són noms <mark>col·lectius</mark>:</p><ul><li>Moltes ovelles formen un <b>ramat</b>.</li><li>Moltes abelles formen un <b>eixam</b>.</li><li>Molts arbres formen un <b>bosc</b>.</li><li>Molts peixos junts formen un <b>banc</b>.</li><li>Molts músics que toquen junts formen una <b>orquestra</b>.</li><li>Molts jugadors formen un <b>equip</b>.</li><li>Moltes estrelles formen una <b>constel·lació</b>.</li></ul><p>Fixa't en una cosa important: el nom col·lectiu va en <b>singular</b>, i per tant el verb també: <i>El ramat <b>baixa</b> de la muntanya</i>, i no <i>El ramat baixen</i>.</p><p>També podem posar un col·lectiu en plural quan n'hi ha més d'un: <i>Al prat hi pasturen dos ramats.</i></p><p><b>Activitat</b>: busca a la lectura dos noms col·lectius i digues de què estan formats.</p>`,
+        L6.filas("Col·lectius", [["ovelles", "ramat", cAZ], ["abelles", "eixam", cVE], ["arbres", "bosc", cNA], ["músics", "orquestra", cRO]]),
+        ["emUV3-az6JU", "EL SUSTANTIVO INDIVIDUAL Y COLECTIVO", "Fisiván", 215636]],
+    ],
+    "L'article personal": [
+      ["Noms concrets i abstractes", `<p>Hi ha noms que anomenen coses que podem <b>veure, tocar, sentir, olorar o tastar</b>: <i>taula, gat, música, perfum, xocolata</i>. Són noms <mark>concrets</mark>.</p><p>Però també hi ha noms que anomenen coses que <b>no es poden tocar</b> ni veure: sentiments, idees o qualitats. Només les podem pensar o sentir per dins. Són noms <mark>abstractes</mark>:</p><ul><li><b>Sentiments</b>: <i>alegria, tristesa, por, amor, enyorança</i>.</li><li><b>Qualitats</b>: <i>bellesa, valentia, paciència, bondat</i>.</li><li><b>Idees</b>: <i>amistat, llibertat, pau, justícia</i>.</li></ul><p>Un truc per saber-ho: pregunta't «Ho puc posar dins d'una capsa?». Una pilota, sí: és concret. L'alegria, no: és abstracte.</p><p>Molts noms abstractes surten d'un <b>adjectiu</b>: <i>alegre → alegria, trist → tristesa, valent → valentia, bo → bondat, bell → bellesa</i>.</p><p>Els noms abstractes són molt importants quan escrivim, perquè ens ajuden a parlar del que sentim: <i>Vaig sentir molta <b>emoció</b> quan vaig veure el mar per primera vegada.</i></p><p><b>Activitat</b>: escriu tres noms abstractes que facin referència a coses que t'agraden.</p>`,
+        H6.dos("Noms", ["CONCRETS", ["taula", "gat", "xocolata"], cAZ], ["ABSTRACTES", ["alegria", "amistat", "por"], cNA])],
+    ],
+    "Com es forma el femení": [
+      ["Femenins especials", `<p>Alguns noms no fan el femení afegint una <i>-a</i>. Fan servir <mark>altres maneres</mark>:</p><p><b>Una paraula totalment diferent</b>:</p><ul><li><i>home → dona, pare → mare, gendre → nora</i>.</li><li><i>cavall → euga, bou → vaca, boc → cabra, gall → gallina</i>.</li></ul><p><b>Una terminació especial</b>:</p><ul><li><b>-essa</b>: <i>metge → metgessa, alcalde → alcaldessa, abat → abadessa</i>.</li><li><b>-ina</b>: <i>heroi → heroïna, rei → reina</i> (aquí, només <i>-na</i>).</li><li><b>-riu</b>: <i>actor → actriu, emperador → emperadriu</i>.</li></ul><p><b>Una sola forma per als dos</b>: el que canvia és l'article. <i>el cantant / la cantant, el pianista / la pianista, el turista / la turista, el testimoni / la testimoni</i>.</p><p><b>Animals amb un sol nom</b>: per a molts animals hi ha una sola paraula, i per dir si és mascle o femella hi afegim aquestes paraules: <i>la girafa mascle, la girafa femella, el cocodril femella, l'esquirol mascle</i>.</p><p>Si dubtes, el <b>diccionari</b> t'ho dirà: al costat de cada nom indica si té una forma femenina especial.</p><p><b>Activitat</b>: escriu el femení de <i>cavall, metge, actor, rei</i> i <i>cantant</i>.</p>`,
+        L6.filas("Femení", [["cavall", "euga", cAZ], ["metge", "metgessa", cVE], ["actor", "actriu", cNA], ["cantant", "la cantant", cRO]])],
+    ],
+    "Com es forma el plural": [
+      ["Plurals que fan dubtar", `<p>Ja saps la regla general del plural. Ara veurem uns quants casos que <mark>fan dubtar</mark>:</p><p><b>Paraules agudes acabades en vocal</b>. Moltes afegeixen <b>-ns</b>:</p><ul><li><i>camí → camins, avió → avions, cosí → cosins, botó → botons, mà → mans</i>.</li><li>Però d'altres només afegeixen <b>-s</b>: <i>sofà → sofàs, cafè → cafès, menú → menús</i>.</li></ul><p><b>Paraules acabades en -s, -ç, -x, -tx</b> amb la tònica a l'última síl·laba: afegeixen <b>-os</b>:</p><ul><li><i>braç → braços, peix → peixos, gos → gossos, despatx → despatxos</i>.</li></ul><p><b>Paraules que no canvien</b>: les planes acabades en <i>-s</i> fan el plural igual que el singular. Només canvia l'article:</p><ul><li><i>el llapis → els llapis, el dilluns → els dilluns, la pols, el globus → els globus</i>.</li></ul><p><b>Paraules en -ca, -ga, -ça, -ja</b>: canvien una lletra per conservar el so:</p><ul><li><i>vaca → vaques, botiga → botigues, plaça → places, platja → platges</i>.</li></ul><p>Truc: digues el singular i el plural en veu alta. Si sonen bé i conserven el so, segurament estan ben escrits.</p><p><b>Activitat</b>: escriu el plural de <i>camí, braç, llapis, botiga</i> i <i>sofà</i>.</p>`,
+        L6.filas("Plural", [["camí", "camins", cAZ], ["braç", "braços", cVE], ["llapis", "llapis", cNA], ["botiga", "botigues", cRO]])],
+      ["Diminutius i augmentatius", `<p>Podem afegir un trosset al final d'un nom per fer-lo <b>més petit</b> o <b>més gran</b>.</p><p>Els <mark>diminutius</mark> fan el nom més petit o hi afegeixen <b>afecte</b>. La terminació més habitual en català és <b>-et, -eta</b>:</p><ul><li><i>gos → gosset, casa → caseta, llibre → llibret, ocell → ocellet, vaca → vaqueta, vedell → vedellet</i>.</li><li>També n'hi ha amb <b>-ó</b>: <i>carrer → carreró</i>, <i>calaix → calaixó</i>.</li></ul><p>Els <mark>augmentatius</mark> fan el nom més gran, i de vegades li donen un to divertit o una mica despectiu. La terminació més habitual és <b>-às, -assa</b>:</p><ul><li><i>gos → gossàs, cotxe → cotxàs, home → homenàs, casa → casassa</i>.</li><li>També hi ha <b>-arro</b>: <i>nas → nassarro</i>.</li></ul><p>Fixa't que, quan afegim la terminació, algunes lletres canvien per conservar el so, com en el plural: <i>vaca → vaqueta</i>, <i>gos → gosset</i>.</p><p>Alguns diminutius s'han convertit en paraules noves amb significat propi: una <i>avioneta</i> no és només un avió petit, és un tipus d'avió; i una <i>cadireta</i> pot ser la que es fa amb les mans per portar algú.</p><p><b>Activitat</b>: busca a la lectura un diminutiu i un augmentatiu.</p>`,
+        H6.dos("Mida", ["PETIT", ["gosset", "caseta", "llibret"], cVE], ["GRAN", ["gossàs", "cotxàs", "homenàs"], cRO]),
+        ["uzT-0NOslgg", "Diminutius i augmentatius", "Aprendre amb il·lusió", 3983]],
+    ],
+  },
+  final: [
+    ["Joc: de l'Havana ha vingut un vaixell", `<p>Hi ha un joc tradicional català, molt antic, que és perfecte per practicar els <mark>noms</mark>: <b>«De l'Havana ha vingut un vaixell carregat de…»</b>.</p><p><b>Com es juga</b>:</p><ul><li><b>1.</b> Els jugadors s'asseuen en rotllana. Un d'ells té una pilota o un mocador.</li><li><b>2.</b> Qui té la pilota diu: <i>«De l'Havana ha vingut un vaixell carregat de…»</i> i tria una categoria. Per exemple: <i>«…de noms d'animals!»</i></li><li><b>3.</b> Llança la pilota a un company, que ha de dir de seguida un nom d'aquella categoria: <i>«Elefant!»</i>. Després la passa a un altre.</li><li><b>4.</b> No es pot repetir cap nom. Qui s'encalla o en repeteix un, queda eliminat o paga penyora.</li></ul><p>Pots fer-ho més difícil amb categories de gramàtica:</p><ul><li><i>«…carregat de noms propis!»</i> (<i>Mariona, Girona, Ebre…</i>)</li><li><i>«…carregat de noms col·lectius!»</i> (<i>ramat, eixam, bosc…</i>)</li><li><i>«…carregat de noms femenins!»</i> (<i>taula, lluna, euga…</i>)</li><li><i>«…carregat de noms en plural!»</i> (<i>camins, braços, botigues…</i>)</li></ul><p>L'Havana és una ciutat de Cuba. Fa molts anys, molts vaixells anaven i venien entre Cuba i els ports catalans, carregats de mercaderies. D'aquí ve el nom del joc, que també dona títol a havaneres, unes cançons molt populars a la costa catalana.</p>`,
+      H6.rueda("Vaixell", "VAIXELL", [["animals", cAZ], ["propis", cVE], ["col·lectius", cNA], ["plurals", cRO]])],
+  ],
+  ejemplos: [
+    ["Quin és el nom col·lectiu de «abelles»?", ["Moltes abelles juntes formen un grup.", "Aquest grup es diu eixam."], "Eixam."],
+    ["Escriu el plural de «camí».", ["És aguda i acaba en vocal.", "Afegeix -ns."], "Camins."],
+  ],
+  errores: ["Posar el verb en plural amb un col·lectiu singular: «El ramat baixen».", "Escriure «llapisos» o «braçs»: llapis no canvia i braç fa braços."],
+  ejercicios: [
+    ["b", "Quin és el col·lectiu d'«arbres»?", "Bosc."],
+    ["b", "És concret o abstracte «amistat»?", "Abstracte."],
+    ["b", "Quin és el femení de «cavall»?", "Euga."],
+    ["b", "Escriu el diminutiu de «casa».", "Caseta."],
+    ["b", "A la lectura, què va portar el pastor de la muntanya?", "El ramat d'ovelles."],
+    ["m", "Escriu el plural de «braç» i de «peix».", "Braços, peixos."],
+    ["m", "Quin és el femení de «metge»?", "Metgessa."],
+    ["m", "Escriu el nom abstracte que surt de «valent».", "Valentia."],
+    ["m", "Per què diem «el ramat baixa» i no «baixen»?", "Perquè ramat és singular, encara que anomeni un grup."],
+    ["m", "Com diem que una girafa és femella?", "La girafa femella."],
+    ["a", "Busca a la lectura un diminutiu, un augmentatiu i un nom abstracte.", "Vedellet, gossàs, alegria."],
+    ["a", "Classifica: sofà, cosí, llapis, platja (plural).", "Sofàs, cosins, llapis, platges."],
+    ["a", "Juga a «De l'Havana ha vingut un vaixell» amb noms col·lectius i escriu-ne cinc.", "Per exemple: ramat, eixam, bosc, orquestra, equip."],
+    ["a", "Escriu una frase amb tres noms abstractes.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["És un nom col·lectiu…", ["orquestra", "músic", "violí"], "Col·lectius."],
+    ["És un nom abstracte…", ["por", "pedra", "pa"], "Abstractes."],
+    ["El femení d'«actor» és…", ["actriu", "actora", "actressa"], "Femenins."],
+    ["El plural de «llapis» és…", ["llapis", "llapisos", "llapissos"], "Plurals."],
+    ["«Gossàs» és un…", ["augmentatiu", "diminutiu", "col·lectiu"], "Mida."],
+  ],
+  examen: [
+    ["A la lectura, què es va endur la Mariona?", ["l'alegria d'una setmana inoblidable", "un vedellet", "un ou"], "Lectura."],
+    ["El plural de «camí» és…", ["camins", "camís", "caminos"], "Plurals."],
+  ],
+  tarjetas: [
+    ["Col·lectius", "Ramat, eixam, bosc, banc, orquestra, equip: un grup, en singular."],
+    ["Concrets i abstractes", "Es toquen (taula) o no (alegria, amistat)."],
+    ["Femenins especials", "Euga, vaca, metgessa, actriu, reina; el/la cantant."],
+    ["Plurals i mida", "Camins, braços, llapis; gosset, gossàs."],
+  ],
+  glosario: [
+    ["Nom", "Paraula que anomena persones, animals, coses, llocs o idees."],
+    ["Nom comú", "El que anomena qualsevol element d'un grup."],
+    ["Nom propi", "El que anomena un element concret; va amb majúscula."],
+    ["Nom individual", "El que anomena un sol ésser o objecte."],
+    ["Nom col·lectiu", "El que anomena un grup en singular."],
+    ["Nom concret", "El que es pot veure o tocar."],
+    ["Nom abstracte", "El que anomena sentiments, qualitats o idees."],
+    ["Gènere", "Masculí o femení."],
+    ["Nombre", "Singular o plural."],
+    ["Diminutiu", "Forma que fa el nom més petit o afectuós."],
+    ["Augmentatiu", "Forma que fa el nom més gran."],
+    ["Euga", "Femella del cavall."],
+  ],
+  situacion: {
+    titulo: "El diccionari il·lustrat de la granja",
+    reto: "La classe fa un diccionari il·lustrat dels animals i les coses d'una granja, amb el femení, el plural, el diminutiu i el col·lectiu de cada nom.",
+    pasos: ["Fer una llista de noms d'animals i objectes de la granja.", "Escriure el femení i el plural de cada nom.", "Afegir-hi diminutius, augmentatius i noms col·lectius.", "Dibuixar cada entrada i ordenar el diccionari alfabèticament."],
+    producto: "Un diccionari il·lustrat de la granja.",
+    evaluacion: ["Distingeix noms individuals i col·lectius.", "Forma femenins especials.", "Forma bé els plurals.", "Fa servir diminutius i augmentatius."],
+  },
+});

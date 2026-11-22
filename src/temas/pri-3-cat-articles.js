@@ -85,3 +85,102 @@ module.exports = P.tema({
   saberes: "Coneixement de la llengua: el grup nominal; articles determinats i indeterminats; apostrofació de l'article; contraccions (al, del, pel, cal); demostratius de proximitat i llunyania; concordança",
   ideas: ["Joc de la distància: objectes col·locats a prop i lluny.", "Targetes d'articles per aparellar amb noms que comencen per vocal o consonant.", "Conte col·lectiu començant amb «Hi havia una vegada un…»."],
 });
+
+// ---------- Nivell llibre (3r de Primària) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  videos: {
+    "L'apòstrof": ["Nuv--JkbnKA", "L' apòstrof", "Marisol unmundodeletras", 5043],
+  },
+  dibujos: {
+    "Les contraccions": L6.filas("Contraccions", [["a + el", "al", cAZ], ["de + el", "del", cVE], ["per + el", "pel", cNA], ["ca + el", "cal", cRO]]),
+    "Totes les formes dels demostratius": H6.dos("Distància", ["A PROP", ["aquest", "aquesta", "aquests, -es"], cVE], ["LLUNY", ["aquell", "aquella", "aquells, -es"], cNA]),
+    "Repàs: busca i classifica": H6.flujo("Classificar", ["llegeix|el text", "mira|davant", "article o|demostratiu?", "gènere|i nombre"], cMO),
+  },
+  objetivos: ["Saber quan la no s'apostrofa", "Fer servir els possessius", "Fer servir això i allò", "Escriure bé els numerals i els quantitatius"],
+  lectura: { titulo: "El mercat del dissabte", html: `<p>Cada dissabte, l'Abril acompanya el seu pare al mercat del barri. Els dos porten un carro de la compra i una llista que han escrit a casa.</p><p>—Primer anirem a la parada de la fruita —diu el pare.</p><p>La fruitera, la Rosa, els saluda amb un somriure.</p><p>—Què voleu avui?</p><p>—Dues pomes, un meló i aquelles maduixes tan vermelles —demana l'Abril.</p><p>—Aquestes d'aquí o aquelles d'allà? —pregunta la Rosa.</p><p>—Aquelles! Són les meves preferides.</p><p>Després passen pel forn de pa, on compren una barra i dos croissants, i per la peixateria, on el peixater els recomana uns lluços molt frescos. A l'última parada, l'Abril veu una cosa estranya en un aparador.</p><p>—Papa, què és allò?</p><p>—Això és una carxofa. Al teu avi li encantaven.</p><p>—Doncs en podríem comprar unes quantes!</p><p>Tornen a casa amb el carro ple. L'Abril està contenta: avui ha après el nom de moltes coses noves, i també ha descobert que les carxofes, ben cuinades, són boníssimes.</p>` },
+  tras: {
+    "L'apòstrof": [
+      ["Quan la no s'apostrofa", `<p>L'article <b>el</b> s'apostrofa sempre davant de vocal o de h: <i>l'arbre, l'home, l'ull, l'iglú</i>. En canvi, l'article <b>la</b> té unes quantes <mark>excepcions</mark>.</p><p><b>La</b> no s'apostrofa davant de les paraules que comencen per <b>i</b> o <b>u</b> (amb h o sense) quan aquesta vocal és <b>àtona</b>, és a dir, quan no és a la síl·laba tònica:</p><ul><li><i>la idea</i>: i-<b>de</b>-a, la i és àtona.</li><li><i>la universitat, la unitat, la humitat, la Irene</i>.</li><li><i>la història</i>: his-<b>tò</b>-ri-a, la i és àtona.</li></ul><p>En canvi, si la i o la u són <b>tòniques</b>, sí que s'apostrofa:</p><ul><li><i>l'illa</i> (<b>i</b>-lla), <i>l'ungla</i> (<b>un</b>-gla), <i>l'Índia</i>, <i>l'Íngrid</i>.</li></ul><p>Tampoc no s'apostrofa <b>la</b> davant del nom de les <b>lletres</b> ni davant de <b>una</b> quan parlem de l'hora: <i>la a, la essa, la ema</i>; <i>És la una</i>.</p><p>Com ho podem recordar? Pensa que la <i>i</i> i la <i>u</i> àtones són com vocals «tímides» que no volen que la <i>a</i> de <i>la</i> desaparegui.</p><p>I compte: <b>el</b> no s'apostrofa davant de paraules que comencen per <b>i</b> o <b>u</b> seguides d'una altra vocal, com <i>el iogurt</i> o <i>el iot</i>.</p><p><b>Activitat</b>: escriu l'article davant de <i>illa, idea, ungla, universitat, hora</i> i <i>història</i>.</p>`,
+        H6.dos("La + vocal", ["S'APOSTROFA", ["l'àvia", "l'illa", "l'hora"], cVE], ["NO", ["la idea", "la universitat", "la història"], cRO]),
+        ["KLkeQeIYvgI", "L'APOSTROF", "Puja't al carro", 19651]],
+    ],
+    "Els articles indeterminats": [
+      ["Els possessius", `<p>Els <mark>possessius</mark> són paraules que acompanyen el nom i ens diuen <b>de qui és</b> una cosa: <i>el meu llibre, la teva motxilla, els nostres avis</i>.</p><p>En català, els possessius van normalment amb l'<b>article</b> al davant, i concorden amb la cosa posseïda:</p><ul><li><b>Jo</b>: <i>el meu, la meva, els meus, les meves</i>. <i>La meva bicicleta.</i></li><li><b>Tu</b>: <i>el teu, la teva, els teus, les teves</i>. <i>Els teus colors.</i></li><li><b>Ell, ella</b>: <i>el seu, la seva, els seus, les seves</i>. <i>La seva germana.</i></li><li><b>Nosaltres</b>: <i>el nostre, la nostra, els nostres, les nostres</i>.</li><li><b>Vosaltres</b>: <i>el vostre, la vostra, els vostres, les vostres</i>.</li><li><b>Ells, elles</b>: <i>el seu, la seva, els seus, les seves</i>.</li></ul><p>Fixa't en una diferència amb el castellà: en castellà diem <i>mi casa</i>, sense article; en català diem <i>la meva casa</i>, amb article. Només amb alguns noms de família podem dir <i>mon pare</i> o <i>ma mare</i>, però és més habitual <i>el meu pare</i> i <i>la meva mare</i>.</p><p>Els possessius concorden amb la cosa, no amb la persona: un nen diu <i>la meva pilota</i>, i una nena també diu <i>la meva pilota</i>.</p><p><b>Activitat</b>: escriu tres coses que són teves amb el possessiu correcte.</p>`,
+        L6.filas("Possessius", [["jo", "el meu, la meva", cAZ], ["tu", "el teu, la teva", cVE], ["ell", "el seu, la seva", cNA], ["nosaltres", "el nostre", cRO]])],
+    ],
+    "Els demostratius": [
+      ["Això, allò i aquí, allà", `<p>A més d'<i>aquest</i> i <i>aquell</i>, hi ha dos demostratius especials que <b>no acompanyen cap nom</b>: <mark>això</mark> i <mark>allò</mark>. Els fem servir quan no sabem el nom d'una cosa o quan no cal dir-lo:</p><ul><li><b>Això</b> (a prop): <i>Què és això? Això és meu.</i></li><li><b>Allò</b> (lluny): <i>Mira allò que hi ha al cim de la muntanya!</i></li></ul><p>No tenen gènere ni nombre: sempre són iguals. I no es poden posar davant d'un nom: no diem <i>això llibre</i>, sinó <i>aquest llibre</i>.</p><p>També hi ha unes paraules que indiquen <b>on</b> és una cosa i van molt lligades als demostratius. Són adverbis de lloc:</p><ul><li><b>aquí</b> (o <i>ací</i>, en algunes zones): a prop de qui parla. <i>Aquest llibre d'aquí.</i></li><li><b>allà</b> o <b>allí</b>: lluny. <i>Aquell arbre d'allà.</i></li></ul><p>Fixa't com van junts: <i>aquest ↔ aquí ↔ això</i> (a prop) i <i>aquell ↔ allà ↔ allò</i> (lluny).</p><p>A la lectura, l'Abril pregunta «Papa, què és allò?» perquè la carxofa és lluny i no en sap el nom. El pare respon «Això és una carxofa» quan ja la tenen a prop.</p><p><b>Activitat</b>: assenyala tres objectes de la classe i pregunta què són amb <i>això</i> o <i>allò</i>, segons si són a prop o lluny.</p>`,
+        L6.filas("Distància", [["a prop", "aquest, aquí, això", cVE], ["lluny", "aquell, allà, allò", cNA], ["això", "sense nom", cAZ], ["allò", "sense nom", cRO]])],
+    ],
+    "Fer servir bé articles i demostratius": [
+      ["Els numerals: un, dos… primer, segon", `<p>Els <mark>numerals</mark> també poden acompanyar el nom. N'hi ha de dues menes:</p><ul><li>Els <b>cardinals</b> diuen <b>quants</b> n'hi ha: <i>un llibre, tres gats, vint alumnes</i>.</li><li>Els <b>ordinals</b> diuen <b>en quin ordre</b> va: <i>el primer dia, la segona porta, el tercer pis</i>.</li></ul><p>En català, alguns cardinals tenen <b>femení</b>:</p><ul><li><b>un / una</b>: <i>un gat, una gata</i>. Quan comptem, diem <i>u</i>: «u, dos, tres…».</li><li><b>dos / dues</b>: <i>dos llapis, dues gomes</i>. Aquest és un error molt freqüent: no diem <i>dos pomes</i>, sinó <i>dues pomes</i>!</li><li>També tenen femení els que acaben en <i>un</i> o <i>dos</i>: <i>vint-i-una nenes, trenta-dues cadires</i>.</li></ul><p>Els <b>ordinals</b> concorden amb el nom en gènere i nombre: <i>primer, primera, primers, primeres</i>; <i>segon, segona</i>; <i>tercer, tercera</i>; <i>quart, quarta</i>; <i>cinquè, cinquena</i>.</p><p>Abreujats s'escriuen amb una lletra petita: <i>1r, 1a, 2n, 2a, 3r, 3a, 4t, 4a, 5è, 5a</i>. Per això la nostra classe és de <b>3r</b> de Primària.</p><p><b>Activitat</b>: escriu la llista de la compra de la lectura amb els numerals: <i>dues pomes, un meló…</i></p>`,
+        L6.filas("Numerals", [["un", "una", cAZ], ["dos", "dues", cVE], ["primer", "primera", cNA], ["3r", "tercer", cRO]])],
+    ],
+  },
+  final: [
+    ["Molt, poc, massa: els quantitatius", `<p>De vegades no sabem el número exacte de coses, però volem dir <b>si n'hi ha moltes o poques</b>. Per fer-ho fem servir els <mark>quantitatius</mark>:</p><ul><li><b>molt, molta, molts, moltes</b>: <i>Hi ha molta gent al mercat.</i></li><li><b>poc, poca, pocs, poques</b>: <i>Queden poques maduixes.</i></li><li><b>bastant, bastants</b>: <i>Tinc bastants cromos.</i></li><li><b>massa</b>: més del compte. <i>Has posat massa sal a la sopa.</i> No canvia mai.</li><li><b>gaire, gaires</b>: es fa servir en frases negatives o preguntes. <i>No tinc gaires ganes. Hi havia gaire gent?</i></li><li><b>cap</b>: vol dir «ni un». <i>No hi ha cap cadira lliure.</i></li><li><b>tot, tota, tots, totes</b>: <i>Tots els nens han vingut.</i></li></ul><p>Els quantitatius també concorden amb el nom: <i>molt soroll, molta calor, molts nens, moltes nenes</i>.</p><p>Compte amb <b>cap</b>: en una frase negativa, en català fem servir <i>cap</i> i no <i>ningun</i>. Diem <i>No tinc cap llapis</i>, i no <i>No tinc ningun llapis</i>, que és un castellanisme.</p><p>I amb <b>massa</b>: vol dir «més del que cal», no «molt». <i>És massa car</i> vol dir que no el podem comprar perquè costa més del que tenim.</p><p><b>Activitat</b>: descriu la teva classe fent servir <i>molt, poc, cap</i> i <i>tots</i>.</p>`,
+      H6.rueda("Quantitat", "QUANTS?", [["molt", cAZ], ["poc", cVE], ["massa", cNA], ["cap", cRO]])],
+  ],
+  ejemplos: [
+    ["Escriu l'article davant de «idea» i d'«illa».", ["A idea, la i és àtona: la no s'apostrofa.", "A illa, la i és tònica: s'apostrofa."], "La idea, l'illa."],
+    ["Corregeix: «Vull dos pomes».", ["Poma és femení.", "El numeral dos té femení: dues."], "Vull dues pomes."],
+  ],
+  errores: ["Apostrofar la davant de i o u àtones: «l'idea», «l'universitat».", "Dir «dos pomes» o «ningun llapis» en comptes de «dues pomes» i «cap llapis»."],
+  ejercicios: [
+    ["b", "Escriu l'article: ___ universitat.", "La universitat."],
+    ["b", "Escriu el possessiu de jo davant de «motxilla».", "La meva motxilla."],
+    ["b", "Quin demostratiu fem servir per a una cosa llunyana sense nom?", "Allò."],
+    ["b", "Escriu el femení de «dos».", "Dues."],
+    ["b", "A la lectura, quina verdura descobreix l'Abril?", "La carxofa."],
+    ["m", "Escriu l'article: ___ història, ___ hora.", "La història, l'hora."],
+    ["m", "Escriu el possessiu de nosaltres davant de «casa».", "La nostra casa."],
+    ["m", "Escriu en lletres: 3a, 1r, 5è.", "Tercera, primer, cinquè."],
+    ["m", "Corregeix: «No tinc ningun cromo».", "No tinc cap cromo."],
+    ["m", "Completa amb això o aquest: «___ llapis és meu».", "Aquest."],
+    ["a", "Copia de la lectura dos demostratius i un numeral femení.", "Aquestes, aquelles; dues."],
+    ["a", "Explica per què diem «l'illa» però «la idea».", "Perquè a illa la i és tònica i a idea és àtona."],
+    ["a", "Escriu la llista de la compra de la lectura amb numerals i quantitatius.", "Per exemple: dues pomes, un meló, unes quantes maduixes, una barra, dos croissants."],
+    ["a", "Descriu la teva habitació fent servir tres possessius i dos quantitatius.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["És correcte…", ["la idea", "l'idea", "el idea"], "Apòstrof."],
+    ["El possessiu de tu amb «germanes» és…", ["les teves", "les seves", "els teus"], "Possessius."],
+    ["«Què és ___?» (a prop, sense nom):", ["això", "aquest", "allà"], "Això."],
+    ["És correcte…", ["dues cadires", "dos cadires", "dúes cadires"], "Numerals."],
+    ["«No tinc ___ llapis»:", ["cap", "ningun", "massa"], "Quantitatius."],
+  ],
+  examen: [
+    ["A la lectura, qui és la Rosa?", ["la fruitera", "la mare de l'Abril", "la peixatera"], "Lectura."],
+    ["«Massa» vol dir…", ["més del que cal", "molt poc", "ni un"], "Quantitatius."],
+  ],
+  tarjetas: [
+    ["La no s'apostrofa", "Davant de i, u àtones: la idea, la universitat, la història."],
+    ["Possessius", "El meu, la teva, els seus, les nostres: amb article."],
+    ["Això i allò", "Sense nom; aquest-aquí-això, aquell-allà-allò."],
+    ["Numerals i quantitatius", "Un/una, dos/dues; primer, 1r; molt, poc, massa, cap."],
+  ],
+  glosario: [
+    ["Article", "Paraula que va davant del nom: el, la, un, una."],
+    ["Article determinat", "El que s'usa per a coses conegudes: el, la, els, les."],
+    ["Article indeterminat", "El que s'usa per a coses no conegudes: un, una."],
+    ["Apòstrof", "Signe (') que substitueix una vocal."],
+    ["Àtona", "Vocal o síl·laba que no sona forta."],
+    ["Contracció", "Unió de dues paraules en una: al, del, pel."],
+    ["Demostratiu", "Paraula que indica si una cosa és a prop o lluny."],
+    ["Possessiu", "Paraula que diu de qui és una cosa."],
+    ["Numeral cardinal", "Diu quants n'hi ha: dos, tres."],
+    ["Numeral ordinal", "Diu l'ordre: primer, segon."],
+    ["Quantitatiu", "Diu una quantitat aproximada: molt, poc."],
+    ["Parada", "Lloc d'un mercat on es ven alguna cosa."],
+  ],
+  situacion: {
+    titulo: "El mercat de la classe",
+    reto: "La classe munta un mercat de joguina amb parades i fa llistes de la compra i diàlegs entre venedors i compradors.",
+    pasos: ["Preparar les parades amb cartells (la parada de la fruita, del peix…).", "Escriure llistes de la compra amb numerals i quantitatius.", "Representar diàlegs fent servir aquest, aquell, això i allò.", "Revisar els apòstrofs i els possessius dels cartells."],
+    producto: "Un mercat de classe amb cartells i llistes ben escrites.",
+    evaluacion: ["Apostrofa correctament.", "Fa servir bé els possessius.", "Distingeix aquest/aquell i això/allò.", "Escriu bé dues, cap i els ordinals."],
+  },
+});

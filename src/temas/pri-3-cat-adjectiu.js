@@ -86,3 +86,105 @@ module.exports = P.tema({
   saberes: "Coneixement de la llengua: l'adjectiu qualificatiu; gènere i nombre de l'adjectiu; concordança amb el nom; adjectius contraris; descripció; comparació",
   ideas: ["Capsa dels sentits: tocar i olorar objectes i dir adjectius.", "Retrat del company o companya amb cinc adjectius amables.", "Dòmino d'adjectius contraris."],
 });
+
+// ---------- Nivell llibre (3r de Primària) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  videos: {
+    "Què ens expliquen els adjectius": ["q9Kit4V-aOw", "LOS ADJETIVOS 🧸 Objetos 🥝 Vocabulario para niños 🌞 Episodio 5", "Smile and Learn - Español", 68232],
+    "Descriure amb adjectius": ["aYAQEvETCcA", "Adjetivos en español con ejemplos - Videos Aprende", "Videos Aprende", 833443],
+  },
+  dibujos: {
+    "La concordança": H6.dos("Concordar", ["SINGULAR", ["gos blanc", "gossa blanca"], cAZ], ["PLURAL", ["gossos blancs", "gosses blanques"], cNA]),
+    "Repàs: el joc del retrat": H6.flujo("Retrat", ["pensa|un objecte", "descriu|amb adjectius", "els altres|endevinen", "revisa|el gènere"], cMO),
+  },
+  objetivos: ["Fer servir gentilicis amb minúscula", "Reconèixer adjectius d'una sola forma i adjectius d'emocions", "Formar el superlatiu en -íssim", "Descriure amb comparacions i saber on col·locar l'adjectiu"],
+  lectura: { titulo: "Es busca: gat perdut", html: `<p>Ahir al vespre, el gat de la Clàudia es va escapar per la finestra de la cuina. La Clàudia estava molt trista i preocupada, i va decidir penjar cartells pel barri. Aquest és el que va escriure:</p><p><i>«ES BUSCA GAT PERDUT. Es diu Pebre. És un gat petit i prim, de pèl curt i suau. És de color gris clar, amb ratlles negres a l'esquena i una taca blanca al pit. Té els ulls grossos i verds, com dues olives. La seva cua és llarguíssima i sempre la porta ben dreta. És molt juganer i una mica tafaner, però és poruc amb els desconeguts. Si el veieu, no l'espanteu: crideu-lo pel seu nom amb una veu dolça. Recompensa: una capsa de galetes casolanes. Truqueu a la Clàudia, al tercer pis.»</i></p><p>L'endemà al matí, la senyora Pilar, la veïna del primer, va trucar a la porta.</p><p>—Crec que el teu gat és al meu balcó —va dir—. És petit, gris, té una taca blanca… i una cua llarguíssima!</p><p>La Clàudia va córrer escales avall. Era el Pebre, cansat però content. La descripció havia estat tan bona que la veïna l'havia reconegut de seguida.</p>` },
+  tras: {
+    "Què ens expliquen els adjectius": [
+      ["Adjectius de lloc: els gentilicis", `<p>Hi ha uns adjectius que ens diuen <b>d'on és</b> una persona o una cosa. Es diuen <mark>gentilicis</mark>.</p><ul><li>De Catalunya: <i>català, catalana</i>.</li><li>De Barcelona: <i>barceloní, barcelonina</i>.</li><li>De Girona: <i>gironí, gironina</i>.</li><li>De Lleida: <i>lleidatà, lleidatana</i>.</li><li>De Tarragona: <i>tarragoní, tarragonina</i>.</li><li>De València: <i>valencià, valenciana</i>.</li><li>De Mallorca: <i>mallorquí, mallorquina</i>.</li><li>De França: <i>francès, francesa</i>. D'Anglaterra: <i>anglès, anglesa</i>.</li></ul><p>Fixa't en dues coses importants:</p><ul><li>Els gentilicis s'escriuen amb <b>minúscula</b>, encara que el nom del lloc vagi amb majúscula: <i>Girona</i>, però <i>una noia gironina</i>.</li><li>Concorden amb el nom com qualsevol adjectiu: <i>un pa mallorquí, una ensaïmada mallorquina, uns formatges francesos</i>.</li></ul><p>Molts gentilicis acaben en <b>-à, -ana</b>; <b>-í, -ina</b>; o <b>-ès, -esa</b>. Però n'hi ha d'especials, com el de <b>Vic</b>: <i>vigatà</i>, o el d'<b>Olot</b>: <i>olotí</i>.</p><p>Alguns gentilicis també fan de nom: <i>Els catalans celebren Sant Jordi el 23 d'abril.</i></p><p><b>Activitat</b>: escriu el gentilici del teu poble o ciutat, en masculí i en femení. Si no el saps, pregunta-ho a casa.</p>`,
+        L6.filas("D'on és?", [["Girona", "gironí, -ina", cAZ], ["Lleida", "lleidatà, -ana", cVE], ["Mallorca", "mallorquí, -ina", cNA], ["França", "francès, -esa", cRO]])],
+    ],
+    "Els adjectius contraris": [
+      ["Adjectius per a les emocions", `<p>Els adjectius no només serveixen per descriure com són les coses per fora. També ens ajuden a explicar <mark>com ens sentim</mark> per dins.</p><ul><li><b>content, alegre, feliç</b>: quan ens passa una cosa bona.</li><li><b>trist, decebut</b>: quan perdem alguna cosa o no surt com volíem.</li><li><b>enfadat, empipat</b>: quan una cosa ens sembla injusta.</li><li><b>espantat, poruc</b>: quan tenim por.</li><li><b>sorprès, astorat</b>: quan passa una cosa que no esperàvem.</li><li><b>nerviós, neguitós</b>: abans d'un examen o d'una actuació.</li><li><b>avergonyit</b>: quan ens sentim una mica malament davant dels altres.</li><li><b>tranquil, relaxat</b>: quan estem bé i en pau.</li></ul><p>Fixa't que amb les emocions fem servir sovint el verb <b>estar</b>, perquè són estats que canvien: <i>Estic content. La Clàudia estava trista.</i></p><p>Posar nom a les emocions és molt important. Quan sabem dir com ens sentim, els altres ens poden entendre i ajudar millor. No és el mateix dir «estic malament» que dir «estic nerviós perquè demà tinc una actuació».</p><p>També podem dir com de fort ho sentim: <i>una mica trist, bastant trist, molt trist, tristíssim</i>.</p><p><b>Activitat</b>: escriu tres oracions sobre com t'has sentit aquesta setmana, amb un adjectiu d'emoció a cada una.</p>`,
+        H6.rueda("Emocions", "COM ESTÀS?", [["content", cVE], ["trist", cAZ], ["enfadat", cRO], ["sorprès", cNA]])],
+    ],
+    "El gènere de l'adjectiu": [
+      ["Adjectius d'una sola forma", `<p>Molts adjectius tenen una forma per al masculí i una altra per al femení: <i>alt / alta, blanc / blanca</i>. Però n'hi ha uns quants que tenen <mark>una sola forma</mark> per als dos gèneres:</p><ul><li><i>un nen <b>feliç</b>, una nena <b>feliç</b></i>.</li><li><i>un arbre <b>gran</b>, una casa <b>gran</b></i>.</li><li><i>un noi <b>alegre</b>, una noia <b>alegre</b></i>.</li><li><i>un exercici <b>fàcil</b>, una pregunta <b>fàcil</b></i>.</li><li><i>un gos <b>jove</b>, una gossa <b>jove</b></i>.</li><li><i>un senyor <b>amable</b>, una senyora <b>amable</b></i>.</li></ul><p>Molts d'aquests adjectius acaben en <b>-e</b> (<i>alegre, jove, amable, enorme</i>), en <b>-l</b> (<i>fàcil, difícil, útil</i>) o en <b>-ç</b> (<i>feliç, capaç</i>).</p><p>En canvi, sí que canvien en el <b>plural</b>: <i>nens feliços, cases grans, nois alegres, preguntes fàcils</i>.</p><p>També hi ha alguns noms de <b>colors</b> que no canvien en femení perquè, en realitat, són noms de coses: <i>rosa</i> (com la flor), <i>lila</i>, <i>taronja</i> (com la fruita). <i>Un vestit rosa, una samarreta rosa.</i></p><p>Truc: per saber si un adjectiu té dues formes, prova de posar-lo amb <i>un nen</i> i amb <i>una nena</i>. Si sona igual i és correcte, és d'una sola forma.</p><p><b>Activitat</b>: classifica aquests adjectius: <i>feliç, alt, jove, petit, enorme, verd</i>.</p>`,
+        H6.dos("Formes", ["DUES", ["alt, alta", "blanc, blanca", "petit, petita"], cAZ], ["UNA", ["feliç", "gran", "jove"], cVE])],
+    ],
+    "Adjectius per comparar": [
+      ["Altíssim i boníssim", `<p>Quan volem dir que una qualitat és <b>molt i molt</b> gran, podem fer servir el <mark>superlatiu</mark>. Hi ha dues maneres:</p><ul><li>Posant <b>molt</b> davant de l'adjectiu: <i>molt alt, molt bonic, molt fred</i>.</li><li>Afegint <b>-íssim, -íssima</b> al final: <i>altíssim, boniquíssim, fredíssim</i>.</li></ul><p>Les dues volen dir el mateix, però <b>-íssim</b> sona encara més fort i expressiu.</p><p>Quan afegim <b>-íssim</b>, a vegades canvien algunes lletres per conservar el so o perquè l'adjectiu és especial:</p><ul><li><i>bo → boníssim</i>.</li><li><i>ric → riquíssim, bonic → boniquíssim</i> (la c es converteix en qu).</li><li><i>llarg → llarguíssim</i> (la g es converteix en gu).</li><li><i>dolç → dolcíssim</i> (la ç es converteix en c).</li><li><i>fàcil → facilíssim, amable → amabilíssim</i> (perden l'accent o la e).</li></ul><p>També podem comparar una cosa amb totes les altres d'un grup: <i>La girafa és <b>l'animal més alt</b> de la sabana. El Pere és <b>el més petit</b> de la classe.</i></p><p>Compte: no podem posar <i>molt</i> i <i>-íssim</i> alhora. No diem <i>molt altíssim</i>!</p><p><b>Activitat</b>: escriu el superlatiu en -íssim de <i>gran, petit, bo, llarg</i> i <i>dolç</i>.</p>`,
+        L6.filas("-íssim", [["alt", "altíssim", cAZ], ["bo", "boníssim", cVE], ["llarg", "llarguíssim", cNA], ["dolç", "dolcíssim", cRO]])],
+    ],
+    "Descriure amb adjectius": [
+      ["Comparacions per descriure", `<p>Per fer una descripció més viva, podem <mark>comparar</mark> una cosa amb una altra que tothom coneix. Ho fem amb la paraula <b>com</b>:</p><ul><li><i>Té els ulls verds <b>com</b> dues olives.</i></li><li><i>La pell és suau <b>com</b> la seda.</i></li><li><i>L'aigua estava freda <b>com</b> el gel.</i></li></ul><p>En català hi ha moltes comparacions que la gent fa servir des de fa molts anys. Són <b>frases fetes</b>:</p><ul><li><i>blanc com la neu</i>, <i>negre com el carbó</i>.</li><li><i>fort com un roure</i>: molt fort.</li><li><i>lent com una tortuga</i>, <i>ràpid com un llamp</i>.</li><li><i>més llarg que un dia sense pa</i>: que dura moltíssim.</li><li><i>més content que un gínjol</i>: molt content.</li><li><i>més vell que l'anar a peu</i>: molt antic.</li><li><i>sord com una tàpia</i>: que no hi sent gens.</li></ul><p>Aquestes frases no es poden entendre paraula per paraula. Què és un gínjol? És un fruit petit i vermell. Però l'expressió vol dir simplement que algú està molt content.</p><p>Quan escriguis una descripció, intenta inventar <b>comparacions noves</b>: <i>El meu germà petit és tan inquiet com una pilota de goma.</i> Fan el text més original i divertit.</p><p><b>Activitat</b>: pregunta a casa quines frases fetes amb comparacions coneixen i apunta-les.</p>`,
+        L6.filas("Com", [["blanc", "com la neu", cAZ], ["fort", "com un roure", cVE], ["content", "com un gínjol", cNA], ["lent", "com una tortuga", cRO]])],
+    ],
+  },
+  final: [
+    ["Abans o després del nom?", `<p>En català, l'adjectiu va normalment <mark>després del nom</mark>: <i>una casa blanca, un gos juganer, unes sabates noves</i>.</p><p>Però de vegades el posem <b>davant</b>, i llavors el text sona més poètic o expressiu: <i>una <b>bonica</b> tarda, un <b>llarg</b> camí, una <b>dolça</b> melodia</i>. És un recurs que fan servir molt els poetes.</p><p>Alguns adjectius <b>canvien de forma</b> quan van davant del nom:</p><ul><li><b>bo → bon</b>: <i>un amic <b>bo</b></i>, però <i>un <b>bon</b> amic</i>; <i><b>Bon</b> dia!</i></li><li>En femení no canvia: <i>una <b>bona</b> amiga, una amiga <b>bona</b></i>.</li></ul><p>I alguns adjectius <b>canvien de significat</b> segons on els posem:</p><ul><li><i>un home <b>gran</b></i>: un home alt o d'edat; <i>un <b>gran</b> home</i>: un home important o admirable.</li><li><i>un amic <b>vell</b></i>: un amic que és gran d'edat; <i>un <b>vell</b> amic</i>: un amic de fa molts anys.</li><li><i>un cotxe <b>nou</b></i>: acabat de fabricar; <i>un <b>nou</b> cotxe</i>: un altre cotxe, diferent del que teníem.</li></ul><p>Quan dubtis, posa l'adjectiu <b>després</b> del nom: és la manera més habitual i més clara.</p><p><b>Activitat</b>: escriu una frase amb <i>un bon</i> i una altra amb <i>un gran</i>, i explica què volen dir.</p>`,
+      H6.dos("On va?", ["DESPRÉS", ["casa blanca", "amic bo", "home gran"], cAZ], ["DAVANT", ["bonica tarda", "bon amic", "gran home"], cNA])],
+  ],
+  ejemplos: [
+    ["Escriu el gentilici femení de Girona.", ["El masculí és gironí.", "El femení afegeix -na: gironina."], "Gironina."],
+    ["Escriu el superlatiu en -íssim de «ric».", ["Afegim -íssim.", "La c es converteix en qu per conservar el so."], "Riquíssim."],
+  ],
+  errores: ["Escriure els gentilicis amb majúscula: «una noia Gironina».", "Dir «molt altíssim» o «bo dia» en lloc de «altíssim» i «bon dia»."],
+  ejercicios: [
+    ["b", "Escriu el gentilici de Lleida en masculí.", "Lleidatà."],
+    ["b", "És d'una o de dues formes «feliç»?", "D'una sola forma."],
+    ["b", "Escriu el superlatiu en -íssim d'«alt».", "Altíssim."],
+    ["b", "Completa: «blanc com la ___».", "Neu."],
+    ["b", "A la lectura, com es diu el gat?", "Pebre."],
+    ["m", "Escriu tres adjectius d'emocions.", "Per exemple: content, trist, sorprès."],
+    ["m", "Escriu el superlatiu de «bo» i de «llarg».", "Boníssim, llarguíssim."],
+    ["m", "Completa: «un ___ amic» (bo).", "Bon."],
+    ["m", "Escriu el plural de «nena feliç».", "Nenes feliços."],
+    ["m", "Què vol dir «més content que un gínjol»?", "Molt content."],
+    ["a", "Copia de la lectura una comparació i un superlatiu.", "Com dues olives; llarguíssima."],
+    ["a", "Explica la diferència entre «un home gran» i «un gran home».", "Un home gran és alt o d'edat; un gran home és important o admirable."],
+    ["a", "Escriu un cartell per buscar un animal perdut amb sis adjectius.", "Resposta oberta."],
+    ["a", "Inventa dues comparacions noves per descriure algú de la teva família.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["El gentilici de Mallorca en femení és…", ["mallorquina", "Mallorquina", "mallorquesa"], "Gentilicis."],
+    ["És un adjectiu d'una sola forma…", ["jove", "alt", "petit"], "Una forma."],
+    ["El superlatiu de «dolç» és…", ["dolcíssim", "dolçíssim", "molt dolcíssim"], "-íssim."],
+    ["«Fort com un…»", ["roure", "gínjol", "carbó"], "Comparacions."],
+    ["Davant del nom diem…", ["bon dia", "bo dia", "bona dia"], "On va?"],
+  ],
+  examen: [
+    ["A la lectura, qui va trobar el gat?", ["la veïna del primer", "la Clàudia", "el carter"], "Lectura."],
+    ["«Nerviós» és un adjectiu de…", ["emoció", "color", "lloc"], "Emocions."],
+  ],
+  tarjetas: [
+    ["Gentilicis", "Català, gironí, lleidatà, mallorquí: sempre amb minúscula."],
+    ["Una sola forma", "Feliç, gran, alegre, fàcil, jove; plural: feliços, grans."],
+    ["Superlatiu", "Molt alt o altíssim; boníssim, riquíssim, llarguíssim."],
+    ["Comparacions i lloc", "Blanc com la neu; bon amic / amic bo; gran home / home gran."],
+  ],
+  glosario: [
+    ["Adjectiu", "Paraula que diu com és un nom."],
+    ["Qualitat", "Característica d'una persona o cosa."],
+    ["Concordança", "Acord en gènere i nombre entre el nom i l'adjectiu."],
+    ["Gentilici", "Adjectiu que diu d'on és algú o alguna cosa."],
+    ["Emoció", "Allò que sentim per dins: alegria, por, tristesa."],
+    ["Superlatiu", "Forma que indica el grau més alt: altíssim."],
+    ["Comparació", "Relació entre dues coses per dir com és una."],
+    ["Frase feta", "Expressió fixa que no s'entén paraula per paraula."],
+    ["Gínjol", "Fruit petit i vermell del ginjoler."],
+    ["Contrari", "Paraula que vol dir el contrari d'una altra."],
+    ["Descripció", "Text que explica com és una cosa."],
+    ["Recompensa", "Premi que es dona a qui ajuda."],
+  ],
+  situacion: {
+    titulo: "Es busca!",
+    reto: "Cada alumne escriu un cartell per buscar un objecte o un animal imaginari perdut. Els companys l'han de trobar entre uns quants dibuixos.",
+    pasos: ["Triar l'animal o l'objecte i dibuixar-lo en secret.", "Escriure la descripció amb adjectius, comparacions i un superlatiu.", "Revisar la concordança i la posició dels adjectius.", "Penjar els cartells i jugar a trobar cada dibuix."],
+    producto: "Una exposició de cartells de «Es busca».",
+    evaluacion: ["Fa concordar nom i adjectiu.", "Fa servir gentilicis i adjectius d'emocions.", "Forma bé el superlatiu.", "Fa comparacions per descriure."],
+  },
+});
