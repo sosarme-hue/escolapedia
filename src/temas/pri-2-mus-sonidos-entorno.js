@@ -137,3 +137,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer cómo funciona el oído", "Saber cómo usan el sonido los animales", "Escribir sonidos con onomatopeyas", "Reconocer personas e instrumentos por su sonido"],
+  lectura: { titulo: "La noche de los sonidos", html: `<p>Pablo fue de acampada con su tía Inés. Cuando se hizo de noche, apagaron la linterna y se tumbaron dentro de la tienda.</p><p>—No veo nada —susurró Pablo, un poco asustado.</p><p>—No hace falta ver —dijo su tía—. Cierra los ojos y <b>escucha</b>.</p><p>Al principio, Pablo solo oía su respiración. Pero poco a poco empezó a descubrir sonidos.</p><p>«<b>Cri, cri, cri</b>»: eran los grillos. «<b>Uh, uh</b>»: un búho, muy lejos. «<b>Fsss</b>»: el viento moviendo las hojas. «<b>Glu, glu</b>»: el agua del arroyo.</p><p>De pronto, oyó un «<b>crac</b>» muy cerca. Pablo se tapó con el saco.</p><p>—Tranquilo —rio la tía Inés—. Es solo una piña que ha caído.</p><p>Pablo se fue quedando dormido escuchando aquella música de la noche. Por la mañana, le dijo a su tía:</p><p>—El bosque nunca está en silencio, ¿verdad?</p><p>—Nunca. Solo hay que saber escuchar.</p>` },
+  tras: {
+    "Oír y escuchar": [
+      ["¿Cómo oímos?", `<p>El <mark>oído</mark> es el órgano que nos permite oír. Funciona como un camino por el que viaja el sonido:</p><ul><li>La <b>oreja</b> recoge el sonido, como un embudo.</li><li>El sonido entra por un tubito llamado <b>conducto auditivo</b>.</li><li>Al final está el <b>tímpano</b>: una piel muy fina que vibra como un tambor.</li><li>Unos <b>huesecillos</b> diminutos, los más pequeños del cuerpo, pasan la vibración hacia dentro.</li><li>El oído interno envía la información al <b>cerebro</b>, que nos dice qué es: «¡un perro!».</li></ul><p>Tenemos <b>dos orejas</b>, y eso nos ayuda a saber de dónde viene un sonido: si de la derecha o de la izquierda.</p><p>Nunca hay que meter objetos en el oído, ni siquiera bastoncillos muy adentro.</p><p><b>Actividad</b>: con los ojos cerrados, señala de dónde viene la palmada que da un compañero.</p>`,
+        H6.flujo("Oído", ["oreja|recoge", "tímpano|vibra", "huesecillos|pasan", "cerebro|¡entiende!"], cAZ)],
+    ],
+    "Sonidos de la naturaleza": [
+      ["Los animales se hablan con sonidos", `<p>Los animales usan los <mark>sonidos</mark> para comunicarse:</p><ul><li>Los <b>pájaros</b> cantan para buscar pareja o avisar de que ese árbol es suyo.</li><li>Los <b>lobos</b> aúllan para llamar a su manada, aunque esté lejos.</li><li>Las <b>ballenas</b> cantan bajo el agua, y su canto viaja muchísimos kilómetros.</li><li>Los <b>murciélagos</b> lanzan sonidos muy agudos y escuchan el eco para no chocarse en la oscuridad.</li><li>Los <b>grillos</b> no cantan con la boca: frotan sus alas.</li><li>Los <b>perros</b> oyen sonidos tan agudos que nosotros no podemos oírlos.</li></ul><p>Si prestamos atención, podemos saber qué animal hay cerca sin verlo.</p><p><b>Actividad</b>: escucha el vídeo y adivina qué animal suena en cada momento.</p>`,
+        L6.filas("Animales", [["pájaro", "canta", cVE], ["lobo", "aúlla", cMO], ["ballena", "canta en el mar", cAZ], ["grillo", "frota las alas", cNA]]),
+        ["8sb2QTew-bA", "Adivina los sonidos de animales", "CajaMusical", 9568736]],
+    ],
+    "El silencio y el ruido": [
+      ["Medimos el ruido", `<p>El volumen de un sonido se mide en <mark>decibelios</mark>. Cuantos más decibelios, más fuerte suena:</p><ul><li>Las <b>hojas</b> moviéndose: muy pocos decibelios.</li><li>Una <b>conversación</b> tranquila: un nivel medio.</li><li>El <b>tráfico</b> de una calle con muchos coches: alto.</li><li>Un <b>concierto</b> de rock o unos <b>petardos</b>: muy alto, ¡puede dañar el oído!</li></ul><p>Cuando hay demasiado ruido en una ciudad hablamos de <b>contaminación acústica</b>. Puede causar cansancio, dolor de cabeza y no dejar dormir.</p><p>Para reducirla podemos hablar sin gritar, bajar el volumen de la música y la tele, y no tocar el claxon sin necesidad.</p><p>Si estamos en un sitio con mucho ruido, conviene alejarse o taparse los oídos.</p><p><b>Actividad</b>: haced un «semáforo del ruido» en clase: verde, tranquilos; amarillo, cuidado; rojo, ¡demasiado ruido!</p>`,
+        L6.filas("Ruido", [["hojas", "muy bajo", cVE], ["conversación", "medio", cAZ], ["tráfico", "alto", cNA], ["petardos", "peligroso", cRO]])],
+    ],
+    "¿Para qué sirve?": [
+      ["Cada voz es diferente", `<p>Si cierras los ojos, puedes saber quién te habla solo por su voz. Eso es porque cada sonido tiene un <mark>timbre</mark>: una forma especial de sonar.</p><ul><li>Tu <b>madre</b>, tu <b>abuelo</b> y tu <b>amiga</b> tienen voces distintas.</li><li>Una <b>flauta</b> y un <b>violín</b> pueden tocar la misma nota, pero no suenan igual.</li><li>Un perro grande y uno pequeño ladran de forma diferente.</li><li>Incluso podemos reconocer los <b>pasos</b> de alguien de casa.</li></ul><p>El timbre es como la «<b>cara</b>» del sonido: nos permite reconocerlo sin verlo.</p><p>Las personas que no ven bien desarrollan mucho el oído y reconocen sonidos con gran precisión.</p><p><b>Actividad</b>: juego de la gallinita ciega con voces: con los ojos tapados, adivina qué compañero dice «hola».</p>`,
+        H6.rueda("Timbre", "TIMBRE", [["voz", cRO], ["flauta", cAZ], ["violín", cVE], ["pasos", cNA]])],
+    ],
+  },
+  final: [
+    ["Escribir los sonidos", `<p>Las palabras que imitan sonidos se llaman <mark>onomatopeyas</mark>. Aparecen mucho en los cómics y los cuentos:</p><ul><li><b>Guau</b>: el perro. <b>Miau</b>: el gato. <b>Muuu</b>: la vaca.</li><li><b>Tic-tac</b>: el reloj. <b>Ring</b>: el teléfono o el timbre.</li><li><b>Toc, toc</b>: alguien llama a la puerta.</li><li><b>Plaf</b>: algo cae al agua. <b>Crac</b>: algo se rompe.</li><li><b>Achís</b>: un estornudo.</li><li><b>Zzzz</b>: alguien duerme o una abeja vuela.</li></ul><p>¡Curioso!: en otros idiomas las onomatopeyas cambian. En inglés, el perro hace «<b>woof</b>» y el gallo, «cock-a-doodle-doo».</p><p><b>Actividad</b>: dibuja una viñeta de cómic con tres onomatopeyas.</p>`,
+      L6.filas("Onomatopeyas", [["guau", "perro", cNA], ["tic-tac", "reloj", cAZ], ["toc, toc", "puerta", cMO], ["achís", "estornudo", cRO]])],
+    ["Repaso: la noche de los sonidos", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Pablo y su tía Inés están de <b>acampada</b>.</li><li>Al apagar la luz, Pablo aprende a <b>escuchar</b>.</li><li>Oye a los <b>grillos</b>: cri, cri.</li><li>Oye un <b>búho</b> lejos: uh, uh.</li><li>Oye el <b>viento</b> y el <b>arroyo</b>.</li><li>Un «crac» cercano le asusta: era una <b>piña</b>.</li></ul><p>La tía le enseña que el bosque <b>nunca está en silencio</b>: siempre hay sonidos si sabemos escuchar.</p><p><b>Actividad</b>: sal al patio, cierra los ojos un minuto y apunta todos los sonidos que descubras.</p>`,
+      H6.flujo("Noche", ["grillos|cri, cri", "búho|uh, uh", "arroyo|glu, glu", "piña|¡crac!"], cVE)],
+  ],
+  ejemplos: [
+    ["¿Qué parte del oído vibra como un tambor?", ["Una piel fina al final del conducto."], "El tímpano."],
+    ["¿Qué onomatopeya usa una puerta?", ["Alguien llama."], "Toc, toc."],
+  ],
+  errores: ["Meter bastoncillos u objetos dentro del oído.", "Pensar que todos los idiomas escriben igual los sonidos."],
+  ejercicios: [
+    ["b", "¿Con qué órgano oímos?", "Con el oído."],
+    ["b", "¿Cómo canta el grillo?", "Frotando sus alas."],
+    ["b", "Di una onomatopeya.", "Guau, miau, tic-tac…"],
+    ["b", "¿En qué se mide el ruido?", "En decibelios."],
+    ["b", "¿Qué animal oyó Pablo muy lejos?", "Un búho."],
+    ["m", "¿Para qué sirve tener dos orejas?", "Para saber de dónde viene el sonido."],
+    ["m", "¿Cómo se orientan los murciélagos?", "Con sonidos agudos y su eco."],
+    ["m", "¿Qué es la contaminación acústica?", "Demasiado ruido en un lugar."],
+    ["m", "¿Qué es el timbre?", "La forma especial de sonar de cada sonido."],
+    ["m", "¿Cómo hace el perro en inglés?", "Woof."],
+    ["a", "En la lectura, ¿qué hizo el «crac»?", "Una piña que cayó."],
+    ["a", "¿Qué aprende Pablo al final?", "Que el bosque nunca está en silencio."],
+    ["a", "Ordena el camino del sonido: cerebro, oreja, tímpano.", "Oreja, tímpano, cerebro."],
+    ["a", "Di dos formas de reducir el ruido.", "Hablar sin gritar y bajar el volumen."],
+  ],
+  quiz: [
+    ["El tímpano…", ["vibra", "huele", "ve"], "Oído."],
+    ["Los lobos aúllan para…", ["llamar a la manada", "dormir", "comer"], "Animales."],
+    ["Muchos decibelios es…", ["mucho ruido", "silencio", "poca luz"], "Ruido."],
+    ["Reconocemos una voz por su…", ["timbre", "color", "peso"], "Timbre."],
+    ["«Achís» es…", ["un estornudo", "un reloj", "un gato"], "Onomatopeyas."],
+  ],
+  examen: [
+    ["En la lectura, ¿dónde están Pablo y su tía?", ["de acampada", "en el cine", "en la playa"], "Lectura."],
+    ["¿Qué sonido hace el arroyo?", ["glu, glu", "uh, uh", "cri, cri"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Camino del sonido", "Oreja, conducto, tímpano, huesecillos y cerebro."],
+    ["Onomatopeya", "Palabra que imita un sonido: guau, tic-tac, crac."],
+  ],
+  glosario: [
+    ["Oído", "Órgano con el que oímos."],
+    ["Tímpano", "Piel fina del oído que vibra."],
+    ["Huesecillos", "Huesos diminutos del oído."],
+    ["Decibelio", "Medida del volumen del sonido."],
+    ["Contaminación acústica", "Exceso de ruido."],
+    ["Timbre", "Forma propia de sonar de cada sonido."],
+    ["Onomatopeya", "Palabra que imita un sonido."],
+    ["Aullar", "Sonido largo del lobo."],
+    ["Eco", "Sonido que rebota y vuelve."],
+    ["Acampada", "Dormir en tienda en la naturaleza."],
+  ],
+  situacion: {
+    titulo: "El mapa sonoro del colegio",
+    reto: "La clase recorre el colegio escuchando y crea un mapa con los sonidos de cada lugar y su nivel de ruido.",
+    pasos: ["Dibujar un plano sencillo del colegio.", "Visitar cada lugar y escuchar un minuto en silencio.", "Apuntar los sonidos con onomatopeyas y colorear el nivel de ruido.", "Proponer ideas para los lugares más ruidosos."],
+    producto: "Un mapa sonoro del colegio con propuestas.",
+    evaluacion: ["Conoce cómo funciona el oído.", "Sabe cómo usan el sonido los animales.", "Usa onomatopeyas.", "Reconoce el timbre de voces e instrumentos."],
+  },
+});

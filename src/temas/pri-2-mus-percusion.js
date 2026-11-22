@@ -143,3 +143,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Usar el cuerpo como instrumento de percusión", "Conocer instrumentos de percusión de otros países", "Construir instrumentos con materiales reciclados", "Conocer la batería y al percusionista de la orquesta"],
+  lectura: { titulo: "La banda de la cocina", html: `<p>Un domingo por la tarde llovía sin parar. Lucas y su hermana Vera se aburrían muchísimo.</p><p>—¿Y si hacemos una banda? —propuso Vera.</p><p>—Pero no tenemos instrumentos —dijo Lucas.</p><p>Vera abrió los armarios de la cocina. Sacó una <b>cacerola</b> y dos <b>cucharas de madera</b>: ¡un tambor! Llenó una botella de plástico con <b>arroz</b>: ¡unas maracas! Encontró un <b>rallador</b> y lo frotó con un tenedor: ¡sonaba como un güiro!</p><p>Lucas cogió dos tapas de cazuela y las chocó: ¡clang! ¡Unos platillos!</p><p>Empezaron a tocar una canción. Primero, solo el tambor marcaba el pulso. Después entraron las maracas. Y al final, ¡los platillos!</p><p>Su padre apareció en la puerta tapándose los oídos, pero acabó sonriendo y dando palmas.</p><p>—Esta banda necesita un nombre —dijo.</p><p>—¡La banda de la cocina! —gritaron los dos a la vez.</p>` },
+  tras: {
+    "¿Qué es la percusión?": [
+      ["Mi cuerpo, un instrumento", `<p>¡No hace falta comprar nada para tocar percusión! Nuestro propio cuerpo es un <mark>instrumento</mark>. A esto se le llama <b>percusión corporal</b>.</p><ul><li><b>Pitos</b>: chasquear los dedos. Suena agudo y corto.</li><li><b>Palmas</b>: chocar las manos. Si las ahuecamos, suenan más graves.</li><li><b>Muslos</b>: golpear las piernas con las manos abiertas.</li><li><b>Pecho</b>: dar golpecitos suaves con la mano plana.</li><li><b>Pies</b>: pisar fuerte el suelo. Es el sonido más grave.</li></ul><p>Combinando estos sonidos podemos acompañar canciones o inventar ritmos con toda la clase. Algunos grupos de música famosos hacen conciertos enteros solo con percusión corporal.</p><p><b>Actividad</b>: repite este ritmo cuatro veces: pies, muslos, palmas, pitos.</p>`,
+        L6.filas("Cuerpo", [["pies", "grave", cMO], ["muslos", "medio", cAZ], ["palmas", "claro", cVE], ["pitos", "agudo", cRO]])],
+    ],
+    "Instrumentos de parche": [
+      ["Tambores del mundo", `<p>En todos los países del mundo hay instrumentos de <mark>percusión</mark>. Muchos son tambores con formas muy distintas:</p><ul><li><b>Djembé</b> (África): un tambor con forma de copa que se toca con las manos.</li><li><b>Cajón</b> (Perú): una caja de madera en la que el músico se sienta y la golpea por delante.</li><li><b>Bongós</b> (Cuba): dos tamborcitos unidos, uno más grande que el otro.</li><li><b>Taiko</b> (Japón): tambores enormes que se tocan con palos gruesos.</li><li><b>Castañuelas</b> (España): dos piezas de madera que se chocan con los dedos al bailar.</li></ul><p>Cada uno tiene su propio sonido y nos recuerda la cultura del lugar de donde viene.</p><p>El cajón peruano se usa hoy mucho en el flamenco.</p><p><b>Actividad</b>: busca en un mapa los países de estos instrumentos y coloca una pegatina en cada uno.</p>`,
+        L6.filas("Mundo", [["djembé", "África", cNA], ["cajón", "Perú", cRO], ["bongós", "Cuba", cVE], ["taiko", "Japón", cAZ]])],
+    ],
+    "Cómo tocar bien": [
+      ["Instrumentos reciclados", `<p>Con cosas que íbamos a tirar podemos fabricar <mark>instrumentos</mark>:</p><ul><li><b>Maracas</b>: una botella pequeña con arroz, lentejas o piedrecitas. ¡Cada relleno suena distinto!</li><li><b>Tambor</b>: una lata o un bote de cartón con un globo estirado encima.</li><li><b>Palo de lluvia</b>: un tubo de cartón con clavos o palillos clavados y arroz dentro. Al girarlo, suena como la lluvia.</li><li><b>Güiro</b>: una botella de plástico con rayas, que se frota con un palito.</li><li><b>Cascabeles</b>: chapas de botella atadas a un cordel.</li></ul><p>Antes de empezar, pide ayuda a un adulto, sobre todo para cortar o hacer agujeros.</p><p>Reciclar así es bueno para el planeta y, además, ¡divertido!</p><p><b>Actividad</b>: fabrica unas maracas y compara su sonido con las de un compañero que haya usado otro relleno.</p>`,
+        H6.flujo("Maracas", ["botella|limpia", "arroz|dentro", "tapar|bien", "agitar|¡suena!"], cVE)],
+    ],
+    "Acompañamos una canción": [
+      ["La batería", `<p>La <mark>batería</mark> es un grupo de instrumentos de percusión que toca <b>una sola persona</b>: el baterista.</p><ul><li><b>Bombo</b>: un tambor grande en el suelo que se toca con un <b>pedal</b> del pie. Suena muy grave: ¡pum!</li><li><b>Caja</b>: un tambor con un sonido seco: ¡pa!</li><li><b>Toms</b>: tambores de varios tamaños.</li><li><b>Charles</b>: dos platillos que se abren y cierran con el otro pie.</li><li><b>Platos</b>: platillos grandes para golpes fuertes.</li></ul><p>El baterista usa <b>las dos manos y los dos pies</b> a la vez. ¡Necesita mucha coordinación!</p><p>En un grupo de rock o de pop, la batería marca el pulso para que todos toquen juntos.</p><p><b>Actividad</b>: imita una batería: el pie es el bombo («pum»), la palmada es la caja («pa»): pum, pa, pum-pum, pa.</p>`,
+        H6.rueda("Batería", "BATERÍA", [["bombo", cMO], ["caja", cRO], ["charles", cNA], ["platos", cAZ]]),
+        ["DVW7dc-yxns", "Musicograma rítmico con instrumentos de percusión", "Nita Ferreres", 291110]],
+    ],
+  },
+  final: [
+    ["El percusionista de la orquesta", `<p>En la orquesta, los instrumentos de percusión se colocan <mark>al fondo</mark>, detrás de todos. Los toca el <b>percusionista</b>.</p><ul><li>Un percusionista sabe tocar <b>muchos</b> instrumentos: timbales, platillos, triángulo, bombo, xilófono…</li><li>Los <b>timbales</b> son tambores grandes con forma de olla que dan notas.</li><li>A veces espera muchísimo rato sin tocar y tiene que <b>contar</b> los pulsos para entrar en el momento justo.</li><li>Un solo golpe de platillos en el lugar exacto puede hacer que una obra sea emocionante.</li></ul><p>Por eso el percusionista debe estar muy <b>atento</b> al director.</p><p>¡Imagina tocar el triángulo una sola vez en toda la obra y hacerlo perfecto!</p><p><b>Actividad</b>: escucha una obra de orquesta y levanta la mano cada vez que oigas los platillos.</p>`,
+      H6.dos("Percusionista", ["TOCA", ["timbales", "platillos", "triángulo"], cAZ], ["NECESITA", ["contar", "atención", "mirar"], cRO])],
+    ["Repaso: la banda de la cocina", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Lucas y Vera se aburrían porque <b>llovía</b>.</li><li>La <b>cacerola</b> con cucharas fue el tambor.</li><li>La <b>botella con arroz</b> fue la maraca.</li><li>El <b>rallador</b> frotado sonaba como un güiro.</li><li>Las <b>tapas</b> chocadas fueron los platillos.</li><li>Primero el tambor marcó el <b>pulso</b>; después entraron los demás.</li></ul><p>Fíjate: tocaron golpeando, agitando, frotando y chocando, ¡las mismas formas que los instrumentos de verdad!</p><p><b>Actividad</b>: busca en tu casa, con permiso, tres objetos que suenen y forma tu propia banda.</p>`,
+      L6.filas("Cocina", [["cacerola", "tambor", cRO], ["botella", "maracas", cVE], ["rallador", "güiro", cNA], ["tapas", "platillos", cAZ]])],
+  ],
+  ejemplos: [
+    ["¿Qué sonido del cuerpo es más grave?", ["Pies, muslos, palmas, pitos."], "Los pies."],
+    ["¿Cómo se toca el bombo de la batería?", ["Está en el suelo."], "Con un pedal, con el pie."],
+  ],
+  errores: ["Golpear el tambor con tanta fuerza que se estropea.", "Hacer instrumentos reciclados sin pedir ayuda para cortar."],
+  ejercicios: [
+    ["b", "Di un sonido de percusión corporal.", "Palmas, pitos, muslos, pies…"],
+    ["b", "¿De dónde es el djembé?", "De África."],
+    ["b", "¿Con qué haces unas maracas recicladas?", "Con una botella y arroz."],
+    ["b", "¿Quién toca la batería?", "El baterista."],
+    ["b", "¿Dónde se sienta el percusionista en la orquesta?", "Al fondo."],
+    ["m", "¿Qué es el cajón y de dónde viene?", "Una caja de madera para golpear, de Perú."],
+    ["m", "¿Cómo suena el palo de lluvia?", "Como la lluvia."],
+    ["m", "¿Qué hace el charles?", "Abre y cierra dos platillos con el pie."],
+    ["m", "¿Por qué el percusionista cuenta los pulsos?", "Para entrar en el momento justo."],
+    ["m", "¿Qué son los timbales?", "Tambores grandes con forma de olla."],
+    ["a", "En la lectura, ¿qué objeto hizo de güiro?", "Un rallador frotado con un tenedor."],
+    ["a", "¿Qué formas de tocar usaron Lucas y Vera?", "Golpear, agitar, frotar y chocar."],
+    ["a", "¿Por qué el baterista necesita coordinación?", "Usa las dos manos y los dos pies a la vez."],
+    ["a", "Inventa un ritmo de cuatro sonidos con el cuerpo.", "Respuesta libre."],
+  ],
+  quiz: [
+    ["Los pitos se hacen con…", ["los dedos", "los pies", "la boca"], "Cuerpo."],
+    ["Los taiko son de…", ["Japón", "Perú", "Cuba"], "Mundo."],
+    ["El bombo de la batería se toca con…", ["el pie", "la boca", "un arco"], "Batería."],
+    ["El palo de lluvia lleva dentro…", ["arroz", "agua", "arena mojada"], "Reciclados."],
+    ["En la orquesta, la percusión está…", ["al fondo", "delante", "fuera"], "Percusionista."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué hacía de tambor?", ["una cacerola", "un vaso", "una silla"], "Lectura."],
+    ["¿Qué instrumento entró al final?", ["los platillos", "el tambor", "el piano"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Percusión corporal", "Pies, muslos, palmas y pitos: del grave al agudo."],
+    ["Batería", "Bombo, caja, toms, charles y platos, tocados por una persona."],
+  ],
+  glosario: [
+    ["Pitos", "Chasquidos de los dedos."],
+    ["Djembé", "Tambor africano en forma de copa."],
+    ["Cajón", "Caja de madera peruana que se golpea."],
+    ["Bongós", "Dos tamborcitos unidos, de Cuba."],
+    ["Taiko", "Gran tambor japonés."],
+    ["Palo de lluvia", "Tubo con arroz que suena como la lluvia."],
+    ["Batería", "Conjunto de percusión de una persona."],
+    ["Bombo", "Tambor grande y grave."],
+    ["Timbal", "Tambor de orquesta con forma de olla."],
+    ["Reciclar", "Volver a usar algo que íbamos a tirar."],
+  ],
+  situacion: {
+    titulo: "La banda reciclada",
+    reto: "La clase fabrica instrumentos con materiales reciclados y forma una banda para acompañar una canción.",
+    pasos: ["Traer de casa botellas, latas, tubos y chapas limpios.", "Fabricar un instrumento por pareja con ayuda del maestro.", "Clasificarlos: se golpean, se agitan o se frotan.", "Acompañar una canción: primero el pulso y luego todos."],
+    producto: "Una banda de instrumentos reciclados y su actuación.",
+    evaluacion: ["Usa la percusión corporal.", "Conoce instrumentos del mundo.", "Fabrica un instrumento.", "Conoce la batería y el percusionista."],
+  },
+});

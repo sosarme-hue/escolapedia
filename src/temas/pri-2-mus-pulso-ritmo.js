@@ -136,3 +136,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Mantener el pulso con objetos y con el grupo", "Descubrir el ritmo de las palabras", "Conocer el metrónomo y el ostinato", "Tocar pulso y ritmo a la vez en grupos"],
+  lectura: { titulo: "El tren que perdió el compás", html: `<p>En el pueblo de Villasón había un tren muy especial: sus ruedas hacían música. «<b>Chu-cu, chu-cu, chu-cu</b>», sonaban siempre, con el mismo pulso, como un reloj.</p><p>Los vecinos ponían en hora sus relojes cuando pasaba el tren.</p><p>Pero un día, una rueda se aflojó. El tren empezó a sonar raro: «chu… cu-cu-cu… chuuu… cu». ¡Había perdido el pulso!</p><p>La gente se desordenó: unos llegaban tarde y otros, demasiado pronto. El panadero sacó el pan quemado y el cartero se perdió.</p><p>Entonces, Nora, la hija del maquinista, tuvo una idea. Se subió a la locomotora con su tambor y empezó a tocar: «<b>pum, pum, pum, pum</b>», siempre igual.</p><p>El maquinista arregló la rueda siguiendo el sonido del tambor, y poco a poco el tren volvió a sonar: «chu-cu, chu-cu».</p><p>Desde aquel día, Nora viaja en la locomotora, por si acaso.</p>` },
+  tras: {
+    "Marcar el pulso": [
+      ["El juego de los vasos", `<p>Una forma divertida de practicar el <mark>pulso</mark> es pasar un objeto en corro. El más conocido es el <b>juego de los vasos</b>:</p><ul><li>Nos sentamos en <b>círculo</b>, cada uno con un vaso de plástico delante.</li><li>Cantamos una canción sencilla y marcamos el pulso.</li><li>A cada pulso, <b>pasamos el vaso</b> al compañero de la derecha.</li><li>Si alguien va más rápido o más lento, ¡se juntan dos vasos!</li><li>Cuando el grupo lo hace bien, se puede <b>acelerar</b> un poco.</li></ul><p>También se puede jugar con piedrecitas, pelotas o saquitos de arena.</p><p>Este juego demuestra que el pulso nos ayuda a hacer cosas <b>juntos</b>, como un equipo.</p><p><b>Actividad</b>: jugad a pasar el vaso en corro mientras cantáis una canción de cuatro pulsos por frase.</p>`,
+        H6.flujo("Vasos", ["corro|sentados", "cantar|pulso", "pasar|derecha", "acelerar|¡juntos!"], cAZ),
+        ["75ikeepgPFI", "Crea y lee tus propios ritmos", "Melodyland Música Infantil", 677296]],
+    ],
+    "El ritmo": [
+      ["El ritmo de las palabras", `<p>Cada palabra tiene su propio <mark>ritmo</mark>. Si damos una palmada por sílaba, lo descubrimos:</p><ul><li><b>Pan</b>: una palmada larga. Suena como una negra: «ta».</li><li><b>Que-so</b>: dos palmadas rápidas. Suenan como dos corcheas: «ti-ti».</li><li><b>Me-lón</b>: también «ti-ti».</li><li><b>Sol</b>: «ta».</li><li><b>Ma-ri-po-sa</b>: cuatro palmadas rápidas: «ti-ti, ti-ti».</li></ul><p>Juntando palabras, formamos ritmos: «<b>pan, pan, que-so, pan</b>» es: ta, ta, ti-ti, ta.</p><p>Tu <b>nombre</b> también tiene ritmo. «Ana» suena distinto que «Gabriel» o que «Bea».</p><p>Los músicos usan palabras para aprender ritmos difíciles, porque es más fácil recordarlos.</p><p><b>Actividad</b>: di tu nombre dando palmas a cada sílaba. Después, toda la clase lo repite como un eco.</p>`,
+        L6.filas("Palabras", [["pan", "ta", cNA], ["que-so", "ti-ti", cVE], ["sol", "ta", cRO], ["ma-ri-po-sa", "ti-ti ti-ti", cMO]])],
+    ],
+    "¿Para qué sirve?": [
+      ["El metrónomo", `<p>Los músicos usan un aparato que marca el pulso: el <mark>metrónomo</mark>.</p><ul><li>Hace un sonido regular: «<b>tic, tic, tic</b>».</li><li>Los antiguos tienen una <b>varilla</b> que se mueve de un lado a otro, como un péndulo.</li><li>Los modernos son electrónicos, e incluso hay aplicaciones en el móvil.</li><li>Se puede poner <b>lento</b> o <b>rápido</b> según la música.</li><li>Sirve para practicar sin acelerar ni frenar sin querer.</li></ul><p>El metrónomo cuenta cuántos <b>pulsos</b> hay en un minuto. Por ejemplo, 60 pulsos en un minuto es como el tic-tac de un reloj: uno por segundo.</p><p>Nuestro corazón, cuando estamos tranquilos, late más o menos a ese ritmo.</p><p><b>Actividad</b>: escucha un metrónomo a 60 y luego a 120. Camina por la clase siguiendo cada uno.</p>`,
+        H6.dos("Metrónomo", ["LENTO", ["60", "un reloj", "caminar"], cAZ], ["RÁPIDO", ["120", "doble", "correr"], cRO])],
+    ],
+    "Jugamos al eco de ritmos": [
+      ["El ostinato", `<p>Un <mark>ostinato</mark> es un ritmo corto que se <b>repite</b> una y otra vez, sin parar, mientras suena una canción.</p><ul><li>La palabra viene del italiano y significa «<b>obstinado</b>», es decir, cabezota: ¡no deja de repetirse!</li><li>Suele ser muy <b>sencillo</b>, por ejemplo: ta, ta, ti-ti, ta.</li><li>Se puede tocar con palmas, pies, instrumentos o la voz.</li><li>Ayuda a que la canción tenga más fuerza y a que el grupo vaya junto.</li></ul><p>Muchas canciones de rock y de pop tienen un ostinato en la batería o en el bajo que se repite toda la canción.</p><p>Para tocarlo bien, hay que <b>concentrarse</b> y no dejarse llevar por la melodía.</p><p><b>Actividad</b>: una mitad de la clase repite «pan, pan, que-so, pan» mientras la otra canta una canción.</p>`,
+        L6.filas("Ostinato", [["vuelta 1", "ta ta ti-ti ta", cAZ], ["vuelta 2", "ta ta ti-ti ta", cVE], ["vuelta 3", "ta ta ti-ti ta", cNA], ["vuelta 4", "ta ta ti-ti ta", cRO]])],
+    ],
+  },
+  final: [
+    ["Pulso y ritmo a la vez", `<p>Ahora el reto es tocar <mark>pulso y ritmo</mark> al mismo tiempo, en dos grupos:</p><ul><li>El <b>grupo 1</b> marca el pulso con los pies: pum, pum, pum, pum. Siempre igual.</li><li>El <b>grupo 2</b> da palmas al ritmo de la letra de una canción.</li><li>Después se <b>cambian</b> los papeles.</li><li>Al final, ¡una sola persona intenta hacer las dos cosas!: pies al pulso y manos al ritmo.</li></ul><p>Es difícil al principio porque el cerebro tiene que hacer dos cosas a la vez. Con práctica, sale solo.</p><p>Los bateristas y los pianistas hacen esto todo el tiempo: una parte del cuerpo lleva el pulso y otra hace el ritmo.</p><p><b>Actividad</b>: con «Debajo de un botón», marca el pulso con los pies y el ritmo de la letra con las palmas.</p>`,
+      H6.dos("A la vez", ["PULSO", ["los pies", "siempre igual", "grupo 1"], cAZ], ["RITMO", ["las palmas", "la letra", "grupo 2"], cRO])],
+    ["Repaso: el tren que perdió el compás", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Las ruedas del tren sonaban «<b>chu-cu</b>» con el mismo pulso.</li><li>La gente ponía los <b>relojes</b> en hora con el tren.</li><li>Una <b>rueda</b> se aflojó y el tren perdió el pulso.</li><li>Todo el pueblo se <b>desordenó</b>.</li><li>Nora tocó su <b>tambor</b> con el pulso regular.</li><li>El maquinista arregló la rueda siguiendo el tambor.</li></ul><p>El cuento nos enseña que el pulso es como un <b>reloj</b> que organiza la música… y a las personas.</p><p><b>Actividad</b>: imitad el tren: unos dicen «chu-cu» al pulso y Nora marca el tambor. ¿Qué pasa si alguien se adelanta?</p>`,
+      H6.flujo("Tren", ["chu-cu|pulso", "rueda|se afloja", "tambor|Nora", "arreglo|¡chu-cu!"], cMO)],
+  ],
+  ejemplos: [
+    ["¿Qué ritmo tiene «queso»?", ["Dos sílabas rápidas."], "Ti-ti: dos corcheas."],
+    ["Si el metrónomo marca 60, ¿cuántos pulsos hay en un minuto?", ["Uno por segundo."], "Sesenta."],
+  ],
+  errores: ["Acelerar sin darse cuenta al pasar el vaso.", "Cambiar el ostinato en lugar de repetirlo igual."],
+  ejercicios: [
+    ["b", "¿Qué aparato marca el pulso?", "El metrónomo."],
+    ["b", "¿Qué ritmo tiene «pan»?", "Ta."],
+    ["b", "¿Qué es un ostinato?", "Un ritmo que se repite."],
+    ["b", "¿Hacia dónde se pasa el vaso?", "A la derecha."],
+    ["b", "¿Cómo sonaba el tren?", "Chu-cu, chu-cu."],
+    ["m", "Di el ritmo de «mariposa».", "Ti-ti, ti-ti."],
+    ["m", "¿Qué significa ostinato?", "Obstinado, cabezota."],
+    ["m", "¿Qué pasa si alguien va rápido en el juego de los vasos?", "Se juntan dos vasos."],
+    ["m", "¿Cuántos pulsos por segundo marca un metrónomo a 60?", "Uno."],
+    ["m", "Da palmas al ritmo de tu nombre.", "Respuesta libre."],
+    ["a", "En la lectura, ¿por qué se desordenó el pueblo?", "Porque el tren perdió el pulso."],
+    ["a", "¿Cómo ayudó Nora?", "Tocando el tambor con un pulso regular."],
+    ["a", "Escribe el ritmo de «pan, queso, sol, melón».", "Ta, ti-ti, ta, ti-ti."],
+    ["a", "¿Por qué es difícil hacer pulso y ritmo a la vez?", "Porque el cuerpo hace dos cosas distintas."],
+  ],
+  quiz: [
+    ["«Queso» suena…", ["ti-ti", "ta", "shh"], "Palabras."],
+    ["El metrónomo hace…", ["tic, tic", "silencio", "melodías"], "Metrónomo."],
+    ["El ostinato se…", ["repite", "acaba pronto", "canta solo"], "Ostinato."],
+    ["En el juego, el vaso se pasa en cada…", ["pulso", "canción", "minuto"], "Vasos."],
+    ["Pies al pulso y palmas al…", ["ritmo", "silencio", "volumen"], "A la vez."],
+  ],
+  examen: [
+    ["En la lectura, ¿quién toca el tambor?", ["Nora", "el panadero", "el cartero"], "Lectura."],
+    ["¿Qué se aflojó en el tren?", ["una rueda", "una puerta", "la chimenea"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Ritmo de las palabras", "Una palmada por sílaba: pan = ta, queso = ti-ti."],
+    ["Ostinato", "Ritmo corto que se repite sin parar."],
+  ],
+  glosario: [
+    ["Metrónomo", "Aparato que marca el pulso."],
+    ["Ostinato", "Ritmo que se repite."],
+    ["Sílaba", "Golpe de voz de una palabra."],
+    ["Corro", "Círculo de personas."],
+    ["Péndulo", "Varilla que va de un lado a otro."],
+    ["Regular", "Siempre igual."],
+    ["Acelerar", "Ir cada vez más rápido."],
+    ["Eco", "Repetir lo que otro hace."],
+    ["Locomotora", "Máquina que tira del tren."],
+    ["Coordinación", "Mover bien varias partes a la vez."],
+  ],
+  situacion: {
+    titulo: "El tren rítmico",
+    reto: "La clase forma un tren en fila que avanza al pulso de un tambor mientras cada vagón toca un ostinato de palabras.",
+    pasos: ["Elegir a un maquinista con tambor que marque el pulso.", "Cada grupo inventa un ostinato con nombres de frutas.", "Practicar el ostinato sobre el pulso del tambor.", "Avanzar en tren por el patio tocando todos a la vez."],
+    producto: "Una actuación del tren rítmico.",
+    evaluacion: ["Mantiene el pulso en grupo.", "Descubre el ritmo de las palabras.", "Conoce el metrónomo y el ostinato.", "Toca pulso y ritmo a la vez."],
+  },
+});

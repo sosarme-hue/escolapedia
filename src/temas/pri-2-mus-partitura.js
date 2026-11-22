@@ -138,3 +138,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Saber por qué se escribe la música", "Conocer la blanca, que dura dos pulsos", "Situar notas en líneas y espacios del pentagrama", "Leer y tocar ritmos y notas sencillas"],
+  lectura: { titulo: "El monje que no quería olvidar", html: `<p>Hace mil años, en un monasterio de Italia, vivía un monje llamado <b>Guido</b>. Su trabajo era enseñar canciones a los niños del coro.</p><p>Pero había un problema: las canciones no se escribían. Había que aprenderlas de memoria, escuchándolas una y otra vez. ¡Tardaban años en aprender todas!</p><p>—Si se nos olvida una canción, se pierde para siempre —pensaba Guido, preocupado.</p><p>Una noche, a la luz de una vela, tuvo una idea. Dibujó unas <b>líneas</b> horizontales y colocó puntos encima: si el sonido era agudo, el punto iba <b>arriba</b>; si era grave, iba <b>abajo</b>.</p><p>Además, puso un nombre a cada nota con las primeras sílabas de una canción: <b>ut, re, mi, fa, sol, la</b>. Mucho después, «ut» se cambió por «do».</p><p>Con su invento, los niños aprendían en pocos días. Y lo mejor: las canciones ya nunca se olvidarían, porque estaban escritas.</p><p>Hoy, músicos de todo el mundo siguen leyendo partituras gracias a la idea de Guido.</p>` },
+  tras: {
+    "La música se escribe": [
+      ["Guido y el nombre de las notas", `<p>Antes, la música no se escribía: se aprendía de <mark>memoria</mark>. Un monje italiano llamado <b>Guido de Arezzo</b> inventó, hace unos mil años, una forma de escribirla.</p><ul><li>Dibujó <b>líneas</b> para colocar las notas.</li><li>Las notas <b>agudas</b> iban arriba y las <b>graves</b>, abajo.</li><li>Dio nombre a las notas con las sílabas de una canción: <b>ut, re, mi, fa, sol, la</b>.</li><li>Más tarde, «ut» pasó a ser <b>do</b> y se añadió el <b>si</b>.</li></ul><p>Gracias a la escritura musical, hoy podemos tocar canciones compuestas hace cientos de años, como si las escucháramos de sus autores.</p><p>Una partitura es como un libro de música: quien sabe leerla puede tocar la canción aunque nunca la haya oído.</p><p><b>Actividad</b>: canta las notas despacio, subiendo la mano a cada nota: do, re, mi, fa, sol, la, si, do.</p>`,
+        L6.filas("Notas", [["antes", "de memoria", cNA], ["Guido", "líneas", cAZ], ["ut", "ahora do", cVE], ["hoy", "partituras", cMO]])],
+    ],
+    "Leemos ritmos": [
+      ["La blanca: «ta-a»", `<p>Ya conocemos la negra («ta»), las dos corcheas («ti-ti») y el silencio («shh»). Ahora aprendemos una figura nueva: la <mark>blanca</mark>.</p><ul><li>La blanca es una nota <b>hueca</b>, sin rellenar, con una plica.</li><li>Dura <b>dos pulsos</b>: lo mismo que dos negras.</li><li>La decimos «<b>ta-a</b>», alargando el sonido.</li><li>Al tocarla, damos una palmada y <b>esperamos</b> un pulso más con las manos juntas.</li></ul><p>Las figuras son como una familia: la blanca es la más lenta, la negra va al paso y las corcheas corren.</p><p>Un ritmo con blancas suena tranquilo; un ritmo con muchas corcheas suena movido.</p><p><b>Actividad</b>: lee y da palmas a este ritmo: ta, ta, ta-a; ti-ti, ti-ti, ta-a.</p>`,
+        H6.flujo("Figuras", ["blanca|ta-a", "negra|ta", "corcheas|ti-ti", "silencio|shh"], cAZ),
+        ["gFC55ayyaDo", "Iniciación a la lectura rítmica con palabras", "Angela Rodes", 704987]],
+    ],
+    "El pentagrama y la clave de sol": [
+      ["Líneas y espacios", `<p>El <mark>pentagrama</mark> tiene <b>cinco líneas</b> y <b>cuatro espacios</b> entre ellas. Las líneas y los espacios se cuentan siempre <b>de abajo arriba</b>.</p><ul><li>Una nota puede estar <b>en una línea</b>: la línea le atraviesa el centro.</li><li>O puede estar <b>en un espacio</b>: entre dos líneas, sin tocarlas por dentro.</li><li>Cuanto <b>más arriba</b> está la nota, más <b>aguda</b> suena.</li><li>Cuanto <b>más abajo</b>, más <b>grave</b>.</li></ul><p>Con la clave de sol, la nota de la <b>segunda línea</b> se llama <b>sol</b>. La clave se empieza a dibujar justo en esa línea, haciendo un caracol.</p><p>Si una nota no cabe en el pentagrama, se le añade una rayita pequeña: así se escribe el <b>do</b> grave, debajo de todo.</p><p><b>Actividad</b>: usa tu mano como pentagrama: los cinco dedos son las líneas y los huecos entre ellos, los espacios.</p>`,
+        H6.dos("Pentagrama", ["LÍNEAS", ["son cinco", "nota cruzada", "1ª abajo"], cAZ], ["ESPACIOS", ["son cuatro", "nota entre dos", "1º abajo"], cVE])],
+    ],
+    "Las siete notas": [
+      ["La escala sube y baja", `<p>Cuando cantamos las siete notas seguidas, de grave a agudo, hacemos una <mark>escala</mark>: do, re, mi, fa, sol, la, si… ¡y otra vez do, más agudo!</p><ul><li>La escala <b>sube</b> como una escalera: cada nota es un escalón.</li><li>También puede <b>bajar</b>: do, si, la, sol, fa, mi, re, do.</li><li>En el pentagrama, cada nota se coloca un poco más arriba que la anterior: línea, espacio, línea, espacio…</li><li>En el xilófono, las láminas de la escala van de la <b>más larga</b> (grave) a la <b>más corta</b> (aguda).</li></ul><p>Muchas canciones conocidas usan solo unas pocas notas: <b>mi, sol y la</b> bastan para cantar canciones de corro.</p><p>En algunos países usan letras en vez de sílabas: C es do, D es re, E es mi…</p><p><b>Actividad</b>: subid y bajad la escala con el cuerpo: do en los pies, re en las rodillas, mi en la cintura… y si en las manos estiradas.</p>`,
+        L6.filas("Escala", [["do", "pies", cRO], ["mi", "cintura", cNA], ["sol", "hombros", cVE], ["si", "manos arriba", cAZ]])],
+    ],
+  },
+  final: [
+    ["Del papel al instrumento", `<p>Para tocar una partitura sencilla, sigue estos <mark>pasos</mark>:</p><ul><li><b>Mira</b> la clave: si es de sol, ya sabes dónde está cada nota.</li><li><b>Lee el ritmo</b> en voz alta: ta, ti-ti, ta-a, shh.</li><li><b>Di el nombre</b> de las notas: mi, sol, sol, mi…</li><li><b>Canta</b> la canción despacio, con los nombres de las notas.</li><li><b>Toca</b> en el xilófono o el metalófono buscando cada lámina.</li><li>Cuando te salga bien, <b>acelera</b> poco a poco.</li></ul><p>Los músicos de verdad también aprenden así: primero despacio y por partes, y luego juntan todo.</p><p>Equivocarse es parte de aprender: si fallas una nota, respira y vuelve a empezar desde el principio de la frase.</p><p><b>Actividad</b>: toca en el xilófono esta melodía: sol, mi, sol, mi, sol, sol, mi.</p>`,
+      H6.flujo("Tocar", ["leer|ritmo", "nombrar|notas", "cantar|despacio", "tocar|xilófono"], cMO)],
+    ["Repaso: el monje Guido", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Guido vivía en un <b>monasterio</b> de Italia, hace mil años.</li><li>Las canciones se aprendían de <b>memoria</b> y podían olvidarse.</li><li>Dibujó <b>líneas</b> y puso puntos: agudos arriba, graves abajo.</li><li>Nombró las notas: <b>ut, re, mi, fa, sol, la</b>.</li><li>El «ut» se cambió después por <b>do</b>.</li><li>Gracias a él, los niños aprendían en <b>días</b>, no en años.</li></ul><p>Escribir la música es tan importante como escribir las palabras: así nada se pierde.</p><p><b>Actividad</b>: inventa tu propia forma de escribir tres sonidos y enséñasela a un compañero para que la toque.</p>`,
+      H6.flujo("Guido", ["olvidar|problema", "líneas|idea", "ut re mi|nombres", "partitura|hoy"], cNA)],
+  ],
+  ejemplos: [
+    ["¿Cuántos pulsos duran una blanca y una negra juntas?", ["Blanca 2 + negra 1."], "Tres pulsos."],
+    ["Una nota en el quinto espacio, ¿existe?", ["El pentagrama tiene cuatro espacios."], "No: solo hay cuatro espacios."],
+  ],
+  errores: ["Contar las líneas de arriba abajo.", "Tocar la blanca igual de corta que la negra."],
+  ejercicios: [
+    ["b", "¿Cuántas líneas tiene el pentagrama?", "Cinco."],
+    ["b", "¿Cuántos pulsos dura la blanca?", "Dos."],
+    ["b", "¿Cómo decimos la blanca?", "Ta-a."],
+    ["b", "¿Quién puso nombre a las notas?", "Guido de Arezzo."],
+    ["b", "Di las siete notas.", "Do, re, mi, fa, sol, la, si."],
+    ["m", "¿Cuántos espacios tiene el pentagrama?", "Cuatro."],
+    ["m", "¿Cómo se llamaba antes el do?", "Ut."],
+    ["m", "¿Cómo es la blanca por dentro?", "Hueca."],
+    ["m", "¿Qué nota está en la segunda línea con clave de sol?", "Sol."],
+    ["m", "¿Qué es una escala?", "Las notas seguidas de grave a agudo o al revés."],
+    ["a", "¿Cuántos pulsos suman: blanca, negra, dos corcheas?", "Cuatro."],
+    ["a", "En la lectura, ¿qué problema quería resolver Guido?", "Que las canciones se olvidaran."],
+    ["a", "¿Por qué es útil escribir la música?", "Para no olvidarla y que otros la toquen."],
+    ["a", "Escribe un ritmo de cuatro pulsos con una blanca.", "Ejemplo: ta-a, ta, ti-ti."],
+  ],
+  quiz: [
+    ["La blanca dura…", ["dos pulsos", "un pulso", "medio pulso"], "La blanca."],
+    ["Las líneas se cuentan…", ["de abajo arriba", "de arriba abajo", "al azar"], "Líneas y espacios."],
+    ["Guido era…", ["un monje", "un rey", "un pirata"], "Guido."],
+    ["El pentagrama tiene… espacios", ["cuatro", "cinco", "siete"], "Líneas y espacios."],
+    ["Una escala sube como…", ["una escalera", "un río", "un globo"], "La escala."],
+  ],
+  examen: [
+    ["En la lectura, las notas agudas iban…", ["arriba", "abajo", "al lado"], "Lectura."],
+    ["«Ut» se cambió por…", ["do", "si", "sol"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Blanca", "Nota hueca que dura dos pulsos: ta-a."],
+    ["Pentagrama", "Cinco líneas y cuatro espacios, contados desde abajo."],
+  ],
+  glosario: [
+    ["Blanca", "Figura hueca de dos pulsos."],
+    ["Línea", "Cada una de las cinco rayas del pentagrama."],
+    ["Espacio", "Hueco entre dos líneas."],
+    ["Escala", "Notas seguidas que suben o bajan."],
+    ["Monasterio", "Casa donde viven monjes."],
+    ["Guido", "Monje que dio nombre a las notas."],
+    ["Melodía", "Notas seguidas que forman una canción."],
+    ["Lámina", "Pieza del xilófono que se golpea."],
+    ["Figura", "Signo que indica cuánto dura un sonido."],
+    ["Componer", "Inventar una música."],
+  ],
+  situacion: {
+    titulo: "Nuestra primera canción escrita",
+    reto: "Cada grupo compone una melodía corta, la escribe en un pentagrama grande y otro grupo la toca.",
+    pasos: ["Elegir tres notas: mi, sol y la.", "Inventar un ritmo de ocho pulsos con negras, corcheas y blancas.", "Escribirlo en un pentagrama dibujado en cartulina.", "Intercambiar partituras y tocar la de otro grupo."],
+    producto: "Una partitura de la clase y su interpretación.",
+    evaluacion: ["Conoce la blanca.", "Sitúa notas en líneas y espacios.", "Lee un ritmo sencillo.", "Toca una melodía escrita."],
+  },
+});
