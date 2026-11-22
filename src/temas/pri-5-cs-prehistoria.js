@@ -138,3 +138,86 @@ module.exports = {
   fuentes: [RD, wiki("Prehistoria de la península ibérica", "Prehistoria_de_la_península_ibérica"), wiki("Yacimientos de Atapuerca", "Yacimientos_de_Atapuerca"), wiki("Cueva de Altamira", "Cueva_de_Altamira"), { t: "Museo Nacional y Centro de Investigación de Altamira", url: "https://www.culturaydeporte.gob.es/mnaltamira/" }],
   revisado: REV,
 };
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Comparar a los neandertales y a los Homo sapiens", "Describir los poblados de Los Millares y El Argar", "Conocer museos y yacimientos donde visitar la Prehistoria"],
+  lectura: { titulo: "La niña que vio los bisontes", html: `<p>Un día de verano de 1879, un señor llamado <b>Marcelino Sanz de Sautuola</b> excavaba el suelo de una cueva cerca de Santillana del Mar, en Cantabria, buscando herramientas de piedra. Le acompañaba su hija <b>María</b>, de ocho años.</p><p>Mientras su padre miraba el suelo, María, aburrida, levantó la vista hacia el techo, que era bajo. Con la luz del farol vio unas manchas rojas y negras.</p><p>—¡Mira, papá, bueyes! —gritó.</p><p>No eran bueyes: eran <b>bisontes</b>, pintados con tanto arte que parecían moverse sobre las rocas. Era la cueva de <b>Altamira</b>.</p><p>Sautuola estaba convencido de que eran pinturas de la Prehistoria, pero muchos expertos se burlaron de él. Pensaban que los seres humanos prehistóricos no podían pintar tan bien, e incluso le acusaron de haberlas hecho pintar. Tuvieron que pasar más de veinte años, y descubrirse otras cuevas parecidas en Francia, para que reconocieran que tenía razón.</p><p>Hoy Altamira es Patrimonio de la Humanidad. En este tema viajarás a la <b>Prehistoria</b> de la península ibérica.</p>` },
+  tras: {
+    "El Paleolítico: cazadores y recolectores": [
+      ["Neandertales y sapiens", `<p>En la península ibérica han vivido distintas especies humanas. Dos de las más conocidas son los neandertales y nosotros, los sapiens:</p><ul><li>Los <b>neandertales</b> (<i>Homo neanderthalensis</i>) vivieron en Europa durante cientos de miles de años. Eran más bajos y robustos que nosotros, con un cuerpo adaptado al frío de las glaciaciones. Fabricaban herramientas de piedra, dominaban el fuego, cazaban animales grandes, cuidaban a sus enfermos y enterraban a algunos de sus muertos. En la península hay muchos yacimientos neandertales, como la cueva de El Sidrón, en Asturias.</li><li>Los <b>Homo sapiens</b>, nuestra especie, surgieron en África y llegaron a la península hace unos <b>40 000 años</b>. Fabricaban herramientas más variadas, agujas de hueso para coser ropa, adornos, instrumentos musicales como flautas y las primeras pinturas rupestres.</li></ul><p>Durante un tiempo, ambas especies convivieron. Los neandertales desaparecieron hace unos 40 000 años, y algunos de sus últimos refugios estuvieron en el sur de la península. No se sabe bien por qué se extinguieron. Curiosamente, los análisis de ADN demuestran que se mezclaron con los sapiens: muchas personas actuales llevamos un pequeño porcentaje de genes neandertales.</p>`,
+        svg("Comparación entre neandertales y Homo sapiens", `${tit("Dos especies humanas")}${cj2(10, 40, 116, 96, "Neandertales", "robustos, frío, fuego", COL.marron)}${cj2(134, 40, 116, 96, "Sapiens", "hace 40 000 años", COL.azul)}${tx(130, 160, "convivieron y se mezclaron", 220, { weight: 700 })}`)],
+    ],
+    "La Edad de los Metales": [
+      ["Los Millares y El Argar", `<p>En el sureste de la península, en la actual provincia de <b>Almería</b>, se encuentran dos de los yacimientos más importantes de la Edad de los Metales en Europa:</p><ul><li><b>Los Millares</b> (hacia 3200-2200 a. C.): un gran poblado construido sobre un cerro, junto al río Andarax. Estaba protegido por varias líneas de <b>murallas</b> de piedra con torres y por pequeños fortines alrededor. Sus habitantes cultivaban cereales, criaban ganado y trabajaban el <b>cobre</b> de las minas cercanas. Junto al poblado hay un gran cementerio con más de ochenta tumbas colectivas.</li><li><b>El Argar</b> (hacia 2200-1550 a. C.): una cultura que se extendió por el sureste peninsular. Sus poblados estaban en lo alto de cerros fáciles de defender. Trabajaban muy bien el <b>bronce</b> y la plata: fabricaban espadas, puñales, hachas y joyas. Tenían una costumbre curiosa: enterraban a sus muertos <b>debajo del suelo de sus casas</b>, en vasijas grandes o en cajas de piedra, con objetos que indicaban su riqueza.</li></ul><p>Estos poblados muestran una sociedad cada vez más organizada, con diferencias entre ricos y pobres, guerreros y artesanos especializados.</p>`,
+        svg("Los Millares hacia 3200 antes de Cristo con murallas y cobre, y El Argar hacia 2200 antes de Cristo con bronce", `${tit("Poblados de los metales")}${cj2(10, 40, 116, 96, "Los Millares", "3200 a. C., cobre", COL.naranja)}${cj2(134, 40, 116, 96, "El Argar", "2200 a. C., bronce", COL.marron)}${tx(130, 160, "en la actual Almería", 220, { weight: 700 })}`)],
+    ],
+  },
+  final: [
+    ["Visitamos la Prehistoria", `<p>En España hay muchos lugares donde se puede conocer la Prehistoria de cerca:</p><ul><li>El <b>Museo de la Evolución Humana</b>, en Burgos, junto a los yacimientos de <b>Atapuerca</b>, que también se pueden visitar con guía.</li><li>El <b>Museo de Altamira</b>, en Santillana del Mar (Cantabria). Como la cueva original es muy delicada, se construyó la <b>Neocueva</b>, una copia exacta de las pinturas que se puede recorrer sin dañarlas.</li><li>Los <b>dólmenes de Antequera</b> (Málaga), declarados Patrimonio Mundial en 2016. El dolmen de Menga es uno de los más grandes de Europa.</li><li><b>Siega Verde</b> (Salamanca), con grabados de animales al aire libre sobre rocas junto al río.</li><li>El <b>Museo Arqueológico Nacional</b>, en Madrid, y los museos arqueológicos de cada provincia.</li><li>Los parques arqueológicos que recrean poblados, como los de Los Millares.</li></ul><p>Al visitar un yacimiento hay normas importantes: no tocar las pinturas ni los restos, no salirse de los caminos señalados y no llevarse nada. Los restos de la Prehistoria son únicos y, si se destruyen, se pierden para siempre. ¡Son de todos!</p>`,
+        svg("Lugares para visitar la Prehistoria: Atapuerca, Altamira, Antequera y Siega Verde", `${tit("Para visitar")}${fichas([["Atapuerca", "Museo de la Evolución, Burgos", COL.marron], ["Altamira", "Neocueva, Cantabria", COL.rojo], ["Antequera", "dólmenes, Málaga", COL.gris], ["Siega Verde", "grabados, Salamanca", COL.verde]])}`)],
+  ],
+  ejemplos: [
+    ["Los Millares empezó hacia el 3200 a. C. y El Argar hacia el 2200 a. C. ¿Cuántos años los separan? ¿Cuál es más antiguo?", ["En años antes de Cristo, el número mayor es más antiguo.", "3200 − 2200 = 1000.", "Los Millares es más antiguo."], "1000 años; Los Millares es más antiguo"],
+    ["En una excavación aparece una espada de bronce en una tumba bajo el suelo de una casa en Almería. ¿De qué cultura puede ser?", ["El bronce indica la Edad de los Metales.", "Enterrar bajo el suelo de las casas es típico de El Argar.", "El sureste peninsular era su territorio."], "De la cultura de El Argar"],
+  ],
+  errores: ["Pensar que los neandertales eran unos brutos: fabricaban herramientas, usaban el fuego y cuidaban a sus enfermos."],
+  nivelesBase: "bbbmbmmmmm",
+  ejercicios: [
+    ["b", "¿Quién descubrió las pinturas de Altamira y en qué año?", "María, la hija de Marcelino Sanz de Sautuola, en 1879."],
+    ["b", "¿Cuándo llegaron los Homo sapiens a la península?", "Hace unos 40 000 años."],
+    ["b", "¿En qué provincia están Los Millares y El Argar?", "En Almería."],
+    ["b", "¿Qué metal trabajaban en Los Millares? ¿Y en El Argar?", "Cobre en Los Millares; bronce (y plata) en El Argar."],
+    ["b", "¿Qué es la Neocueva?", "Una copia exacta de la cueva de Altamira que se puede visitar sin dañar la original."],
+    ["m", "Escribe dos características de los neandertales.", "Eran robustos y adaptados al frío; usaban el fuego y enterraban a algunos muertos."],
+    ["m", "¿Por qué muchos expertos no creyeron a Sautuola?", "Pensaban que los seres humanos prehistóricos no podían pintar tan bien."],
+    ["m", "¿Cómo se defendía el poblado de Los Millares?", "Con varias líneas de murallas con torres y fortines alrededor."],
+    ["m", "¿Qué costumbre funeraria tenía la cultura de El Argar?", "Enterraban a sus muertos bajo el suelo de sus casas, en vasijas o cajas de piedra."],
+    ["m", "Escribe tres normas para visitar un yacimiento.", "No tocar los restos ni las pinturas, no salirse de los caminos y no llevarse nada."],
+    ["m", "¿Qué demuestra el ADN sobre neandertales y sapiens?", "Que se mezclaron: muchas personas actuales tienen algunos genes neandertales."],
+    ["a", "¿Cuántos años pasaron desde el descubrimiento de Altamira (1879) hasta hoy? ¿Y desde que se pintaron (hace unos 15 000 años)?", "Respuesta según el año actual (por ejemplo, en 2026, 147 años); las pinturas tienen unos 15 000 años."],
+    ["a", "¿Qué indica que en El Argar hubiera tumbas con muchos objetos y otras casi vacías?", "Que había diferencias sociales entre ricos y pobres."],
+    ["a", "Compara la vida de un grupo de neandertales con la de un poblado de Los Millares: escribe tres diferencias.", "Los neandertales eran nómadas cazadores-recolectores; en Los Millares eran sedentarios, cultivaban y criaban ganado, y trabajaban el metal y construían murallas."],
+    ["a", "¿Por qué se construyó la Neocueva en lugar de dejar visitar la cueva original?", "Porque las visitas cambiaban la temperatura y la humedad y dañaban las pinturas."],
+    ["a", "Diseña un folleto para visitar uno de los yacimientos del tema: qué se ve, dónde está y qué normas hay.", "Respuesta abierta. Debe incluir localización, qué se puede ver y normas de visita."],
+  ],
+  quiz: [
+    ["Las pinturas de Altamira las vio primero…", ["Una niña de ocho años", "Un rey", "Un pastor"], "María, en 1879."],
+    ["Los sapiens llegaron a la península hace unos…", ["40 000 años", "400 años", "4 millones de años"], "Desde África."],
+    ["Los Millares estaba protegido por…", ["Murallas con torres", "Un foso de agua", "Nada"], "Y fortines alrededor."],
+    ["En El Argar enterraban a sus muertos…", ["Bajo el suelo de sus casas", "En pirámides", "En el mar"], "En vasijas o cajas de piedra."],
+    ["Los dólmenes de Antequera están en…", ["Málaga", "Burgos", "Cantabria"], "Patrimonio Mundial desde 2016."],
+  ],
+  examen: [
+    ["Junto a Atapuerca está el…", ["Museo de la Evolución Humana", "Museo del Prado", "Museo del Mar"], "En Burgos."],
+    ["Los neandertales estaban adaptados…", ["Al frío", "Al desierto", "A vivir en el agua"], "Vivieron durante las glaciaciones."],
+  ],
+  tarjetas: [
+    ["Altamira", "Descubierta por María en 1879; bisontes pintados."],
+    ["Neandertales y sapiens", "Convivieron; los sapiens llegaron hace unos 40 000 años."],
+    ["Los Millares", "Almería, hacia 3200 a. C.: murallas y cobre."],
+    ["El Argar", "Almería, hacia 2200 a. C.: bronce y tumbas en las casas."],
+  ],
+  glosario: [
+    ["Prehistoria", "Etapa desde los primeros humanos hasta la escritura."],
+    ["Arqueólogo", "Científico que estudia el pasado por sus restos."],
+    ["Yacimiento", "Lugar donde se encuentran restos del pasado."],
+    ["Paleolítico", "Etapa de la piedra tallada y los cazadores-recolectores."],
+    ["Nómada", "Que se desplaza de un lugar a otro sin residencia fija."],
+    ["Pintura rupestre", "Pintura en las paredes de cuevas o rocas."],
+    ["Neolítico", "Etapa de la piedra pulida, la agricultura y la ganadería."],
+    ["Sedentario", "Que vive siempre en el mismo lugar."],
+    ["Edad de los Metales", "Etapa en la que se empezó a trabajar el metal."],
+    ["Bronce", "Mezcla de cobre y estaño."],
+    ["Megalito", "Gran monumento de piedra, como el dolmen."],
+    ["Neandertal", "Especie humana adaptada al frío, ya extinguida."],
+  ],
+  situacion: {
+    titulo: "Museo de la Prehistoria en el aula",
+    reto: "La clase monta un museo de la Prehistoria con réplicas, carteles y visitas guiadas para otros cursos.",
+    pasos: ["Por grupos, elegid una etapa (Paleolítico, Neolítico, Edad de los Metales) o un yacimiento de la península.", "Fabricad réplicas: pinturas rupestres con pigmentos naturales, vasijas de arcilla, un dolmen de cartón o una maqueta de Los Millares.", "Preparad carteles con la fecha, el lugar, cómo vivían y qué nos enseñan los restos.", "Haced una línea del tiempo gigante y guiad la visita a otros cursos."],
+    producto: "Un museo de la Prehistoria con réplicas, carteles y una línea del tiempo.",
+    evaluacion: ["Sitúa en el tiempo las etapas de la Prehistoria.", "Describe la forma de vida de cada etapa.", "Relaciona los restos arqueológicos con lo que nos enseñan.", "Valora la importancia de conservar el patrimonio."],
+  },
+});

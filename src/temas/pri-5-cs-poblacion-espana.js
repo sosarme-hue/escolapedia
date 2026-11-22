@@ -137,3 +137,87 @@ module.exports = {
   fuentes: [RD, { t: "INE, Instituto Nacional de Estadística", url: "https://www.ine.es/" }, wiki("Demografía de España", "Demografía_de_España"), wiki("Despoblación rural en España", "España_vaciada")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { linea } = require("./_pri5b");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Comparar la población de las grandes ciudades españolas", "Conocer las grandes migraciones de la historia reciente de España", "Explicar el aumento de la esperanza de vida y sus causas"],
+  lectura: { titulo: "Tres generaciones, tres viajes", html: `<p>En casa de Samuel, la cena del domingo es especial porque se juntan tres generaciones, y cada una tiene una historia de viaje.</p><p>El bisabuelo Ramón nació en un pueblo de Ourense. En 1950, con dieciocho años, se fue en barco a <b>Argentina</b> a trabajar, como muchos gallegos. Volvió veinte años después y abrió una tienda.</p><p>La abuela Carmen nació en un pueblo de Jaén. En los años sesenta su familia se trasladó a <b>Barcelona</b>, porque en las fábricas había trabajo. En el pueblo se quedaron solo los mayores, y hoy apenas viven allí cien personas.</p><p>La madre de Samuel, Fátima, nació en <b>Marruecos</b>. Llegó a Murcia en el año 2003 para trabajar en el campo y estudiar enfermería. Allí conoció al padre de Samuel.</p><p>—Nuestra familia es como un mapa de la historia de España —dice siempre el padre de Samuel.</p><p>Y tiene razón: las personas se mueven de un lugar a otro buscando una vida mejor, y eso cambia los pueblos y las ciudades. En este tema aprenderás cómo es y cómo cambia la <b>población</b> de España.</p>` },
+  tras: {
+    "La densidad de población": [
+      ["Las ciudades más pobladas", `<p>Hoy, aproximadamente <b>ocho de cada diez</b> españoles viven en ciudades. Las más pobladas son:</p><ul><li><b>Madrid</b>, la capital, con unos 3,4 millones de habitantes en el municipio y más de 7 millones en su comunidad autónoma.</li><li><b>Barcelona</b>, con alrededor de 1,7 millones; con los municipios de alrededor, su área metropolitana supera los 5 millones.</li><li><b>Valencia</b>, con unos 800 000 habitantes.</li><li><b>Sevilla</b> y <b>Zaragoza</b>, con unos 700 000 cada una.</li></ul><p>Les siguen ciudades como Málaga, Murcia, Palma o Las Palmas de Gran Canaria.</p><p>Alrededor de las grandes ciudades se forman <b>áreas metropolitanas</b>: muchos municipios cercanos que están tan unidos a la ciudad central que funcionan como una sola. Mucha gente vive en un municipio y trabaja o estudia en otro, y viaja cada día en tren de cercanías, metro, autobús o coche. Por eso en las horas punta hay atascos.</p><p>Las ciudades ofrecen más trabajo, hospitales, universidades y ocio, pero también tienen problemas: viviendas caras, ruido, contaminación y tráfico.</p>`,
+        svg("Habitantes aproximados de las ciudades más pobladas de España en millones", `${tit("Ciudades más pobladas (millones)")}${barras([["Madrid", 3.4, COL.rojo], ["Barcelona", 1.7, COL.azul], ["Valencia", 0.8, COL.naranja], ["Sevilla", 0.7, COL.verde], ["Zaragoza", 0.7, COL.morado]], { y0: 146, alto: 96 })}${tx(130, 172, "valores aproximados del municipio", 230)}`)],
+    ],
+    "Las migraciones": [
+      ["Las grandes migraciones de la historia reciente", `<p>En los últimos 150 años, la población de España ha vivido grandes movimientos:</p><ul><li><b>Emigración a América</b> (finales del siglo XIX y primera mitad del XX): cientos de miles de españoles, sobre todo de Galicia, Asturias y Canarias, se fueron a Argentina, Cuba, Venezuela, Uruguay o México.</li><li><b>Emigración a Europa</b> (años sesenta y setenta): muchos trabajadores se marcharon a Alemania, Francia o Suiza, donde había fábricas que necesitaban mano de obra. Enviaban dinero a sus familias.</li><li><b>Éxodo rural</b> (de 1950 a 1975 aproximadamente): millones de personas dejaron los pueblos de Andalucía, Extremadura y las dos Castillas para ir a Madrid, Barcelona, el País Vasco o Valencia. Es el origen de la España vaciada.</li><li><b>Inmigración</b> (desde finales del siglo XX): España pasó a recibir personas de Marruecos, Rumanía, Colombia, Ecuador, Venezuela y muchos otros países. Hoy, más de 6 millones de habitantes han nacido en el extranjero.</li></ul><p>Las migraciones enriquecen las sociedades con nuevas costumbres, comidas, músicas y formas de ver el mundo. Respetar a las personas que vienen de otros lugares es fundamental para convivir.</p>`,
+        svg("Línea del tiempo de las migraciones: a América, a Europa, éxodo rural e inmigración", `${tit("Migraciones en España")}${linea([["1900", "a América", COL.azul], ["1960", "a Europa", COL.verde], ["1970", "del campo a la ciudad", COL.naranja], ["2000", "llegan inmigrantes", COL.rojo]])}`)],
+    ],
+  },
+  final: [
+    ["Vivimos más años: la esperanza de vida", `<p>La <b>esperanza de vida</b> es el número de años que se calcula que vivirá de media una persona que nace en un lugar. Es una de las mejores medidas de la calidad de vida de un país.</p><p>En España, la esperanza de vida ha aumentado de forma espectacular. Hacia el año <b>1900</b> era de solo unos <b>35 años</b>, porque muchos niños morían muy pequeños por enfermedades e infecciones. Hacia <b>1950</b> rondaba los <b>62</b>. Hoy supera los <b>83 años</b>, una de las más altas del mundo. Las mujeres viven de media unos cinco años más que los hombres.</p><p>¿Por qué vivimos tanto más? Por muchas razones:</p><ul><li>Los avances de la <b>medicina</b>: vacunas, antibióticos y nuevos tratamientos.</li><li>El <b>agua potable</b>, el alcantarillado y una mejor higiene.</li><li>Una <b>alimentación</b> más variada y suficiente, como la dieta mediterránea.</li><li>La <b>sanidad pública</b>, que atiende a todas las personas.</li></ul><p>Que vivamos más es una gran noticia, pero también es un reto: hace falta cuidar a muchas personas mayores, pagar las pensiones y adaptar las ciudades para que sean cómodas para todas las edades.</p>`,
+        svg("Esperanza de vida en España: unos 35 años en 1900, 62 en 1950 y más de 83 hoy", `${tit("Esperanza de vida en España")}${barras([["1900", 35, COL.gris], ["1950", 62, COL.sol], ["hoy", 83, COL.verde]], { unidad: " años", max: 90, y0: 146, alto: 100, x0: 40, ancho: 180 })}${tx(130, 172, "una de las más altas del mundo", 230)}`)],
+  ],
+  ejemplos: [
+    ["Madrid tiene unos 3,4 millones de habitantes y Zaragoza unos 0,7 millones. ¿Cuántas veces más habitantes tiene Madrid, aproximadamente?", ["Dividimos 3,4 entre 0,7.", "3,4 : 0,7 ≈ 4,9.", "Redondeamos."], "Unas cinco veces más"],
+    ["La esperanza de vida pasó de unos 35 años en 1900 a unos 83 hoy. ¿Cuántos años ha aumentado?", ["Restamos: 83 − 35.", "83 − 35 = 48.", "Casi se ha multiplicado por 2,4."], "Unos 48 años más"],
+  ],
+  errores: ["Pensar que España siempre ha recibido inmigrantes: durante mucho tiempo fue un país de emigrantes."],
+  nivelesBase: "bbbmbmmmmm",
+  ejercicios: [
+    ["b", "¿Cuál es la ciudad más poblada de España? ¿Y la segunda?", "Madrid; Barcelona."],
+    ["b", "¿Qué es la esperanza de vida?", "Los años que se calcula que vivirá de media una persona que nace en un lugar."],
+    ["b", "¿Cuál es la esperanza de vida en España hoy, aproximadamente?", "Más de 83 años."],
+    ["b", "¿A qué países emigraron muchos españoles en los años sesenta?", "A Alemania, Francia y Suiza."],
+    ["b", "¿Qué es un área metropolitana?", "Una gran ciudad y los municipios cercanos que funcionan unidos a ella."],
+    ["m", "¿Qué fue el éxodo rural y qué consecuencias tuvo?", "El traslado masivo de personas de los pueblos a las ciudades; muchos pueblos se vaciaron (España vaciada)."],
+    ["m", "Escribe tres causas del aumento de la esperanza de vida.", "Los avances de la medicina, el agua potable y la higiene, y una mejor alimentación (también la sanidad pública)."],
+    ["m", "¿De qué regiones salieron sobre todo los emigrantes a América?", "De Galicia, Asturias y Canarias."],
+    ["m", "Escribe dos ventajas y dos problemas de vivir en una gran ciudad.", "Ventajas: más trabajo y servicios. Problemas: vivienda cara y contaminación (también ruido y tráfico)."],
+    ["m", "¿Por qué las mujeres y los hombres tienen distinta esperanza de vida en España?", "Las mujeres viven de media unos cinco años más."],
+    ["m", "¿Qué aportan las migraciones a una sociedad?", "Nuevas costumbres, comidas, músicas y formas de ver el mundo, además de trabajo."],
+    ["a", "Si la esperanza de vida en 1950 era de 62 años y hoy de 83, ¿cuánto ha aumentado de media cada década en esos 70 años?", "21 años en 7 décadas: unos 3 años por década."],
+    ["a", "Explica por qué muchos niños morían en 1900 y cómo influía eso en la esperanza de vida.", "Por enfermedades e infecciones sin vacunas ni antibióticos; al morir tantos niños, la media de años vividos bajaba mucho."],
+    ["a", "Pregunta en tu familia si alguien emigró o vino de otro lugar y escribe su historia en cinco líneas.", "Respuesta abierta. Debe indicar de dónde a dónde, cuándo y por qué."],
+    ["a", "¿Qué retos plantea para un país que su población viva cada vez más años?", "Cuidar a muchas personas mayores, pagar las pensiones y adaptar las ciudades y los servicios."],
+    ["a", "Ordena en el tiempo: inmigración, emigración a América, éxodo rural, emigración a Europa.", "Emigración a América, éxodo rural y emigración a Europa (en parte a la vez), e inmigración."],
+  ],
+  quiz: [
+    ["La ciudad más poblada de España es…", ["Madrid", "Barcelona", "Valencia"], "Unos 3,4 millones en el municipio."],
+    ["En España viven en ciudades aproximadamente…", ["8 de cada 10 personas", "2 de cada 10", "La mitad"], "Es un país muy urbano."],
+    ["En los años sesenta muchos españoles emigraron a…", ["Alemania, Francia y Suiza", "Australia", "China"], "Para trabajar en fábricas."],
+    ["La esperanza de vida en España hoy supera los…", ["83 años", "60 años", "100 años"], "Una de las más altas del mundo."],
+    ["Hacia 1900 la esperanza de vida era de unos…", ["35 años", "70 años", "90 años"], "Muchos niños morían pequeños."],
+  ],
+  examen: [
+    ["El traslado masivo del campo a la ciudad se llama…", ["Éxodo rural", "Inmigración", "Natalidad"], "De 1950 a 1975 aproximadamente."],
+    ["Los municipios unidos a una gran ciudad forman…", ["Un área metropolitana", "Una provincia", "Un barrio"], "Como Madrid o Barcelona."],
+  ],
+  tarjetas: [
+    ["Ciudades más pobladas", "Madrid, Barcelona, Valencia, Sevilla, Zaragoza."],
+    ["Área metropolitana", "Gran ciudad y municipios unidos a ella."],
+    ["Éxodo rural", "Del campo a la ciudad (1950-1975)."],
+    ["Esperanza de vida", "En España, más de 83 años."],
+  ],
+  glosario: [
+    ["Población", "Personas que viven en un lugar en un momento dado."],
+    ["Demografía", "Ciencia que estudia la población."],
+    ["Censo", "Recuento de la población de todo el país."],
+    ["Padrón", "Registro de los habitantes de un municipio."],
+    ["Densidad de población", "Habitantes por kilómetro cuadrado."],
+    ["Natalidad", "Número de nacimientos en un año."],
+    ["Mortalidad", "Número de fallecimientos en un año."],
+    ["Emigrante", "Persona que se va de su lugar de origen."],
+    ["Inmigrante", "Persona que llega a un lugar para vivir."],
+    ["Éxodo rural", "Traslado masivo del campo a la ciudad."],
+    ["Pirámide de población", "Gráfico de la población por edad y sexo."],
+    ["Esperanza de vida", "Años que se calcula que vivirá de media una persona."],
+  ],
+  situacion: {
+    titulo: "El mapa de nuestras familias",
+    reto: "La clase investiga de dónde vienen sus familias y elabora un mapa de migraciones y un informe sobre la población del municipio.",
+    pasos: ["Preguntad en casa dónde nacieron vuestros padres, abuelos y bisabuelos, y si se trasladaron y por qué.", "Marcad en un mapa de España y del mundo los lugares de origen con chinchetas e hilos.", "Buscad en la web del INE la población de vuestro municipio en distintos años y haced un gráfico.", "Escribid un informe con conclusiones: ¿qué migraciones aparecen? ¿Crece o disminuye la población?"],
+    producto: "Un mapa de migraciones de la clase y un informe con gráficos sobre la población del municipio.",
+    evaluacion: ["Recoge información de fuentes orales y estadísticas.", "Representa datos en mapas y gráficos.", "Explica las causas de las migraciones.", "Valora la diversidad de orígenes con respeto."],
+  },
+});

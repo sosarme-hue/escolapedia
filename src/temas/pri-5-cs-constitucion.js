@@ -137,3 +137,87 @@ module.exports = {
   fuentes: [RD, { t: "Constitución Española (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229" }, wiki("Constitución española de 1978", "Constitución_española_de_1978"), wiki("Cortes Generales", "Cortes_Generales")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { linea, barras } = require("./_pri5b");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Explicar la Transición y cómo se aprobó la Constitución de 1978", "Conocer las comunidades y ciudades autónomas de España", "Explicar qué es la Unión Europea y qué supone para España"],
+  lectura: { titulo: "El día que votó la abuela", html: `<p>Cada 6 de diciembre, la abuela Pilar saca una caja de recuerdos. Dentro guarda una papeleta amarillenta y un periódico viejo con un titular enorme.</p><p>—El 6 de diciembre de 1978 fui a votar —cuenta—. Tenía veintidós años. Durante casi cuarenta años, en España no se podía votar libremente, ni opinar en contra del Gobierno, ni formar partidos políticos. Aquel día votamos si aprobábamos una <b>Constitución</b> nueva.</p><p>Los nietos la escuchan con atención.</p><p>—Había mucha cola en el colegio electoral, pero nadie se quejaba. La gente estaba emocionada. Muchos mayores votaban por primera vez en su vida. Ganó el «sí» por mucha diferencia.</p><p>—¿Y qué cambió? —pregunta Leo.</p><p>—Todo. Desde entonces podemos elegir a quienes nos gobiernan, decir lo que pensamos, reunirnos, y todos somos iguales ante la ley. Por eso el 6 de diciembre es fiesta: es el <b>Día de la Constitución</b>.</p><p>En este tema conocerás qué es la Constitución, qué derechos y deberes recoge y cómo se organiza el Estado.</p>` },
+  tras: {
+    "La Constitución española de 1978": [
+      ["La Transición: de la dictadura a la democracia", `<p>Se llama <b>Transición</b> al periodo en que España pasó de la dictadura a la <b>democracia</b>, de forma pacífica y mediante acuerdos. Estos fueron sus pasos principales:</p><ul><li><b>1975</b>: muere el general Franco. Juan Carlos I se convierte en rey e impulsa los cambios.</li><li><b>1977</b>: se celebran las primeras <b>elecciones democráticas</b> en más de cuarenta años. Los partidos políticos, antes prohibidos, pueden presentarse.</li><li>Los diputados elegidos encargan a siete de ellos, de distintos partidos, que redacten una Constitución. Son los llamados <b>padres de la Constitución</b>. Tuvieron que dialogar mucho y ceder para ponerse de acuerdo.</li><li><b>6 de diciembre de 1978</b>: los españoles aprueban la Constitución en un <b>referéndum</b>, una votación en la que se responde sí o no. Casi el 88 % de los votos fueron afirmativos.</li></ul><p>La Constitución fue posible gracias al <b>consenso</b>: personas con ideas muy distintas fueron capaces de ponerse de acuerdo en las normas básicas para convivir. Por eso muchas personas consideran la Transición un ejemplo de diálogo.</p>`,
+        svg("Resultado del referéndum de 1978: 88 por ciento sí, 8 por ciento no y 4 por ciento en blanco o nulo", `${tit("Referéndum de 1978")}${barras([["sí", 88, COL.verde], ["no", 8, COL.rojo], ["blanco o nulo", 4, COL.gris]], { unidad: " %", max: 100, y0: 146, alto: 100, x0: 30, ancho: 200 })}${tx(130, 172, "6 de diciembre: Día de la Constitución", 230, { weight: 700 })}`)],
+    ],
+    "La organización territorial": [
+      ["Las comunidades y ciudades autónomas", `<p>España está formada por <b>17 comunidades autónomas</b> y <b>2 ciudades autónomas</b>:</p><ul><li>En el norte: Galicia, el Principado de Asturias, Cantabria, el País Vasco, la Comunidad Foral de Navarra, La Rioja y Aragón.</li><li>En el este: Cataluña, la Comunitat Valenciana, la Región de Murcia y las Illes Balears.</li><li>En el centro: Castilla y León, la Comunidad de Madrid, Castilla-La Mancha y Extremadura.</li><li>En el sur: Andalucía.</li><li>En el océano Atlántico: Canarias.</li><li>En el norte de África: las ciudades autónomas de <b>Ceuta</b> y <b>Melilla</b>.</li></ul><p>Cada comunidad tiene su <b>Estatuto de Autonomía</b>, su <b>parlamento</b>, que hace leyes para su territorio, su <b>gobierno</b> y su <b>presidente</b>. Se encargan de asuntos como la educación, la sanidad o las carreteras de la comunidad.</p><p>Algunas comunidades tienen, además del castellano, otra <b>lengua cooficial</b>: el catalán (en Cataluña e Illes Balears), el valenciano (en la Comunitat Valenciana), el gallego (en Galicia) y el euskera (en el País Vasco y parte de Navarra). Las lenguas de España son una riqueza cultural que hay que respetar y proteger.</p>`,
+        svg("España se organiza en 17 comunidades autónomas, 2 ciudades autónomas, 50 provincias y más de 8100 municipios", `${tit("España en cifras")}${fichas([["17", "comunidades autónomas", COL.azul], ["2", "ciudades autónomas", COL.morado], ["50", "provincias", COL.verde], ["más de 8100", "municipios", COL.naranja]])}`)],
+    ],
+  },
+  final: [
+    ["España en la Unión Europea", `<p>La <b>Unión Europea</b> (UE) es una organización formada hoy por <b>27 países</b> europeos que han decidido colaborar estrechamente. Nació después de la Segunda Guerra Mundial con una idea: que los países de Europa no volvieran a enfrentarse en una guerra, y que trabajaran juntos para mejorar la vida de sus ciudadanos.</p><p>España entró en <b>1986</b>, junto a Portugal. Desde entonces:</p><ul><li>Las personas pueden <b>viajar, vivir, estudiar y trabajar</b> en cualquier país de la UE. Muchos estudiantes universitarios estudian un tiempo en otro país con las becas <b>Erasmus</b>.</li><li>Las mercancías circulan sin aduanas entre los países miembros.</li><li>Desde <b>2002</b> usamos el <b>euro</b>, la moneda común de muchos países de la UE.</li><li>La UE ha ayudado a construir carreteras, trenes, depuradoras y otras infraestructuras.</li></ul><p>Los ciudadanos elegimos cada cinco años a los diputados del <b>Parlamento Europeo</b>. Otras instituciones importantes son la <b>Comisión Europea</b> y el <b>Consejo Europeo</b>, con sede en Bruselas. Los símbolos de la UE son la <b>bandera azul con doce estrellas</b> amarillas en círculo y el himno <i>Oda a la Alegría</i>, de Beethoven. El 9 de mayo se celebra el Día de Europa.</p>`,
+        svg("España en la Unión Europea: entrada en 1986, el euro en 2002 y hoy 27 países", `${tit("España en la Unión Europea")}<circle cx="44" cy="96" r="30" fill="#1d4ed8"/>${Array.from({ length: 12 }, (_, i) => { const a = i * Math.PI / 6; return `<circle cx="${(44 + 20 * Math.cos(a)).toFixed(1)}" cy="${(96 + 20 * Math.sin(a)).toFixed(1)}" r="2.6" fill="#facc15"/>`; }).join("")}${filas([["1986", "España entra", COL.azul], ["2002", "llega el euro", COL.sol], ["hoy", "27 países", COL.verde], ["9 de mayo", "Día de Europa", COL.morado]], 54, 30, { x: 96, wa: 64, wb: 80 })}`)],
+  ],
+  ejemplos: [
+    ["En el referéndum de 1978 votaron unos 18 millones de personas y casi el 88 % dijo sí. ¿Aproximadamente cuántas personas votaron sí?", ["El 88 % de 18 millones es 0,88 × 18.", "0,88 × 18 ≈ 15,8.", "Redondeamos."], "Unos 16 millones de personas"],
+    ["Una estudiante de Sevilla quiere estudiar un curso de la universidad en Italia. ¿Puede? ¿Cómo?", ["España e Italia pertenecen a la Unión Europea.", "Los ciudadanos de la UE pueden estudiar en cualquier país miembro.", "Existen becas Erasmus para ello."], "Sí, por ejemplo con una beca Erasmus"],
+  ],
+  errores: ["Pensar que todas las comunidades autónomas tienen una lengua cooficial: solo algunas la tienen."],
+  nivelesBase: "bbbmbmmmmm",
+  ejercicios: [
+    ["b", "¿Qué día se aprobó la Constitución en referéndum?", "El 6 de diciembre de 1978."],
+    ["b", "¿Cuántas comunidades y ciudades autónomas hay en España?", "17 comunidades y 2 ciudades autónomas."],
+    ["b", "¿Cuáles son las dos ciudades autónomas?", "Ceuta y Melilla."],
+    ["b", "¿En qué año entró España en la Unión Europea?", "En 1986."],
+    ["b", "¿Cuántos países forman hoy la Unión Europea?", "27."],
+    ["m", "¿Qué fue la Transición?", "El paso pacífico de la dictadura a la democracia en España, entre 1975 y 1978 aproximadamente."],
+    ["m", "¿Qué es un referéndum?", "Una votación en la que los ciudadanos responden sí o no a una pregunta."],
+    ["m", "¿Quiénes fueron los padres de la Constitución?", "Siete diputados de distintos partidos que redactaron el texto."],
+    ["m", "Escribe las lenguas cooficiales de España y dónde se hablan.", "Catalán (Cataluña e Illes Balears), valenciano (Comunitat Valenciana), gallego (Galicia) y euskera (País Vasco y parte de Navarra)."],
+    ["m", "¿De qué se encargan las comunidades autónomas? Pon dos ejemplos.", "De asuntos de su territorio, como la educación y la sanidad."],
+    ["m", "Escribe dos ventajas de pertenecer a la Unión Europea.", "Poder viajar, estudiar y trabajar en otros países y usar el euro (también ayudas para infraestructuras)."],
+    ["a", "¿Por qué se dice que la Constitución se logró gracias al consenso?", "Porque personas y partidos con ideas muy distintas dialogaron y cedieron para ponerse de acuerdo en las normas básicas."],
+    ["a", "¿Cuántos años pasaron desde la aprobación de la Constitución hasta la entrada en la UE? ¿Y hasta la llegada del euro?", "8 años hasta 1986; 24 años hasta 2002."],
+    ["a", "¿Por qué crees que nació la Unión Europea después de la Segunda Guerra Mundial?", "Para que los países europeos colaboraran y no volvieran a enfrentarse en una guerra."],
+    ["a", "Escribe el nombre de tu comunidad autónoma, su capital y dos provincias o islas que tenga (si las tiene).", "Respuesta abierta según la comunidad."],
+    ["a", "Imagina que eres uno de los padres de la Constitución. Escribe un derecho que te parezca imprescindible y explica por qué.", "Respuesta abierta. Por ejemplo: la igualdad ante la ley, porque nadie debe ser discriminado."],
+  ],
+  quiz: [
+    ["La Constitución se aprobó en referéndum en…", ["1978", "1975", "1986"], "El 6 de diciembre."],
+    ["Las primeras elecciones democráticas tras la dictadura fueron en…", ["1977", "1939", "2002"], "Se legalizaron los partidos."],
+    ["España tiene…", ["17 comunidades autónomas", "50 comunidades autónomas", "10 comunidades autónomas"], "Y 2 ciudades autónomas."],
+    ["España entró en la Unión Europea en…", ["1986", "1978", "2002"], "Junto a Portugal."],
+    ["La bandera de la Unión Europea tiene…", ["Doce estrellas amarillas", "Tres franjas rojas", "Un sol"], "Sobre fondo azul."],
+  ],
+  examen: [
+    ["El euro empezó a usarse en España en…", ["2002", "1986", "1992"], "Sustituyó a la peseta."],
+    ["El paso pacífico de la dictadura a la democracia se llama…", ["La Transición", "La Reconquista", "La Ilustración"], "Entre 1975 y 1978."],
+  ],
+  tarjetas: [
+    ["Transición", "1975 muere Franco · 1977 elecciones · 1978 Constitución."],
+    ["Referéndum", "Votación de sí o no; la Constitución obtuvo casi el 88 % de síes."],
+    ["Territorio", "17 comunidades, 2 ciudades autónomas, 50 provincias."],
+    ["Unión Europea", "27 países; España desde 1986; euro desde 2002."],
+  ],
+  glosario: [
+    ["Constitución", "Ley más importante de un país."],
+    ["Democracia", "Sistema en el que el pueblo elige a sus gobernantes."],
+    ["Dictadura", "Sistema en el que una persona o grupo concentra todo el poder."],
+    ["Transición", "Paso de la dictadura a la democracia en España."],
+    ["Referéndum", "Votación de sí o no sobre una pregunta."],
+    ["Poder legislativo", "Poder que hace las leyes: las Cortes Generales."],
+    ["Poder ejecutivo", "Poder que gobierna: el Gobierno."],
+    ["Poder judicial", "Poder que juzga: jueces y tribunales."],
+    ["Comunidad autónoma", "Territorio con parlamento y gobierno propios."],
+    ["Estatuto de Autonomía", "Norma básica de una comunidad autónoma."],
+    ["Lengua cooficial", "Lengua oficial junto al castellano en una comunidad."],
+    ["Unión Europea", "Organización de 27 países europeos que colaboran."],
+  ],
+  situacion: {
+    titulo: "La constitución de nuestra clase",
+    reto: "La clase redacta y aprueba en votación su propia «constitución» con derechos, deberes y forma de organizarse.",
+    pasos: ["Por grupos, proponed tres derechos y tres deberes para la clase, inspirándoos en la Constitución española.", "Debatid las propuestas en asamblea y buscad el consenso para redactar un texto común.", "Organizad un referéndum con papeletas y urna para aprobarla, y elegid a los representantes de clase.", "Exponed la constitución en el aula junto a una línea del tiempo de la Transición y un mapa de las comunidades autónomas."],
+    producto: "Una constitución de la clase aprobada en referéndum y un mural sobre la Constitución española.",
+    evaluacion: ["Explica qué es una constitución y su importancia.", "Participa en el debate respetando el turno y las opiniones ajenas.", "Conoce la organización territorial y las instituciones de España.", "Valora el consenso y la democracia."],
+  },
+});
