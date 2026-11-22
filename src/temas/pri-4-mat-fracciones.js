@@ -100,3 +100,93 @@ module.exports = P.tema({
   saberes: "Sentido numérico: la fracción como parte de la unidad y de una colección; lectura y escritura; comparación con igual numerador o denominador; fracciones equivalentes sencillas; fracción de un número; suma y resta con igual denominador",
   ideas: ["Tiras de fracciones de papel para comparar y descubrir equivalencias.", "Recetas de cocina con fracciones para calcular ingredientes.", "Juego de cartas emparejando fracciones con su dibujo."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+// Recta de 0 a 2 dividida en cuartos con marcas [cuartos, texto, color].
+const rectaFr = (marcas) => `<path d="M20 92 H 240" stroke="var(--ink)" stroke-width="2"/>${[...Array(9)].map((_, i) => `<path d="M${20 + i * 27.5} ${i % 4 ? 86 : 80} V ${i % 4 ? 98 : 104}" stroke="var(--ink)" stroke-width="${i % 4 ? 1.2 : 2}"/>`).join("")}${[0, 1, 2].map((n) => t(20 + n * 110, 124, String(n), { s: 14, d: true })).join("")}${marcas.map(([k, txt, c]) => `<circle cx="${20 + k * 27.5}" cy="92" r="6" fill="${c}"/>${t(20 + k * 27.5, 68, txt, { s: 13, d: true, c })}`).join("")}`;
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Situar fracciones en la recta numérica", "Resolver problemas con fracciones de una cantidad", "Escribir fracciones mayores que la unidad como números mixtos", "Relacionar fracciones sencillas con decimales y con la vida diaria"],
+  lectura: { titulo: "La pizza de los viernes", html: `<p>Los viernes, en casa de Martín, se cena pizza. Su padre siempre compra una familiar cortada en <b>8 trozos</b> iguales.</p><p>Este viernes, Martín tenía mucha hambre y se comió 3 trozos. Su hermana Sofía se comió 2. Su padre, 2 más.</p><p>—Queda un trozo —dijo Sofía—. ¿Para quién es?</p><p>—Para la abuela, que llega luego —dijo el padre.</p><p>Martín cogió una servilleta y empezó a dibujar un círculo partido en ocho.</p><p>—Yo me he comido <b>3/8</b> de la pizza, tú <b>2/8</b> y papá otros <b>2/8</b>. Entre todos, <b>7/8</b>. Y para la abuela, <b>1/8</b>.</p><p>—¿Y por qué tú te has comido más que yo? —protestó Sofía.</p><p>—Porque 3/8 es mayor que 2/8. Si el denominador es el mismo, gana el que tiene el numerador más grande.</p><p>—Pues la semana que viene —dijo Sofía— pedimos dos pizzas y me como <b>10/8</b>.</p><p>—¡Eso es más de una pizza entera! —rio el padre—. Una pizza y dos trozos de otra.</p><p>Martín sonrió y apuntó en la servilleta: 10/8 = 1 y 2/8. Las matemáticas, pensó, también saben a pizza.</p>` },
+  tras: {
+    "Representar fracciones": [
+      ["Fracciones en la recta numérica", `<p>Las fracciones también son números, y por eso tienen su lugar en la <b>recta numérica</b>.</p><p>Para situar <b>3/4</b>:</p><ol><li>Fíjate en el <b>denominador</b>: 4. Divide el trozo de recta entre 0 y 1 en <mark>4 partes iguales</mark>.</li><li>Fíjate en el <b>numerador</b>: 3. Cuenta 3 partes desde el 0.</li><li>Marca el punto: ahí está 3/4.</li></ol><p>Si sigues contando cuartos después del 1, llegas a fracciones mayores que la unidad: 5/4, 6/4, 7/4… y al llegar a <b>8/4</b> estás justo en el 2.</p><p>La recta nos ayuda a ver cosas importantes:</p><ul><li><b>1/2 y 2/4</b> caen en el mismo punto: son fracciones equivalentes.</li><li>4/4 cae exactamente en el <b>1</b>.</li><li>Cuanto más a la derecha, mayor es la fracción: 1/4 &lt; 2/4 &lt; 3/4.</li></ul><p>Una regla, una cinta métrica o una jarra con rayitas son rectas numéricas de la vida real. En la jarra, la marca de medio litro está justo en la mitad entre 0 y 1 litro.</p>`,
+        svg("Recta numérica de 0 a 2 dividida en cuartos con 3/4 y 5/4 marcados", rectaFr([[3, "3/4", cAZ], [5, "5/4", cRO]]) + t(130, 160, "cada rayita es 1/4", { s: 12, c: "var(--muted)" })), ["UiJZwbqT06U", "Ubicación de fracciones en la recta numérica", "Matemáticas profe Alex", 5251676]],
+    ],
+    "Fracción de un número": [
+      ["Problemas con fracciones", `<p>Las fracciones aparecen en muchos problemas. Lo importante es saber <b>qué es la unidad</b> (el total) y qué parte nos piden.</p><p><b>Problema 1.</b> <i>Un libro tiene 120 páginas. Lucía ha leído 2/3. ¿Cuántas páginas ha leído? ¿Cuántas le faltan?</i></p><ol><li>1/3 de 120 = 120 : 3 = 40 páginas.</li><li>2/3 de 120 = 40 × 2 = <b>80</b> páginas leídas.</li><li>Le faltan 120 − 80 = <b>40</b> páginas. También se puede pensar que le falta 1/3, que son 40 páginas.</li></ol><p><b>Problema 2.</b> <i>En una clase de 28 alumnos, 1/4 van al colegio en bici. ¿Cuántos no van en bici?</i></p><ol><li>1/4 de 28 = 28 : 4 = 7 van en bici.</li><li>No van en bici 28 − 7 = <b>21</b> alumnos, que son los 3/4.</li></ol><p><b>Problema 3.</b> <i>Pablo tenía 36 cromos. Regaló 1/3 a su hermano y 1/4 a su prima. ¿Cuántos cromos le quedan?</i></p><ol><li>1/3 de 36 = 36 : 3 = <b>12</b> cromos al hermano.</li><li>1/4 de 36 = 36 : 4 = <b>9</b> cromos a la prima.</li><li>Ha regalado 12 + 9 = 21. Le quedan 36 − 21 = <b>15</b> cromos.</li></ol><p>Fíjate en que no podemos sumar 1/3 y 1/4 directamente, porque tienen distinto denominador. Por eso calculamos primero cada parte por separado.</p><p>Un truco muy útil: la parte que falta para completar la unidad se calcula restando del total. Si ya se ha gastado 3/5, queda <mark>2/5</mark>, porque 3/5 + 2/5 = 5/5 = 1.</p><p>Haz siempre un <b>dibujo</b>: una barra dividida en partes iguales ayuda mucho a ver qué parte es cada cosa.</p>`,
+        svg("Barra de 120 páginas dividida en tercios: dos tercios leídos (80) y uno pendiente (40)", `${barra(20, 64, 220, 40, 3, 2, cVE)}${t(130, 46, "120 páginas", { s: 12, c: "var(--muted)" })}${t(93, 130, "2/3 = 80 leídas", { s: 12, c: cVE })}${t(203, 130, "1/3 = 40", { s: 12, c: cRO })}${t(130, 160, "120 : 3 = 40 → 40 × 2 = 80", { s: 12 })}`)],
+    ],
+    "Fracciones mayores que la unidad": [
+      ["Los números mixtos", `<p>Cuando una fracción es mayor que la unidad, podemos escribirla de otra manera: separando las <b>unidades enteras</b> de la parte que sobra. Es lo que se llama un <mark>número mixto</mark>.</p><p>Por ejemplo, <b>7/4</b>: con 4 cuartos formamos una unidad entera, y sobran 3 cuartos. Entonces 7/4 = <b>1 y 3/4</b> (se lee «uno y tres cuartos»).</p><p>Para pasar de fracción a número mixto, <b>dividimos</b> el numerador entre el denominador:</p><ul><li>El <b>cociente</b> son las unidades enteras.</li><li>El <b>resto</b> es el numerador de la fracción que sobra, con el mismo denominador.</li></ul><p>11/3 → 11 : 3 = 3, resto 2 → <b>3 y 2/3</b>.</p><p>Y al revés, para pasar de número mixto a fracción: multiplicamos las unidades por el denominador y sumamos el numerador. 2 y 1/5 → 2 × 5 + 1 = 11 → <b>11/5</b>.</p><p>Los números mixtos se usan mucho en la vida diaria: «hora y media», «dos kilos y cuarto», «tres vasos y medio de harina».</p>`,
+        svg("Siete cuartos como un círculo entero y tres cuartos de otro: 1 y 3/4", `${tarta(72, 80, 44, 4, 4, cAZ)}${tarta(188, 80, 44, 4, 3, cAZ)}${t(130, 86, "+", { s: 22, d: true })}${t(130, 156, "7/4 = 1 y 3/4", { s: 18, d: true, c: cRO })}`), ["iu1Cz5vI9F0", "Ubicación de números mixtos en la recta numérica", "Matemáticas profe Alex", 1162605]],
+    ],
+  },
+  final: [
+    ["Fracciones y decimales", `<p>Algunas fracciones se pueden escribir también como <b>números decimales</b>. Basta con <mark>dividir el numerador entre el denominador</mark>, o buscar una fracción equivalente con denominador 10 o 100.</p><ul><li><b>1/2</b> = 5/10 = <b>0,5</b> (la mitad).</li><li><b>1/4</b> = 25/100 = <b>0,25</b> (la cuarta parte).</li><li><b>3/4</b> = 75/100 = <b>0,75</b> (tres cuartos).</li><li><b>1/5</b> = 2/10 = <b>0,2</b>.</li><li><b>1/10</b> = <b>0,1</b> (una décima).</li></ul><p>Esto lo usamos sin darnos cuenta con el <b>dinero</b>: medio euro es 0,50 €; un cuarto de euro serían 0,25 €. Y con las <b>medidas</b>: medio litro es 0,5 L y un cuarto de kilo, 0,25 kg (250 gramos).</p><p>¿Cuándo usar cada forma? Las fracciones son muy cómodas para <b>repartir</b> («un tercio de la tarta»), y los decimales son más cómodos para <b>medir y comparar</b> («0,75 L»).</p><p>¿Y si la fracción no da un decimal sencillo? Por ejemplo, 1/3 = 1 : 3 = 0,333…, con treses que no se acaban nunca. En esos casos solemos dejar la fracción tal cual, porque es más exacta. Ya lo estudiarás en cursos siguientes.</p><p>Aprende de memoria las más usadas: medio (0,5), un cuarto (0,25) y tres cuartos (0,75). ¡Te ahorrarán muchas cuentas!</p>`,
+      L6.filas("Fracción y decimal", [["1/2", "0,5", cAZ], ["1/4", "0,25", cVE], ["3/4", "0,75", cNA], ["1/10", "0,1", cRO]])],
+    ["Fracciones en la vida diaria", `<p>Las fracciones están por todas partes, aunque no siempre las escribamos con números:</p><ul><li><b>En el reloj</b>: un <b>cuarto de hora</b> son 15 minutos (1/4 de 60); <b>media hora</b>, 30 minutos; y <b>tres cuartos de hora</b>, 45 minutos.</li><li><b>En la cocina</b>: las recetas piden «medio vaso de leche» o «un cuarto de kilo de azúcar».</li><li><b>En la música</b>: las figuras tienen nombres de fracciones. Una <b>blanca</b> dura la mitad que una redonda, y una <b>negra</b>, la cuarta parte.</li><li><b>En el deporte</b>: un partido de baloncesto se divide en cuatro <b>cuartos</b>; uno de fútbol, en dos <b>mitades</b> o partes.</li><li><b>En las tiendas</b>: «rebajas de la mitad de precio» o «llévate un tercio más gratis».</li><li><b>En el depósito</b> del coche, el indicador marca 1/4, 1/2, 3/4 o lleno.</li></ul><p>También en el lenguaje: decimos que alguien se ha comido «la mitad del bocadillo» o que hemos hecho «un tercio del camino».</p><p>Busca hoy tres fracciones a tu alrededor. ¡Seguro que las encuentras antes de la cena!</p>`,
+      H6.rueda("Fracciones", "VIDA DIARIA", [["reloj", cAZ], ["cocina", cVE], ["música", cNA], ["deporte", cRO]])],
+  ],
+  ejemplos: [
+    ["Escribe 13/4 como número mixto.", ["13 : 4 = 3, resto 1.", "3 unidades enteras y sobra 1/4."], "3 y 1/4."],
+    ["Una botella de 1 L está llena hasta los 3/4. ¿Cuántos mililitros tiene?", ["1 L = 1 000 ml.", "1/4 de 1 000 = 250; × 3."], "750 ml."],
+  ],
+  errores: ["Dividir la recta en partes según el numerador en lugar del denominador.", "Al pasar a número mixto, cambiar el denominador de la parte que sobra."],
+  ejercicios: [
+    ["b", "Escribe 5/3 como número mixto.", "1 y 2/3."],
+    ["b", "¿Cuántos minutos son tres cuartos de hora?", "45 minutos."],
+    ["b", "Escribe 1/2 y 1/4 como decimales.", "0,5 y 0,25."],
+    ["b", "¿En cuántas partes divides la recta entre 0 y 1 para situar 2/5?", "En 5 partes."],
+    ["b", "Escribe como fracción: 1 y 1/2.", "3/2."],
+    ["m", "Un libro de 90 páginas: he leído 2/3. ¿Cuántas me faltan?", "30 páginas."],
+    ["m", "Escribe 17/5 como número mixto.", "3 y 2/5."],
+    ["m", "Ordena: 3/4, 1/2, 5/4, 1.", "1/2, 3/4, 1, 5/4."],
+    ["m", "¿Cuántos gramos son 3/4 de kilo?", "750 g."],
+    ["m", "En una clase de 24, 3/8 juegan al baloncesto. ¿Cuántos no juegan?", "24 − 9 = 15."],
+    ["a", "Dibuja una recta de 0 a 2 y sitúa 1/3, 4/3 y 2.", "Divide cada unidad en 3 partes."],
+    ["a", "Una receta para 4 personas lleva 3/4 de kilo de harina. ¿Cuánta harina necesitas para 8?", "6/4 = 1 y 1/2 kg."],
+    ["a", "Busca en casa cinco objetos o situaciones con fracciones y explica cada una.", "Respuesta abierta."],
+    ["a", "Inventa un problema de pizza con números mixtos y resuélvelo.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["9/4 como número mixto es…", ["2 y 1/4", "9 y 1/4", "1 y 4/9"], "Mixtos."],
+    ["3/4 en decimal es…", ["0,75", "0,34", "3,4"], "Decimales."],
+    ["Un cuarto de hora son…", ["15 minutos", "25 minutos", "4 minutos"], "Vida diaria."],
+    ["En la recta, 4/4 está en…", ["el 1", "el 4", "el 0"], "Recta."],
+    ["Si he gastado 2/7, me quedan…", ["5/7", "2/7", "7/2"], "Problemas."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué fracción de pizza quedó para la abuela?", ["1/8", "3/8", "7/8"], "Lectura."],
+    ["2 y 3/5 como fracción es…", ["13/5", "6/5", "23/5"], "Mixtos."],
+  ],
+  tarjetas: [
+    ["Recta numérica", "Divide de 0 a 1 según el denominador; cuenta según el numerador."],
+    ["Problemas", "Fracción de un total y la parte que falta: 2/3 leídos, falta 1/3."],
+    ["Números mixtos", "Divide: el cociente son enteros y el resto, la fracción. 7/4 = 1 y 3/4."],
+    ["Decimales y vida", "1/2 = 0,5; 1/4 = 0,25; 3/4 = 0,75; cuarto de hora = 15 min."],
+  ],
+  glosario: [
+    ["Fracción", "Número que expresa partes iguales de una unidad."],
+    ["Numerador", "Número de arriba: partes que se toman."],
+    ["Denominador", "Número de abajo: partes iguales en que se divide la unidad."],
+    ["Recta numérica", "Línea donde se colocan los números en orden."],
+    ["Unidad", "El total que se divide en partes."],
+    ["Número mixto", "Número formado por enteros y una fracción."],
+    ["Fracción equivalente", "Fracción que representa la misma cantidad."],
+    ["Fracción impropia", "Fracción mayor que la unidad."],
+    ["Mitad", "Una de las dos partes iguales: 1/2."],
+    ["Cuarto", "Una de las cuatro partes iguales: 1/4."],
+    ["Tercio", "Una de las tres partes iguales: 1/3."],
+    ["Decimal", "Número con coma que expresa partes de la unidad."],
+  ],
+  situacion: {
+    titulo: "Recetario de la clase",
+    reto: "La clase crea un recetario real usando fracciones en las cantidades.",
+    pasos: ["Cada grupo trae una receta sencilla de casa.", "Escribid las cantidades con fracciones y números mixtos.", "Calculad las cantidades para el doble y la mitad de personas.", "Montad el recetario con dibujos de las fracciones."],
+    producto: "Un recetario ilustrado con cantidades en fracciones.",
+    evaluacion: ["Representa fracciones con dibujos y en la recta.", "Calcula fracciones de cantidades.", "Usa números mixtos.", "Relaciona fracciones y decimales."],
+  },
+});

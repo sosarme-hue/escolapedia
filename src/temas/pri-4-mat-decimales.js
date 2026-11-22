@@ -94,3 +94,93 @@ module.exports = P.tema({
   saberes: "Sentido numérico: números decimales hasta las centésimas, lectura, escritura y valor posicional; relación con fracciones decimales y con el sistema monetario; comparación, ordenación, suma y resta",
   ideas: ["Cuadrados de 100 casillas para representar centésimas.", "Tienda de clase con precios con céntimos y cálculo de vueltas.", "Ordenar resultados de saltos o carreras medidos con decimales."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+// Recta numérica de a a a+1 dividida en décimas, con puntos marcados [décima, texto, color].
+const rectaDec = (a, marcas) => `<path d="M20 90 H 240" stroke="var(--ink)" stroke-width="2"/>${[...Array(11)].map((_, i) => `<path d="M${20 + i * 22} ${i % 5 ? 84 : 78} V ${i % 5 ? 96 : 102}" stroke="var(--ink)" stroke-width="${i % 5 ? 1.2 : 2}"/>`).join("")}${t(20, 122, String(a), { s: 13, d: true })}${t(130, 122, `${a},5`, { s: 11, c: "var(--muted)" })}${t(240, 122, String(a + 1), { s: 13, d: true })}${marcas.map(([k, txt, c]) => `<circle cx="${20 + k * 22}" cy="90" r="6" fill="${c}"/>${t(20 + k * 22, 66, txt, { s: 13, d: true, c })}`).join("")}`;
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Situar números decimales en la recta numérica", "Aproximar decimales a la unidad más cercana", "Multiplicar y dividir decimales por 10 y por 100", "Usar decimales para medir longitudes, capacidades y tiempos"],
+  lectura: { titulo: "La carrera de las centésimas", html: `<p>En la jornada de atletismo del colegio, Nora y Pablo corrieron los 60 metros en la misma serie. Cruzaron la meta tan juntos que nadie supo quién había ganado.</p><p>—¡Empate! —gritó alguien.</p><p>Pero el profesor Julián tenía un cronómetro digital. Miró la pantalla y anotó los tiempos en la pizarra: Nora, <b>10,48</b> segundos; Pablo, <b>10,5</b> segundos.</p><p>—¡He ganado yo! —dijo Pablo—. 48 es menos que 5… no, espera, 48 es más que 5.</p><p>Todos se rieron. Nora cogió la tiza y escribió debajo: 10,<b>50</b>.</p><p>—Si le pones un cero a tu tiempo, vale lo mismo, pero se compara mejor. Fíjate: 48 centésimas es menos que 50 centésimas. He tardado menos, así que he ganado yo… ¡por dos centésimas!</p><p>Pablo se rascó la cabeza y sonrió.</p><p>—Dos centésimas es lo que tardas en parpadear.</p><p>—Menos todavía —dijo el profesor—. Un parpadeo dura unas diez centésimas. Por eso en las Olimpiadas se mide hasta la centésima de segundo: a veces es lo único que separa el oro de la plata.</p>` },
+  tras: {
+    "Comparar y ordenar decimales": [
+      ["Los decimales en la recta numérica", `<p>Igual que los números naturales, los decimales se pueden colocar en una <b>recta numérica</b>. Así vemos de un vistazo cuál es mayor: el que está más a la <mark>derecha</mark>.</p><p>Para situar un número como 2,3:</p><ol><li>Busca entre qué dos números naturales está: 2,3 está entre <b>2 y 3</b>.</li><li>Divide ese trozo de recta en <b>10 partes iguales</b>: cada rayita es una décima.</li><li>Cuenta desde el 2 tantas rayitas como décimas tiene el número: 3 rayitas.</li></ol><p>La rayita del medio, la quinta, corresponde a <b>2,5</b>, que es la mitad entre 2 y 3. Te sirve de referencia: 2,3 está antes de la mitad y 2,7 está después.</p><p>Con la recta también puedes ver que entre dos números naturales hay <b>muchos números decimales</b>. Entre 2 y 3 están 2,1; 2,2; 2,3… y entre 2,3 y 2,4 caben aún las centésimas: 2,31; 2,32; 2,33… ¡Siempre podemos encontrar un número entre otros dos!</p><p>La recta numérica la usamos sin darnos cuenta: en una regla, en un termómetro o en la barra que indica cuánto falta para que acabe un vídeo.</p>`,
+        svg("Recta numérica entre 2 y 3 dividida en décimas con 2,3 y 2,7 marcados", rectaDec(2, [[3, "2,3", cAZ], [7, "2,7", cRO]]) + t(130, 160, "más a la derecha, mayor", { s: 12, c: "var(--muted)" })), ["t5Bu_YUCrPk", "Cómo ubicar en la recta numérica números decimales", "Matemáticas profe Alex", 1909418]],
+    ],
+    "Los decimales y el dinero": [
+      ["Aproximar decimales", `<p>Muchas veces no necesitamos el número exacto, sino uno <b>aproximado</b> que sea fácil de manejar. Si una camiseta cuesta 7,95 €, decimos que cuesta «unos 8 euros».</p><p>Para <mark>aproximar un decimal a la unidad</mark> (redondear), mira la cifra de las <b>décimas</b>:</p><ul><li>Si es <b>0, 1, 2, 3 o 4</b>, te quedas con la parte entera: 3,4 → <b>3</b>; 12,25 → <b>12</b>.</li><li>Si es <b>5, 6, 7, 8 o 9</b>, sumas uno a la parte entera: 3,5 → <b>4</b>; 7,8 → <b>8</b>.</li></ul><p>En la recta numérica se ve muy claro: aproximar es buscar el número natural que está <b>más cerca</b>. 7,8 está muy cerca de 8 y lejos de 7.</p><p>Aproximar es muy útil para <b>estimar</b> antes de hacer una cuenta y comprobar que el resultado tiene sentido. Por ejemplo, si compras un libro de 9,90 € y un cuaderno de 3,15 €, puedes pensar: 10 + 3 = 13. Pagarás unos 13 euros. Si al sumar te sale 130 o 1,30, sabrás que algo ha ido mal.</p><p>En el supermercado, sumar aproximadamente lo que llevas en el carro te ayuda a saber si te llegará el dinero.</p>`,
+        L6.filas("Aproximar a la unidad", [["3,4", "→ 3", cAZ], ["3,5", "→ 4", cVE], ["7,8", "→ 8", cNA], ["12,25", "→ 12", cRO]])],
+    ],
+    "Sumar y restar decimales": [
+      ["Multiplicar y dividir por 10 y por 100", `<p>Hay un truco muy rápido para multiplicar o dividir un decimal por 10 o por 100: <b>mover la coma</b>.</p><p><b>Para multiplicar</b>, la coma se mueve a la <mark>derecha</mark>, tantos lugares como ceros tenga el número:</p><ul><li>3,45 × 10 = <b>34,5</b> (la coma salta un lugar).</li><li>3,45 × 100 = <b>345</b> (salta dos lugares).</li><li>2,7 × 100 = 2,70 × 100 = <b>270</b> (si faltan cifras, añadimos ceros).</li></ul><p><b>Para dividir</b>, la coma se mueve a la <mark>izquierda</mark>:</p><ul><li>56,8 : 10 = <b>5,68</b></li><li>56,8 : 100 = <b>0,568</b></li><li>7 : 10 = <b>0,7</b> (un número natural tiene la coma escondida al final: 7 = 7,0).</li></ul><p>¿Cómo recordar hacia dónde va? Al multiplicar por 10 el número se hace <b>más grande</b>, así que las cifras «suben» de valor: las décimas pasan a ser unidades. Al dividir, el número se hace <b>más pequeño</b>.</p><p>Ejemplo: un paquete de chicles cuesta 0,85 €. Diez paquetes cuestan 0,85 × 10 = <b>8,50 €</b>. Y cien paquetes, 85 €.</p>`,
+        H6.dos("Mover la coma", ["× 10, × 100", ["a la derecha", "3,45 → 34,5", "más grande"], cVE], [": 10, : 100", ["a la izquierda", "56,8 → 5,68", "más pequeño"], cRO])],
+    ],
+  },
+  final: [
+    ["Historia de la coma decimal", `<p>Los números decimales no siempre se escribieron como ahora. Durante siglos, para expresar partes de la unidad se usaban <b>fracciones</b>, que eran más difíciles de sumar y comparar.</p><p>En <b>1585</b>, un ingeniero flamenco llamado <b>Simon Stevin</b> publicó un pequeño libro en el que explicaba cómo escribir y calcular con décimas, centésimas y milésimas. Decía que así los comerciantes, los agrimensores y los soldados harían sus cuentas mucho más rápido. Su forma de escribirlos era complicada: ponía pequeños números dentro de círculos para indicar cada orden.</p><p>Poco después, otros matemáticos, como el escocés <b>John Napier</b>, empezaron a separar la parte entera de la decimal con un simple <b>punto</b> o una <b>coma</b>, y esa idea se extendió por todo el mundo.</p><p>Hoy no todos los países lo escriben igual:</p><ul><li>En España, en casi toda Europa y en buena parte de Sudamérica usamos la <mark>coma</mark>: 3,75.</li><li>En Estados Unidos, el Reino Unido o México se usa el <b>punto</b>: 3.75.</li></ul><p>Por eso en muchas calculadoras y ordenadores verás un punto donde nosotros escribimos una coma. ¡No te confundas! Significan lo mismo.</p><p>Y otra curiosidad: con la llegada del <b>sistema métrico decimal</b>, después de la Revolución francesa, metros, litros y gramos se organizaron de diez en diez, y los decimales se hicieron imprescindibles.</p>`,
+      L6.filas("Una historia", [["antes", "fracciones", cNA], ["1585", "Simon Stevin", cAZ], ["España", "3,75", cVE], ["EE. UU.", "3.75", cRO]])],
+    ["Medir con decimales", `<p>Los decimales son los mejores amigos de las <b>medidas</b>, porque casi nada mide un número exacto de unidades.</p><ul><li><b>Longitud</b>: un metro tiene 100 centímetros, así que cada centímetro es una centésima de metro. Si mides 1,35 m, mides <b>1 metro y 35 centímetros</b>. Una mesa de 0,75 m mide 75 cm.</li><li><b>Capacidad</b>: una botella de 1,5 L contiene <b>un litro y medio</b>. Un vaso de 0,25 L es un cuarto de litro.</li><li><b>Temperatura</b>: el termómetro marca décimas. Una temperatura normal del cuerpo está entre 36 y 37 °C; si marca 38,2 °C, tienes fiebre.</li><li><b>Tiempo</b>: en las carreras se mide hasta la centésima de segundo. El récord del mundo de los 100 metros es de 9,58 segundos.</li></ul><p>Para pasar de metros a centímetros, multiplica por 100 (mueve la coma dos lugares a la derecha): 1,35 m × 100 = 135 cm. Y para pasar de centímetros a metros, divide entre 100: 82 cm = 0,82 m.</p><p>Cuando midas algo en clase, prueba a escribirlo de las dos formas: «1 m y 20 cm» y «1,20 m». Verás que es lo mismo dicho de distinta manera.</p>`,
+      L6.filas("Medidas", [["1,35 m", "1 m 35 cm", cAZ], ["1,5 L", "litro y medio", cVE], ["38,2 °C", "fiebre", cRO], ["9,58 s", "récord 100 m", cNA]])],
+  ],
+  ejemplos: [
+    ["Aproxima a la unidad el precio 14,62 € y el precio 8,39 €.", ["En 14,62 las décimas son 6: subo.", "En 8,39 las décimas son 3: me quedo con 8."], "15 € y 8 €."],
+    ["Una caja de lápices cuesta 1,25 €. ¿Cuánto cuestan 10 cajas? ¿Y 100?", ["Multiplico por 10: la coma un lugar a la derecha.", "Multiplico por 100: dos lugares."], "12,50 € y 125 €."],
+  ],
+  errores: ["Pensar que 3,15 es mayor que 3,5 porque 15 es mayor que 5.", "Mover la coma hacia la izquierda al multiplicar por 10."],
+  ejercicios: [
+    ["b", "Aproxima a la unidad: 4,2; 6,7; 9,5.", "4; 7; 10."],
+    ["b", "Calcula 2,4 × 10.", "24."],
+    ["b", "Calcula 35 : 10.", "3,5."],
+    ["b", "¿Entre qué dos números naturales está 5,8?", "Entre 5 y 6."],
+    ["b", "Escribe en metros: 1 m y 45 cm.", "1,45 m."],
+    ["m", "Calcula 0,75 × 100 y 48 : 100.", "75 y 0,48."],
+    ["m", "Escribe un número decimal entre 3,4 y 3,5.", "Por ejemplo, 3,45."],
+    ["m", "Estima 4,90 + 2,15 + 7,80 aproximando a la unidad.", "5 + 2 + 8 = unos 15 €."],
+    ["m", "Pasa a centímetros: 2,06 m.", "206 cm."],
+    ["m", "¿Qué número marca la séptima rayita entre 1 y 2 si cada rayita es una décima?", "1,7."],
+    ["a", "Un litro de zumo cuesta 1,85 €. ¿Cuánto cuestan 10 litros? ¿Y cuánto cuesta un vaso de 0,1 L?", "18,50 €; unos 0,19 € (0,185 €)."],
+    ["a", "Mide la altura de tres compañeros y escríbela en metros con decimales; ordénalas.", "Respuesta abierta."],
+    ["a", "Busca en un folleto cinco precios, aproxímalos y estima el total.", "Respuesta abierta."],
+    ["a", "Explica por qué 7 : 100 = 0,07 usando una tabla de valor posicional.", "Las 7 unidades pasan a ser 7 centésimas."],
+  ],
+  quiz: [
+    ["7,6 aproximado a la unidad es…", ["8", "7", "76"], "Aproximar."],
+    ["4,5 × 10 =", ["45", "0,45", "4,50"], "Mover la coma."],
+    ["En la recta numérica, el mayor está…", ["más a la derecha", "más a la izquierda", "en el centro"], "Recta."],
+    ["1,20 m son…", ["120 cm", "12 cm", "1 200 cm"], "Medidas."],
+    ["Simon Stevin explicó los decimales en…", ["1585", "1985", "785"], "Historia."],
+  ],
+  examen: [
+    ["En la lectura, ¿quién ganó la carrera?", ["Nora, por dos centésimas", "Pablo", "hubo empate"], "Lectura."],
+    ["62 : 100 =", ["0,62", "6,2", "6 200"], "Dividir por 100."],
+  ],
+  tarjetas: [
+    ["Recta numérica", "Entre 2 y 3, diez décimas; 2,5 en el medio; a la derecha, mayor."],
+    ["Aproximar", "Mira las décimas: de 0 a 4 te quedas; de 5 a 9 subes."],
+    ["Mover la coma", "× 10 y × 100 a la derecha; : 10 y : 100 a la izquierda."],
+    ["Medir", "1,35 m = 1 m 35 cm; 1,5 L = litro y medio; coma o punto."],
+  ],
+  glosario: [
+    ["Recta numérica", "Línea donde los números se colocan en orden."],
+    ["Décima", "Cada una de las 10 partes iguales de la unidad."],
+    ["Centésima", "Cada una de las 100 partes iguales de la unidad."],
+    ["Aproximar", "Cambiar un número por otro cercano más sencillo."],
+    ["Redondear", "Aproximar al número natural más cercano."],
+    ["Estimar", "Calcular de forma aproximada."],
+    ["Coma decimal", "Signo que separa la parte entera de la decimal."],
+    ["Punto decimal", "Signo que usan otros países en lugar de la coma."],
+    ["Valor posicional", "Valor de una cifra según el lugar que ocupa."],
+    ["Sistema métrico decimal", "Medidas organizadas de diez en diez."],
+    ["Cronómetro", "Aparato que mide el tiempo con precisión."],
+    ["Récord", "La mejor marca conseguida en una prueba."],
+  ],
+  situacion: {
+    titulo: "Olimpiada decimal",
+    reto: "La clase organiza pruebas deportivas y anota los resultados con decimales.",
+    pasos: ["Haced tres pruebas: salto de longitud, lanzamiento y carrera corta.", "Medid los saltos y lanzamientos en metros y centímetros, y los tiempos con un cronómetro.", "Escribid los resultados como decimales y ordenadlos en una tabla.", "Aproximad las marcas y comparad la media de la clase con algún récord."],
+    producto: "Una tabla de clasificaciones con los resultados ordenados.",
+    evaluacion: ["Escribe medidas con decimales.", "Compara y ordena decimales.", "Aproxima a la unidad.", "Trabaja en equipo con juego limpio."],
+  },
+});

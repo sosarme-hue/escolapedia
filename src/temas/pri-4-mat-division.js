@@ -94,3 +94,91 @@ module.exports = P.tema({
   saberes: "Sentido de las operaciones: la división como reparto y agrupamiento, términos, división exacta y entera, algoritmo por una cifra e iniciación por dos cifras, prueba de la división, interpretación del resto y problemas",
   ideas: ["Repartos manipulativos con fichas antes del algoritmo escrito.", "Problemas en los que el resto obliga a redondear hacia arriba o hacia abajo.", "Pareja que divide y pareja que comprueba con la prueba de la división."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Resolver divisiones con ceros en el cociente", "Resolver problemas de dos pasos con la división", "Calcular la media de varios datos", "Usar la división para pasar de días a semanas y de minutos a horas"],
+  lectura: { titulo: "El reparto de la abuela Rosa", html: `<p>Cada verano, la abuela Rosa recogía los higos de la higuera del pueblo y los repartía entre sus nietos. Ese año había recogido <b>87 higos</b> y tenía <b>4 nietos</b>: Álex, Carmen, Leo y la pequeña Inés.</p><p>—A ver, ¿quién me ayuda a repartirlos? —preguntó.</p><p>Carmen cogió un papel y escribió: 87 : 4.</p><p>—Ocho entre cuatro, dos. Siete entre cuatro, uno, y sobran tres. ¡21 higos para cada uno y sobran 3!</p><p>—¿Y qué hacemos con los 3 que sobran? —dijo Leo—. No se pueden repartir entre cuatro sin partirlos.</p><p>—Podemos partirlos por la mitad… —propuso Álex.</p><p>—O hacer mermelada —dijo la abuela guiñando un ojo.</p><p>Al final decidieron que los tres higos sobrantes serían para la abuela, que era quien había subido a la escalera.</p><p>Esa tarde, mientras comían higos a la sombra, Inés, que solo tenía seis años, preguntó:</p><p>—Abuela, ¿y si el año que viene somos cinco nietos?</p><p>—Pues entonces —rio la abuela— tendré que recoger más higos, o aprenderéis a dividir entre cinco.</p>` },
+  tras: {
+    "Dividir por una cifra": [
+      ["Ceros en el cociente", `<p>A veces, al bajar una cifra, el número que formamos es <b>más pequeño que el divisor</b>. Entonces no cabe ninguna vez, y hay que escribir un <mark>0 en el cociente</mark> antes de bajar la siguiente cifra. ¡Es el error más frecuente olvidarlo!</p><p>Veamos <b>624 : 3</b>:</p><ol><li>6 : 3 = 2. Escribo 2 en el cociente. 3 × 2 = 6, resto 0.</li><li>Bajo el 2. ¿Cabe el 3 en el 2? <b>No</b>. Escribo <b>0</b> en el cociente.</li><li>Bajo el 4 junto al 2 y formo 24. 24 : 3 = 8. Escribo 8. 3 × 8 = 24, resto 0.</li></ol><p>El cociente es <b>208</b>, no 28. Si te olvidas del cero, el resultado es diez veces más pequeño de lo que debería.</p><p>Para no equivocarte:</p><ul><li>Cada vez que <b>bajas una cifra</b>, tienes que escribir una cifra en el cociente, aunque sea un 0.</li><li><b>Estima</b> antes de dividir: 624 : 3 es aproximadamente 600 : 3 = 200. Si te sale 28, sabes que algo falla.</li><li>Haz la <b>prueba</b>: 3 × 208 = 624. ¡Correcto!</li></ul><p>Otro ejemplo: 1 535 : 5 = <b>307</b>. Al bajar el 3, como 3 : 5 no cabe, escribimos 0 y bajamos el 5: 35 : 5 = 7.</p>`,
+        svg("División 624 entre 3 con cociente 208: el cero aparece al bajar el 2", `${t(96, 60, "624", { s: 22, d: true, a: "end" })}<path d="M104 38 V 68 H 180" fill="none" stroke="var(--ink)" stroke-width="2.4"/>${t(114, 60, "3", { s: 22, d: true, a: "start", c: cAZ })}${t(120, 98, "2", { s: 22, d: true, c: cVE })}${t(140, 98, "0", { s: 22, d: true, c: cRO })}${t(160, 98, "8", { s: 22, d: true, c: cVE })}<circle cx="140" cy="91" r="12" fill="none" stroke="${cRO}" stroke-width="2"/>${t(130, 140, "2 : 3 no cabe → escribo 0", { s: 12, c: cRO })}${t(130, 162, "prueba: 3 × 208 = 624", { s: 12, c: "var(--muted)" })}`), ["Jrrl_dz7r28", "Divisiones con cero en el cociente", "academia JAF", 839509]],
+    ],
+    "Problemas de dividir": [
+      ["Problemas de dos pasos", `<p>Muchos problemas de la vida real necesitan <b>dos operaciones</b>. La clave es leer con calma y preguntarse: <mark>¿qué necesito saber primero?</mark></p><p><b>Problema 1.</b> <i>Una clase compra 6 cajas de 24 rotuladores y los reparte entre 18 alumnos. ¿Cuántos rotuladores recibe cada uno?</i></p><ol><li>Primero, ¿cuántos rotuladores hay en total? 6 × 24 = <b>144</b>.</li><li>Después, los reparto: 144 : 18 = <b>8</b> rotuladores cada uno.</li></ol><p><b>Problema 2.</b> <i>Marta tiene 50 € y compra un libro de 14 €. Con lo que le queda quiere comprar entradas de cine de 6 € cada una. ¿Cuántas puede comprar?</i></p><ol><li>Primero, ¿cuánto dinero le queda? 50 − 14 = <b>36 €</b>.</li><li>Después, ¿cuántas entradas caben? 36 : 6 = <b>6</b> entradas.</li></ol><p>Pasos para resolver cualquier problema:</p><ol><li><b>Lee</b> el problema dos veces y subraya los datos.</li><li><b>Piensa</b> qué te preguntan y qué te falta saber.</li><li><b>Calcula</b> paso a paso, escribiendo qué significa cada resultado.</li><li><b>Comprueba</b> si la respuesta tiene sentido y escríbela con una frase completa.</li></ol><p>Un consejo: escribe al lado de cada operación una palabra que diga qué has calculado («total», «queda», «cada uno»). Así no te perderás.</p>`,
+        H6.flujo("Resolver", ["leer|datos", "pensar|qué falta", "calcular|paso a paso", "comprobar|y responder"], cAZ)],
+    ],
+    "Cálculo mental y estimación": [
+      ["La media: repartir por igual", `<p>Imagina que tres amigos han recogido castañas: Ana, 12; Bruno, 7; y Celia, 11. Si las juntan todas y las reparten <b>a partes iguales</b>, ¿cuántas tendrá cada uno?</p><ol><li><b>Suma</b> todos los datos: 12 + 7 + 11 = 30 castañas.</li><li><b>Divide</b> entre el número de datos: 30 : 3 = <b>10</b>.</li></ol><p>Ese número, 10, se llama la <mark>media</mark>. Es el valor que tendría cada uno si todos tuvieran lo mismo.</p><p>La media se usa muchísimo:</p><ul><li>La <b>nota media</b>: si sacas un 6, un 8 y un 7, tu media es (6 + 8 + 7) : 3 = 21 : 3 = <b>7</b>.</li><li>La <b>temperatura media</b> de una semana.</li><li>Los <b>puntos por partido</b> de un jugador de baloncesto: si mete 60 puntos en 5 partidos, su media es 60 : 5 = <b>12</b> puntos por partido.</li></ul><p>Fíjate en que la media no tiene por qué coincidir con ninguno de los datos, y siempre está entre el dato más pequeño y el más grande. Si te sale una media mayor que todos los datos, ¡revisa la cuenta!</p>`,
+        L6.filas("Calcular la media", [["datos", "12, 7, 11", cAZ], ["sumar", "30", cVE], ["dividir", "30 : 3", cNA], ["media", "10", cRO]])],
+    ],
+  },
+  final: [
+    ["La división en la historia", `<p>La división es una de las operaciones más antiguas, porque siempre ha hecho falta <b>repartir</b>: la cosecha, las tierras o el pan.</p><ul><li>Los <b>antiguos egipcios</b>, hace más de 3 500 años, dividían usando <b>dobles</b>. Para calcular 91 : 7, iban doblando el 7 (7, 14, 28, 56) y buscaban qué dobles sumaban 91: 7 + 28 + 56 = 91, que corresponde a 1 + 4 + 8 = <b>13</b>. Así lo cuenta un antiguo papiro de problemas matemáticos.</li><li>Los <b>romanos</b> lo tenían difícil con sus números (XCI : VII…) y usaban el <b>ábaco</b>, un tablero con piedrecitas llamadas <i>calculi</i>. De ahí viene la palabra «cálculo».</li><li>En la Edad Media se usaba un método llamado de la <b>galera</b>, porque al terminar la cuenta los números tachados parecían la forma de un barco.</li></ul><p>Los signos de dividir también tienen historia. El signo <b>÷</b> lo popularizó el suizo Johann Rahn en 1659, y todavía se ve en las calculadoras. Los <b>dos puntos</b> ( : ), que usamos en España, se atribuyen al alemán Gottfried Leibniz. Hoy, en los ordenadores, también se usa la barra <b>/</b>.</p><p>El método que aprendes hoy, cifra a cifra, se extendió por Europa hace unos 500 años, cuando se difundieron los números que usamos ahora.</p>`,
+      H6.rueda("Signos", "DIVIDIR", [[":", cAZ], ["÷", cVE], ["/", cNA], ["caja", cRO]])],
+    ["Dividir para medir el tiempo", `<p>Para pasar de una unidad de tiempo pequeña a otra más grande, <b>dividimos</b>. Y aquí el resto es muy importante, porque nos dice lo que sobra.</p><ul><li><b>De días a semanas</b>: una semana tiene 7 días. Un año de 365 días tiene 365 : 7 = <b>52 semanas</b> y sobra <b>1 día</b>. Por eso, si tu cumpleaños este año cae en martes, el año que viene caerá en miércoles (salvo si hay un año bisiesto por medio).</li><li><b>De minutos a horas</b>: una hora tiene 60 minutos. Una película de 130 minutos dura 130 : 60 = <b>2 horas</b> y sobran <b>10 minutos</b>.</li><li><b>De meses a años</b>: 30 meses son 30 : 12 = <b>2 años</b> y <b>6 meses</b>.</li><li><b>De segundos a minutos</b>: 200 segundos son 3 minutos y 20 segundos.</li></ul><p>Fíjate en que aquí el resto no se tira ni se convierte en «uno más»: se queda en la unidad pequeña. El resultado se escribe con las dos unidades: <mark>2 h 10 min</mark>.</p><p>Y al revés, para pasar de horas a minutos, multiplicamos: 3 h = 3 × 60 = 180 min.</p>`,
+      L6.filas("Tiempo", [["365 días", "52 sem. y 1 día", cAZ], ["130 min", "2 h y 10 min", cVE], ["30 meses", "2 años y 6 m", cNA], ["200 s", "3 min y 20 s", cRO]])],
+  ],
+  ejemplos: [
+    ["Calcula 8 136 : 4.", ["8 : 4 = 2; 1 : 4 no cabe, escribo 0.", "13 : 4 = 3, resto 1; 16 : 4 = 4."], "2 034."],
+    ["Un equipo marca 3, 5, 0 y 4 goles en cuatro partidos. ¿Cuál es su media de goles?", ["Sumo: 3 + 5 + 0 + 4 = 12.", "Divido entre 4."], "3 goles por partido."],
+  ],
+  errores: ["Olvidar el cero en el cociente cuando una cifra bajada no llega al divisor.", "Al calcular la media, dividir entre un número distinto del número de datos."],
+  ejercicios: [
+    ["b", "Calcula 618 : 6.", "103."],
+    ["b", "Calcula 840 : 4.", "210."],
+    ["b", "Calcula la media de 4, 6 y 8.", "6."],
+    ["b", "¿Cuántas semanas son 28 días?", "4 semanas."],
+    ["b", "¿Qué signo de dividir se usa en España?", "Los dos puntos ( : )."],
+    ["m", "Calcula 2 427 : 3 y haz la prueba.", "809; 3 × 809 = 2 427."],
+    ["m", "¿Cuántas horas y minutos son 150 minutos?", "2 h y 30 min."],
+    ["m", "Compro 3 paquetes de 16 cromos y los reparto entre 6 amigos. ¿Cuántos recibe cada uno?", "48 : 6 = 8 cromos."],
+    ["m", "Las notas de Lucas son 5, 9, 7 y 7. ¿Cuál es su media?", "28 : 4 = 7."],
+    ["m", "¿Cuántos años y meses son 40 meses?", "3 años y 4 meses."],
+    ["a", "Tengo 100 € y gasto 28 €. Con lo que queda compro libros de 9 €. ¿Cuántos compro y cuánto sobra?", "72 : 9 = 8 libros; sobran 0 €."],
+    ["a", "Divide 91 entre 7 con el método egipcio de los dobles.", "7 + 28 + 56 = 91 → 1 + 4 + 8 = 13."],
+    ["a", "Anota la temperatura máxima durante 5 días y calcula la media.", "Respuesta abierta."],
+    ["a", "Si hoy es lunes, ¿qué día será dentro de 100 días?", "100 : 7 = 14, resto 2: miércoles."],
+  ],
+  quiz: [
+    ["515 : 5 =", ["103", "13", "130"], "Ceros en el cociente."],
+    ["La media de 2, 4 y 9 es…", ["5", "15", "3"], "Media."],
+    ["365 días son 52 semanas y…", ["1 día", "5 días", "0 días"], "Tiempo."],
+    ["El signo ÷ lo popularizó…", ["Johann Rahn", "Simon Stevin", "Napoleón"], "Historia."],
+    ["120 minutos son…", ["2 horas", "1 hora y 20 minutos", "12 horas"], "Tiempo."],
+  ],
+  examen: [
+    ["En la lectura, ¿cuántos higos recibió cada nieto?", ["21", "20", "22"], "Lectura."],
+    ["En un problema de dos pasos, primero hay que…", ["averiguar el dato que falta", "dividir siempre", "escribir la respuesta"], "Problemas."],
+  ],
+  tarjetas: [
+    ["Ceros en el cociente", "Si la cifra bajada no llega al divisor, escribe 0: 624 : 3 = 208."],
+    ["Dos pasos", "Leer, pensar qué falta, calcular paso a paso, comprobar."],
+    ["Media", "Sumar todos los datos y dividir entre cuántos son."],
+    ["Tiempo", "365 : 7 = 52 y resto 1; 130 min = 2 h 10 min."],
+  ],
+  glosario: [
+    ["Cociente", "Resultado de una división."],
+    ["Resto", "Lo que sobra en una división."],
+    ["Estimar", "Calcular de forma aproximada."],
+    ["Media", "Valor que se obtiene al repartir por igual el total entre los datos."],
+    ["Dato", "Cada número que se conoce en un problema."],
+    ["Problema de dos pasos", "Problema que se resuelve con dos operaciones."],
+    ["Ábaco", "Tablero con bolas o piedras para calcular."],
+    ["Papiro", "Material de escritura de los antiguos egipcios."],
+    ["Doble", "Resultado de multiplicar por 2."],
+    ["Año bisiesto", "Año de 366 días."],
+    ["Minuto", "Cada una de las 60 partes de una hora."],
+    ["Prueba", "Comprobación de que una operación está bien."],
+  ],
+  situacion: {
+    titulo: "Organizamos la excursión",
+    reto: "La clase planifica una excursión haciendo todos los repartos con divisiones.",
+    pasos: ["Calculad cuántos autobuses, mesas o grupos hacen falta según las plazas.", "Repartid el presupuesto y el material entre los grupos.", "Calculad cuánto dura cada actividad en horas y minutos.", "Presentad un plan con todas las operaciones comprobadas."],
+    producto: "Un plan de excursión con horario y repartos.",
+    evaluacion: ["Divide correctamente con ceros en el cociente.", "Interpreta el resto según el problema.", "Resuelve problemas de dos pasos.", "Explica y comprueba los resultados."],
+  },
+});
