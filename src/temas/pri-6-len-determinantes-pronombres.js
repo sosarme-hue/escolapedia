@@ -88,3 +88,91 @@ module.exports = P.tema({
   saberes: "Reflexión sobre la lengua: los determinantes y sus clases; los pronombres personales; distinción entre determinante y pronombre; la tilde diacrítica",
   ideas: ["Tarjetas de colores: azul para determinantes y roja para pronombres; los alumnos clasifican palabras de un texto.", "Reescribir un texto lleno de repeticiones usando pronombres.", "Dictado de parejas con tilde diacrítica y autocorrección."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Usar correctamente las contracciones al y del y el artículo lo", "Conocer los numerales multiplicativos y fraccionarios", "Escribir con tilde los verbos con pronombres pegados", "Usar bien los pronombres relativos y evitar el leísmo, el laísmo y el loísmo"],
+  lectura: { titulo: "El robot que aprendió a decir yo", html: `<p>En el laboratorio del colegio había un pequeño robot llamado ROB-7. Los alumnos de sexto lo habían programado para hablar, pero tenía una manía curiosa: siempre hablaba de sí mismo por su nombre.</p><p>—ROB-7 tiene hambre de batería. ROB-7 quiere jugar. A ROB-7 le gusta Lucía —decía, con su voz metálica.</p><p>A los niños les hacía gracia, pero un día Lucía pensó que había que enseñarle a usar los <b>pronombres</b>.</p><p>—Mira, ROB-7 —le explicó—. Cuando hablas de ti, dices <b>yo</b>. Cuando me hablas a mí, dices <b>tú</b>. Y cuando hablas de Marcos, que no está aquí, dices <b>él</b>.</p><p>El robot se quedó pensando un rato largo. Sus luces parpadearon en azul, en verde, en rojo.</p><p>—Yo… —dijo por fin—. Yo tengo hambre de batería. Tú eres Lucía. Él es Marcos. Nosotros somos amigos.</p><p>Toda la clase aplaudió. Aquel día, ROB-7 no solo había aprendido unas palabras nuevas: por primera vez había dicho <b>yo</b>, y eso, pensó Lucía, era casi como empezar a tener un poco de alma.</p>` },
+  tras: {
+    "Los artículos": [
+      ["Al, del y el artículo lo", `<p>Cuando la preposición <b>a</b> o <b>de</b> va justo delante del artículo <b>el</b>, se unen en una sola palabra. Son las <b>contracciones</b>:</p><ul><li><b>a + el = al</b>: <i>Vamos al parque.</i></li><li><b>de + el = del</b>: <i>Vengo del colegio.</i></li></ul><p>No hay contracción con <i>la</i>, <i>los</i> ni <i>las</i> (<i>a la playa, de los vecinos</i>), ni con el pronombre <i>él</i> (<i>Es el libro de él</i>). Y cuando el artículo forma parte de un nombre propio, se recomienda no contraer por escrito: <i>Viajamos a El Cairo; Vengo de El Escorial</i>.</p><p>El castellano tiene, además, un artículo especial: <b>lo</b>, el artículo <b>neutro</b>. No acompaña a sustantivos, sino a adjetivos o a otras expresiones, y los convierte en una idea general: <i>lo bueno, lo difícil, lo mejor del viaje, lo de ayer</i>. No tiene femenino ni plural.</p><p>Y una curiosidad: delante de sustantivos femeninos que empiezan por <b>a</b> o <b>ha</b> tónica se usa <b>el</b> y <b>un</b> para que suene mejor: <i>el agua, el águila, un hacha</i>. Pero siguen siendo femeninos: <i>el agua fría, las aguas, esta agua</i> (no «este agua»).</p>`,
+        L6.filas("Artículos especiales", [["a + el", "al", cAZ], ["de + el", "del", cVE], ["lo", "lo bueno, lo mejor", cNA], ["el agua", "pero: agua fría", cRO]])],
+    ],
+    "Numerales e indefinidos": [
+      ["Multiplicativos y fraccionarios", `<p>Además de los cardinales (<i>uno, dos, tres</i>) y los ordinales (<i>primero, segundo, tercero</i>), hay otros dos tipos de numerales muy útiles, que conectan la lengua con las matemáticas:</p><ul><li>Los <b>multiplicativos</b> indican que una cantidad se multiplica: <i>doble</i> (×2), <i>triple</i> (×3), <i>cuádruple</i> (×4), <i>quíntuple</i> (×5). <i>Hoy he comido ración doble; La entrada cuesta el triple.</i></li><li>Los <b>fraccionarios</b> o partitivos indican una parte de un todo: <i>medio</i> (½), <i>tercio</i> (⅓), <i>cuarto</i> (¼), <i>quinto</i>, <i>sexto</i>… A partir del undécimo se forman con <b>-avo</b>: <i>onceavo, doceavo, dieciseisavo</i>. <i>Me comí media pizza; Un tercio de la clase vino en bici.</i></li></ul><p>Un error muy frecuente es confundir los fraccionarios en <b>-avo</b> con los ordinales. <i>Onceavo</i> significa «una de las once partes», no «el que va en el puesto once». Por eso es incorrecto decir <i>«Quedó en onceavo lugar»</i>: lo correcto es <i>Quedó en undécimo lugar</i> o <i>en el puesto once</i>. Del mismo modo, se dice <i>duodécimo</i> para el puesto doce y <i>vigésimo</i> para el veinte.</p>`,
+        L6.filas("Numerales", [["doble", "× 2", cAZ], ["triple", "× 3", cVE], ["medio", "½", cNA], ["onceavo", "1/11 (no puesto 11)", cRO]])],
+    ],
+    "Los pronombres personales": [
+      ["Pronombres pegados al verbo", `<p>Los pronombres personales átonos (<i>me, te, se, nos, os, lo, la, le, los, las, les</i>) normalmente van <b>delante</b> del verbo y separados: <i>Me lo dio; Te espero; Se lava</i>.</p><p>Pero con el <b>imperativo</b>, el <b>infinitivo</b> y el <b>gerundio</b> van <b>detrás</b> y se escriben <b>pegados</b> al verbo, formando una sola palabra: <i>dame, dímelo, ponte, cómetelo, decírtelo, explicándonoslo</i>.</p><p>Al pegarse los pronombres, la palabra se hace más larga y la sílaba tónica queda más lejos del final. Por eso muchas de estas formas llevan <b>tilde</b>, siguiendo las reglas generales de acentuación:</p><ul><li><i>Da</i> + <i>me</i> = <i>dame</i>: llana acabada en vocal, sin tilde.</li><li><i>Da</i> + <i>me</i> + <i>lo</i> = <i>dámelo</i>: esdrújula, con tilde.</li><li><i>Come</i> + <i>te</i> + <i>lo</i> = <i>cómetelo</i>: sobresdrújula, con tilde.</li><li><i>Mirando</i> + <i>la</i> = <i>mirándola</i>: esdrújula, con tilde.</li><li><i>Decir</i> + <i>te</i> = <i>decirte</i>: llana, sin tilde.</li></ul><p>Truco: pronuncia la palabra entera, busca la sílaba tónica y aplica las reglas que ya conoces. Todas las esdrújulas y sobresdrújulas llevan tilde.</p>`,
+        H6.dos("Pegados al verbo", ["Sin tilde", ["dame", "ponte", "decirte"], cVE], ["Con tilde", ["dámelo", "cómetelo", "mirándola"], cRO])],
+    ],
+  },
+  final: [
+    ["Los pronombres relativos", `<p>Los <b>pronombres relativos</b> sirven para <b>unir dos oraciones</b> y, a la vez, sustituyen a un sustantivo que ya ha aparecido antes, llamado <b>antecedente</b>. Así evitamos repeticiones:</p><p><i>Tengo un perro. El perro se llama Toby.</i> → <i>Tengo un perro <b>que</b> se llama Toby.</i></p><p>Los relativos son:</p><ul><li><b>que</b>, el más usado: <i>La película que vimos era genial.</i></li><li><b>quien, quienes</b>, solo para personas: <i>Ella es la chica de quien te hablé.</i></li><li><b>el cual, la cual, los cuales, las cuales</b>: <i>La razón por la cual vine.</i></li><li><b>cuyo, cuya, cuyos, cuyas</b>, que indican posesión y concuerdan con lo poseído: <i>El niño cuya madre es médica.</i></li><li>El adverbio relativo <b>donde</b>, para lugares: <i>Es la casa donde nací.</i></li></ul><p>Los relativos se escriben <b>sin tilde</b>. Llevan tilde solo cuando preguntan o exclaman: <i>¿Quién viene?</i> pero <i>El chico que viene</i>.</p><p>Un error frecuente es decir <i>«El chico que su padre es médico»</i>. Lo correcto es <i>El chico cuyo padre es médico</i>.</p>`,
+      L6.filas("Relativos", [["que", "el más usado", cAZ], ["quien", "solo personas", cVE], ["cuyo", "posesión", cNA], ["donde", "lugar", cMO]]), ["dct8hDp3GK0", "Explicación de los PRONOMBRES RELATIVOS: que, lo que, quien, quienes en español", "MaestroKaplan", 155214]],
+    ["Le, la, lo: leísmo, laísmo y loísmo", `<p>Los pronombres <b>lo, la, los, las</b> sustituyen al <b>complemento directo</b>, es decir, a lo que recibe directamente la acción del verbo: <i>Compré <u>el pan</u></i> → <i>Lo compré</i>; <i>Vi <u>a Marta</u></i> → <i>La vi</i>.</p><p>Los pronombres <b>le, les</b> sustituyen al <b>complemento indirecto</b>, es decir, a la persona que recibe el beneficio o el daño de la acción: <i>Di un regalo <u>a Marta</u></i> → <i>Le di un regalo</i>.</p><p>Cuando se confunden aparecen tres errores:</p><ul><li><b>Laísmo</b>: usar <i>la</i> en lugar de <i>le</i>. <i>«La dije que viniera»</i> es incorrecto; se dice <i>Le dije que viniera</i>.</li><li><b>Loísmo</b>: usar <i>lo</i> en lugar de <i>le</i>. <i>«Lo di un abrazo»</i> es incorrecto; se dice <i>Le di un abrazo</i>.</li><li><b>Leísmo</b>: usar <i>le</i> en lugar de <i>lo</i> o <i>la</i>. <i>«El libro le compré»</i> es incorrecto; se dice <i>Lo compré</i>. La RAE solo acepta el leísmo cuando se refiere a un hombre: <i>A Juan le vi ayer</i> se admite, aunque <i>lo vi</i> es igualmente correcto.</li></ul><p>Truco: cambia la oración a plural o a femenino y comprueba qué pronombre encaja.</p>`,
+      H6.dos("Directo o indirecto", ["Directo", ["lo, la", "los, las", "lo compré"], cAZ], ["Indirecto", ["le, les", "a quién", "le di"], cMO]), ["C6TzjY1zo2k", "Qué es el leísmo, loísmo y laísmo", "unProfesor", 102492]],
+  ],
+  ejemplos: [
+    ["Une con un relativo: «Leí un libro. El libro me encantó».", ["El antecedente es «libro».", "Sustituimos la repetición por «que»."], "Leí un libro que me encantó."],
+    ["¿Lleva tilde «dame» + «lo»?", ["Queda «da-me-lo».", "La tónica es «da»: es esdrújula."], "Sí: dámelo."],
+  ],
+  errores: ["Decir «la dije» en vez de «le dije».", "Usar «onceavo» como ordinal: se dice «undécimo»."],
+  ejercicios: [
+    ["b", "Completa: Voy ___ cine y vengo ___ mercado.", "al, del."],
+    ["b", "¿Cuánto es el triple de 5?", "15."],
+    ["b", "Escribe tres pronombres relativos.", "Que, quien, cuyo."],
+    ["b", "¿Qué artículo es «lo» en «lo mejor»?", "El artículo neutro."],
+    ["b", "¿Se escribe «este agua» o «esta agua»?", "Esta agua."],
+    ["m", "Pon tilde si hace falta: comelo, dime, explicandoselo.", "Cómelo, dime, explicándoselo."],
+    ["m", "Corrige: «Quedé en doceavo lugar».", "Quedé en duodécimo lugar."],
+    ["m", "Une con «cuyo»: «Tengo un amigo. El padre de mi amigo es piloto».", "Tengo un amigo cuyo padre es piloto."],
+    ["m", "Corrige: «Lo di las gracias».", "Le di las gracias."],
+    ["m", "Sustituye el complemento directo: «Compré las entradas».", "Las compré."],
+    ["a", "¿Por qué no se contrae «a El Cairo» por escrito?", "Porque el artículo forma parte del nombre propio."],
+    ["a", "Explica la diferencia entre «undécimo» y «onceavo».", "Undécimo es el puesto once; onceavo es una de las once partes."],
+    ["a", "Corrige y explica: «El chico que su madre es profesora».", "El chico cuya madre es profesora; «cuyo» indica posesión."],
+    ["a", "Escribe tres órdenes con pronombres pegados que lleven tilde.", "Respuesta abierta. Ej.: dímelo, cómpraselo, escríbeme..."],
+  ],
+  quiz: [
+    ["«De + el» se escribe…", ["del", "de el", "d'el"], "Contracciones."],
+    ["Un tercio es…", ["un numeral fraccionario", "un ordinal", "un multiplicativo"], "Numerales."],
+    ["«Cómetelo» lleva tilde porque es…", ["sobresdrújula", "aguda", "llana"], "Tildes."],
+    ["«Cuyo» indica…", ["posesión", "lugar", "tiempo"], "Relativos."],
+    ["«La dije la verdad» es un caso de…", ["laísmo", "leísmo", "loísmo"], "Pronombres."],
+  ],
+  examen: [
+    ["Al principio, ROB-7 hablaba de sí mismo…", ["por su nombre", "con «yo»", "con «tú»"], "Lectura."],
+    ["La forma correcta es…", ["Le di un abrazo", "Lo di un abrazo", "La di un abrazo"], "Pronombres."],
+  ],
+  tarjetas: [
+    ["Contracciones y lo", "al, del; lo bueno; el agua fría."],
+    ["Numerales", "Multiplicativos (doble), fraccionarios (medio, onceavo)."],
+    ["Pegados al verbo", "dame, dámelo, cómetelo: aplica las reglas de tildes."],
+    ["Relativos y le/la/lo", "que, quien, cuyo, donde; lo/la (directo), le (indirecto)."],
+  ],
+  glosario: [
+    ["Contracción", "Unión de dos palabras en una: al, del."],
+    ["Artículo neutro", "El artículo lo."],
+    ["Multiplicativo", "Numeral que indica multiplicación."],
+    ["Fraccionario", "Numeral que indica una parte."],
+    ["Átono", "Que se pronuncia sin acento propio."],
+    ["Enclítico", "Pronombre pegado detrás del verbo."],
+    ["Relativo", "Pronombre que une oraciones y tiene antecedente."],
+    ["Antecedente", "Palabra a la que se refiere el relativo."],
+    ["Complemento directo", "Lo que recibe la acción del verbo."],
+    ["Complemento indirecto", "Quien recibe el beneficio o daño."],
+    ["Laísmo", "Usar la en lugar de le."],
+    ["Leísmo", "Usar le en lugar de lo o la."],
+  ],
+  situacion: {
+    titulo: "Los detectives de los pronombres",
+    reto: "La clase investiga errores con pronombres y numerales en textos reales y crea una guía para corregirlos.",
+    pasos: ["Buscad en carteles, periódicos y mensajes errores como «más mejor», «la dije» u «onceavo puesto».", "Clasificad los errores y explicad por qué son incorrectos.", "Escribid las formas correctas con ejemplos y trucos.", "Diseñad un póster «Detectives del lenguaje» para el pasillo."],
+    producto: "Una guía ilustrada de errores frecuentes y cómo evitarlos.",
+    evaluacion: ["Identifica errores con pronombres y numerales.", "Explica la norma con sus palabras.", "Aplica las reglas de acentuación.", "Comunica de forma clara y visual."],
+  },
+});

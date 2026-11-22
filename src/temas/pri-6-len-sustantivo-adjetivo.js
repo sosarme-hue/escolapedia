@@ -88,3 +88,91 @@ module.exports = P.tema({
   saberes: "Reflexión sobre la lengua: el sustantivo y sus clases, género y número; el adjetivo calificativo, sus grados y la concordancia",
   ideas: ["Bingo de clases de sustantivos con cartones de palabras.", "Concurso de descripciones: retratar un objeto misterioso solo con adjetivos.", "Rincón de sinónimos para sustituir adjetivos gastados."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Distinguir sustantivos primitivos, derivados y compuestos", "Conocer los casos especiales de género y número", "Usar comparativos y superlativos especiales sin errores", "Formar gentilicios, aumentativos, diminutivos y despectivos"],
+  lectura: { titulo: "La mujer que escribió un diccionario en casa", html: `<p>María era bibliotecaria en Madrid. A los cincuenta años, en 1952, decidió hacer algo que parecía imposible: escribir ella sola un diccionario entero. No uno cualquiera, sino uno que explicara cómo se <b>usan</b> las palabras de verdad, con ejemplos, sinónimos y palabras de la misma familia.</p><p>Cada mañana se levantaba temprano y, antes de ir a trabajar, escribía <b>fichas</b> en la mesa de su casa. Por la tarde, al volver, seguía escribiendo. Llenó miles y miles de fichas de cartulina con definiciones. Sus hijos contaban que la casa estaba llena de cajas de fichas.</p><p>Tardó unos <b>quince años</b>. En 1966 y 1967 se publicaron los dos tomos de su <i>Diccionario de uso del español</i>, más de tres mil páginas. El escritor Gabriel García Márquez dijo que era el diccionario más completo y útil de la lengua española.</p><p>Se llamaba <b>María Moliner</b>. Hoy muchas bibliotecas, institutos y calles llevan su nombre. Y todavía hoy, escritores y traductores tienen su diccionario en la mesa, lleno de señales.</p>` },
+  tras: {
+    "Individuales y colectivos": [
+      ["Primitivos, derivados y compuestos", `<p>Según cómo están formados, los sustantivos pueden ser:</p><ul><li><b>Primitivos</b>: no vienen de otra palabra. <i>Pan, mar, flor, zapato, libro</i>.</li><li><b>Derivados</b>: se forman a partir de un primitivo añadiendo un <b>sufijo</b> al final o un <b>prefijo</b> al principio. De <i>pan</i> salen <i>panadero, panadería, panecillo</i>; de <i>zapato</i>, <i>zapatero, zapatería, zapatilla</i>; de <i>flor</i>, <i>florero, floristería</i>.</li><li><b>Compuestos</b>: se forman uniendo dos o más palabras. <i>Sacapuntas</i> (saca + puntas), <i>paraguas</i> (para + aguas), <i>girasol</i> (gira + sol), <i>bocacalle</i> (boca + calle), <i>sacacorchos, abrelatas, lavaplatos, pelirrojo</i>.</li></ul><p>Las palabras que comparten la misma raíz forman una <b>familia de palabras</b>: <i>mar, marino, marinero, marea, maremoto, submarino</i>. Conocer las familias ayuda mucho con la <b>ortografía</b>: si <i>hierba</i> se escribe con <i>h</i> y <i>b</i>, también <i>hierbabuena</i> y <i>herbívoro</i> se escriben con <i>h</i> y <i>b</i>.</p><p>Algunos sufijos frecuentes para formar sustantivos son: <i>-ero/-era</i> (oficios y recipientes: <i>cartero, azucarero</i>), <i>-ería</i> (tiendas: <i>frutería</i>), <i>-al/-ar</i> (lugares con plantas: <i>trigal, olivar</i>) y <i>-dor/-dora</i> (quien hace algo o aparato: <i>nadador, lavadora</i>).</p><p>Los <b>prefijos</b>, en cambio, se colocan delante y suelen cambiar el significado de la palabra: <i>sub-</i> significa «debajo» (<i>subsuelo, submarino</i>); <i>pre-</i>, «antes» (<i>prehistoria, prefijo</i>); <i>anti-</i>, «contra» (<i>antiniebla, antivirus</i>); <i>super-</i>, «por encima» o «muy» (<i>supermercado, superhéroe</i>); <i>re-</i>, «otra vez» (<i>reciclaje, reencuentro</i>). Si conoces el significado de los prefijos y de los sufijos, podrás adivinar qué quiere decir una palabra nueva aunque nunca la hayas visto antes. Es como tener una llave que abre muchas puertas del diccionario.</p>`,
+        L6.filas("Cómo se forman", [["primitivo", "pan", cAZ], ["derivado", "pan + adero", cVE], ["compuesto", "saca + puntas", cNA], ["familia", "mar, marino, marea", cMO]])],
+    ],
+    "Género y número del sustantivo": [
+      ["Casos especiales de género y número", `<p>No todos los sustantivos forman el femenino y el plural de la manera habitual. Fíjate en estos casos especiales:</p><p><b>Género:</b></p><ul><li><b>Heterónimos</b>: el masculino y el femenino son palabras distintas. <i>Caballo / yegua, toro / vaca, padre / madre, yerno / nuera, carnero / oveja</i>.</li><li><b>Epicenos</b>: una sola palabra para los dos sexos de un animal; se añade <i>macho</i> o <i>hembra</i>. <i>La jirafa macho, el búho hembra, la ballena, el águila</i>.</li><li><b>Comunes en cuanto al género</b>: la palabra no cambia, solo el determinante. <i>El / la estudiante, el / la artista, el / la cantante, el / la testigo</i>.</li><li><b>Ambiguos</b>: pueden usarse en masculino o femenino sin cambiar el significado. <i>El mar / la mar, el azúcar / la azúcar</i>.</li><li>Cambia el <b>significado</b> según el género: <i>el cometa</i> (astro) y <i>la cometa</i> (juguete); <i>el orden</i> y <i>la orden</i>; <i>el capital</i> (dinero) y <i>la capital</i> (ciudad).</li></ul><p><b>Número:</b></p><ul><li>Algunas palabras no cambian en plural: <i>la crisis / las crisis, el lunes / los lunes, el paraguas / los paraguas</i>.</li><li>Otras se usan casi siempre en plural: <i>gafas, tijeras, víveres, afueras</i>.</li><li>Las acabadas en <i>-z</i> cambian a <i>-ces</i>: <i>lápiz / lápices, pez / peces, voz / voces</i>.</li></ul>`,
+        H6.rueda("Género especial", "GÉNERO", [["caballo / yegua", cAZ], ["la jirafa macho", cVE], ["el / la artista", cNA], ["el / la mar", cMO]])],
+    ],
+    "Los grados del adjetivo": [
+      ["Comparativos y superlativos especiales", `<p>Algunos adjetivos muy usados tienen formas propias para el comparativo y el superlativo, heredadas del latín:</p><ul><li><i>Bueno</i>: comparativo <b>mejor</b>, superlativo <b>óptimo</b> (o <i>buenísimo</i>).</li><li><i>Malo</i>: <b>peor</b>, <b>pésimo</b> (o <i>malísimo</i>).</li><li><i>Grande</i>: <b>mayor</b>, <b>máximo</b> (o <i>grandísimo</i>).</li><li><i>Pequeño</i>: <b>menor</b>, <b>mínimo</b> (o <i>pequeñísimo</i>).</li></ul><p>Como <i>mejor</i>, <i>peor</i>, <i>mayor</i> y <i>menor</i> ya son comparativos, es un error decir <b>«más mejor»</b> o <b>«más peor»</b>. Lo correcto es <i>Este helado es mejor</i>. Tampoco se dice <i>«muy óptimo»</i> o <i>«muy pésimo»</i>, porque ya son superlativos.</p><p>Hay también <b>superlativos cultos</b> que terminan en <b>-érrimo</b>: <i>célebre → celebérrimo; pobre → paupérrimo</i>. Y algunos tienen dos formas correctas: <i>fortísimo</i> y <i>fuertísimo</i>, <i>novísimo</i> y <i>nuevísimo</i>.</p><p>Cuidado con algunos adjetivos que, por su significado, no admiten grados: <i>eterno, único, infinito, muerto</i>. No tiene sentido decir <i>«más único»</i>: algo es único o no lo es.</p>`,
+        L6.filas("Formas especiales", [["bueno", "mejor · óptimo", cVE], ["malo", "peor · pésimo", cRO], ["grande", "mayor · máximo", cAZ], ["pequeño", "menor · mínimo", cNA]])],
+    ],
+  },
+  final: [
+    ["Los gentilicios", `<p>Un <b>gentilicio</b> es un adjetivo que indica el <b>lugar de origen</b> de una persona o de una cosa: <i>Mi amiga es gallega; me encanta el queso manchego</i>. Se escriben siempre con <b>minúscula</b>, aunque el lugar se escriba con mayúscula: <i>Francia → francés</i>.</p><p>Muchos se forman con sufijos fáciles: <i>-ano</i> (<i>sevillano, valenciano</i>), <i>-és</i> (<i>aragonés, burgalés</i>), <i>-ense</i> (<i>conquense, ateniense</i>), <i>-eño</i> (<i>madrileño, extremeño</i>), <i>-ino</i> (<i>salmantino, alicantino</i>), <i>-í</i> (<i>marroquí, ceutí</i>).</p><p>Pero otros son sorprendentes, porque vienen del <b>nombre antiguo</b>, a menudo romano, de la ciudad:</p><ul><li>De Huelva, <b>onubense</b> (de <i>Onuba</i>).</li><li>De Badajoz, <b>pacense</b> (de <i>Pax Augusta</i>).</li><li>De Huesca, <b>oscense</b> (de <i>Osca</i>).</li><li>De Ávila, <b>abulense</b>.</li><li>De Alcalá de Henares, <b>complutense</b> (de <i>Complutum</i>).</li><li>De Elche, <b>ilicitano</b> (de <i>Ilici</i>).</li><li>De Lugo, <b>lucense</b> (de <i>Lucus</i>).</li></ul><p>Investiga cuál es el gentilicio de tu localidad: quizá esconda una historia de hace dos mil años.</p>`,
+      L6.filas("Gentilicios con historia", [["Huelva", "onubense", cAZ], ["Badajoz", "pacense", cVE], ["Huesca", "oscense", cNA], ["Elche", "ilicitano", cMO]]), ["jd0ADdFSEyM", "LOS GENTILICIOS | Vídeos Educativos para Niños", "Happy Learning Español", 139546]],
+    ["Aumentativos, diminutivos y despectivos", `<p>Con algunos sufijos podemos cambiar el tamaño de lo que nombramos o mostrar lo que sentimos hacia ello:</p><ul><li>Los <b>diminutivos</b> indican tamaño pequeño o cariño: <i>-ito</i> (<i>casita</i>), <i>-illo</i> (<i>pajarillo</i>), <i>-ico</i> (<i>gatico</i>), <i>-ín</i> (<i>pequeñín</i>), <i>-ete</i> (<i>amiguete</i>), <i>-uelo</i> (<i>pañuelo</i>). Su uso cambia según la región: en Aragón y Murcia se oye mucho <i>-ico</i>, y en Asturias, <i>-ín</i>.</li><li>Los <b>aumentativos</b> indican tamaño grande: <i>-ón</i> (<i>cabezón</i>), <i>-azo</i> (<i>perrazo</i>), <i>-ote</i> (<i>grandote</i>).</li><li>Los <b>despectivos</b> muestran desprecio o algo de poca calidad: <i>-ucho</i> (<i>casucha</i>), <i>-aco</i> (<i>libraco</i>), <i>-ajo</i> (<i>pequeñajo</i>), <i>-uzo</i> (<i>gentuza</i>).</li></ul><p>Atención: <i>-azo</i> también puede indicar un golpe: <i>portazo, codazo, balonazo</i>.</p><p>Algunas palabras que nacieron como diminutivos o aumentativos hoy significan otra cosa y ya no las sentimos así: <i>bolsillo</i> no es una bolsa pequeña, <i>ventanilla</i> no es solo una ventana pequeña, <i>sillón</i> no es una silla grande y <i>cajón</i> no es una caja grande. Son palabras con significado propio.</p>`,
+      H6.dos("Sufijos que cambian", ["Pequeño", ["-ito, -illo", "-ico, -ín", "-ete, -uelo"], cVE], ["Grande / feo", ["-ón, -azo, -ote", "-ucho, -aco", "-ajo, -uzo"], cRO]), ["5if17e1aqfc", "Los Aumentativos y los Diminutivos", "La Profe Noemí", 253299]],
+  ],
+  ejemplos: [
+    ["Clasifica: lápiz, lapicero, sacapuntas.", ["Lápiz no viene de otra palabra.", "Lapicero lleva un sufijo.", "Sacapuntas une dos palabras."], "Primitivo, derivado y compuesto."],
+    ["Corrige: «Mi dibujo es más mejor que el tuyo».", ["Mejor ya es comparativo.", "Sobra «más»."], "Mi dibujo es mejor que el tuyo."],
+  ],
+  errores: ["Decir «más mejor» o «muy óptimo».", "Escribir los gentilicios con mayúscula: se escribe «español», no «Español»."],
+  ejercicios: [
+    ["b", "Escribe dos derivados de «libro».", "Librero y librería."],
+    ["b", "¿Cuál es el femenino de «caballo»?", "Yegua."],
+    ["b", "Escribe el plural de «pez» y de «lunes».", "Peces y lunes."],
+    ["b", "¿Cuál es el gentilicio de Madrid?", "Madrileño."],
+    ["b", "Escribe un diminutivo de «casa».", "Casita (o casilla, casica)."],
+    ["m", "Escribe tres palabras compuestas.", "Paraguas, girasol, sacacorchos."],
+    ["m", "¿Qué significa «el cometa» y «la cometa»?", "Un astro y un juguete que vuela."],
+    ["m", "Di el superlativo culto de «malo» y de «pequeño».", "Pésimo y mínimo."],
+    ["m", "¿De dónde es una persona onubense? ¿Y una abulense?", "De Huelva y de Ávila."],
+    ["m", "Clasifica: perrazo, casucha, gatito.", "Aumentativo, despectivo y diminutivo."],
+    ["a", "Escribe la familia de palabras de «tierra» (cinco palabras).", "Terreno, terrestre, enterrar, terremoto, terraza."],
+    ["a", "¿Por qué «la jirafa» es un sustantivo epiceno?", "Porque usa una sola forma para macho y hembra."],
+    ["a", "Explica por qué «bolsillo» ya no se siente como diminutivo.", "Porque tiene significado propio: no es una bolsa pequeña, sino parte de una prenda."],
+    ["a", "Investiga el gentilicio de tu localidad y su origen.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["«Girasol» es un sustantivo…", ["compuesto", "primitivo", "derivado"], "Formación."],
+    ["«El / la artista» es un sustantivo…", ["común en cuanto al género", "heterónimo", "epiceno"], "Género."],
+    ["El comparativo de «grande» es…", ["mayor", "más grande mejor", "máximo"], "Grados."],
+    ["Una persona de Badajoz es…", ["pacense", "onubense", "oscense"], "Gentilicios."],
+    ["«Portazo» indica…", ["un golpe", "una puerta pequeña", "una puerta fea"], "Sufijos."],
+  ],
+  examen: [
+    ["María Moliner tardó en escribir su diccionario unos…", ["quince años", "dos meses", "cien años"], "Lectura."],
+    ["Es incorrecto decir…", ["más mejor", "mejor", "buenísimo"], "Grados."],
+  ],
+  tarjetas: [
+    ["Formación", "Primitivo (pan), derivado (panadero), compuesto (sacapuntas)."],
+    ["Género especial", "Heterónimos, epicenos, comunes, ambiguos."],
+    ["Superlativos especiales", "Óptimo, pésimo, máximo, mínimo; nunca «más mejor»."],
+    ["Sufijos", "Diminutivos -ito, aumentativos -ón, despectivos -ucho; gentilicios -ense, -eño."],
+  ],
+  glosario: [
+    ["Primitivo", "Palabra que no procede de otra."],
+    ["Derivado", "Palabra formada con un prefijo o un sufijo."],
+    ["Compuesto", "Palabra formada uniendo otras."],
+    ["Sufijo", "Partícula que se añade al final de una palabra."],
+    ["Familia de palabras", "Palabras con la misma raíz."],
+    ["Heterónimo", "Palabra distinta para masculino y femenino."],
+    ["Epiceno", "Sustantivo con una forma para los dos sexos."],
+    ["Ambiguo", "Sustantivo que admite los dos géneros."],
+    ["Superlativo culto", "Forma como óptimo o celebérrimo."],
+    ["Gentilicio", "Adjetivo que indica el origen."],
+    ["Diminutivo", "Forma que indica pequeñez o cariño."],
+    ["Despectivo", "Forma que indica desprecio."],
+  ],
+  situacion: {
+    titulo: "El diccionario de la clase",
+    reto: "Siguiendo el ejemplo de María Moliner, la clase elabora su propio diccionario de uso con fichas.",
+    pasos: ["Cada alumno elige cinco sustantivos y escribe una ficha con definición, género, número y un ejemplo.", "Añadid a cada ficha su familia de palabras y sus diminutivos o aumentativos.", "Recoged los gentilicios de los lugares de origen de vuestras familias.", "Ordenad alfabéticamente las fichas y encuadernad el diccionario."],
+    producto: "Un diccionario de uso de la clase hecho con fichas.",
+    evaluacion: ["Clasifica sustantivos por su formación.", "Aplica bien el género y el número.", "Usa correctamente los grados del adjetivo.", "Trabaja con orden y precisión."],
+  },
+});

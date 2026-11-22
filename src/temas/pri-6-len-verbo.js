@@ -88,3 +88,91 @@ module.exports = P.tema({
   saberes: "Reflexión sobre la lengua: el verbo; raíz y desinencia; conjugaciones; persona, número, tiempo y modo; tiempos simples y compuestos; formas no personales; verbos regulares e irregulares",
   ideas: ["Dado de personas y dado de tiempos para conjugar verbos al azar.", "Mural de verbos irregulares frecuentes con sus formas difíciles.", "Reescribir una noticia del presente al pasado y al futuro."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Elegir bien los tiempos de pasado al narrar", "Reconocer perífrasis verbales y verbos impersonales", "Distinguir la voz activa de la voz pasiva", "Usar verbos precisos para escribir mejor"],
+  lectura: { titulo: "El día que desaparecieron los verbos", html: `<p>Aquella mañana, en el pueblo de Palabrería, ocurrió algo muy extraño. La panadera abrió la boca para saludar y solo le salió: «¡Buenos días! Yo… pan… horno… ya». No encontraba la palabra. El cartero quiso explicar que <i>traía</i> una carta, pero no le salía el verbo. Los niños no podían <i>jugar</i>, ni <i>correr</i>, ni siquiera <i>decir</i> que querían jugar.</p><p>Habían desaparecido <b>todos los verbos</b>.</p><p>El pueblo se quedó quieto, como una fotografía. Había cosas (sustantivos), había cosas bonitas o feas (adjetivos), pero nada <b>pasaba</b>. Nadie podía contar lo que hizo ayer ni lo que haría mañana.</p><p>Fue la bibliotecaria quien encontró la solución. En el sótano de la biblioteca, dentro de un viejo diccionario, estaban todos los verbos escondidos, asustados porque nadie los conjugaba bien. Les prometieron cuidarlos: nada de «andé», ni de «hubieron», ni de «cabí».</p><p>Los verbos volvieron a su sitio. Y en Palabrería, por fin, las cosas empezaron a <b>ocurrir</b> otra vez.</p>` },
+  tras: {
+    "El tiempo": [
+      ["Los pasados al contar una historia", `<p>Cuando escribimos una narración usamos sobre todo tiempos de <b>pasado</b>, y cada uno tiene su función:</p><ul><li>El <b>pretérito perfecto simple</b> (<i>salió, encontró, gritó</i>) cuenta las <b>acciones</b> que hacen avanzar la historia, acabadas y una detrás de otra: <i>Abrió la puerta, entró y encendió la luz.</i></li><li>El <b>pretérito imperfecto</b> (<i>era, tenía, llovía</i>) se usa para <b>describir</b> el fondo de la escena, las costumbres o lo que estaba ocurriendo: <i>Era de noche y llovía. La casa estaba en silencio.</i></li><li>El <b>pretérito pluscuamperfecto</b> (<i>había salido, había encontrado</i>) cuenta algo que ocurrió <b>antes</b> de otro hecho pasado: <i>Cuando llegué, el tren ya había salido.</i></li><li>El <b>pretérito perfecto compuesto</b> (<i>he comido, has llegado</i>) se usa en gran parte de España para hechos del pasado que sentimos <b>cercanos</b> al presente: <i>Hoy he comido macarrones; Este año he aprendido a nadar.</i></li></ul><p>Un buen relato combina el imperfecto para pintar el decorado y el perfecto simple para mover a los personajes. Fíjate en este ejemplo: <i>El bosque <b>estaba</b> oscuro y <b>hacía</b> frío. De pronto, <b>oyó</b> un ruido y <b>echó</b> a correr.</i></p>`,
+        L6.filas("Los pasados", [["salió", "acción que avanza", cAZ], ["llovía", "descripción, fondo", cVE], ["había salido", "antes de otro pasado", cNA], ["he comido", "pasado cercano", cMO]])],
+    ],
+    "Las formas no personales": [
+      ["Las perífrasis verbales", `<p>Una <b>perífrasis verbal</b> es una combinación de dos verbos (a veces unidos por una preposición o por <i>que</i>) que funcionan juntos como si fueran uno solo. El primer verbo, llamado <b>auxiliar</b>, va conjugado y pierde parte de su significado; el segundo va en <b>infinitivo</b>, <b>gerundio</b> o <b>participio</b> y aporta el significado principal.</p><p>Las perífrasis añaden matices muy útiles:</p><ul><li><b>ir a + infinitivo</b>: algo que va a pasar pronto. <i>Voy a estudiar.</i></li><li><b>tener que / haber de + infinitivo</b>: obligación. <i>Tienes que recoger tu cuarto.</i></li><li><b>deber + infinitivo</b>: obligación o consejo. <i>Debes descansar.</i></li><li><b>empezar a / ponerse a + infinitivo</b>: comienzo. <i>Se puso a llover.</i></li><li><b>acabar de + infinitivo</b>: algo que ha pasado hace muy poco. <i>Acabo de llegar.</i></li><li><b>volver a + infinitivo</b>: repetición. <i>Volvió a caerse.</i></li><li><b>estar + gerundio</b>: acción en desarrollo. <i>Estoy leyendo.</i></li><li><b>dejar de + infinitivo</b>: final. <i>Dejó de llover.</i></li></ul><p>Truco para reconocerlas: en <i>Voy a estudiar</i> no vas a ningún sitio; el verbo <i>ir</i> ha perdido su significado de moverse. Por eso es una perífrasis. En cambio, en <i>Voy a Málaga</i>, <i>ir</i> sí significa desplazarse.</p>`,
+        H6.rueda("Perífrasis", "VERBO + VERBO", [["ir a + inf.", cAZ], ["tener que", cRO], ["acabar de", cVE], ["estar + ger.", cNA]]), ["avdKNao9uiM", "Qué es una perífrasis verbal", "unProfesor", 491718]],
+    ],
+    "Verbos regulares e irregulares": [
+      ["Verbos impersonales y el verbo haber", `<p>Casi todas las oraciones tienen un sujeto que realiza la acción. Pero hay algunos verbos que no lo tienen: son los <b>verbos impersonales</b>. Se conjugan solo en <b>tercera persona del singular</b>.</p><ul><li>Los verbos de <b>fenómenos de la naturaleza</b>: <i>llover, nevar, granizar, tronar, amanecer, anochecer</i>. <i>Llueve mucho; Anocheció pronto.</i></li><li>El verbo <b>hacer</b> referido al tiempo: <i>Hace frío; Hace dos años que no lo veo.</i></li><li>El verbo <b>haber</b> cuando indica que algo existe: <i>Hay un gato en el tejado.</i></li></ul><p>El verbo <b>haber</b> impersonal provoca uno de los errores más frecuentes del castellano. Como lo que viene detrás no es el sujeto, el verbo <b>no concuerda</b> con ello y se queda siempre en singular:</p><ul><li><i>Hubo muchas fiestas</i>, no «hubieron».</li><li><i>Había veinte niños</i>, no «habían».</li><li><i>Habrá sorpresas</i>, no «habrán».</li><li><i>Puede haber problemas</i>, no «pueden haber».</li></ul><p>En cambio, <i>haber</i> sí va en plural cuando es auxiliar de un tiempo compuesto: <i>Ellos han llegado; Habían cenado</i>.</p>`,
+        H6.dos("Haber de existencia", ["Correcto", ["hubo fiestas", "había niños", "habrá premios"], cVE], ["Incorrecto", ["hubieron", "habían", "habrán"], cRO]), ["phLLmL2Bq48", "Nunca diga: hubieron | Guía completa para conjugar el Verbo Haber", "LA PROFE MÓNICA", 2222167]],
+    ],
+  },
+  final: [
+    ["Voz activa y voz pasiva", `<p>Una misma información se puede contar de dos maneras:</p><ul><li>En <b>voz activa</b>, el sujeto <b>realiza</b> la acción: <i>Cervantes escribió el Quijote.</i></li><li>En <b>voz pasiva</b>, el sujeto <b>recibe</b> la acción: <i>El Quijote fue escrito por Cervantes.</i></li></ul><p>Para pasar de activa a pasiva:</p><ul><li>El complemento directo de la activa (<i>el Quijote</i>) pasa a ser el <b>sujeto</b> de la pasiva.</li><li>El verbo se forma con <b>ser + participio</b>, en el mismo tiempo que tenía en la activa: <i>escribió → fue escrito</i>.</li><li>El sujeto de la activa (<i>Cervantes</i>) pasa a ser un complemento introducido por <b>por</b>, llamado <b>complemento agente</b>.</li></ul><p>El participio concuerda con el sujeto: <i>Las cartas fueron enviadas por la secretaria.</i></p><p>La pasiva se usa sobre todo en las <b>noticias</b> y en los textos científicos o históricos, cuando lo importante es lo que ocurrió y no quién lo hizo: <i>El puente fue inaugurado en 1992; La vacuna fue descubierta en el siglo XVIII</i>. A veces incluso se omite quién lo hizo: <i>El museo ha sido restaurado</i>. En la conversación diaria, en cambio, preferimos la voz activa, que es más directa y natural.</p>`,
+      H6.flujo("De activa a pasiva", ["CD|a sujeto", "verbo|ser + part.", "sujeto|por + agente"], cMO)],
+    ["Verbos precisos para escribir mejor", `<p>Algunos verbos, como <b>hacer</b>, <b>decir</b>, <b>poner</b>, <b>tener</b> o <b>dar</b>, sirven para casi todo. Por eso, si los usamos demasiado, los textos quedan pobres y repetitivos. Un buen escritor busca el <b>verbo preciso</b>, el que dice exactamente lo que quiere expresar.</p><ul><li>En lugar de <i>hacer un dibujo</i>, <b>dibujar</b>; <i>hacer una casa</i>, <b>construir</b>; <i>hacer un pastel</i>, <b>preparar</b> u <b>hornear</b>; <i>hacer una pregunta</i>, <b>preguntar</b>.</li><li>En lugar de <i>decir</i>: <b>susurrar, gritar, murmurar, afirmar, contestar, explicar, exclamar, confesar, prometer</b>. Cada uno dice además <b>cómo</b> se habla.</li><li>En lugar de <i>poner</i>: <b>colocar, escribir, guardar, instalar, añadir</b>. <i>Puso su nombre</i> → <i>Escribió su nombre</i>.</li><li>En lugar de <i>tener</i>: <b>sufrir</b> (una enfermedad), <b>poseer</b> (riquezas), <b>sentir</b> (miedo), <b>cumplir</b> (años).</li><li>En lugar de <i>ir</i>: <b>caminar, correr, pasear, arrastrarse, galopar, volar</b>.</li></ul><p>Compara: <i>El niño dijo que había un ruido y fue a la puerta</i> con <i>El niño susurró que había oído un ruido y se arrastró hasta la puerta</i>. ¡La segunda frase da mucha más información y emoción!</p>`,
+      L6.filas("Verbos precisos", [["hacer un dibujo", "dibujar", cAZ], ["decir bajito", "susurrar", cVE], ["poner el nombre", "escribir", cNA], ["ir despacio", "pasear", cMO]])],
+  ],
+  ejemplos: [
+    ["Corrige: «Ayer habían muchos niños en el parque».", ["«Haber» indica existencia: es impersonal.", "Va siempre en singular."], "Ayer había muchos niños en el parque."],
+    ["Pasa a pasiva: «Los bomberos apagaron el fuego».", ["El CD «el fuego» pasa a sujeto.", "apagaron → fue apagado.", "Los bomberos → por los bomberos."], "El fuego fue apagado por los bomberos."],
+  ],
+  errores: ["Decir «hubieron» o «habían» con el haber de existencia.", "Usar siempre «hacer» y «decir» en lugar de verbos precisos."],
+  ejercicios: [
+    ["b", "¿En qué tiempo está «llovía»?", "Pretérito imperfecto de indicativo."],
+    ["b", "Escribe tres verbos impersonales de la naturaleza.", "Llover, nevar, granizar."],
+    ["b", "¿Qué perífrasis indica que algo acaba de pasar?", "Acabar de + infinitivo."],
+    ["b", "¿Con qué verbo auxiliar se forma la voz pasiva?", "Con el verbo ser."],
+    ["b", "Sustituye «hacer un dibujo» por un verbo.", "Dibujar."],
+    ["m", "Señala la perífrasis: «Mañana vamos a visitar a la abuela».", "Vamos a visitar (ir a + infinitivo)."],
+    ["m", "Corrige: «Habrán sorpresas en la fiesta».", "Habrá sorpresas en la fiesta."],
+    ["m", "Pasa a activa: «La carta fue escrita por Pablo».", "Pablo escribió la carta."],
+    ["m", "Completa con perfecto simple o imperfecto: «Cuando (llegar) a casa, (llover)».", "Cuando llegué a casa, llovía."],
+    ["m", "Escribe cuatro verbos para sustituir a «decir».", "Susurrar, gritar, contestar, explicar."],
+    ["a", "¿Es perífrasis «Voy a Sevilla»? Explica.", "No: «ir» conserva su significado de desplazarse."],
+    ["a", "Explica por qué «Puede haber problemas» va en singular.", "Porque «haber» es impersonal y el verbo que lo acompaña también queda en singular."],
+    ["a", "Escribe una noticia breve con dos oraciones en voz pasiva.", "Respuesta abierta."],
+    ["a", "Reescribe con verbos precisos: «Dijo algo y fue a su cuarto e hizo los deberes».", "Respuesta abierta. Ej.: Murmuró algo, subió a su cuarto y resolvió los deberes."],
+  ],
+  quiz: [
+    ["Para describir el fondo de una escena se usa sobre todo el…", ["pretérito imperfecto", "futuro", "imperativo"], "Narrar."],
+    ["«Tengo que estudiar» expresa…", ["obligación", "comienzo", "repetición"], "Perífrasis."],
+    ["La forma correcta es…", ["Hubo dos accidentes", "Hubieron dos accidentes", "Habían dos accidentes"], "Haber."],
+    ["En la pasiva, quien realiza la acción es el…", ["complemento agente", "sujeto", "complemento directo"], "Pasiva."],
+    ["Un verbo más preciso que «decir en voz baja» es…", ["susurrar", "gritar", "exclamar"], "Verbos precisos."],
+  ],
+  examen: [
+    ["En Palabrería, los verbos estaban escondidos en…", ["un viejo diccionario", "la panadería", "el colegio"], "Lectura."],
+    ["«Acabo de llegar» es una perífrasis de…", ["acción recién terminada", "obligación", "futuro"], "Perífrasis."],
+  ],
+  tarjetas: [
+    ["Los pasados", "Perfecto simple (acción), imperfecto (descripción), pluscuamperfecto (antes de otro pasado)."],
+    ["Perífrasis", "ir a, tener que, acabar de, volver a, estar + gerundio."],
+    ["Haber impersonal", "Siempre singular: hubo, había, habrá."],
+    ["Voz pasiva", "ser + participio + por + agente."],
+  ],
+  glosario: [
+    ["Pretérito", "Tiempo verbal que expresa pasado."],
+    ["Imperfecto", "Pasado que describe o expresa costumbre."],
+    ["Pluscuamperfecto", "Pasado anterior a otro pasado."],
+    ["Perífrasis", "Unión de dos verbos que funcionan como uno."],
+    ["Auxiliar", "Verbo que acompaña y ayuda a otro."],
+    ["Impersonal", "Verbo que no tiene sujeto."],
+    ["Concordancia", "Coincidencia de número y persona."],
+    ["Voz activa", "Forma en que el sujeto realiza la acción."],
+    ["Voz pasiva", "Forma en que el sujeto recibe la acción."],
+    ["Complemento agente", "Quien realiza la acción en la pasiva."],
+    ["Participio", "Forma no personal como «escrito» o «cantado»."],
+    ["Verbo preciso", "Verbo que expresa exactamente una acción."],
+  ],
+  situacion: {
+    titulo: "Reporteros del verbo",
+    reto: "La clase publica un periódico de noticias del colegio cuidando especialmente los verbos.",
+    pasos: ["Elegid noticias del colegio y del barrio y tomad notas.", "Escribid las noticias combinando voz activa y pasiva.", "Revisad los verbos: haber impersonal, perífrasis y tiempos de pasado.", "Sustituid los verbos comodín por verbos precisos y publicad el periódico."],
+    producto: "Un periódico escolar con noticias bien escritas.",
+    evaluacion: ["Usa correctamente los tiempos de pasado.", "Evita errores con el verbo haber.", "Transforma oraciones de activa a pasiva.", "Elige verbos precisos y variados."],
+  },
+});
