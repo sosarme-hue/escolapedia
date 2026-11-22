@@ -136,3 +136,91 @@ module.exports = {
   fuentes: [RD, wiki("Juego tradicional", "Juego_tradicional"), wiki("Rayuela (juego)", "Rayuela_(juego)")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Jugar a juegos de mesa y canciones de corro tradicionales", "Conocer juegos tradicionales de otros países", "Descubrir los juegos de hace siglos en el arte", "Fabricar juguetes tradicionales con material reciclado"],
+  lectura: { titulo: "El baúl del abuelo Tomás", html: `<p>Durante las vacaciones, Hugo y su prima Valeria subieron al desván de la casa del pueblo. Entre cajas polvorientas encontraron un baúl de madera con una etiqueta: «Juguetes de Tomás».</p><p>Lo abrieron con cuidado. Dentro había una peonza de madera con la punta de hierro, una bolsa de tela llena de canicas de colores, un tablero de la oca dibujado a mano y unos zancos hechos con dos latas y una cuerda.</p><p>Bajaron corriendo a buscar al abuelo.</p><p>—¡Mis juguetes! —dijo Tomás, emocionado—. No los veía desde hace sesenta años.</p><p>Esa tarde, el abuelo les enseñó a enrollar la cuerda de la peonza y a lanzarla con un golpe seco de muñeca. A Hugo le costó once intentos, pero al final consiguió que bailara un buen rato. Valeria prefirió los zancos de lata: con ellos daba unos pasos ruidosos, «cloc, cloc», por todo el patio.</p><p>—¿Y no teníais videojuegos? —preguntó Hugo.</p><p>—Teníamos la calle —respondió el abuelo—. Allí jugábamos todos los niños del barrio hasta que nuestras madres nos llamaban para cenar.</p><p>Al volver al colegio, Hugo y Valeria llevaron la peonza a clase. La maestra propuso que cada alumno preguntara en casa por un juego antiguo. Así nació el <b>Museo del Juego</b> de 4.º.</p>` },
+  tras: {
+    "Juegos de habilidad y puntería": [
+      ["Juegos de mesa tradicionales", `<p>No todos los juegos tradicionales son de correr. También hay <mark>juegos de mesa</mark> que se han jugado en las familias durante generaciones y que entrenan la mente: la memoria, la estrategia y el cálculo.</p><ul><li><b>La oca</b>: un recorrido en espiral de 63 casillas. Se avanza tirando un dado. Si caes en una oca, saltas a la siguiente diciendo «de oca a oca y tiro porque me toca». También hay casillas con trampas, como el pozo, la cárcel o la calavera.</li><li><b>El parchís</b>: cuatro jugadores con cuatro fichas cada uno tienen que llevarlas desde casa hasta la meta. Se pueden «comer» las fichas de los rivales.</li><li><b>Las damas</b>: en un tablero de 64 casillas, cada jugador mueve sus fichas en diagonal y captura las del rival saltando por encima.</li><li><b>El ajedrez</b>: un juego de estrategia muy antiguo, nacido en la India. Cada pieza se mueve de una forma distinta y el objetivo es dar <b>jaque mate</b> al rey.</li><li><b>El dominó</b>: fichas con puntos que se van uniendo por el mismo número.</li><li><b>Las tres en raya</b>: se juega con papel y lápiz; gana quien pone tres fichas en línea.</li></ul><p>Los juegos de mesa enseñan a <b>esperar el turno</b>, a <b>respetar las reglas</b> y a <b>saber perder</b>.</p>`,
+        L6.filas("Juegos de mesa", [["la oca", "63 casillas", cNA], ["parchís", "4 fichas", cVE], ["damas", "en diagonal", cRO], ["ajedrez", "jaque mate", cAZ]])],
+    ],
+    "Juegos de cuerda y de grupo": [
+      ["Canciones de corro", `<p>Los <mark>juegos de corro</mark> se juegan en círculo, cogidos de las manos o sentados, y casi siempre van acompañados de una <b>canción</b>. Son muy antiguos y se cantan igual en muchos pueblos de España y de Hispanoamérica.</p><ul><li><b>«El patio de mi casa»</b>: «El patio de mi casa es particular, cuando llueve se moja como los demás. Agáchate, y vuélvete a agachar…». Al decir «agáchate», todos se agachan.</li><li><b>«La zapatilla por detrás»</b>: todos sentados en corro con los ojos cerrados. Uno da vueltas por fuera y deja una zapatilla detrás de alguien. Ese jugador tiene que levantarse y perseguirlo antes de que ocupe su sitio.</li><li><b>«Al corro de la patata»</b>: «… comeremos ensalada, como comen los señores, naranjitas y limones. ¡Achupé, achupé, sentadita me quedé!». Al final, todos se sientan.</li><li><b>«Antón Pirulero»</b>: cada jugador imita tocar un instrumento; cuando el que dirige toca el tuyo, tienes que cambiar al suyo. Quien falla da una prenda.</li><li><b>«El gato y el ratón»</b>: el corro protege al ratón dejándole pasar y cierra el paso al gato.</li></ul><p>Las canciones de corro trabajan el <b>ritmo</b>, la <b>memoria</b> y la <b>coordinación</b>, y son una forma estupenda de que todos participen.</p>`,
+        H6.rueda("Corro", "CANTAR", [["patio", cAZ], ["zapatilla", cRO], ["patata", cNA], ["Antón", cVE]]), ["V8gtclsoCsQ", "El patio de mi casa", "CantaJuego", 126717437]],
+    ],
+    "Juegos y deportes tradicionales de España": [
+      ["Juegos tradicionales del mundo", `<p>En todos los países los niños y niñas juegan, y muchos juegos se parecen sorprendentemente a los nuestros. Algunos <mark>juegos tradicionales del mundo</mark>:</p><ul><li><b>Daruma-san ga koronda</b> (Japón): es como nuestro «escondite inglés». Uno se pone de cara a la pared y dice la frase; los demás avanzan y, cuando se gira, deben quedarse quietos.</li><li><b>Mancala</b> (África): un juego de mesa con un tablero de agujeros y semillas o piedrecitas que se van repartiendo. Es uno de los juegos más antiguos del mundo.</li><li><b>Kabaddi</b> (India): un jugador entra en el campo rival repitiendo «kabaddi, kabaddi» sin respirar, intenta tocar a alguien y volver a su campo sin que lo atrapen.</li><li><b>Hopscotch</b> (Reino Unido y EE. UU.): es la rayuela, con casillas parecidas a las nuestras.</li><li><b>Tumbang preso</b> (Filipinas): se lanza una zapatilla para derribar una lata que vigila un guardián.</li><li><b>Pato, pato, ganso</b> (EE. UU.): parecido a la zapatilla por detrás; el que da vueltas toca cabezas diciendo «pato» hasta que dice «ganso».</li></ul><p>Jugar a juegos de otros países es una forma divertida de conocer otras <b>culturas</b> y ver que todos compartimos las ganas de jugar.</p>`,
+        L6.filas("Del mundo", [["Japón", "daruma-san", cRO], ["África", "mancala", cNA], ["India", "kabaddi", cAZ], ["Filipinas", "tumbang preso", cVE]])],
+    ],
+  },
+  final: [
+    ["Los juegos en el arte: Brueghel", `<p>¿Cómo jugaban los niños hace casi 500 años? Lo sabemos gracias a un cuadro muy famoso: <mark>«Juegos de niños»</mark>, pintado por el flamenco <b>Pieter Brueghel el Viejo</b> en <b>1560</b>. Hoy se puede ver en un museo de <b>Viena</b> (Austria).</p><p>En el cuadro aparecen más de <b>200 niños y niñas</b> jugando en la plaza de un pueblo a unos <b>80 juegos</b> distintos. Muchos de ellos los seguimos jugando hoy:</p><ul><li>El <b>aro</b>, que se hace rodar con un palo.</li><li>La <b>peonza</b>, que se hace girar con un látigo.</li><li>Los <b>zancos</b>.</li><li>El <b>salto de la piola</b> (saltar por encima de un compañero agachado).</li><li>La <b>gallinita ciega</b>, con los ojos tapados.</li><li>Las <b>tabas</b>, con huesecillos.</li><li>Hacer <b>pompas de jabón</b>, jugar a las muñecas, montar a caballito…</li></ul><p>En España, el pintor <b>Francisco de Goya</b> también pintó escenas de juegos, como «La gallina ciega» o «Muchachos jugando a soldados», que están en el <b>Museo del Prado</b>.</p><p>Observar estos cuadros nos enseña que los juegos tradicionales tienen una historia muy larga, y que jugar es algo que une a todas las épocas.</p>`,
+      H6.dos("En el arte", ["BRUEGHEL", ["Juegos de niños", "1560, Viena", "80 juegos"], cAZ], ["GOYA", ["La gallina ciega", "Museo del Prado", "Madrid"], cNA]), ["g3dMOnCHqWY", "¿Te cuento un cuadro? Juego de niños de Brueghel", "RZ100arte Arte en familia", 3703]],
+    ["Fabrica tus juguetes", `<p>Muchos juguetes tradicionales se pueden <mark>fabricar</mark> en casa con materiales sencillos o <b>reciclados</b>. Así, además de jugar, cuidas el medio ambiente. Algunas ideas:</p><ul><li><b>Zancos de lata</b>: dos latas grandes vacías y limpias (con los bordes protegidos), un agujero a cada lado cerca de la base y una cuerda larga que pase por ellos. Te subes encima y tiras de las cuerdas al andar.</li><li><b>Boliche</b>: una botella de plástico cortada por la mitad (la parte del cuello), una cuerda y una bola de papel de aluminio. Hay que lanzar la bola y meterla en la botella.</li><li><b>Bolos</b>: seis o diez botellas de plástico con un poco de arena o agua dentro y una pelota.</li><li><b>Saquitos de malabares</b>: globos rellenos de arroz o de harina, uno dentro de otro.</li><li><b>Indiaca</b>: una bolsita rellena con plumas o tiras de papel encima, que se golpea con la mano para que no caiga.</li><li><b>Chapas de carreras</b>: chapas de botellas decoradas con un dibujo o una foto.</li></ul><p>Pide ayuda a un adulto para cortar y hacer agujeros. Cuando tengas tus juguetes, ¡organiza una tarde de juegos con tu familia o en el patio!</p>`,
+      H6.flujo("Zancos de lata", ["2 latas|limpias", "agujeros|a los lados", "cuerda|larga", "¡a andar!|cloc, cloc"], cMO)],
+  ],
+  ejemplos: [
+    ["En la oca caes en la casilla 5, que es una oca. La siguiente oca está en la 9. ¿Qué dices y adónde vas?", ["«De oca a oca y tiro porque me toca».", "Salto a la casilla 9 y vuelvo a tirar."], "A la 9, y tiro otra vez."],
+    ["¿A qué juego nuestro se parece el daruma-san ga koronda japonés?", ["Uno mira a la pared y los demás avanzan.", "Cuando se gira, hay que quedarse quieto."], "Al escondite inglés."],
+  ],
+  errores: ["Pensar que los juegos tradicionales solo existen en España: hay juegos parecidos en todo el mundo.", "Usar latas con los bordes cortantes para los zancos: hay que protegerlos y pedir ayuda a un adulto."],
+  ejercicios: [
+    ["b", "¿Cuántas casillas tiene el juego de la oca?", "63."],
+    ["b", "Escribe el principio de «El patio de mi casa».", "«El patio de mi casa es particular…»."],
+    ["b", "¿De qué país es el kabaddi?", "De la India."],
+    ["b", "¿Quién pintó «Juegos de niños»?", "Pieter Brueghel el Viejo."],
+    ["b", "¿Con qué materiales se hacen los zancos caseros?", "Con dos latas y una cuerda."],
+    ["m", "¿Qué enseñan los juegos de mesa?", "A esperar el turno, respetar las reglas y saber perder."],
+    ["m", "Explica el juego de la zapatilla por detrás.", "Uno deja una zapatilla detrás de alguien, que lo persigue."],
+    ["m", "¿Qué es el mancala?", "Un juego africano de tablero con semillas."],
+    ["m", "¿Cuántos juegos aparecen en el cuadro de Brueghel?", "Unos 80."],
+    ["m", "¿Qué cuadro de juegos de Goya está en el Prado?", "«La gallina ciega», por ejemplo."],
+    ["a", "Fabrica un juguete con material reciclado y explica cómo se juega.", "Respuesta abierta."],
+    ["a", "Enseña a la clase un juego de otro país.", "Respuesta abierta."],
+    ["a", "Busca el cuadro de Brueghel y encuentra cinco juegos que conozcas.", "Respuesta abierta."],
+    ["a", "Pregunta en casa una canción de corro y escríbela.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["«De oca a oca y tiro porque me toca» es del juego de…", ["la oca", "el parchís", "las damas"], "Mesa."],
+    ["El ajedrez nació en…", ["la India", "España", "Japón"], "Mesa."],
+    ["«Al corro de la patata» termina con todos…", ["sentados", "corriendo", "saltando"], "Corro."],
+    ["La rayuela en inglés se llama…", ["hopscotch", "kabaddi", "mancala"], "Mundo."],
+    ["El cuadro «Juegos de niños» es de…", ["1560", "2020", "1900"], "Arte."],
+  ],
+  examen: [
+    ["En la lectura, ¿cuántos intentos necesitó Hugo con la peonza?", ["once", "dos", "veinte"], "Lectura."],
+    ["¿Con qué se rellenan los saquitos de malabares?", ["arroz o harina", "agua", "piedras"], "Juguetes."],
+  ],
+  tarjetas: [
+    ["Juegos de mesa", "Oca, parchís, damas, ajedrez, dominó, tres en raya."],
+    ["Canciones de corro", "El patio de mi casa, la zapatilla, el corro de la patata."],
+    ["Juegos del mundo", "Daruma-san, mancala, kabaddi, hopscotch."],
+    ["Arte y juguetes", "Brueghel (1560) y Goya; zancos, boliche, bolos reciclados."],
+  ],
+  glosario: [
+    ["Juego de mesa", "Juego con tablero, fichas o cartas."],
+    ["Estrategia", "Plan para conseguir un objetivo en el juego."],
+    ["Jaque mate", "Jugada que gana la partida de ajedrez."],
+    ["Corro", "Círculo de personas cogidas de las manos."],
+    ["Prenda", "Castigo divertido o objeto que se entrega al perder."],
+    ["Mancala", "Juego africano de semillas y agujeros."],
+    ["Kabaddi", "Juego de persecución de la India."],
+    ["Hopscotch", "Nombre inglés de la rayuela."],
+    ["Tabas", "Juego con pequeños huesos."],
+    ["Brueghel", "Pintor flamenco de «Juegos de niños»."],
+    ["Reciclar", "Dar un nuevo uso a materiales usados."],
+    ["Boliche", "Juguete de meter una bola en un recipiente."],
+  ],
+  situacion: {
+    titulo: "El Museo del Juego",
+    reto: "La clase crea un museo con juegos y juguetes tradicionales de aquí y de todo el mundo.",
+    pasos: ["Entrevistar a familiares mayores sobre sus juegos y juguetes.", "Fabricar juguetes con material reciclado.", "Preparar fichas de juegos de otros países y del cuadro de Brueghel.", "Inaugurar el museo con una tarde de juegos para otras clases."],
+    producto: "Un museo con juguetes, fichas y una jornada de juegos.",
+    evaluacion: ["Conoce juegos de mesa y de corro.", "Explica juegos de otras culturas.", "Fabrica un juguete con seguridad.", "Valora los juegos tradicionales."],
+  },
+});

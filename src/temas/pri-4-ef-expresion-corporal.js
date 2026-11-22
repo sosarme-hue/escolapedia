@@ -143,3 +143,91 @@ module.exports = {
   fuentes: [RD, wiki("Expresión corporal", "Expresión_corporal"), wiki("Comunicación no verbal", "Comunicación_no_verbal")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Descubrir que los gestos cambian según la cultura", "Conocer a grandes artistas del mimo y del cine mudo", "Bailar y reconocer danzas tradicionales de España", "Crear historias con sombras y juegos de expresión"],
+  lectura: { titulo: "El mimo de la plaza", html: `<p>La plaza estaba llena de gente. Lía y su hermano Pablo paseaban con su madre cuando vieron un corro de personas que se reían.</p><p>En el centro había un hombre con la cara pintada de blanco, una camiseta de rayas y unos guantes blancos. No decía ni una palabra.</p><p>De pronto, el mimo hizo como si se encontrara con una pared invisible. Puso las manos planas delante y las fue moviendo arriba, abajo, a un lado… ¡No había salida! Luego descubrió una puerta imaginaria, giró un pomo que no existía y salió por ella con cara de alivio.</p><p>Después eligió a Pablo entre el público. Le dio una cuerda invisible y empezaron a tirar cada uno de un lado. Pablo se lo tomó muy en serio: echaba el cuerpo hacia atrás y apretaba los dientes. Cuando el mimo «soltó» la cuerda, Pablo se dejó caer sentado al suelo y todo el mundo aplaudió.</p><p>—¿Cómo puede ser que veamos cosas que no están? —preguntó Lía de camino a casa.</p><p>—Porque el mimo mueve el cuerpo con tanta <b>precisión</b> que nuestra imaginación pone el resto —le explicó su madre—. Es como leer un libro: tú imaginas lo que las palabras te cuentan. El mimo cuenta con el cuerpo.</p><p>Esa tarde, Lía y Pablo se pasaron horas en el salón inventando paredes invisibles, escaleras imaginarias y globos que se los llevaban volando.</p>` },
+  tras: {
+    "El cuerpo comunica": [
+      ["Los gestos en el mundo", `<p>Muchos <mark>gestos</mark> parecen universales, pero no lo son: su significado cambia de un país a otro. Por eso hay que tener cuidado cuando viajamos o hablamos con personas de otras culturas. Algunos ejemplos curiosos:</p><ul><li><b>Decir que sí con la cabeza</b>: en España movemos la cabeza de arriba abajo. En <b>Bulgaria</b>, ese gesto puede significar «no», y el movimiento de lado a lado, «sí».</li><li><b>El pulgar hacia arriba</b>: en la mayoría de los países significa «bien» o «de acuerdo», pero en algunos lugares puede ser ofensivo.</li><li><b>Saludar</b>: en España damos dos besos o la mano; en <b>Japón</b> se hace una <b>reverencia</b> inclinando el cuerpo; en la India se juntan las manos delante del pecho; los maoríes de Nueva Zelanda juntan la nariz y la frente (el <i>hongi</i>).</li><li><b>Contar con los dedos</b>: en España solemos empezar por el pulgar, mientras que en otros países se empieza por el índice.</li><li><b>La distancia</b>: en algunos países la gente se acerca mucho al hablar; en otros, prefieren mantener más espacio.</li></ul><p>Lo que sí entendemos en todo el mundo son las <b>expresiones de la cara</b> de las emociones básicas: una sonrisa de alegría o una cara de miedo se reconocen en todas partes.</p>`,
+        L6.filas("Saludos", [["España", "dos besos o la mano", cRO], ["Japón", "reverencia", cAZ], ["India", "manos juntas", cNA], ["Nueva Zelanda", "nariz y frente", cVE]])],
+    ],
+    "El mimo": [
+      ["Grandes mimos y el cine mudo", `<p>El arte de contar sin palabras tiene grandes <mark>maestros</mark>:</p><ul><li><b>Marcel Marceau</b> (1923-2007) fue el mimo más famoso del mundo. Era francés y creó un personaje llamado <b>Bip</b>, con la cara blanca, una camiseta de rayas y un sombrero con una flor roja. Sus números más conocidos son «caminar contra el viento» y «la jaula», en la que va descubriendo paredes invisibles que se cierran a su alrededor.</li><li><b>Charlie Chaplin</b> (1889-1977) fue una estrella del <b>cine mudo</b>, cuando las películas no tenían sonido. Su personaje, <b>Charlot</b>, llevaba bombín, bastón, bigote y unos zapatos enormes. Hacía reír solo con sus gestos y su forma de andar.</li><li><b>Buster Keaton</b> era conocido como «el cara de palo» porque nunca sonreía, aunque le pasaran las cosas más disparatadas.</li></ul><p>En el cine mudo, los actores tenían que <b>exagerar los gestos</b> para que el público entendiera la historia. A veces aparecían carteles con un poco de texto, y en la sala tocaba un pianista en directo.</p><p>Hoy, el mimo sigue vivo en los artistas callejeros, en el circo y en los payasos. Prueba a contar en clase una pequeña historia como si fuera una película muda.</p>`,
+        H6.dos("Sin palabras", ["MARCEAU", ["mimo francés", "personaje Bip", "la jaula"], cAZ], ["CHAPLIN", ["cine mudo", "personaje Charlot", "bombín y bastón"], cNA]), ["XEsfpRrfXf4", "Le Mime Marceau", "Capuseen", 1812287]],
+    ],
+    "La danza": [
+      ["Danzas tradicionales de España", `<p>Cada región de España tiene sus <mark>danzas tradicionales</mark>, que se bailan en fiestas y celebraciones desde hace siglos. Algunas de las más conocidas son:</p><ul><li>La <b>jota</b>: se baila en Aragón, Navarra, Castilla, Valencia y otras zonas. Es alegre y saltarina, con castañuelas.</li><li>La <b>sardana</b>: típica de Cataluña. Se baila en <b>corro</b>, cogidos de las manos, con pasos cortos y largos. Cualquiera puede unirse al círculo.</li><li>Las <b>sevillanas</b>: de Andalucía. Se bailan por parejas y tienen cuatro partes, llamadas «coplas».</li><li>La <b>muiñeira</b>: de Galicia, al son de la <b>gaita</b> y la pandereta.</li><li>El <b>aurresku</b>: danza vasca de honor, con saltos y patadas muy altas, al son del txistu.</li><li>Las <b>isas</b>: de Canarias, alegres y en grupo.</li><li>El <b>fandango</b> y la <b>seguidilla</b>, que se bailan en muchos lugares.</li></ul><p>Las danzas tradicionales tienen <b>trajes</b> típicos, <b>instrumentos</b> propios y suelen bailarse en grupo, así que unen a la gente del pueblo o del barrio.</p><p>Pregunta en casa qué danzas son típicas de tu comunidad y aprende algún paso.</p>`,
+        L6.filas("Danzas", [["jota", "Aragón", cRO], ["sardana", "Cataluña", cAZ], ["sevillanas", "Andalucía", cNA], ["muiñeira", "Galicia", cVE]]), ["v_3EiFA37Zw", "Aprenda a bailar sevillanas", "AndaluciaTube", 5672944]],
+    ],
+  },
+  final: [
+    ["El teatro de sombras", `<p>El <mark>teatro de sombras</mark> es una forma muy antigua de contar historias. Nació en <b>Asia</b>, en países como China, Indonesia o Turquía, hace más de mil años. Por eso en España se conocen como <b>sombras chinescas</b>.</p><p>Solo hacen falta tres cosas:</p><ul><li>Una <b>fuente de luz</b>: una lámpara, una linterna o un proyector.</li><li>Una <b>pantalla</b>: una sábana blanca tensada o la pared.</li><li>Algo que haga sombra: las <b>manos</b>, el <b>cuerpo</b> o figuras recortadas en cartulina.</li></ul><p>Con las manos puedes hacer muchos animales: un <b>perro</b> (mano de lado con el pulgar hacia arriba como oreja), un <b>pájaro</b> (pulgares cruzados y dedos como alas), un <b>conejo</b> (índice y corazón como orejas)…</p><p>Con el cuerpo entero se pueden representar escenas completas. Algunos trucos:</p><ul><li>Cuanto más <b>cerca de la luz</b> te pones, más <b>grande</b> es la sombra; cuanto más cerca de la pantalla, más pequeña y nítida.</li><li>Ponte de <b>perfil</b>: así la sombra se entiende mejor.</li><li>Exagera los movimientos, como en el mimo.</li></ul><p>Con unos compañeros, preparad una pequeña obra de sombras con música de fondo.</p>`,
+      H6.flujo("Sombras", ["luz|lámpara", "cuerpo|o manos", "pantalla|sábana", "historia|con música"], cMO), ["CysUYEI7I34", "Sombras chinas para niños", "unComo", 1747309]],
+    ["Juegos de expresión", `<p>Hay muchos <mark>juegos</mark> que nos ayudan a perder la vergüenza y a expresarnos con el cuerpo:</p><ul><li><b>Las estatuas</b>: todos bailan mientras suena la música. Cuando se para, cada uno se queda quieto como una estatua. Se puede indicar un tema: estatuas de animales, de deportistas, de emociones…</li><li><b>El espejo</b>: por parejas, frente a frente. Uno se mueve muy despacio y el otro le imita como si fuera su reflejo. Luego se cambian los papeles.</li><li><b>La máquina humana</b>: un alumno empieza con un movimiento repetitivo y un sonido. Otro se une con un movimiento que encaje, y otro más… hasta formar una gran máquina que funciona en equipo.</li><li><b>¿Quién soy?</b>: alguien representa una profesión o un personaje sin hablar, y los demás adivinan.</li><li><b>Las películas</b>: como el juego de mímica, se representa el título de una película o un cuento.</li><li><b>El escultor</b>: uno hace de escultor y «modela» a su compañero, que es de barro, colocándole los brazos, las piernas y la cara.</li></ul><p>Recuerda las normas: <b>respetar</b> a todos, no reírse de nadie y <b>animar</b> a los compañeros. Lo importante es participar y disfrutar.</p>`,
+      H6.rueda("Juegos", "EXPRESIÓN", [["estatuas", cAZ], ["espejo", cVE], ["máquina", cRO], ["escultor", cNA]])],
+  ],
+  ejemplos: [
+    ["Un amigo búlgaro mueve la cabeza de arriba abajo cuando le ofreces un caramelo. ¿Qué puede querer decir?", ["En Bulgaria ese gesto puede significar lo contrario que en España.", "Mejor preguntarle con palabras."], "Que puede estar diciendo que no."],
+    ["Quieres que la sombra de tu mano sea más grande. ¿Qué haces?", ["La sombra crece al acercarse a la luz.", "Acerco la mano a la lámpara."], "Acercar la mano a la luz."],
+  ],
+  errores: ["Pensar que todos los gestos significan lo mismo en todo el mundo.", "Hacer los movimientos pequeños en el mimo o las sombras: hay que exagerarlos para que se entiendan."],
+  ejercicios: [
+    ["b", "¿Cómo se saluda en Japón?", "Con una reverencia."],
+    ["b", "¿Cómo se llamaba el personaje de Marcel Marceau?", "Bip."],
+    ["b", "¿De dónde es típica la sardana?", "De Cataluña."],
+    ["b", "¿Qué tres cosas necesitas para el teatro de sombras?", "Luz, pantalla y algo que haga sombra."],
+    ["b", "Explica el juego del espejo.", "Uno se mueve despacio y el otro le imita como un reflejo."],
+    ["m", "¿Por qué los actores del cine mudo exageraban los gestos?", "Porque no había sonido y tenían que hacerse entender."],
+    ["m", "¿Qué instrumento acompaña a la muiñeira?", "La gaita (y la pandereta)."],
+    ["m", "¿Qué expresiones se entienden en todo el mundo?", "Las de las emociones básicas en la cara."],
+    ["m", "¿Por qué se llaman sombras chinescas?", "Porque el teatro de sombras nació en Asia."],
+    ["m", "¿En qué consiste la máquina humana?", "Cada uno añade un movimiento y un sonido que encajan."],
+    ["a", "Representa una película muda de un minuto con dos compañeros.", "Respuesta abierta."],
+    ["a", "Aprende un paso de una danza tradicional de tu comunidad.", "Respuesta abierta."],
+    ["a", "Prepara una obra de sombras de un cuento conocido.", "Respuesta abierta."],
+    ["a", "Investiga un gesto que signifique algo distinto en otro país.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Charlie Chaplin fue estrella del…", ["cine mudo", "teatro de sombras", "ballet"], "Cine mudo."],
+    ["La sardana se baila…", ["en corro", "por parejas separadas", "sentados"], "Danzas."],
+    ["En el teatro de sombras, cerca de la luz la sombra es…", ["más grande", "más pequeña", "invisible"], "Sombras."],
+    ["En Japón se saluda con…", ["una reverencia", "dos besos", "el hongi"], "Gestos."],
+    ["En el juego de las estatuas, cuando para la música…", ["te quedas quieto", "corres", "cantas"], "Juegos."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué objeto invisible le dio el mimo a Pablo?", ["una cuerda", "una pared", "un globo"], "Lectura."],
+    ["¿Qué danza vasca de honor tiene saltos y patadas altas?", ["el aurresku", "la jota", "las isas"], "Danzas."],
+  ],
+  tarjetas: [
+    ["Gestos del mundo", "Reverencia en Japón, hongi maorí; el sí búlgaro."],
+    ["Mimo y cine mudo", "Marceau y Bip; Chaplin y Charlot; exagerar gestos."],
+    ["Danzas de España", "Jota, sardana, sevillanas, muiñeira, aurresku, isas."],
+    ["Sombras y juegos", "Luz, pantalla y cuerpo; estatuas, espejo, máquina, escultor."],
+  ],
+  glosario: [
+    ["Gesto", "Movimiento del cuerpo o la cara que comunica algo."],
+    ["Reverencia", "Saludo inclinando el cuerpo."],
+    ["Mimo", "Artista que cuenta historias sin palabras."],
+    ["Cine mudo", "Películas antiguas sin sonido."],
+    ["Danza tradicional", "Baile típico de un lugar transmitido durante siglos."],
+    ["Jota", "Danza alegre y saltarina con castañuelas."],
+    ["Sardana", "Danza catalana que se baila en corro."],
+    ["Muiñeira", "Danza gallega al son de la gaita."],
+    ["Sombras chinescas", "Figuras de sombra hechas con las manos."],
+    ["Pantalla", "Superficie donde se proyecta la sombra."],
+    ["Perfil", "Vista de lado del cuerpo o la cara."],
+    ["Improvisar", "Hacer algo sin haberlo preparado."],
+  ],
+  situacion: {
+    titulo: "Festival sin palabras",
+    reto: "La clase organiza un festival en el que todo se cuenta sin decir ni una palabra.",
+    pasos: ["Preparar un número de mimo inspirado en Marceau o Chaplin.", "Ensayar una danza tradicional de España en grupo.", "Montar una obra de teatro de sombras con una sábana y una lámpara.", "Presentar el festival a otra clase y recoger sus opiniones."],
+    producto: "Un festival con mimo, danza y sombras.",
+    evaluacion: ["Comunica ideas y emociones solo con el cuerpo.", "Sigue el ritmo de una danza.", "Usa la luz y el cuerpo para crear sombras.", "Participa con respeto y sin vergüenza."],
+  },
+});

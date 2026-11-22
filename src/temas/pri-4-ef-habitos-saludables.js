@@ -136,3 +136,91 @@ module.exports = {
   fuentes: [RD, { t: "OMS: actividad física", url: "https://www.who.int/es/news-room/fact-sheets/detail/physical-activity" }, wiki("Hábitos saludables", "Estilo_de_vida_saludable"), wiki("Calentamiento", "Calentamiento")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer las cuatro capacidades físicas básicas", "Componer un plato saludable", "Evitar el sedentarismo y usar las pantallas con moderación", "Protegerse del sol y saber actuar ante un accidente"],
+  lectura: { titulo: "El reto de las dos semanas", html: `<p>Al volver de vacaciones de Navidad, la tutora de 4.º A, Elena, propuso un reto a la clase.</p><p>—Durante dos semanas, cada uno va a apuntar en una ficha tres cosas: cuántos minutos se mueve al día, cuántas horas pasa delante de una pantalla y qué fruta come.</p><p>Darío se rio. Estaba seguro de que se movía muchísimo. Pero el primer día, al hacer las cuentas, se llevó una sorpresa: había pasado tres horas con la consola y solo había caminado diez minutos, de casa al colegio en coche y del coche a la puerta.</p><p>—Los expertos recomiendan que los niños os mováis al menos <b>sesenta minutos al día</b> —explicó Elena—. Y que el tiempo de pantallas para entretenerse no pase de una o dos horas.</p><p>Darío decidió cambiar algunas cosas. Empezó a ir andando al colegio con su vecina, a bajar al parque después de merendar y a jugar a la consola solo un rato el fin de semana. En vez de bollería, se llevaba una mandarina o un bocadillo para el recreo.</p><p>Al acabar las dos semanas, comparó las fichas. Se movía cinco veces más que al principio. Y había descubierto otra cosa: dormía mejor y por las mañanas se despertaba con más ganas.</p><p>—Lo difícil es empezar —dijo en la puesta en común—. Después, se convierte en un hábito.</p>` },
+  tras: {
+    "Los beneficios de la actividad física": [
+      ["Las capacidades físicas básicas", `<p>Cuando hacemos ejercicio, desarrollamos cuatro <mark>capacidades físicas básicas</mark>. Cada deporte o juego usa unas más que otras:</p><ul><li><b>Resistencia</b>: es la capacidad de aguantar un esfuerzo durante mucho tiempo sin cansarse demasiado. Depende sobre todo del <b>corazón</b> y los <b>pulmones</b>. Se mejora corriendo a ritmo suave, nadando, montando en bici o saltando a la comba.</li><li><b>Fuerza</b>: es la capacidad de los músculos de vencer una resistencia: empujar, levantar, tirar o sostener. Se mejora con trepas, cuadrupedias, saltos o juegos de tirar de la cuerda. A tu edad se trabaja con el <b>propio peso</b>, nunca con pesas.</li><li><b>Velocidad</b>: es la capacidad de hacer un movimiento o recorrer una distancia en el menor tiempo posible. Incluye la <b>velocidad de reacción</b> (responder rápido a una señal). Se mejora con juegos de persecución y carreras cortas.</li><li><b>Flexibilidad</b>: es la capacidad de mover las articulaciones con amplitud. Es la única que se va <b>perdiendo</b> con la edad si no se trabaja. Se mejora con estiramientos suaves.</li></ul><p>Por ejemplo, un futbolista necesita resistencia para aguantar el partido, velocidad para llegar antes al balón, fuerza para chutar y flexibilidad para no lesionarse.</p>`,
+        L6.filas("Capacidades", [["resistencia", "aguantar", cRO], ["fuerza", "vencer un peso", cAZ], ["velocidad", "lo más rápido", cNA], ["flexibilidad", "amplitud", cVE]])],
+    ],
+    "Comer bien para tener energía": [
+      ["El plato saludable", `<p>Una forma muy sencilla de saber si una comida está <mark>equilibrada</mark> es imaginar tu plato dividido en partes. Es lo que se llama el <b>plato saludable</b>:</p><ul><li><b>La mitad del plato</b>: <b>verduras y hortalizas</b> (ensalada, judías verdes, tomate, calabacín…) y <b>fruta</b>. Cuantos más colores, mejor.</li><li><b>Un cuarto</b>: <b>cereales integrales</b> o hidratos de carbono: pan, arroz, pasta, patatas. Dan energía para moverse.</li><li><b>Otro cuarto</b>: <b>proteínas</b> saludables: legumbres, pescado, huevos o carne blanca. Sirven para crecer y reparar los músculos.</li><li>Para cocinar y aliñar: <b>aceite de oliva</b>.</li><li>Para beber: <b>agua</b>.</li></ul><p>Hay alimentos que conviene tomar solo <b>de vez en cuando</b>: bollería, golosinas, refrescos azucarados, patatas fritas de bolsa, embutidos y comida rápida. Tienen mucho azúcar, sal o grasas poco saludables.</p><p>Antes de hacer deporte, toma algo ligero que dé energía, como una fruta o un bocadillo pequeño, una o dos horas antes. Después, recupera con agua y una comida completa.</p><p>La <b>dieta mediterránea</b>, típica de España, es una de las más sanas del mundo: mucha fruta, verdura, legumbres, pescado y aceite de oliva.</p>`,
+        H6.rueda("Mi plato", "AGUA", [["verdura", cVE], ["fruta", cRO], ["cereales", cNA], ["proteínas", cAZ]]), ["cFUaHGlF0Dk", "Selección saludable de alimentos", "Puros Cuentos Saludables", 4316962]],
+    ],
+    "Descanso y postura": [
+      ["Pantallas y sedentarismo", `<p>El <mark>sedentarismo</mark> es pasar demasiado tiempo <b>sentado o quieto</b>, sin moverse. Es uno de los problemas de salud más importantes de hoy, también en los niños y niñas.</p><p>Las recomendaciones de los expertos para tu edad son:</p><ul><li>Hacer al menos <b>60 minutos</b> de actividad física <b>cada día</b>, sumando juegos, deporte, recreo y desplazamientos.</li><li>Varios días a la semana, hacer actividades que fortalezcan músculos y huesos, como saltar, trepar o correr.</li><li>No pasar más de <b>una o dos horas al día</b> delante de pantallas para entretenerse.</li><li>No estar sentado más de una hora seguida sin levantarse y moverse un poco.</li></ul><p>Pasar mucho tiempo con las pantallas tiene consecuencias: dormimos peor, nos cuesta concentrarnos, nos movemos menos y podemos tener dolor de espalda o de ojos.</p><p>Algunas ideas para moverte más:</p><ul><li>Ir andando o en bici al colegio cuando sea posible.</li><li>Subir por las escaleras en vez de usar el ascensor.</li><li>Jugar en el parque o en el patio.</li><li>Hacer pausas activas mientras estudias: levántate, estírate y bebe agua.</li><li>Ayudar en casa: poner la mesa, tender la ropa, pasear al perro.</li></ul>`,
+        H6.dos("Cada día", ["MÁS", ["60 min de", "movimiento", "juego al aire libre"], cVE], ["MENOS", ["pantallas", "1-2 horas", "estar sentado"], cRO]), ["DgkMEXwToEE", "5 peligros de la vida sedentaria", "TikTak Draw", 949359]],
+    ],
+  },
+  final: [
+    ["Cuidarse del sol", `<p>Hacer deporte al aire libre es estupendo, pero hay que protegerse del <mark>sol</mark>. Sus rayos ultravioleta pueden quemar la piel y, con los años, causar enfermedades graves. Además, con el calor perdemos mucha agua.</p><p>Para protegerte:</p><ul><li>Ponte <b>crema protectora</b> con un factor alto (50) media hora antes de salir, y repítela cada dos horas y después de bañarte o sudar mucho.</li><li>Usa <b>gorra</b> o sombrero y <b>gafas de sol</b> homologadas.</li><li>Lleva ropa ligera y de colores claros.</li><li>Evita hacer ejercicio intenso en las <b>horas centrales</b> del día (de 12 a 17 h aproximadamente) en verano.</li><li>Busca la <b>sombra</b> para descansar.</li><li><b>Bebe agua</b> a menudo.</li></ul><p>Si alguien se siente mareado, con dolor de cabeza, la piel muy caliente o náuseas después de estar al sol, puede tener un <b>golpe de calor</b>. Hay que llevarlo a la sombra, refrescarlo con agua, darle de beber si está consciente y avisar a un adulto.</p><p>Recuerda que también en invierno, en la nieve o en días nublados, el sol puede quemar.</p>`,
+      L6.filas("Contra el sol", [["crema", "factor 50", cNA], ["gorra", "y gafas", cAZ], ["horario", "evitar 12-17 h", cRO], ["agua", "a menudo", cVE]]), ["-fKm0Gcm08Y", "Siempre usa protector solar", "Blippi Wonders", 602611]],
+    ["Si hay un accidente: PAS", `<p>Aunque tomemos precauciones, a veces ocurren <mark>accidentes</mark>. Saber qué hacer puede ayudar mucho. La regla básica de los primeros auxilios se resume en tres letras: <b>PAS</b>.</p><ul><li><b>P de Proteger</b>: primero, asegúrate de que tú y la persona herida estáis a salvo. Si hay un peligro, como el tráfico o el fuego, no te acerques: aléjate y pide ayuda.</li><li><b>A de Avisar</b>: avisa a un adulto (el profesor, un familiar…). Si es grave y no hay adultos, llama al <b>112</b>, el teléfono de emergencias. Di tu nombre, dónde estás y qué ha pasado. Habla con calma y no cuelgues hasta que te lo digan.</li><li><b>S de Socorrer</b>: ayuda a la persona herida mientras llega la ayuda: háblale, tranquilízala y no la muevas si se ha dado un golpe fuerte.</li></ul><p>Algunas situaciones frecuentes en el deporte:</p><ul><li><b>Una herida pequeña</b>: lavarla con agua y jabón y cubrirla con una tirita.</li><li><b>Un golpe</b>: poner frío (hielo envuelto en un trapo, nunca directamente sobre la piel).</li><li><b>Sangre por la nariz</b>: inclinar la cabeza hacia <b>delante</b> (no hacia atrás) y apretar la nariz unos minutos.</li></ul><p>Apréndete el <b>112</b>: es gratuito y funciona en toda Europa.</p>`,
+      H6.flujo("PAS", ["Proteger|a salvo", "Avisar|112", "Socorrer|calmar", "esperar|ayuda"], cRO)],
+  ],
+  ejemplos: [
+    ["Ayer jugaste 20 minutos en el recreo, 30 al fútbol y fuiste andando 15 minutos al cole. ¿Cumpliste la recomendación?", ["20 + 30 + 15 = 65 minutos.", "La recomendación es al menos 60 minutos."], "Sí, 65 minutos."],
+    ["A un compañero le sangra la nariz. ¿Cómo le colocas la cabeza?", ["Hacia atrás la sangre va a la garganta.", "Hacia delante y apretando la nariz."], "Inclinada hacia delante."],
+  ],
+  errores: ["Echar la cabeza hacia atrás cuando sangra la nariz: hay que inclinarla hacia delante.", "Ponerse crema solar solo una vez: hay que repetirla cada dos horas y después del baño."],
+  ejercicios: [
+    ["b", "Nombra las cuatro capacidades físicas básicas.", "Resistencia, fuerza, velocidad y flexibilidad."],
+    ["b", "¿Qué ocupa la mitad del plato saludable?", "Verduras, hortalizas y fruta."],
+    ["b", "¿Cuántos minutos de actividad física al día se recomiendan?", "Al menos 60."],
+    ["b", "¿Qué significan las letras PAS?", "Proteger, Avisar y Socorrer."],
+    ["b", "¿Cuál es el teléfono de emergencias?", "El 112."],
+    ["m", "¿Qué capacidad física se pierde con la edad si no se trabaja?", "La flexibilidad."],
+    ["m", "¿Qué es el sedentarismo?", "Pasar demasiado tiempo sentado o quieto."],
+    ["m", "¿Qué haces si alguien tiene un golpe de calor?", "Llevarlo a la sombra, refrescarlo, darle agua y avisar."],
+    ["m", "¿Por qué a tu edad la fuerza se trabaja con el propio peso?", "Porque el cuerpo está creciendo y las pesas no son adecuadas."],
+    ["m", "Di tres ideas para moverte más cada día.", "Por ejemplo: ir andando al cole, subir escaleras, jugar en el parque."],
+    ["a", "Rellena una ficha de una semana con tus minutos de actividad y de pantallas.", "Respuesta abierta."],
+    ["a", "Dibuja tu plato saludable ideal para una comida.", "Respuesta abierta."],
+    ["a", "Representa con compañeros una llamada al 112.", "Respuesta abierta."],
+    ["a", "Elige un deporte y explica qué capacidades físicas usa más.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Aguantar un esfuerzo mucho tiempo es la…", ["resistencia", "velocidad", "flexibilidad"], "Capacidades."],
+    ["En el plato saludable, la mitad son…", ["verduras y fruta", "carnes", "pasta"], "Plato."],
+    ["El tiempo de pantallas de ocio no debería pasar de…", ["una o dos horas", "cinco horas", "todo el día"], "Pantallas."],
+    ["La crema solar se repite cada…", ["dos horas", "semana", "mes"], "Sol."],
+    ["La A de PAS significa…", ["Avisar", "Andar", "Abrazar"], "PAS."],
+  ],
+  examen: [
+    ["En la lectura, ¿cuánto se movía Darío el primer día?", ["diez minutos", "una hora", "tres horas"], "Lectura."],
+    ["Para un golpe se pone…", ["frío envuelto en un trapo", "calor", "hielo directo"], "Primeros auxilios."],
+  ],
+  tarjetas: [
+    ["Capacidades físicas", "Resistencia, fuerza, velocidad y flexibilidad."],
+    ["Plato saludable", "1/2 verdura y fruta, 1/4 cereales, 1/4 proteínas, agua."],
+    ["Contra el sedentarismo", "60 minutos al día; pantallas de ocio 1-2 horas."],
+    ["Sol y PAS", "Crema 50, gorra, agua; Proteger, Avisar (112), Socorrer."],
+  ],
+  glosario: [
+    ["Capacidad física", "Cualidad del cuerpo que permite hacer ejercicio."],
+    ["Resistencia", "Capacidad de aguantar un esfuerzo largo."],
+    ["Fuerza", "Capacidad de vencer una resistencia con los músculos."],
+    ["Velocidad", "Capacidad de moverse en el menor tiempo."],
+    ["Flexibilidad", "Capacidad de mover las articulaciones con amplitud."],
+    ["Plato saludable", "Guía para repartir los alimentos en una comida."],
+    ["Dieta mediterránea", "Forma de comer con fruta, verdura, legumbres y aceite de oliva."],
+    ["Sedentarismo", "Falta de actividad física."],
+    ["Golpe de calor", "Malestar grave por exceso de calor."],
+    ["Primeros auxilios", "Primera ayuda a una persona herida."],
+    ["PAS", "Proteger, Avisar y Socorrer."],
+    ["112", "Teléfono europeo de emergencias."],
+  ],
+  situacion: {
+    titulo: "Campaña Cole Activo",
+    reto: "La clase crea una campaña para que todo el colegio adopte hábitos saludables.",
+    pasos: ["Registrar durante una semana la actividad física y el tiempo de pantallas.", "Diseñar carteles del plato saludable y de la protección solar.", "Preparar una demostración de PAS y de cómo llamar al 112.", "Proponer pausas activas en clase y juegos para el recreo."],
+    producto: "Carteles y una presentación para el resto del colegio.",
+    evaluacion: ["Identifica las capacidades físicas.", "Compone un plato equilibrado.", "Propone ideas contra el sedentarismo.", "Sabe actuar con el método PAS."],
+  },
+});
