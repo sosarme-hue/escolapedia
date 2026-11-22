@@ -140,3 +140,91 @@ module.exports = {
   fuentes: [RD, wiki("Tiempo atmosférico", "Tiempo atmosférico"), wiki("Clima", "Clima"), wiki("Clima de España", "Clima de España")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Reconocer tipos de nubes", "Conocer fenómenos extremos y cómo protegerse", "Entender qué es el cambio climático", "Comparar climas del mundo y conocer refranes del tiempo"],
+  lectura: { titulo: "El refrán del abuelo", html: `<p>El abuelo de Irene vivía en un pueblo de León y había sido agricultor toda su vida. Cada mañana salía a la puerta, miraba el cielo, olía el aire y decía qué tiempo iba a hacer.</p><p>—Hoy lloverá por la tarde —anunció un sábado de abril, aunque brillaba el sol.</p><p>—Pero, abuelo, si no hay ni una nube —protestó Irene.</p><p>El abuelo señaló hacia el oeste. Allí, sobre las montañas, se veían unas nubes muy finas y blancas, como pinceladas.</p><p>—Cielo empedrado, suelo mojado —dijo—. Cuando salen esas nubes, la lluvia viene detrás.</p><p>Irene sacó el móvil y miró la aplicación del tiempo. Decía: «Probabilidad de lluvia a partir de las 18:00: 80 %».</p><p>—¡Coincide! —dijo, asombrada—. ¿Cómo lo sabías sin aplicación?</p><p>—Antes no había satélites —sonrió el abuelo—. Los agricultores aprendíamos a leer el cielo, porque de eso dependían las cosechas. Y lo que aprendíamos lo guardábamos en refranes.</p><p>A las seis y cuarto empezaron a caer las primeras gotas. Irene apuntó el refrán en su cuaderno. Desde entonces, cada vez que mira el cielo, busca nubes empedradas.</p>` },
+  tras: {
+    "Las precipitaciones": [
+      ["Los tipos de nubes", `<p>Las nubes están formadas por gotitas de agua o cristales de hielo muy pequeños. Según su forma y su altura, tienen distintos nombres:</p><ul><li>Los <mark>cúmulos</mark> son blancos y esponjosos, como bolas de algodón. Suelen aparecer los días de buen tiempo.</li><li>Los <mark>cumulonimbos</mark> son cúmulos gigantes, muy altos y oscuros por debajo. Traen tormentas, rayos, truenos y a veces granizo.</li><li>Los <mark>estratos</mark> son nubes grises y planas que cubren todo el cielo como una manta. Pueden dar llovizna. La niebla es un estrato pegado al suelo.</li><li>Los <mark>cirros</mark> son nubes muy altas, finas y blancas, como plumas o pinceladas. A veces anuncian un cambio de tiempo.</li></ul><p>Observar las nubes ayuda a saber qué tiempo va a hacer. Los meteorólogos usan además fotos de satélites para ver las nubes desde arriba.</p><p><b>Actividad</b>: haz una foto del cielo cada día durante una semana y clasifica las nubes que veas.</p>`,
+        L6.filas("Nubes", [["cúmulos", "algodón", cAZ], ["cumulonimbo", "tormenta", cMO], ["estratos", "manta gris", cNA], ["cirros", "plumas altas", cVE]])],
+    ],
+    "El viento": [
+      ["Fenómenos extremos", `<p>A veces el tiempo se vuelve muy violento. Son los <mark>fenómenos extremos</mark>:</p><ul><li>Las <b>tormentas</b> traen lluvia fuerte, rayos y truenos. El rayo es una chispa eléctrica enorme; el trueno, el ruido que hace.</li><li>El <b>granizo</b> son bolas de hielo que caen de las nubes de tormenta y pueden romper cristales y cosechas.</li><li>Los <b>huracanes</b> son tormentas gigantes que se forman sobre mares cálidos, con vientos de más de 120 km/h.</li><li>Los <b>tornados</b> son remolinos de viento con forma de embudo que bajan de una nube hasta el suelo.</li><li>Las <b>olas de calor</b> son varios días seguidos con temperaturas muy altas.</li></ul><p><b>Cómo protegerse en una tormenta</b>: entra en un edificio o en un coche, aléjate de árboles solitarios, del agua y de los lugares altos, y no uses paraguas metálicos en campo abierto.</p><p>En una ola de calor, bebe mucha agua, busca la sombra y no hagas ejercicio en las horas centrales del día.</p>`,
+        H6.rueda("Extremos", "PELIGRO", [["tormenta", cMO], ["granizo", cAZ], ["huracán", cVE], ["ola de calor", cRO]]), ["dFEtjw0Zlf4", "DESASTRES NATURALES 🌊🌋 Recopilación 💨⛈️ Huracán, sequía, tsunami, tormenta, terremoto...", "Smile and Learn - Español", 7185825]],
+    ],
+    "¿Qué es el clima?": [
+      ["El cambio climático", `<p>El clima de la Tierra ha cambiado muchas veces a lo largo de millones de años. Pero ahora está cambiando muy deprisa por culpa de las personas: es el <mark>cambio climático</mark>.</p><ul><li>Al quemar <b>petróleo</b>, <b>carbón</b> y <b>gas</b> en coches, fábricas y centrales, se producen gases que se acumulan en la atmósfera.</li><li>Esos gases funcionan como una <b>manta</b> que no deja escapar el calor. Es el llamado <b>efecto invernadero</b>.</li><li>Por eso la temperatura media de la Tierra está subiendo.</li></ul><p><b>Consecuencias</b>: se derrite el hielo de los polos y los glaciares, sube el nivel del mar, hay más olas de calor, más sequías y lluvias más violentas, y muchos animales y plantas tienen problemas para sobrevivir.</p><p><b>Qué podemos hacer</b>: usar energías renovables, ir andando, en bici o en transporte público, ahorrar energía en casa, plantar árboles y no desperdiciar comida ni cosas.</p>`,
+        H6.flujo("Cambio", ["quemar|petróleo", "gases|manta", "calor|atrapado", "Tierra|más caliente"], cRO), ["2SdptkBQBPg", "¿Qué es el Cambio Climático? 🌏 Las Aventuras de Dae", "Mundo Kuku", 624085]],
+    ],
+  },
+  final: [
+    ["Climas del mundo", `<p>Además de los climas de España, en el mundo hay climas muy distintos:</p><ul><li>El <mark>clima polar</mark>: en el Ártico y la Antártida hace un frío intensísimo casi todo el año y todo está cubierto de hielo. En la Antártida se han medido casi 90 grados bajo cero.</li><li>El <mark>clima ecuatorial</mark>: cerca del ecuador hace calor y llueve casi todos los días. Allí crecen las selvas tropicales, como la del Amazonas.</li><li>El <mark>clima desértico</mark>: casi nunca llueve. De día puede hacer muchísimo calor y de noche bastante frío. El Sáhara es el desierto cálido más grande del mundo.</li><li>El <mark>clima de alta montaña</mark>: cuanto más subes, más frío hace. Por eso hay nieve todo el año en las cumbres más altas.</li></ul><p>Los seres vivos están adaptados al clima en el que viven: el oso polar tiene grasa y pelo espeso; el camello aguanta muchos días sin beber.</p>`,
+      L6.filas("Climas", [["polar", "hielo", cAZ], ["ecuatorial", "calor y lluvia", cVE], ["desértico", "sin lluvia", cNA], ["alta montaña", "nieve", cMO]])],
+    ["Refranes del tiempo", `<p>Antes de que existieran los satélites, la gente observaba el cielo y los animales para adivinar el tiempo. Lo que aprendían lo guardaban en <mark>refranes</mark>, frases cortas fáciles de recordar.</p><ul><li><b>«Cielo empedrado, suelo mojado»</b>: cuando el cielo tiene nubes pequeñas como piedras, suele llover pronto.</li><li><b>«En abril, aguas mil»</b>: abril es un mes lluvioso en gran parte de España.</li><li><b>«Hasta el cuarenta de mayo, no te quites el sayo»</b>: hasta principios de junio puede volver el fresco, así que no guardes la ropa de abrigo.</li><li><b>«Cuando marzo mayea, mayo marcea»</b>: si marzo es cálido, mayo puede ser frío.</li><li><b>«Arco iris por la mañana, lluvia en la semana»</b>.</li></ul><p>Algunos refranes aciertan bastantes veces y otros no tanto. Los meteorólogos usan hoy datos científicos, pero los refranes forman parte de nuestro patrimonio y de la sabiduría popular.</p><p><b>Actividad</b>: pregunta a tus mayores qué refranes del tiempo conocen.</p>`,
+      H6.dos("Refranes", ["LLUVIA", ["cielo empedrado", "en abril", "arco iris"], cAZ], ["FRÍO", ["cuarenta de mayo", "marzo mayea", "sayo"], cNA])],
+  ],
+  ejemplos: [
+    ["Ves nubes muy altas, oscuras y enormes. ¿Qué tiempo hará?", ["Son cumulonimbos.", "Los cumulonimbos traen tormenta."], "Tormenta."],
+    ["¿Qué quiere decir «hasta el cuarenta de mayo, no te quites el sayo»?", ["El cuarenta de mayo sería el 9 de junio.", "Hasta entonces puede hacer fresco."], "No guardes el abrigo antes de junio."],
+  ],
+  errores: ["Confundir tiempo y clima: el clima es el tiempo habitual durante muchos años.", "Refugiarse bajo un árbol solitario en una tormenta."],
+  ejercicios: [
+    ["b", "¿Qué nubes parecen algodón?", "Los cúmulos."],
+    ["b", "¿Qué es el granizo?", "Bolas de hielo que caen de las nubes."],
+    ["b", "Di una causa del cambio climático.", "Quemar petróleo, carbón o gas."],
+    ["b", "¿Cómo es el clima polar?", "Muy frío y con hielo."],
+    ["b", "Di un refrán del tiempo.", "En abril, aguas mil."],
+    ["m", "¿Qué es la niebla?", "Una nube pegada al suelo."],
+    ["m", "¿Qué hay que hacer en una tormenta en el campo?", "Buscar refugio y alejarse de árboles solos y lugares altos."],
+    ["m", "¿Qué es el efecto invernadero?", "Gases que atrapan el calor como una manta."],
+    ["m", "¿Dónde crecen las selvas tropicales?", "En el clima ecuatorial."],
+    ["m", "¿Por qué los agricultores creaban refranes?", "Para recordar cómo predecir el tiempo."],
+    ["a", "Fotografía las nubes durante una semana y clasifícalas.", "Respuesta abierta."],
+    ["a", "Haz un cartel con cinco acciones contra el cambio climático.", "Respuesta abierta."],
+    ["a", "Recoge refranes del tiempo de tu familia.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿a qué hora empezó a llover?", "A las seis y cuarto."],
+  ],
+  quiz: [
+    ["Los cirros son nubes…", ["altas y finas", "bajas y grises", "de tormenta"], "Nubes."],
+    ["Un tornado tiene forma de…", ["embudo", "cubo", "estrella"], "Extremos."],
+    ["Por el cambio climático, el nivel del mar…", ["sube", "baja", "no cambia"], "Cambio climático."],
+    ["El Sáhara tiene clima…", ["desértico", "polar", "ecuatorial"], "Climas."],
+    ["«En abril…»", ["aguas mil", "nieve mil", "sol mil"], "Refranes."],
+  ],
+  examen: [
+    ["En la lectura, ¿dónde vivía el abuelo?", ["en un pueblo de León", "en Canarias", "en Barcelona"], "Lectura."],
+    ["En una ola de calor hay que…", ["beber mucha agua", "correr al mediodía", "ponerse al sol"], "Extremos."],
+  ],
+  tarjetas: [
+    ["Nubes", "Cúmulos, cumulonimbos, estratos y cirros."],
+    ["Fenómenos extremos", "Tormenta, granizo, huracán, tornado y ola de calor."],
+    ["Cambio climático", "Gases, efecto invernadero, deshielo; energías limpias."],
+    ["Climas y refranes", "Polar, ecuatorial, desértico, alta montaña; sabiduría popular."],
+  ],
+  glosario: [
+    ["Cúmulo", "Nube blanca y esponjosa."],
+    ["Cumulonimbo", "Nube enorme de tormenta."],
+    ["Estrato", "Nube gris y plana."],
+    ["Cirro", "Nube alta y fina."],
+    ["Granizo", "Bolas de hielo que caen de las nubes."],
+    ["Huracán", "Tormenta gigante con vientos muy fuertes."],
+    ["Tornado", "Remolino de viento en forma de embudo."],
+    ["Ola de calor", "Varios días de calor muy intenso."],
+    ["Cambio climático", "Calentamiento rápido de la Tierra."],
+    ["Efecto invernadero", "Gases que atrapan el calor."],
+    ["Clima polar", "Clima muy frío con hielo."],
+    ["Refrán", "Frase popular que da un consejo."],
+  ],
+  situacion: {
+    titulo: "Meteorólogos de la clase",
+    reto: "La clase prepara un parte del tiempo y una campaña sobre el clima.",
+    pasos: ["Observar y clasificar las nubes cada día.", "Preparar una guía de seguridad ante fenómenos extremos.", "Calcular acciones para ahorrar energía en clase.", "Grabar un parte del tiempo con refranes."],
+    producto: "Un parte del tiempo grabado y un mural del clima.",
+    evaluacion: ["Reconoce nubes.", "Sabe protegerse.", "Explica el cambio climático.", "Compara climas y usa refranes."],
+  },
+});

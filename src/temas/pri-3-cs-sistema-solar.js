@@ -149,3 +149,87 @@ module.exports = {
   fuentes: [RD, wiki("Sistema solar", "Sistema solar"), wiki("Luna", "Luna"), wiki("Vía Láctea", "Vía Láctea")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Reconocer algunas constelaciones", "Conocer la vida en la Estación Espacial Internacional", "Saber para qué sirven los satélites y qué es la basura espacial", "Observar el cielo nocturno"],
+  lectura: { titulo: "Una noche en el planetario", html: `<p>La excursión de fin de trimestre fue al planetario. La clase de Adrián entró en una sala redonda con un techo enorme en forma de cúpula. Se sentaron en unas butacas que se reclinaban hacia atrás, casi como camas.</p><p>De pronto, las luces se apagaron. Todo quedó oscuro… y el techo se llenó de estrellas.</p><p>—¡Ooooh! —exclamaron todos a la vez.</p><p>Una voz empezó a explicar:</p><p>—Esto es lo que veríais en una noche sin luces de ciudad. Fijaos en estas siete estrellas: forman un carro con su lanza. Es la Osa Mayor.</p><p>En la cúpula aparecieron unas líneas que unían las estrellas y dibujaban una gran osa.</p><p>—Si seguís la línea de las dos últimas estrellas del carro, llegaréis a la estrella Polar. Siempre señala el norte. Los marineros la usaban para orientarse.</p><p>Después, el cielo empezó a girar. Vieron a Orión, el cazador, con su cinturón de tres estrellas en fila. Vieron planetas, nebulosas de colores y la Estación Espacial cruzando el cielo como un punto brillante.</p><p>Al salir, ya de noche, Adrián buscó la Osa Mayor sobre el aparcamiento. Tardó un poco, pero la encontró.</p><p>—¡Ahí está! —gritó, orgulloso.</p>` },
+  tras: {
+    "El universo": [
+      ["Las constelaciones", `<p>Desde hace miles de años, las personas miran el cielo y unen las estrellas con líneas imaginarias para formar figuras: son las <mark>constelaciones</mark>.</p><ul><li>La <b>Osa Mayor</b> tiene siete estrellas brillantes que forman un carro. Se ve todo el año en España.</li><li>La <b>Osa Menor</b> es más pequeña. En la punta de su cola está la <b>estrella Polar</b>, que indica el norte.</li><li><b>Orión</b>, el cazador, se ve en invierno. Su cinturón son tres estrellas en fila.</li><li><b>Casiopea</b> tiene forma de W.</li></ul><p>Los antiguos griegos inventaron historias sobre estas figuras: héroes, animales y reinas. Hoy los astrónomos reconocen 88 constelaciones en todo el cielo.</p><p>Las estrellas de una constelación parecen estar juntas, pero en realidad están a distancias muy distintas de la Tierra.</p><p><b>Truco</b>: para encontrar la Polar, prolonga cinco veces la distancia entre las dos estrellas del final del carro de la Osa Mayor.</p>`,
+        L6.filas("Cielo", [["Osa Mayor", "carro", cAZ], ["Osa Menor", "estrella Polar", cVE], ["Orión", "tres en fila", cRO], ["Casiopea", "forma de W", cMO]]), ["w2b9JShncUM", "Aprende a reconocer constelaciones | Shackleton Kids | Los exploradores del espacio |", "Shackleton Kids", 221848]],
+    ],
+    "Explorando el espacio": [
+      ["La vida en la Estación Espacial", `<p>La <mark>Estación Espacial Internacional</mark> es un gran laboratorio que da vueltas alrededor de la Tierra, a unos 400 kilómetros de altura. Da una vuelta completa cada hora y media, así que los astronautas ven unos dieciséis amaneceres al día.</p><p>Allí viven astronautas de distintos países durante varios meses. Su vida es muy diferente a la nuestra:</p><ul><li>Todo <b>flota</b>: los objetos, el agua y las personas. Por eso se atan para dormir en sacos colgados de la pared.</li><li>La comida viene en <b>bolsas</b> y la bebida se toma con pajita.</li><li>El agua se <b>recicla</b>, incluso la del sudor y la orina, para volver a beberla limpia.</li><li>Hacen <b>ejercicio</b> unas dos horas al día, porque sin peso sus músculos y huesos se debilitan.</li><li>Hacen <b>experimentos</b> sobre plantas, medicinas y materiales.</li></ul><p>A veces la estación se puede ver desde la Tierra al anochecer, como un punto muy brillante que cruza el cielo en pocos minutos.</p>`,
+        H6.rueda("Estación", "ESPACIO", [["flotar", cAZ], ["comer", cNA], ["reciclar", cVE], ["experimentos", cRO]]), ["0JU4z-iLmGQ", "Un tour de la Estación Espacial Internacional con Frank Rubio", "NASA en Español", 4721474]],
+    ],
+  },
+  final: [
+    ["Satélites y basura espacial", `<p>Alrededor de la Tierra giran miles de <mark>satélites artificiales</mark>: máquinas lanzadas con cohetes que nos ayudan cada día.</p><ul><li>Los satélites <b>meteorológicos</b> fotografían las nubes para predecir el tiempo.</li><li>Los satélites de <b>navegación</b> hacen funcionar el GPS de los móviles y los coches.</li><li>Los de <b>comunicaciones</b> llevan señales de televisión, teléfono e internet.</li><li>Otros observan los bosques, los océanos, los incendios o el hielo de los polos.</li></ul><p>Pero cuando un satélite se estropea o termina su trabajo, a veces se queda allí dando vueltas. También quedan restos de cohetes y pequeños trozos de choques. Todo eso es la <mark>basura espacial</mark>.</p><p>Es un problema, porque viaja a gran velocidad y puede chocar con otros satélites o con la Estación Espacial. Los científicos están inventando formas de recogerla, como redes o brazos robóticos, y se intenta que los satélites nuevos caigan y se quemen en la atmósfera al terminar su trabajo.</p>`,
+      H6.dos("Órbita", ["SATÉLITES", ["tiempo", "GPS", "televisión"], cAZ], ["BASURA", ["satélites rotos", "restos de cohetes", "trozos"], cMO]), ["DAJYCaqRjJo", "¿Dónde se bota la basura espacial?", "El Robot de Platón", 1025219]],
+    ["Observamos el cielo", `<p>Para <mark>observar el cielo</mark> no hace falta un gran telescopio. Basta con un poco de paciencia y algunos trucos:</p><ul><li>Busca un lugar <b>oscuro</b>, lejos de farolas y luces.</li><li>Espera unos minutos para que tus ojos se <b>acostumbren</b> a la oscuridad.</li><li>Usa una <b>linterna con luz roja</b> (puedes tapar la tuya con papel celofán rojo): así no te deslumbras.</li><li>Unos <b>prismáticos</b> sirven para ver los cráteres de la Luna y muchas más estrellas.</li><li>Algunas <b>aplicaciones</b> del móvil te dicen el nombre de lo que estás viendo.</li></ul><p><b>Qué puedes ver</b>: la Luna y sus fases, constelaciones, algunos planetas que brillan sin parpadear como Venus, Júpiter o Marte, la Estación Espacial y, en agosto, la lluvia de estrellas de las Perseidas.</p><p>También puedes visitar un <b>planetario</b> o un observatorio. ¡Y nunca mires al Sol directamente!</p>`,
+      H6.flujo("Observar", ["lugar|oscuro", "esperar|un rato", "linterna|roja", "mirar|y anotar"], cMO)],
+  ],
+  ejemplos: [
+    ["¿Cómo encuentras el norte de noche?", ["Busca la Osa Mayor.", "Prolonga sus dos últimas estrellas hasta la Polar."], "Con la estrella Polar."],
+    ["Si la Estación da una vuelta cada hora y media, ¿cuántas da en 3 horas?", ["Hora y media más hora y media son 3 horas.", "Son dos vueltas."], "Dos vueltas."],
+  ],
+  errores: ["Pensar que las estrellas de una constelación están juntas: están a distancias muy distintas.", "Creer que en la Estación Espacial no hay gravedad: los astronautas flotan porque caen alrededor de la Tierra."],
+  ejercicios: [
+    ["b", "¿Qué es una constelación?", "Un grupo de estrellas que forman una figura."],
+    ["b", "¿Qué estrella indica el norte?", "La estrella Polar."],
+    ["b", "¿Cómo duermen los astronautas?", "En sacos atados a la pared."],
+    ["b", "¿Para qué sirve un satélite meteorológico?", "Para predecir el tiempo."],
+    ["b", "¿Por qué se usa luz roja para mirar el cielo?", "Para no deslumbrarse."],
+    ["m", "¿Qué forma tiene Casiopea?", "De W."],
+    ["m", "¿Por qué hacen ejercicio los astronautas?", "Porque sus músculos y huesos se debilitan."],
+    ["m", "¿Qué es la basura espacial?", "Satélites rotos y restos de cohetes."],
+    ["m", "¿Cuántas constelaciones reconocen los astrónomos?", "88."],
+    ["m", "Di un planeta que se ve a simple vista.", "Venus, Júpiter o Marte."],
+    ["a", "Dibuja la Osa Mayor y la Osa Menor.", "Respuesta abierta."],
+    ["a", "Diseña un menú para un astronauta.", "Respuesta abierta."],
+    ["a", "Haz una noche de observación con tu familia y anota lo que veas.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿cuántas estrellas tiene el cinturón de Orión?", "Tres."],
+  ],
+  quiz: [
+    ["El cinturón de Orión tiene…", ["tres estrellas", "siete estrellas", "una estrella"], "Constelaciones."],
+    ["La Estación Espacial está a unos…", ["400 km", "4 km", "40.000 km"], "Estación."],
+    ["El GPS funciona gracias a…", ["satélites", "nubes", "volcanes"], "Satélites."],
+    ["En agosto se ve la lluvia de…", ["Perseidas", "Orión", "Casiopea"], "Observar."],
+    ["Para ver cráteres de la Luna sirven…", ["unos prismáticos", "unas gafas de sol", "una lupa"], "Observar."],
+  ],
+  examen: [
+    ["En la lectura, ¿dónde estaba la clase?", ["en un planetario", "en un museo de arte", "en la playa"], "Lectura."],
+    ["En la Estación Espacial, el agua…", ["se recicla", "se tira", "no existe"], "Estación."],
+  ],
+  tarjetas: [
+    ["Constelaciones", "Osa Mayor, Osa Menor con la Polar, Orión y Casiopea."],
+    ["Estación Espacial", "A 400 km; todo flota, se recicla el agua y se investiga."],
+    ["Satélites y basura", "Tiempo, GPS, comunicaciones; restos peligrosos."],
+    ["Observar", "Oscuridad, paciencia, luz roja y prismáticos."],
+  ],
+  glosario: [
+    ["Constelación", "Grupo de estrellas que forman una figura."],
+    ["Estrella Polar", "Estrella que indica el norte."],
+    ["Astrónomo", "Científico que estudia el universo."],
+    ["Estación Espacial", "Laboratorio que gira alrededor de la Tierra."],
+    ["Órbita", "Camino que sigue un astro o satélite."],
+    ["Satélite artificial", "Máquina que gira alrededor de la Tierra."],
+    ["Cohete", "Vehículo que lleva cosas al espacio."],
+    ["Basura espacial", "Restos inútiles que giran alrededor de la Tierra."],
+    ["Prismáticos", "Aparato con lentes para ver de lejos."],
+    ["Planetario", "Sala donde se proyecta el cielo."],
+    ["Observatorio", "Lugar con telescopios para estudiar el cielo."],
+    ["Perseidas", "Lluvia de estrellas de agosto."],
+  ],
+  situacion: {
+    titulo: "Agencia espacial de la clase",
+    reto: "La clase crea su propia agencia espacial y prepara una noche de estrellas.",
+    pasos: ["Fabricar un planisferio sencillo con las constelaciones.", "Diseñar un día de vida en la Estación Espacial.", "Investigar para qué sirve un satélite y presentarlo.", "Organizar una observación del cielo con las familias."],
+    producto: "Un cuaderno de astronauta y una noche de observación.",
+    evaluacion: ["Reconoce constelaciones.", "Describe la vida en el espacio.", "Explica satélites y basura espacial.", "Observa el cielo con seguridad."],
+  },
+});

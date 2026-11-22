@@ -140,3 +140,87 @@ module.exports = {
   fuentes: [RD, wiki("Tierra", "Tierra"), wiki("Rotación de la Tierra", "Rotación de la Tierra"), wiki("Estación del año", "Estación del año")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Entender por qué no es la misma hora en todo el mundo", "Saber qué son los terremotos y cómo protegerse", "Explicar los eclipses de Sol y de Luna", "Valorar la Tierra vista desde el espacio"],
+  lectura: { titulo: "El día que se hizo de noche", html: `<p>El 12 de agosto de 2026, toda la familia de Pau estaba en lo alto de una colina, cerca de su pueblo de Aragón. Llevaban semanas esperando ese momento: un eclipse total de Sol, el primero visible en España desde hacía más de cien años.</p><p>Todos tenían puestas unas gafas especiales, de cartón con un plástico negro. Su madre les había avisado mil veces:</p><p>—Nunca, nunca miréis al Sol sin estas gafas. Os podéis dañar los ojos.</p><p>A través de las gafas, Pau vio cómo un mordisco negro aparecía en un lado del Sol. Era la Luna, que se ponía delante poco a poco. El mordisco se hizo cada vez más grande.</p><p>Empezó a refrescar. La luz se volvió extraña, plateada. Los pájaros dejaron de cantar y algunos perros ladraban nerviosos.</p><p>Y de repente, la Luna tapó el Sol por completo. Se hizo casi de noche. Alrededor de la Luna apareció un anillo brillante y blanco, como una corona.</p><p>—¡Ahora podéis quitaros las gafas! —dijo su padre—. Solo mientras esté totalmente tapado.</p><p>Fue apenas un minuto, pero Pau nunca lo olvidaría. Cuando volvió a salir el primer rayo de sol, todos se pusieron las gafas otra vez y aplaudieron.</p>` },
+  tras: {
+    "La rotación: el día y la noche": [
+      ["Los husos horarios", `<p>Como la Tierra gira, no amanece a la vez en todas partes. Cuando en España es mediodía, en Japón ya es de noche, y en México todavía es de madrugada.</p><p>Para organizarse, la Tierra se dividió en 24 franjas, como los gajos de una naranja: los <mark>husos horarios</mark>. En cada huso, los relojes marcan una hora distinta.</p><ul><li>Hacia el <b>este</b>, donde el Sol sale antes, los relojes van <b>adelantados</b>.</li><li>Hacia el <b>oeste</b>, los relojes van <b>atrasados</b>.</li></ul><p>En España hay dos horas distintas: en las <b>islas Canarias</b> es <b>una hora menos</b> que en la península y las islas Baleares. Por eso en la radio dicen: «Son las doce, las once en Canarias».</p><p>Cuando una persona viaja en avión muy lejos, su cuerpo nota el cambio de hora: tiene sueño de día y está despierta de noche. A esto se le llama <b>jet lag</b>.</p><p>Además, en España cambiamos la hora dos veces al año, en primavera y en otoño, para aprovechar mejor la luz del día.</p>`,
+        H6.flujo("Hora", ["Japón|noche", "España|mediodía", "Canarias|una menos", "México|madrugada"], cAZ)],
+    ],
+    "Las capas de la Tierra": [
+      ["Los terremotos", `<p>La corteza de la Tierra no es una pieza entera: está rota en grandes trozos llamados <mark>placas</mark>, que se mueven muy despacio, como balsas sobre el manto. Cuando dos placas chocan o se rozan, se acumula fuerza. Si se libera de golpe, el suelo tiembla: es un <mark>terremoto</mark> o seísmo.</p><ul><li>Los terremotos se miden con un aparato llamado <b>sismógrafo</b>.</li><li>Los más fuertes pueden derrumbar edificios y puentes.</li><li>Si ocurren bajo el mar, pueden provocar olas gigantes: los <b>tsunamis</b>.</li></ul><p>En España hay terremotos, pero casi todos son débiles. Las zonas con más actividad son el sur y el sureste, como Granada, Murcia o Alicante.</p><p><b>Qué hacer en un terremoto</b>: mantén la calma, métete debajo de una mesa fuerte y protégete la cabeza. Aléjate de ventanas y estanterías. No uses el ascensor. Si estás en la calle, aléjate de edificios, árboles y farolas.</p>`,
+        H6.dos("Terremoto", ["DENTRO", ["bajo la mesa", "cubre la cabeza", "lejos de cristales"], cRO], ["FUERA", ["sitio abierto", "lejos de edificios", "sin ascensor"], cAZ]), ["sk_x58kM_70", "¿Qué es un terremoto? | Vídeos Educativos para Niños", "Happy Learning Español", 3952525]],
+    ],
+  },
+  final: [
+    ["Los eclipses", `<p>Un <mark>eclipse</mark> ocurre cuando un astro se pone delante de otro y lo tapa, total o parcialmente, desde nuestro punto de vista.</p><p><b>Eclipse de Sol</b>:</p><ul><li>La <b>Luna</b> se coloca entre el Sol y la Tierra y tapa el Sol.</li><li>Si lo tapa entero, es <b>total</b>: se hace casi de noche durante unos minutos.</li><li>Nunca se debe mirar sin <b>gafas especiales</b> homologadas. Las gafas de sol normales no sirven.</li></ul><p><b>Eclipse de Luna</b>:</p><ul><li>La <b>Tierra</b> se coloca entre el Sol y la Luna, y su sombra cae sobre la Luna.</li><li>La Luna se oscurece y a menudo se vuelve <b>rojiza</b>.</li><li>Se puede mirar sin peligro.</li></ul><p>En España se vio un eclipse total de Sol el 12 de agosto de 2026, y habrá otros en 2027 y 2028. Antiguamente, los eclipses asustaban a la gente, que no sabía por qué ocurrían.</p>`,
+      L6.filas("Eclipses", [["de Sol", "Luna en medio", cNA], ["total", "casi de noche", cMO], ["de Luna", "Tierra en medio", cRO], ["gafas", "solo para el Sol", cAZ]]), ["_zMk0NhycJQ", "Los Eclipses | Vídeos Educativos para Niños", "Happy Learning Español", 1898325]],
+    ["La Tierra vista desde el espacio", `<p>Durante miles de años nadie pudo ver la Tierra entera. Pero en el siglo XX llegaron los viajes espaciales.</p><ul><li>En <b>1968</b>, los astronautas que daban vueltas a la Luna fotografiaron la Tierra apareciendo sobre el horizonte lunar. Esa foto, llamada «Salida de la Tierra», asombró al mundo.</li><li>En <b>1972</b>, otra misión hizo la foto de la <b>Canica Azul</b>: la Tierra entera, redonda, azul y blanca.</li><li>En <b>1990</b>, la nave Voyager 1, desde muy lejos, fotografió la Tierra como un <b>punto azul pálido</b>, diminuto en la inmensidad del espacio.</li></ul><p>Los astronautas cuentan que, al ver la Tierra desde arriba, no se ven las fronteras entre países, solo océanos, nubes, desiertos y bosques. Muchos dicen que sienten ganas de cuidarla, porque es nuestra única casa.</p><p>Desde el espacio también se ven las luces de las ciudades por la noche, los incendios y el hielo que se derrite en los polos.</p>`,
+      H6.rueda("Fotos", "TIERRA", [["1968: salida", cAZ], ["1972: canica", cVE], ["1990: punto", cMO], ["sin fronteras", cNA]])],
+  ],
+  ejemplos: [
+    ["En Madrid son las 10:00. ¿Qué hora es en Tenerife?", ["Canarias tiene una hora menos.", "10 − 1 = 9."], "Las 9:00."],
+    ["¿Qué astro está en medio en un eclipse de Luna?", ["La sombra cae sobre la Luna.", "La sombra es de la Tierra."], "La Tierra."],
+  ],
+  errores: ["Mirar un eclipse de Sol con gafas de sol normales.", "Pensar que es la misma hora en todo el mundo."],
+  ejercicios: [
+    ["b", "¿Cuántos husos horarios hay?", "24."],
+    ["b", "¿Qué hora es en Canarias respecto a la península?", "Una hora menos."],
+    ["b", "¿Con qué se miden los terremotos?", "Con un sismógrafo."],
+    ["b", "¿Qué astro tapa el Sol en un eclipse de Sol?", "La Luna."],
+    ["b", "¿Qué foto de 1972 muestra la Tierra entera?", "La Canica Azul."],
+    ["m", "¿Por qué no amanece a la vez en todo el mundo?", "Porque la Tierra gira."],
+    ["m", "¿Qué es el jet lag?", "El cansancio por el cambio de hora al viajar lejos."],
+    ["m", "¿Qué haces si hay un terremoto dentro de clase?", "Meterte bajo la mesa y cubrirte la cabeza."],
+    ["m", "¿De qué color se vuelve la Luna en un eclipse?", "Rojiza."],
+    ["m", "¿Qué no se ve desde el espacio?", "Las fronteras entre países."],
+    ["a", "Representa un eclipse con una linterna, una pelota y una naranja.", "Respuesta abierta."],
+    ["a", "Busca qué hora es ahora en tres ciudades del mundo.", "Respuesta abierta."],
+    ["a", "Prepara un simulacro de terremoto para la clase.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿qué apareció alrededor de la Luna?", "Un anillo brillante, como una corona."],
+  ],
+  quiz: [
+    ["Hacia el este, los relojes van…", ["adelantados", "atrasados", "igual"], "Husos."],
+    ["Las olas gigantes por terremotos en el mar son…", ["tsunamis", "huracanes", "tornados"], "Terremotos."],
+    ["El eclipse de Luna se puede mirar…", ["sin peligro", "solo con gafas", "nunca"], "Eclipses."],
+    ["La foto «punto azul pálido» la hizo…", ["la Voyager 1", "un avión", "un satélite del tiempo"], "Espacio."],
+    ["En un terremoto no hay que usar…", ["el ascensor", "la mesa", "las manos"], "Terremotos."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué día fue el eclipse?", ["12 de agosto de 2026", "1 de enero de 2026", "25 de diciembre"], "Lectura."],
+    ["Las zonas de España con más terremotos están en…", ["el sur y el sureste", "el norte", "Canarias solo"], "Terremotos."],
+  ],
+  tarjetas: [
+    ["Husos horarios", "24 franjas; Canarias, una hora menos."],
+    ["Terremotos", "Placas que chocan; bajo la mesa y lejos de cristales."],
+    ["Eclipses", "Sol: Luna en medio, con gafas; Luna: Tierra en medio."],
+    ["Tierra desde el espacio", "Salida de la Tierra, Canica Azul y punto azul pálido."],
+  ],
+  glosario: [
+    ["Huso horario", "Franja de la Tierra con la misma hora."],
+    ["Jet lag", "Malestar por cambiar de hora al viajar."],
+    ["Placa", "Gran trozo de la corteza terrestre."],
+    ["Terremoto", "Temblor del suelo."],
+    ["Sismógrafo", "Aparato que mide los terremotos."],
+    ["Tsunami", "Ola gigante causada por un terremoto marino."],
+    ["Simulacro", "Ensayo de lo que hay que hacer en una emergencia."],
+    ["Eclipse", "Cuando un astro tapa a otro."],
+    ["Eclipse total", "Cuando el astro queda tapado entero."],
+    ["Corona solar", "Brillo que rodea al Sol tapado en un eclipse."],
+    ["Voyager 1", "Nave que viaja fuera del sistema solar."],
+    ["Frontera", "Línea que separa dos países."],
+  ],
+  situacion: {
+    titulo: "Viajeros del planeta",
+    reto: "La clase prepara una exposición sobre cómo se mueve y cómo es la Tierra.",
+    pasos: ["Hacer un reloj mundial con la hora de varias ciudades.", "Organizar un simulacro de terremoto.", "Representar eclipses con linterna y pelotas.", "Montar un mural con fotos de la Tierra desde el espacio."],
+    producto: "Una exposición con relojes, maquetas y fotos.",
+    evaluacion: ["Explica los husos horarios.", "Sabe actuar en un terremoto.", "Explica los eclipses.", "Valora el planeta."],
+  },
+});
