@@ -88,3 +88,85 @@ module.exports = P.tema({
   saberes: "La Biblia como libro sagrado; Antiguo y Nuevo Testamento; la creación; los patriarcas; Moisés, el éxodo y la alianza; los reyes de Israel; la esperanza del Mesías; Jesús cumplimiento de las promesas; lectura de relatos bíblicos",
   ideas: ["Línea del tiempo gigante de la historia bíblica en el pasillo.", "Teatro de sombras con el relato de David y Goliat.", "Concurso de búsqueda de citas bíblicas por equipos."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 60,
+  objetivos: ["Conocer cómo se escribió y se conservó la Biblia", "Saber cómo se tradujo y se difundió por el mundo", "Distinguir los géneros literarios que contiene", "Reconocer la influencia de la Biblia en el arte y la música"],
+  lectura: { titulo: "La cueva del pastor", html: `<p>Una tarde de 1947, en el desierto de Judea, cerca del mar Muerto, un joven pastor beduino buscaba una cabra que se le había escapado entre las rocas. Al ver la entrada de una cueva, lanzó una piedra dentro para hacer salir al animal.</p><p>En lugar del balido de una cabra, oyó un ruido de cerámica rota.</p><p>Intrigado, volvió días después con un primo y entraron en la cueva. Dentro encontraron unas grandes vasijas de barro. Algunas contenían rollos envueltos en tela, muy antiguos, cubiertos de letras extrañas.</p><p>Los pastores no sabían lo que tenían entre las manos. Vendieron algunos rollos a un comerciante de antigüedades, y de ahí pasaron a manos de expertos. Cuando los estudiaron, se quedaron asombrados: eran textos de hace unos dos mil años, entre ellos copias de libros de la Biblia, como un rollo completo del profeta Isaías.</p><p>En los años siguientes se exploraron otras cuevas de la zona, llamada Qumrán, y aparecieron miles de fragmentos. Hoy se conocen como los <b>manuscritos del mar Muerto</b>.</p><p>Lo más sorprendente fue comparar aquel rollo de Isaías con las copias que se usaban siglos después: a pesar del tiempo transcurrido, el texto era prácticamente el mismo. Durante generaciones, los copistas habían trabajado con un cuidado extraordinario.</p><p>Y todo empezó con una cabra perdida.</p>` },
+  tras: {
+    "Una historia en dos partes": [
+      ["Cómo se escribió la Biblia", `<p>La Biblia no se escribió de una vez ni la escribió una sola persona. Es el resultado de un proceso que duró <b>más de mil años</b>.</p><ul><li>Muchos relatos se transmitieron primero de forma <b>oral</b>: los padres los contaban a sus hijos, generación tras generación, alrededor del fuego o en las fiestas.</li><li>Más tarde se pusieron <b>por escrito</b>, en tres lenguas: casi todo el Antiguo Testamento en <b>hebreo</b>, algunas partes en <b>arameo</b> (la lengua que hablaba Jesús) y el Nuevo Testamento en <b>griego</b>.</li><li>Se escribía en <b>rollos</b> de papiro o de pergamino (piel de animal preparada). Más tarde aparecieron los <b>códices</b>, con hojas cosidas como nuestros libros.</li><li>Como no existía la imprenta, los textos se copiaban <b>a mano</b>. Los copistas contaban las letras y las palabras para no equivocarse.</li></ul><p>Las divisiones en <b>capítulos</b> y <b>versículos</b> que usamos hoy para encontrar los pasajes no estaban en los textos originales: se añadieron muchos siglos después, en la Edad Media y en el siglo XVI, para facilitar la lectura.</p>`,
+        L.filas("Lenguas de la Biblia", [["hebreo", "casi todo el AT", AZ], ["arameo", "algunas partes", NA], ["griego", "el Nuevo Testamento", VE]]), ["yxKh1aFwmBQ", "Un Tesoro encontrado en el Desierto: Los Rollos de Qumrán", "P. José de Jesús Aguilar Valdés", 34806]],
+    ],
+    "El resto del Nuevo Testamento": [
+      ["De mano en mano: traducciones e imprenta", `<p>Para que personas de distintos pueblos pudieran leer la Biblia, hubo que <b>traducirla</b>:</p><ul><li>Unos tres siglos antes de Jesús, en Alejandría (Egipto), el Antiguo Testamento se tradujo al griego. Esta traducción se llama la <b>Septuaginta</b>, porque según la tradición la hicieron setenta sabios.</li><li>Hacia el año 400, <b>san Jerónimo</b> la tradujo al <b>latín</b>, la lengua del Imperio romano. Su traducción, la <b>Vulgata</b> («popular»), se usó en la Iglesia durante más de mil años.</li><li>En la Edad Media, los <b>monjes</b> copiaban la Biblia en los monasterios y la decoraban con preciosas letras y dibujos de colores: las <b>miniaturas</b>.</li><li>Hacia <b>1455</b>, <b>Johannes Gutenberg</b> imprimió en Alemania la Biblia con su invento, la <b>imprenta</b> de tipos móviles. Fue uno de los primeros grandes libros impresos de Europa.</li></ul><p>Gracias a la imprenta, los libros se volvieron más baratos y llegaron a mucha más gente. Hoy la Biblia completa está traducida a <b>más de 700 lenguas</b> y alguna de sus partes a más de 3.000. Es el libro más traducido de la historia.</p>`,
+        L.filas("Traducciones de la Biblia", [["Septuaginta", "al griego", AZ], ["Vulgata", "al latín, h. 400", RO], ["Gutenberg", "imprenta, h. 1455", NA], ["hoy", "más de 700 lenguas", VE]]), ["2096F9LPejQ", "La Imprenta de Johannes Gutenberg | DÍA DEL LIBRO | GRANDES INVENTOS PARA NIÑOS  | Happy Learning", "Happy Learning Español", 61821]],
+    ],
+  },
+  final: [
+    ["Una biblioteca con muchos géneros", `<p>La Biblia es como una <b>biblioteca</b>: contiene libros muy distintos, escritos con diferentes <b>géneros literarios</b>. Saber de qué tipo es un texto ayuda a entender su mensaje:</p><ul><li><b>Relatos</b>: cuentan historias de personas y del pueblo de Israel, como las de Abraham, Moisés o David.</li><li><b>Poesía</b>: el libro de los <b>Salmos</b> reúne 150 oraciones y canciones para alabar a Dios, darle gracias o pedirle ayuda. El <b>Cantar de los Cantares</b> es un poema de amor.</li><li><b>Sabiduría</b>: los <b>Proverbios</b> son frases cortas con consejos para vivir bien, como «La respuesta amable calma el enojo».</li><li><b>Profecía</b>: los mensajes de los profetas, que denuncian las injusticias y anuncian esperanza.</li><li><b>Parábolas</b>: relatos breves que contaba Jesús, como la del buen samaritano o la del hijo pródigo.</li><li><b>Cartas</b>: escritas por apóstoles como san Pablo a las primeras comunidades.</li></ul><p>No se lee igual un poema que una carta o un relato: cada género tiene su manera de transmitir un mensaje.</p>`,
+      H.rueda("Géneros de la Biblia", "BIBLIA", [["relatos", AZ], ["salmos", VE], ["parábolas", NA], ["cartas", MO]])],
+    ["La Biblia en el arte y la música", `<p>Durante siglos, los relatos bíblicos han inspirado a los grandes artistas. Muchas personas que no sabían leer los conocían gracias a las pinturas y esculturas de las iglesias.</p><ul><li><b>Miguel Ángel</b> pintó entre 1508 y 1512 el techo de la <b>Capilla Sixtina</b>, en Roma, con escenas del Génesis. La más famosa es <i>La creación de Adán</i>, en la que los dedos de Dios y de Adán casi se tocan.</li><li><b>Leonardo da Vinci</b> pintó <i>La última cena</i> en Milán, que representa el momento en que Jesús anuncia que uno de sus discípulos le traicionará.</li><li><b>Rembrandt</b> pintó <i>El regreso del hijo pródigo</i>, inspirado en la parábola del padre que perdona.</li><li>En España, el <b>Pórtico de la Gloria</b> de la catedral de Santiago de Compostela, del maestro Mateo, muestra a profetas y apóstoles esculpidos en piedra.</li><li>En música, <b>Haendel</b> compuso el oratorio <i>El Mesías</i> (1742), con el famoso coro del «Aleluya».</li></ul><p>Visitar un museo o una iglesia con estas claves ayuda a descubrir las historias que esconden las obras de arte.</p>`,
+      L.filas("La Biblia en el arte", [["Miguel Ángel", "Capilla Sixtina", AZ], ["Leonardo", "La última cena", RO], ["Rembrandt", "el hijo pródigo", NA], ["Haendel", "El Mesías", VE]])],
+  ],
+  ejemplos: [
+    ["¿Qué significa la cita Sal 23,1?", ["Sal es la abreviatura de Salmos.", "23 es el capítulo y 1 el versículo."], "Libro de los Salmos, capítulo 23, versículo 1."],
+    ["¿En qué lengua se escribió originalmente el Evangelio de Marcos?", ["Pertenece al Nuevo Testamento.", "El Nuevo Testamento se escribió en griego."], "En griego."],
+  ],
+  errores: ["Pensar que la Biblia la escribió una sola persona de una vez.", "Creer que los capítulos y versículos estaban en los textos originales."],
+  ejercicios: [
+    ["b", "¿En qué tres lenguas se escribió la Biblia?", "Hebreo, arameo y griego."],
+    ["b", "¿Qué son los manuscritos del mar Muerto?", "Textos antiguos, entre ellos copias bíblicas, hallados en Qumrán desde 1947."],
+    ["b", "¿Quién tradujo la Biblia al latín?", "San Jerónimo: la Vulgata."],
+    ["b", "¿Quién imprimió la Biblia hacia 1455?", "Johannes Gutenberg."],
+    ["b", "¿Cuántos salmos tiene el libro de los Salmos?", "150."],
+    ["m", "Explica qué es la transmisión oral.", "Contar los relatos de palabra, de generación en generación."],
+    ["m", "¿Qué diferencia hay entre un rollo y un códice?", "El rollo se enrolla; el códice tiene hojas cosidas como un libro."],
+    ["m", "¿Por qué fue tan importante la imprenta?", "Los libros se hicieron más baratos y llegaron a más gente."],
+    ["m", "Pon un ejemplo de cada género: relato, poesía y parábola.", "Moisés; Salmos; el buen samaritano."],
+    ["m", "¿Qué escena pintó Miguel Ángel en la Capilla Sixtina?", "Escenas del Génesis, como La creación de Adán."],
+    ["a", "Copia a mano un salmo breve decorando la primera letra como una miniatura medieval.", "Respuesta abierta."],
+    ["a", "Haz una línea del tiempo de la historia de la Biblia desde la tradición oral hasta hoy.", "Respuesta abierta."],
+    ["a", "Elige una obra de arte bíblica y explica qué relato representa.", "Respuesta abierta."],
+    ["a", "Escribe un proverbio propio con un consejo para la convivencia en clase.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El Nuevo Testamento se escribió en…", ["griego", "latín", "español"], "Lenguas."],
+    ["Los manuscritos del mar Muerto se hallaron en…", ["1947", "1455", "1512"], "Qumrán."],
+    ["La Vulgata es la traducción al…", ["latín", "griego", "hebreo"], "San Jerónimo."],
+    ["Las frases cortas con consejos son los…", ["Proverbios", "Hechos", "Evangelios"], "Sabiduría."],
+    ["La creación de Adán la pintó…", ["Miguel Ángel", "Rembrandt", "Leonardo"], "Sixtina."],
+  ],
+  examen: [
+    ["La lengua que hablaba Jesús era el…", ["arameo", "latín", "inglés"], "Arameo."],
+    ["El coro del «Aleluya» es de…", ["Haendel", "Mozart", "Gutenberg"], "El Mesías."],
+  ],
+  tarjetas: [
+    ["Escritura", "Tradición oral; hebreo, arameo y griego; rollos y códices."],
+    ["Qumrán", "Manuscritos del mar Muerto, 1947."],
+    ["Traducciones", "Septuaginta, Vulgata, Gutenberg, más de 700 lenguas."],
+    ["Arte", "Sixtina, La última cena, hijo pródigo, El Mesías."],
+  ],
+  glosario: [
+    ["Tradición oral", "Transmisión de relatos de palabra."],
+    ["Papiro", "Material para escribir hecho con una planta de Egipto."],
+    ["Pergamino", "Piel de animal preparada para escribir."],
+    ["Códice", "Libro antiguo de hojas cosidas."],
+    ["Copista", "Persona que copiaba textos a mano."],
+    ["Manuscrito", "Texto escrito a mano."],
+    ["Septuaginta", "Traducción griega del Antiguo Testamento."],
+    ["Vulgata", "Traducción latina de san Jerónimo."],
+    ["Miniatura", "Pequeña pintura que decora un manuscrito."],
+    ["Imprenta", "Máquina para imprimir textos."],
+    ["Género literario", "Tipo de texto según su forma y finalidad."],
+    ["Oratorio", "Obra musical para voces y orquesta sobre un tema religioso."],
+  ],
+  situacion: {
+    titulo: "El scriptorium de la clase",
+    reto: "La clase se convierte en un taller medieval de copistas y crea un libro con textos bíblicos decorados.",
+    pasos: ["Cada alumno elige un pasaje breve de un género distinto: salmo, proverbio, parábola o relato.", "Busca la cita y explica a qué género pertenece y qué mensaje transmite.", "Copia el texto a mano con letra cuidada y decora la inicial como una miniatura.", "Encuadernad todas las hojas en un códice de clase y presentadlo en la biblioteca."],
+    producto: "Un códice decorado con textos bíblicos y sus explicaciones.",
+    evaluacion: ["Localiza citas bíblicas.", "Identifica el género literario.", "Explica el mensaje del texto.", "Cuida la presentación y la caligrafía."],
+  },
+});

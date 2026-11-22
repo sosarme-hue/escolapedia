@@ -92,3 +92,86 @@ module.exports = P.tema({
   saberes: "Sociedad, justicia y democracia: igualdad de derechos entre hombres y mujeres; identificación de estereotipos y roles de género; historia de la conquista de derechos; corresponsabilidad en las tareas del hogar; lenguaje y publicidad no sexistas",
   ideas: ["Buscar estereotipos en anuncios de juguetes y rehacerlos sin ellos.", "Galería de mujeres que abrieron camino, con una ficha por alumno.", "Observar durante una semana el uso del patio y proponer mejoras."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { L: L5, H: H5, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 60,
+  objetivos: ["Conocer cómo se consiguió el voto de las mujeres en España", "Descubrir más mujeres que cambiaron la ciencia y la sociedad", "Conocer los días internacionales dedicados a la igualdad", "Comprender que la igualdad también libera a los chicos de estereotipos"],
+  lectura: { titulo: "El equipo de Lucas", html: `<p>Lucas llevaba tres años yendo a clases de ballet. Le encantaba saltar, girar y sentir la música en todo el cuerpo. Pero en el colegio no se lo había contado a nadie.</p><p>Un día, la profesora anunció que la clase iba a preparar una actuación para el festival de fin de curso. Cada grupo podía elegir lo que quisiera: una obra de teatro, una canción, un baile…</p><p>—Podríamos hacer un baile —propuso Sofía.</p><p>—Eso es de chicas —soltó Rubén, y algunos se rieron.</p><p>Lucas notó que se ponía rojo. Respiró hondo y, sin saber muy bien de dónde le salía el valor, dijo:</p><p>—Yo hago ballet desde los siete años. Puedo enseñaros unos pasos.</p><p>Se hizo un silencio. Luego Sofía sonrió:</p><p>—¡Genial! Y yo juego al fútbol en el equipo del barrio, así que podemos mezclar: un baile con balón.</p><p>Durante semanas ensayaron en el patio. Lucas enseñaba giros; Sofía, regates. Hasta Rubén terminó siendo el que mejor hacía la pirueta final.</p><p>El día del festival, su número fue el más aplaudido. Al bajar del escenario, Rubén se acercó a Lucas:</p><p>—Oye, perdona por lo de «eso es de chicas». Bailar es dificilísimo.</p><p>—Y jugar al fútbol también —respondió Lucas—. Lo importante es que cada uno pueda hacer lo que le gusta.</p>` },
+  tras: {
+    "Una historia de conquistas": [
+      ["Clara Campoamor y el voto de las mujeres", `<p>Durante siglos, en casi todo el mundo, las mujeres <b>no podían votar</b> en las elecciones. El primer país que reconoció el voto femenino en elecciones nacionales fue <b>Nueva Zelanda</b>, en <b>1893</b>. En otros países, como el Reino Unido, las llamadas <b>sufragistas</b> se manifestaron durante años para conseguirlo.</p><p>En España, la gran defensora del voto femenino fue <b>Clara Campoamor</b> (1888-1972). Se quedó huérfana de padre muy joven y tuvo que trabajar desde niña, pero siguió estudiando y llegó a ser <b>abogada</b>, algo muy poco común entonces.</p><p>En 1931, en la Segunda República, las mujeres podían ser elegidas diputadas, pero aún no podían votar. Campoamor fue una de las primeras diputadas y defendió en el Parlamento que las mujeres debían tener los mismos derechos políticos que los hombres. Muchos diputados se oponían, pero el <b>1 de octubre de 1931</b> se aprobó el voto femenino.</p><p>Las mujeres españolas votaron por primera vez en unas elecciones generales en <b>1933</b>. Hoy su lucha es un símbolo de la igualdad y muchas calles y colegios llevan su nombre.</p>`,
+        L5.filas("El voto de las mujeres", [["1893", "Nueva Zelanda", cAZ], ["1931", "se aprueba en España", cVE], ["1933", "primeras votantes", cNA], ["Campoamor", "abogada y diputada", cMO]]), ["jM-eWamEu_0", "Clara Campoamor | Biografía para niños, por Manuela Carmena | Shackleton Kids", "Shackleton Kids", 355716]],
+    ],
+    "Mujeres que abrieron camino": [
+      ["Más mujeres que cambiaron el mundo", `<p>Hay muchas más mujeres cuyo trabajo ha sido fundamental, aunque durante mucho tiempo no se las reconociera:</p><ul><li><b>Concepción Arenal</b> (1820-1893), escritora gallega, quiso estudiar Derecho cuando las mujeres no podían ir a la universidad. Para asistir a clase, según se cuenta, se vestía con ropa de hombre. Dedicó su vida a defender a los presos y a los más pobres.</li><li><b>Rosalind Franklin</b> (1920-1958), científica británica, obtuvo la famosa «fotografía 51», que fue clave para descubrir la forma de doble hélice del ADN. Durante años, su papel apenas se mencionó.</li><li><b>Hedy Lamarr</b> (1914-2000), actriz de Hollywood e inventora, ideó junto a un compositor un sistema para enviar señales cambiando de frecuencia que se considera un antecedente del wifi y del bluetooth.</li><li><b>Wangari Maathai</b> (1940-2011), bióloga de Kenia, fundó un movimiento que plantó millones de árboles. Fue la primera mujer africana en ganar el Premio Nobel de la Paz, en 2004.</li></ul><p>Conocer estas historias nos ayuda a imaginar que <b>cualquier niña</b> puede llegar a ser científica, inventora o líder, y que cualquier niño puede admirarlas.</p>`,
+        L5.filas("Mujeres pioneras", [["Arenal", "derechos de los presos", cMO], ["Franklin", "la forma del ADN", cAZ], ["Lamarr", "antecesor del wifi", cRO], ["Maathai", "árboles y Nobel", cVE]])],
+    ],
+  },
+  final: [
+    ["Días para la igualdad", `<p>A lo largo del año hay varios días internacionales que nos recuerdan la importancia de la igualdad:</p><ul><li><b>11 de febrero</b>: <b>Día Internacional de la Mujer y la Niña en la Ciencia</b>. Quiere animar a las chicas a estudiar ciencias, tecnología, ingeniería y matemáticas, donde aún hay pocas mujeres.</li><li><b>8 de marzo</b>: <b>Día Internacional de la Mujer</b>. Recuerda la lucha de las mujeres trabajadoras por la igualdad de derechos.</li><li><b>11 de octubre</b>: <b>Día Internacional de la Niña</b>. Defiende los derechos de las niñas de todo el mundo, muchas de las cuales no pueden ir a la escuela o tienen que casarse siendo menores.</li><li><b>25 de noviembre</b>: <b>Día Internacional de la Eliminación de la Violencia contra la Mujer</b>.</li></ul><p>En los colegios se celebran estos días con murales, investigaciones sobre mujeres importantes o debates sobre los estereotipos. Pero la igualdad no es cosa de un día: se construye cada día con pequeños gestos.</p>`,
+      L5.filas("Días para la igualdad", [["11 de febrero", "mujer y niña en ciencia", cAZ], ["8 de marzo", "Día de la Mujer", cMO], ["11 de octubre", "Día de la Niña", cNA], ["25 de noviembre", "contra la violencia", cRO]])],
+    ["La igualdad también es para los chicos", `<p>Los estereotipos de género no solo perjudican a las chicas. También limitan a los chicos cuando les dicen cómo «tienen que ser»:</p><ul><li>«Los chicos no lloran»: pero llorar es una forma sana de expresar emociones, y todos lo necesitamos.</li><li>«Los chicos tienen que ser fuertes y no tener miedo»: todos sentimos miedo a veces, y reconocerlo es de valientes.</li><li>«Bailar, cocinar o cuidar a los niños es de chicas»: hay grandes bailarines, cocineros, enfermeros y maestros de infantil.</li><li>«Los chicos tienen que ganar siempre»: perder forma parte de aprender.</li></ul><p>La igualdad permite que <b>cada persona</b> elija sus juegos, sus aficiones y su profesión según lo que le gusta, y no según lo que se espera de su sexo.</p><p>En España, por ejemplo, desde 2021 los padres y las madres tienen el <b>mismo permiso</b> de 16 semanas cuando nace un bebé, para que los dos puedan cuidarlo. Es un paso más hacia la corresponsabilidad.</p>`,
+      H5.dos("Sin estereotipos", ["Antes", ["no llores", "sé fuerte", "eso es de chicas"], cRO], ["Ahora", ["expreso lo que siento", "pido ayuda", "elijo lo que me gusta"], cVE])],
+  ],
+  ejemplos: [
+    ["¿Por qué el 1 de octubre de 1931 es una fecha importante en la historia de España?", ["Recordar qué se aprobó ese día.", "Relacionarlo con Clara Campoamor."], "Porque se aprobó el voto de las mujeres."],
+    ["Un compañero dice: «Los chicos no lloran». ¿Cómo le responderías?", ["Identificar el estereotipo.", "Explicar que llorar es una emoción humana."], "«Todos lloramos; expresar lo que sientes es sano, seas chico o chica»."],
+  ],
+  errores: ["Pensar que la igualdad solo interesa a las mujeres: también libera a los hombres de estereotipos.", "Creer que las mujeres siempre han podido votar."],
+  ejercicios: [
+    ["b", "¿Qué país reconoció primero el voto de las mujeres y en qué año?", "Nueva Zelanda, en 1893."],
+    ["b", "¿Quién fue Clara Campoamor?", "Una abogada y diputada que defendió el voto femenino en España."],
+    ["b", "¿Qué descubrimiento ayudó a hacer Rosalind Franklin?", "La forma de doble hélice del ADN."],
+    ["b", "¿Qué se celebra el 11 de febrero?", "El Día Internacional de la Mujer y la Niña en la Ciencia."],
+    ["b", "¿Por qué es famosa Wangari Maathai?", "Por plantar millones de árboles y ganar el Nobel de la Paz."],
+    ["m", "¿En qué año votaron por primera vez las españolas en elecciones generales?", "En 1933."],
+    ["m", "¿Por qué se dice que el trabajo de Rosalind Franklin estuvo olvidado?", "Porque su papel apenas se mencionó durante años."],
+    ["m", "Explica dos estereotipos que limitan a los chicos.", "Por ejemplo: «los chicos no lloran» y «bailar es de chicas»."],
+    ["m", "¿Qué tiene que ver Hedy Lamarr con el wifi?", "Ideó un sistema que se considera su antecedente."],
+    ["m", "¿Por qué ayuda a la igualdad que padres y madres tengan el mismo permiso por nacimiento?", "Porque los dos pueden cuidar al bebé: corresponsabilidad."],
+    ["a", "Investiga sobre una mujer científica española y prepara una ficha.", "Respuesta abierta."],
+    ["a", "Haz un calendario de clase con los días de la igualdad y una actividad para cada uno.", "Respuesta abierta."],
+    ["a", "Escribe un diálogo en el que un personaje rompa un estereotipo de género.", "Respuesta abierta."],
+    ["a", "Organiza un debate: ¿hay juegos de chicos y juegos de chicas?", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El voto femenino se aprobó en España en…", ["1931", "1978", "1893"], "Segunda República."],
+    ["La «fotografía 51» la obtuvo…", ["Rosalind Franklin", "Marie Curie", "Ada Lovelace"], "ADN."],
+    ["El Día Internacional de la Mujer es el…", ["8 de marzo", "11 de octubre", "25 de noviembre"], "Días."],
+    ["Wangari Maathai era de…", ["Kenia", "Gales", "Galicia"], "África."],
+    ["«Los chicos no lloran» es…", ["un estereotipo", "una ley", "un dato científico"], "Estereotipo."],
+  ],
+  examen: [
+    ["Las mujeres que lucharon por el voto en el Reino Unido se llamaban…", ["sufragistas", "pioneras", "diputadas"], "Sufragio."],
+    ["Concepción Arenal defendió a…", ["los presos y los pobres", "los reyes", "los soldados"], "Arenal."],
+  ],
+  tarjetas: [
+    ["Voto femenino", "Nueva Zelanda 1893; España 1931, primeras votantes en 1933."],
+    ["Clara Campoamor", "Abogada y diputada que defendió el voto de las mujeres."],
+    ["Pioneras", "Arenal, Franklin, Lamarr, Maathai."],
+    ["Días", "11 feb, 8 mar, 11 oct, 25 nov."],
+  ],
+  glosario: [
+    ["Sufragio", "Derecho a votar."],
+    ["Sufragista", "Mujer que luchaba por el derecho al voto."],
+    ["Diputada", "Representante elegida en el Parlamento."],
+    ["Segunda República", "Régimen político de España entre 1931 y 1939."],
+    ["Huérfana", "Persona que ha perdido a su padre o a su madre."],
+    ["ADN", "Molécula que contiene la información hereditaria."],
+    ["Doble hélice", "Forma de escalera de caracol del ADN."],
+    ["Antecedente", "Algo que existe antes y prepara lo que viene después."],
+    ["Pionera", "Persona que es la primera en hacer algo."],
+    ["Estereotipo", "Idea simplificada sobre cómo deben ser las personas de un grupo."],
+    ["Permiso por nacimiento", "Tiempo libre del trabajo para cuidar a un bebé."],
+    ["Corresponsabilidad", "Compartir tareas y cuidados entre todos."],
+  ],
+  situacion: {
+    titulo: "Galería de pioneras y pioneros",
+    reto: "La clase crea una exposición sobre personas que rompieron estereotipos de género en la ciencia, el deporte, el arte y la política.",
+    pasos: ["Cada pareja elige una persona: una mujer pionera o un hombre en una profesión poco habitual para su sexo.", "Investigad su vida y su aportación en libros y webs fiables.", "Elaborad un cartel con retrato, fechas, logro y una frase.", "Montad la galería en el pasillo y explicadla a otras clases."],
+    producto: "Una exposición de carteles con visita guiada.",
+    evaluacion: ["Investiga con fuentes fiables.", "Explica el logro de la persona elegida.", "Relaciona la historia con los estereotipos.", "Expone con claridad ante otros."],
+  },
+});

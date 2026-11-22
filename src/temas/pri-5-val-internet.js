@@ -93,3 +93,86 @@ module.exports = P.tema({
   saberes: "Ciudadanía digital: uso seguro y responsable de internet; protección de datos personales y privacidad; contraseñas seguras; huella digital; netiqueta; prevención del ciberacoso; detección de bulos; uso equilibrado de las pantallas",
   ideas: ["Crear contraseñas seguras con el truco de la frase (sin usarlas de verdad).", "Decálogo de netiqueta de la clase en un mural.", "Taller de detectives de bulos con noticias inventadas por el profesor."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { L: L5, H: H5, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 60,
+  objetivos: ["Reconocer los engaños más frecuentes en la red, como el phishing", "Detectar imágenes y vídeos falsos creados con inteligencia artificial", "Conocer los derechos digitales de los menores y dónde pedir ayuda", "Usar los videojuegos de forma responsable con el código PEGI"],
+  lectura: { titulo: "El mensaje del premio", html: `<p>Era sábado por la tarde cuando a Mateo le llegó un mensaje a la tableta: «¡ENHORABUENA! Has sido elegido para recibir 10.000 monedas gratis en tu videojuego favorito. Solo tienes que pulsar aquí e introducir tu usuario y tu contraseña. ¡Date prisa, la oferta acaba en 10 minutos!».</p><p>Mateo sintió un cosquilleo de emoción. ¡Diez mil monedas! Con eso podría comprarse todas las armaduras del juego. Su dedo ya estaba encima del enlace cuando recordó algo que les habían explicado en clase.</p><p>«Si es demasiado bueno para ser verdad, probablemente es mentira. Y si te meten prisa, desconfía todavía más».</p><p>Miró el mensaje con más atención. El nombre del juego estaba mal escrito. La dirección de la página era rarísima, llena de números. Y ningún juego regala monedas a cambio de tu contraseña.</p><p>Fue a buscar a su hermana mayor, Lucía, que estudiaba informática.</p><p>—Es phishing —dijo ella enseguida—. Si hubieras puesto tu contraseña, te habrían robado la cuenta, con todo lo que has conseguido en dos años.</p><p>Juntos borraron el mensaje, lo denunciaron como fraude y Lucía le ayudó a activar la verificación en dos pasos.</p><p>El lunes, Mateo se lo contó a la clase. Resultó que tres compañeros habían recibido el mismo mensaje. Uno de ellos había pulsado el enlace…</p>` },
+  tras: {
+    "Contraseñas seguras": [
+      ["Engaños en la red: el phishing", `<p>El <b>phishing</b> (se pronuncia «fishing», como «pescar» en inglés) es un engaño en el que alguien se hace pasar por una empresa, un banco, un juego o incluso un amigo para <b>robarte datos</b>: contraseñas, datos personales o dinero. Es como si lanzaran un anzuelo esperando que alguien pique.</p><p>Señales de alarma:</p><ul><li>Te ofrecen un <b>premio</b> o algo gratis que parece demasiado bueno.</li><li>Te meten <b>prisa</b>: «solo quedan 10 minutos», «tu cuenta se bloqueará».</li><li>Te piden tu <b>contraseña</b> o datos que una empresa seria nunca pediría por mensaje.</li><li>Hay <b>faltas de ortografía</b> o el nombre de la marca está mal escrito.</li><li>El <b>enlace</b> lleva a una dirección extraña.</li></ul><p>¿Qué hacer? No pulses el enlace, no respondas, bórralo y cuéntaselo a un adulto. Si ya has puesto tu contraseña, cámbiala enseguida.</p><p>Una protección muy útil es la <b>verificación en dos pasos</b>: además de la contraseña, la cuenta pide un código que llega al móvil de la familia. Así, aunque alguien robe la contraseña, no podrá entrar.</p>`,
+        L5.filas("Señales de phishing", [["premio", "demasiado bueno", cNA], ["prisa", "«¡solo 10 minutos!»", cRO], ["contraseña", "nadie serio la pide", cMO], ["enlace raro", "no lo pulses", cAZ]]), ["XsOWczwRVuc", "¿Qué es el phishing? Y cómo evitar la trampa.", "iluli by Mike Lamb", 710001]],
+    ],
+    "¿Verdad o bulo?": [
+      ["Imágenes falsas e inteligencia artificial", `<p>La <b>inteligencia artificial</b> (IA) son programas capaces de hacer tareas que parecen inteligentes: responder preguntas, traducir, reconocer caras o crear textos, imágenes, voces y vídeos. Puede ser muy útil para aprender, pero también se usa para fabricar <b>contenidos falsos</b> que parecen reales.</p><p>Los <b>deepfakes</b> son vídeos o audios manipulados con IA en los que parece que una persona dice o hace algo que nunca dijo ni hizo. También hay fotos completamente inventadas.</p><p>Para sospechar de una imagen o vídeo:</p><ul><li>Fíjate en los <b>detalles</b>: manos con dedos de más, textos borrosos, sombras raras, movimientos extraños de la boca.</li><li>Pregúntate <b>quién lo publica</b> y si lo cuentan también medios fiables.</li><li>Desconfía de lo que busca provocar una <b>emoción muy fuerte</b>: rabia, miedo o risa.</li></ul><p>Muy importante: <b>nunca</b> se deben crear ni difundir imágenes falsas de otras personas, y menos de compañeros. Hacerlo puede causar un daño enorme y, en muchos casos, es un <b>delito</b>. Si ves algo así, no lo compartas y avisa a un adulto.</p><p>Y cuando uses IA para estudiar, recuerda que también se equivoca: comprueba siempre la información.</p>`,
+        H5.dos("Inteligencia artificial", ["Para bien", ["aprender", "traducir", "crear con permiso"], cVE], ["Cuidado", ["deepfakes", "se equivoca", "no falsificar"], cRO])],
+    ],
+  },
+  final: [
+    ["Mis derechos digitales", `<p>Los menores también tienen <b>derechos en internet</b>. En España, la ley de protección de datos de 2018 recoge algunos muy importantes:</p><ul><li>Hasta los <b>14 años</b>, para que una red o aplicación use tus datos personales hace falta el permiso de tu familia. Por eso muchas redes sociales no permiten abrir una cuenta antes de esa edad.</li><li><b>Derecho a la intimidad</b>: nadie puede publicar tus fotos o datos sin permiso. Esto también vale para nosotros: no podemos subir fotos de otros sin preguntar.</li><li><b>Derecho a rectificar o suprimir</b>: puedes pedir que borren datos tuyos que sean incorrectos o que ya no quieras que estén.</li><li><b>Derecho al olvido</b>: se puede pedir que algunas informaciones antiguas sobre una persona dejen de aparecer en los buscadores.</li></ul><p>Si tienes un problema en internet, puedes pedir ayuda en el <b>017</b>, la línea gratuita y confidencial de ayuda en ciberseguridad del INCIBE, el Instituto Nacional de Ciberseguridad. Y siempre puedes hablar con tu familia o tu tutor.</p>`,
+      L5.filas("Derechos digitales", [["14 años", "permiso familiar antes", cAZ], ["intimidad", "nada sin permiso", cVE], ["suprimir", "pedir que borren", cNA], ["017", "ayuda en ciberseguridad", cMO]])],
+    ["Videojuegos con cabeza", `<p>Los videojuegos pueden ser divertidos, creativos y hasta educativos. Para elegirlos bien existe el código <b>PEGI</b>, que aparece en la caja o en la tienda digital. Indica la <b>edad mínima</b> recomendada:</p><ul><li><b>PEGI 3</b> y <b>PEGI 7</b>: aptos para niños.</li><li><b>PEGI 12</b>: puede tener algo de violencia hacia personajes de fantasía o lenguaje algo fuerte.</li><li><b>PEGI 16</b> y <b>PEGI 18</b>: violencia realista y otros contenidos solo para mayores.</li></ul><p>Además de la edad, PEGI usa <b>iconos</b> que avisan del contenido: violencia, miedo, lenguaje soez, juego con apuestas o <b>compras dentro del juego</b>.</p><p>Cuidado con las compras: algunas partidas animan a gastar dinero real en monedas, trajes o «cajas sorpresa» cuyo contenido no conoces hasta que pagas. Nunca compres sin permiso de tu familia.</p><p>En los juegos en línea, recuerda las normas de siempre: no des datos personales en el chat, no aceptes regalos de desconocidos y cuenta a un adulto si alguien te molesta. Y pon un límite de tiempo: después de jugar, ¡a moverse!</p>`,
+      H5.barras("Edades PEGI", [["PEGI 3", 3, cVE, "3"], ["PEGI 7", 7, cVE, "7"], ["PEGI 12", 12, cNA, "12"], ["PEGI 16", 16, cRO, "16"], ["PEGI 18", 18, cRO, "18"]], 18)],
+  ],
+  ejemplos: [
+    ["Te llega un correo de «tu banco» pidiendo que confirmes tu contraseña en 24 horas. ¿Qué es y qué haces?", ["Detectar las señales: prisa y petición de contraseña.", "No pulsar ni responder; avisar a un adulto."], "Es phishing: se borra, se denuncia y se avisa a la familia."],
+    ["Un amigo te enseña un vídeo de un famoso diciendo algo muy raro. ¿Qué compruebas?", ["Detalles extraños de la imagen y la boca.", "Si lo publican medios fiables."], "Puede ser un deepfake: no compartirlo hasta comprobarlo."],
+  ],
+  errores: ["Pensar que si una empresa conocida te escribe, es seguro dar tu contraseña.", "Creer que el código PEGI indica lo difícil que es un juego: indica la edad recomendada por su contenido."],
+  ejercicios: [
+    ["b", "¿Qué es el phishing?", "Un engaño para robar datos haciéndose pasar por otro."],
+    ["b", "Escribe dos señales de un mensaje de phishing.", "Por ejemplo: prisa y petición de contraseña."],
+    ["b", "¿Qué es un deepfake?", "Un vídeo o audio manipulado con IA."],
+    ["b", "¿A qué número se puede llamar para pedir ayuda en ciberseguridad?", "Al 017."],
+    ["b", "¿Qué indica el número del código PEGI?", "La edad mínima recomendada."],
+    ["m", "Explica cómo funciona la verificación en dos pasos.", "Además de la contraseña, pide un código enviado al móvil."],
+    ["m", "¿Por qué crear una imagen falsa de un compañero es muy grave?", "Causa un gran daño y puede ser un delito."],
+    ["m", "¿Por qué muchas redes sociales no admiten menores de 14 años en España?", "Porque antes de esa edad hace falta permiso familiar para usar sus datos."],
+    ["m", "¿Qué riesgo tienen las «cajas sorpresa» de los videojuegos?", "Gastar dinero real sin saber qué recibes."],
+    ["m", "¿Por qué conviene comprobar lo que responde una IA?", "Porque también se equivoca."],
+    ["a", "Diseña un mensaje de phishing falso con cinco señales de alarma y pide a un compañero que las encuentre.", "Respuesta abierta."],
+    ["a", "Analiza la caja o la ficha de un videojuego y explica sus iconos PEGI.", "Respuesta abierta."],
+    ["a", "Redacta un decálogo para usar la IA en los deberes de forma honesta.", "Respuesta abierta."],
+    ["a", "Prepara con tu familia un acuerdo de uso de pantallas y videojuegos.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Un mensaje que te mete prisa y pide tu contraseña es…", ["phishing", "netiqueta", "un antivirus"], "Engaño."],
+    ["Un vídeo manipulado con IA se llama…", ["deepfake", "meme", "podcast"], "IA."],
+    ["En España, sin permiso familiar, los datos se pueden usar desde los…", ["14 años", "8 años", "10 años"], "Ley de 2018."],
+    ["El código PEGI indica…", ["la edad recomendada", "el precio", "la dificultad"], "Videojuegos."],
+    ["La línea de ayuda en ciberseguridad es el…", ["017", "091", "016"], "INCIBE."],
+  ],
+  examen: [
+    ["Para proteger una cuenta además de la contraseña se usa la…", ["verificación en dos pasos", "huella digital", "netiqueta"], "Seguridad."],
+    ["Si ves una imagen falsa de un compañero…", ["no la compartes y avisas", "la reenvías", "la comentas"], "Respeto."],
+  ],
+  tarjetas: [
+    ["Phishing", "Premio, prisa, contraseña, enlace raro: no piques."],
+    ["IA y deepfakes", "Mira detalles, fuente y emoción; nunca falsifiques a nadie."],
+    ["Derechos digitales", "14 años, intimidad, suprimir, olvido; 017."],
+    ["PEGI", "3, 7, 12, 16, 18 e iconos de contenido."],
+  ],
+  glosario: [
+    ["Phishing", "Engaño para robar datos haciéndose pasar por otro."],
+    ["Enlace", "Texto o botón que lleva a otra página."],
+    ["Verificación en dos pasos", "Sistema que pide contraseña y un código extra."],
+    ["Inteligencia artificial", "Programas que realizan tareas que parecen inteligentes."],
+    ["Deepfake", "Vídeo o audio falso creado con IA."],
+    ["Delito", "Acción castigada por la ley."],
+    ["Intimidad", "Parte de la vida que cada uno reserva para sí."],
+    ["Derecho al olvido", "Derecho a que dejen de aparecer informaciones antiguas."],
+    ["INCIBE", "Instituto Nacional de Ciberseguridad."],
+    ["PEGI", "Código que indica la edad recomendada de un videojuego."],
+    ["Fraude", "Engaño para conseguir un beneficio."],
+    ["Denunciar", "Avisar de algo ilegal o peligroso."],
+  ],
+  situacion: {
+    titulo: "Detectives de la red",
+    reto: "La clase forma una agencia de detectives que enseña a otros cursos a detectar engaños en internet.",
+    pasos: ["Recopilad ejemplos inventados de phishing, bulos e imágenes falsas.", "Cread fichas con las pistas para descubrir cada engaño.", "Preparad un juego en el que otros alumnos tengan que decidir «verdad o engaño».", "Repartid un carné de detective con los números de ayuda y las normas básicas."],
+    producto: "Un juego de detección de engaños y un carné de detective digital.",
+    evaluacion: ["Reconoce señales de phishing.", "Detecta posibles imágenes falsas.", "Conoce sus derechos digitales.", "Explica las normas a otros con claridad."],
+  },
+});
