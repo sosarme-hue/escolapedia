@@ -91,3 +91,90 @@ module.exports = tema({
   ideas: ["Diario de clase: cada día un alumno escribe la entrada.", "Diario de un personaje histórico o de un animal del zoo.", "Corrección por parejas con la lista de revisión."],
   fuentes: [["British Council LearnEnglish Kids: writing a diary", "https://learnenglishkids.britishcouncil.org/writing-practice"], ["Cambridge Dictionary: diary", "https://dictionary.cambridge.org/dictionary/english/diary"]],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { H } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Use informal language and -ed / -ing adjectives in a diary", "Add details with the five senses", "Discover famous diaries and other kinds of journals"],
+  lectura: { titulo: "Two diaries, one day", html: `<p>Last Saturday, Lucía and her brother Pablo went to a water park. That night, they both wrote in their diaries. Read them and compare!</p><p><b>Lucía's diary</b><br><i>Saturday, 18th June<br>Dear Diary,<br>Today was AMAZING! We went to Aquaworld with Mum and Dad. First, we went on the giant slide. I was so <b>excited</b> that I screamed all the way down! Then we had lunch: I could smell the chips from the car park, mmm. In the afternoon, I tried the wave pool. The water was cold and the waves were huge. I wasn't <b>frightened</b> at all. Well… just a little bit! I'm <b>exhausted</b> now, but it was the best day of the summer. Can't wait to go back!</i></p><p><b>Pablo's diary</b><br><i>Saturday, 18th June<br>Today we went to a water park. It was OK, I suppose. The queues were really long and <b>boring</b>: we waited forty minutes for the big slide! Then I lost my flip-flop and the ground was burning hot. Ouch! But the lazy river was fun. I floated for ages and looked at the clouds. And Lucía screamed so much on the slide that everybody laughed. That was the funniest moment of the day.</i></p><p>Same day, two different diaries. That's the magic of a diary: it shows how <b>you</b> see the world.</p>` },
+  tras: {
+    "First person and past simple": [
+      ["Informal language", `<p>A diary is private and personal, so the language is <b>informal</b>, like when you talk to a friend. Here are some features of informal writing:</p><ul><li><b>Contractions</b>: I'm, it's, didn't, couldn't, can't. «I <b>didn't</b> want to go, but it <b>was</b>n't so bad.»</li><li><b>Exclamations</b>: «What a day!» «It was SO funny!» You can even write words in capital letters to show emotion.</li><li><b>Interjections</b> (words that express a reaction): <b>Wow!</b> (surprise), <b>Oh no!</b> (problem), <b>Phew!</b> (relief, ¡uf!), <b>Ouch!</b> (pain), <b>Yuck!</b> (disgust, ¡puaj!), <b>Yay!</b> (happiness), <b>Hmm…</b> (thinking).</li><li><b>Questions to yourself</b>: «Why did I say that?» «What am I going to do tomorrow?»</li><li><b>Missing words</b>: in very informal writing we sometimes leave out the subject: «Can't wait!» (= I can't wait), «Went to bed early.»</li><li><b>Drawings</b>, doodles and stickers are welcome too!</li></ul><p>But remember: informal does not mean careless. Your diary should still have correct verbs and clear sentences, so you can read and understand it in the future.</p>`,
+        L.filas("Interjections", [["Wow!", "surprise", AZ], ["Oh no!", "a problem", RO], ["Phew!", "relief (¡uf!)", VE], ["Ouch!", "pain", NA], ["Yuck!", "disgust (¡puaj!)", AM]]), ["n6_Gg_1riow", "Learn English Writing: Writing a Diary | English Grammar | iKen | iKen Edu | iKen App", "Iken Edu", 813022]],
+    ],
+    "Talking about feelings": [
+      ["Bored or boring?", `<p>Many adjectives of feelings have two forms: one ending in <b>-ed</b> and one ending in <b>-ing</b>. They are different!</p><ul><li><b>-ed</b> describes <b>how a person feels</b>: «I was <b>bored</b>.» (Yo estaba aburrido.)</li><li><b>-ing</b> describes <b>the thing or situation that causes the feeling</b>: «The film was <b>boring</b>.» (La película era aburrida.)</li></ul><p>Look at more pairs:</p><ul><li>excited / exciting: «I was <b>excited</b> because the match was <b>exciting</b>.»</li><li>interested / interesting: «I'm <b>interested</b> in dinosaurs. This book is very <b>interesting</b>.»</li><li>tired / tiring: «The walk was <b>tiring</b>. I was very <b>tired</b>.»</li><li>surprised / surprising: «I was <b>surprised</b> by the <b>surprising</b> news.»</li><li>frightened / frightening: «The storm was <b>frightening</b>. The dog was <b>frightened</b>.»</li><li>amazed / amazing, disappointed / disappointing, relaxed / relaxing.</li></ul><p>Be careful! If you say «I'm boring», it means that <b>you</b> make other people feel bored. You probably want to say «I'm <b>bored</b>»!</p>`,
+        H.dos("-ed or -ing?", ["-ed: how I feel", ["I was bored", "I was excited", "I was tired"], AZ], ["-ing: the thing", ["a boring film", "an exciting match", "a tiring walk"], NA])],
+    ],
+    "Adding details": [
+      ["Using the five senses", `<p>To help the reader (and your future self!) imagine the scene, use your <b>five senses</b>. Ask yourself:</p><ul><li><b>What could I see?</b> Colours, shapes, people, places. «The sky was orange and pink.»</li><li><b>What could I hear?</b> Voices, music, noises. «I could hear the seagulls and the waves.»</li><li><b>What could I smell?</b> «The kitchen smelled of fresh bread.»</li><li><b>What could I taste?</b> «The ice cream tasted of strawberries and it was very cold.»</li><li><b>What could I feel / touch?</b> Textures and temperature. «The sand was hot under my feet.» «The cat's fur was soft.»</li></ul><p>Useful structures: <b>I could see / hear / smell…</b> (Podía ver, oír, oler…); <b>It smelled of… / It tasted of… / It felt…</b>; <b>It looked / sounded…</b> + adjective: «It looked delicious.» «It sounded strange.»</p><p>Compare: «We went to the beach. It was nice.» and «We went to the beach. I could hear the waves crashing and the children laughing. The sand was burning hot and the air smelled of sun cream.» Which one is better?</p><p>You don't need to use all five senses in every entry. Choose the two or three that are most important for that moment.</p>`,
+        L.filas("Five senses", [["see", "the sky was orange", AZ], ["hear", "I could hear the waves", VE], ["smell", "it smelled of bread", NA], ["taste", "it tasted of strawberry", RO], ["touch", "the sand was hot", AM]])],
+    ],
+  },
+  final: [
+    ["Famous diaries", `<p>Some diaries became famous all over the world:</p><ul><li><b>The Diary of Anne Frank</b>. Anne Frank was a Jewish girl who lived in Amsterdam. During the Second World War, from 1942 to 1944, she and her family hid in a secret apartment behind her father's office to escape from the Nazis. Anne wrote a diary that she called «Kitty». She wrote about her fears, her dreams and her daily life. Sadly, Anne died in 1945, but her father survived and published her diary. Today millions of people have read it in more than seventy languages.</li><li><b>Explorers' and scientists' notebooks</b>. Charles Darwin kept detailed notebooks during his voyage on the ship <i>Beagle</i>, from 1831 to 1836. His notes and drawings of animals and plants helped him develop his theory of evolution.</li><li><b>Ships' logs</b>. Captains write a <b>log</b> every day: the weather, the position of the ship and the important events. Christopher Columbus also kept a diary during his first voyage to America in 1492.</li><li><b>Fictional diaries</b>. Many children's books are written as diaries, like the <i>Diary of a Wimpy Kid</i> series, by Jeff Kinney, full of jokes and drawings.</li></ul><p>Diaries are important because they show history through the eyes of real people.</p>`,
+      H.linea("Famous diaries", [["1492", "Columbus"], ["1831", "Darwin"], ["1942", "Anne Frank"], ["2007", "Wimpy Kid"]])],
+    ["Other kinds of journals", `<p>A diary about your day is not the only kind of journal. Here are some ideas you can try:</p><ul><li><b>Reading journal</b>: after you read a book, write the title, the author, what happened, your favourite character and your opinion. «I loved the ending because…»</li><li><b>Nature journal</b>: observe plants, birds, insects or the weather. Draw them and write notes, like a scientist: «Today I saw a robin in the garden. It had a red chest.»</li><li><b>Travel journal</b>: write about the places you visit on holiday. Stick in tickets, maps and photos.</li><li><b>Gratitude journal</b>: every night, write three good things that happened that day, even small ones: «My friend shared her snack with me.» Scientists say that this habit can make us feel happier.</li><li><b>Dream journal</b>: write your dreams as soon as you wake up, before you forget them!</li><li><b>Learning journal</b>: at school, write what you learned, what was difficult and what you want to improve.</li></ul><p>Choose one type and try it for a week. Writing a little every day is the best way to improve your English, and you will create a treasure of memories.</p>`,
+      L.filas("Kinds of journals", [["Reading", "books and opinions", AZ], ["Nature", "plants, birds, weather", VE], ["Travel", "tickets and photos", NA], ["Gratitude", "three good things", AM], ["Learning", "what I learned today", RO]])],
+  ],
+  ejemplos: [
+    ["Choose: «The film was so (bored / boring) that I was (bored / boring).»", ["The film causes the feeling → -ing: boring.", "I feel it → -ed: bored."], "The film was so boring that I was bored."],
+    ["Improve with the senses: «We had lunch at Grandma's. It was good.»", ["Smell: the kitchen smelled of paella.", "Taste and sound: it tasted delicious; I could hear Grandpa's jokes."], "We had lunch at Grandma's. The kitchen smelled of paella, and it tasted delicious. I could hear Grandpa telling jokes all the time."],
+  ],
+  errores: ["Decir «I'm boring» cuando quieres decir «I'm bored» (estoy aburrido).", "Pensar que informal significa descuidado: los verbos deben estar bien."],
+  ejercicios: [
+    ["b", "Match: Wow! / Ouch! / Phew! – pain, relief, surprise.", "Wow! surprise; Ouch! pain; Phew! relief."],
+    ["b", "Choose: «I'm (interested / interesting) in space.»", "interested."],
+    ["b", "Complete: «I could ___ the birds singing.»", "hear."],
+    ["b", "Who was Anne Frank?", "A Jewish girl who hid in Amsterdam during the Second World War and wrote a famous diary."],
+    ["b", "Write three good things that happened today (gratitude journal).", "Open answer."],
+    ["m", "Write two sentences with tired / tiring.", "Example: The hike was tiring. I was very tired."],
+    ["m", "Compare Lucía's and Pablo's diaries: who enjoyed the day more? Why?", "Lucía, because she was excited and wrote «AMAZING»; Pablo thought the queues were boring."],
+    ["m", "Rewrite in informal style: «I did not want to go. It was a very funny day.»", "I didn't want to go. What a funny day!"],
+    ["m", "Write a sentence for each sense about your school dining room.", "Open answer."],
+    ["m", "What did Darwin write in his notebooks?", "Notes and drawings of animals and plants during his voyage on the Beagle."],
+    ["a", "Write the same day from two points of view, like Lucía and Pablo.", "Open answer."],
+    ["a", "Write a nature journal entry: observe something outside and describe it with three senses.", "Open answer."],
+    ["a", "Write a diary entry with three -ed adjectives, three -ing adjectives and two interjections.", "Open answer."],
+    ["a", "Write a reading journal entry about the last book you read.", "Open answer."],
+  ],
+  quiz: [
+    ["«Phew!» expresses…", ["relief", "pain", "disgust"], "¡Uf!"],
+    ["«The match was ___.»", ["exciting", "excited", "excite"], "The thing → -ing."],
+    ["«I could ___ fresh bread.»", ["smell", "hear", "see"], "Sense of smell."],
+    ["Anne Frank's diary was written in…", ["Amsterdam", "London", "Madrid"], "1942–1944."],
+    ["A gratitude journal is about…", ["good things that happened", "your dreams", "the weather"], "Three good things."],
+  ],
+  examen: [
+    ["«I'm ___.» (estoy aburrido)", ["bored", "boring", "bore"], "How I feel."],
+    ["A ship's daily diary is called a…", ["log", "blog", "list"], "Captain's log."],
+  ],
+  tarjetas: [
+    ["Informal language", "Contractions, exclamations, interjections."],
+    ["-ed / -ing", "I'm bored; the film is boring."],
+    ["Five senses", "I could see / hear / smell…"],
+    ["Famous diaries", "Anne Frank, Darwin, Columbus."],
+  ],
+  glosario: [
+    ["diary", "Diario."],
+    ["entry", "Entrada (de diario)."],
+    ["journal", "Diario, cuaderno."],
+    ["informal", "Informal, coloquial."],
+    ["interjection", "Interjección."],
+    ["bored", "Aburrido (cómo me siento)."],
+    ["boring", "Aburrido (que aburre)."],
+    ["excited", "Emocionado."],
+    ["frightened", "Asustado."],
+    ["senses", "Sentidos."],
+    ["log", "Cuaderno de bitácora."],
+    ["gratitude", "Gratitud."],
+  ],
+  situacion: {
+    titulo: "Our class journal week",
+    reto: "Durante una semana, cada alumno escribe en inglés un tipo de diario distinto y al final la clase comparte las mejores entradas.",
+    pasos: ["Choose a kind of journal: daily diary, nature, reading, gratitude or learning.", "Write one short entry every day for five days, with the date and feelings.", "Improve one entry with the five senses, -ed and -ing adjectives and interjections.", "Share your best entry with a group and make a class book of journals."],
+    producto: "Un libro de clase con entradas de distintos diarios.",
+    evaluacion: ["Writes entries with the correct structure.", "Uses informal language correctly.", "Distinguishes -ed and -ing adjectives.", "Adds details with the five senses."],
+  },
+});

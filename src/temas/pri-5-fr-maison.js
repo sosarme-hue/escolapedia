@@ -93,3 +93,94 @@ module.exports = P.tema({
   saberes: "Comunicación: describir la vivienda y la habitación; léxico de las partes de la casa, muebles y colores; la estructura il y a / il n'y a pas de; preposiciones de lugar; adjetivos posesivos mon, ma, mes; concordancia del color con el nombre",
   ideas: ["Maqueta de la habitación ideal con una descripción en francés.", "Juego del objeto escondido con preposiciones de lugar.", "Anuncio inmobiliario inventado en francés para una casa de cuento."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { H } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Hablar de las tareas de casa en francés", "Nombrar objetos y electrodomésticos de cada habitación", "Usar más preposiciones de lugar con du, de la y des", "Conocer casas del mundo francófono y entender un anuncio de piso"],
+  lectura: { titulo: "Le déménagement de Chloé", html: `<p>Chloé tiene diez años y vive en Burdeos. Lee lo que escribe a su amiga española. Las palabras difíciles llevan traducción.</p><p><i>Chère Marta,</i></p><p><i>Grande nouvelle: nous déménageons (nos mudamos) ! Avant, nous habitions dans un petit appartement au quatrième étage, sans ascenseur (ascensor). Maintenant, nous avons une maison avec un jardin !</i></p><p><i>Au rez-de-chaussée (planta baja), il y a la cuisine, le salon et un petit bureau pour papa. Au premier étage, il y a trois chambres et la salle de bains. Ma nouvelle chambre est jaune et bleue. Mon lit est à côté de la fenêtre et mon bureau est en face du lit. Au-dessus du bureau, il y a une étagère (estantería) pour mes livres.</i></p><p><i>Le week-end, toute la famille aide: mon frère passe l'aspirateur, moi, je range ma chambre et je mets la table, et papa fait la vaisselle. Le chat, lui, ne fait rien: il dort sur le canapé !</i></p><p><i>Tu veux venir en été ? Il y a une chambre pour les invités.</i></p><p><i>Bisous,<br>Chloé</i></p>` },
+  tras: {
+    "Las habitaciones": [
+      ["Las tareas de casa", `<p>En una casa todos ayudamos. Las tareas domésticas se llaman <b>les tâches ménagères</b>. Muchas se forman con el verbo <b>faire</b> (hacer) o con <b>mettre</b> (poner):</p><ul><li><b>faire mon lit</b> — hacer mi cama</li><li><b>faire la vaisselle</b> — fregar los platos</li><li><b>faire la cuisine</b> — cocinar</li><li><b>faire les courses</b> — hacer la compra</li><li><b>mettre la table</b> — poner la mesa; <b>débarrasser la table</b> — recoger la mesa</li><li><b>ranger ma chambre</b> — ordenar mi habitación</li><li><b>passer l'aspirateur</b> — pasar la aspiradora</li><li><b>sortir la poubelle</b> — sacar la basura</li><li><b>arroser les plantes</b> — regar las plantas</li></ul><p>Para decir cada cuánto lo haces: <b>tous les jours</b> (todos los días), <b>le samedi</b> (los sábados), <b>souvent</b> (a menudo), <b>parfois</b> (a veces), <b>jamais</b> (nunca, con <i>ne</i>: <i>je <b>ne</b> fais <b>jamais</b> la cuisine</i>).</p><p>Ejemplo: <i>Je fais mon lit tous les jours. Le samedi, je range ma chambre. Parfois, je mets la table.</i></p><p>Recuerda las formas de <b>faire</b>: je fais, tu fais, il fait, nous faisons, vous faites, ils font.</p>`,
+        P.filas("Tareas de casa en francés", [["faire mon lit", "hacer la cama", AZ], ["faire la vaisselle", "fregar", VE], ["mettre la table", "poner la mesa", NA], ["ranger", "ordenar", MO], ["sortir la poubelle", "sacar la basura", RO]], "Les tâches ménagères"), ["BqP2CYqMQuw", "Rooms in the House in French: Les Pièces de la Maison 🏠 | Blabber Beasts French for Kids", "Blabber Beasts", 228953]],
+    ],
+    "Los muebles": [
+      ["Objetos y electrodomésticos", `<p>Además de los muebles, en cada habitación hay <b>objetos</b> y <b>électroménagers</b> (electrodomésticos). Vamos a ordenarlos por habitaciones:</p><ul><li><b>Dans la cuisine</b>: le frigo (la nevera), le four (el horno), le micro-ondes (el microondas), la cuisinière (la cocina para guisar), le lave-vaisselle (el lavavajillas).</li><li><b>Dans le salon</b>: la télé, le tapis (la alfombra), les rideaux (las cortinas), la lampe, le tableau (el cuadro).</li><li><b>Dans la salle de bains</b>: la baignoire (la bañera), la douche (la ducha), le lavabo, le miroir (el espejo), la serviette (la toalla).</li><li><b>Dans la chambre</b>: le réveil (el despertador), l'ordinateur, le coussin (el cojín), l'oreiller (la almohada), la couette (el edredón).</li></ul><p>¡Cuidado con los falsos amigos! <b>Le tableau</b> no es una tabla: es un cuadro (y también la pizarra de clase). <b>La cuisinière</b> puede ser la cocina para guisar o la cocinera.</p><p>Para decir para qué sirve algo: <i>Le frigo sert à garder les aliments au froid.</i> (La nevera sirve para mantener los alimentos fríos.)</p>`,
+        H.dos("Cocina y baño", ["Cuisine", ["le frigo", "le four", "le micro-ondes"], NA], ["Salle de bains", ["la douche", "le miroir", "la serviette"], AZ])],
+    ],
+    "¿Dónde está? Las preposiciones": [
+      ["Más preposiciones de lugar", `<p>Ya conoces sur, sous, dans, devant, derrière y à côté de. Aquí tienes más para describir con precisión:</p><ul><li><b>en face de</b> — enfrente de</li><li><b>au-dessus de</b> — por encima de (sin tocar); <b>au-dessous de</b> — por debajo de</li><li><b>au milieu de</b> — en medio de</li><li><b>au fond de</b> — al fondo de</li><li><b>à gauche de</b> / <b>à droite de</b> — a la izquierda / derecha de</li><li><b>près de</b> / <b>loin de</b> — cerca / lejos de</li></ul><p>Todas terminan en <b>de</b>, y <b>de</b> se une con el artículo, igual que «a + el = al» en español:</p><ul><li><b>de + le = du</b>: <i>en face <b>du</b> lit</i> (enfrente de la cama)</li><li><b>de + la</b> no cambia: <i>près <b>de la</b> fenêtre</i></li><li><b>de + l'</b> no cambia: <i>à côté <b>de l'</b>armoire</i></li><li><b>de + les = des</b>: <i>au milieu <b>des</b> coussins</i></li></ul><p>Diferencia entre <b>sur</b> y <b>au-dessus de</b>: <i>la lampe est sur la table</i> (la toca), <i>la lampe est au-dessus de la table</i> (cuelga del techo, sin tocarla).</p>`,
+        P.filas("Preposiciones con de + artículo", [["en face du lit", "de + le = du", AZ], ["près de la porte", "de + la", VE], ["à côté de l'armoire", "de + l'", NA], ["au milieu des livres", "de + les = des", MO]], "du, de la, des"), ["HHbpRP1txlc", "Les prépositions de lieu en français. Sur, sous, devant, entre...English subtitles available! 😉", "La prof Elisabeth", 108072]],
+    ],
+    "Hablar de la casa": [
+      ["Casas del mundo francófono", `<p>El francés se habla en muchos países, y las casas son muy distintas según el lugar y el clima:</p><ul><li><b>Les maisons à colombages</b> en Alsacia y Normandía (Francia): casas con vigas de madera en la fachada, a menudo con flores en los balcones.</li><li><b>Les immeubles haussmanniens</b> de París: edificios de piedra clara del siglo XIX, con balcones de hierro en el segundo y el quinto piso y tejados grises de zinc.</li><li><b>Les chalets</b> de los Alpes (Francia y Suiza): casas de madera con tejados muy inclinados para que resbale la nieve.</li><li><b>Les maisons créoles</b> de la isla de La Reunión y de las Antillas: casas de colores vivos con una galería llamada <b>varangue</b> para protegerse del sol.</li><li><b>Les cases</b> de Senegal y otros países de África: casas tradicionales redondas, de barro y con techo de paja.</li><li>En <b>Quebec</b> (Canadá) hay muchas casas con escaleras exteriores de colores en las ciudades, y casas de madera en el campo, preparadas para el frío del invierno.</li></ul><p>Fíjate en que la forma de cada casa responde al clima: tejados inclinados donde nieva, galerías donde hace calor.</p>`,
+        P.filas("Casas del mundo francófono", [["à colombages", "Alsace", NA], ["haussmannien", "Paris", AZ], ["le chalet", "les Alpes", VE], ["la maison créole", "La Réunion", RO], ["la case", "Sénégal", MO]], "Maisons du monde")],
+    ],
+  },
+  final: [
+    ["Un anuncio de piso: los pisos y los ordinales", `<p>Para decir en qué piso vives se usan los <b>números ordinales</b>, que se forman añadiendo <b>-ième</b> al número: deux → <b>deuxième</b>, trois → <b>troisième</b>, quatre → <b>quatrième</b> (se pierde la «e»), cinq → <b>cinquième</b> (se añade «u»), neuf → <b>neuvième</b> («f» pasa a «v»). La excepción es <b>premier / première</b> (primero).</p><p>La planta baja es <b>le rez-de-chaussée</b>, y el sótano, <b>le sous-sol</b>. Por eso decimos: <i>J'habite au troisième étage.</i> (Vivo en el tercer piso.)</p><p>Ahora lee un anuncio de alquiler (<b>une annonce</b>):</p><p><i>À LOUER – Lyon centre. Appartement de 3 pièces, 70 m², au deuxième étage avec ascenseur. Deux chambres, un salon lumineux, une cuisine équipée, une salle de bains et un balcon. Près de l'école et du parc. 900 € par mois.</i></p><p>Fíjate: en Francia, <b>une pièce</b> es cualquier habitación salvo la cocina y el baño. Un «3 pièces» tiene salón y dos dormitorios. <b>À louer</b> significa «se alquila» y <b>à vendre</b>, «se vende».</p>`,
+      P.filas("Los pisos de un edificio en francés", [["3e", "le troisième étage", AZ], ["2e", "le deuxième étage", VE], ["1er", "le premier étage", NA], ["RDC", "le rez-de-chaussée", MO], ["-1", "le sous-sol", RO]], "Les étages")],
+    ["Mi casa ideal: «je voudrais»", `<p>Para hablar de tus deseos usa <b>je voudrais</b> (me gustaría, quisiera), que es la forma educada de «je veux». Después puede ir un nombre o un infinitivo:</p><ul><li><i>Je voudrais une maison avec une piscine.</i> — Me gustaría una casa con piscina.</li><li><i>Je voudrais habiter près de la mer.</i> — Me gustaría vivir cerca del mar.</li></ul><p>Para describir tu casa ideal puedes combinar todo lo que has aprendido:</p><ul><li><b>dónde está</b>: à la montagne, à la campagne (en el campo), en ville, au bord de la mer (a la orilla del mar)</li><li><b>qué hay</b>: il y a une piscine, un grand jardin, une cabane dans un arbre (una cabaña en un árbol), un toboggan (un tobogán)</li><li><b>cómo es</b>: elle est grande, moderne, colorée, écologique, avec des panneaux solaires (placas solares)</li><li><b>dónde están las cosas</b>: ma chambre est au dernier étage, à côté de la salle de jeux</li></ul><p>Modelo: <i>Je voudrais une maison au bord de la mer. Elle est grande et écologique, avec des panneaux solaires. Au rez-de-chaussée, il y a une cuisine et un salon avec une grande fenêtre en face de la mer. Ma chambre est au premier étage. Au-dessus de mon lit, il y a une fenêtre pour regarder les étoiles !</i></p>`,
+      H.flujo("Cómo describir tu casa ideal", ["Où ?|à la mer", "Comment ?|écologique", "Il y a…|une piscine", "Ma chambre|en haut"], AZ)],
+  ],
+  ejemplos: [
+    ["Di que el armario está enfrente de la cama y cerca de la puerta.", ["en face de + le lit → en face du lit", "près de + la porte → près de la porte"], "L'armoire est en face du lit et près de la porte."],
+    ["Cuenta dos tareas que haces y cuándo.", ["faire mon lit, mettre la table", "tous les jours, le samedi"], "Je fais mon lit tous les jours et je mets la table le samedi."],
+  ],
+  errores: ["Decir «en face de le lit» en lugar de «en face du lit».", "Confundir «sur» (encima, tocando) con «au-dessus de» (por encima, sin tocar)."],
+  ejercicios: [
+    ["b", "Traduce: hacer la cama, fregar los platos, poner la mesa.", "faire mon lit, faire la vaisselle, mettre la table."],
+    ["b", "¿En qué habitación están le frigo y le four?", "Dans la cuisine."],
+    ["b", "Completa: en face ___ lit, près ___ fenêtre, au milieu ___ livres.", "du, de la, des."],
+    ["b", "¿Cómo se dice «planta baja»?", "le rez-de-chaussée."],
+    ["b", "Escribe el ordinal de quatre, cinq y neuf.", "quatrième, cinquième, neuvième."],
+    ["m", "Escribe tres tareas que haces y con qué frecuencia.", "Respuesta libre. Ej.: Je range ma chambre le samedi…"],
+    ["m", "¿Qué diferencia hay entre «la lampe est sur la table» y «au-dessus de la table»?", "Sur: tocando la mesa; au-dessus de: por encima, sin tocarla."],
+    ["m", "Lee el anuncio: ¿en qué piso está el apartamento y cuántos dormitorios tiene?", "En el segundo piso; dos dormitorios."],
+    ["m", "¿Por qué los chalets de los Alpes tienen tejados muy inclinados?", "Para que la nieve resbale."],
+    ["m", "Según la lectura, ¿qué hace cada miembro de la familia de Chloé?", "El hermano pasa la aspiradora, Chloé ordena su habitación y pone la mesa, el padre friega; el gato duerme."],
+    ["a", "Describe tu cocina o tu baño con cinco objetos y sus preposiciones.", "Respuesta libre."],
+    ["a", "Escribe un anuncio para alquilar tu casa o tu piso.", "Respuesta libre."],
+    ["a", "Describe tu casa ideal en seis frases con «je voudrais» e «il y a».", "Respuesta libre."],
+    ["a", "Responde a la carta de Chloé contándole cómo es tu casa.", "Respuesta libre."],
+  ],
+  quiz: [
+    ["«Faire la vaisselle» es…", ["fregar los platos", "hacer la cama", "cocinar"], "Vaisselle."],
+    ["«Le tableau» en el salón es…", ["un cuadro", "una tabla", "una mesa"], "Falso amigo."],
+    ["«En face ___ lit»:", ["du", "de le", "des"], "de + le = du."],
+    ["«Le rez-de-chaussée» es…", ["la planta baja", "el tejado", "el sótano"], "RDC."],
+    ["Una casa de Alsacia con vigas de madera es…", ["à colombages", "une case", "un chalet"], "Colombages."],
+  ],
+  examen: [
+    ["«Je voudrais» significa…", ["me gustaría", "tengo", "puedo"], "Forma educada."],
+    ["«Au milieu ___ coussins»:", ["des", "du", "de les"], "de + les = des."],
+  ],
+  tarjetas: [
+    ["faire la vaisselle", "fregar los platos"],
+    ["le frigo / le four", "la nevera / el horno"],
+    ["en face du / au-dessus de", "enfrente de / por encima de"],
+    ["le rez-de-chaussée", "la planta baja"],
+  ],
+  glosario: [
+    ["les tâches ménagères", "Las tareas de casa."],
+    ["ranger", "Ordenar."],
+    ["la poubelle", "La basura, el cubo de basura."],
+    ["le frigo", "La nevera."],
+    ["le four", "El horno."],
+    ["le miroir", "El espejo."],
+    ["en face de", "Enfrente de."],
+    ["au-dessus de", "Por encima de."],
+    ["l'étage", "El piso, la planta."],
+    ["le rez-de-chaussée", "La planta baja."],
+    ["une annonce", "Un anuncio."],
+    ["déménager", "Mudarse de casa."],
+  ],
+  situacion: {
+    titulo: "L'agence immobilière de la classe",
+    reto: "La clase se convierte en una inmobiliaria francesa: cada grupo diseña una casa, la anuncia y la presenta a sus «clientes».",
+    pasos: ["Dibujad el plano de una casa con sus pisos, habitaciones y muebles, todo con nombres en francés.", "Escribid un anuncio «À louer» o «À vendre» con los pisos, las habitaciones y lo que hay cerca.", "Preparad una visita guiada usando preposiciones: «En face du salon, il y a la cuisine…».", "Presentad la casa a otros grupos, que preguntan «Il y a combien de chambres ?» y eligen la que prefieren."],
+    producto: "Un plano, un anuncio y una visita guiada en francés de una casa inventada.",
+    evaluacion: ["Nombra habitaciones, muebles y objetos con su artículo.", "Usa preposiciones con du, de la y des correctamente.", "Usa los ordinales para los pisos.", "Pregunta y responde sobre la casa con frases completas."],
+  },
+});

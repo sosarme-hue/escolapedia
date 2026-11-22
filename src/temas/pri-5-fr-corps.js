@@ -93,3 +93,94 @@ module.exports = P.tema({
   saberes: "Comunicación: léxico del cuerpo y de la cara; expresar dolor con avoir mal à y las contracciones au, aux; describir síntomas y hablar con el médico; los cinco sentidos; hábitos saludables; dar consejos con il faut y devoir",
   ideas: ["Juego «Jacques a dit» para repasar las partes del cuerpo.", "Teatrillo en la consulta del médico por parejas.", "Mural de hábitos saludables con frases en francés."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { H } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Nombrar huesos y órganos del cuerpo en francés", "Describir a una persona: el pelo, los ojos y la estatura", "Contar la rutina diaria con verbos reflexivos", "Conocer expresiones francesas con partes del cuerpo"],
+  lectura: { titulo: "Le match de Léo", html: `<p>Lee la historia de Léo, un niño de Marsella. Las palabras difíciles llevan su traducción.</p><p><i>Samedi matin, Léo se lève à huit heures. Il se lave, il se brosse les dents et il prend un bon petit-déjeuner (desayuno): du pain, un yaourt et une orange. À dix heures, il a un match de football avec son équipe.</i></p><p><i>Pendant le match, Léo court très vite. Mais à la fin, il tombe (se cae)! Aïe ! Il a mal à la jambe et au genou (la rodilla). L'entraîneur (el entrenador) arrive: « Où est-ce que tu as mal ? » Léo montre son genou. L'entraîneur met de la glace (hielo) et un pansement (una tirita).</i></p><p><i>L'après-midi, la maman de Léo l'emmène chez le médecin. Le médecin regarde la jambe: « Ce n'est pas grave. Tu dois te reposer trois jours et tu ne dois pas courir. » Léo est un peu triste, mais il est content aussi: son équipe a gagné (ha ganado) le match, trois à un !</i></p><p><i>Le soir, Léo se couche tôt. Il a la tête dans les nuages: il rêve (sueña) déjà du prochain match.</i></p>` },
+  tras: {
+    "Las partes del cuerpo": [
+      ["Dentro del cuerpo: huesos y órganos", `<p>Ya conoces las partes del cuerpo que se ven. Ahora vamos a mirar <b>dentro</b>. En Ciencias Naturales estudias los órganos; aquí aprendes a nombrarlos en francés:</p><ul><li><b>le squelette</b> — el esqueleto; <b>les os</b> — los huesos (un os, des os: en plural la «s» final no se pronuncia)</li><li><b>les muscles</b> — los músculos</li><li><b>le cerveau</b> — el cerebro</li><li><b>le cœur</b> — el corazón</li><li><b>les poumons</b> — los pulmones</li><li><b>l'estomac</b> — el estómago (la «c» final no suena)</li><li><b>la peau</b> — la piel</li><li><b>le genou</b> — la rodilla (plural: les genoux, con x); <b>le coude</b> — el codo</li></ul><p>Para decir para qué sirve cada órgano usamos <b>sert à</b> + infinitivo (sirve para):</p><ul><li><i>Le cœur sert à pomper le sang.</i> — El corazón sirve para bombear la sangre.</li><li><i>Les poumons servent à respirer.</i> — Los pulmones sirven para respirar.</li><li><i>Le cerveau sert à penser.</i> — El cerebro sirve para pensar.</li></ul><p>Truco: muchas palabras se parecen al español si piensas en palabras cultas: <b>cœur</b> se parece a «cordial», <b>poumon</b> a «pulmón».</p>`,
+        P.filas("Órganos en francés y para qué sirven", [["le cœur", "pomper le sang", RO], ["les poumons", "respirer", AZ], ["le cerveau", "penser", MO], ["l'estomac", "digérer", NA], ["les os", "soutenir le corps", VE]], "Ça sert à…"), ["9Vf8zEfNVI4", "Les Parties du Corps pour les Enfants | Rêve en Français avec Steve and Maggie Français", "STEVE AND MAGGIE FRANÇAIS", 2378498]],
+    ],
+    "La cara": [
+      ["Describir a una persona", `<p>Para describir el aspecto de alguien, el francés usa dos verbos, igual que el español: <b>avoir</b> (tener) y <b>être</b> (ser).</p><p><b>Avoir</b> para el pelo y los ojos:</p><ul><li><i>Il a les cheveux courts / longs.</i> — Tiene el pelo corto / largo.</li><li><i>Elle a les cheveux blonds, bruns, roux ou noirs.</i> — Rubio, castaño, pelirrojo o negro.</li><li><i>Il a les cheveux frisés / raides.</i> — Rizado / liso.</li><li><i>Elle a les yeux bleus, verts ou marron.</i> — Ojos azules, verdes o marrones.</li></ul><p>¡Ojo! <b>marron</b> no cambia nunca: <i>les yeux marron</i>, sin «s».</p><p><b>Être</b> para la estatura y el cuerpo:</p><ul><li><i>Il est grand / petit.</i> — Es alto / bajo.</li><li><i>Elle est grande / petite.</i> — En femenino se añade «e» y la «d» o la «t» final empiezan a sonar.</li></ul><p>Otros detalles: <i>Il porte des lunettes</i> (lleva gafas), <i>Il a une barbe</i> (tiene barba), <i>Elle a des taches de rousseur</i> (tiene pecas).</p><p>Ejemplo completo: <i>Ma sœur s'appelle Inès. Elle est petite. Elle a les cheveux longs et frisés et les yeux verts. Elle porte des lunettes rouges.</i></p>`,
+        H.dos("Avoir o être", ["Il a…", ["les cheveux longs", "les yeux bleus", "une barbe"], AZ], ["Il est…", ["grand", "petit", "mince"], NA])],
+    ],
+    "En la consulta del médico": [
+      ["En la farmacia y en urgencias", `<p>Después del médico, muchas veces hay que ir a <b>la pharmacie</b> (la farmacia), que en Francia se reconoce por su <b>croix verte</b> (cruz verde) luminosa. Allí te atiende <b>le pharmacien</b> o <b>la pharmacienne</b>.</p><p>Cosas que puedes comprar:</p><ul><li><b>un médicament</b> — un medicamento; <b>un sirop</b> — un jarabe</li><li><b>un pansement</b> — una tirita; <b>une crème</b> — una crema</li><li><b>des pastilles</b> — pastillas para la garganta</li></ul><p>Frases útiles: <i>Bonjour, je voudrais un sirop pour la toux, s'il vous plaît.</i> (quisiera un jarabe para la tos) — <i>Combien ça coûte ?</i> (¿cuánto cuesta?)</p><p>Y si hay una <b>urgence</b> (emergencia)? En Francia, como en toda Europa, puedes llamar al <b>112</b>. También existe el <b>15</b> para urgencias médicas (el SAMU) y el <b>18</b> para los bomberos (<b>les pompiers</b>). Frases importantes:</p><ul><li><i>Au secours !</i> — ¡Socorro!</li><li><i>Appelez une ambulance !</i> — ¡Llamen a una ambulancia!</li><li><i>Il y a un blessé.</i> — Hay un herido.</li></ul><p>Esperamos que no las necesites nunca, ¡pero es bueno saberlas!</p>`,
+        P.dialogo("En la farmacia", [["Lucie", "Je voudrais un sirop.", MO], ["Pharmacien", "Pour la toux ?", VE], ["Lucie", "Oui, merci !", MO]]), ["4cAlGXSIZPA", "Dialogue chez le médecin – Conversation en français", "French Talks", 52717]],
+    ],
+    "Hábitos saludables": [
+      ["La rutina: los verbos reflexivos", `<p>Muchos hábitos de salud se dicen con <b>verbos reflexivos</b> (verbes pronominaux), igual que en español «me lavo»: llevan delante un pronombre (me, te, se…).</p><p>Así se conjuga <b>se laver</b> (lavarse):</p><ul><li><b>je me lave</b> — yo me lavo</li><li><b>tu te laves</b> — tú te lavas</li><li><b>il / elle se lave</b> — él / ella se lava</li><li><b>nous nous lavons</b> — nosotros nos lavamos</li><li><b>vous vous lavez</b> — vosotros os laváis</li><li><b>ils / elles se lavent</b> — ellos / ellas se lavan</li></ul><p>Delante de vocal, me, te y se pierden la «e»: <b>je m'habille</b> (me visto), <b>il s'appelle</b>.</p><p>Otros verbos de la rutina: <b>se réveiller</b> (despertarse), <b>se lever</b> (levantarse), <b>se brosser les dents</b> (cepillarse los dientes), <b>se peigner</b> (peinarse), <b>se reposer</b> (descansar), <b>se coucher</b> (acostarse).</p><p>Una rutina sana: <i>Je me réveille à sept heures et demie. Je me lève, je me lave et je m'habille. Après le petit-déjeuner, je me brosse les dents. Le soir, je me couche à neuf heures et demie.</i></p><p>En español decimos «me lavo <b>las</b> manos»; en francés también: <i>je me lave <b>les</b> mains</i>, nunca «mes mains».</p>`,
+        P.tabla("Conjugación de se laver", ["", "se laver"], [["je", "me lave"], ["tu", "te laves"], ["il / elle", "se lave"], ["nous", "nous lavons"], ["vous", "vous lavez"], ["ils / elles", "se lavent"]], AZ)],
+    ],
+  },
+  final: [
+    ["Expresiones con el cuerpo", `<p>Como en español, el francés tiene muchas <b>expresiones</b> con partes del cuerpo. No se pueden traducir palabra por palabra: hay que aprender su significado.</p><ul><li><b>Avoir la tête dans les nuages</b> — tener la cabeza en las nubes: estar distraído. ¡Igual que en español!</li><li><b>Coûter les yeux de la tête</b> — costar los ojos de la cabeza: ser carísimo. En español decimos «costar un ojo de la cara».</li><li><b>Avoir un cœur d'or</b> — tener un corazón de oro: ser muy bueno.</li><li><b>Casser les pieds</b> — romper los pies: molestar, fastidiar. <i>Tu me casses les pieds !</i> (¡Me estás fastidiando!)</li><li><b>Mettre la main à la pâte</b> — meter la mano en la masa: ayudar en un trabajo, arrimar el hombro.</li><li><b>Donner sa langue au chat</b> — darle la lengua al gato: rendirse cuando no sabes la respuesta de una adivinanza.</li><li><b>Avoir le cœur sur la main</b> — tener el corazón en la mano: ser muy generoso.</li></ul><p>Fíjate en que algunas son casi iguales en los dos idiomas y otras son muy distintas. ¿Hay alguna parecida en catalán o en otra lengua que conozcas?</p>`,
+      P.filas("Expresiones francesas con partes del cuerpo", [["la tête dans les nuages", "distraído", AZ], ["les yeux de la tête", "carísimo", RO], ["un cœur d'or", "muy bueno", VE], ["casser les pieds", "fastidiar", NA], ["donner sa langue au chat", "rendirse", MO]], "Expressions")],
+    ["El cuerpo en movimiento: «Jacques a dit»", `<p>En la clase de Educación Física o en el recreo puedes jugar en francés. Para dar órdenes usamos el <b>imperativo</b>. Con un compañero se usa la forma de «tú» y con toda la clase la forma de «vosotros» (terminada en <b>-ez</b>):</p><ul><li><b>Lève les bras !</b> / <b>Levez les bras !</b> — ¡Levanta / levantad los brazos!</li><li><b>Touche tes pieds !</b> / <b>Touchez vos pieds !</b> — ¡Tócate / tocaos los pies!</li><li><b>Saute !</b> / <b>Sautez !</b> — ¡Salta / saltad!</li><li><b>Tourne la tête !</b> — ¡Gira la cabeza!</li><li><b>Plie les genoux !</b> — ¡Dobla las rodillas!</li><li><b>Ferme les yeux !</b> — ¡Cierra los ojos!</li></ul><p>El juego más famoso es <b>«Jacques a dit»</b>, que en español es «Simón dice». Un jugador da órdenes. Si empieza con «Jacques a dit…», todos obedecen: <i>Jacques a dit: touchez votre nez !</i> Pero si da la orden sin decir «Jacques a dit», ¡nadie debe moverse! Quien se mueve, queda eliminado.</p><p>Otros verbos de movimiento: <b>courir</b> (correr), <b>nager</b> (nadar), <b>marcher</b> (andar), <b>danser</b> (bailar), <b>s'étirer</b> (estirarse). Moverse cada día es uno de los mejores hábitos de salud.</p>`,
+      P.filas("Una partida de Jacques a dit", [["Jacques a dit: sautez !", "todos saltan", VE], ["Jacques a dit: dansez !", "todos bailan", AZ], ["Touchez vos pieds !", "¡nadie se mueve!", RO], ["Jacques a dit: tournez !", "todos giran", NA]], "Jacques a dit")],
+  ],
+  ejemplos: [
+    ["Describe a tu amigo: alto, pelo corto y rizado, ojos marrones.", ["Estatura con être: il est grand.", "Pelo y ojos con avoir; marron no cambia."], "Il est grand. Il a les cheveux courts et frisés et les yeux marron."],
+    ["Cuenta tu mañana con tres verbos reflexivos.", ["je me lève, je me lave, je m'habille", "m' delante de vocal"], "Je me lève à sept heures, je me lave et je m'habille."],
+  ],
+  errores: ["Decir «les yeux marrons»: marron no lleva «s».", "Decir «je lave mes mains»: se dice «je me lave les mains»."],
+  ejercicios: [
+    ["b", "Traduce: el corazón, los pulmones, el cerebro, la piel.", "le cœur, les poumons, le cerveau, la peau."],
+    ["b", "¿Qué es «le genou»? ¿Cómo es su plural?", "La rodilla; les genoux."],
+    ["b", "Completa: je ___ lave, tu ___ laves, il ___ lave.", "me, te, se."],
+    ["b", "¿Qué número llamas en Europa en una emergencia?", "El 112."],
+    ["b", "¿Qué significa «Au secours !»?", "¡Socorro!"],
+    ["m", "Describe a una persona de tu familia en tres frases con avoir y être.", "Respuesta libre. Ej.: Ma mère est grande. Elle a les cheveux bruns…"],
+    ["m", "Escribe para qué sirven el corazón y los pulmones con «sert à».", "Le cœur sert à pomper le sang. Les poumons servent à respirer."],
+    ["m", "Pide un jarabe para la tos en la farmacia.", "Bonjour, je voudrais un sirop pour la toux, s'il vous plaît."],
+    ["m", "Conjuga se coucher con nous, vous e ils.", "nous nous couchons, vous vous couchez, ils se couchent."],
+    ["m", "¿Qué le pasó a Léo en la lectura y qué le dijo el médico?", "Se cayó y le dolían la pierna y la rodilla; debía descansar tres días y no correr."],
+    ["a", "Escribe tu rutina diaria con al menos cinco verbos reflexivos y las horas.", "Respuesta libre."],
+    ["a", "Explica tres expresiones francesas con el cuerpo y busca su equivalente en español.", "Ej.: coûter les yeux de la tête = costar un ojo de la cara…"],
+    ["a", "Dirige una partida de «Jacques a dit» con seis órdenes en imperativo.", "Respuesta libre. Ej.: Jacques a dit: levez les bras !"],
+    ["a", "Escribe un diálogo de cinco líneas en la farmacia.", "Respuesta libre."],
+  ],
+  quiz: [
+    ["«Le cœur» es…", ["el corazón", "el codo", "el cuello"], "Cœur."],
+    ["«Elle a les yeux ___.»", ["marron", "marrons", "marronne"], "Invariable."],
+    ["«Nous ___ lavons.»", ["nous", "se", "vous"], "Reflexivo."],
+    ["«Coûter les yeux de la tête» significa…", ["ser carísimo", "tener sueño", "ver muy bien"], "Un ojo de la cara."],
+    ["«Jacques a dit» es en español…", ["Simón dice", "el escondite", "la gallinita ciega"], "Juego de órdenes."],
+  ],
+  examen: [
+    ["«Il est grand» describe…", ["la estatura", "el pelo", "los ojos"], "Être."],
+    ["«Je m'habille» significa…", ["me visto", "me lavo", "me acuesto"], "S'habiller."],
+  ],
+  tarjetas: [
+    ["le cœur / les poumons", "el corazón / los pulmones"],
+    ["Il a les cheveux frisés", "Tiene el pelo rizado"],
+    ["je me lève / je me couche", "me levanto / me acuesto"],
+    ["Au secours !", "¡Socorro!"],
+  ],
+  glosario: [
+    ["le squelette", "El esqueleto."],
+    ["les os", "Los huesos."],
+    ["le cerveau", "El cerebro."],
+    ["le cœur", "El corazón."],
+    ["les poumons", "Los pulmones."],
+    ["le genou", "La rodilla."],
+    ["les cheveux frisés", "El pelo rizado."],
+    ["les lunettes", "Las gafas."],
+    ["la pharmacie", "La farmacia."],
+    ["un pansement", "Una tirita."],
+    ["se lever", "Levantarse."],
+    ["se coucher", "Acostarse."],
+  ],
+  situacion: {
+    titulo: "Une affiche: en forme !",
+    reto: "La clase prepara en francés un cartel y una presentación sobre el cuerpo y los hábitos saludables para enseñarlos a otro curso.",
+    pasos: ["Dibujad una silueta y nombrad en francés diez partes del cuerpo y tres órganos.", "Escribid vuestra rutina sana con verbos reflexivos (je me lève, je me lave…).", "Añadid tres consejos con «il faut» o «tu dois» y los números de emergencia.", "Presentad el cartel y dirigid una partida de «Jacques a dit» con la otra clase."],
+    producto: "Un cartel en francés sobre el cuerpo y la salud y una partida dirigida de «Jacques a dit».",
+    evaluacion: ["Nombra partes del cuerpo y órganos con su artículo.", "Usa correctamente los verbos reflexivos.", "Describe a una persona con avoir y être.", "Da órdenes en imperativo con buena pronunciación."],
+  },
+});
