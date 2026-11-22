@@ -137,3 +137,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Cuidar los dientes y la boca", "Beber agua antes, durante y después del ejercicio", "Elegir un buen desayuno para tener energía", "Relajarse con juegos de calma"],
+  lectura: { titulo: "Leo, el dormilón", html: `<p>Leo siempre llegaba tarde y cansado al colegio. Bostezaba en clase y en el recreo no tenía ganas de jugar.</p><p>Un día, en Educación Física, se sentó en un rincón.</p><p>—¿Qué te pasa, Leo? —le preguntó Marta, la profesora.</p><p>—Estoy muy cansado. Anoche jugué a la consola hasta muy tarde.</p><p>Marta le explicó que el cuerpo necesita dormir unas <b>diez horas</b> para recuperar energía, y que las pantallas antes de dormir hacen que nos cueste más coger el sueño.</p><p>Esa semana, Leo hizo un plan con su familia: cenar pronto, darse una ducha, lavarse los dientes, leer un cuento… y a la cama a las nueve. ¡Sin pantallas!</p><p>Además, cada mañana tomó un buen desayuno: leche, fruta y una tostada con aceite.</p><p>Al cabo de unos días, Leo llegaba al colegio con energía. En el recreo corría, saltaba y se reía. En Educación Física fue el primero en terminar el circuito.</p><p>—¡Pareces otro! —le dijo Marta.</p><p>—Es que ahora duermo como un lirón —contestó Leo, sonriendo.</p>` },
+  tras: {
+    "Mi bolsa de aseo": [
+      ["Dientes sanos", `<p>Una <mark>boca sana</mark> es parte de un cuerpo sano. Para cuidar los dientes:</p><ul><li>Cepíllalos al menos <b>tres veces</b> al día, después de cada comida. El más importante es el de antes de dormir.</li><li>Cepilla durante <b>dos minutos</b>: por delante, por detrás y por arriba de las muelas.</li><li>No te olvides de la <b>lengua</b>.</li><li>Usa un poco de <b>pasta</b> con flúor, del tamaño de un guisante.</li><li>Cambia el cepillo cada tres meses.</li></ul><p>Los <b>dulces</b> y los refrescos dañan los dientes y producen <b>caries</b> (agujeritos). Si los tomamos, mejor de vez en cuando y cepillándonos después.</p><p>Hay que ir al <b>dentista</b> una vez al año, aunque no duela nada.</p><p><b>Actividad</b>: cepíllate los dientes cantando una canción que dure dos minutos.</p>`,
+        L6.filas("Dientes", [["veces", "3 al día", cAZ], ["tiempo", "2 minutos", cVE], ["pasta", "un guisante", cNA], ["dentista", "1 vez al año", cRO]]),
+        ["UZO4RKMrVh8", "Luli Pampín - Boca sana", "Luli Pampín", 83777929]],
+    ],
+    "Cuidar los pies": [
+      ["Beber agua", `<p>Cuando hacemos ejercicio, <mark>sudamos</mark> y perdemos agua. Hay que recuperarla bebiendo.</p><ul><li>Bebe agua <b>antes</b> de empezar la actividad.</li><li>Bebe pequeños sorbos <b>durante</b> los descansos.</li><li>Bebe <b>después</b> de terminar.</li><li>Lleva siempre tu propia <b>botella</b> de agua marcada con tu nombre.</li></ul><p>La mejor bebida es el <b>agua</b>. Los refrescos y zumos de bote tienen mucho azúcar.</p><p>Si no bebemos suficiente, nos podemos sentir cansados, con dolor de cabeza o mareados. Esto se llama <b>deshidratación</b>.</p><p>En verano, cuando hace mucho calor, hay que beber todavía más, aunque no tengamos sed.</p><p>No hay que beber muchísimo de golpe: mejor poco a poco.</p><p><b>Actividad</b>: decora tu botella de agua para llevarla a todas las clases de Educación Física.</p>`,
+        H6.flujo("Agua", ["antes|un poco", "durante|sorbos", "después|recupera", "calor|más"], cAZ)],
+    ],
+    "¿Cuánto hay que dormir?": [
+      ["Desayuno con energía", `<p>El <mark>desayuno</mark> es la comida más importante para empezar el día con energía. Después de toda la noche sin comer, el cuerpo necesita «gasolina».</p><p>Un buen desayuno tiene:</p><ul><li><b>Lácteo</b>: leche, yogur o queso. Da fuerza a los huesos.</li><li><b>Cereales</b>: pan, tostadas o copos de avena. Dan energía.</li><li><b>Fruta</b>: una pieza o un zumo natural. Da vitaminas.</li></ul><p>Mejor evitar cada día la bollería industrial y los cereales con mucho azúcar.</p><p>A media mañana, en el recreo, un <b>almuerzo</b> ligero: una fruta, un bocadillo pequeño o un yogur.</p><p>Si vamos sin desayunar a Educación Física, nos cansaremos enseguida y no podremos jugar bien.</p><p><b>Actividad</b>: dibuja tu desayuno ideal con un lácteo, un cereal y una fruta.</p>`,
+        H6.rueda("Desayuno", "ENERGÍA", [["leche", cAZ], ["pan", cNA], ["fruta", cVE], ["agua", cRO]])],
+    ],
+    "Descansar también de día": [
+      ["Juegos de calma", `<p>Al terminar la clase, hacemos <mark>juegos de calma</mark> para relajar el cuerpo y la mente:</p><ul><li><b>El globo</b>: tumbados, cogemos aire hinchando la barriga como un globo y lo soltamos despacio.</li><li><b>El espagueti</b>: primero estamos tiesos como un espagueti crudo y después blanditos como uno cocido.</li><li><b>El masaje con pelota</b>: en parejas, pasamos una pelota blanda por la espalda del compañero.</li><li><b>La nube</b>: con los ojos cerrados, imaginamos que flotamos en una nube mientras suena una música suave.</li><li><b>El escáner</b>: vamos relajando el cuerpo parte por parte: pies, piernas, barriga, brazos, cara.</li></ul><p>Relajarse ayuda al corazón a latir tranquilo y a volver a clase concentrados.</p><p><b>Actividad</b>: practica el juego del espagueti en casa antes de dormir.</p>`,
+        H6.dos("Calma", ["TENSO", ["espagueti crudo", "puños", "robot"], cRO], ["RELAJADO", ["espagueti cocido", "manos abiertas", "trapo"], cVE])],
+    ],
+  },
+  final: [
+    ["Mi semana saludable", `<p>Para estar sanos, cada día tiene que tener un poco de todo. Así es una <mark>semana saludable</mark>:</p><ul><li><b>Moverse</b> al menos una hora al día: jugar, caminar, montar en bici, bailar.</li><li><b>Comer variado</b>: fruta, verdura, legumbres, pescado, cereales y lácteos.</li><li><b>Beber agua</b> varias veces al día.</li><li><b>Asearse</b>: ducha, manos limpias y dientes cepillados.</li><li><b>Dormir</b> unas diez horas.</li><li><b>Pocas pantallas</b>: no más de una hora al día y nunca antes de dormir.</li><li><b>Estar con amigos y familia</b>: reír y hablar también es salud.</li></ul><p>Podemos hacer una tabla con estos hábitos y marcar con una cara feliz cada día que los cumplimos.</p><p><b>Actividad</b>: haz tu tabla de la semana saludable y complétala durante siete días.</p>`,
+      L6.filas("Cada día", [["moverse", "1 hora", cVE], ["dormir", "10 horas", cAZ], ["pantallas", "poco", cRO], ["agua", "a menudo", cNA]])],
+    ["Repaso: Leo, el dormilón", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Leo estaba <b>cansado</b> porque jugaba a la consola hasta tarde.</li><li>El cuerpo necesita dormir unas <b>diez horas</b>.</li><li>Las <b>pantallas</b> antes de dormir hacen que nos cueste dormirnos.</li><li>Su plan: cenar pronto, <b>ducha</b>, <b>dientes</b>, <b>cuento</b> y a la cama a las nueve.</li><li>Desayuno: <b>leche</b>, <b>fruta</b> y <b>tostada</b> con aceite.</li><li>Con buenos hábitos, Leo tiene <b>energía</b> para jugar.</li></ul><p>«Dormir como un lirón» quiere decir dormir mucho y profundamente. ¡El lirón es un animal que duerme todo el invierno!</p><p><b>Actividad</b>: escribe tu propia rutina para la noche con cinco pasos.</p>`,
+      H6.flujo("Leo", ["cena|pronto", "ducha|dientes", "cuento|sin pantalla", "cama|a las 9"], cMO)],
+  ],
+  ejemplos: [
+    ["¿Cuándo es el cepillado más importante?", ["Por la noche la boca descansa muchas horas."], "El de antes de dormir."],
+    ["¿Qué lleva un buen desayuno?", ["Tres grupos de alimentos."], "Un lácteo, un cereal y una fruta."],
+  ],
+  errores: ["Ir a Educación Física sin desayunar.", "Esperar a tener mucha sed para beber agua."],
+  ejercicios: [
+    ["b", "¿Cuántas veces al día nos cepillamos?", "Tres, después de cada comida."],
+    ["b", "¿Cuánto dura el cepillado?", "Dos minutos."],
+    ["b", "¿Cuál es la mejor bebida?", "El agua."],
+    ["b", "¿Cuántas horas hay que dormir?", "Unas diez."],
+    ["b", "Di un juego de calma.", "El globo, el espagueti…"],
+    ["m", "¿Cuándo bebemos agua en el ejercicio?", "Antes, durante y después."],
+    ["m", "¿Qué son las caries?", "Agujeritos en los dientes."],
+    ["m", "¿Qué nos da la fruta del desayuno?", "Vitaminas."],
+    ["m", "Explica el juego del espagueti.", "Tensos como crudo y relajados como cocido."],
+    ["m", "¿Qué es la deshidratación?", "Falta de agua en el cuerpo."],
+    ["a", "En la lectura, ¿por qué estaba cansado Leo?", "Porque jugaba a la consola hasta tarde."],
+    ["a", "¿Qué cambió Leo en su rutina?", "Cenar pronto, ducha, dientes, cuento, cama a las 9 y buen desayuno."],
+    ["a", "Haz una tabla de hábitos saludables para una semana.", "Respuesta libre."],
+    ["a", "¿Por qué no se deben usar pantallas antes de dormir?", "Porque cuesta más dormirse."],
+  ],
+  quiz: [
+    ["La pasta de dientes, del tamaño de…", ["un guisante", "una nuez", "una manzana"], "Dientes."],
+    ["Durante el ejercicio bebemos…", ["sorbos", "un litro de golpe", "nada"], "Agua."],
+    ["Un buen desayuno tiene…", ["lácteo, cereal y fruta", "solo bollos", "nada"], "Desayuno."],
+    ["El espagueti cocido está…", ["relajado", "tenso", "duro"], "Calma."],
+    ["Moverse al día al menos…", ["una hora", "un minuto", "diez horas"], "Semana."],
+  ],
+  examen: [
+    ["En la lectura, ¿cómo se llama la profesora?", ["Marta", "Clara", "Laura"], "Lectura."],
+    ["¿A qué hora se acuesta Leo con su plan?", ["a las nueve", "a las once", "a las doce"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Dientes", "3 veces, 2 minutos, dentista una vez al año."],
+    ["Agua", "Antes, durante y después del ejercicio."],
+  ],
+  glosario: [
+    ["Higiene", "Cuidados para estar limpios y sanos."],
+    ["Caries", "Agujero en un diente."],
+    ["Flúor", "Sustancia que protege los dientes."],
+    ["Deshidratación", "Falta de agua en el cuerpo."],
+    ["Lácteo", "Alimento hecho con leche."],
+    ["Almuerzo", "Comida ligera de media mañana."],
+    ["Relajación", "Estado de calma del cuerpo y la mente."],
+    ["Hábito", "Algo que hacemos a menudo."],
+    ["Lirón", "Animal que duerme todo el invierno."],
+    ["Rutina", "Pasos que seguimos siempre en el mismo orden."],
+  ],
+  situacion: {
+    titulo: "Campaña: ¡cuerpo sano!",
+    reto: "La clase prepara una campaña de carteles y un rincón de calma para promover hábitos saludables en el colegio.",
+    pasos: ["Elegir un hábito: dientes, agua, desayuno, sueño o calma.", "Hacer un cartel con dibujos y consejos.", "Preparar un juego de calma para enseñarlo a otra clase.", "Completar durante una semana la tabla de hábitos."],
+    producto: "Carteles, un rincón de calma y la tabla de la semana saludable.",
+    evaluacion: ["Cuida sus dientes.", "Bebe agua en el ejercicio.", "Elige un desayuno saludable.", "Sabe relajarse."],
+  },
+});

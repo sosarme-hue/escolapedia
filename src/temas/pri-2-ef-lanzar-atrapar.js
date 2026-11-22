@@ -137,3 +137,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Lanzar lejos y lanzar con precisión", "Atrapar objetos de distintos tamaños", "Golpear con el pie y con la mano", "Hacer malabares sencillos"],
+  lectura: { titulo: "El partido de los calcetines", html: `<p>En casa de Iker había un problema: siempre faltaba un calcetín de cada pareja.</p><p>—¿Dónde se meten? —se preguntaba su madre.</p><p>Un sábado, Iker encontró el misterio: debajo de su cama había una montaña de calcetines desparejados.</p><p>—¡Ya sé qué haremos con ellos! —dijo.</p><p>Iker y su hermana Ane hicieron <b>pelotas</b>: metían un calcetín dentro de otro, lo enrollaban y ¡listo! Hicieron veinte pelotas de colores.</p><p>Después, colocaron unas cajas en el salón y jugaron a <b>encestar</b>. Luego pusieron vasos de plástico en torre y los <b>derribaban</b> con las pelotas.</p><p>Ane aprendió a <b>lanzar</b> con una mano y <b>atrapar</b> con las dos. Iker intentó hacer <b>malabares</b> con tres pelotas… ¡y se le cayeron todas en la cabeza!</p><p>Su madre llegó y vio el lío.</p><p>—¿Qué es esto?</p><p>—¡Los calcetines perdidos! —rieron los dos.</p><p>Al final, su madre también se apuntó al juego. Y desde entonces, los calcetines desparejados tienen una segunda vida.</p>` },
+  tras: {
+    "Lanzar con una mano": [
+      ["Lanzar lejos, lanzar preciso", `<p>No es lo mismo lanzar <mark>lejos</mark> que lanzar con <mark>precisión</mark> (puntería).</p><p><b>Para lanzar lejos</b>:</p><ul><li>Coloca el pie <b>contrario</b> a la mano que lanza delante.</li><li>Lleva el brazo bien <b>atrás</b>, por encima del hombro.</li><li>Gira el cuerpo y lanza hacia <b>arriba</b> y adelante, con fuerza.</li></ul><p><b>Para lanzar con precisión</b>:</p><ul><li><b>Mira</b> el objetivo todo el rato.</li><li>Lanza <b>suave</b>, sin tanta fuerza.</li><li>Termina con el brazo <b>señalando</b> el objetivo.</li></ul><p>Juegos para practicar: lanzar saquitos a un aro, derribar bolos o botellas, encestar en una caja.</p><p>Empieza cerca del objetivo y, cuando aciertes tres veces seguidas, da un paso atrás.</p><p><b>Actividad</b>: haz una diana con aros de colores y puntúa tus lanzamientos.</p>`,
+        H6.dos("Lanzar", ["LEJOS", ["pie contrario", "brazo atrás", "fuerza"], cRO], ["PRECISO", ["mirar", "suave", "señalar"], cAZ])],
+    ],
+    "Atrapar con las manos preparadas": [
+      ["Atrapar de todo", `<p>Cada objeto se <mark>atrapa</mark> de una forma distinta:</p><ul><li><b>Pelota grande</b>: con las dos manos abiertas, los dedos separados, y la llevamos al pecho.</li><li><b>Pelota pequeña</b>: con las manos juntas formando una cesta.</li><li><b>Pelota que bota</b>: la esperamos después del bote, cuando sube.</li><li><b>Pañuelo o globo</b>: caen despacio, así que tenemos tiempo de colocarnos debajo.</li><li><b>Aro</b>: lo atrapamos con una mano o con el brazo, como un collar.</li><li><b>Disco volador</b>: con una mano, en forma de pinza, o con las dos como un sándwich.</li></ul><p>En todos los casos: <b>mirar</b> el objeto hasta que esté en las manos y <b>acompañarlo</b> hacia el cuerpo para amortiguar.</p><p><b>Actividad</b>: lanza al aire distintos objetos y atrápalos: globo, pañuelo, pelota y aro.</p>`,
+        L6.filas("Atrapar", [["grande", "al pecho", cNA], ["pequeña", "cesta", cAZ], ["globo", "debajo", cVE], ["aro", "con el brazo", cMO]])],
+    ],
+    "Pases con un compañero": [
+      ["Golpear con el pie y con la mano", `<p>Además de lanzar, podemos <mark>golpear</mark> la pelota:</p><p><b>Con el pie</b>:</p><ul><li>Con el <b>interior</b> del pie para pases cortos y precisos.</li><li>Con el <b>empeine</b> (la parte de arriba) para golpear fuerte y lejos.</li><li>El pie de apoyo se coloca al lado de la pelota.</li></ul><p><b>Con la mano</b>:</p><ul><li>Con la <b>palma abierta</b>, como en el voleibol con globo.</li><li>Con una <b>pala</b> o raqueta, como en el pádel o el tenis.</li></ul><p><b>Con otras partes</b>: la rodilla, el muslo… ¡e incluso la cabeza, solo con globos o pelotas muy blandas!</p><p>Juegos: mantener el globo en el aire sin que toque el suelo, pasarse la pelota con el pie entre conos, «toques» de pelota.</p><p><b>Actividad</b>: en parejas, contad cuántos toques seguidos dais al globo sin que caiga.</p>`,
+        H6.flujo("Golpear", ["interior|corto", "empeine|fuerte", "palma|globo", "pala|raqueta"], cVE)],
+    ],
+    "Lanzar con seguridad": [
+      ["Malabares", `<p>Los <mark>malabares</mark> consisten en lanzar y atrapar varios objetos a la vez sin que caigan. Se empieza poco a poco:</p><ul><li><b>Paso 1</b>: con <b>un pañuelo</b>. Lánzalo con una mano y atrápalo con la otra, haciendo un arco por encima de la cabeza.</li><li><b>Paso 2</b>: con <b>dos pañuelos</b>, uno en cada mano. Lanza el primero; cuando esté arriba, lanza el segundo. Atrápalos.</li><li><b>Paso 3</b>: con <b>dos pelotas</b> blandas (por ejemplo, de calcetín).</li><li><b>Paso 4</b>: con <b>tres</b> pañuelos… ¡el reto de los artistas!</li></ul><p>Los pañuelos son ideales para empezar porque caen muy despacio.</p><p>Los malabares mejoran la coordinación, la concentración y la paciencia. ¡Al principio se cae todo, pero no pasa nada!</p><p><b>Actividad</b>: practica cinco minutos al día con dos pañuelos y cuenta cuántos lanzamientos seguidos haces.</p>`,
+        H6.rueda("Malabares", "PASO A PASO", [["1 pañuelo", cAZ], ["2 pañuelos", cVE], ["2 pelotas", cNA], ["3", cRO]]),
+        ["rWQoSCxGSzI", "Tutorial malabares - 2 pelotas", "Juggler Master", 388685]],
+    ],
+  },
+  final: [
+    ["Juegos de puntería", `<p>Los <mark>juegos de puntería</mark> se juegan en todo el mundo:</p><ul><li><b>Los bolos</b>: se lanza una bola rodando para derribar unos palos colocados en triángulo.</li><li><b>La petanca</b>: se lanzan bolas metálicas intentando dejarlas lo más cerca posible de una bolita pequeña.</li><li><b>La rana</b>: se lanzan fichas a una mesa con agujeros; si entra en la boca de la rana, ¡más puntos!</li><li><b>Los dardos</b> (para mayores): se lanzan a una diana.</li><li><b>La diana de velcro</b>: pelotas que se pegan en una diana de tela.</li><li><b>El tiro con arco</b>: un deporte olímpico.</li></ul><p>Podemos hacer nuestro propio juego de bolos con <b>botellas de plástico</b> con un poco de arena dentro.</p><p><b>Actividad</b>: fabrica un juego de bolos con seis botellas y juega con tu familia.</p>`,
+      L6.filas("Puntería", [["bolos", "derribar", cAZ], ["petanca", "cerca", cNA], ["rana", "boca", cVE], ["diana", "centro", cRO]])],
+    ["Repaso: el partido de los calcetines", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Iker encuentra los calcetines <b>desparejados</b> debajo de la cama.</li><li>Hacen <b>pelotas de calcetín</b>: un calcetín dentro de otro.</li><li>Juegan a <b>encestar</b> en cajas: lanzar con precisión.</li><li>Derriban <b>torres de vasos</b>: puntería.</li><li>Ane aprende a lanzar con una mano y <b>atrapar con dos</b>.</li><li>Iker prueba los <b>malabares</b> con tres pelotas… ¡demasiado pronto!</li><li>Los calcetines tienen una <b>segunda vida</b>: reciclar.</li></ul><p>Con imaginación, cualquier cosa puede convertirse en un juego. Y es mejor empezar los malabares con una o dos pelotas.</p><p><b>Actividad</b>: haz tres pelotas de calcetín y practica en casa.</p>`,
+      H6.flujo("Calcetines", ["calcetín|pelota", "caja|encestar", "vasos|derribar", "3 bolas|¡ay!"], cMO)],
+  ],
+  ejemplos: [
+    ["¿Qué pie va delante al lanzar con la derecha?", ["El contrario a la mano."], "El izquierdo."],
+    ["¿Con qué parte del pie haces un pase corto?", ["La más plana y amplia."], "Con el interior del pie."],
+  ],
+  errores: ["Dejar de mirar la pelota antes de atraparla.", "Intentar malabares con tres pelotas sin dominar dos."],
+  ejercicios: [
+    ["b", "¿Cómo se atrapa una pelota grande?", "Con las dos manos y llevándola al pecho."],
+    ["b", "¿Qué es la puntería?", "Acertar en el objetivo."],
+    ["b", "¿Con qué empezamos los malabares?", "Con pañuelos."],
+    ["b", "¿Cómo se hace una pelota de calcetín?", "Metiendo un calcetín dentro de otro."],
+    ["b", "Di un juego de puntería.", "Bolos, petanca, la rana…"],
+    ["m", "Di dos claves para lanzar lejos.", "Pie contrario delante y brazo atrás."],
+    ["m", "Di dos claves para lanzar preciso.", "Mirar el objetivo y lanzar suave."],
+    ["m", "¿Qué es el empeine?", "La parte de arriba del pie."],
+    ["m", "¿Por qué los pañuelos son buenos para empezar malabares?", "Porque caen despacio."],
+    ["m", "¿Cómo se juega a la petanca?", "Lanzando bolas cerca de una bolita."],
+    ["a", "En la lectura, ¿dónde estaban los calcetines?", "Debajo de la cama de Iker."],
+    ["a", "¿Por qué se le caen las pelotas a Iker?", "Porque intenta tres sin practicar antes con menos."],
+    ["a", "Diseña un juego de puntería con material reciclado.", "Respuesta libre."],
+    ["a", "Explica los pasos para aprender malabares.", "Un pañuelo, dos pañuelos, dos pelotas, tres."],
+  ],
+  quiz: [
+    ["Para lanzar lejos el brazo va…", ["atrás", "abajo", "quieto"], "Lanzar."],
+    ["Una pelota pequeña se atrapa con…", ["las manos en cesta", "los pies", "un brazo"], "Atrapar."],
+    ["Para golpear fuerte con el pie usamos el…", ["empeine", "talón", "dedo"], "Golpear."],
+    ["Los malabares se empiezan con…", ["pañuelos", "bolas de hierro", "platos"], "Malabares."],
+    ["En los bolos hay que…", ["derribar", "encestar", "saltar"], "Puntería."],
+  ],
+  examen: [
+    ["En la lectura, ¿cómo se llama la hermana de Iker?", ["Ane", "Sara", "Lía"], "Lectura."],
+    ["¿Cuántas pelotas hacen?", ["veinte", "tres", "dos"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Lanzar", "Lejos: fuerza y brazo atrás. Preciso: mirar y suave."],
+    ["Malabares", "1 pañuelo, 2 pañuelos, 2 pelotas, 3."],
+  ],
+  glosario: [
+    ["Precisión", "Exactitud al acertar."],
+    ["Puntería", "Habilidad para acertar en un objetivo."],
+    ["Atrapar", "Coger algo que viene por el aire."],
+    ["Amortiguar", "Suavizar un golpe."],
+    ["Empeine", "Parte de arriba del pie."],
+    ["Malabares", "Lanzar y atrapar varios objetos seguidos."],
+    ["Coordinación", "Mover partes del cuerpo a la vez de forma ordenada."],
+    ["Petanca", "Juego de lanzar bolas cerca de una bolita."],
+    ["Diana", "Blanco con círculos para apuntar."],
+    ["Desparejado", "Que ha perdido su pareja."],
+  ],
+  situacion: {
+    titulo: "El circuito de lanzamientos",
+    reto: "La clase prepara un circuito con estaciones de lanzar lejos, puntería, atrapar, golpear y malabares, con material reciclado.",
+    pasos: ["Fabricar pelotas de calcetín, bolos de botella y dianas.", "Preparar una estación por grupo con sus normas.", "Recorrer el circuito y apuntar los puntos.", "Repetirlo otro día y comparar."],
+    producto: "Un circuito de lanzamientos con material reciclado.",
+    evaluacion: ["Lanza lejos y con precisión.", "Atrapa objetos variados.", "Golpea con pie y mano.", "Hace malabares sencillos."],
+  },
+});

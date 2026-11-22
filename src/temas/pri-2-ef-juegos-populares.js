@@ -137,3 +137,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Jugar a la rayuela, la comba y los juegos de corro", "Conocer canciones de juegos tradicionales", "Echar a suertes de forma justa", "Construir juguetes tradicionales sencillos"],
+  lectura: { titulo: "El patio del abuelo Antonio", html: `<p>Un día de lluvia, la clase de segundo no pudo salir al recreo. Estaban aburridos mirando por la ventana.</p><p>Entonces llegó el abuelo Antonio, que venía a recoger a su nieta Sara.</p><p>—¿Sabéis a qué jugaba yo en el patio cuando tenía vuestra edad? —preguntó.</p><p>—¿A la consola? —dijo Pablo. Todos se rieron.</p><p>—¡No había consolas! Jugábamos a la <b>rayuela</b>, a la <b>comba</b>, al <b>pañuelo</b>, a las <b>canicas</b> y al <b>corro de la patata</b>.</p><p>El abuelo sacó una tiza del bolsillo y dibujó una rayuela en el suelo del pasillo. Después, les enseñó a lanzar una piedrecita y a saltar a la pata coja sin pisar las rayas.</p><p>Luego formaron un corro y cantaron «<i>Al corro de la patata, comeremos ensalada…</i>». Al llegar a «<i>¡achupé, achupé, sentadita me quedé!</i>», todos se sentaron en el suelo muertos de risa.</p><p>Cuando sonó el timbre, nadie quería volver a clase.</p><p>—Abuelo, ¿vendrás mañana? —preguntó Sara.</p><p>—¡Y traeré mis canicas! —respondió él, guiñando un ojo.</p>` },
+  tras: {
+    "El escondite inglés": [
+      ["La rayuela", `<p>La <mark>rayuela</mark> (también llamada truquemé, charranca o tejo) es uno de los juegos tradicionales más conocidos.</p><p>Cómo se juega:</p><ul><li>Se dibuja en el suelo con <b>tiza</b> un camino de casillas numeradas del 1 al 10.</li><li>Se lanza una <b>piedra</b> plana o una ficha a la casilla 1.</li><li>Se salta a la <b>pata coja</b> por todas las casillas, sin pisar la que tiene la piedra ni las rayas. En las casillas dobles se apoyan los dos pies.</li><li>Al volver, se recoge la piedra sin apoyar el otro pie.</li><li>Luego se lanza a la casilla 2, y así sucesivamente.</li></ul><p>Si pisas la raya, te caes o la piedra cae fuera, pierdes el turno.</p><p>La rayuela se juega en muchos países del mundo, ¡desde hace cientos de años!</p><p><b>Actividad</b>: dibuja una rayuela en el patio y juega con tus compañeros.</p>`,
+        L6.filas("Rayuela", [["tiza", "casillas", cAZ], ["piedra", "lanzar", cNA], ["pata coja", "saltar", cVE], ["raya", "no pisar", cRO]]),
+        ["oGOSzWwXl3I", "La rayuela - Juegos tradicionales", "Mundo Lanugo", 272248]],
+    ],
+    "La goma": [
+      ["Juegos de corro", `<p>En los <mark>juegos de corro</mark> nos damos la mano formando un círculo y cantamos mientras giramos:</p><ul><li><b>El corro de la patata</b>: «Al corro de la patata, comeremos ensalada, como comen los señores, naranjitas y limones. ¡Achupé, achupé, sentadita me quedé!» Al final, todos se sientan.</li><li><b>Al pasar la barca</b>: dos hacen un puente con los brazos y los demás pasan por debajo. Al terminar la canción, el puente atrapa a uno.</li><li><b>El patio de mi casa</b>: «…que llueva, que llueva…» y nos agachamos.</li><li><b>Antón Pirulero</b>: cada uno imita un instrumento y hay que estar muy atentos.</li></ul><p>Los juegos de corro unen música, movimiento y amistad. Se han cantado durante generaciones y los abuelos todavía se los saben.</p><p><b>Actividad</b>: pregunta en casa por una canción de corro y enséñala en clase.</p>`,
+        H6.rueda("Corro", "CORRO", [["patata", cNA], ["barca", cAZ], ["patio", cVE], ["Pirulero", cRO]])],
+    ],
+    "La carrera de sacos": [
+      ["Echar a suertes", `<p>Antes de empezar un juego, a veces hay que decidir <b>quién empieza</b> o quién «se la queda». Para que sea justo, echamos a <mark>suertes</mark>:</p><ul><li><b>Pito, pito, gorgorito</b>: uno va señalando a cada jugador mientras dice la retahíla: «Pito, pito, gorgorito, dónde vas tú tan bonito…». Al que le toca la última palabra, ¡se la queda!</li><li><b>Piedra, papel o tijera</b>: la piedra rompe la tijera, la tijera corta el papel y el papel envuelve la piedra.</li><li><b>Pares o nones</b>: cada uno saca dedos de una mano y se suman.</li><li><b>Los pies</b>: dos capitanes van poniendo un pie delante del otro hasta que se encuentran. El que pisa al otro, elige primero.</li><li><b>La moneda</b>: cara o cruz.</li></ul><p>Echar a suertes evita discusiones: todos aceptan el resultado.</p><p><b>Actividad</b>: aprende de memoria «Pito, pito, gorgorito» y úsalo para empezar un juego.</p>`,
+        H6.dos("Suertes", ["DECIR", ["pito, pito", "pares o nones", "cara o cruz"], cMO], ["MANOS", ["piedra", "papel", "tijera"], cAZ])],
+    ],
+    "Juegos de todo el mundo": [
+      ["Juguetes que hacemos nosotros", `<p>Antes, muchos niños fabricaban sus propios <mark>juguetes</mark> con cosas sencillas:</p><ul><li><b>Zancos de lata</b>: dos latas con dos cuerdas para caminar más altos.</li><li><b>Boliche</b>: un vaso de yogur atado con un hilo a una bolita; hay que meter la bola en el vaso.</li><li><b>Peonza de tapón</b>: un tapón con un palillo que gira como una peonza.</li><li><b>Pelota de calcetín</b>: un calcetín viejo relleno de trapos.</li><li><b>Diábolo de botellas</b>: dos mitades de botella unidas.</li><li><b>Cometa</b>: con cañas, papel y cuerda.</li></ul><p>Construir tus propios juguetes es divertido, desarrolla la imaginación y ayuda a <b>reciclar</b>.</p><p>Y además ¡un juguete hecho por ti es único!</p><p><b>Actividad</b>: fabrica un boliche con un vaso de yogur, un hilo y una bolita de papel de aluminio.</p>`,
+        H6.flujo("Boliche", ["vaso|yogur", "hilo|atar", "bola|aluminio", "¡a jugar!|meter"], cVE)],
+    ],
+  },
+  final: [
+    ["Las canicas", `<p>Las <mark>canicas</mark> son bolitas de cristal de colores. Se juega con ellas desde hace miles de años: ¡se han encontrado canicas en tumbas del antiguo Egipto!</p><p>Algunos juegos de canicas:</p><ul><li><b>El guá</b>: se hace un agujerito en la tierra (el guá) y hay que meter la canica empujándola con el dedo.</li><li><b>El triángulo</b>: se ponen canicas dentro de un triángulo dibujado y hay que sacarlas golpeándolas con la propia.</li><li><b>La carrera</b>: se dibuja un circuito en la arena y cada uno avanza su canica por turnos.</li></ul><p>Para lanzar, se apoya la canica en el dedo índice doblado y se empuja con el <b>pulgar</b>.</p><p>Las canicas se llaman de muchas formas según el lugar: bolas, boliches, pitos, cicas…</p><p><b>Actividad</b>: haz un circuito de canicas en el arenero o con cartón y cinta adhesiva.</p>`,
+      L6.filas("Canicas", [["guá", "agujero", cAZ], ["triángulo", "sacar", cRO], ["carrera", "circuito", cVE], ["pulgar", "empuja", cNA]])],
+    ["Repaso: el patio del abuelo Antonio", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Es un día de <b>lluvia</b> y no pueden salir al recreo.</li><li>El abuelo Antonio jugaba a la <b>rayuela</b>, la <b>comba</b>, el <b>pañuelo</b>, las <b>canicas</b> y el <b>corro de la patata</b>.</li><li>Dibuja la rayuela con <b>tiza</b>.</li><li>Les enseña a saltar a la <b>pata coja</b> sin pisar las rayas.</li><li>Cantan «<b>Al corro de la patata</b>» y se sientan al final.</li><li>Al día siguiente traerá sus <b>canicas</b>.</li></ul><p>Los juegos tradicionales pasan de abuelos a nietos. No necesitan pilas ni pantallas: solo amigos, imaginación y ganas de jugar.</p><p><b>Actividad</b>: entrevista a una persona mayor sobre sus juegos favoritos de niño.</p>`,
+      H6.flujo("Abuelo", ["lluvia|aburridos", "tiza|rayuela", "corro|patata", "mañana|canicas"], cNA)],
+  ],
+  ejemplos: [
+    ["En piedra, papel o tijera, ¿qué gana a la piedra?", ["El papel la envuelve."], "El papel."],
+    ["¿Qué pasa en la rayuela si pisas una raya?", ["Es una norma del juego."], "Pierdes el turno."],
+  ],
+  errores: ["Saltar la rayuela con los dos pies en las casillas simples.", "Discutir quién empieza en vez de echar a suertes."],
+  ejercicios: [
+    ["b", "¿Con qué se dibuja la rayuela?", "Con tiza."],
+    ["b", "¿Cómo se salta en la rayuela?", "A la pata coja."],
+    ["b", "Di un juego de corro.", "El corro de la patata, Al pasar la barca."],
+    ["b", "¿Qué gana a la tijera?", "La piedra."],
+    ["b", "¿De qué son las canicas?", "De cristal."],
+    ["m", "¿Cómo acaba el corro de la patata?", "Achupé, achupé, sentadita me quedé."],
+    ["m", "¿Para qué sirve echar a suertes?", "Para decidir de forma justa."],
+    ["m", "¿Cómo se lanza una canica?", "Empujándola con el pulgar."],
+    ["m", "¿Qué necesitas para un boliche?", "Un vaso de yogur, un hilo y una bolita."],
+    ["m", "Explica el juego de los pies para elegir.", "Los capitanes avanzan pie con pie; quien pisa al otro elige."],
+    ["a", "En la lectura, ¿por qué no salen al recreo?", "Porque llueve."],
+    ["a", "¿Qué juegos dice el abuelo?", "Rayuela, comba, pañuelo, canicas y corro de la patata."],
+    ["a", "Inventa un juguete con material reciclado.", "Respuesta libre."],
+    ["a", "¿Por qué crees que los juegos tradicionales han durado tanto?", "Porque son divertidos, sencillos y se enseñan de abuelos a nietos."],
+  ],
+  quiz: [
+    ["En la rayuela se lanza una…", ["piedra", "pelota", "cuerda"], "Rayuela."],
+    ["«Achupé» es del…", ["corro de la patata", "escondite", "pañuelo"], "Corro."],
+    ["La tijera gana al…", ["papel", "piedra", "nadie"], "Suertes."],
+    ["Un boliche se hace con…", ["vaso de yogur", "una rueda", "un balón"], "Juguetes."],
+    ["El agujerito de las canicas es el…", ["guá", "gol", "pito"], "Canicas."],
+  ],
+  examen: [
+    ["En la lectura, ¿cómo se llama la nieta?", ["Sara", "Marta", "Lucía"], "Lectura."],
+    ["¿Qué traerá el abuelo mañana?", ["canicas", "una consola", "un balón"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Rayuela", "Tiza, piedra, pata coja, sin pisar las rayas."],
+    ["Echar a suertes", "Pito pito, piedra-papel-tijera, pares o nones."],
+  ],
+  glosario: [
+    ["Rayuela", "Juego de saltar casillas a la pata coja."],
+    ["Pata coja", "Saltar con un solo pie."],
+    ["Corro", "Círculo de personas de la mano."],
+    ["Retahíla", "Serie de palabras que se dicen seguidas."],
+    ["Echar a suertes", "Decidir al azar."],
+    ["Canica", "Bolita de cristal para jugar."],
+    ["Guá", "Agujero del juego de canicas."],
+    ["Boliche", "Juguete de vaso y bola atada."],
+    ["Tradicional", "Que viene de antiguo."],
+    ["Generación", "Personas nacidas en la misma época."],
+  ],
+  situacion: {
+    titulo: "Feria de juegos tradicionales",
+    reto: "La clase organiza una feria de juegos tradicionales en el patio, con puestos de rayuela, corro, canicas y juguetes fabricados.",
+    pasos: ["Preguntar en casa por juegos y canciones antiguas.", "Fabricar juguetes con material reciclado.", "Preparar un puesto por grupo con las normas escritas.", "Invitar a las familias y jugar juntos."],
+    producto: "Una feria de juegos tradicionales.",
+    evaluacion: ["Juega a la rayuela respetando normas.", "Canta y juega juegos de corro.", "Echa a suertes de forma justa.", "Construye un juguete tradicional."],
+  },
+});

@@ -136,3 +136,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Jugar a juegos de persecución con distintos roles", "Usar estrategias sencillas para pillar y escapar", "Jugar al pañuelo con atención y velocidad", "Gestionar la victoria y la derrota"],
+  lectura: { titulo: "Los zorros y las gallinas", html: `<p>En el recreo, la clase de segundo jugaba a «zorros y gallinas». Tres zorros intentaban pillar a las gallinas, que podían refugiarse en el gallinero: un círculo pintado en el suelo.</p><p>Lucas era zorro. Corría muy rápido, pero siempre perseguía a la misma gallina y nunca la pillaba.</p><p>—¡Así no! —le dijo Irene, que también era zorro—. Vamos a hacer un plan.</p><p>Irene explicó la estrategia: uno espera cerca del gallinero, otro empuja a las gallinas desde lejos y el tercero las rodea por un lado.</p><p>¡Funcionó! En dos minutos pillaron a cinco gallinas.</p><p>Pero entonces las gallinas también hicieron un plan: salieron todas a la vez por lados diferentes. ¡Los zorros no sabían a quién perseguir!</p><p>Al final, sonó el timbre. Nadie sabía quién había ganado, y no importaba. Todos estaban sudando, colorados y muertos de risa.</p><p>—¡Mañana yo quiero ser zorro! —gritó Mateo.</p><p>—¡Y yo gallina! —dijo Irene.</p><p>Y se fueron a clase charlando de sus próximos planes.</p>` },
+  tras: {
+    "Las normas": [
+      ["Los roles del juego", `<p>En los juegos de persecución, cada jugador tiene un <mark>rol</mark> (un papel):</p><ul><li><b>Perseguidor</b> o «el que se la queda»: intenta pillar a los demás.</li><li><b>Perseguido</b>: intenta escapar sin que le pillen.</li><li><b>Salvador</b>: en algunos juegos, puede liberar a los compañeros pillados.</li><li><b>Pillado</b>: espera quieto, en la cárcel o como estatua, hasta que le salven o cambie el juego.</li></ul><p>Los roles <b>cambian</b> durante el juego o entre partidas, para que todos prueben todos los papeles.</p><p>Para que se note quién persigue, muchas veces lleva un <b>peto</b>, un pañuelo en la mano o una pelota blanda.</p><p>Es importante aceptar el rol que te toca: ser perseguidor también es divertido.</p><p><b>Actividad</b>: juega a «zorros y gallinas» y cambia de rol en cada partida.</p>`,
+        L6.filas("Roles", [["perseguidor", "pilla", cRO], ["perseguido", "escapa", cAZ], ["salvador", "libera", cVE], ["pillado", "espera", cNA]])],
+    ],
+    "Esquivar": [
+      ["Estrategias para pillar y escapar", `<p>En los juegos de persecución, pensar es tan importante como correr. Usamos <mark>estrategias</mark>:</p><p><b>Para pillar</b>:</p><ul><li>Elegir a un jugador que esté <b>cerca</b> y distraído.</li><li>Empujarlo hacia una <b>esquina</b> o una línea.</li><li>Ponerse de acuerdo con otros perseguidores para <b>rodear</b>.</li><li>No perseguir siempre al más rápido.</li></ul><p><b>Para escapar</b>:</p><ul><li>Estar <b>atento</b> y mirar dónde están los perseguidores.</li><li>Hacer <b>fintas</b>: amagar hacia un lado y salir por el otro.</li><li>Buscar los <b>espacios libres</b>.</li><li>Cambiar de <b>ritmo</b>: parar y salir de repente.</li></ul><p>Planear con el equipo hace que el juego sea más interesante y que todos participen.</p><p><b>Actividad</b>: antes de jugar, reúnete con tu equipo y decidid una estrategia.</p>`,
+        H6.dos("Estrategia", ["PILLAR", ["cerca", "esquina", "rodear"], cRO], ["ESCAPAR", ["atento", "finta", "espacio"], cAZ]),
+        ["12QfSiUzdvc", "3 juegos recreativos para Educación Física", "Edufisica", 291653]],
+    ],
+    "Liberar a los compañeros": [
+      ["El pañuelo", `<p>El <mark>pañuelo</mark> es un juego tradicional de velocidad y atención.</p><ul><li>Se hacen <b>dos equipos</b>, uno a cada lado del campo, en fila.</li><li>Cada jugador tiene un <b>número</b>; los dos equipos tienen los mismos números.</li><li>En el centro, una persona sujeta un <b>pañuelo</b> con el brazo estirado.</li><li>Dice un número, por ejemplo «¡El tres!».</li><li>Los dos «treses» salen corriendo a por el pañuelo.</li><li>Quien lo coge debe volver a su campo sin que el otro le pille.</li><li>Si lo pillan, pierde. Si llega, gana un punto.</li></ul><p>También se puede hacer más difícil: decir sumas («¡dos más dos!») o que salgan dos números a la vez.</p><p>No se puede pasar la línea del centro sin el pañuelo.</p><p><b>Actividad</b>: jugad al pañuelo con sumas sencillas para saber quién sale.</p>`,
+        H6.flujo("Pañuelo", ["número|«¡el 3!»", "correr|al centro", "coger|pañuelo", "volver|sin que pillen"], cNA)],
+    ],
+    "Juego limpio": [
+      ["Ganar y perder", `<p>En todos los juegos unos <b>ganan</b> y otros <b>pierden</b>. Lo importante es saber hacer las dos cosas bien.</p><p><b>Cuando ganamos</b>:</p><ul><li>Nos alegramos <b>sin burlarnos</b> de nadie.</li><li>Damos la mano o felicitamos al otro equipo: «¡Buen partido!».</li><li>Reconocemos que todos han jugado.</li></ul><p><b>Cuando perdemos</b>:</p><ul><li>Es normal sentirse <b>triste</b> o un poco enfadado. Respiramos hondo.</li><li>Felicitamos al ganador.</li><li>Pensamos qué podemos <b>mejorar</b> la próxima vez.</li><li>No echamos la culpa a los compañeros ni al árbitro.</li></ul><p>Recuerda: lo más importante no es ganar, sino <mark>divertirse</mark>, aprender y jugar juntos. ¡Mañana hay otra partida!</p><p><b>Actividad</b>: al terminar cada juego, dad la mano a los del otro equipo diciendo «¡buen juego!».</p>`,
+        H6.rueda("Juego", "RESPETO", [["felicitar", cVE], ["sin burlas", cAZ], ["mejorar", cNA], ["divertirse", cRO]])],
+    ],
+  },
+  final: [
+    ["Juegos de persecución del mundo", `<p>En todo el mundo los niños juegan a perseguirse. Algunos ejemplos:</p><ul><li><b>Inglaterra</b>: <i>tag</i> o <i>tig</i>, el pilla-pilla. Quien pilla dice «You're it!» (¡te la quedas!).</li><li><b>India</b>: el <b>kho-kho</b>. Los jugadores se sientan en fila mirando a lados distintos y el perseguidor solo puede cambiar de dirección dando la vuelta a un poste.</li><li><b>Brasil</b>: <b>pega-pega</b>, con muchas variantes.</li><li><b>Japón</b>: <b>onigokko</b>, «el juego del ogro». El que persigue es el oni (ogro).</li><li><b>España</b>: el <b>pilla-pilla</b>, el <b>tú la llevas</b>, la <b>cadena</b>, el <b>polis y cacos</b>.</li></ul><p>Aunque tengan nombres distintos, todos se parecen: correr, esquivar y reír.</p><p><b>Actividad</b>: jugad al «onigokko»: el ogro se pone una máscara de papel.</p>`,
+      L6.filas("Mundo", [["Inglaterra", "tag", cAZ], ["India", "kho-kho", cNA], ["Japón", "onigokko", cRO], ["España", "pilla-pilla", cVE]])],
+    ["Repaso: los zorros y las gallinas", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Los <b>zorros</b> son perseguidores; las <b>gallinas</b>, perseguidas.</li><li>El <b>gallinero</b> es el refugio: allí no te pueden pillar.</li><li>Lucas perseguía siempre a la misma: no usaba <b>estrategia</b>.</li><li>Irene propone un <b>plan</b>: esperar, empujar y rodear.</li><li>Las gallinas responden saliendo <b>todas a la vez</b> por lados diferentes.</li><li>Nadie sabe quién ha ganado… ¡y <b>no importa</b>!</li><li>Al día siguiente quieren <b>cambiar de rol</b>.</li></ul><p>Pensar en equipo hace que el juego sea mucho más divertido.</p><p><b>Actividad</b>: inventa un plan para las gallinas y otro para los zorros.</p>`,
+      H6.flujo("Plan", ["esperar|gallinero", "empujar|lejos", "rodear|lado", "gallinas|a la vez"], cMO)],
+  ],
+  ejemplos: [
+    ["¿Qué estrategia ayuda a pillar?", ["Trabajar con otros perseguidores."], "Rodear entre varios al jugador."],
+    ["Has perdido el partido. ¿Qué haces?", ["Juego limpio."], "Felicito al ganador y pienso en mejorar."],
+  ],
+  errores: ["Perseguir siempre al más rápido sin estrategia.", "Burlarse del equipo que pierde."],
+  ejercicios: [
+    ["b", "¿Qué hace el perseguidor?", "Intenta pillar a los demás."],
+    ["b", "¿Qué es un refugio?", "Un lugar donde no te pueden pillar."],
+    ["b", "¿Qué se dice al otro equipo al terminar?", "¡Buen juego!"],
+    ["b", "¿Cómo se llama el pilla-pilla en inglés?", "Tag."],
+    ["b", "En el pañuelo, ¿qué tiene cada jugador?", "Un número."],
+    ["m", "¿Qué es una finta?", "Amagar hacia un lado y salir por el otro."],
+    ["m", "¿Por qué los roles cambian?", "Para que todos prueben todos los papeles."],
+    ["m", "Di dos normas del pañuelo.", "Salir con tu número; no pasar la línea sin el pañuelo."],
+    ["m", "¿Qué haces si te enfadas al perder?", "Respirar hondo y felicitar al ganador."],
+    ["m", "¿Qué es el kho-kho?", "Un juego de persecución de la India."],
+    ["a", "En la lectura, ¿qué error cometía Lucas?", "Perseguía siempre a la misma gallina."],
+    ["a", "¿Qué plan hacen las gallinas?", "Salir todas a la vez por lados diferentes."],
+    ["a", "Inventa un juego de persecución con un refugio.", "Respuesta libre."],
+    ["a", "¿Por qué no importa quién gana en la lectura?", "Porque lo importante es divertirse juntos."],
+  ],
+  quiz: [
+    ["El que libera a los pillados es el…", ["salvador", "perseguidor", "árbitro"], "Roles."],
+    ["Amagar a un lado y salir por otro es una…", ["finta", "falta", "fila"], "Estrategia."],
+    ["En el pañuelo gana quien…", ["vuelve sin que le pillen", "corre más lejos", "grita más"], "Pañuelo."],
+    ["Al ganar hay que…", ["felicitar al otro", "burlarse", "irse"], "Deportividad."],
+    ["El onigokko es de…", ["Japón", "India", "Brasil"], "Mundo."],
+  ],
+  examen: [
+    ["En la lectura, ¿quién propone el plan?", ["Irene", "Lucas", "Mateo"], "Lectura."],
+    ["¿Qué es el gallinero?", ["el refugio", "la cárcel", "la meta"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Roles", "Perseguidor, perseguido, salvador, pillado."],
+    ["Juego limpio", "Ganar sin burlas, perder felicitando."],
+  ],
+  glosario: [
+    ["Persecución", "Correr detrás de alguien para pillarle."],
+    ["Rol", "Papel que tiene cada jugador."],
+    ["Refugio", "Lugar seguro donde no te pillan."],
+    ["Estrategia", "Plan para conseguir algo."],
+    ["Finta", "Engaño con el cuerpo para despistar."],
+    ["Rodear", "Ponerse alrededor."],
+    ["Peto", "Camiseta sin mangas para distinguir equipos."],
+    ["Deportividad", "Jugar con respeto y juego limpio."],
+    ["Árbitro", "Persona que hace cumplir las normas."],
+    ["Pañuelo", "Juego de correr a por un pañuelo."],
+  ],
+  situacion: {
+    titulo: "Liga de persecución",
+    reto: "La clase organiza una liga de juegos de persecución con equipos, estrategias y un premio a la deportividad.",
+    pasos: ["Elegir cuatro juegos: zorros y gallinas, pañuelo, cadena y onigokko.", "Formar equipos y preparar estrategias.", "Jugar cambiando de rol y apuntar los resultados.", "Votar al equipo más deportivo."],
+    producto: "Una liga de juegos con premio a la deportividad.",
+    evaluacion: ["Asume distintos roles.", "Usa estrategias para pillar y escapar.", "Juega al pañuelo con atención.", "Gana y pierde con deportividad."],
+  },
+});
