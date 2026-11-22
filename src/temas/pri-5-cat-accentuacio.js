@@ -88,3 +88,89 @@ module.exports = P.tema({
   saberes: "Ortografia: síl·laba tònica; paraules agudes, planes i esdrúixoles; regles d'accentuació; accent obert i tancat; diftongs creixents i decreixents; hiats; la dièresi i les seves excepcions; accent diacrític segons la normativa vigent",
   ideas: ["Picar de mans per trobar la síl·laba tònica.", "Classificar targetes de paraules en tres capses: diftong decreixent, creixent i hiat.", "Concurs de diacrítics amb frases curtes."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Saber quan una paraula guanya o perd l'accent en formar el plural, el femení o un derivat", "Conèixer les diferències d'accent obert i tancat entre territoris", "Dominar la llista dels accents diacrítics actuals", "Accentuar majúscules i noms propis i evitar els errors més freqüents"],
+  lectura: { titulo: "La carta sense accents", html: `<p>L'Arnau havia escrit una carta al seu cosí de Mallorca i, amb les presses, no hi havia posat ni un sol accent. La seva germana gran, la Neus, la va llegir en veu alta, tal com estava escrita, per fer-li veure el problema:</p><p>—«Estimat cosi: aquest estiu vull anar a la teva illa. El meu pare diu que te molts dies de festa i que si que hi anirem. Jo sere molt feliç. Porta’m a la platja mes bonica i a menjar ensaimades. Es el que mes m’agrada del mon.»</p><p>—I què hi ha de malament? —va preguntar l'Arnau.</p><p>—Doncs que el teu cosí llegirà que el teu pare «te» (com la infusió!) molts dies de festa, que «si» (condició) que hi anireu, i que la platja és del «mes» de l'any. I «mon» sense accent vol dir «el meu», com en «mon pare»!</p><p>L'Arnau va riure, però va agafar el llapis. Va posar l'accent a <b>cosí</b>, <b>té</b>, <b>sí</b>, <b>seré</b>, <b>més</b>, <b>és</b> i <b>món</b>.</p><p>—Set accents en una carta tan curta! —es va sorprendre.</p><p>—Set accents —va dir la Neus— que fan que el teu cosí t'entengui de veritat.</p>` },
+  tras: {
+    "Les regles d'accentuació": [
+      ["Accents que es perden i es guanyen", `<p>Quan una paraula canvia (en plural, en femení o en un derivat), pot canviar el lloc de la síl·laba tònica o la terminació. Llavors cal tornar a aplicar les regles, i l'accent pot <b>desaparèixer</b> o <b>aparèixer</b>.</p><ul><li><b>Plurals d'agudes acabades en vocal accentuada</b>: el plural afegeix <i>-ns</i> o <i>-s</i> i la paraula segueix sent aguda, però ja no acaba en vocal sola: <b>camí → camins</b>, <b>jardí → jardins</b>. En canvi, <b>sofà → sofàs</b> i <b>cafè → cafès</b> mantenen l'accent perquè acaben en vocal + s.</li><li><b>Agudes acabades en -ès o -ís</b>: en el femení i en el plural s'afegeix una síl·laba i passen a ser planes: <b>anglès → anglesa, anglesos</b>; <b>francès → francesa</b>; <b>país → països</b> (amb dièresi!).</li><li><b>Derivats</b>: <b>música → musical</b>, <b>telèfon → telefonar</b>, <b>àrbitre → arbitrar</b>. La síl·laba tònica es desplaça i l'accent desapareix.</li><li><b>Adverbis en -ment</b>: conserven l'accent de l'adjectiu: <b>ràpida → ràpidament</b>, <b>fàcil → fàcilment</b>.</li></ul><p>El truc és no copiar l'accent de la paraula original: pronuncia la nova paraula, busca la síl·laba tònica i aplica la regla.</p>`,
+        L.tabla("Accents que canvien", ["paraula", "canvi", "resultat"], [["camí", "plural", "camins"], ["anglès", "femení", "anglesa"], ["país", "plural", "països"], ["música", "derivat", "musical"], ["ràpida", "-ment", "ràpidament"]], AZ)],
+    ],
+    "Accent obert i accent tancat": [
+      ["Obert o tancat segons el territori", `<p>Ja saps que la <b>e</b> i la <b>o</b> poden portar accent obert (è, ò) o tancat (é, ó), segons com es pronuncien. Però la pronunciació no és igual a tots els territoris on es parla català, i això fa que algunes paraules tinguin <b>dues formes correctes</b>.</p><p>En el català central, que es parla a Barcelona, es diu <b>anglès</b>, <b>francès</b>, <b>cafè</b>, <b>conèixer</b>, amb <i>e</i> oberta. En canvi, a bona part del País Valencià es pronuncien amb <i>e</i> tancada, i l'Acadèmia Valenciana de la Llengua accepta escriure <b>anglés</b>, <b>francés</b>, <b>café</b>, <b>conéixer</b>.</p><p>Totes dues formes són correctes, cadascuna en el seu territori. Aquest fet demostra que una llengua pot tenir variants i continuar sent una sola llengua.</p><p>Hi ha paraules, però, que s'escriuen igual a tot arreu:</p><ul><li>La <b>a</b> sempre porta accent obert: <i>sofà, mà, àvia</i>.</li><li>La <b>i</b> i la <b>u</b> sempre porten accent tancat: <i>camí, ningú, música</i>.</li><li>Molts mots amb <i>o</i>: <i>cançó</i>, <i>avió</i>, <i>racó</i> porten <b>ó</b> tancada a tots els territoris; <i>òpera</i>, <i>història</i>, <i>telèfon</i>… tenen la mateixa forma arreu.</li></ul><p>Quan tinguis dubtes, consulta el diccionari de la teva zona.</p>`,
+        H.dos("Dues formes correctes", ["Català central", ["anglès", "francès", "conèixer"], AZ], ["Valencià", ["anglés", "francés", "conéixer"], NA])],
+    ],
+    "L'accent diacrític": [
+      ["La llista completa de diacrítics", `<p>Des de l'<b>Ortografia</b> de l'Institut d'Estudis Catalans (2016), els accents diacrítics s'han reduït molt. Ara només en porten <b>quinze paraules monosíl·labes</b>, que val la pena aprendre de memòria:</p><ul><li><b>bé</b> (adverbi o un bé) / be (xai)</li><li><b>déu</b> (divinitat) / deu (número o verb deure)</li><li><b>és</b> (verb ser) / es (pronom)</li><li><b>mà</b> (part del cos) / ma (possessiu: ma mare)</li><li><b>més</b> (quantitat) / mes (de l'any)</li><li><b>món</b> (planeta) / mon (possessiu)</li><li><b>pèl</b> (cabell) / pel (per + el)</li><li><b>què</b> (interrogatiu o relatiu tònic) / que (conjunció)</li><li><b>sé</b> (verb saber) / se (pronom)</li><li><b>sí</b> (afirmació) / si (condició)</li><li><b>sòl</b> (terra) / sol (astre o sense companyia)</li><li><b>són</b> (verb ser) / son (ganes de dormir)</li><li><b>té</b> (verb tenir) / te (pronom o infusió)</li><li><b>ús</b> (utilització) / us (pronom)</li><li><b>vós</b> (pronom de respecte) / vos (pronom feble)</li></ul><p>Paraules com <i>dona</i>, <i>soc</i>, <i>vens</i>, <i>adeu</i> o <i>net</i> ja <b>no</b> porten accent diacrític. Un truc per recordar la llista: «Bé, déu és mà, més món pèl; què sé sí sòl són té ús vós.»</p>`,
+        L.filas("Altres diacrítics actuals", [["déu / deu", "divinitat / número", AZ], ["mà / ma", "part del cos / possessiu", VE], ["pèl / pel", "cabell / per + el", NA], ["sé / se", "saber / pronom", MO], ["ús / us", "utilització / pronom", RO]]), ["hRvmpkzgGqU", "TORNEU-NOS ELS ACCENTS DIACRÍTICS", "Leopolda Olda", 93617]],
+    ],
+  },
+  final: [
+    ["Majúscules i noms propis", `<p>Dos dubtes freqüents: s'accentuen les majúscules? I els noms propis?</p><p><b>Les majúscules sí que porten accent</b>, igual que les minúscules. Encara que en alguns rètols antics no es posessin, la norma és clara: <b>ÀFRICA</b>, <b>Àngel</b>, <b>ÈXIT</b>, <b>Òscar</b>, <b>Èlia</b>.</p><p><b>Els noms propis catalans</b> segueixen les mateixes regles que la resta de paraules:</p><ul><li>Agudes amb accent: <b>Martí</b>, <b>Aragó</b>, <b>Agnès</b>, <b>Tomàs</b>, <b>Jesús</b>. Però <b>Ramon</b>, <b>Miquel</b> i <b>Joan</b> no porten accent perquè acaben en consonant que no és <i>-s</i>, <i>-en</i> ni <i>-in</i>.</li><li>Planes amb accent: <b>Fèlix</b>, <b>Cèsar</b>, <b>Víctor</b>. Planes sense: <b>Anna</b>, <b>Jordi</b>, <b>Laia</b>.</li><li>Esdrúixoles, sempre amb accent: <b>Mònica</b>, <b>Mèxic</b>, <b>Còrsega</b>.</li><li>Amb dièresi: <b>Montjuïc</b>, <b>Raül</b>, <b>Lluïsa</b>.</li></ul><p><b>Els noms d'altres llengües</b> es mantenen com en la llengua original: <i>Michael</i>, <i>Rodríguez</i>, <i>Müller</i>.</p>`,
+      L.filas("Noms propis amb i sense accent", [["Martí, Tomàs", "agudes amb accent", AZ], ["Ramon, Joan", "sense accent", VE], ["Fèlix, Víctor", "planes amb accent", NA], ["Mònica, Mèxic", "esdrúixoles", MO], ["Raül, Montjuïc", "amb dièresi", RO]])],
+    ["Els errors més freqüents", `<p>Hi ha paraules d'ús molt habitual en què ens equivoquem sovint. Revisa-les quan escriguis:</p><ul><li><b>També</b>, <b>només</b>, <b>així</b>, <b>ningú</b> i <b>després</b> porten accent perquè són agudes acabades en vocal o en vocal + s. En canvi, <b>potser</b> no en porta.</li><li><b>Perquè</b> (causa: «ho faig perquè vull») i <b>per què</b> (pregunta: «per què ho fas?»).</li><li><b>Què</b> amb accent en les preguntes: «Què vols?», «No sé què dir». Sense accent quan és una conjunció: «Vull que vinguis».</li><li>La <b>dièresi</b> en paraules amb hiat com <b>raïm</b>, <b>veïna</b>, <b>Lluïsa</b>, <b>diürn</b>, <b>països</b>. Compte: <b>país</b> porta accent, però el plural <b>països</b> porta dièresi.</li><li>La <b>ü</b> de <b>pingüí</b>, <b>aigües</b>, <b>qüestió</b>: indica que la <i>u</i> es pronuncia després de <i>g</i> o <i>q</i>.</li><li>No posar accent a les paraules que ja no en porten: <i>soc</i>, <i>dona</i>, <i>vens</i>.</li></ul><p>Un bon hàbit és fer una <b>darrera lectura</b> de qualsevol text només per revisar els accents i les dièresis. Amb la pràctica, ho faràs gairebé sense pensar.</p>`,
+      L.filas("Errors freqüents d'accentuació", [["també, només", "amb accent", AZ], ["perquè / per què", "causa / pregunta", VE], ["raïm, veïna", "amb dièresi", NA], ["pingüí, aigües", "ü que sona", MO], ["soc, dona", "ja sense accent", RO]]), ["IRoEyvK35O0", "La dièresi", "Anna Tur", 80484]],
+  ],
+  ejemplos: [
+    ["Escriu el plural de «camí» i de «cafè». Per què un perd l'accent i l'altre no?", ["camí + ns = camins: aguda acabada en -ns, no porta accent.", "cafè + s = cafès: aguda acabada en vocal + s, porta accent."], "camins i cafès"],
+    ["Posa els accents: «El meu germa te son i diu que si, que es tard.»", ["germà: aguda en vocal.", "té (verb tenir), son (ganes de dormir, sense accent), sí (afirmació), és (verb ser)."], "El meu germà té son i diu que sí, que és tard."],
+  ],
+  errores: ["Mantenir l'accent en el plural: «camíns» és incorrecte, és «camins».", "Posar accent a paraules que ja no en porten: «sóc», «dóna»."],
+  ejercicios: [
+    ["b", "Escriu el plural de: jardí, sofà, país.", "jardins, sofàs, països."],
+    ["b", "Escriu el femení de: anglès, francès.", "anglesa, francesa."],
+    ["b", "Porten accent les majúscules? Posa'n un exemple.", "Sí: ÀFRICA, Òscar."],
+    ["b", "Escriu cinc paraules de la llista de diacrítics.", "bé, és, més, món, sí, són, té…"],
+    ["b", "Com s'escriu a València la paraula «anglès»?", "anglés (també correcte)."],
+    ["m", "Explica la diferència entre «perquè» i «per què».", "Perquè: causa. Per què: pregunta."],
+    ["m", "Posa accent o no: Ramon, Marti, Tomas, Felix, Anna.", "Ramon, Martí, Tomàs, Fèlix, Anna."],
+    ["m", "Per què «musical» no porta accent si «música» sí?", "Perquè la síl·laba tònica canvia: musical és aguda acabada en -l."],
+    ["m", "Corregeix: «Jo sóc de Lleida i la meva dóna és mestra».", "Jo soc de Lleida i la meva dona és mestra."],
+    ["m", "Quants accents va haver d'afegir l'Arnau a la carta? Quins eren?", "Set: cosí, té, sí, seré, més, és, món."],
+    ["a", "Escriu un text curt on aparegui cinc vegades un diacrític diferent.", "Resposta oberta."],
+    ["a", "Fes una llista de deu noms propis de la classe i classifica'ls segons si porten accent.", "Resposta oberta."],
+    ["a", "Escriu un text breu i després fes-ne una lectura només per revisar accents i dièresis.", "Resposta oberta."],
+    ["a", "Inventa una frase per recordar els quinze diacrítics.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["El plural de «camí» és…", ["camins", "camíns", "camís"], "Perd l'accent."],
+    ["«Mon» sense accent vol dir…", ["el meu", "el planeta", "muntanya"], "Possessiu."],
+    ["Quina paraula ja NO porta accent diacrític?", ["soc", "és", "més"], "Ortografia del 2016."],
+    ["Les majúscules…", ["porten accent", "no en porten mai", "només als noms"], "ÀFRICA."],
+    ["«País» en plural és…", ["països", "paísos", "paisos"], "Amb dièresi."],
+  ],
+  examen: [
+    ["«Ràpidament» porta accent perquè…", ["conserva el de l'adjectiu", "és esdrúixola", "és diacrític"], "Adverbis en -ment."],
+    ["«Sòl» amb accent vol dir…", ["terra", "astre", "sense companyia"], "Diacrític."],
+  ],
+  tarjetas: [
+    ["Plurals que perden accent", "camí → camins, jardí → jardins."],
+    ["Femenins en -esa", "anglès → anglesa, francès → francesa."],
+    ["Diacrítics", "15 monosíl·labs: bé, és, més, món, sí, són, té…"],
+    ["Majúscules", "També porten accent: ÀFRICA, Òscar."],
+  ],
+  glosario: [
+    ["Síl·laba tònica", "La que es pronuncia amb més força."],
+    ["Aguda", "Paraula amb la tònica a l'última síl·laba."],
+    ["Plana", "Paraula amb la tònica a la penúltima síl·laba."],
+    ["Esdrúixola", "Paraula amb la tònica a l'antepenúltima síl·laba."],
+    ["Accent obert", "Accent greu: à, è, ò."],
+    ["Accent tancat", "Accent agut: é, í, ó, ú."],
+    ["Accent diacrític", "El que distingeix paraules que s'escriuen igual."],
+    ["Dièresi", "Signe (¨) que marca un hiat o fa sonar la u."],
+    ["Derivat", "Paraula formada a partir d'una altra."],
+    ["Monosíl·lab", "Paraula d'una sola síl·laba."],
+    ["Variant", "Forma pròpia d'un territori, igualment correcta."],
+    ["Revisar", "Tornar a llegir un text per corregir-lo."],
+  ],
+  situacion: {
+    titulo: "Detectius d'accents",
+    reto: "La classe fa de «detectius d'accents» i revisa cartells, menús i textos del barri o de l'escola per trobar-hi errors d'accentuació.",
+    pasos: ["Per grups, fotografieu o copieu deu rètols, avisos o textos curts de l'escola o del barri.", "Reviseu-ne els accents i les dièresis aplicant les regles i la llista de diacrítics.", "Feu una fitxa per cada error: com està escrit, com hauria de ser i quina regla s'aplica.", "Presenteu els resultats i, si cal, escriviu una carta amable per proposar la correcció."],
+    producto: "Un dossier d'errors corregits i una carta de proposta.",
+    evaluacion: ["Aplica les regles generals d'accentuació.", "Sap quan una paraula perd o guanya l'accent.", "Usa correctament els quinze diacrítics.", "Accentua majúscules i noms propis."],
+  },
+});

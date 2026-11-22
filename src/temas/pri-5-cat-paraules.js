@@ -88,3 +88,89 @@ module.exports = P.tema({
   saberes: "Reflexió sobre la llengua: estructura de la paraula (lexema i morfemes); paraules simples, derivades i compostes; prefixos i sufixos; ús del guionet en les compostes; famílies lèxiques; sigles, escurçaments, manlleus i neologismes",
   ideas: ["Dòmino de prefixos i sufixos per formar paraules.", "Arbre de famílies lèxiques al mural de la classe.", "Inventar paraules compostes per a objectes imaginaris i escriure'n la definició."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Reconèixer prefixos de quantitat i de mida", "Usar sufixos que canvien la categoria de la paraula", "Distingir família lèxica i camp semàntic", "Descobrir paraules d'altres llengües i jugar amb embarbussaments"],
+  lectura: { titulo: "El diccionari del besavi", html: `<p>A les golfes de casa de l'àvia, la Martina va trobar una caixa amb un diccionari vell. Tenia les tapes de pell gastades i, a la primera pàgina, una signatura: «Josep Puig, 1935». Era el seu besavi.</p><p>—Era mestre d'escola —li va explicar l'àvia—. Es passava hores llegint el diccionari, com si fos una novel·la.</p><p>La Martina el va obrir per qualsevol pàgina. Entre els fulls hi havia papers petits amb notes escrites a mà. En un hi posava: «<b>Magatzem</b>: ve de l'àrab. També <b>sucre</b>, <b>arròs</b>, <b>carxofa</b>». En un altre: «<b>Paraigua</b> = para + aigua. Quina paraula més ben feta!».</p><p>En va trobar un que la va fer riure: «<b>Setze jutges d'un jutjat mengen fetge d'un penjat</b>. Dir-ho tres cops seguits sense equivocar-se!». La Martina ho va provar. A la segona vegada ja s'embarbussava.</p><p>L'endemà va portar el diccionari a classe. La mestra va proposar continuar la feina del besavi: cada setmana, un alumne buscaria l'origen d'una paraula i l'enganxaria al mural de la classe amb una nota com les d'en Josep.</p><p>Al cap de tres mesos, el mural era ple de paraules vingudes de l'àrab, del francès, de l'anglès i del llatí. I la Martina hi va afegir la primera: «<b>Diccionari</b>: el llibre on viuen totes les paraules».</p>` },
+  tras: {
+    "Els prefixos més usats": [
+      ["Prefixos de quantitat i de mida", `<p>Hi ha un grup de prefixos molt útils que indiquen <b>quantitat</b> o <b>mida</b>. La majoria vénen del llatí o del grec, i els trobem a les matemàtiques, a les ciències i a la vida de cada dia.</p><p><b>Quantitat</b>:</p><ul><li><b>mono-</b> / <b>uni-</b> (un): monopatí, monòleg, uniforme, unicorn.</li><li><b>bi-</b> (dos): bicicleta, bilingüe, bimestre.</li><li><b>tri-</b> (tres): triangle, tricicle, trimestre.</li><li><b>quadri-</b> / <b>quadr-</b> (quatre): quadrilàter, quadrúpede.</li><li><b>multi-</b> / <b>poli-</b> (molts): multicolor, polígon, poliesportiu.</li><li><b>semi-</b> (mig): semicercle, semifinal.</li></ul><p><b>Mida</b>:</p><ul><li><b>mini-</b> i <b>micro-</b> (petit): minibús, microscopi.</li><li><b>maxi-</b> i <b>macro-</b> (gran): maxiprocés, macrofestival.</li><li><b>super-</b> i <b>hiper-</b> (per sobre, molt): supermercat, hipermercat.</li></ul><p>Conèixer aquests prefixos t'ajuda a endevinar el significat de paraules noves: si saps que <i>poli-</i> vol dir «molts» i <i>-gon</i> «angle», ja saps què és un <b>polígon</b>!</p><p>Compte, però: no totes les paraules que comencen igual tenen aquests prefixos. A <b>bitxo</b> o a <b>trinxar</b> no hi ha cap «bi-» ni cap «tri-» de quantitat; és només una coincidència de lletres. Per saber si hi ha un prefix, prova de treure'l: si el que queda és una paraula amb sentit relacionat (<i>bi + cicle</i>, <i>semi + cercle</i>), és un prefix de veritat. També pots consultar el diccionari, que sovint explica de quines parts està formada cada paraula.</p>`,
+        L.filas("Prefixos de quantitat", [["mono-", "un: monopatí", AZ], ["bi-", "dos: bicicleta", VE], ["tri-", "tres: triangle", NA], ["multi-", "molts: multicolor", MO], ["semi-", "mig: semicercle", RO]])],
+    ],
+    "Els sufixos més usats": [
+      ["Sufixos que canvien la categoria", `<p>Alguns sufixos no només canvien el significat d'una paraula: també en canvien la <b>categoria gramatical</b>. Amb ells podem convertir un verb en un nom, un adjectiu en un verb, etc.</p><ul><li><b>Verb → nom</b>: <b>-ció</b> (crear → creació, explicar → explicació), <b>-ment</b> (moure → moviment), <b>-dor/-dora</b> (jugar → jugador), <b>-atge</b> (aterrar → aterratge).</li><li><b>Adjectiu → nom</b>: <b>-esa</b> (bell → bellesa, trist → tristesa), <b>-itat</b> (feliç → felicitat), <b>-or</b> (blanc → blancor).</li><li><b>Verb → adjectiu</b>: <b>-ble</b> (menjar → menjable, creure → creïble).</li><li><b>Nom o adjectiu → verb</b>: <b>-itzar</b> (modern → modernitzar, símbol → simbolitzar), <b>-ejar</b> (blanc → blanquejar).</li><li><b>Adjectiu → adverbi</b>: <b>-ment</b>, afegit al femení (ràpida → ràpidament, tranquil·la → tranquil·lament).</li></ul><p>Fixa't que el sufix <b>-ment</b> pot formar noms (moviment) o adverbis (ràpidament). Per saber-ho, pensa d'on ve: si ve d'un verb, és un nom; si ve d'un adjectiu femení, és un adverbi.</p>`,
+        L.filas("Sufixos que canvien la categoria", [["-ció", "crear → creació", AZ], ["-esa", "trist → tristesa", VE], ["-ble", "menjar → menjable", NA], ["-itzar", "modern → modernitzar", MO], ["-ment", "ràpida → ràpidament", RO]])],
+    ],
+    "La família lèxica": [
+      ["Família lèxica o camp semàntic?", `<p>Sovint es confonen dos conceptes que són diferents:</p><ul><li>La <b>família lèxica</b> és el grup de paraules que comparteixen el mateix <b>lexema</b> (la mateixa arrel): <b>mar</b>, <b>mar</b>í, <b>mar</b>iner, <b>mar</b>ítim, alta<b>mar</b>, <b>mar</b>eig. Totes es formen a partir de la mateixa paraula.</li><li>El <b>camp semàntic</b> és el grup de paraules que pertanyen al mateix <b>tema</b> o àmbit de significat, encara que no s'assemblin gens: onada, platja, sorra, vaixell, peix, sal. Totes tenen a veure amb el mar, però cap no conté la paraula <i>mar</i>.</li></ul><p>Per distingir-los, fes-te una pregunta: <b>tenen la mateixa arrel?</b> Si la resposta és sí, és una família lèxica. Si només comparteixen el tema, és un camp semàntic.</p><p>Exemples:</p><ul><li><i>pa, panader, panera, empanada</i>: família lèxica.</li><li><i>pa, forn, farina, llevat, barra</i>: camp semàntic.</li></ul><p>Tots dos són molt útils per escriure: la família lèxica t'ajuda amb l'<b>ortografia</b> (si <i>blanc</i> acaba en <i>c</i>, <i>blancor</i> també la té) i el camp semàntic t'ajuda a trobar <b>vocabulari variat</b> quan descrius un lloc o un tema.</p>`,
+        H.dos("Família o camp", ["Família lèxica", ["mar, marí", "mariner, marítim", "mateixa arrel"], AZ], ["Camp semàntic", ["onada, platja", "sorra, vaixell", "mateix tema"], VE])],
+    ],
+  },
+  final: [
+    ["Paraules que vénen d'altres llengües", `<p>El català prové del <b>llatí</b>, però al llarg de la història ha rebut paraules de moltes altres llengües. Aquestes paraules s'anomenen <b>manlleus</b>, perquè és com si les haguéssim «manllevat» (agafat en préstec).</p><ul><li>De l'<b>àrab</b>, per la presència musulmana a la península durant segles: sucre, arròs, carxofa, magatzem, duana, alfàbia, sèquia (canal de reg), xifra.</li><li>Del <b>francès</b>: garatge, xofer, mantega, jardí, menú, sabotatge.</li><li>De l'<b>italià</b>, sobretot en la música i l'art: piano, soprano, òpera, aquarel·la.</li><li>Del <b>castellà</b>: bolero, guitarra.</li><li>De l'<b>anglès</b>, sobretot en l'esport i la tecnologia: futbol, esport, rècord, xat, wifi, web.</li><li>De les llengües d'<b>Amèrica</b>: xocolata, tomàquet, patata, canoa, huracà.</li></ul><p>Molts manlleus s'adapten a l'ortografia catalana: de l'anglès <i>football</i> hem fet <b>futbol</b>, i de <i>chat</i>, <b>xat</b>. Altres es mantenen igual que a la llengua d'origen i s'escriuen en cursiva quan encara no estan adaptats.</p><p>Quan existeix una paraula catalana amb el mateix significat, és millor usar-la: diem <b>correu electrònic</b> en lloc de <i>e-mail</i>.</p>`,
+      L.filas("Manlleus en català", [["àrab", "sucre, arròs, magatzem", NA], ["francès", "garatge, mantega", AZ], ["italià", "piano, òpera", MO], ["anglès", "futbol, xat, web", VE], ["Amèrica", "xocolata, tomàquet", RO]]), ["0ICUM8d3KfY", "Els neologismes: Manlleus i calcs |  | UPV", "Universitat Politècnica de València - UPV", 4231]],
+    ["Jugar amb les paraules: embarbussaments i endevinalles", `<p>Les paraules també serveixen per jugar. La tradició catalana és plena de jocs de llengua:</p><p><b>Els embarbussaments</b> són frases difícils de pronunciar perquè repeteixen sons semblants. Proveu de dir-los de pressa:</p><ul><li><i>Setze jutges d'un jutjat mengen fetge d'un penjat.</i></li><li><i>Un plat blat, dos plats blats, tres plats blats.</i></li><li><i>Una gallina xica, tica, mica, camacurta i ballarica.</i></li></ul><p>Són un bon exercici de <b>pronunciació</b>: el primer treballa els sons de la <i>j</i> i la <i>g</i>, el segon, el grup <i>pl/bl</i>.</p><p><b>Les endevinalles</b> descriuen una cosa de manera enginyosa perquè l'altre l'endevini:</p><ul><li><i>Té dents i no menja, té barba i no és home.</i> (L'all.)</li><li><i>Quan més en treus, més gros es fa.</i> (Un forat.)</li></ul><p><b>Els palíndroms</b> són paraules o frases que es llegeixen igual d'esquerra a dreta que de dreta a esquerra: <i>cec</i>, <i>radar</i>, <i>Anna</i>, <i>Senén</i>.</p><p>I les <b>paraules encadenades</b>: cada jugador diu una paraula que comenci amb l'última síl·laba de l'anterior: <i>casa → sabata → taronja → jardí…</i></p>`,
+      L.filas("Jocs de llengua", [["embarbussament", "setze jutges…", AZ], ["endevinalla", "té dents i no menja", VE], ["palíndrom", "cec, radar, Anna", NA], ["encadenades", "casa → sabata", MO]]), ["NSpKQRH8njg", "AMBAUKA - Embarbussaments (vídeo lletra)", "AMBAUKA Música i espectacles familiars", 15257]],
+  ],
+  ejemplos: [
+    ["Analitza la paraula «tricicle».", ["Prefix tri- = tres.", "Base: cicle (roda, cercle).", "Vol dir «vehicle de tres rodes»."], "tri- + cicle: vehicle de tres rodes"],
+    ["Família lèxica o camp semàntic? «llibre, llibreria, llibreter, llibreta».", ["Totes contenen l'arrel llibr-.", "Tenen la mateixa arrel."], "Família lèxica"],
+  ],
+  errores: ["Confondre família lèxica (mateixa arrel) amb camp semàntic (mateix tema).", "Fer servir un manlleu innecessari quan hi ha una paraula catalana: correu electrònic, no e-mail."],
+  ejercicios: [
+    ["b", "Què vol dir el prefix bi-? Escriu dues paraules que el tinguin.", "Dos: bicicleta, bilingüe."],
+    ["b", "Forma noms amb -ció a partir de: crear, explicar, organitzar.", "creació, explicació, organització."],
+    ["b", "Escriu tres paraules de la família lèxica de «flor».", "floreta, florista, floristeria, florir…"],
+    ["b", "Escriu tres manlleus de l'àrab.", "sucre, arròs, carxofa, magatzem, sèquia…"],
+    ["b", "Què és un palíndrom? Posa'n un exemple.", "Paraula que es llegeix igual en els dos sentits: cec, radar."],
+    ["m", "Forma adverbis en -ment a partir de: tranquil, ràpid, fàcil.", "tranquil·lament, ràpidament, fàcilment."],
+    ["m", "Escriu el camp semàntic de l'escola amb sis paraules.", "pissarra, llibreta, mestra, pati, llapis, aula…"],
+    ["m", "El sufix -ment de «moviment» i de «ràpidament», és el mateix? Explica-ho.", "No: a moviment forma un nom (de moure); a ràpidament, un adverbi (de ràpida)."],
+    ["m", "Quines paraules de l'àrab va trobar la Martina a les notes del besavi?", "Magatzem, sucre, arròs, carxofa."],
+    ["m", "Endevina: «Té dents i no menja, té barba i no és home.»", "L'all."],
+    ["a", "Inventa cinc paraules noves amb prefixos de quantitat i explica què volen dir.", "Resposta oberta."],
+    ["a", "Busca l'origen de cinc paraules al diccionari i fes-ne fitxes com les del besavi.", "Resposta oberta."],
+    ["a", "Inventa un embarbussament amb un so difícil.", "Resposta oberta."],
+    ["a", "Escriu una endevinalla sobre un objecte de la classe.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["El prefix poli- vol dir…", ["molts", "dos", "petit"], "Polígon."],
+    ["«Trist → tristesa» converteix…", ["un adjectiu en nom", "un verb en nom", "un nom en verb"], "Sufix -esa."],
+    ["«Onada, platja, sorra» formen…", ["un camp semàntic", "una família lèxica", "un palíndrom"], "Mateix tema."],
+    ["«Magatzem» ve de…", ["l'àrab", "l'anglès", "l'italià"], "Manlleu."],
+    ["«Radar» és un…", ["palíndrom", "embarbussament", "prefix"], "Igual al revés."],
+  ],
+  examen: [
+    ["«Menjar → menjable» forma…", ["un adjectiu", "un nom", "un adverbi"], "Sufix -ble."],
+    ["Un manlleu és…", ["una paraula presa d'una altra llengua", "un prefix", "una paraula composta"], "Préstec."],
+  ],
+  tarjetas: [
+    ["Prefixos de quantitat", "mono-, bi-, tri-, multi-, semi-."],
+    ["Sufixos de categoria", "-ció, -esa, -ble, -itzar, -ment."],
+    ["Família / camp", "Mateixa arrel / mateix tema."],
+    ["Manlleu", "Paraula presa d'una altra llengua: sucre, futbol."],
+  ],
+  glosario: [
+    ["Prefix", "Partícula que va davant del lexema."],
+    ["Sufix", "Partícula que va darrere del lexema."],
+    ["Lexema", "Part de la paraula que porta el significat."],
+    ["Categoria gramatical", "Classe de paraula: nom, verb, adjectiu…"],
+    ["Família lèxica", "Paraules amb el mateix lexema."],
+    ["Camp semàntic", "Paraules del mateix tema."],
+    ["Manlleu", "Paraula presa d'una altra llengua."],
+    ["Adaptar", "Canviar l'escriptura d'un manlleu a la manera catalana."],
+    ["Embarbussament", "Frase difícil de pronunciar de pressa."],
+    ["Endevinalla", "Joc de descriure una cosa perquè s'endevini."],
+    ["Palíndrom", "Paraula que es llegeix igual en tots dos sentits."],
+    ["Etimologia", "Origen d'una paraula."],
+  ],
+  situacion: {
+    titulo: "El mural de les paraules viatgeres",
+    reto: "La classe investiga l'origen de paraules catalanes i crea un mural amb un mapa del món que mostri d'on vénen.",
+    pasos: ["Cada alumne tria dues paraules i en busca l'origen al diccionari.", "Fa una fitxa amb la paraula, la llengua d'origen, el significat i una família lèxica o un camp semàntic.", "Enganxeu les fitxes en un mapa mural segons la llengua d'origen.", "Presenteu el mural amb un concurs d'embarbussaments i endevinalles."],
+    producto: "Un mural de manlleus i un recull de jocs de paraules.",
+    evaluacion: ["Analitza paraules amb prefixos i sufixos.", "Distingeix família lèxica i camp semàntic.", "Reconeix manlleus i el seu origen.", "Participa en jocs de llengua amb bona pronunciació."],
+  },
+});

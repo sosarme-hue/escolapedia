@@ -88,3 +88,89 @@ module.exports = P.tema({
   saberes: "Comunicació i interacció oral: elements de la comunicació; comunicació verbal i no verbal; llenguatge, llengua i parla; registres; els territoris de parla catalana i la diversitat dialectal; diversitat lingüística",
   ideas: ["Telèfon espatllat per descobrir què passa quan falla el canal.", "Mapa dels territoris de parla catalana amb paraules dialectals.", "Jocs de rol per practicar el registre formal i el col·loquial."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Comunicar-se bé per escrit als missatges i les xarxes", "Conèixer Pompeu Fabra i les institucions que vetllen per la llengua", "Practicar l'escolta activa i preparar una exposició oral", "Distingir informació i opinió als mitjans de comunicació"],
+  lectura: { titulo: "El missatge que no s'entenia", html: `<p>Dimecres a la nit, el Pol va escriure al grup de la classe: «Demà no porteu res, ja ho porto jo 😉». L'endemà era la festa de final de trimestre i cada grup havia de portar menjar per compartir.</p><p>La Júlia va llegir el missatge i va pensar que el Pol portaria tot el berenar. L'Ahmed va entendre que només parlava de les begudes. I la Carla, que havia vist l'emoji de l'ullet, va creure que era una broma.</p><p>Resultat: l'endemà, a la festa, hi havia sis ampolles d'aigua, una bossa de patates… i res més.</p><p>—Però si ho vaig dir ben clar! —es queixava el Pol.</p><p>La mestra els va fer seure en rotllana.</p><p>—Quan parlem cara a cara —va explicar—, veiem la cara de l'altre, sentim el to de veu i podem preguntar si no entenem alguna cosa. En un missatge escrit, tot això desapareix. Per això hem de ser molt més clars.</p><p>Van reescriure junts el missatge: «Demà, per a la festa, jo porto l'aigua i les patates. La resta, porteu el que vam acordar a classe».</p><p>—Ara sí —va dir la Júlia—. Encara que, sincerament, l'ullet ja no hi fa falta.</p>` },
+  tras: {
+    "La comunicació no verbal": [
+      ["Comunicar-se per missatges i xarxes", `<p>Cada dia ens comuniquem per <b>escrit</b> a través del mòbil, l'ordinador o la tauleta: missatges, correus, comentaris… Però en la comunicació escrita digital perdem gran part de la <b>comunicació no verbal</b>: no veiem la cara de l'altra persona ni sentim el seu to de veu. Per això poden aparèixer malentesos.</p><p>Els <b>emojis</b> intenten substituir els gestos: una cara somrient, un ullet, un polze amunt. Són útils, però també es poden interpretar de maneres diferents segons la persona o l'edat.</p><p>Algunes normes de bona comunicació digital, que s'anomenen <b>netiqueta</b>:</p><ul><li>Escriu missatges <b>clars i complets</b>: qui, què, quan i on.</li><li>Rellegeix abans d'enviar. Un error pot canviar el sentit.</li><li>No escriguis tot en <b>MAJÚSCULES</b>: sembla que cridis.</li><li>No enviïs res que no diries cara a cara.</li><li>Si un missatge et molesta, no responguis de seguida: espera't i, si cal, parla-ho en persona.</li><li>Mai no comparteixis fotos ni dades d'altres persones sense el seu permís.</li></ul><p>Recorda que un missatge enviat ja no es pot recuperar del tot: algú en pot haver fet una captura.</p>`,
+        L.filas("Normes de netiqueta", [["clar", "qui, què, quan, on", AZ], ["rellegir", "abans d'enviar", VE], ["majúscules", "semblen crits", RO], ["respecte", "com cara a cara", NA], ["privacitat", "demana permís", MO]]), ["Ca8t9JMxLwc", "Investigación lingüística: ¿Son los emojis el futuro de la comunicación?", "Bangor University", 58720]],
+    ],
+    "On es parla català": [
+      ["Pompeu Fabra i la norma", `<p>Una llengua que es parla en territoris tan diferents necessita unes <b>normes comunes</b> perquè tothom l'escrigui de la mateixa manera. Aquesta feina la va fer, sobretot, <b>Pompeu Fabra</b> (Barcelona, 1868 – Prada de Conflent, 1948), un enginyer químic apassionat per la llengua.</p><p>A principi del segle XX, cadascú escrivia el català a la seva manera. Fabra va estudiar la llengua de tots els territoris i va proposar unes regles que respectessin la seva unitat:</p><ul><li>El <b>1913</b> es van publicar les <b>Normes ortogràfiques</b> de l'Institut d'Estudis Catalans.</li><li>El <b>1918</b>, la seva <b>Gramàtica catalana</b>.</li><li>El <b>1932</b>, el <b>Diccionari general de la llengua catalana</b>.</li></ul><p>Per això se l'anomena «<b>el seny ordenador</b>» de la llengua catalana.</p><p>Avui hi ha dues institucions que vetllen per la norma:</p><ul><li>L'<b>Institut d'Estudis Catalans</b> (IEC), fundat el 1907 a Barcelona.</li><li>L'<b>Acadèmia Valenciana de la Llengua</b> (AVL), creada el 1998.</li></ul><p>Les dues reconeixen que el català i el valencià són una mateixa llengua, amb formes pròpies de cada territori que també són correctes.</p>`,
+        H.linea("Pompeu Fabra i la normativa", [["1868", "neix Fabra"], ["1913", "Normes"], ["1932", "Diccionari"], ["1998", "neix l'AVL"]]), ["HzWWLHPMyaM", "Capítol 14. L'ortografia catalana és justa? | Pompeu Fabra", "La Filòloga de Guàrdia", 5802]],
+    ],
+    "Comunicar-nos bé": [
+      ["L'escolta activa", `<p>Comunicar-se no és només parlar: també és <b>escoltar</b>. I escoltar de veritat és més difícil que sentir. Podem <b>sentir</b> un soroll sense parar-hi atenció, però <b>escoltar</b> vol dir posar-hi interès per entendre l'altre.</p><p>L'<b>escolta activa</b> és una manera d'escoltar que demostra a l'altra persona que l'entenem i que ens importa el que diu:</p><ul><li><b>Mirar</b> la persona que parla.</li><li><b>No interrompre</b>: esperar que acabi abans de parlar.</li><li>Fer petits <b>senyals</b> que estem atents: assentir amb el cap, dir «ah», «és clar».</li><li><b>Fer preguntes</b> si no entenem alguna cosa: «Vols dir que…?».</li><li><b>Resumir</b> amb les nostres paraules el que hem entès: «Doncs, si ho he entès bé, tu creus que…».</li><li>No pensar en la nostra resposta mentre l'altre encara parla.</li></ul><p>També hi ha coses que <b>dificulten</b> l'escolta: mirar el mòbil, jutjar abans d'hora, canviar de tema o parlar de nosaltres mateixos tota l'estona.</p><p>Escoltar bé ajuda a resoldre conflictes, a fer amics i a aprendre més a classe. Com deia un proverbi antic: tenim dues orelles i una sola boca per escoltar el doble del que parlem.</p>`,
+        H.dos("Escoltar o només sentir", ["Escolto", ["miro qui parla", "no interrompo", "pregunto"], VE], ["Només sento", ["miro el mòbil", "interrompo", "canvio de tema"], RO])],
+    ],
+  },
+  final: [
+    ["Els mitjans de comunicació", `<p>Els <b>mitjans de comunicació</b> són els canals que fan arribar informació a moltes persones alhora: la <b>premsa</b> (diaris i revistes), la <b>ràdio</b>, la <b>televisió</b> i <b>internet</b> (diaris digitals, xarxes socials, vídeos).</p><p>En aquests mitjans hi ha textos amb finalitats diferents:</p><ul><li>La <b>notícia</b> informa d'un fet real i recent. Respon les preguntes <b>què, qui, quan, on, com i per què</b>. Ha de ser objectiva.</li><li>L'<b>article d'opinió</b> dona el punt de vista de qui l'escriu. Hi trobem expressions com «crec que», «al meu parer».</li><li>La <b>publicitat</b> intenta convèncer-nos perquè comprem un producte o fem alguna cosa.</li></ul><p>Saber distingir informació, opinió i publicitat és molt important. A internet també circulen <b>notícies falses</b> (en anglès, <i>fake news</i>). Abans de creure o compartir una notícia, fes-te aquestes preguntes:</p><ul><li>Qui ho publica? És un mitjà conegut?</li><li>Ho diuen també altres mitjans?</li><li>El títol és exagerat o vol provocar molta emoció?</li><li>Té data? És d'ara o és antiga?</li></ul><p>Pensar abans de compartir és una forma de responsabilitat.</p>`,
+      L.tabla("Informació, opinió i publicitat", ["text", "finalitat"], [["notícia", "informar"], ["opinió", "donar un punt de vista"], ["publicitat", "convèncer"]], AZ)],
+    ["Preparar una exposició oral", `<p>A l'escola sovint has de fer una <b>exposició oral</b>: explicar un tema davant de la classe. Amb una bona preparació, et sortirà molt millor. Segueix aquests passos:</p><ul><li><b>1. Tria i investiga el tema</b>: busca informació en llibres i pàgines fiables i pren-ne notes.</li><li><b>2. Organitza les idees</b> en tres parts: una <b>introducció</b> que presenti el tema i capti l'atenció (una pregunta, una dada curiosa), un <b>desenvolupament</b> amb les idees principals i una <b>conclusió</b> que les resumeixi.</li><li><b>3. Prepara un suport</b>: un mural, unes imatges o una presentació amb poc text i lletra grossa.</li><li><b>4. Assaja</b> en veu alta, millor davant d'algú de casa, i cronometra't.</li><li><b>5. Exposa</b>: parla a poc a poc i amb veu clara, mira el públic, no llegeixis el paper (només fes-hi una ullada) i acompanya-ho amb gestos naturals.</li></ul><p>Al final, convida els companys a fer preguntes i agraeix-los l'atenció.</p><p>Una mica de nervis és normal, fins i tot als adults. Respira fons abans de començar i recorda que coneixes bé el tema: l'has preparat tu!</p>`,
+      H.flujo("Cinc passos per a una exposició oral", ["Investigar|el tema", "Organitzar|3 parts", "Suport|imatges", "Assajar|en veu alta", "Exposar|amb calma"], VE)],
+  ],
+  ejemplos: [
+    ["Millora aquest missatge: «Quedem allà a l'hora de sempre».", ["Falta dir on és «allà».", "Falta l'hora concreta i el dia.", "Cal dir qui ve."], "«Dissabte quedem tots quatre a la plaça de l'església a les cinc de la tarda.»"],
+    ["Notícia o opinió? «Crec que el nou parc és el millor del barri.»", ["Hi ha l'expressió «crec que».", "Dona un punt de vista personal, no un fet comprovable."], "És una opinió"],
+  ],
+  errores: ["Pensar que escoltar és el mateix que sentir.", "Compartir una notícia sense comprovar qui la publica."],
+  ejercicios: [
+    ["b", "Escriu tres normes de netiqueta.", "Escriure clar, rellegir, no escriure en majúscules, respectar la privacitat…"],
+    ["b", "Qui va ser Pompeu Fabra?", "El lingüista que va fixar la normativa del català."],
+    ["b", "Quines dues institucions vetllen per la norma del català?", "L'IEC i l'AVL."],
+    ["b", "Quines preguntes respon una notícia?", "Què, qui, quan, on, com i per què."],
+    ["b", "En quines tres parts s'organitza una exposició oral?", "Introducció, desenvolupament i conclusió."],
+    ["m", "Per què hi ha més malentesos en els missatges escrits que cara a cara?", "Perquè no veiem la cara ni sentim el to de veu."],
+    ["m", "Explica tres actituds de l'escolta activa.", "Mirar qui parla, no interrompre, fer preguntes, resumir…"],
+    ["m", "Quines obres de Fabra es van publicar el 1913 i el 1932?", "Les Normes ortogràfiques i el Diccionari general."],
+    ["m", "Escriu quatre preguntes per detectar una notícia falsa.", "Qui ho publica? Ho diuen altres mitjans? El títol és exagerat? Té data?"],
+    ["m", "Segons la lectura, què va fallar en el missatge del Pol?", "No deia clarament què portaria; cadascú el va entendre d'una manera."],
+    ["a", "Reescriu un missatge confús que hagis rebut perquè sigui clar i complet.", "Resposta oberta."],
+    ["a", "Busca una notícia i un article d'opinió sobre el mateix tema i compara'ls.", "Resposta oberta."],
+    ["a", "Prepara una exposició oral de dos minuts sobre un tema que t'agradi.", "Resposta oberta."],
+    ["a", "Feu en parelles un exercici d'escolta activa: un explica una anècdota i l'altre la resumeix.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["La netiqueta són…", ["normes de comunicació digital", "etiquetes de roba", "tipus d'emojis"], "Bona comunicació a la xarxa."],
+    ["Pompeu Fabra va publicar el Diccionari general el…", ["1932", "1913", "1998"], "Diccionari."],
+    ["L'AVL es va crear el…", ["1998", "1907", "1868"], "València."],
+    ["«Al meu parer…» indica…", ["una opinió", "una notícia", "un anunci"], "Punt de vista."],
+    ["En una exposició oral cal…", ["mirar el públic", "llegir tot el paper", "parlar molt de pressa"], "Contacte visual."],
+  ],
+  examen: [
+    ["Escoltar activament vol dir…", ["posar atenció i demostrar que entenem", "sentir sorolls", "pensar en la resposta"], "Escolta activa."],
+    ["La publicitat vol…", ["convèncer", "informar d'un fet", "explicar la gramàtica"], "Persuadir."],
+  ],
+  tarjetas: [
+    ["Netiqueta", "Normes per comunicar-se bé a internet."],
+    ["Pompeu Fabra", "Va fixar la norma: Normes (1913), Diccionari (1932)."],
+    ["Escolta activa", "Mirar, no interrompre, preguntar i resumir."],
+    ["Notícia / opinió", "Informa d'un fet / dona un punt de vista."],
+  ],
+  glosario: [
+    ["Emoji", "Petita icona que expressa una emoció o una idea."],
+    ["Netiqueta", "Normes de bona educació a internet."],
+    ["Malentès", "Error en entendre el que vol dir algú."],
+    ["Normativa", "Conjunt de regles per escriure i parlar una llengua."],
+    ["IEC", "Institut d'Estudis Catalans."],
+    ["AVL", "Acadèmia Valenciana de la Llengua."],
+    ["Escolta activa", "Manera d'escoltar amb atenció i interès."],
+    ["Mitjans de comunicació", "Premsa, ràdio, televisió i internet."],
+    ["Notícia", "Text que informa d'un fet real i recent."],
+    ["Article d'opinió", "Text que dona el punt de vista de l'autor."],
+    ["Notícia falsa", "Informació inventada que es fa passar per real."],
+    ["Exposició oral", "Explicació d'un tema davant d'un públic."],
+  ],
+  situacion: {
+    titulo: "El noticiari de la classe",
+    reto: "La classe prepara un noticiari en català amb notícies de l'escola, un article d'opinió i un apartat per aprendre a detectar notícies falses.",
+    pasos: ["Per grups, trieu una notícia real de l'escola o del barri i responeu les sis preguntes.", "Escriviu un article d'opinió curt i una falsa notícia «trampa» perquè els companys la detectin.", "Assageu la presentació com a presentadors, practicant l'exposició oral.", "Presenteu el noticiari i, al final, feu una ronda d'escolta activa per comentar-lo."],
+    producto: "Un noticiari gravat o representat a classe.",
+    evaluacion: ["Distingeix notícia, opinió i publicitat.", "Exposa oralment amb claredat i ordre.", "Escolta activament els companys.", "Escriu missatges clars i respectuosos."],
+  },
+});
