@@ -139,3 +139,89 @@ module.exports = {
   fuentes: [RD, wiki("Habilidades motrices", "Habilidad motriz"), wiki("Carrera", "Carrera (deporte)"), wiki("Salto", "Salto")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Desplazarse en cuadrupedia y reptando", "Trepar y suspenderse con seguridad", "Hacer una voltereta adelante con la técnica correcta", "Reconocer las habilidades básicas en los deportes"],
+  lectura: { titulo: "La carrera de relevos", html: `<p>Es el día de la carrera de relevos del colegio. El equipo de Marta tiene cuatro corredores: Marta, Iker, Sofía y Ahmed. Cada uno correrá una parte de la pista y le pasará el testigo, un palito de colores, al siguiente.</p><p>Iker es el más rápido de la clase, así que todos quieren que corra el último. Pero Iker está nervioso: el año pasado se le cayó el testigo y su equipo perdió.</p><p>—No pasa nada —le dice Sofía—. Esta vez lo hemos practicado mucho. Tú solo mira la mano de Ahmed y cierra bien los dedos.</p><p>Suena el silbato. Marta sale disparada y entrega el testigo a Sofía sin problemas. Sofía corre con fuerza y se lo pasa a Ahmed. Ahmed se acerca a Iker y grita: «¡Ya!». Iker empieza a correr, estira la mano hacia atrás sin girarse y… ¡lo atrapa!</p><p>Corre como el viento y cruza la meta. ¡Segundo puesto!</p><p>No han ganado, pero todos se abrazan. Iker sonríe: —Lo importante es que lo hicimos juntos… ¡y que no se me cayó!</p>` },
+  tras: {
+    "Desplazamientos": [
+      ["Cuadrupedias y reptaciones", `<p>No solo nos desplazamos andando o corriendo. También podemos movernos apoyando <mark>manos y pies</mark> en el suelo: son las <b>cuadrupedias</b>. Y arrastrándonos con el cuerpo pegado al suelo: son las <b>reptaciones</b>.</p><p>Cuadrupedias de animales:</p><ul><li><b>El oso</b>: manos y pies en el suelo, con las piernas estiradas y el culete arriba.</li><li><b>El cangrejo</b>: boca arriba, apoyando manos y pies, avanzando hacia atrás o de lado.</li><li><b>El perrito</b>: manos y rodillas en el suelo, como al gatear.</li><li><b>La rana</b>: en cuclillas, se apoyan las manos y se salta con las dos piernas a la vez.</li></ul><p>Reptaciones:</p><ul><li><b>La serpiente</b>: boca abajo, avanzando con los brazos y empujando con las piernas.</li><li><b>El soldado</b>: pasando por debajo de una cuerda o un túnel sin tocarlo.</li></ul><p>Estos movimientos fortalecen los <b>brazos</b>, los <b>hombros</b> y el <b>abdomen</b>, y mejoran la coordinación. ¡Los bebés gatean antes de andar por algo!</p><p><b>Actividad</b>: haz una carrera de animales: cada tramo con un desplazamiento diferente.</p>`,
+        L6.filas("Animales", [["el oso", "piernas estiradas", cNA], ["el cangrejo", "boca arriba", cRO], ["la rana", "salto con dos pies", cVE], ["la serpiente", "reptar", cAZ]])],
+    ],
+    "Caer bien": [
+      ["Trepar y suspenderse", `<p><mark>Trepar</mark> es subir agarrándose con las manos y apoyando los pies. <mark>Suspenderse</mark> es quedarse colgado de las manos. Son habilidades que usamos en el parque, en el gimnasio y en la naturaleza.</p><p>Dónde trepamos en el colegio:</p><ul><li>En las <b>espalderas</b>, la escalera de madera pegada a la pared del gimnasio.</li><li>En la <b>cuerda</b> o en el <b>rocódromo</b>, si lo hay.</li><li>En las estructuras del patio y del parque.</li></ul><p>Cómo agarrarse bien:</p><ul><li>Cierra la mano rodeando la barra con todos los dedos, con el <b>pulgar por debajo</b>.</li><li>Mantén siempre <b>tres apoyos</b>: dos manos y un pie, o dos pies y una mano. Mueve solo uno cada vez.</li><li>Mira dónde vas a poner la mano o el pie antes de moverlo.</li></ul><p>Seguridad:</p><ul><li>Siempre con <b>colchonetas</b> debajo.</li><li>Sube solo hasta donde el profesor diga.</li><li>Nunca empujes ni tires de un compañero que está trepando.</li><li>Para bajar, hazlo despacio, igual que subiste. ¡No saltes desde arriba!</li></ul><p><b>Actividad</b>: cuelga de una barra y cuenta cuántos segundos aguantas. Repite dentro de un mes y compara.</p>`,
+        H6.flujo("Trepar", ["agarre|con pulgar", "tres|apoyos", "mirar|antes", "bajar|despacio"], cAZ)],
+    ],
+    "Los giros": [
+      ["La voltereta adelante", `<p>La <mark>voltereta</mark> es un giro del cuerpo hacia delante, rodando por la espalda. Es un movimiento de la gimnasia que hay que aprender con buena técnica para hacerlo sin hacerse daño.</p><p>Paso a paso:</p><ul><li><b>1.</b> Ponte en <b>cuclillas</b> al principio de la colchoneta.</li><li><b>2.</b> Apoya las <b>manos</b> en la colchoneta, separadas a la anchura de los hombros.</li><li><b>3.</b> Mete la <b>barbilla al pecho</b>, como si quisieras mirarte la tripa. ¡Este es el paso más importante!</li><li><b>4.</b> Empuja con las piernas y rueda apoyando la <b>nuca</b> y la espalda, redonda como una pelota. Nunca te apoyes en la parte de arriba de la cabeza.</li><li><b>5.</b> Abraza las rodillas y termina en cuclillas o de pie.</li></ul><p>Seguridad:</p><ul><li>Solo sobre <b>colchoneta</b> y con el profesor delante.</li><li>Uno detrás de otro, esperando a que el compañero termine.</li><li>Si te da miedo, empieza rodando por un plano inclinado, como una colchoneta sobre un trampolín.</li></ul><p><b>Actividad</b>: practica la «croqueta» (rodar de lado) y la «mecedora» (rodar hacia atrás y delante en bola) antes de la voltereta.</p>`,
+        L6.filas("Voltereta", [["1", "cuclillas, manos", cAZ], ["2", "barbilla al pecho", cRO], ["3", "rodar por la espalda", cVE], ["4", "terminar en cuclillas", cNA]])],
+    ],
+  },
+  final: [
+    ["Las habilidades en los deportes", `<p>Las habilidades básicas que aprendemos ahora son la base de <mark>todos los deportes</mark>. Fíjate:</p><ul><li>En el <b>fútbol</b>: correr, cambiar de dirección, saltar para cabecear, girar para regatear.</li><li>En el <b>baloncesto</b>: correr, frenar, saltar para encestar, girar sobre un pie (el «pívot»).</li><li>En la <b>gimnasia</b>: saltos, giros, volteretas, equilibrios.</li><li>En el <b>balonmano</b>: correr, saltar y lanzar.</li><li>En la <b>natación</b>: desplazarse en el agua y girar en la pared.</li></ul><p>El <b>atletismo</b> es el deporte de las habilidades básicas en estado puro. Tiene tres tipos de pruebas:</p><ul><li><b>Carreras</b>: de velocidad, de fondo, de vallas y de relevos.</li><li><b>Saltos</b>: de longitud, de altura, triple salto y salto con pértiga.</li><li><b>Lanzamientos</b>: de peso, de disco, de jabalina y de martillo.</li></ul><p>Por eso es tan importante practicar ahora estas habilidades de muchas formas: cuantas más experiencias tengas, más fácil te será aprender cualquier deporte después.</p><p><b>Actividad</b>: elige tu deporte favorito y escribe qué habilidades básicas se usan en él.</p>`,
+      H6.rueda("Atletismo", "ATLETISMO", [["carreras", cRO], ["saltos", cAZ], ["lanzamientos", cVE], ["relevos", cNA]])],
+  ],
+  ejemplos: [
+    ["¿Cuál es el paso más importante de la voltereta?", ["Hay que proteger el cuello.", "La cabeza no debe apoyarse arriba."], "Meter la barbilla al pecho."],
+    ["¿Qué es la regla de los tres apoyos al trepar?", ["Nunca soltamos dos apoyos a la vez.", "Movemos solo una mano o un pie."], "Mantener siempre tres apoyos y mover solo uno cada vez."],
+  ],
+  errores: ["Apoyar la parte de arriba de la cabeza en la voltereta en lugar de la nuca.", "Saltar desde lo alto de las espalderas en lugar de bajar despacio."],
+  ejercicios: [
+    ["b", "¿Qué es una cuadrupedia?", "Desplazarse apoyando manos y pies."],
+    ["b", "¿Cómo se desplaza el cangrejo?", "Boca arriba, apoyando manos y pies."],
+    ["b", "¿Qué son las espalderas?", "La escalera de madera pegada a la pared del gimnasio."],
+    ["b", "¿Dónde se hace siempre la voltereta?", "Sobre una colchoneta."],
+    ["b", "En la lectura, ¿qué se pasan los corredores?", "El testigo."],
+    ["m", "¿Qué partes del cuerpo fortalecen las cuadrupedias?", "Los brazos, los hombros y el abdomen."],
+    ["m", "¿Cómo se agarra bien una barra?", "Rodeándola con todos los dedos y el pulgar por debajo."],
+    ["m", "Ordena: rodar, barbilla al pecho, cuclillas, manos en la colchoneta.", "Cuclillas, manos en la colchoneta, barbilla al pecho, rodar."],
+    ["m", "Nombra los tres tipos de pruebas del atletismo.", "Carreras, saltos y lanzamientos."],
+    ["m", "¿Qué habilidades básicas se usan en el baloncesto?", "Correr, frenar, saltar y girar."],
+    ["a", "¿Qué consejo da Sofía a Iker y por qué funciona?", "Mirar la mano de Ahmed y cerrar bien los dedos; así no se le cae el testigo."],
+    ["a", "Diseña una carrera de animales con cuatro tramos.", "Respuesta abierta."],
+    ["a", "Explica tres normas de seguridad para trepar.", "Colchonetas, subir solo hasta donde diga el profesor, no empujar, bajar despacio."],
+    ["a", "Explica por qué es útil practicar muchas habilidades básicas distintas.", "Porque son la base de todos los deportes y así es más fácil aprenderlos."],
+  ],
+  quiz: [
+    ["En la voltereta hay que apoyar…", ["la nuca y la espalda", "la parte de arriba de la cabeza", "la frente"], "Voltereta."],
+    ["Reptar es desplazarse…", ["con el cuerpo pegado al suelo", "a la pata coja", "de puntillas"], "Desplazamientos."],
+    ["Al trepar mantenemos siempre…", ["tres apoyos", "un apoyo", "los ojos cerrados"], "Trepar."],
+    ["El salto con pértiga es una prueba de…", ["atletismo", "natación", "fútbol"], "Atletismo."],
+    ["La «rana» se hace…", ["en cuclillas, saltando con los dos pies", "boca arriba", "reptando"], "Animales."],
+  ],
+  examen: [
+    ["En la lectura, ¿en qué puesto queda el equipo de Marta?", ["segundo", "primero", "último"], "Lectura."],
+    ["¿Qué ejercicio ayuda a preparar la voltereta?", ["la mecedora en bola", "el salto de longitud", "el lanzamiento de peso"], "Voltereta."],
+  ],
+  tarjetas: [
+    ["Cuadrupedias", "Oso, cangrejo, perrito, rana. Reptar: serpiente, soldado."],
+    ["Trepar", "Agarre con pulgar, tres apoyos, colchoneta, bajar despacio."],
+    ["Voltereta", "Cuclillas, manos, barbilla al pecho, rodar por la espalda."],
+    ["Atletismo", "Carreras, saltos y lanzamientos."],
+  ],
+  glosario: [
+    ["Cuadrupedia", "Desplazamiento apoyando manos y pies."],
+    ["Reptar", "Desplazarse arrastrándose por el suelo."],
+    ["Trepar", "Subir agarrándose con manos y pies."],
+    ["Suspenderse", "Quedarse colgado de las manos."],
+    ["Espaldera", "Escalera de madera fija a la pared del gimnasio."],
+    ["Colchoneta", "Superficie blanda para caer sin hacerse daño."],
+    ["Cuclillas", "Posición agachada con las rodillas dobladas."],
+    ["Voltereta", "Giro del cuerpo rodando por la espalda."],
+    ["Nuca", "Parte de atrás del cuello."],
+    ["Testigo", "Palito que se pasan los corredores en los relevos."],
+    ["Atletismo", "Deporte de carreras, saltos y lanzamientos."],
+    ["Pértiga", "Vara larga que se usa para saltar muy alto."],
+  ],
+  situacion: {
+    titulo: "Las miniolimpiadas de la clase",
+    reto: "La clase organiza unas miniolimpiadas con pruebas de carreras, saltos, cuadrupedias y volteretas, en equipos mixtos.",
+    pasos: ["Formar equipos mixtos y elegir un nombre y un color.", "Preparar cinco estaciones: relevos, carrera de animales, saltos, espalderas y volteretas.", "Pasar por todas las estaciones cuidando la seguridad.", "Hacer una entrega de diplomas al esfuerzo, al juego limpio y a la mejora."],
+    producto: "Unas miniolimpiadas de clase con diplomas.",
+    evaluacion: ["Realiza desplazamientos variados con control.", "Trepa y se suspende respetando las normas de seguridad.", "Hace la voltereta con la barbilla al pecho.", "Coopera con su equipo y respeta a los demás."],
+  },
+});

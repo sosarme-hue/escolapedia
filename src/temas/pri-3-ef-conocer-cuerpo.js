@@ -135,3 +135,89 @@ module.exports = {
   fuentes: [RD, wiki("Esquema corporal", "Esquema corporal"), wiki("Lateralidad", "Lateralidad"), wiki("Articulación", "Articulación (anatomía)")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Explicar cómo trabajan los músculos", "Descubrir mi lado dominante", "Cuidar la espalda con la mochila y al sentarme", "Usar los sentidos para moverme y orientarme"],
+  lectura: { titulo: "Nora la zurda", html: `<p>Nora escribe con la mano izquierda. Algunos compañeros la miran con curiosidad cuando coge el lápiz.</p><p>—¿Por qué escribes al revés? —le pregunta Pablo.</p><p>—No escribo al revés —se ríe Nora—. Soy zurda. Mi mano más hábil es la izquierda, igual que la tuya es la derecha.</p><p>En clase de Educación Física, la maestra propone un juego para descubrir cuál es nuestro lado dominante. Primero, chutan una pelota. Después, miran por un tubo de cartón como si fuera un catalejo. Por último, saltan a la pata coja.</p><p>Pablo chuta con la derecha, mira con el ojo derecho y salta con la pierna derecha. ¡Diestro total!</p><p>Nora chuta con la izquierda y salta con la izquierda… pero mira por el tubo con el ojo derecho.</p><p>—¡Qué curioso! —dice la maestra—. Eso se llama lateralidad cruzada. No es ni mejor ni peor: solo es tu forma de ser.</p><p>Al final, juegan a lanzar con la mano menos hábil. Todos fallan y se ríen mucho. Pablo descubre algo: practicando, ¡su mano izquierda también mejora!</p>` },
+  tras: {
+    "Las articulaciones: mis bisagras": [
+      ["Los músculos: mis motores", `<p>Los huesos no se mueven solos. Quienes los mueven son los <mark>músculos</mark>, que están pegados a los huesos por unas cuerdas muy fuertes llamadas <b>tendones</b>.</p><p>Un músculo trabaja de dos maneras:</p><ul><li>Se <b>contrae</b>: se hace más corto y gordo, y tira del hueso.</li><li>Se <b>relaja</b>: vuelve a su tamaño y deja que otro músculo trabaje.</li></ul><p>Por eso los músculos trabajan <b>en parejas</b>. Cuando doblas el brazo, el <b>bíceps</b> (delante del brazo) se contrae y el <b>tríceps</b> (detrás) se relaja. Cuando lo estiras, ocurre al revés. ¡Ponte la mano en el brazo y lo notarás!</p><p>Tenemos <b>más de 600 músculos</b>. Algunos los movemos cuando queremos, como los de las piernas. Otros trabajan solos, sin que pensemos en ellos, como el <b>corazón</b>, que es un músculo que no descansa nunca.</p><p>Para tener los músculos fuertes y sanos necesitamos moverlos cada día, comer bien y descansar. Y antes de hacer ejercicio, hay que calentarlos.</p><p><b>Actividad</b>: dobla y estira el brazo con la otra mano encima del bíceps. ¿Cuándo está duro y cuándo blando?</p>`,
+        H6.dos("Brazo", ["DOBLAR", ["bíceps: se contrae", "tríceps: se relaja"], cRO], ["ESTIRAR", ["tríceps: se contrae", "bíceps: se relaja"], cAZ])],
+    ],
+    "Derecha e izquierda": [
+      ["Mi lado dominante: diestro o zurdo", `<p>Casi todos tenemos un lado del cuerpo que usamos más y con más habilidad: es el <mark>lado dominante</mark>. A esto se le llama <b>lateralidad</b>.</p><ul><li>Las personas <b>diestras</b> usan más el lado derecho.</li><li>Las personas <b>zurdas</b> usan más el lado izquierdo. Son, más o menos, una de cada diez.</li></ul><p>Pero no solo tenemos una mano dominante. También tenemos un <b>pie</b> y un <b>ojo</b> dominantes. Puedes descubrirlos con estas pruebas:</p><ul><li><b>Mano</b>: ¿con qué mano escribes o lanzas una pelota?</li><li><b>Pie</b>: ¿con qué pie chutas un balón o subes el primer escalón?</li><li><b>Ojo</b>: mira por un tubo de cartón. ¿Qué ojo usas?</li></ul><p>Si todo es del mismo lado, la lateralidad es <b>homogénea</b>. Si se mezclan (por ejemplo, mano derecha y ojo izquierdo), es <b>cruzada</b>. Las dos formas son normales.</p><p>En el deporte, entrenar también el lado <b>no dominante</b> es muy útil: un futbolista que chuta con los dos pies o un jugador de baloncesto que bota con las dos manos es más difícil de parar.</p><p><b>Actividad</b>: haz las tres pruebas y apunta tus resultados.</p>`,
+        L6.filas("Mi lado", [["mano", "escribir, lanzar", cAZ], ["pie", "chutar, subir", cVE], ["ojo", "mirar por un tubo", cNA], ["cruzada", "se mezclan", cRO]])],
+    ],
+    "Mi postura": [
+      ["La mochila y la silla", `<p>Pasamos muchas horas sentados y llevando la mochila. Si lo hacemos mal, la <mark>espalda</mark> se cansa y puede doler. Vamos a cuidarla.</p><p><b>La mochila</b>:</p><ul><li>No debe pesar demasiado: más o menos, <b>no más del 10 %</b> de tu peso. Si pesas 30 kilos, unos 3 kilos.</li><li>Llévala con <b>las dos asas</b>, bien pegada a la espalda, no colgando de un hombro.</li><li>Pon lo más pesado <b>cerca de la espalda</b>.</li><li>Lleva solo lo que necesites cada día.</li></ul><p><b>La silla</b>:</p><ul><li>Siéntate al fondo, con la <b>espalda apoyada</b> en el respaldo.</li><li>Los <b>pies</b> deben tocar el suelo.</li><li>Acerca la silla a la mesa para no encorvarte.</li><li>Levántate y muévete de vez en cuando.</li></ul><p><b>Para coger algo del suelo</b>: dobla las <b>rodillas</b> y baja con la espalda recta, en lugar de doblar la espalda.</p><p><b>Actividad</b>: pesa tu mochila en casa con ayuda de un adulto. ¿Pesa demasiado? ¿Qué podrías dejar en casa?</p>`,
+        H6.flujo("Espalda sana", ["mochila|dos asas", "espalda|apoyada", "pies|en el suelo", "coger|rodillas"], cVE)],
+    ],
+  },
+  final: [
+    ["Los sentidos en movimiento", `<p>Para movernos bien, el cuerpo recoge información con los <mark>sentidos</mark>:</p><ul><li>La <b>vista</b> nos dice dónde están las cosas y las personas.</li><li>El <b>oído</b> nos ayuda a reaccionar a un silbato, a una palmada o a la voz de un compañero.</li><li>El <b>tacto</b> nos dice si el suelo es duro o blando y si tocamos algo.</li></ul><p>Y hay un sentido «secreto»: podemos saber dónde está cada parte de nuestro cuerpo <b>sin mirarla</b>. Cierra los ojos y tócate la nariz con un dedo: ¡lo consigues! Ese sentido nos ayuda a no perder el equilibrio y a movernos con precisión.</p><p>Juegos con los sentidos:</p><ul><li><b>La gallinita ciega</b>: con los ojos tapados, hay que atrapar a los compañeros guiándose por el oído.</li><li><b>El lazarillo</b>: por parejas, uno lleva los ojos tapados y el otro lo guía con la voz o tocándole el hombro. ¡Hay que cuidar mucho al compañero!</li><li><b>¿Qué es?</b>: con los ojos cerrados, adivinar un objeto solo tocándolo.</li></ul><p><b>Actividad</b>: juega al lazarillo y después cuenta qué sentiste al moverte sin ver.</p>`,
+      H6.rueda("Sentidos", "MOVERME", [["vista", cAZ], ["oído", cMO], ["tacto", cNA], ["sin mirar", cVE]])],
+  ],
+  ejemplos: [
+    ["¿Qué músculo se contrae al doblar el brazo?", ["Los músculos trabajan en parejas.", "Delante del brazo está el bíceps."], "El bíceps se contrae y el tríceps se relaja."],
+    ["Pablo escribe con la derecha y mira por el tubo con el ojo izquierdo. ¿Qué lateralidad tiene?", ["Mano y ojo son de lados distintos.", "Cuando se mezclan, es cruzada."], "Lateralidad cruzada."],
+  ],
+  errores: ["Llevar la mochila colgada de un solo hombro.", "Coger peso del suelo doblando la espalda en lugar de las rodillas."],
+  ejercicios: [
+    ["b", "¿Qué une los músculos a los huesos?", "Los tendones."],
+    ["b", "¿Qué es una persona zurda?", "La que usa más el lado izquierdo."],
+    ["b", "¿Con cuántas asas hay que llevar la mochila?", "Con las dos."],
+    ["b", "Nombra tres sentidos que usamos al movernos.", "Vista, oído y tacto."],
+    ["b", "En la lectura, ¿con qué mano escribe Nora?", "Con la izquierda."],
+    ["m", "Explica qué hacen el bíceps y el tríceps al estirar el brazo.", "El tríceps se contrae y el bíceps se relaja."],
+    ["m", "¿Cómo descubres tu ojo dominante?", "Mirando por un tubo y viendo qué ojo usas."],
+    ["m", "Si pesas 30 kilos, ¿cuánto debería pesar como mucho tu mochila?", "Unos 3 kilos."],
+    ["m", "¿Por qué el corazón es un músculo especial?", "Porque trabaja solo, sin que pensemos, y no descansa nunca."],
+    ["m", "¿Cómo te sientas bien en la silla?", "Al fondo, con la espalda apoyada y los pies en el suelo."],
+    ["a", "¿Qué es la lateralidad cruzada? Pon un ejemplo de la lectura.", "Cuando mano, pie u ojo dominantes son de lados distintos; Nora es zurda pero mira con el ojo derecho."],
+    ["a", "¿Por qué es útil entrenar el lado no dominante en el deporte?", "Porque así se puede jugar con los dos lados y es más difícil que te paren."],
+    ["a", "Explica cómo jugar al lazarillo con seguridad.", "Respuesta abierta: guiar con la voz o el hombro, ir despacio, avisar de los obstáculos."],
+    ["a", "Diseña un cartel con cuatro consejos para cuidar la espalda.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Cuando un músculo se contrae…", ["se hace más corto y tira del hueso", "se hace más largo", "se rompe"], "Músculos."],
+    ["Tenemos más de…", ["600 músculos", "60 músculos", "6.000 músculos"], "Músculos."],
+    ["Si usas la mano derecha y el ojo izquierdo, tu lateralidad es…", ["cruzada", "homogénea", "zurda"], "Lateralidad."],
+    ["Para coger peso del suelo hay que doblar…", ["las rodillas", "la espalda", "el cuello"], "Postura."],
+    ["En la gallinita ciega nos guiamos sobre todo por…", ["el oído", "la vista", "el olfato"], "Sentidos."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué descubre Pablo al practicar con la mano izquierda?", ["que también mejora", "que es zurdo", "que no sirve para nada"], "Lectura."],
+    ["¿Cuál es la mejor forma de llevar la mochila?", ["con las dos asas y pegada a la espalda", "colgando de un hombro", "lo más baja posible"], "Mochila."],
+  ],
+  tarjetas: [
+    ["Músculos", "Se contraen y se relajan; trabajan en parejas: bíceps y tríceps."],
+    ["Lateralidad", "Diestro o zurdo; mano, pie y ojo dominantes; homogénea o cruzada."],
+    ["Espalda", "Mochila con dos asas y poco peso; espalda apoyada; doblar rodillas."],
+    ["Sentidos", "Vista, oído, tacto y saber dónde está el cuerpo sin mirar."],
+  ],
+  glosario: [
+    ["Músculo", "Parte del cuerpo que se contrae para mover los huesos."],
+    ["Tendón", "Cuerda fuerte que une el músculo al hueso."],
+    ["Contraer", "Hacerse más corto un músculo al trabajar."],
+    ["Bíceps", "Músculo de la parte delantera del brazo."],
+    ["Tríceps", "Músculo de la parte trasera del brazo."],
+    ["Lateralidad", "Preferencia por usar un lado del cuerpo."],
+    ["Diestro", "Que usa más el lado derecho."],
+    ["Zurdo", "Que usa más el lado izquierdo."],
+    ["Dominante", "El lado que usamos más y mejor."],
+    ["Postura", "Forma de colocar el cuerpo."],
+    ["Respaldo", "Parte de la silla donde se apoya la espalda."],
+    ["Lazarillo", "Persona que guía a otra que no ve."],
+  ],
+  situacion: {
+    titulo: "El laboratorio de mi cuerpo",
+    reto: "La clase investiga su cuerpo con pruebas de lateralidad, músculos y sentidos y crea un cartel con consejos para cuidarlo.",
+    pasos: ["Hacer por parejas las pruebas de mano, pie y ojo dominantes y anotar los resultados.", "Notar con la mano cómo trabajan bíceps y tríceps y dibujarlo.", "Jugar al lazarillo y a la gallinita ciega y comentar qué sentido ayudó más.", "Hacer un cartel con consejos de postura y mochila para el pasillo del colegio."],
+    producto: "Una ficha de resultados y un cartel de consejos para la espalda.",
+    evaluacion: ["Identifica su lado dominante con pruebas.", "Explica cómo trabajan los músculos en parejas.", "Cuida al compañero en los juegos sin vista.", "Aplica consejos de postura en clase."],
+  },
+});

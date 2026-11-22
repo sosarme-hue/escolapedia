@@ -140,3 +140,89 @@ module.exports = {
   fuentes: [RD, wiki("Salud", "Salud"), wiki("Actividad física", "Actividad física"), wiki("Sedentarismo", "Sedentarismo")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Tomarse el pulso y ver cómo cambia con el ejercicio", "Conocer el plato saludable", "Saber qué hacer ante una herida o un golpe", "Reducir el tiempo de pantallas y estar más activos"],
+  lectura: { titulo: "La semana de Hugo", html: `<p>Hugo es un gran fan de los videojuegos. Al llegar del colegio, se sienta en el sofá con la consola y no se levanta hasta la cena. Por las noches le cuesta dormirse y por las mañanas va al colegio con sueño y sin desayunar.</p><p>Un día, en Educación Física, el maestro les pide que se tomen el pulso antes y después de correr. Hugo se cansa enseguida y su corazón late muy deprisa.</p><p>—¿Por qué me canso tanto? —pregunta.</p><p>El maestro le propone un reto: durante una semana, apuntar en una tabla cuánto se mueve, cuánto duerme y qué desayuna.</p><p>Hugo acepta. El lunes va al colegio andando con su hermana. El martes juega al pilla-pilla en el recreo en vez de quedarse sentado. El miércoles apaga la consola una hora antes de dormir y lee un cómic. El jueves desayuna leche, pan con tomate y una pieza de fruta.</p><p>El viernes, vuelven a correr en clase. Hugo aguanta más que la otra vez y llega a la meta sonriendo.</p><p>—¿Ves? —dice el maestro—. Tu cuerpo lo nota todo.</p><p>Hugo sigue jugando a videojuegos, pero ahora también juega en la calle.</p>` },
+  tras: {
+    "El corazón y el esfuerzo": [
+      ["Me tomo el pulso", `<p>Cada vez que el corazón late, empuja la sangre por el cuerpo. Ese empujón se puede notar en algunas partes del cuerpo: es el <mark>pulso</mark>.</p><p>Dónde encontrarlo:</p><ul><li>En la <b>muñeca</b>, por la parte de dentro, debajo del pulgar.</li><li>En el <b>cuello</b>, a un lado, debajo de la mandíbula.</li></ul><p>Cómo tomarlo:</p><ul><li><b>1.</b> Coloca los dedos índice y corazón (nunca el pulgar, porque tiene su propio pulso).</li><li><b>2.</b> Aprieta suavemente hasta notar los golpecitos.</li><li><b>3.</b> Cuenta los latidos durante <b>15 segundos</b>.</li><li><b>4.</b> Multiplica por <b>4</b>: así sabes los latidos por minuto.</li></ul><p>En reposo, el corazón de un niño de tu edad late más o menos entre <b>70 y 110 veces por minuto</b>. Después de correr, puede llegar a latir mucho más deprisa. Y cuando descansamos, vuelve poco a poco a la normalidad.</p><p>Si hacemos ejercicio a menudo, el corazón se hace más fuerte y le cuesta menos esfuerzo bombear la sangre.</p><p><b>Actividad</b>: tómate el pulso sentado, después de saltar un minuto y después de descansar dos minutos. Haz una tabla con los resultados.</p>`,
+        L6.filas("Pulso", [["sentado", "unos 90", cAZ], ["tras saltar", "muchos más", cRO], ["tras descansar", "baja", cVE], ["cuenta", "15 s × 4", cNA]])],
+    ],
+    "Comer y beber bien": [
+      ["El plato saludable", `<p>Una forma fácil de saber si comemos bien es imaginar nuestro <mark>plato</mark> dividido en partes:</p><ul><li>La <b>mitad</b> del plato: <b>verduras y frutas</b> de muchos colores. Cuantos más colores, mejor.</li><li>Una <b>cuarta parte</b>: <b>cereales</b>, mejor integrales: arroz, pasta, pan, patata.</li><li>Otra <b>cuarta parte</b>: <b>proteínas</b>: legumbres, huevo, pescado, carne, frutos secos.</li><li>Un poco de <b>aceite de oliva</b> para cocinar y aliñar.</li><li>Para beber: <b>agua</b>.</li></ul><p>Los dulces, los refrescos, la bollería y los snacks salados no forman parte del plato: son para comerlos solo de vez en cuando.</p><p>Antes de hacer ejercicio:</p><ul><li>Toma un buen <b>desayuno</b>: leche o yogur, pan o cereales y fruta.</li><li>No hagas mucho ejercicio justo después de una comida grande.</li><li>Lleva siempre una <b>botella de agua</b> y bebe antes, durante y después.</li></ul><p>Comer bien nos da energía para jugar, aprender y crecer. Y comer en familia, sin pantallas y despacio, también es un hábito saludable.</p><p><b>Actividad</b>: dibuja tu plato de la comida de hoy. ¿Se parece al plato saludable?</p>`,
+        H6.rueda("Mi plato", "PLATO", [["½ verduras y fruta", cVE], ["¼ cereales", cNA], ["¼ proteínas", cRO], ["agua", cAZ]])],
+    ],
+    "Prevenir lesiones": [
+      ["Primeros auxilios: qué hacer si…", `<p>A veces, jugando, alguien se hace daño. Saber unos <mark>primeros auxilios</mark> básicos ayuda mucho. Lo primero es recordar la palabra <b>PAS</b>:</p><ul><li><b>P</b>roteger: asegurarse de que no hay más peligro, para la persona herida ni para nosotros.</li><li><b>A</b>visar: llamar a un adulto. En una emergencia, el adulto llama al <b>112</b>.</li><li><b>S</b>ocorrer: ayudar solo en lo que sabemos hacer.</li></ul><p>Qué hacer en casos sencillos:</p><ul><li><b>Una herida pequeña</b> (un rasguño en la rodilla): lavarla con <b>agua y jabón</b> y avisar a un adulto para que la cubra.</li><li><b>Un golpe</b>: poner <b>frío</b>, por ejemplo hielo envuelto en un paño, nunca directamente en la piel.</li><li><b>Sangre por la nariz</b>: sentarse con la cabeza <b>un poco hacia delante</b> y apretar la nariz con los dedos. No echar la cabeza hacia atrás.</li><li><b>Un compañero mareado</b>: que se siente o se tumbe a la sombra y beba agua, y avisar a un adulto.</li></ul><p>Y nunca movemos a alguien que se ha dado un golpe fuerte en la cabeza o la espalda: avisamos enseguida.</p><p><b>Actividad</b>: aprende de memoria qué significa PAS y el número 112.</p>`,
+        L6.filas("PAS", [["Proteger", "sin más peligro", cAZ], ["Avisar", "adulto, 112", cRO], ["Socorrer", "lo que sé", cVE], ["golpe", "frío con un paño", cNA]])],
+    ],
+  },
+  final: [
+    ["Menos pantallas, más movimiento", `<p>Las pantallas (tele, tableta, móvil, consola) son divertidas y útiles, pero si pasamos demasiado tiempo con ellas estamos muchas horas <mark>sentados</mark>. A eso se le llama <b>sedentarismo</b>, y no es bueno para el cuerpo.</p><p>La <b>Organización Mundial de la Salud</b> recomienda que los niños y jóvenes hagan <b>al menos 60 minutos</b> de actividad física <b>cada día</b>, que haga sudar un poco y acelerar el corazón. No hace falta que sea seguido: pueden ser ratos durante el día.</p><p>Ideas para moverse más:</p><ul><li>Ir al colegio <b>andando</b> o en bici, si es posible.</li><li>Jugar en el <b>recreo</b> en lugar de estar sentado.</li><li>Subir por las <b>escaleras</b>.</li><li>Ayudar en casa: pasear al perro, poner la mesa, ordenar.</li><li>Quedar con amigos en el <b>parque</b>.</li><li>Bailar con tu música favorita.</li></ul><p>Consejos con las pantallas:</p><ul><li>Pactar con la familia un <b>tiempo máximo</b> al día.</li><li>Apagar las pantallas <b>una hora antes de dormir</b>: la luz de la pantalla nos quita el sueño.</li><li>No usarlas durante las comidas.</li></ul><p><b>Actividad</b>: apunta durante una semana cuánto tiempo te mueves y cuánto tiempo pasas con pantallas. ¿Llegas a los 60 minutos de actividad?</p>`,
+      H6.dos("Mi día", ["MÁS", ["andar, bici", "parque", "bailar"], cVE], ["MENOS", ["sofá", "pantallas", "ascensor"], cRO])],
+  ],
+  ejemplos: [
+    ["Cuentas 25 latidos en 15 segundos. ¿Cuántos latidos por minuto son?", ["Un minuto tiene cuatro veces 15 segundos.", "Multiplicamos por 4."], "100 latidos por minuto."],
+    ["A un compañero le sangra la nariz. ¿Qué hacemos?", ["La cabeza no va hacia atrás.", "Se aprieta la nariz y se avisa a un adulto."], "Sentarlo con la cabeza un poco hacia delante, apretar la nariz y avisar a un adulto."],
+  ],
+  errores: ["Tomarse el pulso con el dedo pulgar.", "Echar la cabeza hacia atrás cuando sangra la nariz."],
+  ejercicios: [
+    ["b", "¿Dónde podemos tomarnos el pulso?", "En la muñeca o en el cuello."],
+    ["b", "¿Qué ocupa la mitad del plato saludable?", "Las verduras y las frutas."],
+    ["b", "¿Qué número llamamos en una emergencia?", "El 112."],
+    ["b", "¿Cuántos minutos de actividad física al día recomienda la OMS?", "Al menos 60 minutos."],
+    ["b", "En la lectura, ¿qué apaga Hugo antes de dormir?", "La consola."],
+    ["m", "Explica cómo se toma el pulso paso a paso.", "Dedos índice y corazón en la muñeca, contar 15 segundos y multiplicar por 4."],
+    ["m", "¿Qué significa PAS?", "Proteger, avisar y socorrer."],
+    ["m", "¿Qué se pone en un golpe y cómo?", "Frío, como hielo envuelto en un paño."],
+    ["m", "¿Por qué hay que apagar las pantallas antes de dormir?", "Porque la luz de la pantalla quita el sueño."],
+    ["m", "Propón un desayuno saludable antes de Educación Física.", "Ejemplo: leche, pan con tomate y una fruta."],
+    ["a", "¿Qué cambios hace Hugo y qué nota al final de la semana?", "Va andando, juega en el recreo, duerme mejor y desayuna; aguanta más corriendo."],
+    ["a", "Dibuja y explica tu plato saludable ideal para una comida.", "Respuesta abierta."],
+    ["a", "Haz una tabla de tu pulso en reposo, tras saltar y tras descansar, y explica los cambios.", "Respuesta abierta."],
+    ["a", "Escribe un plan de una semana para moverte 60 minutos cada día.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Para saber los latidos por minuto contamos 15 segundos y…", ["multiplicamos por 4", "sumamos 15", "dividimos entre 2"], "Pulso."],
+    ["En el plato saludable, la bebida es…", ["agua", "refresco", "zumo con azúcar"], "Plato."],
+    ["La A de PAS significa…", ["avisar", "andar", "ayudar a correr"], "Primeros auxilios."],
+    ["Si sangra la nariz, la cabeza va…", ["un poco hacia delante", "hacia atrás", "boca abajo"], "Primeros auxilios."],
+    ["Pasar muchas horas sentado se llama…", ["sedentarismo", "calentamiento", "pulso"], "Pantallas."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué desayuna Hugo el jueves?", ["leche, pan con tomate y fruta", "bollería y refresco", "nada"], "Lectura."],
+    ["¿Qué hacemos con una herida pequeña?", ["lavarla con agua y jabón y avisar a un adulto", "taparla sin lavar", "no decir nada"], "Heridas."],
+  ],
+  tarjetas: [
+    ["Pulso", "Muñeca o cuello; índice y corazón; 15 s × 4."],
+    ["Plato saludable", "½ verduras y fruta, ¼ cereales, ¼ proteínas, agua."],
+    ["PAS", "Proteger, Avisar (112), Socorrer."],
+    ["60 minutos", "Actividad física cada día; menos pantallas y apagarlas antes de dormir."],
+  ],
+  glosario: [
+    ["Pulso", "Latido del corazón que se nota en la muñeca o el cuello."],
+    ["Latido", "Cada golpe del corazón al bombear la sangre."],
+    ["Reposo", "Estado de descanso, sin hacer ejercicio."],
+    ["Plato saludable", "Forma de repartir los alimentos en una comida sana."],
+    ["Proteínas", "Alimentos como legumbres, huevo, pescado o carne."],
+    ["Cereales integrales", "Cereales con todas sus partes, con más fibra."],
+    ["Primeros auxilios", "Primera ayuda a una persona herida."],
+    ["PAS", "Proteger, avisar y socorrer."],
+    ["112", "Teléfono de emergencias."],
+    ["Sedentarismo", "Pasar demasiado tiempo sentado y sin moverse."],
+    ["OMS", "Organización Mundial de la Salud."],
+    ["Hábito", "Algo que hacemos con frecuencia, casi sin pensar."],
+  ],
+  situacion: {
+    titulo: "El reto de la semana activa",
+    reto: "Cada alumno sigue durante una semana un reto de hábitos saludables y la clase comparte los resultados en un mural.",
+    pasos: ["Tomarse el pulso en reposo y tras el ejercicio el primer día.", "Rellenar cada día una tabla con minutos de actividad, desayuno, sueño y pantallas.", "Aprender PAS y practicar por parejas qué hacer ante un golpe o una herida.", "Volver a tomarse el pulso al final y hacer un mural con los cambios de la clase."],
+    producto: "Una tabla personal de hábitos y un mural de la clase.",
+    evaluacion: ["Se toma el pulso correctamente.", "Reconoce los alimentos del plato saludable.", "Sabe qué hacer ante pequeñas lesiones y a quién avisar.", "Aumenta su tiempo de actividad física."],
+  },
+});

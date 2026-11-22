@@ -138,3 +138,89 @@ module.exports = {
   fuentes: [RD, wiki("Equilibrio", "Equilibrio corporal"), wiki("Coordinación motriz", "Coordinación motriz"), wiki("Comba", "Comba (juego)")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Saber qué parte del cuerpo nos ayuda a mantener el equilibrio", "Mantener el equilibrio llevando objetos", "Mejorar la coordinación ojo-mano y ojo-pie", "Conocer deportes donde el equilibrio es importante"],
+  lectura: { titulo: "La bici de Leo", html: `<p>Leo tiene ocho años y todavía no sabe montar en bici sin ruedines. Sus amigos pasan a su lado pedaleando rápido por el parque, y él los mira con un poco de envidia.</p><p>Un sábado, su abuela le dice: —Hoy quitamos los ruedines.</p><p>Leo se asusta. —¿Y si me caigo?</p><p>—Seguramente te caerás alguna vez —responde la abuela—. Todos nos caemos al aprender. Por eso llevamos casco.</p><p>Primero, la abuela baja el sillín para que Leo pueda tocar el suelo con los pies. Leo se impulsa con los pies, como si fuera un patinete, y levanta las piernas un momento. ¡La bici avanza sola!</p><p>—Mira hacia delante, no a la rueda —le recuerda la abuela.</p><p>Leo lo intenta una y otra vez. Se cae dos veces en el césped, pero se levanta riendo. Poco a poco, aguanta más tiempo sin poner los pies.</p><p>Al final de la tarde, Leo pone los pies en los pedales y… ¡pedalea! La bici no se cae: cuanto más avanza, más fácil es mantener el equilibrio.</p><p>—¡Lo conseguí! —grita Leo.</p><p>La abuela aplaude: —El equilibrio se entrena, como todo.</p>` },
+  tras: {
+    "Los secretos del equilibrio": [
+      ["El oído interno: el nivel del cuerpo", `<p>¿Sabías que el <mark>oído</mark> no solo sirve para oír? Dentro de la cabeza, muy cerca del oído, tenemos una parte llamada <b>oído interno</b> que nos ayuda a mantener el equilibrio.</p><p>El oído interno tiene unos tubitos muy pequeños llenos de <b>líquido</b>. Cuando movemos la cabeza, el líquido se mueve y envía un mensaje al <b>cerebro</b>: «estamos inclinados», «estamos girando», «estamos boca abajo». Funciona como el nivel de burbuja que usan los albañiles.</p><p>¿Por qué nos <b>mareamos</b> al dar muchas vueltas? Porque el líquido sigue moviéndose un rato aunque ya nos hayamos parado, y el cerebro se confunde: los ojos dicen «estamos quietos» y el oído dice «seguimos girando».</p><p>Para mantener el equilibrio, el cerebro junta información de:</p><ul><li>el <b>oído interno</b>,</li><li>los <b>ojos</b>,</li><li>los <b>pies</b> y los músculos, que notan el suelo.</li></ul><p>Por eso es más difícil mantener el equilibrio con los ojos cerrados: ¡le quitamos una fuente de información al cerebro!</p><p><b>Actividad</b>: aguanta a la pata coja con los ojos abiertos y después cerrados. Compara cuántos segundos aguantas.</p>`,
+        H6.rueda("Equilibrio", "CEREBRO", [["oído interno", cAZ], ["ojos", cVE], ["pies", cNA], ["músculos", cRO]])],
+    ],
+    "Equilibrio en movimiento": [
+      ["Equilibrio con objetos", `<p>Mantener el equilibrio es más difícil si además tenemos que <mark>llevar un objeto</mark> sin que se caiga. Es un buen reto para entrenar la concentración.</p><p>Retos de equilibrio con objetos:</p><ul><li><b>El camarero</b>: llevar una pelota en un plato o en una raqueta mientras caminamos por una línea.</li><li><b>La corona</b>: caminar con un saquito de arena o un libro en la cabeza, con la espalda recta.</li><li><b>La cuchara</b>: llevar una pelota de ping-pong en una cuchara, primero andando y después más rápido.</li><li><b>El malabarista</b>: mantener un palo o una pica en vertical sobre la palma de la mano, mirando a la punta de arriba.</li><li><b>Relevos del equilibrio</b>: por equipos, pasar un objeto de uno a otro sin que caiga, mientras se camina por un banco sueco.</li></ul><p>Trucos para conseguirlo:</p><ul><li>Mira hacia delante, no al objeto (salvo con el palo).</li><li>Mueve el cuerpo despacio y sin brusquedad.</li><li>Dobla un poco las rodillas para amortiguar.</li><li>Respira tranquilo: ¡con nervios es más difícil!</li></ul><p><b>Actividad</b>: inventa un reto de equilibrio con un objeto de clase y explícaselo a tu grupo.</p>`,
+        L6.filas("Retos", [["el camarero", "pelota en plato", cAZ], ["la corona", "saquito en la cabeza", cRO], ["la cuchara", "pelota de ping-pong", cVE], ["el malabarista", "palo en la mano", cNA]])],
+    ],
+    "La comba": [
+      ["Ojo-mano y ojo-pie", `<p>La <mark>coordinación</mark> más usada en los juegos y deportes es la que une lo que vemos con lo que hacemos:</p><ul><li><b>Coordinación ojo-mano</b>: los ojos siguen un objeto y las manos actúan. La usamos al atrapar una pelota, botar, lanzar a canasta, escribir o recortar.</li><li><b>Coordinación ojo-pie</b>: los ojos siguen el objeto y los pies actúan. La usamos al chutar, conducir un balón, saltar la comba o subir escaleras.</li></ul><p>Para mejorar la coordinación ojo-mano:</p><ul><li>Lanzar una pelota contra la pared y atraparla.</li><li>Malabares con <b>pañuelos</b>: caen despacio y son perfectos para empezar.</li><li>Botar con una mano, luego con la otra.</li><li>Golpear un globo con la mano sin que toque el suelo.</li></ul><p>Para mejorar la coordinación ojo-pie:</p><ul><li>Conducir un balón entre conos.</li><li>Dar toques a un globo con el pie.</li><li>Saltar dentro de aros puestos en el suelo sin pisarlos.</li></ul><p>Un truco importante: <b>no pierdas de vista el objeto</b> hasta que lo tengas en la mano o lo hayas golpeado.</p><p><b>Actividad</b>: haz una lista de cinco cosas de tu día a día donde uses la coordinación ojo-mano.</p>`,
+        H6.dos("Coordinación", ["OJO-MANO", ["atrapar", "botar", "malabares"], cAZ], ["OJO-PIE", ["chutar", "conducir", "saltar aros"], cVE])],
+    ],
+  },
+  final: [
+    ["Deportes de equilibrio", `<p>Hay deportes en los que el <mark>equilibrio</mark> es lo más importante:</p><ul><li><b>Gimnasia artística</b>: las gimnastas hacen saltos y giros sobre la <b>barra de equilibrio</b>, que solo mide unos <b>10 centímetros</b> de ancho. ¡Como la palma de tu mano!</li><li><b>Patinaje</b>: sobre ruedas o sobre hielo, hay que mantener el equilibrio en una superficie que se desliza.</li><li><b>Ciclismo</b>: como Leo en la lectura, en bici el equilibrio es más fácil cuanto más rápido vamos.</li><li><b>Surf</b> y <b>pádel surf</b>: hay que mantenerse de pie sobre una tabla mientras el agua se mueve.</li><li><b>Escalada</b>: los escaladores colocan los pies y las manos con cuidado para no perder el equilibrio en la pared.</li><li><b>Slackline</b>: caminar sobre una cinta elástica atada entre dos árboles, a poca altura del suelo.</li></ul><p>En todos estos deportes la seguridad es muy importante: <b>casco</b>, protecciones, colchonetas y aprender con un adulto o un monitor.</p><p>Y en todos ellos se aprende igual: practicando poco a poco, sin miedo a caerse y levantándose cada vez.</p><p><b>Actividad</b>: elige un deporte de equilibrio y busca qué protecciones se usan para practicarlo.</p>`,
+      L6.filas("Deportes", [["gimnasia", "barra de 10 cm", cMO], ["patinaje", "ruedas o hielo", cAZ], ["ciclismo", "casco", cVE], ["surf", "tabla en el agua", cNA]])],
+  ],
+  ejemplos: [
+    ["¿Por qué nos mareamos al dar muchas vueltas?", ["El oído interno tiene líquido que se mueve.", "Al parar, el líquido sigue moviéndose y confunde al cerebro."], "Porque el oído interno dice que seguimos girando y los ojos dicen que estamos quietos."],
+    ["¿Qué tipo de coordinación usamos al chutar un balón?", ["Los ojos siguen el balón.", "Actúan los pies."], "Coordinación ojo-pie."],
+  ],
+  errores: ["Mirar al objeto que llevamos en lugar de mirar hacia delante.", "Dejar de mirar la pelota antes de atraparla o golpearla."],
+  ejercicios: [
+    ["b", "¿Qué parte del cuerpo, cerca del oído, nos ayuda al equilibrio?", "El oído interno."],
+    ["b", "¿Qué tipo de coordinación usas al atrapar una pelota?", "Ojo-mano."],
+    ["b", "¿Cuánto mide de ancho la barra de equilibrio?", "Unos 10 centímetros."],
+    ["b", "¿Por qué los pañuelos son buenos para empezar con malabares?", "Porque caen despacio."],
+    ["b", "En la lectura, ¿quién ayuda a Leo?", "Su abuela."],
+    ["m", "Nombra tres cosas que usa el cerebro para mantener el equilibrio.", "El oído interno, los ojos y los pies o músculos."],
+    ["m", "¿Por qué es más difícil mantener el equilibrio con los ojos cerrados?", "Porque el cerebro pierde la información de la vista."],
+    ["m", "Explica el reto del camarero.", "Llevar una pelota en un plato o raqueta caminando sin que se caiga."],
+    ["m", "Propón un ejercicio para la coordinación ojo-pie.", "Ejemplo: conducir un balón entre conos."],
+    ["m", "¿Qué protecciones se usan en el ciclismo y el patinaje?", "Casco y protecciones de rodillas, codos y muñecas."],
+    ["a", "¿Por qué Leo baja el sillín al empezar? ¿Qué aprende al final?", "Para tocar el suelo con los pies; aprende que el equilibrio se entrena y es más fácil al avanzar."],
+    ["a", "Diseña un circuito con tres retos de equilibrio con objetos.", "Respuesta abierta."],
+    ["a", "Compara dos deportes de equilibrio: superficie, material y seguridad.", "Respuesta abierta."],
+    ["a", "Explica con tus palabras cómo funciona el oído interno.", "Tiene tubitos con líquido que se mueve con la cabeza y avisa al cerebro."],
+  ],
+  quiz: [
+    ["El oído interno funciona como…", ["un nivel de burbuja", "un altavoz", "un reloj"], "Oído."],
+    ["Botar un balón es coordinación…", ["ojo-mano", "ojo-pie", "oído-pie"], "Coordinación."],
+    ["Para llevar un objeto en equilibrio conviene…", ["moverse despacio y mirar al frente", "correr muy rápido", "cerrar los ojos"], "Objetos."],
+    ["En la slackline se camina sobre…", ["una cinta elástica", "una barra de madera", "una cuerda en el aire muy alta"], "Deportes."],
+    ["Cuando damos muchas vueltas nos mareamos porque…", ["el líquido del oído sigue moviéndose", "nos duelen los pies", "nos falta agua"], "Mareo."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué consejo da la abuela a Leo?", ["mirar hacia delante, no a la rueda", "pedalear con los ojos cerrados", "no ponerse casco"], "Lectura."],
+    ["¿Qué deporte se practica sobre una barra de unos 10 cm?", ["la gimnasia artística", "el surf", "la escalada"], "Deportes."],
+  ],
+  tarjetas: [
+    ["Oído interno", "Tubitos con líquido que avisan al cerebro de cómo está la cabeza."],
+    ["Retos", "El camarero, la corona, la cuchara, el malabarista."],
+    ["Coordinación", "Ojo-mano: atrapar, botar. Ojo-pie: chutar, conducir."],
+    ["Deportes", "Gimnasia, patinaje, ciclismo, surf, escalada, slackline."],
+  ],
+  glosario: [
+    ["Equilibrio", "Capacidad de mantener el cuerpo sin caerse."],
+    ["Oído interno", "Parte del oído que ayuda al equilibrio."],
+    ["Mareo", "Sensación de que todo da vueltas."],
+    ["Cerebro", "Órgano que recibe la información y da las órdenes."],
+    ["Coordinación", "Mover varias partes del cuerpo a la vez y bien."],
+    ["Ojo-mano", "Coordinación entre lo que vemos y lo que hacen las manos."],
+    ["Ojo-pie", "Coordinación entre lo que vemos y lo que hacen los pies."],
+    ["Malabares", "Lanzar y atrapar objetos sin que caigan."],
+    ["Banco sueco", "Banco largo del gimnasio para hacer equilibrios."],
+    ["Barra de equilibrio", "Aparato de gimnasia muy estrecho."],
+    ["Amortiguar", "Doblar las rodillas para suavizar un movimiento."],
+    ["Casco", "Protección para la cabeza."],
+  ],
+  situacion: {
+    titulo: "El circo del equilibrio",
+    reto: "La clase prepara un pequeño espectáculo de circo con números de equilibrio y coordinación para otra clase.",
+    pasos: ["Elegir en grupos un número: camareros, malabaristas con pañuelos o equilibristas en el banco.", "Ensayar el número con seguridad y ayudándose.", "Inventar una entrada divertida y una música para el número.", "Representar el espectáculo y explicar al público qué parte del cuerpo ayuda al equilibrio."],
+    producto: "Un espectáculo de circo con números de equilibrio y coordinación.",
+    evaluacion: ["Mantiene el equilibrio llevando objetos.", "Mejora su coordinación ojo-mano y ojo-pie.", "Trabaja con seguridad y ayuda a sus compañeros.", "Explica el papel del oído interno."],
+  },
+});
