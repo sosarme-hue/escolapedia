@@ -135,3 +135,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Decir los meses del año en inglés", "Decir la fecha de tu cumpleaños: My birthday is in May", "Hablar de actividades de cada día", "Usar yesterday, today y tomorrow"],
+  lectura: { titulo: "Sam's busy week", html: `<p>Sam is seven years old. He has got a very busy week!</p><p>On <b>Monday</b>, Sam goes to school and plays football in the playground.</p><p>On <b>Tuesday</b>, he has got his swimming lesson. Splash!</p><p>On <b>Wednesday</b>, he visits his grandma. They make a chocolate cake together. Yummy!</p><p>On <b>Thursday</b>, he goes to music class. He plays the drums. Boom, boom!</p><p>On <b>Friday</b>, he reads a book with his dad before bed.</p><p>On <b>Saturday</b>, he goes to the park with his friends. They ride their bikes.</p><p>On <b>Sunday</b>, Sam is very tired. He stays at home in his pyjamas and watches a film with his family.</p><p>"What's your favourite day, Sam?" asks his mum.</p><p>"Wednesday! Because of grandma's chocolate cake!" says Sam.</p><p><i>(busy: ocupada · lesson: clase · stays: se queda · favourite: favorito)</i></p>` },
+  tras: {
+    "The weekend": [
+      ["Months of the year", `<p>Un año tiene doce <mark>months</mark> (meses). En inglés se escriben siempre con <b>mayúscula</b>:</p><ul><li><b>January</b>, <b>February</b>, <b>March</b>: enero, febrero, marzo.</li><li><b>April</b>, <b>May</b>, <b>June</b>: abril, mayo, junio.</li><li><b>July</b>, <b>August</b>, <b>September</b>: julio, agosto, septiembre.</li><li><b>October</b>, <b>November</b>, <b>December</b>: octubre, noviembre, diciembre.</li></ul><p>Muchos se parecen al español: <i>April</i> - abril, <i>October</i> - octubre. ¡Pero cuidado con la pronunciación!</p><p>Para preguntar el mes: «<b>What month is it?</b>» — «It's <b>November</b>.»</p><p>Los meses también nos ayudan a saber la estación: en December, January y February es invierno en España; en June, July y August es verano y hay vacaciones. Remember: Christmas is in December and summer holidays are in July and August.</p><p><b>Actividad</b>: canta los meses dando una palmada en cada uno.</p>`,
+        L6.filas("Months", [["Jan-Mar", "winter", cAZ], ["Apr-Jun", "spring", cVE], ["Jul-Sep", "summer", cNA], ["Oct-Dec", "autumn", cMO]]),
+        ["R_GIt4Ccorc", "The Months Chant", "Super Simple Songs", 82258080]],
+    ],
+    "What day is it today?": [
+      ["When's your birthday?", `<p>Para preguntar por el cumpleaños decimos: <mark>When's your birthday?</mark> (¿Cuándo es tu cumpleaños?)</p><p>Contestamos con el mes y la palabra <b>in</b>:</p><ul><li>«My birthday is <b>in May</b>.» (Mi cumpleaños es en mayo.)</li><li>«My birthday is <b>in December</b>.»</li></ul><p>Y para la edad:</p><ul><li>«How old are you?» — «I'm <b>seven</b>.»</li><li>«How old are you <b>on your birthday</b>?» — «I'm <b>eight</b>!»</li></ul><p>En un cumpleaños cantamos: «<b>Happy birthday to you!</b>» y decimos: «<b>Make a wish!</b>» (¡Pide un deseo!) antes de soplar las <b>candles</b> (velas) de la <b>cake</b> (tarta).</p><p><b>Actividad</b>: pregunta a cinco compañeros «When's your birthday?» y haz un gráfico.</p>`,
+        L6.dialogo("Birthday", [["Leo", "When's your birthday?", cAZ], ["Ana", "It's in May.", cRO], ["Leo", "How old are you?", cAZ], ["Ana", "I'm seven!", cRO]])],
+    ],
+    "On Monday I…": [
+      ["My week", `<p>Para decir qué hacemos cada día usamos <mark>On + día</mark>:</p><ul><li>«<b>On Monday</b> I go to school.»</li><li>«<b>On Tuesday</b> I play football.»</li><li>«<b>On Wednesday</b> I go swimming.»</li><li>«<b>On Thursday</b> I play the piano.»</li><li>«<b>On Friday</b> I watch TV.»</li><li>«<b>On Saturday</b> I visit my grandparents.»</li><li>«<b>On Sunday</b> I go to the park.»</li></ul><p>Actions (acciones) útiles: <b>play</b> (jugar), <b>read</b> (leer), <b>swim</b> (nadar), <b>dance</b> (bailar), <b>paint</b> (pintar), <b>ride a bike</b> (montar en bici).</p><p>Para preguntar: «<b>What do you do on Saturday?</b>» — «I ride my bike.»</p><p>Los días de la semana también van siempre con mayúscula: Monday, Tuesday, Wednesday… Y el fin de semana, Saturday y Sunday, se llama <b>the weekend</b>. «I love the weekend!»</p><p><b>Actividad</b>: haz tu horario de la semana con dibujos y una frase para cada día.</p>`,
+        H6.rueda("Week", "ON", [["Monday", cAZ], ["Tuesday", cVE], ["Saturday", cNA], ["Sunday", cRO]])],
+    ],
+    "Before and after": [
+      ["Yesterday, today, tomorrow", `<p>Tres palabras muy útiles para hablar del tiempo:</p><ul><li><mark>yesterday</mark>: ayer.</li><li><mark>today</mark>: hoy.</li><li><mark>tomorrow</mark>: mañana.</li></ul><p>Examples:</p><ul><li>«<b>Today</b> is Tuesday.»</li><li>«<b>Yesterday</b> was Monday.»</li><li>«<b>Tomorrow</b> is Wednesday.»</li></ul><p>Fíjate: para hoy y mañana usamos <b>is</b>, pero para ayer usamos <b>was</b> (era), porque ya pasó.</p><p>Y otras palabras del tiempo:</p><ul><li><b>morning</b>: mañana (la parte del día).</li><li><b>afternoon</b>: tarde.</li><li><b>night</b>: noche.</li></ul><p>¡Cuidado! <i>Tomorrow</i> es «mañana, el día siguiente» y <i>morning</i> es «la mañana, por la mañana».</p><p><b>Actividad</b>: cada día, al empezar la clase, decid en inglés qué día fue ayer, qué día es hoy y qué día será mañana.</p>`,
+        H6.flujo("Days", ["yesterday|was", "today|is", "tomorrow|is", "week|7 days"], cVE)],
+    ],
+  },
+  final: [
+    ["Special days", `<p>Algunos días del año son <mark>special days</mark> (días especiales) en los países donde se habla inglés:</p><ul><li><b>Halloween</b> (31st October): los niños se disfrazan y piden caramelos diciendo «<b>Trick or treat!</b>».</li><li><b>Christmas Day</b> (25th December): Navidad, con regalos de Father Christmas o Santa Claus.</li><li><b>New Year's Day</b> (1st January): Año Nuevo.</li><li><b>Pancake Day</b> (in February or March): se comen tortitas.</li><li><b>Easter</b> (in spring): Pascua, con huevos de chocolate.</li><li><b>Thanksgiving</b> (in November, USA): las familias se reúnen para dar las gracias y comer pavo.</li></ul><p>Fíjate: en inglés también los nombres de las fiestas llevan mayúscula.</p><p><b>Actividad</b>: busca en el calendario en qué mes está cada fiesta.</p>`,
+      L6.filas("Special", [["Halloween", "October", cMO], ["Christmas", "December", cRO], ["Pancake", "February", cNA], ["Easter", "spring", cVE]])],
+    ["Repaso: Sam's busy week", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>On <b>Monday</b>: school and football.</li><li>On <b>Tuesday</b>: swimming lesson.</li><li>On <b>Wednesday</b>: chocolate cake with grandma.</li><li>On <b>Thursday</b>: music class, he plays the drums.</li><li>On <b>Friday</b>: reading with dad.</li><li>On <b>Saturday</b>: park and bikes.</li><li>On <b>Sunday</b>: home, pyjamas and a film.</li></ul><p>Sam's favourite day is <b>Wednesday</b>, because of the chocolate cake.</p><p>¿Cuál es tu día favorito? «My favourite day is… because…».</p><p>Sam has got a busy week, but he is happy. Hacer cosas distintas cada día es divertido, pero también necesitamos descansar, como Sam el domingo.</p><p><b>Actividad</b>: escribe tu semana como la de Sam, con una actividad para cada día.</p>`,
+      H6.dos("Sam", ["SCHOOL", ["Monday", "football", "swimming"], cAZ], ["FUN", ["Saturday", "bikes", "film"], cNA])],
+  ],
+  ejemplos: [
+    ["When's your birthday? (en julio)", ["My birthday is + in + mes."], "My birthday is in July."],
+    ["Si hoy es viernes, ¿qué día fue ayer?", ["Yesterday was…"], "Yesterday was Thursday."],
+  ],
+  errores: ["Escribir los días y meses con minúscula: «monday», «may».", "Confundir tomorrow (mañana, día siguiente) con morning (por la mañana)."],
+  ejercicios: [
+    ["b", "How many months are there in a year?", "Twelve."],
+    ["b", "What is «August»?", "Agosto."],
+    ["b", "How do you say «ayer»?", "Yesterday."],
+    ["b", "What day comes after Monday?", "Tuesday."],
+    ["b", "Translate: ¡Feliz cumpleaños!", "Happy birthday!"],
+    ["m", "Complete: «My birthday is ___ March.»", "In."],
+    ["m", "If today is Wednesday, what is tomorrow?", "Thursday."],
+    ["m", "Write the months of summer.", "June, July, August."],
+    ["m", "When is Halloween?", "On 31st October."],
+    ["m", "Translate: Los sábados monto en bici.", "On Saturday I ride my bike."],
+    ["a", "In the reading, what does Sam do on Thursday?", "He goes to music class and plays the drums."],
+    ["a", "Why is Wednesday Sam's favourite day?", "Because of grandma's chocolate cake."],
+    ["a", "Write three sentences about your week.", "Open answer."],
+    ["a", "Answer: When's your birthday? How old are you?", "Open answer."],
+  ],
+  quiz: [
+    ["El mes número 5 es…", ["May", "March", "June"], "Months."],
+    ["My birthday is ___ June.", ["in", "on", "at"], "Birthday."],
+    ["Mañana (día siguiente) is…", ["tomorrow", "morning", "yesterday"], "Days."],
+    ["___ Sunday I go to the park.", ["On", "In", "At"], "Week."],
+    ["Trick or treat! is said on…", ["Halloween", "Christmas", "Easter"], "Special days."],
+  ],
+  examen: [
+    ["In the reading, when does Sam go swimming?", ["Tuesday", "Friday", "Sunday"], "Reading."],
+    ["What does Sam do on Sunday?", ["stays at home", "goes to school", "plays the drums"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Months", "January, February, March… December (12)."],
+    ["Time words", "yesterday, today, tomorrow; on Monday; in May."],
+  ],
+  glosario: [
+    ["Month", "Mes."],
+    ["Birthday", "Cumpleaños."],
+    ["Candles", "Velas."],
+    ["Yesterday", "Ayer."],
+    ["Today", "Hoy."],
+    ["Tomorrow", "Mañana (el día siguiente)."],
+    ["Morning", "Mañana (parte del día)."],
+    ["Afternoon", "Tarde."],
+    ["Busy", "Ocupado."],
+    ["Favourite", "Favorito."],
+  ],
+  situacion: {
+    titulo: "Our birthday calendar",
+    reto: "La clase hace un calendario gigante en inglés con los cumpleaños de todos y las fiestas especiales.",
+    pasos: ["Escribir los doce meses en carteles.", "Preguntar «When's your birthday?» a cada compañero.", "Colocar el nombre de cada uno en su mes.", "Añadir las fiestas especiales y presentar el calendario."],
+    producto: "Un calendario de cumpleaños de la clase en inglés.",
+    evaluacion: ["Dice los meses en orden.", "Pregunta y responde por el cumpleaños.", "Usa On + día.", "Usa yesterday, today y tomorrow."],
+  },
+});

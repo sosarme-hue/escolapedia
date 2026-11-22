@@ -135,3 +135,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Describir a una persona: long hair, big eyes", "Usar He's got / She's got", "Decir cómo nos sentimos: I'm happy, I'm sad", "Nombrar los cinco sentidos en inglés"],
+  lectura: { titulo: "The friendly monster", html: `<p>In a big green forest there is a friendly monster. His name is Bobo.</p><p>Bobo has got <b>three eyes</b>: two blue eyes and one green eye. He has got <b>two big ears</b> and a very <b>long nose</b>.</p><p>Bobo has got <b>four arms</b> and <b>two short legs</b>. His hair is <b>purple</b> and very curly.</p><p>"Hello!" says Bobo to a little girl. Her name is Lily.</p><p>Lily is scared. "Oh no! A monster!"</p><p>"Don't be scared," says Bobo. "I'm a friendly monster. I can clap with my four hands!" Clap, clap, clap, clap!</p><p>Lily laughs. "You're funny, Bobo!"</p><p>Now Lily and Bobo are friends. They play together every day. Bobo touches his toes, and Lily touches her nose.</p><p>"I'm happy!" says Bobo.</p><p>"Me too!" says Lily.</p><p><i>(friendly: simpático · scared: asustada · curly: rizado · clap: aplaudir)</i></p>` },
+  tras: {
+    "Hair, teeth and more": [
+      ["Long hair, short hair", `<p>Para describir el pelo (<mark>hair</mark>) usamos estas palabras:</p><ul><li><b>long hair</b>: pelo largo.</li><li><b>short hair</b>: pelo corto.</li><li><b>curly hair</b>: pelo rizado.</li><li><b>straight hair</b>: pelo liso.</li></ul><p>Y los colores del pelo:</p><ul><li><b>blond</b> (rubio), <b>brown</b> (castaño), <b>black</b> (negro), <b>red</b> (pelirrojo), <b>grey</b> (canoso).</li></ul><p>¡Atención! En inglés, la palabra que describe va <b>antes</b>: decimos <b>long hair</b> (largo pelo), no «hair long».</p><p>Examples:</p><ul><li>«I've got <b>short brown</b> hair.»</li><li>«Grandma has got <b>grey curly</b> hair.»</li></ul><p><b>Actividad</b>: mira a tu compañero y di cómo es su pelo en inglés.</p>`,
+        H6.dos("Hair", ["LONG", ["long hair", "curly", "blond"], cMO], ["SHORT", ["short hair", "straight", "black"], cAZ])],
+    ],
+    "I've got blue eyes": [
+      ["He's got, she's got", `<p>Para hablar de <b>otra persona</b> cambiamos <i>I've got</i>:</p><ul><li><mark>He's got</mark> (él tiene): «<b>He's got</b> blue eyes.»</li><li><mark>She's got</mark> (ella tiene): «<b>She's got</b> long hair.»</li><li><b>It's got</b> (tiene, para un animal o cosa): «The dog <b>has got</b> big ears.»</li></ul><p>Look and listen:</p><ul><li>«This is my brother. <b>He's got</b> short black hair and brown eyes.»</li><li>«This is my mum. <b>She's got</b> long blond hair and green eyes.»</li><li>«This is my cat. <b>It's got</b> a small nose and long whiskers.»</li></ul><p><i>He's</i> = <i>he has</i> y <i>she's</i> = <i>she has</i>.</p><p><b>Actividad</b>: dibuja a una persona de tu familia y descríbela con He's got o She's got.</p>`,
+        L6.filas("Got", [["I've got", "yo tengo", cAZ], ["He's got", "él tiene", cVE], ["She's got", "ella tiene", cRO], ["It's got", "tiene", cNA]])],
+    ],
+    "Touch your nose!": [
+      ["How do you feel?", `<p>Nuestra cara muestra cómo nos <mark>sentimos</mark>. En inglés decimos <b>I'm…</b> (Estoy…):</p><ul><li><b>happy</b>: contento 😊</li><li><b>sad</b>: triste 😢</li><li><b>angry</b>: enfadado 😠</li><li><b>scared</b>: asustado 😨</li><li><b>tired</b>: cansado 😴</li><li><b>hungry</b>: con hambre.</li></ul><p>Para preguntar: <b>How do you feel?</b> (¿Cómo te sientes?)</p><ul><li>«How do you feel?» — «<b>I'm happy</b>, thank you!»</li><li>«Are you tired?» — «Yes, I am.» / «No, I'm not.»</li></ul><p>Cuando estamos contentos, sonreímos con la <b>mouth</b>. Cuando estamos tristes, salen lágrimas de los <b>eyes</b>.</p><p><b>Actividad</b>: haz una cara con plastilina que muestre un sentimiento y di su nombre en inglés.</p>`,
+        H6.rueda("Feel", "I'M", [["happy", cNA], ["sad", cAZ], ["angry", cRO], ["tired", cMO]])],
+    ],
+    "¿Para qué sirve?": [
+      ["The five senses", `<p>Tenemos cinco <mark>senses</mark> (sentidos). Cada uno usa una parte del cuerpo:</p><ul><li><b>I see</b> with my <b>eyes</b>. (Veo con los ojos.)</li><li><b>I hear</b> with my <b>ears</b>. (Oigo con las orejas.)</li><li><b>I smell</b> with my <b>nose</b>. (Huelo con la nariz.)</li><li><b>I taste</b> with my <b>tongue</b>. (Saboreo con la lengua.)</li><li><b>I touch</b> with my <b>hands</b>. (Toco con las manos.)</li></ul><p>Little game:</p><ul><li>«I can see a red apple.»</li><li>«I can hear a dog: woof!»</li><li>«I can smell a flower.»</li><li>«I can taste chocolate. Yummy!»</li><li>«I can touch a soft cat.»</li></ul><p><b>Actividad</b>: con los ojos tapados, adivina objetos tocándolos y di «I can touch a…».</p>`,
+        L6.filas("Senses", [["see", "eyes", cAZ], ["hear", "ears", cVE], ["smell", "nose", cNA], ["touch", "hands", cRO]]),
+        ["vXXiyIGqliE", "Five Senses - Body Parts Song", "The Kiboomers", 15141098]],
+    ],
+  },
+  final: [
+    ["Wash your hands!", `<p>Para cuidar nuestro cuerpo hay que tener buenos hábitos de <mark>higiene</mark>. En inglés:</p><ul><li><b>Wash your hands</b>: lávate las manos (antes de comer y después del baño).</li><li><b>Brush your teeth</b>: cepíllate los dientes (después de cada comida).</li><li><b>Brush your hair</b>: péinate.</li><li><b>Wash your face</b>: lávate la cara.</li><li><b>Have a shower</b>: dúchate.</li></ul><p>Una canción para lavarse las manos: «Wash, wash, wash your hands, wash them every day. Soap and water, rub, rub, rub, the germs all go away!»</p><p><i>(soap: jabón · water: agua · germs: microbios)</i></p><p>Hay que frotar las manos mientras cantas la canción dos veces. ¡Así quedan bien limpias!</p><p><b>Actividad</b>: canta la canción mientras te lavas las manos antes de comer.</p>`,
+      H6.flujo("Clean", ["water|hands", "soap|rub", "rinse|agua", "dry|towel"], cAZ)],
+    ["Repaso: the friendly monster", `<p>Repasamos con la <mark>lectura</mark> de Bobo:</p><ul><li>Bobo has got <b>three eyes</b>: tres ojos.</li><li>He has got <b>two big ears</b>: dos orejas grandes.</li><li>He has got a <b>long nose</b>: una nariz larga.</li><li>He has got <b>four arms</b> and <b>two short legs</b>.</li><li>His hair is <b>purple</b> and <b>curly</b>: morado y rizado.</li><li>Lily is <b>scared</b> at first, then <b>happy</b>.</li><li>Bobo <b>claps</b> with his four hands.</li></ul><p>Bobo looks different, but he is friendly. Lo importante no es cómo somos por fuera, sino cómo tratamos a los demás.</p><p>Bobo y Lily nos enseñan que todos somos diferentes: unos tienen el pelo largo y otros corto, unos tienen los ojos azules y otros marrones. ¡Y eso es lo bonito! Everybody is different, and everybody is special.</p><p><b>Actividad</b>: dibuja tu propio monstruo y descríbelo: «My monster has got…».</p>`,
+      L6.filas("Bobo", [["eyes", "three", cVE], ["arms", "four", cAZ], ["legs", "two short", cNA], ["hair", "purple", cMO]])],
+  ],
+  ejemplos: [
+    ["Describe: pelo largo y rubio.", ["Primero long, luego el color, al final hair."], "Long blond hair."],
+    ["Mi hermana tiene ojos verdes.", ["Ella: She's got.", "green eyes."], "She's got green eyes."],
+  ],
+  errores: ["Decir «hair long» en lugar de «long hair».", "Usar «I've got» para hablar de otra persona: «My mum I've got…»."],
+  ejercicios: [
+    ["b", "How do you say «pelo corto»?", "Short hair."],
+    ["b", "How do you say «ella tiene»?", "She's got."],
+    ["b", "What is «happy» in Spanish?", "Contento."],
+    ["b", "I see with my…", "Eyes."],
+    ["b", "Translate: Lávate las manos.", "Wash your hands."],
+    ["m", "Complete: «My dad ___ got short black hair.»", "Has (He's got)."],
+    ["m", "Answer: How do you feel?", "I'm happy / I'm tired…"],
+    ["m", "I smell with my…", "Nose."],
+    ["m", "Order: hair / curly / I've got / red", "I've got curly red hair."],
+    ["m", "What is «brush your teeth»?", "Cepíllate los dientes."],
+    ["a", "In the reading, how many eyes has Bobo got?", "Three."],
+    ["a", "Describe Bobo's hair.", "Purple and curly."],
+    ["a", "Describe a friend: hair, eyes, feeling.", "Open answer."],
+    ["a", "Draw a monster and write three sentences with «It's got».", "Open answer."],
+  ],
+  quiz: [
+    ["Pelo rizado is…", ["curly hair", "long hair", "short hair"], "Hair."],
+    ["Ella tiene is…", ["She's got", "He's got", "I've got"], "Got."],
+    ["Triste is…", ["sad", "happy", "angry"], "Feelings."],
+    ["I hear with my…", ["ears", "nose", "hands"], "Senses."],
+    ["Brush your…", ["teeth", "shoes", "chair"], "Hygiene."],
+  ],
+  examen: [
+    ["In the reading, Bobo's hair is…", ["purple", "blond", "black"], "Reading."],
+    ["How many arms has Bobo got?", ["four", "two", "three"], "Repaso."],
+  ],
+  tarjetas: [
+    ["He's got / She's got", "Él tiene / Ella tiene."],
+    ["Five senses", "see, hear, smell, taste, touch."],
+  ],
+  glosario: [
+    ["Long", "Largo."],
+    ["Short", "Corto."],
+    ["Curly", "Rizado."],
+    ["Straight", "Liso."],
+    ["Blond", "Rubio."],
+    ["Happy", "Contento."],
+    ["Sad", "Triste."],
+    ["Tongue", "Lengua."],
+    ["Wash", "Lavar."],
+    ["Friendly", "Simpático."],
+  ],
+  situacion: {
+    titulo: "Monster party",
+    reto: "Cada alumno crea un monstruo, lo describe en inglés y la clase juega a adivinar de quién es cada monstruo.",
+    pasos: ["Dibujar un monstruo con muchas partes del cuerpo.", "Escribir tres frases: «It's got…».", "Decir cómo se siente el monstruo: «It's happy».", "Jugar a adivinar el monstruo por su descripción."],
+    producto: "Un mural de monstruos con descripciones en inglés.",
+    evaluacion: ["Nombra partes del cuerpo.", "Usa He's got / She's got / It's got.", "Dice sentimientos.", "Nombra los cinco sentidos."],
+  },
+});

@@ -135,3 +135,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Ampliar el vocabulario de la ropa: pyjamas, scarf, gloves", "Describir la ropa con color y tamaño: a big red hat", "Usar He's wearing / She's wearing", "Comprar ropa con frases sencillas"],
+  lectura: { titulo: "Teddy's suitcase", html: `<p>Teddy is a brown bear. Tomorrow he is going on holiday to the mountains. It's very cold there, with lots of snow.</p><p>Teddy opens his <b>suitcase</b>. "What can I take?" he asks.</p><p>First, he puts in a warm <b>jumper</b> and a pair of <b>trousers</b>. Then, he puts in a big <b>coat</b>, a woolly <b>hat</b>, a long <b>scarf</b> and two <b>gloves</b>.</p><p>"And my <b>boots</b> for the snow!" he says.</p><p>His friend Bunny looks at the suitcase. "Teddy, where are your <b>pyjamas</b>?"</p><p>"Oh, no! I forgot my pyjamas!" Teddy laughs and puts his blue pyjamas with yellow stars in the suitcase.</p><p>"Now I'm ready!" says Teddy.</p><p>"Wait!" says Bunny. "What about your <b>swimsuit</b>?"</p><p>"A swimsuit? In the snow? No, thank you!" says Teddy. They both laugh.</p><p><i>(suitcase: maleta · woolly: de lana · forgot: olvidé · ready: listo)</i></p>` },
+  tras: {
+    "Shoes, socks and hats": [
+      ["Winter and summer clothes", `<p>Hay ropa para el frío y ropa para el calor.</p><p><mark>Winter clothes</mark> (ropa de invierno):</p><ul><li><b>coat</b>: abrigo.</li><li><b>scarf</b>: bufanda.</li><li><b>gloves</b>: guantes.</li><li><b>boots</b>: botas.</li><li><b>jumper</b>: jersey.</li></ul><p><mark>Summer clothes</mark> (ropa de verano):</p><ul><li><b>shorts</b>: pantalón corto.</li><li><b>sandals</b>: sandalias.</li><li><b>cap</b>: gorra.</li><li><b>sunglasses</b>: gafas de sol.</li><li><b>swimsuit</b>: bañador.</li></ul><p>Algunas palabras van siempre en plural porque tienen dos partes: <b>trousers</b>, <b>shorts</b>, <b>pyjamas</b>, <b>sunglasses</b>.</p><p>Recuerda: en invierno hace frío, así que nos abrigamos mucho. En verano hace calor, y llevamos ropa ligera, gorra y crema para el sol. «It's cold! Put on your coat!» «It's hot! Put on your cap!»</p><p><b>Actividad</b>: haz dos columnas en tu cuaderno y dibuja ropa de invierno y de verano.</p>`,
+        H6.dos("Clothes", ["WINTER", ["coat", "scarf", "gloves"], cAZ], ["SUMMER", ["shorts", "cap", "sandals"], cNA])],
+    ],
+    "A blue T-shirt": [
+      ["A big red hat", `<p>Para describir una prenda decimos primero el <b>tamaño</b>, luego el <b>color</b> y al final la <b>prenda</b>:</p><ul><li>«a <b>big red</b> hat»: un sombrero grande y rojo.</li><li>«a <b>small blue</b> T-shirt»: una camiseta pequeña y azul.</li><li>«<b>long green</b> socks»: calcetines largos y verdes.</li><li>«<b>short black</b> boots»: botas cortas y negras.</li></ul><p>En español el color va después («camiseta azul»), pero en inglés va <mark>antes</mark> («blue T-shirt»).</p><p>También podemos decir si nos gusta:</p><ul><li>«I like your <b>yellow</b> dress!» (¡Me gusta tu vestido amarillo!)</li><li>«My favourite clothes are my <b>green</b> trainers.»</li></ul><p><b>Actividad</b>: describe la ropa que llevas hoy con tamaño y color.</p>`,
+        H6.flujo("Order", ["a|un", "big|tamaño", "red|color", "hat|prenda"], cRO),
+        ["YSoGPslg2Vc", "Put On Your Shoes Let's Go Song", "ToysPlay", 762229934]],
+    ],
+    "I'm wearing…": [
+      ["He's wearing, she's wearing", `<p>Para decir lo que lleva puesto <b>otra persona</b>:</p><ul><li><mark>He's wearing</mark>: él lleva puesto.</li><li><mark>She's wearing</mark>: ella lleva puesto.</li></ul><p>Look at the pictures and listen:</p><ul><li>«This is Tom. <b>He's wearing</b> a blue jumper and brown trousers.»</li><li>«This is Ana. <b>She's wearing</b> a pink dress and white shoes.»</li><li>«The clown <b>is wearing</b> a big red nose and funny shoes!»</li></ul><p>Para preguntar: <b>What are you wearing?</b> (¿Qué llevas puesto?)</p><ul><li>«What are you wearing?» — «<b>I'm wearing</b> a green T-shirt and jeans.»</li></ul><p>Fíjate en que <i>wearing</i> termina en <b>-ing</b>: así se dice lo que está pasando ahora mismo. Otra pregunta útil es «What is she wearing?» (¿Qué lleva ella?), y respondemos «She's wearing a yellow coat and blue boots».</p><p><b>Actividad</b>: juega a «Who is it?»: describe la ropa de un compañero y los demás adivinan quién es.</p>`,
+        L6.filas("Wearing", [["I'm", "yo llevo", cAZ], ["He's", "él lleva", cVE], ["She's", "ella lleva", cRO], ["You're", "tú llevas", cNA]])],
+    ],
+    "Hot or cold?": [
+      ["At the clothes shop", `<p>En una tienda de ropa (<mark>clothes shop</mark>) podemos usar estas frases:</p><ul><li>«<b>Can I help you?</b>»: ¿Puedo ayudarte? (dice el dependiente)</li><li>«<b>I'd like</b> a T-shirt, please.»: Quería una camiseta, por favor.</li><li>«<b>What colour?</b>»: ¿De qué color?</li><li>«<b>Can I try it on?</b>»: ¿Me lo puedo probar?</li><li>«<b>How much is it?</b>»: ¿Cuánto cuesta?</li><li>«<b>It's ten euros.</b>»: Cuesta diez euros.</li><li>«<b>Thank you. Goodbye!</b>»</li></ul><p>Si la ropa nos queda grande decimos «<b>It's too big</b>», y si nos queda pequeña, «<b>It's too small</b>».</p><p><b>Actividad</b>: montad una tienda de ropa en clase y practicad el diálogo.</p>`,
+        L6.dialogo("Shop", [["Shop", "Can I help you?", cAZ], ["Mia", "I'd like a hat, please.", cRO], ["Shop", "What colour?", cAZ], ["Mia", "Red, please!", cRO]])],
+    ],
+  },
+  final: [
+    ["Clothes around the world", `<p>En distintos países la gente lleva <mark>ropa tradicional</mark> muy bonita:</p><ul><li>In <b>Scotland</b> (Escocia), men sometimes wear a <b>kilt</b>: una falda de cuadros.</li><li>In <b>Japan</b> (Japón), people wear a <b>kimono</b> on special days.</li><li>In <b>Mexico</b>, some people wear a big hat called a <b>sombrero</b>.</li><li>In <b>India</b>, many women wear a <b>sari</b>: una tela larga de colores.</li><li>In <b>Spain</b>, some people wear a <b>flamenco dress</b> at the fair.</li></ul><p>En los países muy fríos la gente lleva abrigos gruesos, y en los muy calurosos, ropa ancha y ligera para no pasar calor.</p><p><b>Actividad</b>: dibuja a un niño o niña con ropa tradicional de otro país y di qué lleva: «He's wearing a kilt».</p>`,
+      H6.rueda("World", "CLOTHES", [["kilt", cVE], ["kimono", cRO], ["sari", cNA], ["sombrero", cMO]])],
+    ["Repaso: Teddy's suitcase", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Teddy va a la montaña, donde hace <b>frío</b>: it's <b>cold</b>.</li><li>Mete un <b>jumper</b> y unos <b>trousers</b>.</li><li>Mete ropa de invierno: <b>coat</b>, <b>hat</b>, <b>scarf</b> and <b>gloves</b>.</li><li>Para la nieve lleva <b>boots</b>.</li><li>Se olvida de los <b>pyjamas</b>: azules con estrellas amarillas, <b>blue pyjamas with yellow stars</b>.</li><li>No necesita <b>swimsuit</b> en la nieve.</li></ul><p>Antes de un viaje hay que pensar qué tiempo hará y elegir la ropa adecuada.</p><p>Teddy is ready for the snow. Remember: si vas a la playa necesitas un swimsuit, sandals, a cap and sunglasses; si vas a la nieve, un coat, a scarf, gloves and boots.</p><p><b>Actividad</b>: haz una lista en inglés de la ropa que llevarías a la playa.</p>`,
+      L6.filas("Suitcase", [["jumper", "jersey", cAZ], ["scarf", "bufanda", cRO], ["boots", "botas", cMO], ["pyjamas", "pijama", cNA]])],
+  ],
+  ejemplos: [
+    ["Di «una camiseta pequeña y verde».", ["Tamaño, color, prenda."], "A small green T-shirt."],
+    ["Ella lleva un vestido rosa.", ["She's wearing + a pink dress."], "She's wearing a pink dress."],
+  ],
+  errores: ["Poner el color detrás: «a T-shirt blue».", "Decir «a trouser»: siempre es «trousers»."],
+  ejercicios: [
+    ["b", "How do you say «bufanda»?", "Scarf."],
+    ["b", "How do you say «guantes»?", "Gloves."],
+    ["b", "Name a summer clothes word.", "Shorts, cap, sandals…"],
+    ["b", "What is «He's wearing»?", "Él lleva puesto."],
+    ["b", "Translate: ¿Cuánto cuesta?", "How much is it?"],
+    ["m", "Order: hat / a / red / big", "A big red hat."],
+    ["m", "Complete: «She ___ wearing a dress.»", "Is (She's)."],
+    ["m", "Translate: Me queda grande.", "It's too big."],
+    ["m", "What do people wear in Japan on special days?", "A kimono."],
+    ["m", "Answer: What are you wearing?", "I'm wearing…"],
+    ["a", "In the reading, what does Teddy forget?", "His pyjamas."],
+    ["a", "Describe Teddy's pyjamas.", "Blue pyjamas with yellow stars."],
+    ["a", "Write the shop dialogue to buy a scarf.", "Open answer."],
+    ["a", "Describe what your teacher is wearing today.", "Open answer."],
+  ],
+  quiz: [
+    ["Guantes is…", ["gloves", "boots", "socks"], "Winter."],
+    ["«a ___ hat»", ["big red", "red big", "hat red"], "Order."],
+    ["Ella lleva puesto…", ["She's wearing", "He's wearing", "I'm wearing"], "Wearing."],
+    ["¿Cuánto cuesta?", ["How much is it?", "What colour?", "Can I help you?"], "Shop."],
+    ["In Scotland some men wear a…", ["kilt", "kimono", "sari"], "World."],
+  ],
+  examen: [
+    ["In the reading, where is Teddy going?", ["to the mountains", "to the beach", "to school"], "Reading."],
+    ["What colour are Teddy's pyjamas?", ["blue", "red", "green"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Order", "Tamaño + color + prenda: a big red hat."],
+    ["Wearing", "I'm / He's / She's wearing…"],
+  ],
+  glosario: [
+    ["Coat", "Abrigo."],
+    ["Scarf", "Bufanda."],
+    ["Gloves", "Guantes."],
+    ["Boots", "Botas."],
+    ["Jumper", "Jersey."],
+    ["Shorts", "Pantalón corto."],
+    ["Pyjamas", "Pijama."],
+    ["Swimsuit", "Bañador."],
+    ["Suitcase", "Maleta."],
+    ["Too big", "Demasiado grande."],
+  ],
+  situacion: {
+    titulo: "Fashion show",
+    reto: "La clase organiza un desfile de moda en inglés: cada alumno presenta la ropa de un compañero.",
+    pasos: ["Elegir ropa de invierno, de verano o tradicional.", "Escribir una presentación: «This is… He's wearing…».", "Incluir tamaño y color: «a big yellow hat».", "Desfilar y presentar en inglés."],
+    producto: "Un desfile de moda con presentaciones en inglés.",
+    evaluacion: ["Nombra prendas de invierno y verano.", "Ordena tamaño, color y prenda.", "Usa He's / She's wearing.", "Usa frases de tienda."],
+  },
+});
