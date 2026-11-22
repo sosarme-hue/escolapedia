@@ -142,3 +142,91 @@ module.exports = {
   fuentes: [RD, wiki("Edad Moderna", "Edad_Moderna"), wiki("Reyes Católicos", "Reyes_Católicos"), { t: "Museo Nacional del Prado", url: "https://www.museodelprado.es/" }],
   revisado: REV,
 };
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Valorar la importancia de la imprenta en la difusión de las ideas", "Explicar por qué Madrid se convirtió en capital", "Conocer a mujeres destacadas del Siglo de Oro", "Describir las expediciones científicas y la vida cotidiana de la Edad Moderna"],
+  lectura: { titulo: "El galeón que unió tres continentes", html: `<p>En 1565, el marino y fraile vasco <b>Andrés de Urdaneta</b> consiguió algo que nadie había logrado: volver por mar desde Filipinas hasta América. Hasta entonces, los barcos podían cruzar el océano Pacífico hacia Asia, pero los vientos y las corrientes les impedían regresar. Urdaneta subió mucho hacia el norte, encontró vientos favorables y llegó a las costas de México. A esa ruta de vuelta se la llamó el <b>tornaviaje</b>.</p><p>Gracias a su descubrimiento nació el <b>Galeón de Manila</b>. Durante unos 250 años, enormes barcos cruzaron el Pacífico entre Manila, en Filipinas, y Acapulco, en México. Hacia Asia llevaban sobre todo plata americana. De vuelta traían sedas, porcelanas, especias, abanicos y marfiles de China, Japón y otros lugares.</p><p>Desde Acapulco, las mercancías cruzaban México a lomos de mulas y seguían en barco hasta Sevilla. Así, por primera vez, existía una ruta comercial que unía <b>Asia, América y Europa</b>.</p><p>El viaje era durísimo: duraba meses, y muchos marineros enfermaban. Pero aquel galeón fue una de las primeras rutas de la historia en conectar todo el planeta.</p>` },
+  tras: {
+    "El descubrimiento de América": [
+      ["La imprenta: los libros llegan a todos", `<p>Hacia 1450, en la ciudad alemana de Maguncia, <b>Johannes Gutenberg</b> perfeccionó la <b>imprenta de tipos móviles</b>: pequeñas piezas de metal, cada una con una letra, que se colocaban en orden para formar las páginas, se entintaban y se presionaban sobre el papel. Después se podían desmontar y usar para otra página.</p><p>Antes de la imprenta, los libros se copiaban <b>a mano</b>, sobre todo en los monasterios. Copiar un libro grueso podía costar meses, así que eran escasos y carísimos. Con la imprenta, en poco tiempo se podían hacer cientos de ejemplares iguales.</p><p>La imprenta llegó pronto a España: uno de los primeros libros impresos en la península fue el <b>Sinodal de Aguilafuente</b>, en Segovia, hacia 1472. En 1492, el mismo año de la llegada de Colón a América, <b>Antonio de Nebrija</b> publicó la primera <b>gramática</b> de la lengua castellana.</p><p>Las consecuencias fueron enormes:</p><ul><li>Los libros se abarataron y más personas aprendieron a leer.</li><li>Las ideas y los descubrimientos se difundieron mucho más rápido por toda Europa.</li><li>Las lenguas se fueron fijando, con normas comunes de escritura.</li></ul><p>Por eso muchos historiadores consideran la imprenta uno de los inventos que abrieron la Edad Moderna.</p>`,
+        H6.dos("Hacer un libro", ["A mano", ["copistas", "meses de trabajo", "pocos y caros"], cRO], ["Con imprenta", ["tipos móviles", "cientos de copias", "más baratos"], cVE])],
+    ],
+    "Los Austrias mayores: el gran imperio": [
+      ["Madrid, capital de la monarquía", `<p>Durante la Edad Media, los reyes de Castilla no tenían una capital fija: viajaban con su corte de ciudad en ciudad. Valladolid y Toledo fueron residencias importantes.</p><p>En <b>1561</b>, el rey <b>Felipe II</b> decidió instalar la corte de forma permanente en <b>Madrid</b>. No se sabe con total seguridad por qué eligió esta villa, que entonces era pequeña. Los historiadores señalan varias razones:</p><ul><li>Su posición en el <b>centro de la península</b>, a una distancia parecida de las costas y de las fronteras.</li><li>Tenía <b>agua</b> abundante, bosques para la caza y buen clima.</li><li>Estaba cerca del lugar donde Felipe II mandó construir el monasterio de <b>El Escorial</b>.</li></ul><p>Desde entonces, Madrid creció muy deprisa. Llegaron nobles, funcionarios, artesanos, comerciantes y criados. En pocas décadas su población se multiplicó varias veces. Se construyeron palacios, iglesias, conventos y, ya en el siglo XVII, la <b>Plaza Mayor</b>, donde se celebraban fiestas, mercados y corridas de toros.</p><p>Salvo un breve periodo a comienzos del siglo XVII, en que la corte se trasladó a Valladolid, Madrid ha sido desde entonces la capital de España.</p>`,
+        L6.filas("Madrid capital", [["1561", "llega la corte", cAZ], ["centro", "de la península", cNA], ["agua y caza", "buenos recursos", cVE], ["siglo XVII", "Plaza Mayor", cMO]])],
+    ],
+    "El Siglo de Oro": [
+      ["Mujeres del Siglo de Oro", `<p>En la Edad Moderna, las mujeres tenían muchas menos oportunidades que los hombres: casi ninguna podía estudiar en la universidad ni ejercer la mayoría de los oficios. Aun así, algunas lograron destacar:</p><ul><li><b>Beatriz Galindo</b>, llamada «la Latina» por su dominio del latín, fue maestra de la reina Isabel la Católica. Un barrio de Madrid lleva hoy su apodo.</li><li><b>Teresa de Jesús</b> (1515-1582), nacida en Ávila, fundó numerosos conventos y escribió libros que son joyas de la literatura en castellano.</li><li><b>Sofonisba Anguissola</b>, pintora italiana, fue llamada a la corte de Felipe II, donde pintó retratos de la familia real y fue dama de la reina.</li><li><b>María de Zayas</b> escribió novelas en el siglo XVII en las que defendía que las mujeres tenían la misma inteligencia que los hombres y merecían recibir educación.</li><li><b>Luisa Roldán</b>, «la Roldana», escultora sevillana, fue nombrada escultora de cámara del rey Carlos II: la primera mujer en conseguirlo.</li></ul><p>Durante mucho tiempo, sus nombres aparecieron poco en los libros de historia. Hoy se estudian y se reconocen sus obras.</p>`,
+        L6.filas("Mujeres destacadas", [["Beatriz Galindo", "maestra de la reina", cMO], ["Teresa de Jesús", "escritora", cAZ], ["Sofonisba", "pintora de la corte", cNA], ["la Roldana", "escultora del rey", cVE]])],
+    ],
+  },
+  final: [
+    ["Expediciones científicas", `<p>En el siglo XVIII, con la <b>Ilustración</b>, la monarquía española organizó grandes viajes, no para conquistar, sino para <b>conocer</b> mejor el mundo:</p><ul><li>En 1735, dos jóvenes marinos españoles, <b>Jorge Juan</b> y <b>Antonio de Ulloa</b>, viajaron a América del Sur con científicos franceses para medir un trozo del meridiano terrestre cerca del ecuador. Su objetivo era averiguar la forma exacta de la Tierra. Comprobaron que está algo achatada por los polos.</li><li>Se enviaron <b>expediciones botánicas</b> a Perú, Nueva Granada (la actual Colombia) y Nueva España (México) para estudiar plantas útiles como medicinas. Los artistas que las acompañaban dibujaron miles de láminas de plantas y animales.</li><li>Entre 1789 y 1794, <b>Alejandro Malaspina</b> dirigió una gran expedición en dos barcos, la <i>Descubierta</i> y la <i>Atrevida</i>. Recorrieron las costas de América, desde Argentina hasta Alaska, y llegaron a Filipinas y Australia. Hicieron mapas, mediciones y recogieron miles de muestras.</li></ul><p>Muchos de estos materiales se conservan en el Real Jardín Botánico y en el Museo Naval de Madrid.</p>`,
+      L6.filas("Viajes para conocer", [["1735", "Jorge Juan y Ulloa", cAZ], ["siglo XVIII", "expediciones botánicas", cVE], ["1789-1794", "Malaspina", cNA], ["hoy", "Botánico y Museo Naval", cMO]]), ["M4HhqADFoCw", "La expedición española de Malaespina", "A toda leche", 73861]],
+    ["La vida cotidiana en la Edad Moderna", `<p>¿Cómo vivía la gente corriente hace trescientos o cuatrocientos años?</p><ul><li>La mayoría de la población, más de ocho de cada diez personas, vivía en el <b>campo</b> y trabajaba la tierra. Las cosechas dependían del tiempo: un año de sequía podía traer hambre.</li><li>Las <b>casas</b> de los campesinos eran pequeñas, con suelo de tierra, una chimenea para cocinar y calentarse y, a veces, el establo al lado. No había agua corriente ni luz eléctrica: se iluminaban con velas o candiles.</li><li>La <b>alimentación</b> se basaba en el pan, las legumbres, el vino, el aceite y algo de carne o pescado en salazón. Poco a poco llegaron productos de América, como el tomate, el pimiento, la patata o el chocolate, que al principio era una bebida de lujo.</li><li>Las <b>enfermedades</b>, como la peste, el tifus o la viruela, causaban epidemias terribles. Muchos niños morían antes de cumplir cinco años.</li><li>Muy pocas personas sabían <b>leer y escribir</b>. Las noticias se conocían por los pregones en la plaza, los sermones en la iglesia o los pliegos de cordel que vendían los ciegos.</li></ul>`,
+      H6.rueda("Vida cotidiana", "SIGLO XVII", [["Campo", cVE], ["Velas", cNA], ["Pan", cAZ], ["Epidemias", cRO]])],
+  ],
+  ejemplos: [
+    ["¿Cuántos años funcionó el Galeón de Manila si empezó en 1565 y terminó en 1815?", ["1815 − 1565."], "250 años."],
+    ["¿Cuántos años pasaron entre la gramática de Nebrija (1492) y el traslado de la corte a Madrid (1561)?", ["1561 − 1492."], "69 años."],
+  ],
+  errores: ["Creer que Madrid fue siempre la capital de España: lo es desde 1561.", "Pensar que en la Edad Moderna la mayoría de la gente sabía leer."],
+  ejercicios: [
+    ["b", "¿Quién perfeccionó la imprenta de tipos móviles?", "Johannes Gutenberg, hacia 1450."],
+    ["b", "¿En qué año se instaló la corte en Madrid?", "En 1561, con Felipe II."],
+    ["b", "¿Qué era el tornaviaje?", "La ruta de vuelta desde Filipinas a América que descubrió Urdaneta."],
+    ["b", "¿Por qué se llamaba «la Latina» a Beatriz Galindo?", "Por su dominio del latín."],
+    ["b", "¿Cómo se llamaban los barcos de la expedición Malaspina?", "Descubierta y Atrevida."],
+    ["m", "Di dos consecuencias de la invención de la imprenta.", "Libros más baratos y difusión rápida de las ideas."],
+    ["m", "¿Por qué pudo elegir Felipe II Madrid como capital?", "Por su posición central, su agua y su cercanía a El Escorial."],
+    ["m", "¿Qué mercancías viajaban en el Galeón de Manila?", "Plata hacia Asia; sedas, porcelanas y especias hacia América."],
+    ["m", "¿Qué querían medir Jorge Juan y Antonio de Ulloa?", "Un trozo del meridiano para conocer la forma de la Tierra."],
+    ["m", "¿Qué tenía de especial Luisa Roldán?", "Fue la primera mujer nombrada escultora de cámara del rey."],
+    ["a", "¿Por qué se dice que el Galeón de Manila unió tres continentes?", "Porque conectaba Asia, América y, por Sevilla, Europa."],
+    ["a", "¿Qué diferencia había entre las expediciones de conquista y las científicas del siglo XVIII?", "Las científicas buscaban conocer y estudiar, no conquistar."],
+    ["a", "¿Qué defendía María de Zayas en sus novelas?", "Que las mujeres eran igual de inteligentes y merecían educación."],
+    ["a", "Compara una casa campesina de la Edad Moderna con la tuya.", "Respuesta abierta: sin agua corriente ni luz eléctrica, suelo de tierra, velas…"],
+  ],
+  quiz: [
+    ["Uno de los primeros libros impresos en España se hizo en…", ["Segovia", "Cádiz", "Bilbao"], "Imprenta."],
+    ["Felipe II llevó la corte a Madrid en…", ["1561", "1492", "1700"], "Capital."],
+    ["El tornaviaje lo descubrió…", ["Andrés de Urdaneta", "Cristóbal Colón", "Hernán Cortés"], "Galeón."],
+    ["Fue escritora y fundadora de conventos…", ["Teresa de Jesús", "Sofonisba Anguissola", "la Roldana"], "Siglo de Oro."],
+    ["La expedición Malaspina se hizo entre…", ["1789 y 1794", "1492 y 1504", "1898 y 1900"], "Ilustración."],
+  ],
+  examen: [
+    ["Antes de la imprenta, los libros se copiaban…", ["a mano", "con fotocopiadora", "en ordenadores"], "Imprenta."],
+    ["En la Edad Moderna, la mayoría de la población vivía…", ["en el campo", "en grandes ciudades", "en barcos"], "Vida cotidiana."],
+  ],
+  tarjetas: [
+    ["La imprenta", "Gutenberg, hacia 1450; en España desde hacia 1472; Nebrija, 1492."],
+    ["Madrid capital", "Felipe II instaló allí la corte en 1561."],
+    ["Mujeres del Siglo de Oro", "Beatriz Galindo, Teresa de Jesús, Sofonisba, María de Zayas, la Roldana."],
+    ["Expediciones", "Galeón de Manila (1565-1815), Jorge Juan y Ulloa (1735), Malaspina (1789-1794)."],
+  ],
+  glosario: [
+    ["Imprenta", "Máquina para reproducir textos en muchas copias."],
+    ["Tipos móviles", "Piezas con letras que se combinan para imprimir."],
+    ["Gramática", "Libro con las normas de una lengua."],
+    ["Corte", "El rey y las personas que viven y trabajan con él."],
+    ["Tornaviaje", "Ruta de regreso de Asia a América por el Pacífico."],
+    ["Galeón", "Gran barco de vela usado para el comercio y la guerra."],
+    ["Escultora de cámara", "Escultora al servicio del rey."],
+    ["Ilustración", "Movimiento del siglo XVIII que confiaba en la razón y la ciencia."],
+    ["Meridiano", "Línea imaginaria que va de polo a polo."],
+    ["Expedición botánica", "Viaje para estudiar las plantas de un territorio."],
+    ["Epidemia", "Enfermedad que afecta a muchas personas a la vez."],
+    ["Pliego de cordel", "Papel impreso con historias que se vendía colgado de un cordel."],
+  ],
+  situacion: {
+    titulo: "Un día en el siglo XVII",
+    reto: "La clase investiga y representa cómo era un día en la vida de distintas personas de la Edad Moderna.",
+    pasos: ["Repartid personajes: campesina, artesano, noble, marinero del galeón, impresor, pintora de la corte.", "Investigad en libros y fuentes fiables su casa, su comida, su trabajo y sus preocupaciones.", "Escribid un diario de un día en primera persona y preparad objetos o dibujos.", "Representad una plaza mayor del siglo XVII en la que cada personaje cuente su día."],
+    producto: "Diarios de personajes y una representación teatral.",
+    evaluacion: ["Investiga con fuentes fiables.", "Describe la sociedad de la Edad Moderna.", "Escribe con coherencia y creatividad.", "Comunica de forma expresiva."],
+  },
+});

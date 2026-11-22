@@ -136,3 +136,91 @@ module.exports = {
   fuentes: [RD, { t: "INE: Encuesta de Población Activa", url: "https://www.ine.es/" }, wiki("Sectores económicos", "Sectores_económicos"), wiki("Economía de España", "Economía_de_España")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Comparar el peso de cada sector en la economía española", "Conocer las principales industrias y los productos de calidad de España", "Explicar para qué sirven los impuestos y los bancos", "Valorar la economía circular frente al usar y tirar"],
+  lectura: { titulo: "La vuelta al mundo de una camiseta", html: `<p>Marta se compró una camiseta de algodón en una tienda de su ciudad. Al mirar la etiqueta leyó: «Hecho en Bangladés». Le entró curiosidad y, con su profesor, investigó el viaje de su camiseta.</p><p>Todo empezó en un campo de algodón, quizá en la India. Allí, unos agricultores sembraron, regaron y recogieron las bolas blancas de algodón: era el <b>sector primario</b>.</p><p>El algodón viajó a una fábrica donde lo limpiaron, lo hilaron y lo tejieron. Después, en un taller de Bangladés, cientos de trabajadoras cortaron la tela y cosieron miles de camisetas iguales. Otra fábrica estampó el dibujo. Era el <b>sector secundario</b>.</p><p>Luego la camiseta cruzó el océano en un enorme barco lleno de contenedores, pasó por un almacén, la llevaron en camión a la tienda, la colocaron en un estante y una dependienta se la cobró a Marta. Transporte, comercio, publicidad: el <b>sector terciario</b>.</p><p>Marta se dio cuenta de que en su camiseta habían trabajado personas de muchos países. Y se hizo una pregunta: si la camiseta solo costó unos pocos euros, ¿cuánto habrán cobrado los que la cosieron?</p>` },
+  tras: {
+    "La población activa y los sectores": [
+      ["El peso de cada sector en España", `<p>Para medir la riqueza que produce un país se usa el <b>PIB</b> (producto interior bruto): el valor de todos los bienes y servicios que se producen en un año. Si miramos cómo se reparte el PIB de España entre los sectores, el resultado es muy claro:</p><ul><li>El <b>sector terciario</b> (servicios) produce alrededor de las <b>tres cuartas partes</b> de la riqueza y da trabajo a unas tres de cada cuatro personas ocupadas.</li><li>El <b>sector secundario</b> (industria, energía y construcción) produce aproximadamente una <b>quinta parte</b>.</li><li>El <b>sector primario</b> (agricultura, ganadería, pesca) produce menos del 3 %, aunque es imprescindible: sin él no tendríamos alimentos.</li></ul><p>No siempre fue así. Hacia 1900, más de la mitad de la población activa española trabajaba en el campo. A lo largo del siglo XX, con la mecanización de la agricultura y el crecimiento de las ciudades, muchas personas pasaron a trabajar en fábricas y, después, en servicios.</p><p>Este proceso se llama <b>terciarización</b>, y ha ocurrido en todos los países desarrollados. Las máquinas permiten que hoy muy pocas personas produzcan muchísimos alimentos.</p>`,
+        H6.barras("Peso en la economía (aprox.)", [["primario", 3, cVE, "< 3 %"], ["secundario", 20, cNA, "≈ 20 %"], ["terciario", 75, cAZ, "≈ 75 %"]], 75)],
+    ],
+    "El sector secundario: la industria": [
+      ["Las grandes industrias de España", `<p>Aunque los servicios son el sector más grande, la industria española es muy importante y exporta productos a todo el mundo:</p><ul><li><b>Automóvil</b>: España es el segundo fabricante de coches de Europa, después de Alemania. Hay fábricas en Cataluña, Navarra, Valencia, Aragón, Castilla y León, Galicia, Madrid y Andalucía. La mayoría de los coches se exportan.</li><li><b>Alimentación y bebidas</b>: es la industria que más personas emplea. Transforma los productos del campo y del mar en conservas, aceite, embutidos, vino, quesos o galletas.</li><li><b>Química y farmacia</b>: fabrica medicamentos, plásticos, pinturas y productos de limpieza.</li><li><b>Textil y moda</b>: algunas empresas españolas de ropa venden en tiendas de todo el planeta.</li><li><b>Energías renovables</b>: se fabrican aerogeneradores y placas solares.</li><li><b>Aeronáutica y espacio</b>: se fabrican piezas de aviones y satélites.</li></ul><p>La industria necesita cada vez más <b>innovación</b>: investigar y crear productos nuevos, usar robots y ahorrar energía. Al trabajo de investigación se le llama <b>I+D</b> (investigación y desarrollo). Los países que más invierten en I+D suelen tener una industria más fuerte y mejores salarios.</p>`,
+        L6.filas("Industrias destacadas", [["automóvil", "2.º de Europa", cAZ], ["alimentación", "la que más emplea", cVE], ["farmacia", "medicamentos", cMO], ["renovables", "aerogeneradores", cNA]])],
+    ],
+    "Del campo a tu mesa": [
+      ["Productos con denominación de origen", `<p>Algunos alimentos son especiales porque se producen en un lugar concreto, con un clima, un suelo y unas tradiciones que les dan un sabor único. Para protegerlos existen las <b>denominaciones de origen protegidas</b> (DOP) y las <b>indicaciones geográficas protegidas</b> (IGP).</p><p>Un producto con este sello garantiza que:</p><ul><li>Se ha elaborado en esa zona geográfica.</li><li>Sigue unas normas de calidad y unas técnicas tradicionales.</li><li>Lo controla un <b>consejo regulador</b>, que hace inspecciones.</li></ul><p>España tiene centenares de estos sellos. Algunos ejemplos conocidos son el vino de <b>Rioja</b>, una de las denominaciones de origen más antiguas de España; el <b>queso manchego</b>; el <b>jamón de Guijuelo</b> o de Jabugo; el <b>pimentón de la Vera</b>; el <b>turrón de Jijona</b>; el <b>arroz de Valencia</b>; los <b>plátanos de Canarias</b> o el <b>aceite</b> de muchas comarcas de Andalucía y Cataluña.</p><p>Estos sellos ayudan a los agricultores y ganaderos a vender mejor sus productos, mantienen vivas las tradiciones y dan trabajo en zonas rurales. También nos ayudan a nosotros a saber qué compramos.</p>`,
+        L6.filas("Productos con sello", [["Rioja", "vino", cRO], ["manchego", "queso", cNA], ["Jijona", "turrón", cMO], ["Canarias", "plátanos", cVE]])],
+    ],
+  },
+  final: [
+    ["Dinero, bancos e impuestos", `<p>La economía funciona gracias al <b>dinero</b>, que sirve para comprar y vender, para medir lo que valen las cosas y para ahorrar. Hoy gran parte del dinero no es de papel ni de metal: está en las cuentas de los bancos y se usa con tarjetas o con el móvil.</p><p>Los <b>bancos</b> guardan el dinero de las personas y de las empresas. Con ese dinero conceden <b>préstamos</b> a otras personas para comprar una casa o abrir un negocio. Quien pide un préstamo tiene que devolverlo con un poco más: los <b>intereses</b>.</p><p>Los <b>impuestos</b> son el dinero que pagamos todos para mantener los servicios públicos: hospitales, colegios, carreteras, policía, bomberos, pensiones. Hay varios tipos:</p><ul><li>El <b>IVA</b> se paga al comprar casi cualquier cosa. En España, el tipo general es del 21 %, pero los alimentos básicos, como el pan o la leche, tienen un tipo mucho más bajo.</li><li>El <b>IRPF</b> se paga según lo que se gana con el trabajo: quien más gana, más paga.</li></ul><p>Cada año, el Gobierno prepara los <b>Presupuestos Generales del Estado</b>, que dicen cuánto dinero se espera recaudar y en qué se va a gastar, y las Cortes los votan.</p>`,
+      H6.flujo("Los impuestos", ["Pagamos|impuestos", "Presupuestos", "Servicios|públicos"], cAZ), ["P_iIQKR9IHY", "Cómo funcionan los impuestos explicado con plátanos", "Los Ecomonos", 198491]],
+    ["De usar y tirar a la economía circular", `<p>Durante mucho tiempo, la economía ha funcionado como una línea recta: se extraen materias primas, se fabrican productos, se usan y se tiran. Es la <b>economía lineal</b>. El problema es que los recursos del planeta no son infinitos y la basura se acumula.</p><p>La <b>economía circular</b> propone imitar a la naturaleza, donde nada se desperdicia: los restos de unos seres vivos son el alimento de otros. Sus ideas principales son:</p><ul><li><b>Diseñar</b> productos que duren más, que se puedan reparar y que, al final, se puedan desmontar y reciclar.</li><li><b>Reparar</b> en lugar de tirar: arreglar una bici, coser un pantalón, cambiar la pantalla del móvil.</li><li><b>Reutilizar</b> y comprar de <b>segunda mano</b>: ropa, libros, juguetes o muebles pueden tener muchas vidas.</li><li><b>Compartir</b>: bicicletas públicas, bibliotecas o herramientas de uso común.</li><li><b>Reciclar</b> los materiales para fabricar productos nuevos, y convertir los restos orgánicos en abono.</li></ul><p>Así se gastan menos materias primas y energía, se genera menos basura y se crean empleos nuevos, por ejemplo en talleres de reparación y empresas de reciclaje.</p>`,
+      H6.dos("Dos economías", ["Lineal", ["extraer", "usar", "tirar"], cRO], ["Circular", ["diseñar y reparar", "reutilizar", "reciclar"], cVE])],
+  ],
+  ejemplos: [
+    ["Una camiseta cuesta 10 € sin IVA. Si el IVA es del 21 %, ¿cuánto pagas?", ["21 % de 10 = 2,10 €.", "10 + 2,10."], "12,10 €."],
+    ["Clasifica en sectores: recoger algodón, coser camisetas, transportarlas en barco.", ["Recoger: obtener del campo.", "Coser: transformar.", "Transportar: servicio."], "Primario, secundario y terciario."],
+  ],
+  errores: ["Pensar que el sector primario no es importante porque produce poca riqueza: sin él no habría alimentos.", "Creer que los servicios públicos son gratis: se pagan con los impuestos de todos."],
+  ejercicios: [
+    ["b", "¿Qué es el PIB?", "El valor de todos los bienes y servicios que produce un país en un año."],
+    ["b", "¿Qué sector produce más riqueza en España?", "El terciario."],
+    ["b", "¿En qué puesto de Europa está España como fabricante de coches?", "En el segundo."],
+    ["b", "Escribe tres productos españoles con denominación de origen.", "Por ejemplo, vino de Rioja, queso manchego y turrón de Jijona."],
+    ["b", "¿Para qué sirven los impuestos?", "Para pagar los servicios públicos."],
+    ["m", "¿Qué garantiza una denominación de origen?", "Que el producto se ha elaborado en esa zona con unas normas de calidad controladas."],
+    ["m", "¿Qué son los intereses de un préstamo?", "El dinero extra que se paga al devolverlo."],
+    ["m", "¿Qué es la terciarización?", "El paso de la mayoría de los trabajadores al sector servicios."],
+    ["m", "¿Qué significa I+D?", "Investigación y desarrollo."],
+    ["m", "Di tres acciones de la economía circular que puedas hacer tú.", "Reparar, comprar de segunda mano y reciclar, por ejemplo."],
+    ["a", "Un libro cuesta 20 € sin impuestos y tiene un IVA del 4 %. ¿Cuánto cuesta con IVA?", "20,80 €."],
+    ["a", "¿Por qué hacia 1900 más de la mitad de los españoles trabajaba en el campo y hoy muy pocos?", "Por la mecanización de la agricultura y el crecimiento de la industria y los servicios."],
+    ["a", "Sigue el viaje de una camiseta e indica qué sectores intervienen.", "Primario (algodón), secundario (hilado y confección), terciario (transporte y venta)."],
+    ["a", "¿Qué diferencia hay entre economía lineal y circular?", "La lineal extrae, usa y tira; la circular reutiliza, repara y recicla."],
+  ],
+  quiz: [
+    ["El sector primario produce en España…", ["menos del 3 % de la riqueza", "la mitad de la riqueza", "el 75 % de la riqueza"], "Peso."],
+    ["La industria que más personas emplea en España es la de…", ["alimentación", "aviones", "juguetes"], "Industria."],
+    ["Las DOP las controla un…", ["consejo regulador", "banco", "ayuntamiento cualquiera"], "Calidad."],
+    ["El IVA se paga al…", ["comprar", "nacer", "votar"], "Impuestos."],
+    ["Reparar y reutilizar son ideas de la economía…", ["circular", "lineal", "de usar y tirar"], "Circular."],
+  ],
+  examen: [
+    ["El sector terciario da trabajo en España a unas…", ["tres de cada cuatro personas", "una de cada diez personas", "nueve de cada diez personas"], "Servicios."],
+    ["Los Presupuestos Generales del Estado los votan…", ["las Cortes", "los bancos", "las empresas"], "Impuestos."],
+  ],
+  tarjetas: [
+    ["Peso de los sectores", "Servicios ≈ 75 %, industria ≈ 20 %, primario < 3 % de la riqueza."],
+    ["Industria española", "Automóvil (2.º de Europa), alimentación, farmacia, renovables."],
+    ["Denominación de origen", "Sello de calidad ligado a un lugar: Rioja, manchego, Jijona…"],
+    ["Impuestos y bancos", "IVA e IRPF pagan los servicios públicos; los bancos guardan y prestan."],
+  ],
+  glosario: [
+    ["PIB", "Valor de lo que produce un país en un año."],
+    ["Terciarización", "Aumento del peso del sector servicios."],
+    ["Exportar", "Vender productos a otros países."],
+    ["I+D", "Investigación y desarrollo."],
+    ["Denominación de origen", "Sello que protege productos de una zona concreta."],
+    ["Consejo regulador", "Organismo que controla una denominación de origen."],
+    ["Préstamo", "Dinero que presta un banco y hay que devolver."],
+    ["Interés", "Dinero extra que se paga por un préstamo."],
+    ["IVA", "Impuesto que se paga al comprar."],
+    ["IRPF", "Impuesto sobre lo que se gana."],
+    ["Presupuestos", "Previsión de ingresos y gastos del Estado."],
+    ["Economía circular", "Modelo que reutiliza, repara y recicla."],
+  ],
+  situacion: {
+    titulo: "El mercadillo circular",
+    reto: "La clase organiza un mercadillo de intercambio y reparación de objetos y calcula cuánto se ahorra y cuántos residuos se evitan.",
+    pasos: ["Recoged libros, juguetes y ropa en buen estado que ya no uséis y aprended a reparar pequeñas cosas.", "Poned un valor en puntos a cada objeto y organizad el intercambio.", "Calculad el dinero y los kilos de residuos que se han ahorrado entre todos.", "Elaborad un cartel que explique la economía circular y los resultados del mercadillo."],
+    producto: "Un mercadillo de intercambio y un cartel con sus resultados.",
+    evaluacion: ["Comprende la economía circular.", "Calcula ahorros y porcentajes.", "Organiza una actividad en equipo.", "Comunica los resultados con claridad."],
+  },
+});

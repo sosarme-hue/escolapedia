@@ -141,3 +141,91 @@ module.exports = {
   fuentes: [RD, wiki("Historia de España (siglo XIX)", "Historia_de_España#Edad_Contemporánea"), wiki("Constitución española de 1812", "Constitución_española_de_1812"), { t: "Museo Nacional del Prado: Goya", url: "https://www.museodelprado.es/" }],
   revisado: REV,
 };
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer el papel de la población, y en especial de las mujeres, en la guerra de la Independencia", "Reconocer a los escritores del Romanticismo", "Valorar los inventos e inventores españoles del siglo XIX", "Explicar cómo era la escuela y la lucha por los derechos de las mujeres"],
+  lectura: { titulo: "El submarino de Isaac Peral", html: `<p><b>Isaac Peral</b> nació en Cartagena en 1851. Era marino, pero también un gran estudioso de las matemáticas, la física y la electricidad, una ciencia nueva y apasionante en aquel tiempo.</p><p>Peral tuvo una idea muy audaz: construir un barco que pudiera navegar <b>bajo el agua</b>, moviéndose con motores eléctricos alimentados por baterías, y que pudiera lanzar torpedos sin ser visto. Muchos pensaban que era imposible.</p><p>Tras años de cálculos y de trabajo, el 8 de septiembre de 1888 su submarino fue botado en el arsenal de La Carraca, en Cádiz. Medía unos 22 metros, tenía forma de puro y podía sumergirse y volver a la superficie de forma controlada. En las pruebas navegó sumergido y lanzó torpedos con éxito.</p><p>Fue uno de los primeros submarinos eléctricos capaces de lanzar torpedos. Pero, a pesar de los buenos resultados, el Gobierno decidió no seguir adelante con el proyecto. Peral se sintió muy decepcionado y dejó la Marina.</p><p>Hoy su submarino se conserva en el Museo Naval de Cartagena, su ciudad natal, como recuerdo de un inventor que se adelantó a su tiempo.</p>` },
+  tras: {
+    "La guerra de la Independencia (1808-1814)": [
+      ["Las mujeres en la guerra", `<p>En la guerra contra los ejércitos de Napoleón no solo lucharon los soldados. Toda la población participó, y muchas mujeres se hicieron famosas por su valor:</p><ul><li>El <b>2 de mayo de 1808</b>, en Madrid, mujeres como <b>Manuela Malasaña</b>, una joven costurera, o <b>Clara del Rey</b>, que murió junto a sus hijos defendiendo el cuartel de Monteleón, participaron en el levantamiento contra las tropas francesas.</li><li>En los <b>sitios de Zaragoza</b>, la ciudad resistió durante meses el asedio francés. <b>Agustina de Aragón</b> se hizo famosa cuando, en uno de los ataques de 1808, disparó un cañón cuyos artilleros habían caído y ayudó a frenar el asalto. Más tarde fue nombrada subteniente.</li><li>En <b>Gerona</b>, durante otro largo asedio, se organizó una compañía de mujeres, la de <b>Santa Bárbara</b>, que llevaba munición y agua a los defensores y atendía a los heridos.</li></ul><p>Muchas otras mujeres, cuyos nombres no conocemos, curaron a los heridos, escondieron a perseguidos, llevaron mensajes y mantuvieron a sus familias en medio de la guerra. El pintor <b>Francisco de Goya</b> retrató en sus grabados <i>Los desastres de la guerra</i> el sufrimiento de toda la población.</p>`,
+        L6.filas("Mujeres de 1808", [["Manuela Malasaña", "Madrid, 2 de mayo", cRO], ["Clara del Rey", "cuartel de Monteleón", cNA], ["Agustina", "sitios de Zaragoza", cAZ], ["Santa Bárbara", "asedio de Gerona", cVE]])],
+    ],
+    "Isabel II y las guerras carlistas": [
+      ["El Romanticismo: sentimiento y libertad", `<p>En la primera mitad del siglo XIX se extendió por Europa un movimiento cultural llamado <b>Romanticismo</b>. Los románticos daban más importancia a los <b>sentimientos</b> que a la razón, amaban la <b>libertad</b>, la naturaleza salvaje, las leyendas y el pasado medieval, y a menudo se sentían rebeldes e incomprendidos.</p><p>En España destacaron grandes escritores románticos:</p><ul><li><b>José de Espronceda</b> escribió la <i>Canción del pirata</i>, que celebra la libertad: «Que es mi barco mi tesoro, que es mi dios la libertad…».</li><li><b>Mariano José de Larra</b> escribió artículos en los periódicos criticando con ironía los defectos de la sociedad.</li><li><b>José Zorrilla</b> estrenó en 1844 <i>Don Juan Tenorio</i>, una obra de teatro que todavía se representa en muchos lugares cada año por el Día de Todos los Santos.</li><li><b>Gustavo Adolfo Bécquer</b> escribió las <i>Rimas</i>, poemas breves sobre el amor, y las <i>Leyendas</i>, historias misteriosas ambientadas en lugares como Soria o Toledo.</li><li><b>Rosalía de Castro</b> publicó en 1863 <i>Cantares gallegos</i>, el libro que impulsó el renacimiento de la literatura en gallego. El 17 de mayo, aniversario de su publicación, se celebra el Día de las Letras Gallegas.</li></ul>`,
+        L6.filas("Escritores románticos", [["Espronceda", "Canción del pirata", cAZ], ["Zorrilla", "Don Juan Tenorio", cRO], ["Bécquer", "Rimas y Leyendas", cMO], ["Rosalía", "Cantares gallegos", cVE]]), ["Uib7oh1Sdog", "ROSALÍA DE CASTRO | Draw My Life", "TikTak Draw", 292554]],
+    ],
+    "Cambios económicos: industria y ferrocarril": [
+      ["Inventos que cambiaron la vida", `<p>El siglo XIX fue un siglo de inventos que transformaron la vida cotidiana:</p><ul><li>El <b>telégrafo</b> permitió enviar mensajes a gran distancia en minutos, mediante señales eléctricas por cables. En España se construyó primero una red de telégrafo óptico, con torres que se comunicaban con señales visibles, y después el telégrafo eléctrico.</li><li>La <b>fotografía</b> se presentó en 1839. Por primera vez se podían conservar imágenes reales de personas y lugares.</li><li>El <b>teléfono</b>, patentado en 1876, permitió hablar a distancia.</li><li>A finales de siglo llegaron la <b>luz eléctrica</b> a las calles de algunas ciudades, los primeros automóviles y el cine.</li></ul><p>También hubo inventores españoles importantes:</p><ul><li><b>Narcís Monturiol</b> construyó en Barcelona el <b>Ictíneo</b>, uno de los primeros submarinos, que navegó en 1859.</li><li><b>Isaac Peral</b> construyó en 1888 un submarino eléctrico capaz de lanzar torpedos.</li></ul><p>Sin embargo, España tenía poco dinero para investigar, y muchos de estos inventos no se desarrollaron aquí, sino en otros países más industrializados.</p>`,
+        L6.filas("Inventos del siglo XIX", [["1839", "fotografía", cNA], ["1859", "Ictíneo de Monturiol", cAZ], ["1876", "teléfono", cVE], ["1888", "submarino de Peral", cMO]])],
+    ],
+  },
+  final: [
+    ["La escuela en el siglo XIX", `<p>A comienzos del siglo XIX, la mayoría de los españoles no sabía leer ni escribir. Hacia 1860, alrededor de <b>tres de cada cuatro</b> personas eran analfabetas, y entre las mujeres la proporción era todavía mayor.</p><p>En <b>1857</b> se aprobó la <b>Ley Moyano</b>, una de las leyes de educación más importantes de la historia de España. Establecía que la enseñanza primaria era <b>obligatoria</b> para los niños y niñas de 6 a 9 años, y gratuita para las familias que no podían pagarla. Cada pueblo debía tener una escuela.</p><p>Pero la realidad era muy distinta de la ley:</p><ul><li>Muchos pueblos no tenían dinero para construir escuelas ni para pagar a los maestros, que cobraban muy poco. De ahí viene el dicho «pasar más hambre que un maestro de escuela».</li><li>Muchos niños faltaban a clase porque tenían que trabajar en el campo o en las fábricas.</li><li>Niños y niñas estudiaban separados y aprendían cosas distintas: a las niñas se les enseñaban sobre todo labores de costura.</li><li>Las clases eran de memoria, con muchos alumnos y castigos muy duros.</li></ul><p>A finales de siglo, la <b>Institución Libre de Enseñanza</b>, fundada en 1876, propuso una escuela más moderna, con excursiones, juego y respeto al alumno.</p>`,
+      H6.dos("La escuela", ["La ley (1857)", ["obligatoria (6-9)", "gratis si no hay dinero", "escuela en pueblos"], cAZ], ["La realidad", ["pocas escuelas", "niños trabajando", "maestros mal pagados"], cRO])],
+    ["Mujeres que abrieron camino", `<p>En el siglo XIX, las mujeres no podían votar, casi no podían estudiar en la universidad y, al casarse, necesitaban el permiso del marido para muchas cosas. Algunas mujeres valientes lucharon para cambiarlo:</p><ul><li><b>Concepción Arenal</b> (1820-1893), nacida en Ferrol, quería estudiar Derecho, pero las mujeres no podían. Según se cuenta, asistió a las clases de la universidad <b>vestida de hombre</b>. Después dedicó su vida a mejorar las cárceles y a ayudar a los pobres. Fue visitadora de prisiones y escribió: «Odia el delito y compadece al delincuente».</li><li><b>Emilia Pardo Bazán</b> (1851-1921), escritora gallega, fue una de las novelistas más importantes de su tiempo. Defendió que las mujeres recibieran la misma educación que los hombres. En 1916 fue la primera mujer en conseguir una cátedra en una universidad española.</li><li>A finales del siglo, las primeras mujeres consiguieron matricularse en la universidad, aunque necesitaban un permiso especial. Una de ellas, <b>María Elena Maseras</b>, estudió Medicina en Barcelona en la década de 1870.</li></ul><p>Gracias a ellas y a muchas otras, en el siglo XX las mujeres conquistaron el derecho a estudiar, a trabajar y a votar.</p>`,
+      L6.filas("Pioneras", [["Concepción Arenal", "Derecho y cárceles", cMO], ["Pardo Bazán", "cátedra en 1916", cAZ], ["Maseras", "Medicina, años 1870", cVE], ["lucha", "estudiar y votar", cRO]]), ["rMRyRik98FY", "LUNNIS DE LEYENDA ESPECIAL 'DÍA DE LA MUJER' - CONCEPCIÓN ARENAL", "Clan", 245598]],
+  ],
+  ejemplos: [
+    ["¿Cuántos años pasaron entre el Ictíneo de Monturiol (1859) y el submarino de Peral (1888)?", ["1888 − 1859."], "29 años."],
+    ["Si en 1860 tres de cada cuatro personas no sabían leer, ¿qué porcentaje era?", ["3/4 = 75/100."], "El 75 %."],
+  ],
+  errores: ["Pensar que solo los soldados participaron en la guerra de la Independencia.", "Creer que con la Ley Moyano todos los niños empezaron a ir a la escuela: faltaban escuelas y muchos trabajaban."],
+  ejercicios: [
+    ["b", "¿Qué hizo Agustina de Aragón?", "Disparó un cañón en la defensa de Zaragoza en 1808."],
+    ["b", "¿Qué obra escribió Zorrilla en 1844?", "Don Juan Tenorio."],
+    ["b", "¿Qué inventó Isaac Peral?", "Un submarino eléctrico capaz de lanzar torpedos."],
+    ["b", "¿Qué estableció la Ley Moyano de 1857?", "La enseñanza primaria obligatoria de 6 a 9 años."],
+    ["b", "¿Qué se celebra el 17 de mayo?", "El Día de las Letras Gallegas, en honor a Rosalía de Castro."],
+    ["m", "¿Qué características tenía el Romanticismo?", "Importancia de los sentimientos, la libertad, la naturaleza y las leyendas."],
+    ["m", "¿Por qué Concepción Arenal fue a clase vestida de hombre?", "Porque las mujeres no podían estudiar en la universidad."],
+    ["m", "Ordena: teléfono, fotografía, Ictíneo, submarino de Peral.", "Fotografía (1839), Ictíneo (1859), teléfono (1876), submarino (1888)."],
+    ["m", "¿Por qué muchos niños no iban a la escuela a pesar de la ley?", "Porque faltaban escuelas y tenían que trabajar."],
+    ["m", "¿Qué retrató Goya en Los desastres de la guerra?", "El sufrimiento de la población durante la guerra."],
+    ["a", "¿Por qué muchos inventos españoles no se desarrollaron en España?", "Porque había poco dinero para investigar y poca industria."],
+    ["a", "Compara la escuela del siglo XIX con la de hoy en tres aspectos.", "Respuesta abierta: separación por sexos, castigos, memoria, obligatoriedad…"],
+    ["a", "¿Qué logró Emilia Pardo Bazán en 1916?", "Fue la primera mujer catedrática de una universidad española."],
+    ["a", "Explica la frase «Odia el delito y compadece al delincuente».", "Hay que rechazar el delito pero tratar con humanidad a quien lo comete."],
+  ],
+  quiz: [
+    ["Manuela Malasaña participó en el levantamiento del…", ["2 de mayo de 1808 en Madrid", "sitio de Gerona", "1898"], "Guerra."],
+    ["Las Rimas y Leyendas las escribió…", ["Bécquer", "Espronceda", "Larra"], "Romanticismo."],
+    ["El Ictíneo navegó en…", ["1859", "1808", "1931"], "Inventos."],
+    ["La Institución Libre de Enseñanza se fundó en…", ["1876", "1812", "1978"], "Escuela."],
+    ["La primera mujer catedrática de universidad en España fue…", ["Emilia Pardo Bazán", "Rosalía de Castro", "Agustina de Aragón"], "Pioneras."],
+  ],
+  examen: [
+    ["El submarino de Peral se botó en…", ["1888 en Cádiz", "1859 en Barcelona", "1808 en Madrid"], "Lectura."],
+    ["Hacia 1860, las personas analfabetas en España eran…", ["tres de cada cuatro", "una de cada diez", "ninguna"], "Escuela."],
+  ],
+  tarjetas: [
+    ["Mujeres de 1808", "Manuela Malasaña, Clara del Rey, Agustina de Aragón, compañía de Santa Bárbara."],
+    ["Romanticismo", "Espronceda, Larra, Zorrilla, Bécquer, Rosalía de Castro."],
+    ["Inventos", "Fotografía 1839, Ictíneo 1859, teléfono 1876, submarino de Peral 1888."],
+    ["Escuela y derechos", "Ley Moyano 1857; Concepción Arenal; Pardo Bazán, catedrática en 1916."],
+  ],
+  glosario: [
+    ["Asedio", "Cerco de una ciudad por un ejército."],
+    ["Levantamiento", "Rebelión de la población contra un poder."],
+    ["Romanticismo", "Movimiento cultural que exalta los sentimientos y la libertad."],
+    ["Rima", "Poema breve; nombre de los poemas de Bécquer."],
+    ["Telégrafo", "Sistema para enviar mensajes a distancia por señales."],
+    ["Submarino", "Barco que navega bajo el agua."],
+    ["Torpedo", "Proyectil que se desplaza bajo el agua."],
+    ["Analfabeto", "Persona que no sabe leer ni escribir."],
+    ["Ley Moyano", "Ley de educación de 1857 que hizo obligatoria la primaria."],
+    ["Cátedra", "Puesto de profesor del nivel más alto en la universidad."],
+    ["Visitadora de prisiones", "Cargo para vigilar las condiciones de las cárceles."],
+    ["Patente", "Documento que reconoce un invento a su autor."],
+  ],
+  situacion: {
+    titulo: "El museo del siglo XIX",
+    reto: "La clase monta un museo con fichas, objetos y representaciones sobre personajes e inventos del siglo XIX.",
+    pasos: ["Repartid salas: la guerra de la Independencia, el Romanticismo, los inventos, la escuela y las mujeres pioneras.", "Investigad cada tema y preparad fichas, maquetas (por ejemplo, del submarino) y recitados de poemas.", "Elaborad una línea del tiempo gigante del siglo XIX que recorra todo el museo.", "Haced de guías para otros cursos y para las familias."],
+    producto: "Un museo del siglo XIX con salas temáticas y visitas guiadas.",
+    evaluacion: ["Sitúa hechos en el tiempo.", "Investiga personajes y acontecimientos.", "Elabora materiales originales.", "Explica con claridad a un público."],
+  },
+});
