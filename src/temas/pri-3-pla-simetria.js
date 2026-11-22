@@ -96,3 +96,100 @@ module.exports = tema({
   ideas: ["Manchas simétricas con témpera y completar con rotulador.", "Completar dibujos simétricos en cuadrícula.", "Caza de simetrías con fotos del entorno escolar."],
   fuentes: [["EducaThyssen: la simetría", "https://www.educathyssen.org/"], ["Patronato de la Alhambra y Generalife", "https://www.alhambra-patronato.es/"]],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Reconocer la simetría horizontal y la radial", "Distinguir simetría y asimetría", "Encontrar ejes en letras y números", "Crear mandalas y caleidoscopios"],
+  lectura: { titulo: "El lago espejo", html: `<p>Durante una excursión a la montaña, la clase de Bruno llega a un lago pequeño y muy tranquilo. No sopla nada de viento y el agua está totalmente quieta.</p><p>—¡Mirad! —grita Bruno—. ¡Hay otra montaña debajo del agua!</p><p>Todos se asoman. En el lago se ve la montaña al revés, con su nieve, sus árboles y hasta una nube blanca. Parece que el paisaje se ha duplicado.</p><p>—Es un reflejo —explica la maestra—. El agua quieta funciona como un espejo. ¿Dónde está el eje de simetría?</p><p>Nerea señala con el dedo la orilla.</p><p>—¡Aquí! Donde se junta el agua con la tierra.</p><p>—Muy bien. Esta vez el eje no es vertical, sino horizontal.</p><p>En ese momento, Bruno tira una piedrecita al agua. El reflejo se rompe en ondas y la montaña de abajo se pone a temblar.</p><p>—¡Has roto la simetría! —se ríen sus compañeros.</p><p>Esperan un rato en silencio y, poco a poco, el agua se calma. La montaña vuelve a aparecer, perfecta.</p><p>De vuelta al autobús, Bruno saca una foto del lago y la gira. Ya no sabe cuál es la montaña de verdad.</p>` },
+  tras: {
+    "Como en un espejo": [
+      ["Reflejos en el agua", `<p>No todos los ejes de simetría son verticales. Cuando algo se refleja en el <mark>agua quieta</mark> de un lago, un estanque o un charco, aparece una simetría con el <b>eje horizontal</b>: la imagen de arriba y su reflejo abajo, al revés.</p><p>En estas imágenes:</p><ul><li>El eje es la <b>línea del agua</b>, donde se juntan la orilla y el reflejo.</li><li>Lo que está <b>arriba</b> en la realidad aparece <b>abajo</b> en el reflejo: la punta de la montaña, la copa de los árboles o el tejado de una casa.</li><li>El reflejo suele ser un poco <b>más oscuro</b> y, si hay viento, se rompe en ondas.</li></ul><p>Los fotógrafos y pintores buscan mucho estos reflejos porque crean imágenes muy <b>tranquilas</b> y equilibradas. Monet pintó muchísimos reflejos en su estanque de nenúfares.</p><p>También hay reflejos en los cristales de los edificios, en los charcos después de la lluvia o en una cuchara (¡aunque ahí la imagen se deforma!).</p><p><b>Truco para pintarlo</b>: pinta el paisaje en la mitad de arriba con témpera húmeda, dobla la hoja hacia abajo y aprieta. Después añade algunas líneas horizontales azules sobre el reflejo para que parezca agua.</p><p><b>Actividad</b>: pinta un paisaje con su reflejo en un lago usando la técnica de doblar el papel.</p>`,
+        H6.dos("Ejes", ["VERTICAL", ["izquierda", "derecha", "mariposa"], cAZ], ["HORIZONTAL", ["arriba", "abajo", "reflejo"], cVE])],
+    ],
+    "La simetría en la naturaleza": [
+      ["Simetría radial", `<p>Algunas formas no tienen solo uno o dos ejes: tienen muchos ejes que salen de un <b>centro</b>, como los radios de una rueda de bicicleta. A esto lo llamamos <mark>simetría radial</mark>.</p><p>En la naturaleza hay muchos ejemplos:</p><ul><li><b>Flores</b>: las margaritas, los girasoles o las rosas tienen pétalos colocados en círculo alrededor del centro.</li><li><b>Estrellas de mar</b>: tienen cinco brazos iguales alrededor de un centro.</li><li><b>Copos de nieve</b>: siempre tienen <b>seis</b> puntas, aunque no hay dos copos iguales en el mundo.</li><li><b>Medusas</b> y <b>erizos de mar</b>.</li><li><b>Frutas</b> cortadas: una naranja o un limón cortados por la mitad muestran sus gajos en círculo; una manzana cortada en horizontal tiene una estrella de cinco puntas en el centro.</li><li>Las ondas que se forman al tirar una piedra al agua, como en la lectura.</li></ul><p>Los objetos hechos por las personas también la usan: ruedas, relojes, platos, rosetones de las catedrales, sombrillas y ventiladores.</p><p>La simetría radial nos parece muy <b>armoniosa</b> y nos atrae la mirada hacia el centro.</p><p><b>Actividad</b>: corta un limón, una naranja y una manzana por la mitad, estámpalos con témpera y cuenta sus ejes.</p>`,
+        H6.rueda("Radial", "CENTRO", [["flores", cRO], ["estrella", cNA], ["copos", cAZ], ["naranja", cVE]])],
+    ],
+    "Nuestro cuerpo": [
+      ["Simetría y asimetría", `<p>Cuando una figura <b>no</b> se puede dividir en dos mitades iguales, decimos que es <mark>asimétrica</mark>. La asimetría es lo contrario de la simetría.</p><p>Ejemplos de cosas asimétricas:</p><ul><li>Un <b>caracol</b>: su concha es una espiral que gira siempre hacia el mismo lado.</li><li>Un <b>árbol</b> real, con ramas que crecen como pueden buscando la luz.</li><li>Una <b>nube</b>, una piedra del río o una mancha de pintura.</li><li>Las <b>letras</b> F, G, J, L, N, P, Q, R, S y Z.</li><li>Nuestra propia <b>cara</b>, si la miramos con mucho cuidado.</li></ul><p>Ninguna de las dos es mejor que la otra:</p><ul><li>La <b>simetría</b> transmite orden, calma, equilibrio y seriedad. Por eso se usa en edificios importantes, como palacios y catedrales.</li><li>La <b>asimetría</b> transmite movimiento, sorpresa, libertad y naturalidad. Muchos artistas modernos la prefieren.</li></ul><p>A veces una obra es casi simétrica, pero con un pequeño detalle diferente que llama la atención. ¡Es un truco que usan mucho los diseñadores!</p><p>Un dibujo asimétrico también puede estar <b>equilibrado</b> si los pesos visuales se compensan: una forma grande a un lado y varias pequeñas al otro.</p><p><b>Actividad</b>: dibuja la misma casa dos veces: una totalmente simétrica y otra asimétrica. ¿Cuál parece más divertida?</p>`,
+        H6.dos("Comparar", ["SIMETRÍA", ["orden", "calma", "equilibrio"], cAZ], ["ASIMETRÍA", ["movimiento", "sorpresa", "libertad"], cRO]),
+        ["bXycg9ycZRk", "#Plástica - SIMETRÍA Y ASIMETRÍA + Actividad", "Gisela Duarte", 102453]],
+    ],
+    "Figuras con varios ejes": [
+      ["Letras y números simétricos", `<p>¡Las <mark>letras</mark> y los <mark>números</mark> también pueden tener simetría! Escríbelos en mayúsculas y búscales el eje.</p><ul><li>Con <b>eje vertical</b> (la mitad izquierda es reflejo de la derecha): A, H, I, M, O, T, U, V, W, X, Y.</li><li>Con <b>eje horizontal</b> (la mitad de arriba es reflejo de la de abajo): B, C, D, E, H, I, K, O, X.</li><li>Con <b>los dos ejes</b>: H, I, O, X.</li><li><b>Sin eje</b>: F, G, J, L, N, P, Q, R, S, Z.</li></ul><p>Con los números pasa lo mismo: el <b>0</b> y el <b>8</b> tienen eje vertical y horizontal; el <b>3</b> tiene eje horizontal; el <b>1</b> puede tenerlo si lo escribimos como un palito.</p><p>Algunas palabras completas, escritas en mayúsculas, también tienen eje vertical, como <b>OTTO</b> o <b>WOW</b>. ¡Cuidado con las tildes! En «MAMÁ», la tilde rompe la simetría.</p><p>Con el eje horizontal también se puede jugar: escribe <b>BOX</b> o <b>DECIDE</b> en mayúsculas, pon un espejo debajo y verás que la palabra se completa.</p><p><b>Actividad</b>: escribe tu nombre en mayúsculas y marca con color el eje de cada letra que lo tenga.</p>`,
+        L6.filas("Letras", [["eje vertical", "A H M T U", cAZ], ["eje horizontal", "B C D E K", cVE], ["dos ejes", "H I O X", cNA], ["sin eje", "F G L R S", cRO]])],
+    ],
+    "La simetría en el arte": [
+      ["Mandalas", `<p>Un <mark>mandala</mark> es un dibujo circular con <b>simetría radial</b>: formas que se repiten alrededor de un centro, como una flor o un copo de nieve.</p><p>La palabra «mandala» viene de una lengua muy antigua de la India, el sánscrito, y significa <b>círculo</b>. En países como la India, Nepal o el Tíbet, los monjes budistas hacen mandalas enormes con <b>arena de colores</b>, grano a grano, durante días. Cuando lo terminan, lo borran para recordar que nada dura para siempre.</p><p>También hay formas parecidas en otras culturas: los <b>rosetones</b> de las catedrales góticas, el calendario azteca o los diseños de muchas alfombras.</p><p>Para hacer tu mandala:</p><ul><li><b>1.</b> Dibuja varios círculos con el mismo centro usando un compás o vasos de distintos tamaños.</li><li><b>2.</b> Divide el círculo en partes iguales con líneas que pasen por el centro (4, 6 u 8).</li><li><b>3.</b> Dibuja un motivo en una parte y <b>repítelo igual</b> en todas las demás.</li><li><b>4.</b> Colorea siguiendo también la simetría: lo que está en la misma posición, del mismo color.</li></ul><p>Colorear mandalas ayuda a <b>concentrarse</b> y a relajarse.</p><p><b>Actividad</b>: haz un mandala con elementos naturales en el patio: hojas, piedras y flores caídas.</p>`,
+        H6.flujo("Mandala", ["círculos|centro", "dividir|partes", "motivo|repetir", "colorear|igual"], cMO)],
+    ],
+  },
+  final: [
+    ["El caleidoscopio", `<p>El <mark>caleidoscopio</mark> es un tubo con espejos dentro que crea imágenes simétricas que cambian al girarlo. Su nombre viene del griego y significa «ver formas bellas».</p><p>Lo inventó un científico escocés, <b>David Brewster</b>, en 1816, y enseguida se convirtió en un juguete muy popular.</p><p><b>¿Cómo funciona?</b> Dentro del tubo hay normalmente <b>tres espejos</b> largos que forman un triángulo. En un extremo hay trocitos de cristal o plástico de colores sueltos. Al mirar por el otro extremo, los espejos reflejan esos trocitos muchas veces y forman una figura con <b>simetría radial</b>, como una flor o un mandala. Al girar el tubo, los trocitos se mueven y la figura cambia. ¡Nunca se repite igual!</p><p><b>Construye tu caleidoscopio</b>:</p><ul><li>Un tubo de cartón (de papel de cocina).</li><li>Tres tiras de cartulina plateada o espejo de plástico, unidas en triángulo y metidas en el tubo.</li><li>En un extremo, un plástico transparente con cuentas o confeti de colores, tapado con papel vegetal.</li><li>En el otro, una tapa con un agujerito para mirar.</li></ul><p><b>Actividad</b>: construid caleidoscopios por parejas y dibujad una de las figuras que veáis.</p>`,
+      L6.filas("Caleidoscopio", [["tubo", "de cartón", cNA], ["3 espejos", "en triángulo", cAZ], ["cuentas", "de colores", cRO], ["girar", "nueva figura", cVE]])],
+    ["Simetría en edificios y diseños", `<p>La simetría está en muchos <mark>edificios famosos</mark> y en objetos que usamos cada día.</p><ul><li>El <b>Taj Mahal</b> (India): un palacio de mármol blanco totalmente simétrico, que además se refleja en un largo estanque.</li><li>El <b>Partenón</b> (Grecia): un templo con columnas a ambos lados.</li><li>El <b>Monasterio de El Escorial</b> (Madrid) y muchos <b>palacios</b> y ayuntamientos de España.</li><li>La <b>Alhambra</b> de Granada, con sus patios y fuentes.</li></ul><p>También la encontramos en:</p><ul><li><b>Banderas</b>: muchas son simétricas, como la de Japón (un círculo rojo en el centro) o la de Canadá (una hoja de arce).</li><li><b>Logotipos</b> de marcas, que buscan ser fáciles de recordar.</li><li><b>Coches</b>, <b>aviones</b> y <b>mariposas</b> de papel: la simetría ayuda a que vuelen o se muevan rectos.</li><li><b>Muebles</b>, <b>ropa</b> y <b>vajillas</b>.</li></ul><p>Los arquitectos usan la simetría para dar sensación de <b>importancia</b> y de equilibrio. Por eso la puerta principal suele estar en el centro.</p><p><b>Actividad</b>: diseña la fachada simétrica de un palacio imaginario usando una cuadrícula.</p>`,
+      H6.rueda("Diseños", "SIMETRÍA", [["Taj Mahal", cAZ], ["banderas", cRO], ["aviones", cVE], ["logotipos", cNA]])],
+  ],
+  ejemplos: [
+    ["¿Dónde está el eje de un paisaje reflejado en un lago?", ["El reflejo aparece abajo y al revés.", "El eje es la línea del agua."], "En la orilla: es un eje horizontal."],
+    ["¿Qué letras de «HOLA» tienen eje vertical?", ["H, O y A son iguales a izquierda y derecha.", "La L no lo es."], "H, O y A."],
+  ],
+  errores: ["Creer que todos los ejes de simetría son verticales: los reflejos en el agua tienen eje horizontal.", "Colorear un mandala sin seguir la simetría, con colores distintos en partes iguales."],
+  ejercicios: [
+    ["b", "¿Qué tipo de eje tiene un reflejo en un lago?", "Horizontal."],
+    ["b", "¿Cuántas puntas tiene un copo de nieve?", "Seis."],
+    ["b", "¿Qué es una figura asimétrica?", "La que no se divide en dos mitades iguales."],
+    ["b", "¿Qué significa «mandala»?", "Círculo."],
+    ["b", "¿Cuántos espejos suele tener un caleidoscopio?", "Tres."],
+    ["m", "Nombra tres ejemplos de simetría radial.", "Flores, estrellas de mar, copos de nieve, naranjas cortadas…"],
+    ["m", "Escribe cuatro letras con eje vertical.", "A, H, M, T, U, V…"],
+    ["m", "¿Qué transmite la asimetría?", "Movimiento, sorpresa y libertad."],
+    ["m", "¿Por qué los monjes borran sus mandalas de arena?", "Para recordar que nada dura para siempre."],
+    ["m", "¿Quién inventó el caleidoscopio?", "David Brewster."],
+    ["a", "En la lectura, ¿por qué se rompe la simetría al tirar la piedra?", "Porque el agua se mueve y deja de funcionar como un espejo."],
+    ["a", "Diseña un mandala de ocho partes.", "Respuesta abierta."],
+    ["a", "Busca tres banderas simétricas y tres asimétricas.", "Respuesta abierta."],
+    ["a", "Explica cómo funciona un caleidoscopio.", "Los espejos reflejan varias veces los trocitos de colores y forman una figura radial."],
+  ],
+  quiz: [
+    ["Una naranja cortada muestra simetría…", ["radial", "solo vertical", "ninguna"], "Radial."],
+    ["La letra con eje vertical y horizontal es…", ["H", "F", "R"], "Letras."],
+    ["Un caracol es un ejemplo de…", ["asimetría", "simetría radial", "eje horizontal"], "Asimetría."],
+    ["Los mandalas de arena los hacen los monjes…", ["budistas", "romanos", "aztecas"], "Mandalas."],
+    ["El palacio de mármol simétrico de la India es…", ["el Taj Mahal", "el Partenón", "El Escorial"], "Edificios."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué rompe el reflejo del lago?", ["una piedrecita", "una nube", "un pájaro"], "Lectura."],
+    ["La bandera de Japón tiene…", ["un círculo rojo en el centro", "una hoja de arce", "rayas diagonales"], "Diseños."],
+  ],
+  tarjetas: [
+    ["Ejes", "Vertical (izquierda-derecha) y horizontal (arriba-abajo, reflejos)."],
+    ["Simetría radial", "Muchos ejes desde un centro: flores, copos, estrellas."],
+    ["Asimetría", "Sin mitades iguales; transmite movimiento."],
+    ["Mandala y caleidoscopio", "Círculos con motivos repetidos; espejos que multiplican."],
+  ],
+  glosario: [
+    ["Eje horizontal", "Línea tumbada que divide arriba y abajo."],
+    ["Reflejo", "Imagen que devuelve el agua o un espejo."],
+    ["Simetría radial", "Simetría con muchos ejes desde un centro."],
+    ["Copo de nieve", "Cristal de hielo de seis puntas."],
+    ["Asimetría", "Falta de simetría."],
+    ["Equilibrio", "Sensación de que nada pesa más en un lado."],
+    ["Mandala", "Dibujo circular con simetría radial."],
+    ["Rosetón", "Ventana circular de las catedrales."],
+    ["Sánscrito", "Lengua antigua de la India."],
+    ["Caleidoscopio", "Tubo con espejos que crea figuras simétricas."],
+    ["Fachada", "Parte delantera de un edificio."],
+    ["Logotipo", "Dibujo que identifica una marca."],
+  ],
+  situacion: {
+    titulo: "La feria de la simetría",
+    reto: "La clase organiza una feria con talleres de simetría para que otros cursos aprendan jugando.",
+    pasos: ["Preparar un taller de reflejos pintando paisajes con lagos.", "Hacer mandalas con papel y con elementos naturales.", "Construir caleidoscopios.", "Crear un juego de letras simétricas con espejos."],
+    producto: "Una feria con cuatro talleres y sus carteles explicativos.",
+    evaluacion: ["Identifica ejes verticales, horizontales y radiales.", "Distingue simetría y asimetría.", "Construye un mandala y un caleidoscopio.", "Explica la simetría a otros compañeros."],
+  },
+});

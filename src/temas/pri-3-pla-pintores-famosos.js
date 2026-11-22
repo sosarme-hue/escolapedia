@@ -93,3 +93,99 @@ module.exports = tema({
   ideas: ["Exposición «A la manera de…» con cartelas.", "Visita virtual al Museo del Prado.", "Juego de reconocer al artista por su estilo."],
   fuentes: [["Museo Nacional del Prado", "https://www.museodelprado.es/"], ["Museo Nacional Centro de Arte Reina Sofía", "https://www.museoreinasofia.es/"], ["Fundació Joan Miró", "https://www.fmirobcn.org/"]],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer a Leonardo, Monet, Dalí y Sorolla", "Distinguir los géneros de la pintura", "Descubrir artistas de hoy", "Valorar el trabajo de cuidar y restaurar las obras"],
+  lectura: { titulo: "Una mañana en el Prado", html: `<p>La clase de 3.º B llega al Museo del Prado en autobús. Al entrar, todos se quedan callados: las salas son enormes, con techos altísimos y cuadros por todas partes.</p><p>La guía, que se llama Inés, los lleva delante de un cuadro gigante.</p><p>—Esto son <i>Las Meninas</i>, de Velázquez. Buscad al pintor dentro del cuadro.</p><p>—¡Está ahí, con el pincel! —grita Samuel, y después se tapa la boca, porque en el museo hay que hablar bajito.</p><p>Inés sonríe y les propone un juego: cada uno tiene que elegir un personaje del cuadro e inventar qué está pensando. Lucía elige al perro, que parece aburrido. Omar elige a la infanta, que parece cansada de posar.</p><p>Después ven los cuadros de Goya: niños jugando, gigantes y fiestas. Martina se fija en un cuadro donde cuatro chicas mantean un muñeco de trapo.</p><p>—¡Parece que se va a caer del cuadro! —dice.</p><p>Al salir, la maestra les pregunta cuál es su cuadro favorito. Nadie elige el mismo.</p><p>—Eso es lo bonito del arte —dice Inés—. Cada persona ve algo distinto.</p>` },
+  tras: {
+    "Francisco de Goya": [
+      ["Joaquín Sorolla", `<p><mark>Joaquín Sorolla</mark> (Valencia, 1863-1923) es conocido como <b>el pintor de la luz</b>. Le encantaba pintar al aire libre, sobre todo en las playas de Valencia, bajo el sol del Mediterráneo.</p><p>En sus cuadros vemos niños bañándose, pescadores sacando las barcas del mar, velas blancas movidas por el viento y mujeres paseando por la orilla con vestidos blancos. El agua brilla tanto que casi parece que podemos tocarla.</p><p>Su secreto era pintar <b>muy rápido</b>, con pinceladas sueltas, para atrapar la luz antes de que cambiara. Usaba mucho el <b>blanco</b>, el <b>azul</b> y colores cálidos para la piel bronceada.</p><p>Algunas de sus obras más conocidas son <i>Paseo a orillas del mar</i>, <i>Niños en la playa</i> y <i>¡Aún dicen que el pescado es caro!</i>.</p><p>También pintó grandes murales sobre las regiones de España para una biblioteca de Nueva York, con trajes y fiestas de cada lugar.</p><p>Su casa de Madrid es hoy el <b>Museo Sorolla</b>, con su estudio, sus pinceles y un jardín andaluz que él mismo diseñó.</p><p><b>Actividad</b>: pinta una escena de playa a la manera de Sorolla, con pinceladas rápidas y mucho blanco para los brillos del agua.</p>`,
+        L6.filas("Sorolla", [["ciudad", "Valencia", cNA], ["tema", "playas y mar", cAZ], ["estilo", "luz, rápido", cRO], ["museo", "Madrid", cVE]])],
+    ],
+    "Pablo Picasso": [
+      ["Salvador Dalí", `<p><mark>Salvador Dalí</mark> (Figueres, Girona, 1904-1989) pintaba <b>sueños</b>. Pertenecía a un movimiento llamado <b>surrealismo</b>, que quería mostrar lo que pasa en la imaginación y en los sueños, donde todo es posible.</p><p>En sus cuadros aparecen cosas imposibles pintadas de forma muy realista: <b>relojes blandos</b> que se derriten como queso sobre las ramas, elefantes con patas larguísimas como las de una araña, cajones que se abren en el cuerpo de las personas o paisajes desiertos con sombras muy largas.</p><p>Su cuadro más famoso es <i>La persistencia de la memoria</i>, el de los relojes blandos.</p><p>Dalí era también un personaje muy curioso: llevaba un bigote larguísimo con las puntas hacia arriba y le encantaba llamar la atención.</p><p>Además de cuadros, hizo esculturas, joyas, películas e incluso diseñó el logotipo de unos caramelos muy conocidos.</p><p>En Figueres está el <b>Teatro-Museo Dalí</b>, con huevos gigantes en el tejado. Dentro hay una sala que, vista desde un punto concreto, se convierte en la cara de una actriz.</p><p><b>Actividad</b>: dibuja un objeto de tu casa transformado como en un sueño: una mesa con patas de jirafa o una nube con forma de zapatilla.</p>`,
+        H6.rueda("Dalí", "SUEÑOS", [["relojes", cNA], ["elefantes", cAZ], ["bigote", cRO], ["Figueres", cVE]])],
+    ],
+    "Joan Miró": [
+      ["Leonardo da Vinci", `<p><mark>Leonardo da Vinci</mark> (Italia, 1452-1519) no fue solo pintor: también fue inventor, científico, ingeniero, arquitecto y músico. Por eso se dice que fue un <b>genio</b> del Renacimiento.</p><p>Su cuadro más famoso del mundo es <i>La Gioconda</i> o <i>Mona Lisa</i>, el retrato de una mujer con una <b>sonrisa misteriosa</b>. Está en el Museo del Louvre de París y cada día la visitan miles de personas. Leonardo pintó los bordes de su cara muy suaves, como si estuvieran envueltos en niebla. Esta técnica se llama <b>sfumato</b>, que en italiano significa «esfumado».</p><p>También pintó <i>La última cena</i>, en la pared de un convento de Milán.</p><p>Leonardo llevaba siempre <b>cuadernos</b> en los que dibujaba todo lo que observaba: el vuelo de los pájaros, el cuerpo humano, las plantas, el agua. Y diseñaba inventos increíbles para su época: máquinas voladoras, un paracaídas y hasta un tipo de tanque.</p><p>Tenía una costumbre curiosa: escribía <b>al revés</b>, de derecha a izquierda, y para leerlo hay que usar un espejo.</p><p><b>Actividad</b>: haz una página de cuaderno como Leonardo: dibuja con detalle una hoja, una mano y un invento imaginario.</p>`,
+        L6.filas("Leonardo", [["Gioconda", "sonrisa", cMO], ["sfumato", "bordes suaves", cAZ], ["cuadernos", "inventos", cNA], ["escritura", "al revés", cRO]])],
+    ],
+    "Vincent van Gogh": [
+      ["Claude Monet", `<p><mark>Claude Monet</mark> (Francia, 1840-1926) fue el pintor más importante del <b>impresionismo</b>. De hecho, el nombre de este estilo viene de uno de sus cuadros: <i>Impresión, sol naciente</i>, un puerto entre la niebla con un sol naranja.</p><p>A Monet le interesaba sobre todo la <b>luz</b> y cómo cambia el color de las cosas según la hora, el tiempo o la estación. Por eso pintó el mismo tema muchas veces: una serie de pajares, la catedral de Ruan o un puente, a distintas horas del día.</p><p>En su casa de <b>Giverny</b> creó un jardín maravilloso con un estanque lleno de <b>nenúfares</b> y un puente japonés. Durante los últimos 30 años de su vida pintó ese estanque más de 250 veces. Algunos de esos cuadros de nenúfares son enormes, tanto que rodean salas enteras de un museo de París.</p><p>Pintaba con <b>pinceladas cortas</b> y colores puros, uno junto al otro. De cerca parecen manchas; de lejos, se ve el agua, las flores y los reflejos.</p><p>Monet tuvo problemas en los ojos al final de su vida, y sus colores se volvieron más rojizos, pero siguió pintando.</p><p><b>Actividad</b>: pinta un estanque con nenúfares usando solo pinceladas cortas de colores. Míralo de cerca y de lejos.</p>`,
+        H6.dos("Monet", ["PINTABA", ["luz", "nenúfares", "series"], cAZ], ["TÉCNICA", ["toques cortos", "colores puros", "al aire libre"], cVE])],
+    ],
+    "Frida Kahlo y otras pintoras": [
+      ["Artistas de hoy", `<p>El arte no se acabó con los pintores antiguos: hoy hay muchos <mark>artistas vivos o recientes</mark> que crean obras muy originales.</p><ul><li><b>Yayoi Kusama</b> (Japón, 1929): llena todo de <b>lunares</b>: calabazas gigantes, habitaciones y hasta árboles. Tiene salas con espejos donde los puntos de luz parecen infinitos.</li><li><b>Keith Haring</b> (Estados Unidos, 1958-1990): dibujaba muñecos sencillos con líneas gruesas, bailando y saltando, rodeados de rayitas de movimiento. Empezó dibujando con tiza en el metro de Nueva York.</li><li><b>Okuda San Miguel</b> (Santander, 1980): pinta paredes y edificios enteros con figuras geométricas de muchos colores. Una vez pintó todo el interior de una iglesia antigua de Asturias, que se convirtió en una pista de skate.</li><li><b>Cristina Iglesias</b> (San Sebastián, 1956): crea esculturas y fuentes que parecen bosques o laberintos.</li></ul><p>El arte de hoy usa materiales muy variados: luces, vídeos, objetos, pantallas o el propio cuerpo. A veces nos sorprende o no lo entendemos a la primera, pero siempre nos invita a mirar y a pensar.</p><p><b>Actividad</b>: haz una obra a la manera de Kusama: un objeto de cartulina lleno de lunares.</p>`,
+        L6.filas("Hoy", [["Kusama", "lunares", cRO], ["Haring", "muñecos", cAZ], ["Okuda", "geometría", cNA], ["Iglesias", "fuentes", cVE]])],
+    ],
+  },
+  final: [
+    ["Los géneros de la pintura", `<p>Los cuadros se pueden clasificar según lo que muestran. Cada tipo se llama <mark>género</mark>.</p><ul><li><b>Retrato</b>: muestra a una persona. Puede ser de cara, de medio cuerpo o de cuerpo entero. Ejemplo: <i>La Gioconda</i>.</li><li><b>Autorretrato</b>: el pintor se pinta a sí mismo, mirándose en un espejo. Frida Kahlo y Van Gogh hicieron muchos.</li><li><b>Paisaje</b>: el protagonista es un lugar: montañas, mar, campo o ciudad. Ejemplo: las playas de Sorolla.</li><li><b>Bodegón</b> o naturaleza muerta: objetos quietos colocados sobre una mesa: frutas, flores, jarras, libros. Los pintores españoles del siglo XVII, como Zurbarán, pintaron bodegones muy realistas.</li><li><b>Escena</b>: personas haciendo algo: jugando, trabajando, en una fiesta. Ejemplo: los cartones de Goya.</li><li><b>Pintura de historia</b> o mitológica: cuenta hechos históricos, leyendas o mitos.</li><li><b>Abstracción</b>: no representa nada real, solo formas y colores.</li></ul><p>Saber el género nos ayuda a mirar mejor un cuadro y a compararlo con otros parecidos.</p><p><b>Actividad</b>: monta un bodegón en clase con tres frutas y un vaso, y dibújalo observando bien las formas y las sombras.</p>`,
+      H6.rueda("Géneros", "CUADRO", [["retrato", cRO], ["paisaje", cVE], ["bodegón", cNA], ["escena", cAZ]])],
+    ["Cuidar las obras de arte", `<p>Los cuadros antiguos tienen cientos de años. Para que lleguen bien a nuestros nietos, hay que <mark>cuidarlos</mark>.</p><p>Los <b>restauradores</b> son especialistas que limpian y reparan las obras de arte. Trabajan en talleres con lupas, pinceles finísimos, bisturíes y máquinas especiales, como rayos X, que les dejan ver lo que hay debajo de la pintura. ¡A veces descubren que el pintor cambió de idea y pintó encima de otro dibujo!</p><p>Con el tiempo, los cuadros se ensucian por el polvo y el humo, y el barniz se vuelve amarillo. Al limpiarlos, los colores vuelven a brillar como el primer día.</p><p>En los museos se cuidan también:</p><ul><li>La <b>luz</b>: muy suave, porque la luz fuerte apaga los colores.</li><li>La <b>temperatura</b> y la <b>humedad</b>, que deben ser siempre iguales.</li><li>La <b>distancia</b>: no se pueden tocar las obras, porque la grasa de los dedos las estropea.</li><li>El <b>flash</b>: en muchas salas no se puede usar.</li></ul><p>Los visitantes también ayudamos: no tocar, no comer ni beber en las salas, no correr y hablar bajito, como hicieron los niños de la lectura.</p><p><b>Actividad</b>: escribe un cartel de normas para visitar un museo con cinco consejos.</p>`,
+      L6.filas("Museo", [["luz", "suave", cNA], ["tocar", "nunca", cRO], ["flash", "no", cMO], ["hablar", "bajito", cAZ]])],
+  ],
+  ejemplos: [
+    ["Un cuadro muestra unas manzanas y una jarra sobre una mesa. ¿Qué género es?", ["Son objetos quietos.", "Ese género se llama bodegón."], "Un bodegón."],
+    ["¿Por qué Monet pintó muchas veces el mismo lugar?", ["Le interesaba la luz.", "La luz cambia con la hora y la estación."], "Para mostrar cómo cambia la luz."],
+  ],
+  errores: ["Confundir a Monet con Manet o con Van Gogh: Monet es el pintor de los nenúfares.", "Pensar que el arte abstracto está mal hecho: no quiere representar cosas reales."],
+  ejercicios: [
+    ["b", "¿A quién llaman «el pintor de la luz»?", "A Joaquín Sorolla."],
+    ["b", "¿Quién pintó los relojes blandos?", "Salvador Dalí."],
+    ["b", "¿Dónde está La Gioconda?", "En el Museo del Louvre de París."],
+    ["b", "¿Qué flores pintaba Monet en su estanque?", "Nenúfares."],
+    ["b", "¿Qué pinta Yayoi Kusama en todas partes?", "Lunares."],
+    ["m", "¿Qué es el surrealismo?", "Un estilo que pinta sueños y cosas imposibles."],
+    ["m", "Explica qué es el sfumato.", "Pintar los bordes muy suaves, como envueltos en niebla."],
+    ["m", "¿De qué cuadro viene el nombre del impresionismo?", "De Impresión, sol naciente, de Monet."],
+    ["m", "¿Qué diferencia hay entre retrato y autorretrato?", "El retrato muestra a otra persona; el autorretrato, al propio pintor."],
+    ["m", "¿Qué hacen los restauradores?", "Limpian y reparan obras de arte."],
+    ["a", "En la lectura, ¿qué quiere decir Inés con «cada persona ve algo distinto»?", "Que cada uno interpreta y siente el arte a su manera."],
+    ["a", "Elige dos pintores del tema y compara sus estilos.", "Respuesta abierta."],
+    ["a", "Pinta un autorretrato con un elemento surrealista.", "Respuesta abierta."],
+    ["a", "Investiga un artista de tu comunidad y preséntalo a la clase.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Dalí nació en…", ["Figueres", "Valencia", "Málaga"], "Dalí."],
+    ["Leonardo escribía…", ["al revés", "solo en mayúsculas", "con los pies"], "Leonardo."],
+    ["Keith Haring empezó dibujando en…", ["el metro", "una iglesia", "la playa"], "Hoy."],
+    ["Frutas y jarras sobre una mesa forman un…", ["bodegón", "retrato", "paisaje"], "Géneros."],
+    ["En los museos la luz debe ser…", ["suave", "muy fuerte", "de colores"], "Cuidar."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué personaje elige Lucía?", ["el perro", "la infanta", "el pintor"], "Lectura."],
+    ["El jardín de Monet estaba en…", ["Giverny", "Madrid", "Milán"], "Monet."],
+  ],
+  tarjetas: [
+    ["Sorolla y Dalí", "La luz del mar; los sueños y relojes blandos."],
+    ["Leonardo", "Gioconda, sfumato, inventos y escritura al revés."],
+    ["Monet", "Impresionismo, luz, nenúfares, series."],
+    ["Géneros", "Retrato, autorretrato, paisaje, bodegón, escena, abstracción."],
+  ],
+  glosario: [
+    ["Surrealismo", "Estilo que pinta los sueños."],
+    ["Sfumato", "Técnica de bordes suaves como niebla."],
+    ["Renacimiento", "Época de gran arte en Italia hace unos 500 años."],
+    ["Impresionismo", "Estilo que capta la luz de un momento."],
+    ["Nenúfar", "Planta acuática con hojas flotantes."],
+    ["Serie", "Varias obras sobre el mismo tema."],
+    ["Género", "Tipo de cuadro según lo que muestra."],
+    ["Retrato", "Cuadro de una persona."],
+    ["Autorretrato", "Retrato del propio pintor."],
+    ["Bodegón", "Cuadro de objetos quietos."],
+    ["Restaurador", "Especialista que repara obras de arte."],
+    ["Barniz", "Capa brillante que protege la pintura."],
+  ],
+  situacion: {
+    titulo: "El museo de la clase",
+    reto: "La clase convierte el aula en un museo con obras inspiradas en los pintores del tema, y los alumnos hacen de guías para otro curso.",
+    pasos: ["Elegir un pintor por grupo e investigar su vida y su estilo.", "Crear una obra a su manera, sin copiar.", "Preparar la cartela: título, autor, género y técnica.", "Hacer de guías y explicar las obras a los visitantes."],
+    producto: "Un museo de aula con obras, cartelas y visitas guiadas.",
+    evaluacion: ["Reconoce el estilo de varios pintores.", "Crea una obra inspirada en un artista.", "Usa el vocabulario de los géneros.", "Explica su obra con claridad y respeto."],
+  },
+});
