@@ -91,3 +91,91 @@ module.exports = P.tema({
   saberes: "Comunicación y léxico: animales domésticos, de granja y salvajes; partes del cuerpo; descripción con être y avoir; acciones en tercera persona; expresión de gustos con aimer; comparativos y superlativo sencillos; onomatopeyas",
   ideas: ["Adivinanzas de animales en francés por equipos.", "Ficha de un animal inventado con su descripción en francés.", "Encuesta del animal favorito de la clase con frases en francés."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer animales típicos de Francia y de los países francófonos", "Decir lo que un animal no hace con ne… pas", "Explicar cómo cuidas a tu mascota", "Resolver adivinanzas y conocer las fábulas de La Fontaine"],
+  lectura: { titulo: "Qui suis-je ?", html: `<p>La maestra de Camille ha preparado un juego de adivinanzas. Cada alumno describe un animal y los demás tienen que adivinar cuál es. Lee las adivinanzas. Las palabras difíciles llevan traducción.</p><p><i><b>Devinette 1</b> : Je suis un oiseau. Je suis le symbole de la France. Je suis rouge, noir et blanc, et je chante « cocorico » le matin. <b>Qui suis-je ?</b></i></p><p><i><b>Devinette 2</b> : J'habite au Canada. Je suis marron. J'ai une grande queue (cola) plate et de grandes dents. Je construis des maisons dans la rivière avec du bois (madera). <b>Qui suis-je ?</b></i></p><p><i><b>Devinette 3</b> : J'habite dans les montagnes des Alpes. Je suis petite et marron. En hiver, je dors pendant six mois ! Quand j'ai peur, je siffle (silbo). <b>Qui suis-je ?</b></i></p><p><i><b>Devinette 4</b> : Je suis un grand oiseau rose. J'ai de longues pattes et je mange des petites crevettes (gambas). J'habite en Camargue, dans le sud de la France. <b>Je ne vole pas</b> beaucoup, mais je suis très élégant. <b>Qui suis-je ?</b></i></p><p>¿Las has adivinado? Las respuestas son: <b>1. le coq</b> (el gallo), <b>2. le castor</b> (el castor), <b>3. la marmotte</b> (la marmota) y <b>4. le flamant rose</b> (el flamenco).</p><p>Ahora te toca a ti. ¡Inventa una adivinanza en francés sobre tu animal favorito!</p>` },
+  tras: {
+    "Animales salvajes": [
+      ["Animales del mundo francófono", `<p>En los países donde se habla francés viven animales muy diferentes. Vamos a conocer algunos de los más <mark>característicos</mark>:</p><ul><li><b>Le coq</b> (el gallo): es el <b>símbolo de Francia</b>. Lo verás en las camisetas de los equipos deportivos franceses. En francés canta <i>cocorico</i>.</li><li><b>La marmotte</b> (la marmota): vive en los <b>Alpes</b> y en los Pirineos. Hiberna todo el invierno.</li><li><b>Le flamant rose</b> (el flamenco): vive en la <b>Camargue</b>, una zona de lagunas en el sur de Francia, junto con caballos blancos y toros negros.</li><li><b>Le castor</b> (el castor) y <b>l'orignal</b> (el alce): viven en los bosques de <b>Quebec</b>, en Canadá. El castor es uno de los símbolos de Canadá.</li><li><b>Le lion</b> (el león) y <b>l'éléphant</b> (el elefante): viven en las sabanas de países africanos francófonos como <b>Senegal</b> o <b>Costa de Marfil</b>. El elefante es el símbolo de Costa de Marfil.</li><li><b>Le lémurien</b> (el lémur): solo vive en <b>Madagascar</b>, una gran isla de África donde también se habla francés.</li></ul><p>Para decir dónde vive un animal: <i>Le castor <b>habite au</b> Canada.</i> <i>La marmotte <b>habite dans les</b> montagnes.</i></p>`,
+        L6.filas("Animaux et pays", [["le coq", "France", cRO], ["la marmotte", "les Alpes", cNA], ["le castor", "Québec", cAZ], ["le lémurien", "Madagascar", cVE]])],
+    ],
+    "¿Qué hacen los animales?": [
+      ["Lo que no hacen: ne… pas", `<p>Ya sabes decir lo que hacen los animales: <i>l'oiseau vole</i>, <i>le poisson nage</i>. ¿Y si queremos decir lo que <mark>no hacen</mark>? En francés, la negación tiene <b>dos partes</b> que rodean al verbo: <b>ne</b> + verbo + <b>pas</b>.</p><ul><li><i>Le poisson <b>ne</b> vole <b>pas</b>.</i> — El pez no vuela.</li><li><i>Le chat <b>ne</b> nage <b>pas</b> beaucoup.</i> — El gato no nada mucho.</li><li><i>La tortue <b>ne</b> court <b>pas</b> vite.</i> — La tortuga no corre rápido.</li><li><i>Le pingouin <b>ne</b> vole <b>pas</b>.</i> — El pingüino no vuela.</li></ul><p>Cuando el verbo empieza por <b>vocal</b> o <b>h</b>, <i>ne</i> se convierte en <b>n'</b>:</p><ul><li><i>Le serpent <b>n'</b>a <b>pas</b> de pattes.</i> — La serpiente no tiene patas.</li><li><i>Le poisson <b>n'</b>aime <b>pas</b> la terre.</i></li></ul><p>Fíjate en el ejemplo de la serpiente: después de la negación, <i>des</i> o <i>un</i> se convierten en <b>de</b>: <i>Il a <b>des</b> pattes → Il n'a pas <b>de</b> pattes.</i></p><p>Al hablar, muchos franceses se «comen» el <i>ne</i> y solo dicen <i>pas</i>: <i>Il vole pas</i>. Pero cuando escribas, ¡pon siempre las dos partes!</p><p>Juego: «Vrai ou faux ?» Di frases como <i>Le cheval vole</i> y los compañeros las corrigen: <i>Faux ! Le cheval ne vole pas, il court.</i></p>`,
+        H6.dos("Il… / Il ne… pas", ["SÍ", ["l'oiseau vole", "le poisson nage", "le lapin saute"], cVE], ["NO", ["le poisson ne vole pas", "la tortue ne court pas", "le chat ne nage pas"], cRO])],
+    ],
+    "Me gusta, no me gusta": [
+      ["Cuidar a mi mascota", `<p>Tener una <mark>mascota</mark> (<i>un animal de compagnie</i>) es divertido, pero también es una responsabilidad. Hay que cuidarla todos los días. Estas son las acciones más importantes:</p><ul><li><b>Je donne à manger</b> à mon chat. — Doy de comer a mi gato.</li><li><b>Je donne de l'eau</b> à mon chien. — Le doy agua a mi perro.</li><li><b>Je promène</b> mon chien. — Paseo a mi perro.</li><li><b>Je nettoie</b> la cage de mon hamster. — Limpio la jaula de mi hámster.</li><li><b>Je brosse</b> mon chat. — Cepillo a mi gato.</li><li><b>Je joue</b> avec mon lapin. — Juego con mi conejo.</li><li><b>J'emmène</b> mon chien chez <b>le vétérinaire</b>. — Llevo a mi perro al veterinario.</li></ul><p>Y para decir con qué frecuencia:</p><ul><li><b>tous les jours</b> (todos los días): <i>Je promène mon chien tous les jours.</i></li><li><b>le matin / le soir</b> (por la mañana / por la tarde-noche)</li><li><b>une fois par semaine</b> (una vez a la semana): <i>Je nettoie la cage une fois par semaine.</i></li></ul><p>Recuerda: un animal no es un juguete. Si no puedes cuidarlo, es mejor no tenerlo. Y nunca se abandona a un animal.</p><p>¿Tienes mascota? ¿Qué haces para cuidarla? <i>J'ai un… Je…</i></p>`,
+        L6.filas("Je m'occupe de…", [["je donne à manger", "doy de comer", cAZ], ["je promène", "paseo", cVE], ["je nettoie la cage", "limpio la jaula", cNA], ["je brosse", "cepillo", cMO]])],
+    ],
+  },
+  final: [
+    ["Devinettes : juega a adivinar", `<p>Las <mark>adivinanzas</mark> (<i>les devinettes</i>) son una forma muy divertida de practicar el francés. Para hacer una, describe un animal en <b>primera persona</b>, como si tú fueras el animal, y termina con la pregunta <b>Qui suis-je ?</b> (¿Quién soy?).</p><p><b>Pasos para escribir tu adivinanza:</b></p><ol><li><b>Qué tipo de animal eres</b>: <i>Je suis un oiseau / un mammifère / un insecte / un poisson.</i></li><li><b>Cómo eres</b>: <i>Je suis grand / petit. Je suis gris. J'ai quatre pattes. J'ai une longue trompe.</i></li><li><b>Dónde vives</b>: <i>J'habite en Afrique / dans la mer / à la ferme.</i></li><li><b>Qué comes</b>: <i>Je mange de l'herbe / des insectes / de la viande.</i></li><li><b>Qué haces</b> (o qué no haces): <i>Je nage. Je ne vole pas.</i></li><li>Pregunta final: <b>Qui suis-je ?</b></li></ol><p>Ejemplo:</p><p><i>Je suis un mammifère. Je suis très grand et gris. J'ai de grandes oreilles et une longue trompe. J'habite en Afrique et en Asie. Je mange des plantes. Qui suis-je ?</i> → <b>L'éléphant !</b></p><p>Consejo: empieza con pistas difíciles y termina con las más fáciles. Así el juego dura más.</p>`,
+      H6.flujo("Ma devinette", ["Je suis|un oiseau", "J'ai|des plumes", "J'habite|en France", "Qui|suis-je ?"], cAZ), ["spIUr-eliak", "Devinettes : les animaux", "Rahik TV", 173134]],
+    ["Les fables de La Fontaine", `<p><b>Jean de La Fontaine</b> fue un escritor francés que vivió hace más de 350 años. Es famoso por sus <mark>fábulas</mark>: historias cortas en verso, protagonizadas por animales que hablan y actúan como personas. Al final, siempre hay una <b>moraleja</b> (<i>la morale</i>).</p><p>Todos los niños de Francia aprenden alguna de memoria en el colegio. Las más conocidas son:</p><ul><li><b>Le Corbeau et le Renard</b> (El cuervo y el zorro): un cuervo tiene un queso en el pico. El zorro, que quiere el queso, le dice que canta muy bien. El cuervo, orgulloso, abre el pico para cantar… ¡y el queso cae! <i>Moraleja: no te fíes de quien te halaga.</i></li><li><b>La Cigale et la Fourmi</b> (La cigarra y la hormiga): la cigarra canta todo el verano, mientras la hormiga trabaja. En invierno, la cigarra no tiene comida. <i>Moraleja: hay que pensar en el futuro.</i></li><li><b>Le Lièvre et la Tortue</b> (La liebre y la tortuga): la liebre, muy rápida, se confía y pierde la carrera contra la lenta tortuga. <i>Moraleja: «Rien ne sert de courir ; il faut partir à point»</i> (de nada sirve correr, hay que salir a tiempo).</li></ul><p>Muchas de estas fábulas vienen de las de <b>Esopo</b>, un autor griego muy antiguo. En español, <b>Samaniego</b> e <b>Iriarte</b> también escribieron fábulas.</p>`,
+      L6.filas("Fables", [["le Corbeau", "le Renard", cAZ], ["la Cigale", "la Fourmi", cVE], ["le Lièvre", "la Tortue", cNA], ["la morale", "la moraleja", cRO]]), ["STb_QERzEck", "Le Corbeau et le Renard", "Les P'tits z'Amis", 3428440]],
+  ],
+  ejemplos: [
+    ["Escribe en negativo: Le chat vole.", ["ne + verbo + pas alrededor del verbo.", "vole empieza por consonante: ne."], "Le chat ne vole pas."],
+    ["Escribe en negativo: Le serpent a des pattes.", ["a empieza por vocal: n'.", "Después de la negación, des → de."], "Le serpent n'a pas de pattes."],
+  ],
+  errores: ["Olvidar una de las dos partes de la negación al escribir: «Le chat vole pas».", "Decir «n'a pas des pattes» en lugar de «n'a pas de pattes»."],
+  ejercicios: [
+    ["b", "¿Qué animal es el símbolo de Francia?", "le coq (el gallo)"],
+    ["b", "¿Cómo se dice «paseo a mi perro»?", "Je promène mon chien."],
+    ["b", "Escribe en negativo: Le poisson court.", "Le poisson ne court pas."],
+    ["b", "¿Qué pregunta termina una adivinanza francesa?", "Qui suis-je ?"],
+    ["b", "¿Quién escribió Le Corbeau et le Renard?", "Jean de La Fontaine."],
+    ["m", "¿Dónde vive el castor en el mundo francófono?", "En Quebec (Canadá)."],
+    ["m", "Escribe en negativo: Le pingouin a des dents.", "Le pingouin n'a pas de dents."],
+    ["m", "Di dos cosas que haces para cuidar a una mascota.", "Por ejemplo: je donne à manger, je promène mon chien."],
+    ["m", "¿Cuál es la moraleja de El cuervo y el zorro?", "No fiarse de quien te halaga."],
+    ["m", "¿Qué significa «une fois par semaine»?", "Una vez a la semana."],
+    ["a", "Escribe una adivinanza con cinco pistas.", "Respuesta abierta."],
+    ["a", "Escribe cinco frases «Vrai ou faux» con ne… pas.", "Respuesta abierta."],
+    ["a", "Representa con un compañero la fábula del cuervo y el zorro.", "Respuesta abierta."],
+    ["a", "Haz una ficha sobre un animal de un país francófono.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El flamenco vive en…", ["la Camargue", "Quebec", "Madagascar"], "Animales francófonos."],
+    ["«El pez no vuela» es…", ["Le poisson ne vole pas.", "Le poisson vole ne.", "Le poisson pas vole."], "Negación."],
+    ["«Je nettoie la cage» significa…", ["Limpio la jaula", "Abro la jaula", "Compro una jaula"], "Mascota."],
+    ["En una adivinanza, el animal habla en…", ["primera persona", "tercera persona", "plural"], "Devinettes."],
+    ["La Fontaine escribió…", ["fábulas", "novelas de detectives", "canciones"], "Fábulas."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué animal duerme seis meses?", ["la marmota", "el castor", "el gallo"], "Lectura."],
+    ["¿Qué animal construye casas en el río?", ["el castor", "el flamenco", "la marmota"], "Lectura."],
+  ],
+  tarjetas: [
+    ["Francofonía", "le coq (Francia), le castor (Quebec), le lémurien (Madagascar)."],
+    ["Negación", "ne… pas: le poisson ne vole pas; n'a pas de pattes."],
+    ["Mascota", "je donne à manger, je promène, je nettoie, je brosse."],
+    ["Adivinanzas y fábulas", "Qui suis-je ? La Fontaine: le Corbeau et le Renard."],
+  ],
+  glosario: [
+    ["le coq", "el gallo"],
+    ["la marmotte", "la marmota"],
+    ["le castor", "el castor"],
+    ["le flamant rose", "el flamenco"],
+    ["ne… pas", "no (negación)"],
+    ["un animal de compagnie", "una mascota"],
+    ["je promène", "paseo"],
+    ["le vétérinaire", "el veterinario"],
+    ["une devinette", "una adivinanza"],
+    ["Qui suis-je ?", "¿Quién soy?"],
+    ["une fable", "una fábula"],
+    ["la morale", "la moraleja"],
+  ],
+  situacion: {
+    titulo: "Le zoo des devinettes",
+    reto: "La clase crea un «zoo» de adivinanzas en francés con animales de todo el mundo francófono.",
+    pasos: ["Cada alumno elige un animal y busca dónde vive y qué come.", "Escribe una adivinanza en primera persona con una frase en negativo.", "Hace un dibujo del animal y lo esconde detrás de una solapa.", "La clase visita el zoo leyendo las adivinanzas y adivinando."],
+    producto: "Un mural de adivinanzas con solapas.",
+    evaluacion: ["Describe el animal en francés.", "Usa bien ne… pas.", "Escribe la adivinanza en primera persona.", "Pronuncia con claridad al leer."],
+  },
+});

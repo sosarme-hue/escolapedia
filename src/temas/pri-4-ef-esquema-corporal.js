@@ -136,3 +136,91 @@ module.exports = {
   fuentes: [RD, wiki("Esquema corporal", "Esquema_corporal"), wiki("Lateralidad", "Lateralidad")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Explicar cómo trabajan juntos huesos, articulaciones y músculos", "Descubrir tu lateralidad de ojo, mano, pie y oído", "Usar técnicas de respiración para calmarte", "Orientarte en el espacio y sentir tu cuerpo sin mirar"],
+  lectura: { titulo: "El reto de los ojos cerrados", html: `<p>Aquel lunes, la profesora de Educación Física, Marina, entró en el gimnasio con una bolsa llena de pañuelos.</p><p>—Hoy vamos a descubrir un sentido secreto —dijo—. Poneos por parejas. Uno se tapa los ojos con el pañuelo y el otro le guía.</p><p>Lucas se tapó los ojos. Al principio se sentía raro. No veía nada, pero, curiosamente, sabía perfectamente dónde tenía los brazos y las piernas.</p><p>—Levanta el brazo derecho y tócate la nariz con el dedo índice —le dijo su compañera Aitana.</p><p>Lucas lo hizo sin fallar. ¡Lo había conseguido a la primera!</p><p>—Ahora ponte a la pata coja sobre el pie izquierdo.</p><p>Eso ya fue más difícil. Lucas se tambaleó, movió los brazos para equilibrarse y, al final, tuvo que apoyar el otro pie.</p><p>—¡Con los ojos abiertos es mucho más fácil! —protestó riendo.</p><p>Al terminar, Marina reunió a toda la clase.</p><p>—Lo que habéis usado se llama <b>propiocepción</b>. Es el sentido que nos dice dónde está cada parte del cuerpo sin necesidad de mirarla. Los músculos y las articulaciones envían información al cerebro todo el tiempo. Por eso podéis tocaros la nariz con los ojos cerrados.</p><p>—¿Y por qué es más difícil el equilibrio sin ver? —preguntó Aitana.</p><p>—Porque los ojos también ayudan mucho a mantener el equilibrio. Si se los quitamos, el cuerpo tiene que trabajar más. ¡Y eso lo entrena!</p>` },
+  tras: {
+    "Las articulaciones": [
+      ["Huesos, articulaciones y músculos: un equipo", `<p>Para movernos, nuestro cuerpo usa un equipo de tres jugadores que trabajan siempre juntos: el <mark>aparato locomotor</mark>.</p><ul><li>Los <b>huesos</b> son la estructura, como las vigas de un edificio. Nos sostienen y protegen órganos importantes: el cráneo protege el cerebro y las costillas, el corazón y los pulmones. Una persona adulta tiene <b>206 huesos</b>.</li><li>Las <b>articulaciones</b> son las uniones entre huesos que permiten doblar y girar.</li><li>Los <b>músculos</b> son los motores. Están unidos a los huesos por los <b>tendones</b>. Cuando un músculo se <b>contrae</b> (se acorta), tira del hueso y lo mueve. Tenemos más de <b>600 músculos</b>.</li></ul><p>Los músculos solo pueden <b>tirar</b>, nunca empujar. Por eso trabajan por parejas, uno a cada lado de la articulación:</p><ul><li>Para <b>doblar</b> el brazo, se contrae el <b>bíceps</b> (delante del brazo).</li><li>Para <b>estirarlo</b>, se contrae el <b>tríceps</b> (detrás del brazo).</li></ul><p>Compruébalo: pon una mano sobre el bíceps del otro brazo y dóblalo. ¿Notas cómo se pone duro? Ahora estíralo con fuerza y toca el tríceps.</p><p>Otros músculos importantes en el deporte son los <b>cuádriceps</b> (parte delantera del muslo), los <b>gemelos</b> (pantorrilla), los <b>abdominales</b> y los <b>glúteos</b>.</p><p>Para que todo el equipo funcione bien, hay que moverse cada día, calentar antes del ejercicio y estirar después.</p>`,
+        H6.dos("El brazo", ["DOBLAR", ["se contrae", "el bíceps", "flexión"], cAZ], ["ESTIRAR", ["se contrae", "el tríceps", "extensión"], cRO])],
+    ],
+    "La lateralidad": [
+      ["Test de lateralidad", `<p>¿Eres diestro o zurdo? La respuesta no es tan sencilla, porque la lateralidad no es solo de la <b>mano</b>. También tenemos un <mark>ojo, un pie y un oído dominantes</mark>. Haz este test con un compañero:</p><ul><li><b>Mano</b>: escribe tu nombre, lanza una pelota, peina a un muñeco. ¿Qué mano usas?</li><li><b>Pie</b>: chuta un balón, sube a una silla, salta a la pata coja. ¿Con qué pie empiezas?</li><li><b>Ojo</b>: haz un agujero en un folio y mira por él un objeto lejano con los dos ojos abiertos. Luego cierra un ojo y después el otro. El ojo con el que sigues viendo el objeto es tu <b>ojo dominante</b>. También puedes mirar por un catalejo de papel.</li><li><b>Oído</b>: ¿con qué oído escuchas a través de una pared o pegas el teléfono? Ese es tu oído dominante.</li></ul><p>Anota los resultados. Pueden pasar varias cosas:</p><ul><li>Si todo es del mismo lado, tienes una <b>lateralidad homogénea</b> (diestra o zurda).</li><li>Si, por ejemplo, la mano es diestra y el ojo es zurdo, tienes una <b>lateralidad cruzada</b>. Es muy frecuente y no pasa nada.</li><li>Si usas las dos manos igual de bien, eres <b>ambidiestro</b>. Es muy poco habitual.</li></ul><p>En algunos deportes, ser zurdo es una ventaja: en el tenis, la esgrima o el balonmano, los rivales están menos acostumbrados a jugar contra zurdos.</p>`,
+        L6.filas("Mi test", [["mano", "escribir, lanzar", cAZ], ["pie", "chutar, saltar", cVE], ["ojo", "mirar por un agujero", cNA], ["oído", "escuchar la pared", cMO]])],
+    ],
+    "La respiración": [
+      ["Respirar para calmarse", `<p>La respiración es una herramienta muy poderosa: cuando respiras despacio y profundo, tu corazón se tranquiliza y tu mente también. Por eso los deportistas la usan antes de una competición, y tú puedes usarla antes de un examen o cuando estés nervioso o enfadado. Aquí tienes algunas <mark>técnicas</mark>:</p><ul><li><b>La respiración del globo</b> (abdominal): túmbate boca arriba con una mano sobre la barriga. Al coger aire por la nariz, la barriga se hincha como un globo. Al soltarlo por la boca, se deshincha. Repite cinco veces muy despacio.</li><li><b>La respiración de la abeja</b>: coge aire por la nariz y, al soltarlo, haz un zumbido largo con la boca cerrada: «mmmmm». Notarás una vibración agradable en la cabeza.</li><li><b>La respiración cuadrada</b>: coge aire contando hasta 4, aguántalo contando hasta 4, suéltalo contando hasta 4 y espera contando hasta 4. Puedes dibujar un cuadrado en el aire con el dedo mientras lo haces.</li><li><b>Oler la flor y soplar la vela</b>: imagina que hueles una flor (coges aire por la nariz) y que soplas una vela sin apagarla (sueltas el aire suavemente por la boca).</li></ul><p>Lo importante es que la <b>espiración</b> (soltar el aire) sea más larga que la <b>inspiración</b>. Eso es lo que más relaja.</p><p>Al final de la clase de Educación Física, durante la <b>vuelta a la calma</b>, estas técnicas ayudan a recuperar las pulsaciones normales.</p>`,
+        H6.flujo("Respiración cuadrada", ["inspira|cuenta 4", "aguanta|cuenta 4", "espira|cuenta 4", "espera|cuenta 4"], cVE), ["CDVzJ1n9EE0", "La respiración de la abeja", "Smile and Learn", 918356]],
+    ],
+  },
+  final: [
+    ["El cuerpo en el espacio", `<p>Conocer el cuerpo no es solo saber cómo es: también es saber <mark>dónde está</mark> respecto a las cosas y a las personas que nos rodean. Esto se llama <b>orientación espacial</b>.</p><p>Las nociones más importantes son:</p><ul><li><b>Arriba / abajo</b>: la pelota está arriba de la espaldera.</li><li><b>Delante / detrás</b>: me pongo delante de mi compañero.</li><li><b>Dentro / fuera</b>: salto dentro del aro.</li><li><b>Cerca / lejos</b>: la portería está lejos.</li><li><b>Derecha / izquierda</b>: giro a la derecha.</li><li><b>Encima / debajo</b>: paso por debajo de la cuerda.</li></ul><p>Recuerda que la derecha y la izquierda <b>cambian</b> según hacia dónde miramos. Si un compañero está frente a ti, su mano derecha está en tu lado izquierdo. Por eso, cuando un profesor hace un ejercicio de cara a la clase, a veces lo hace «en espejo».</p><p>También es importante calcular <b>distancias</b> y <b>trayectorias</b>: saber si llegarás a coger una pelota, si cabes por un hueco o cuántos pasos hay hasta una línea.</p><p><b>Juego del GPS humano</b>: por parejas, uno tiene los ojos cerrados y el otro le guía por el gimnasio solo con palabras: «Dos pasos adelante, gira a la derecha, agáchate, pasa por debajo…». ¡Hay que dar instrucciones muy claras!</p>`,
+      L6.filas("Orientación", [["arriba / abajo", "la espaldera", cAZ], ["delante / detrás", "el compañero", cVE], ["dentro / fuera", "el aro", cNA], ["derecha / izquierda", "girar", cMO]]), ["KW3WIQ3_0WI", "Nociones de orientación espacial", "Mundo Primaria", 437659]],
+    ["El sentido secreto: la propiocepción", `<p>Además de la vista, el oído, el olfato, el gusto y el tacto, tenemos un <mark>sexto sentido</mark> muy importante para el deporte: la <b>propiocepción</b>.</p><p>Es la capacidad de saber en qué <b>posición</b> está cada parte del cuerpo y cómo se mueve <b>sin necesidad de mirar</b>. Funciona gracias a unos pequeños sensores que tenemos en los <b>músculos</b>, los <b>tendones</b> y las <b>articulaciones</b>, que envían información al <b>cerebro</b> todo el tiempo.</p><p>Gracias a la propiocepción:</p><ul><li>Puedes tocarte la nariz con los ojos cerrados.</li><li>Puedes subir una escalera sin mirarte los pies.</li><li>Un jugador de baloncesto puede botar el balón mientras mira a sus compañeros.</li><li>Un futbolista sabe con qué fuerza golpear el balón.</li></ul><p>Se puede <b>entrenar</b>, y eso ayuda a mejorar el equilibrio y a evitar lesiones, como los esguinces de tobillo. Prueba estos ejercicios:</p><ul><li>Mantén el equilibrio a la pata coja <b>con los ojos cerrados</b> durante 10 segundos.</li><li>Con los ojos cerrados, junta las puntas de los dedos índices delante de ti.</li><li>Camina por una línea recta con los ojos cerrados, guiado por un compañero.</li><li>Ponte de pie sobre un cojín blando y aguanta el equilibrio.</li></ul><p>¡Verás cómo, practicando, cada vez te sale mejor!</p>`,
+      H6.rueda("Propiocepción", "CEREBRO", [["músculos", cRO], ["tendones", cAZ], ["articulaciones", cVE], ["equilibrio", cNA]])],
+  ],
+  ejemplos: [
+    ["¿Qué músculo se contrae para doblar el codo y cuál para estirarlo?", ["Los músculos solo tiran: trabajan por parejas.", "Delante, el bíceps; detrás, el tríceps."], "Para doblarlo, el bíceps; para estirarlo, el tríceps."],
+    ["Escribes con la derecha y tu ojo dominante es el izquierdo. ¿Qué lateralidad tienes?", ["Mano y ojo son de lados diferentes.", "Eso es lateralidad cruzada."], "Lateralidad cruzada."],
+  ],
+  errores: ["Pensar que los músculos pueden empujar: solo tiran.", "Coger aire por la boca y soltarlo deprisa para relajarse: la espiración debe ser lenta y larga."],
+  ejercicios: [
+    ["b", "¿Cuántos huesos tiene una persona adulta?", "206."],
+    ["b", "¿Qué une los músculos con los huesos?", "Los tendones."],
+    ["b", "Explica la respiración del globo.", "Al coger aire la barriga se hincha; al soltarlo se deshincha."],
+    ["b", "¿Cómo averiguas tu ojo dominante?", "Mirando un objeto por un agujero y cerrando un ojo cada vez."],
+    ["b", "Di tres nociones de orientación espacial.", "Por ejemplo: arriba/abajo, delante/detrás, dentro/fuera."],
+    ["m", "¿Por qué los músculos trabajan por parejas?", "Porque solo pueden tirar, no empujar."],
+    ["m", "¿Qué es la lateralidad cruzada?", "Cuando el lado dominante no es el mismo en mano, ojo, pie u oído."],
+    ["m", "Describe la respiración cuadrada.", "Inspirar 4, aguantar 4, espirar 4, esperar 4."],
+    ["m", "¿Qué es la propiocepción?", "Saber la posición del cuerpo sin mirar."],
+    ["m", "Si un compañero está frente a ti y levanta la mano derecha, ¿en qué lado la ves?", "A mi izquierda."],
+    ["a", "Haz el test de lateralidad y anota tus resultados.", "Respuesta abierta."],
+    ["a", "Diseña un circuito de propiocepción con cuatro estaciones.", "Respuesta abierta."],
+    ["a", "Guía a un compañero con los ojos cerrados por un recorrido.", "Respuesta abierta."],
+    ["a", "Enseña una técnica de respiración a tu familia.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Para doblar el brazo se contrae…", ["el bíceps", "el tríceps", "el gemelo"], "Músculos."],
+    ["Si usas igual de bien las dos manos eres…", ["ambidiestro", "zurdo", "cruzado"], "Lateralidad."],
+    ["Para relajarse, la espiración debe ser…", ["larga y lenta", "rápida", "por la nariz y corta"], "Respiración."],
+    ["Tocarte la nariz con los ojos cerrados es gracias a la…", ["propiocepción", "vista", "lateralidad"], "Propiocepción."],
+    ["«Paso por debajo de la cuerda» es una noción de…", ["orientación espacial", "respiración", "fuerza"], "Espacio."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué le costó más a Lucas con los ojos tapados?", ["mantenerse a la pata coja", "tocarse la nariz", "levantar el brazo"], "Lectura."],
+    ["¿Qué tienen los músculos y articulaciones para la propiocepción?", ["sensores", "ojos", "tendones de colores"], "Propiocepción."],
+  ],
+  tarjetas: [
+    ["Aparato locomotor", "Huesos (206), articulaciones y músculos (más de 600); bíceps y tríceps."],
+    ["Lateralidad", "Mano, pie, ojo y oído; homogénea, cruzada o ambidiestra."],
+    ["Respiración", "Globo, abeja, cuadrada; espiración larga para relajarse."],
+    ["Espacio y propiocepción", "Arriba, delante, dentro, derecha; sentir el cuerpo sin mirar."],
+  ],
+  glosario: [
+    ["Aparato locomotor", "Huesos, articulaciones y músculos que nos permiten movernos."],
+    ["Tendón", "Cordón que une un músculo con un hueso."],
+    ["Contracción", "Cuando un músculo se acorta y hace fuerza."],
+    ["Bíceps", "Músculo delantero del brazo que lo dobla."],
+    ["Tríceps", "Músculo trasero del brazo que lo estira."],
+    ["Lado dominante", "Lado del cuerpo que usamos con más precisión."],
+    ["Lateralidad cruzada", "Dominancia de lados distintos según la parte del cuerpo."],
+    ["Ambidiestro", "Que usa igual de bien las dos manos."],
+    ["Inspiración", "Fase en la que tomamos aire."],
+    ["Espiración", "Fase en la que soltamos el aire."],
+    ["Orientación espacial", "Saber dónde estamos respecto a las cosas."],
+    ["Propiocepción", "Sentido que nos dice la posición del cuerpo sin mirar."],
+  ],
+  situacion: {
+    titulo: "El laboratorio del cuerpo",
+    reto: "La clase monta un laboratorio con estaciones para descubrir cómo funciona su cuerpo.",
+    pasos: ["Estación 1: tocar el bíceps y el tríceps al doblar y estirar el brazo.", "Estación 2: hacer el test de lateralidad y anotarlo en una ficha.", "Estación 3: practicar tres técnicas de respiración y medir las pulsaciones antes y después.", "Estación 4: retos de propiocepción y orientación con los ojos cerrados."],
+    producto: "Una ficha personal con los resultados del laboratorio.",
+    evaluacion: ["Explica cómo trabajan huesos y músculos.", "Identifica su lateralidad.", "Usa la respiración para relajarse.", "Se orienta y mantiene el equilibrio sin mirar."],
+  },
+});

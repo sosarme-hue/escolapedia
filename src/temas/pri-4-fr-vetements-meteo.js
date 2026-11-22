@@ -97,3 +97,91 @@ module.exports = P.tema({
   saberes: "Comunicación y léxico: la ropa y los complementos; el verbo porter; el tiempo atmosférico con il fait, il pleut, il neige e il y a; las estaciones del año; situaciones de compra en una tienda",
   ideas: ["Desfile de moda en la clase describiendo la ropa en francés.", "Parte del tiempo diario por turnos con un mapa de la comunidad.", "Maleta de viaje: elegir ropa según el tiempo de una ciudad francesa."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Usar los verbos porter y mettre con la ropa", "Decir los meses del año y las fechas", "Hablar de la temperatura en grados", "Comparar el tiempo en distintos países francófonos y describir un look"],
+  lectura: { titulo: "Une lettre du Québec", html: `<p>Mathis vive en Montreal, en Canadá, y escribe una carta a su amiga Lucía, que vive en Sevilla. Lee la carta. Las palabras difíciles llevan traducción.</p><p><i>Montréal, le 15 <b>janvier</b></i></p><p><i>Chère Lucía,</i></p><p><i>Comment ça va à Séville ? Ici, à Montréal, c'est l'<b>hiver</b>. Il fait très, très froid : aujourd'hui, il fait <b>moins vingt degrés</b> ! Il neige beaucoup et il y a de la neige partout (por todas partes).</i></p><p><i>Pour aller à l'école, <b>je mets</b> beaucoup de vêtements : un gros <b>manteau</b>, une <b>écharpe</b>, un <b>bonnet</b>, des <b>gants</b> et des <b>bottes</b> de neige. Ma mère dit que je ressemble à un bonhomme de neige (muñeco de nieve) !</i></p><p><i>Mais j'adore l'hiver. Le week-end, je fais du ski et du patin à glace (patinaje sobre hielo) avec mes amis.</i></p><p><i>Et toi ? Quel temps fait-il à Séville ? Ma prof dit qu'en Espagne, en janvier, il fait <b>quinze degrés</b>. C'est vrai ? Tu <b>portes</b> un tee-shirt en hiver ?</i></p><p><i>En <b>juillet</b>, je vais venir en Espagne avec mes parents. Il va faire très chaud, non ? Je vais <b>mettre</b> un short et des sandales tous les jours !</i></p><p><i>Écris-moi vite !</i></p><p><i>Gros bisous,</i></p><p><i>Mathis</i></p>` },
+  tras: {
+    "¿Qué llevas puesto?": [
+      ["Porter y mettre", `<p>Para hablar de la ropa en francés hay dos verbos muy útiles que no significan lo mismo:</p><ul><li><mark>porter</mark> = <b>llevar puesto</b>. Describe la ropa que alguien lleva: <i>Aujourd'hui, <b>je porte</b> un jean et un pull bleu.</i> (Hoy llevo unos vaqueros y un jersey azul.)</li><li><mark>mettre</mark> = <b>ponerse</b>. Es la acción de vestirse: <i>Il fait froid, <b>je mets</b> mon manteau.</i> (Hace frío, me pongo el abrigo.)</li></ul><p>Así se conjugan en presente:</p><ul><li><b>porter</b>: je porte, tu portes, il / elle porte, nous portons, vous portez, ils / elles portent.</li><li><b>mettre</b>: je mets, tu mets, il / elle met, nous mettons, vous mettez, ils / elles mettent.</li></ul><p>Fíjate en que <i>porter</i> es un verbo regular en <b>-er</b>, como <i>parler</i> o <i>aimer</i>. En cambio, <i>mettre</i> es irregular: hay que aprenderlo de memoria.</p><p>Y el contrario de <i>mettre</i> es <b>enlever</b> (quitarse): <i>Il fait chaud, <b>j'enlève</b> mon pull.</i></p><p>Ejemplos útiles:</p><ul><li><i>Qu'est-ce que tu portes ?</i> — ¿Qué llevas puesto?</li><li><i>Mets ton bonnet !</i> — ¡Ponte el gorro! (Lo que dicen todas las madres francesas en invierno.)</li><li><i>Elle porte une robe rouge.</i> — Lleva un vestido rojo.</li></ul>`,
+        H6.dos("Porter / mettre", ["PORTER", ["llevar puesto", "je porte un pull", "il porte"], cAZ], ["METTRE", ["ponerse", "je mets mon manteau", "il met"], cNA])],
+    ],
+    "Les saisons: las estaciones": [
+      ["Los meses del año", `<p>Los <mark>meses</mark> (<i>les mois</i>) en francés se parecen mucho a los españoles y, como en español, se escriben con <b>minúscula</b>:</p><ul><li><b>janvier</b> (enero) · <b>février</b> (febrero) · <b>mars</b> (marzo)</li><li><b>avril</b> (abril) · <b>mai</b> (mayo) · <b>juin</b> (junio)</li><li><b>juillet</b> (julio) · <b>août</b> (agosto, se pronuncia «ut») · <b>septembre</b> (septiembre)</li><li><b>octobre</b> (octubre) · <b>novembre</b> (noviembre) · <b>décembre</b> (diciembre)</li></ul><p>¡Cuidado con <b>juin</b> y <b>juillet</b>! Se parecen mucho. Truco: <i>juillet</i> es más largo porque julio va después.</p><p>Para decir «en un mes» se usa <b>en</b>: <i><b>En</b> juillet, il fait chaud.</i> <i>Mon anniversaire est <b>en</b> mai.</i></p><p>Para decir la <b>fecha</b>, el orden es: <b>le</b> + número + mes.</p><ul><li><i>le 14 juillet</i> (el 14 de julio, la fiesta nacional de Francia)</li><li><i>le 25 décembre</i> (Navidad)</li><li>Para el día 1: <i>le <b>premier</b> janvier</i>.</li></ul><p>Preguntas útiles:</p><ul><li><i>Quelle est la date aujourd'hui ?</i> — ¿Qué fecha es hoy?</li><li><i>C'est quand, ton anniversaire ?</i> — ¿Cuándo es tu cumpleaños? → <i>C'est le 3 mars.</i></li></ul>`,
+        L6.filas("Les mois", [["janvier", "enero", cAZ], ["avril", "abril", cVE], ["juillet", "julio", cNA], ["août", "agosto («ut»)", cMO], ["décembre", "diciembre", cRO]]), ["2odJakoOVVI", "Les mois de l'année", "Pierre Lozère", 10265405]],
+    ],
+    "La ropa según el tiempo": [
+      ["La temperatura", `<p>Para hablar de la <mark>temperatura</mark> se usa la expresión <b>il fait</b> + número + <b>degrés</b>:</p><ul><li><i>Il fait <b>vingt-cinq degrés</b>.</i> — Hace 25 grados.</li><li><i>Il fait <b>zéro degré</b>.</i> — Hace 0 grados. (¡Atención: con 0 y 1, <i>degré</i> va en singular!)</li><li><i>Il fait <b>moins cinq</b>.</i> — Hace cinco bajo cero. (<i>moins</i> = menos)</li></ul><p>Para preguntar: <b>Quelle température fait-il ?</b> (¿Qué temperatura hace?) o, más fácil, <b>Il fait combien ?</b></p><p>Y para describir cómo es la temperatura:</p><ul><li><b>Il fait très chaud</b> (hace mucho calor): más de 30 °C.</li><li><b>Il fait chaud</b> (hace calor): de 25 a 30 °C.</li><li><b>Il fait bon</b> / <b>il fait doux</b> (se está bien / templado): de 15 a 25 °C.</li><li><b>Il fait frais</b> (hace fresco): de 5 a 15 °C.</li><li><b>Il fait froid</b> (hace frío): menos de 5 °C.</li><li><b>Il gèle</b> (hiela): bajo cero.</li></ul><p>En Francia, como en España, la temperatura se mide en <b>grados Celsius</b>. Pero si viajas a Estados Unidos, ¡allí usan los grados Fahrenheit, y 70 grados es una temperatura agradable!</p><p>¿Qué temperatura hace hoy en tu ciudad? ¿Qué ropa te pones? <i>Aujourd'hui, il fait… degrés. Je mets…</i></p>`,
+        L6.filas("Il fait…", [["35 °C", "très chaud", cRO], ["20 °C", "bon / doux", cNA], ["10 °C", "frais", cVE], ["−5 °C", "froid, il gèle", cAZ]])],
+    ],
+  },
+  final: [
+    ["El tiempo en el mundo francófono", `<p>Como el francés se habla en muchos países, en el mismo día puede hacer un tiempo <mark>muy diferente</mark> en cada uno. Imagina un día de enero:</p><ul><li>En <b>Montréal</b> (Quebec, Canadá), los inviernos son muy duros: <i>il neige</i> y <i>il fait moins vingt degrés</i>. Hay nieve desde noviembre hasta abril. Los niños llevan monos de nieve (<i>des habits de neige</i>) para ir al colegio.</li><li>En <b>Bretagne</b> (Bretaña, en el oeste de Francia), <i>il pleut</i> a menudo y <i>il y a du vent</i>, porque está junto al océano Atlántico. Allí es típico llevar un chubasquero amarillo: <i>un ciré jaune</i>.</li><li>En <b>Nice</b> (Niza, en el sur de Francia), junto al Mediterráneo, <i>il fait doux</i> incluso en invierno, y casi siempre <i>il y a du soleil</i>.</li><li>En <b>Dakar</b> (Senegal), <i>il fait chaud</i> todo el año: unos 25 grados en enero.</li><li>En <b>Tahiti</b> (Polinesia Francesa), en el hemisferio sur, enero es pleno verano: <i>il fait très chaud</i> y llueve mucho.</li></ul><p>Y en la montaña, en los Alpes, hay mucha nieve: es el lugar perfecto para esquiar.</p><p>Fíjate: en el hemisferio sur, las estaciones van al revés. Cuando en Francia es invierno, en Tahití es verano.</p><p>¿En qué lugar te gustaría pasar las vacaciones de invierno? ¿Qué ropa meterías en tu maleta?</p>`,
+      L6.filas("En janvier", [["Montréal", "−20 °C, il neige", cAZ], ["Bretagne", "il pleut, du vent", cVE], ["Nice", "il fait doux", cNA], ["Dakar", "25 °C, chaud", cRO]])],
+    ["Décrire un look: describir un estilo", `<p><b>París</b> es conocida como una de las <mark>capitales de la moda</mark> del mundo. Allí se celebran grandes desfiles y tienen su sede muchas marcas famosas. Vamos a aprender a describir la ropa de alguien con todo detalle.</p><p>Para describir un <i>look</i>, di:</p><ol><li><b>La prenda</b>: <i>un pantalon, une jupe, une veste…</i></li><li><b>El color</b>, que va <b>detrás</b> y concuerda: <i>une jupe <b>verte</b>, des chaussures <b>noires</b></i>.</li><li><b>El estampado o el tejido</b> (opcional): <i>à rayures</i> (de rayas), <i>à pois</i> (de lunares), <i>à carreaux</i> (de cuadros), <i>en laine</i> (de lana), <i>en jean</i> (vaquero).</li></ol><p>Ejemplo:</p><p><i>Aujourd'hui, Léa porte une jupe <b>bleue à pois blancs</b>, un tee-shirt <b>jaune</b> et une veste <b>en jean</b>. Elle met des baskets <b>blanches</b> et une casquette <b>rouge</b>. Elle est très jolie !</i></p><p>Para dar tu opinión:</p><ul><li><i>C'est joli !</i> (¡Es bonito!) · <i>C'est cool !</i> · <i>C'est original !</i></li><li><i>J'aime bien ta veste.</i> (Me gusta tu chaqueta.)</li><li><i>Ça te va bien !</i> (¡Te queda bien!)</li></ul><p>Recuerda que algunos colores no cambian nunca: <i>orange</i> y <i>marron</i>. Por eso se dice <i>des chaussures <b>marron</b></i> y <i>une veste <b>orange</b></i>, sin añadir ninguna letra.</p><p>Juego: un alumno describe la ropa de un compañero de clase sin decir su nombre. ¿Quién es?</p>`,
+      H6.flujo("Mon look", ["une jupe|la prenda", "bleue|el color", "à pois|estampado", "C'est joli !|opinión"], cRO), ["SFRhBEqDJ24", "Les vêtements: clothes in French", "Learn To French", 342867]],
+  ],
+  ejemplos: [
+    ["Di que hace frío y que te pones el abrigo y los guantes.", ["Tiempo: Il fait froid.", "Acción de ponerse: mettre → je mets."], "Il fait froid, je mets mon manteau et mes gants."],
+    ["Escribe la fecha: 14 de julio.", ["Orden: le + número + mes.", "Mes en minúscula."], "le 14 juillet"],
+  ],
+  errores: ["Confundir porter (llevar puesto) con mettre (ponerse).", "Escribir los meses con mayúscula: «Juillet»."],
+  ejercicios: [
+    ["b", "¿Cómo se dice «agosto» en francés?", "août"],
+    ["b", "Completa: Il fait froid, je ___ mon bonnet.", "mets"],
+    ["b", "¿Cómo se dice «Hace 20 grados»?", "Il fait vingt degrés."],
+    ["b", "¿Qué tiempo hace en Montreal en enero?", "Hace mucho frío y nieva."],
+    ["b", "¿Qué significa «à rayures»?", "de rayas"],
+    ["m", "¿Cuándo es la fiesta nacional de Francia?", "Le 14 juillet."],
+    ["m", "Di tu cumpleaños en francés.", "Mon anniversaire, c'est le…"],
+    ["m", "Conjuga mettre con nous y vous.", "nous mettons, vous mettez"],
+    ["m", "¿Cómo se dice «Hace cinco bajo cero»?", "Il fait moins cinq."],
+    ["m", "Describe: falda verde de cuadros.", "une jupe verte à carreaux"],
+    ["a", "Responde a la carta de Mathis contando el tiempo de tu ciudad.", "Respuesta abierta."],
+    ["a", "Presenta el parte del tiempo de tres ciudades francófonas.", "Respuesta abierta."],
+    ["a", "Describe el look de un compañero para que lo adivinen.", "Respuesta abierta."],
+    ["a", "Haz un calendario con los meses en francés y las fiestas importantes.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["«Je mets mon manteau» significa…", ["Me pongo el abrigo", "Llevo el abrigo", "Me quito el abrigo"], "Porter / mettre."],
+    ["«Juillet» es…", ["julio", "junio", "enero"], "Meses."],
+    ["«Il fait doux» quiere decir que…", ["hace buen tiempo templado", "hace mucho frío", "llueve"], "Temperatura."],
+    ["En Tahití, en enero es…", ["verano", "invierno", "otoño"], "Mundo francófono."],
+    ["«Une robe à pois» es un vestido…", ["de lunares", "de rayas", "de lana"], "Look."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué temperatura hace en Montreal?", ["veinte bajo cero", "quince grados", "cero grados"], "Lectura."],
+    ["¿Qué deporte hace Mathis el fin de semana?", ["esquí y patinaje", "fútbol", "natación"], "Lectura."],
+  ],
+  tarjetas: [
+    ["Porter / mettre", "Je porte (llevo) · je mets (me pongo) · j'enlève (me quito)."],
+    ["Meses", "janvier… décembre; en juillet; le 14 juillet; le premier janvier."],
+    ["Temperatura", "Il fait 25 degrés; il fait moins cinq; chaud, bon, frais, froid."],
+    ["Mundo y moda", "Montréal −20 °C, Dakar 25 °C; une jupe bleue à pois."],
+  ],
+  glosario: [
+    ["porter", "llevar puesto"],
+    ["mettre", "ponerse"],
+    ["enlever", "quitarse"],
+    ["les mois", "los meses"],
+    ["août", "agosto"],
+    ["le degré", "el grado"],
+    ["moins", "menos (bajo cero)"],
+    ["il gèle", "hiela"],
+    ["il fait frais", "hace fresco"],
+    ["à rayures", "de rayas"],
+    ["à pois", "de lunares"],
+    ["Ça te va bien !", "¡Te queda bien!"],
+  ],
+  situacion: {
+    titulo: "La valise parfaite",
+    reto: "La clase prepara la maleta ideal para viajar a un país francófono en un mes concreto.",
+    pasos: ["En grupos, elegid un destino (Montreal, Niza, Dakar, Tahití…) y un mes.", "Buscad qué tiempo hace allí y qué temperatura.", "Haced la lista de la ropa de la maleta en francés, con colores.", "Presentad vuestro destino como un parte del tiempo y explicad qué vais a mettre."],
+    producto: "Una maleta dibujada con la lista de ropa y un parte del tiempo.",
+    evaluacion: ["Usa los meses y las fechas.", "Habla de la temperatura en grados.", "Distingue porter y mettre.", "Describe la ropa con colores que concuerdan."],
+  },
+});
