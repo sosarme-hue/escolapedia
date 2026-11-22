@@ -140,3 +140,90 @@ module.exports = {
   fuentes: [RD, wiki("Orientación (deporte)", "Orientación_(deporte)"), wiki("Brújula", "Brújula"), wiki("Sendero de Gran Recorrido", "Sendero_de_Gran_Recorrido"), { t: "Federación Española de Orientación", url: "https://www.fedo.org/" }],
   revisado: REV,
 };
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { L: L5, H: H5, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 85,
+  objetivos: ["Expresar direcciones con los ocho rumbos de la rosa de los vientos y en grados", "Conocer las modalidades de las carreras de orientación", "Descubrir los Parques Nacionales de España", "Orientarse en la ciudad y conocer cómo se orientan los animales"],
+  lectura: { titulo: "La baliza número 7", html: `<p>Era la primera carrera de orientación de Óscar y Valeria. Les dieron un mapa del parque, una brújula y una tarjeta con nueve casillas. Tenían que encontrar las balizas, unos prismas de tela naranja y blanca, en el orden marcado.</p><p>Las seis primeras fueron fáciles. Pero la baliza 7 estaba al otro lado de un pequeño bosque.</p><p>—Vamos recto, por el medio —propuso Óscar.</p><p>—Espera —dijo Valeria—. Primero orientemos el mapa.</p><p>Giraron el mapa hasta que el norte del papel coincidió con el norte de la brújula. Vieron que la baliza estaba al nordeste, a unos 200 metros. Valeria midió con sus dobles pasos: en el entrenamiento había calculado que daba unos 70 cada 100 metros.</p><p>Entraron en el bosque. Los árboles tapaban todo y Óscar empezó a ponerse nervioso.</p><p>—¡Nos hemos perdido!</p><p>—No —respondió Valeria, mirando la brújula—. Seguimos rumbo nordeste. Llevo 120 dobles pasos. Faltan unos 20.</p><p>Contaron juntos los últimos pasos… y allí estaba, junto a una roca grande: la baliza 7. Óscar picó la tarjeta con una sonrisa enorme.</p><p>No ganaron la carrera, pero aquel día aprendieron algo importante: en la naturaleza, antes de correr, hay que pensar.</p>` },
+  tras: {
+    "La brújula": [
+      ["La rosa de los vientos y los grados", `<p>Los cuatro puntos cardinales (norte, sur, este y oeste) a veces no son suficientes. Por eso usamos también los <b>puntos intermedios</b>, que juntos forman la <b>rosa de los vientos</b>:</p><ul><li><b>Nordeste (NE)</b>: entre el norte y el este.</li><li><b>Sudeste (SE)</b>: entre el sur y el este.</li><li><b>Suroeste (SO)</b>: entre el sur y el oeste.</li><li><b>Noroeste (NO)</b>: entre el norte y el oeste.</li></ul><p>Las brújulas de orientación llevan además un círculo graduado de <b>0 a 360 grados</b>, porque una vuelta completa tiene 360°. Cada dirección es un <b>rumbo</b>, que se mide en grados desde el norte y en el sentido de las agujas del reloj:</p><ul><li>Norte = <b>0°</b> (o 360°); nordeste = <b>45°</b></li><li>Este = <b>90°</b>; sudeste = <b>135°</b></li><li>Sur = <b>180°</b>; suroeste = <b>225°</b></li><li>Oeste = <b>270°</b>; noroeste = <b>315°</b></li></ul><p>Los montañeros, los marinos y los pilotos dan los rumbos en grados porque son muy precisos: «rumbo 60°» indica una dirección exacta, un poco más hacia el este que el nordeste. Fíjate en que entre dos puntos seguidos de la rosa hay siempre <b>45°</b>, la octava parte de 360°.</p>`,
+        L5.tabla("Rumbos en grados", ["rumbo", "grados", "rumbo", "grados"], [["N", "0°", "S", "180°"], ["NE", "45°", "SO", "225°"], ["E", "90°", "O", "270°"], ["SE", "135°", "NO", "315°"]], cRO)],
+    ],
+    "La carrera de orientación": [
+      ["Modalidades de orientación", `<p>La orientación es un deporte con muchas modalidades. En todas hay que encontrar <b>balizas</b>, unos prismas de tela naranja y blanca, con la ayuda de un mapa:</p><ul><li><b>Orientación a pie</b>: la más común. Se corre por bosques, parques o incluso ciudades.</li><li><b>Orientación en bicicleta de montaña</b> (MTBO): el mapa va sujeto al manillar y se recorren caminos y senderos.</li><li><b>Orientación en esquí</b>: en invierno, sobre la nieve, con esquís de fondo.</li><li><b>Orientación de precisión</b> (trail-O): no gana el más rápido, sino quien identifica correctamente la baliza buena entre varias. Pueden participar en igualdad personas con movilidad reducida.</li></ul><p>También hay distintos <b>formatos</b>:</p><ul><li><b>En línea</b>: las balizas se buscan en un orden fijo. Gana quien tarda menos.</li><li><b>Score</b> o por puntuación: puedes buscar las balizas en el orden que quieras durante un tiempo límite. Cada una vale puntos y hay que decidir bien la ruta.</li><li><b>Relevos</b>: cada miembro del equipo hace una parte del recorrido.</li></ul><p>Para demostrar que has pasado por una baliza se usa una <b>pinza</b> que marca un dibujo en la tarjeta, o una <b>tarjeta electrónica</b> que registra el tiempo exacto.</p>`,
+        L5.filas("Modalidades y formatos de orientación", [["a pie", "bosque o ciudad", cVE], ["en bici", "MTBO", cAZ], ["en esquí", "sobre la nieve", cMO], ["precisión", "trail-O", cNA], ["score", "orden libre, puntos", cRO]])],
+    ],
+    "Respetar la naturaleza": [
+      ["Los Parques Nacionales de España", `<p>Los <b>Parques Nacionales</b> son los espacios naturales con mayor nivel de protección. Se eligen por su gran valor: paisajes, plantas y animales únicos. En España hay <b>16 Parques Nacionales</b>.</p><ul><li>Los dos primeros se crearon en <b>1918</b>: la <b>Montaña de Covadonga</b>, hoy parte de los <b>Picos de Europa</b>, y el valle de <b>Ordesa</b>, en el Pirineo de Huesca.</li><li>El <b>Teide</b>, en Tenerife, con el pico más alto de España (3715 m), es el más visitado.</li><li><b>Doñana</b>, en Andalucía, es una de las zonas húmedas más importantes de Europa: cada año pasan por allí millones de aves migratorias.</li><li>Algunos son <b>marítimo-terrestres</b>, como las <b>Islas Atlánticas de Galicia</b> o el <b>archipiélago de Cabrera</b> en Baleares: protegen también el fondo del mar.</li><li>El más reciente es la <b>Sierra de las Nieves</b>, en Málaga, declarado en 2021.</li></ul><p>En un Parque Nacional las normas son estrictas: no se puede salir de los senderos señalizados, hacer fuego, acampar fuera de las zonas permitidas, coger plantas o piedras, ni molestar a los animales. Cumplirlas es la mejor forma de que nuestros nietos también puedan disfrutarlos.</p>`,
+        L5.filas("Algunos Parques Nacionales de España", [["Picos de Europa", "1918, el primero", cVE], ["Ordesa", "Pirineo, 1918", cAZ], ["Teide", "el más visitado", cRO], ["Doñana", "aves migratorias", cNA], ["Sierra de las Nieves", "el más nuevo", cMO]]), ["tYctKDbSwOs", "10 Parques nacionales de España | Imprescindibles", "El Viajero Feliz", 23129]],
+    ],
+  },
+  final: [
+    ["Orientarse en la ciudad", `<p>No hace falta ir al monte para orientarse: en la ciudad también lo hacemos cada día. Estas son algunas pistas útiles:</p><ul><li><b>El plano o callejero</b>: igual que un mapa de orientación, conviene girarlo para que coincida con lo que ves.</li><li><b>Los números de las calles</b>: normalmente los números <b>pares</b> están a un lado de la calle y los <b>impares</b> al otro. Suelen empezar en el extremo más cercano al centro de la ciudad, así que si los números aumentan, te estás alejando del centro.</li><li><b>Los puntos de referencia</b>: edificios altos, una iglesia, una plaza, un río, una montaña que se ve a lo lejos. Fijarse en ellos ayuda a no perderse.</li><li><b>Las señales</b>: carteles de calles, indicaciones de monumentos, estaciones de metro y paradas de autobús con sus planos.</li><li><b>Preguntar</b>: a un policía, en una tienda o a un adulto de confianza.</li></ul><p>Un buen ejercicio es dibujar el <b>plano de tu barrio</b> con el camino de casa al colegio: las calles, los cruces, los semáforos y los lugares importantes. Y si alguna vez te pierdes, quédate en un lugar seguro y visible y pide ayuda; es importante saberse de memoria la dirección de casa y un teléfono de la familia.</p>`,
+      L5.filas("Pistas para orientarse en la ciudad", [["plano", "girarlo como la calle", cAZ], ["números", "pares e impares", cVE], ["referencias", "torres, plazas, ríos", cNA], ["señales", "carteles y metro", cMO], ["preguntar", "a un adulto de confianza", cRO]])],
+    ["Animales que saben orientarse", `<p>Muchos animales recorren enormes distancias sin mapa ni brújula. ¿Cómo lo hacen?</p><ul><li><b>Las aves migratorias</b>, como cigüeñas, golondrinas o grullas, viajan cada año entre Europa y África. Se orientan con el <b>sol</b> durante el día, con las <b>estrellas</b> por la noche y, además, son capaces de percibir el <b>campo magnético de la Tierra</b>, como si llevaran una brújula interna. El <b>charrán ártico</b> es el campeón: puede recorrer unos 70 000 kilómetros al año entre el Ártico y la Antártida.</li><li><b>Las tortugas marinas</b> cruzan océanos y, años después, regresan a poner sus huevos en la misma playa en la que nacieron, guiándose también por el campo magnético.</li><li><b>Los salmones</b> vuelven desde el mar al río donde nacieron reconociendo su <b>olor</b>.</li><li><b>Las abejas</b> usan la posición del sol y, al volver a la colmena, hacen una «danza» que indica a sus compañeras la dirección y la distancia de las flores.</li><li><b>Los murciélagos</b> se orientan en la oscuridad con la <b>ecolocalización</b>: emiten sonidos y escuchan su eco.</li></ul><p>Los científicos todavía investigan muchos de estos misterios.</p>`,
+      L5.filas("Cómo se orientan los animales", [["aves", "sol, estrellas, magnetismo", cAZ], ["tortugas", "campo magnético", cVE], ["salmones", "olor del río", cNA], ["abejas", "el sol y su danza", cMO], ["murciélagos", "ecolocalización", cRO]]), ["EyaWyq1wwls", "Pregunta - ¿Cómo se orientan las aves en sus migraciones?", "Canal Once", 29671]],
+  ],
+  ejemplos: [
+    ["Vas en rumbo norte (0°) y giras 90° a la derecha. ¿Hacia dónde vas? ¿Y si giras otros 45° más?", ["0° + 90° = 90°: este.", "90° + 45° = 135°: sudeste."], "Al este y después al sudeste"],
+    ["Valeria da 70 dobles pasos cada 100 metros. ¿Cuántos dará para recorrer 250 metros?", ["100 m → 70 dobles pasos.", "250 m = 2,5 × 100 m.", "2,5 × 70 = 175."], "175 dobles pasos"],
+  ],
+  errores: ["Pensar que el rumbo se cuenta en sentido contrario a las agujas del reloj: se cuenta desde el norte hacia el este.", "Salir de los senderos en un Parque Nacional."],
+  ejercicios: [
+    ["b", "Escribe los ocho rumbos de la rosa de los vientos.", "N, NE, E, SE, S, SO, O, NO."],
+    ["b", "¿Cuántos grados corresponden al oeste?", "270°."],
+    ["b", "¿De qué colores son las balizas de orientación?", "Naranja y blanco."],
+    ["b", "¿Cuántos Parques Nacionales hay en España?", "16."],
+    ["b", "¿Cómo se orientan los murciélagos en la oscuridad?", "Con la ecolocalización."],
+    ["m", "¿Qué rumbo en grados está justo entre el sur y el oeste?", "225°, el suroeste."],
+    ["m", "Explica la diferencia entre el formato en línea y el formato score.", "En línea: orden fijo, gana el más rápido. Score: orden libre y gana quien suma más puntos en el tiempo límite."],
+    ["m", "¿Qué hizo Valeria para encontrar la baliza 7?", "Orientó el mapa, siguió el rumbo nordeste con la brújula y contó dobles pasos."],
+    ["m", "Escribe tres normas de un Parque Nacional.", "No salir de los senderos, no hacer fuego, no coger plantas ni molestar a los animales."],
+    ["m", "Si en una calle los números aumentan, ¿te acercas o te alejas del centro?", "Normalmente te alejas."],
+    ["a", "Dibuja el plano de tu camino de casa al colegio con cinco puntos de referencia.", "Respuesta libre."],
+    ["a", "Calcula cuántos dobles pasos das en 100 metros y úsalo para medir el patio.", "Respuesta libre."],
+    ["a", "Investiga un Parque Nacional: dónde está, qué protege y qué animales viven allí.", "Respuesta libre."],
+    ["a", "Diseña una carrera de orientación de formato score en el colegio con 8 balizas.", "Respuesta libre."],
+  ],
+  quiz: [
+    ["El nordeste corresponde a…", ["45°", "90°", "135°"], "Entre N y E."],
+    ["Entre dos rumbos seguidos de la rosa hay…", ["45°", "90°", "30°"], "360 : 8."],
+    ["La orientación de precisión se llama…", ["trail-O", "MTBO", "score"], "Identificar balizas."],
+    ["El Parque Nacional más visitado es…", ["el Teide", "Cabrera", "Ordesa"], "Tenerife."],
+    ["Los salmones vuelven a su río guiándose por…", ["el olor", "las estrellas", "el eco"], "Olfato."],
+  ],
+  examen: [
+    ["Los primeros Parques Nacionales de España se crearon en…", ["1918", "1992", "2021"], "Covadonga y Ordesa."],
+    ["En la calle, los números pares suelen estar…", ["a un lado y los impares al otro", "mezclados", "solo en las plazas"], "Pares e impares."],
+  ],
+  tarjetas: [
+    ["Rosa de los vientos", "N, NE, E, SE, S, SO, O, NO."],
+    ["Rumbo en grados", "Desde el norte (0°) en el sentido de las agujas del reloj."],
+    ["Parques Nacionales", "16 en España; los primeros, de 1918."],
+    ["Animales orientadores", "Aves, tortugas, salmones, abejas, murciélagos."],
+  ],
+  glosario: [
+    ["Rosa de los vientos", "Figura con los puntos cardinales e intermedios."],
+    ["Rumbo", "Dirección que se sigue, medida en grados desde el norte."],
+    ["Nordeste", "Dirección entre el norte y el este."],
+    ["Baliza", "Prisma naranja y blanco que marca un punto de control."],
+    ["Score", "Formato de orientación con orden libre y puntos."],
+    ["Pinza", "Instrumento que marca la tarjeta en cada baliza."],
+    ["Parque Nacional", "Espacio natural con la máxima protección."],
+    ["Marítimo-terrestre", "Que protege tierra y mar."],
+    ["Punto de referencia", "Elemento visible que ayuda a orientarse."],
+    ["Migración", "Viaje periódico de los animales entre dos lugares."],
+    ["Campo magnético", "Fuerza invisible de la Tierra que orienta las brújulas."],
+    ["Ecolocalización", "Orientarse emitiendo sonidos y escuchando su eco."],
+  ],
+  situacion: {
+    titulo: "Gran carrera de orientación del colegio",
+    reto: "La clase diseña, organiza y celebra una carrera de orientación en el colegio o en un parque cercano para alumnos de otro curso.",
+    pasos: ["Dibujad un mapa del recinto con su escala y su norte, y elegid 8 puntos para las balizas.", "Fabricad las balizas y las tarjetas, y escribid el rumbo en grados de una baliza a la siguiente.", "Elegid el formato (en línea o score) y preparad las normas, incluidas las de respeto al entorno.", "Celebrad la carrera, cronometrad y repasad juntos qué rutas fueron las mejores."],
+    producto: "Un mapa con balizas, tarjetas de control y una carrera de orientación organizada por la clase.",
+    evaluacion: ["Usa los ocho rumbos y los grados correctamente.", "Orienta el mapa y sigue un rumbo con la brújula.", "Conoce las modalidades y formatos de la orientación.", "Respeta las normas de los espacios naturales."],
+  },
+});

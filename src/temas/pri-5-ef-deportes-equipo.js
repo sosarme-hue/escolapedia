@@ -140,3 +140,90 @@ module.exports = {
   fuentes: [RD, wiki("Deporte de equipo", "Deporte_de_equipo"), wiki("Goalball", "Goalball"), wiki("Ultimate (deporte)", "Ultimate_(deporte)")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { L: L5, H: H5, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 85,
+  objetivos: ["Conocer los deportes de bate y campo", "Descubrir los Juegos Paralímpicos y sus deportes", "Interpretar las señales de los árbitros", "Organizar una competición y conocer a las referentes del deporte femenino"],
+  lectura: { titulo: "El partido de los cascabeles", html: `<p>Aquel lunes, la clase de Educación Física fue diferente. El profesor apareció con un balón azul que sonaba como un sonajero y un montón de antifaces.</p><p>—Hoy vamos a jugar al <b>goalball</b> —anunció—. Es un deporte paralímpico creado para personas con discapacidad visual. Todos llevaréis los ojos tapados, así que nadie ve nada. El balón tiene cascabeles dentro: tendréis que jugar con los oídos.</p><p>Se formaron equipos de tres. Había que lanzar el balón rodando hacia la portería contraria, mientras los defensores, tumbados en el suelo, intentaban pararlo con el cuerpo. La regla más importante era una: <b>silencio total</b> cuando el balón estaba en juego.</p><p>Al principio fue un desastre. Todo el mundo hablaba, nadie oía el balón y Pablo se tiró hacia el lado contrario. Poco a poco, los equipos aprendieron a callar, a escuchar y a orientarse tocando las líneas en relieve del suelo.</p><p>Al terminar, Claudia se quitó el antifaz con los ojos muy abiertos.</p><p>—Es dificilísimo —dijo—. Y hay gente que juega así en unos Juegos Paralímpicos…</p><p>—Y muy bien, además —sonrió el profesor—. Porque el deporte no va de lo que no puedes hacer, sino de todo lo que sí puedes.</p>` },
+  tras: {
+    "El voleibol": [
+      ["Deportes de bate y campo", `<p>Además de los deportes de invasión y de red, existe otra gran familia: los <b>deportes de bate y campo</b>. En ellos, un equipo <b>batea</b> (golpea la pelota con un bate) y el otro <b>defiende el campo</b> intentando atrapar la pelota. Después se intercambian los papeles.</p><p><b>El béisbol</b> es muy popular en Estados Unidos, Cuba, Venezuela, República Dominicana y Japón:</p><ul><li>Cada equipo tiene <b>9 jugadores</b> y el partido dura normalmente <b>9 entradas</b>.</li><li>El <b>lanzador</b> (pitcher) lanza la pelota y el <b>bateador</b> intenta golpearla.</li><li>Tras batear, el bateador corre por las <b>cuatro bases</b>, colocadas en forma de diamante. Si da la vuelta completa y vuelve a la base de inicio, consigue una <b>carrera</b> (un punto).</li><li>Si la pelota sale del campo por el aire, es un <b>home run</b>: carrera directa.</li></ul><p><b>El críquet</b> es el deporte nacional de países como India, Pakistán, Australia o Inglaterra. Se juega con <b>11 jugadores</b>, un bate plano y un objetivo de madera llamado <b>wicket</b> que el lanzador intenta derribar.</p><p>En el colegio podéis jugar a una versión sencilla: el <b>béisbol pie</b> (kickball), en el que en lugar de batear se da una patada a un balón.</p>`,
+        L5.tabla("Béisbol y críquet", ["", "béisbol", "críquet"], [["jugadores", "9", "11"], ["bate", "redondo", "plano"], ["objetivo", "4 bases", "wicket"], ["dónde", "EE. UU., Cuba", "India"]], cNA)],
+    ],
+    "Deportes alternativos y deportes adaptados": [
+      ["Los Juegos Paralímpicos", `<p>Los <b>Juegos Paralímpicos</b> son la gran competición para deportistas con discapacidad física, visual o intelectual. Se celebran cada cuatro años, poco después de los Juegos Olímpicos y en la misma ciudad.</p><p>Su origen está en un hospital de Inglaterra. Allí, el médico <b>Ludwig Guttmann</b> usó el deporte para ayudar a recuperarse a soldados heridos en la Segunda Guerra Mundial. En <b>1948</b> organizó unos juegos para personas en silla de ruedas, y en <b>1960</b>, en <b>Roma</b>, se celebraron los primeros Juegos Paralímpicos.</p><p>Algunos deportes paralímpicos:</p><ul><li><b>Baloncesto en silla de ruedas</b>: con canasta a la altura normal.</li><li><b>Goalball</b>: para personas ciegas o con baja visión, con un balón con cascabeles y los ojos tapados para que todos jueguen igual.</li><li><b>Fútbol para ciegos</b>: también con balón sonoro; solo el portero ve.</li><li><b>Boccia</b>: parecido a la petanca, para personas con grandes dificultades de movimiento.</li><li><b>Natación</b>, atletismo, ciclismo, tenis en silla…</li></ul><p>España tiene grandes deportistas paralímpicos. La nadadora <b>Teresa Perales</b> ha ganado más de 25 medallas paralímpicas y es una de las deportistas más laureadas de la historia.</p>`,
+        L5.filas("Deportes paralímpicos", [["baloncesto", "en silla de ruedas", cAZ], ["goalball", "balón con cascabeles", cNA], ["fútbol", "para ciegos", cVE], ["boccia", "lanzar bolas cerca", cMO], ["natación", "Teresa Perales", cRO]]), ["-AvHtOpKEiQ", "Historia de los Juegos Paralímpicos | Es Bueno Saberlo", "TVUDLAP Cultura y Opinión", 77432]],
+    ],
+    "Jugadores, árbitros y espectadores": [
+      ["Las señales del árbitro", `<p>Los árbitros no pueden hablar con todos los jugadores a la vez, así que usan <b>gestos</b> que todo el mundo entiende. Conocerlos te ayuda a saber qué ha pasado:</p><p><b>En fútbol</b>:</p><ul><li><b>Tarjeta amarilla</b>: amonestación, un aviso. Dos amarillas suponen una roja.</li><li><b>Tarjeta roja</b>: expulsión del jugador.</li><li><b>Ley de la ventaja</b>: los dos brazos extendidos hacia delante. Hubo falta, pero el juego sigue porque beneficia al equipo que la recibió.</li><li>Brazo levantado: falta indirecta.</li></ul><p><b>En baloncesto</b>:</p><ul><li><b>Pasos</b>: girar los puños uno alrededor del otro.</li><li><b>Dobles</b>: mover las manos arriba y abajo, como si se botara con las dos.</li><li><b>Tres segundos</b>: mostrar tres dedos.</li><li><b>Canasta de tres</b>: brazos arriba con tres dedos extendidos.</li></ul><p><b>En balonmano</b>, el brazo levantado avisa de <b>juego pasivo</b>: el equipo atacante tiene que lanzar pronto. <b>En voleibol</b>, si el árbitro señala el suelo del campo con el brazo, el balón ha entrado.</p><p>Hoy muchos deportes usan también tecnología, como el <b>VAR</b> en fútbol, que revisa en vídeo las jugadas dudosas.</p>`,
+        L5.filas("Señales del árbitro", [["amarilla", "aviso", cNA], ["roja", "expulsión", cRO], ["ventaja", "brazos al frente", cVE], ["pasos", "girar los puños", cAZ], ["3 segundos", "tres dedos", cMO]]), ["kGWHg8xZHLg", "SEÑALES DE ARBITRO EN BASQUETBOL", "Flor roddriguez", 258592]],
+    ],
+  },
+  final: [
+    ["Ligas y torneos: organizar una competición", `<p>Hay varias formas de organizar una competición entre equipos:</p><ul><li><b>Liga</b> (todos contra todos): cada equipo juega contra todos los demás. Se suelen dar <b>3 puntos</b> por victoria, <b>1</b> por empate y <b>0</b> por derrota. Gana quien suma más puntos. Es la más justa, pero necesita muchos partidos.</li><li><b>Eliminatoria</b> (copa): el que pierde queda fuera. Se organiza en un <b>cuadro</b>: octavos, cuartos, semifinales y final. Es rápida y emocionante, pero un mal día te elimina.</li><li><b>Mixta</b>: primero una fase de grupos en forma de liga y después eliminatorias. Así se organizan los Mundiales de fútbol o de baloncesto.</li></ul><p>¿Cuántos partidos tiene una liga? Si hay <b>n</b> equipos y cada pareja juega una vez, el número de partidos es <b>n × (n − 1) : 2</b>.</p><ul><li>Con 4 equipos: 4 × 3 : 2 = <b>6 partidos</b>.</li><li>Con 6 equipos: 6 × 5 : 2 = <b>15 partidos</b>.</li><li>En la Liga española de fútbol, con 20 equipos que juegan ida y vuelta, hay 20 × 19 = <b>380 partidos</b> en una temporada.</li></ul><p>En el colegio, una liguilla corta o un torneo con fase de grupos y final suele funcionar muy bien en un recreo o en una semana deportiva.</p>`,
+      L5.tabla("Partidos de una liga a una vuelta", ["equipos", "cálculo", "partidos"], [["4", "4 × 3 : 2", "6"], ["5", "5 × 4 : 2", "10"], ["6", "6 × 5 : 2", "15"], ["8", "8 × 7 : 2", "28"]], cAZ)],
+    ["Deporte femenino: nuestras referentes", `<p>Durante mucho tiempo, las mujeres tuvieron muchas dificultades para hacer deporte: no podían participar en algunas competiciones, había pocos equipos femeninos y casi no salían en televisión. Hoy la situación ha cambiado mucho, y España tiene grandes deportistas y equipos femeninos:</p><ul><li>La <b>selección española femenina de fútbol</b> fue <b>campeona del mundo en 2023</b>.</li><li><b>Alexia Putellas</b> ganó el Balón de Oro, el premio a la mejor futbolista del mundo, en 2021 y 2022, y <b>Aitana Bonmatí</b> en 2023 y 2024.</li><li>La <b>selección femenina de baloncesto</b> ha sido campeona de Europa en 2013, 2017 y 2019.</li><li>Las <b>Guerreras</b>, la selección femenina de balonmano, fueron subcampeonas del mundo en 2019.</li><li>Fuera de los deportes de equipo, la jugadora de bádminton <b>Carolina Marín</b> fue campeona olímpica en Río 2016.</li></ul><p>Que niñas y niños vean a deportistas de todo tipo les ayuda a creer que pueden practicar el deporte que quieran. En el colegio, los equipos <b>mixtos</b> y el respeto a todos los compañeros, sin importar si son chicos o chicas, son parte del juego limpio.</p>`,
+      L5.filas("Referentes del deporte femenino español", [["2023", "campeonas del mundo", cRO], ["Alexia", "Balón de Oro 2021–22", cAZ], ["Aitana", "Balón de Oro 2023–24", cVE], ["baloncesto", "oro europeo 2019", cNA], ["Carolina Marín", "oro olímpico 2016", cMO]])],
+  ],
+  ejemplos: [
+    ["Vuestra clase forma 7 equipos para una liga a una vuelta. ¿Cuántos partidos habrá?", ["Fórmula: n × (n − 1) : 2.", "7 × 6 = 42.", "42 : 2 = 21."], "21 partidos"],
+    ["En una liga, un equipo gana 4 partidos, empata 2 y pierde 1. ¿Cuántos puntos tiene?", ["Victorias: 4 × 3 = 12.", "Empates: 2 × 1 = 2.", "Derrotas: 0."], "14 puntos"],
+  ],
+  errores: ["Confundir la ley de la ventaja con que no hubo falta.", "Pensar que el deporte adaptado es menos exigente: requiere enorme técnica y entrenamiento."],
+  ejercicios: [
+    ["b", "¿Cuántos jugadores tiene un equipo de béisbol y uno de críquet?", "9 y 11."],
+    ["b", "¿Qué es un home run?", "Cuando la pelota sale del campo por el aire: carrera directa."],
+    ["b", "¿Dónde y cuándo se celebraron los primeros Juegos Paralímpicos?", "En Roma, en 1960."],
+    ["b", "¿Qué significa la tarjeta roja?", "La expulsión del jugador."],
+    ["b", "¿Qué año fue campeona del mundo la selección española femenina de fútbol?", "En 2023."],
+    ["m", "Explica cómo se juega al goalball.", "Tres contra tres, ojos tapados, balón con cascabeles lanzado rodando; se defiende con el cuerpo y en silencio."],
+    ["m", "¿Qué diferencia hay entre una liga y una eliminatoria?", "En la liga todos juegan contra todos; en la eliminatoria el que pierde queda fuera."],
+    ["m", "Describe la señal de pasos y la de dobles en baloncesto.", "Pasos: girar los puños. Dobles: mover las manos arriba y abajo."],
+    ["m", "Calcula cuántos partidos tiene una liga de 10 equipos a una vuelta.", "10 × 9 : 2 = 45."],
+    ["m", "¿Quién fue Ludwig Guttmann?", "Un médico que usó el deporte para recuperar a soldados heridos y dio origen a los Juegos Paralímpicos."],
+    ["a", "Organiza una competición mixta para 8 equipos: grupos y eliminatorias. Dibuja el cuadro.", "Respuesta libre."],
+    ["a", "Adaptad un deporte del colegio para que pueda jugarlo un compañero en silla de ruedas.", "Respuesta libre."],
+    ["a", "Investiga a una deportista española y prepara una ficha con su trayectoria.", "Respuesta libre."],
+    ["a", "Arbitrad un partido usando solo gestos y después comentad qué señales se entendieron.", "Respuesta libre."],
+  ],
+  quiz: [
+    ["En béisbol, el jugador que lanza es el…", ["pitcher", "wicket", "portero"], "Lanzador."],
+    ["El goalball se juega…", ["con los ojos tapados", "en silla de ruedas", "con raqueta"], "Balón sonoro."],
+    ["La ley de la ventaja se señala con…", ["los brazos al frente", "una tarjeta", "un silbido largo"], "El juego sigue."],
+    ["Una liga de 4 equipos a una vuelta tiene…", ["6 partidos", "4 partidos", "12 partidos"], "4 × 3 : 2."],
+    ["Alexia Putellas ganó el Balón de Oro en…", ["2021 y 2022", "2010", "1998"], "Dos veces."],
+  ],
+  examen: [
+    ["Los primeros Juegos Paralímpicos fueron en…", ["Roma 1960", "Barcelona 1992", "Londres 2012"], "1960."],
+    ["En balonmano, el brazo levantado del árbitro avisa de…", ["juego pasivo", "gol", "falta de pasos"], "Hay que lanzar pronto."],
+  ],
+  tarjetas: [
+    ["Bate y campo", "Un equipo batea y otro defiende el campo: béisbol, críquet."],
+    ["Juegos Paralímpicos", "Desde Roma 1960; origen en Ludwig Guttmann."],
+    ["Partidos de una liga", "n × (n − 1) : 2 a una vuelta."],
+    ["Referentes", "Campeonas del mundo de fútbol 2023, Alexia, Aitana, Carolina Marín."],
+  ],
+  glosario: [
+    ["Bateador", "Jugador que golpea la pelota con el bate."],
+    ["Lanzador", "Jugador que lanza la pelota al bateador."],
+    ["Carrera", "Punto en béisbol al recorrer las cuatro bases."],
+    ["Wicket", "Objetivo de madera del críquet."],
+    ["Paralímpico", "Relativo a los juegos para deportistas con discapacidad."],
+    ["Goalball", "Deporte paralímpico con balón sonoro y ojos tapados."],
+    ["Boccia", "Deporte paralímpico de lanzar bolas cerca de una diana."],
+    ["Amonestación", "Aviso del árbitro, la tarjeta amarilla."],
+    ["Ley de la ventaja", "Dejar seguir el juego tras una falta si beneficia al equipo que la recibió."],
+    ["VAR", "Videoarbitraje para revisar jugadas dudosas."],
+    ["Liga", "Competición en la que todos juegan contra todos."],
+    ["Eliminatoria", "Competición en la que el que pierde queda fuera."],
+  ],
+  situacion: {
+    titulo: "Nuestra semana deportiva inclusiva",
+    reto: "La clase organiza una semana deportiva para todo el ciclo con deportes de equipo, un deporte paralímpico y equipos mixtos.",
+    pasos: ["Elegid tres deportes: uno de invasión, uno de bate y campo adaptado (béisbol pie) y uno paralímpico como el goalball.", "Diseñad la competición: liga, eliminatoria o mixta, y calculad cuántos partidos habrá.", "Preparad un equipo de árbitros que conozca las señales y una mesa que anote los resultados.", "Celebrad la semana, entregad un premio al juego limpio y presentad a una deportista referente en la clausura."],
+    producto: "Un calendario de competición, un cuadro de resultados y una presentación sobre una referente.",
+    evaluacion: ["Conoce las reglas básicas de varios deportes de equipo.", "Organiza una competición y calcula sus partidos.", "Interpreta y usa las señales arbitrales.", "Valora el deporte adaptado y el deporte femenino."],
+  },
+});

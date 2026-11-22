@@ -137,3 +137,90 @@ module.exports = {
   fuentes: [RD, wiki("Juego tradicional", "Juego_tradicional"), wiki("Lucha canaria", "Lucha_canaria"), wiki("Sardana", "Sardana"), wiki("Haka", "Haka")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { L: L5, H: H5, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 85,
+  objetivos: ["Recuperar canciones de corro y retahílas para sortear", "Contar la música en tiempos y en ochos para bailar", "Conocer las danzas de carnaval de distintos lugares", "Valorar el patrimonio de juegos y danzas y organizar un baile en grupo"],
+  lectura: { titulo: "La caja de los juegos de la abuela", html: `<p>Para el proyecto de clase, Irene tenía que entrevistar a una persona mayor sobre los juegos de su infancia. Eligió a su abuela Rosario, que había crecido en un pueblo de Extremadura.</p><p>—En mi época no teníamos juguetes caros —le contó la abuela—. Con una cuerda, una piedra y un trozo de tiza jugábamos toda la tarde.</p><p>Le enseñó a jugar a la <b>rayuela</b>, que en su pueblo llamaban «el truque»; le explicó cómo se hacían las tabas con huesos de cordero; y, de repente, se puso a cantar mientras daba palmas: «En la calle veinticuatro, ha habido un asesinato…».</p><p>—¡Esa la cantamos nosotras en el patio! —exclamó Irene—. Pero la letra es un poco distinta.</p><p>—Claro —rió la abuela—. Las canciones de juego pasan de boca en boca y en cada sitio cambian un poco. Por eso son de todos.</p><p>Irene grabó a su abuela cantando cinco canciones y explicando tres juegos. En clase, sus compañeros hicieron lo mismo con sus familias: había juegos de Galicia, de Marruecos, de Rumanía y de Ecuador. Juntaron todo en una gran caja de cartón decorada que llamaron «La caja de los juegos».</p><p>Y en el recreo del viernes, por primera vez en años, el patio se llenó de comba, de rayuelas y de canciones de las abuelas.</p>` },
+  tras: {
+    "Juegos tradicionales de España": [
+      ["Canciones de corro y retahílas", `<p>Muchos juegos tradicionales se acompañan de <b>canciones</b>. Se transmiten de generación en generación, de boca en boca, y por eso cambian un poco de un lugar a otro.</p><p><b>Canciones de corro</b>: los jugadores se cogen de las manos en círculo y giran mientras cantan, haciendo los gestos que dice la letra.</p><ul><li><i>«Al corro de la patata, comeremos ensalada, como comen los señores, naranjitas y limones. ¡Achupé, achupé, sentadito me quedé!»</i>: al final, todos se agachan.</li><li><i>«El patio de mi casa es particular…»</i>: en «agáchate y vuélvete a agachar», todos se agachan.</li><li><i>«Quisiera ser tan alta como la luna…»</i></li></ul><p><b>Retahílas para sortear</b>: sirven para decidir quién «se la queda» de forma justa. Uno va señalando a cada jugador con cada sílaba, y al que le toca la última sílaba queda eliminado o elegido:</p><ul><li><i>«Pito, pito, gorgorito, ¿dónde vas tú tan bonito? A la acera verdadera, pim, pam, fuera.»</i></li><li><i>«En la casa de Pinocho todos cuentan hasta ocho: uno, dos, tres…»</i></li></ul><p>Además de divertidas, estas canciones trabajan el <b>ritmo</b>, la <b>memoria</b> y la <b>coordinación</b> entre el movimiento y la voz.</p>`,
+        L5.filas("Canciones de juego tradicionales", [["Al corro de la patata", "corro", cNA], ["El patio de mi casa", "corro", cVE], ["Pito, pito, gorgorito", "sortear", cAZ], ["En la casa de Pinocho", "sortear", cMO]]), ["WqY-TEDcBiQ", "Pica-Pica - Al Corro De La Patata (Videoclip Oficial)", "Pica-Pica Oficial", 4608918]],
+    ],
+    "Los elementos de la danza": [
+      ["Contar la música: tiempos y ochos", `<p>Para bailar a la vez que la música y que los compañeros, hay que aprender a <b>contarla</b>.</p><ul><li>El <b>pulso</b> o <b>tiempo</b> es el latido regular de la música: lo que marcas sin darte cuenta con el pie.</li><li>Los tiempos se agrupan en <b>compases</b>. En la mayoría de canciones actuales, el compás tiene <b>4 tiempos</b> (se escribe 4/4). Un vals tiene 3 tiempos (3/4) y un pasodoble, 2 (2/4).</li><li>Los bailarines cuentan en grupos de <b>ocho tiempos</b>, que son dos compases de 4: «1, 2, 3, 4, 5, 6, 7, 8». Cada grupo se llama un <b>ocho</b>.</li></ul><p>Así se aprende una coreografía: «en el primer ocho, cuatro pasos a la derecha y cuatro a la izquierda; en el segundo ocho, palmada y giro…».</p><p>Para empezar todos a la vez, el que dirige cuenta en voz alta los últimos tiempos del ocho anterior: <b>«5, 6, 7, 8»</b>, y en el siguiente «1» todos arrancan.</p><p>El <b>tempo</b> es la velocidad: una canción lenta tiene pocos pulsos por minuto y una rápida, muchos. Para aprender un paso difícil, se ensaya primero a tempo lento, contando en voz alta, y luego con la música real.</p>`,
+        L5.tabla("Compases de distintos bailes", ["compás", "tiempos", "ejemplo"], [["2/4", "2", "pasodoble"], ["3/4", "3", "vals"], ["4/4", "4", "pop, salsa"]], cAZ), ["-okubEl_7bw", "Conteo de los 8 tiempos de la Salsa para no perder el ritmo ¡¡Muy útil para practicar en casa!!", "Escuela de Baile Los Reyes del Mambo", 350359]],
+    ],
+    "Danzas del mundo": [
+      ["Danzas de carnaval", `<p>El <b>carnaval</b> es una fiesta que se celebra en muchos lugares del mundo justo antes de la Cuaresma, normalmente en febrero. Es tiempo de disfraces, máscaras, música y, sobre todo, de bailar en la calle.</p><ul><li><b>Río de Janeiro (Brasil)</b>: el carnaval más famoso del mundo. Las <b>escuelas de samba</b> desfilan por el <b>Sambódromo</b> con miles de bailarines, carrozas gigantes y una batería de tambores. La <b>samba</b> se baila con pasos rápidos y pequeños y mucho movimiento de cadera, al ritmo de la percusión.</li><li><b>Santa Cruz de Tenerife</b>: uno de los carnavales más grandes de España, con comparsas que bailan ritmos latinos y murgas que cantan canciones de humor.</li><li><b>Cádiz</b>: aquí lo más importante es cantar: chirigotas y comparsas recorren la ciudad con letras divertidas y críticas.</li><li><b>Venecia (Italia)</b>: famoso por sus elegantes <b>máscaras</b> y trajes antiguos.</li><li><b>Notting Hill (Londres)</b>: un carnaval caribeño en verano, con steel bands, que son bandas de bidones de acero.</li></ul><p>Bailar en grupo por la calle, con disfraces y música, es una manera de celebrar juntos y de compartir la cultura de cada lugar.</p>`,
+        L5.filas("Carnavales del mundo", [["Río de Janeiro", "samba", cVE], ["Tenerife", "comparsas", cNA], ["Cádiz", "chirigotas", cAZ], ["Venecia", "máscaras", cMO], ["Notting Hill", "steel bands", cRO]])],
+    ],
+  },
+  final: [
+    ["Un patrimonio que hay que cuidar", `<p>Los juegos, las canciones y las danzas tradicionales forman parte del <b>patrimonio cultural inmaterial</b>: no son edificios ni objetos, sino costumbres y saberes que se transmiten de persona a persona. Si nadie los practica, desaparecen.</p><p>La <b>UNESCO</b>, la organización de las Naciones Unidas para la educación y la cultura, mantiene una lista para protegerlos. En ella hay manifestaciones españolas como:</p><ul><li><b>Los castells</b> (2010): torres humanas de Cataluña, en las que la cooperación, la fuerza, el equilibrio y la confianza son imprescindibles. Su lema es «fuerza, equilibrio, valor y seny» (sensatez).</li><li><b>El flamenco</b> (2010): cante, toque de guitarra y baile, nacido en Andalucía.</li></ul><p>¿Qué podemos hacer para que no se pierdan nuestros juegos?</p><ul><li><b>Preguntar</b> a abuelos, abuelas y mayores a qué jugaban y qué cantaban.</li><li><b>Grabar</b> y escribir las reglas y las letras.</li><li><b>Jugarlos</b> en el recreo y en las fiestas del colegio.</li><li><b>Compartir</b> los juegos de las familias que vienen de otros países: así el patrimonio crece.</li></ul><p>Cada vez que juegas a la rayuela o cantas una retahíla, estás ayudando a conservar un tesoro.</p>`,
+      L5.filas("Cómo conservar los juegos tradicionales", [["preguntar", "a los mayores", cAZ], ["grabar", "reglas y letras", cVE], ["jugar", "en el recreo", cNA], ["compartir", "juegos de otros países", cMO]])],
+    ["Bailar juntos: organizar un flashmob", `<p>Un <b>flashmob</b> es una coreografía en grupo que aparece «por sorpresa» en un lugar público: de repente, una persona empieza a bailar, se le unen otras… ¡y al final baila todo el patio! Es una forma divertida de poner en práctica todo lo aprendido sobre la danza.</p><p>Pasos para organizarlo:</p><ul><li><b>1. Elegir la música</b>: una canción alegre, con ritmo claro, de 2 o 3 minutos.</li><li><b>2. Crear la coreografía</b> por ochos: pocos pasos, sencillos y repetidos, para que todos puedan aprenderlos. Se pueden usar movimientos de las danzas del mundo que habéis conocido.</li><li><b>3. Ensayar</b>: primero contando en voz alta y a tempo lento; después con la música. Grabarse ayuda a ver los fallos.</li><li><b>4. Organizar la entrada</b>: quién empieza, en qué orden se van uniendo los demás y cómo termina.</li><li><b>5. ¡Actuar!</b> En el recreo, en una fiesta o en la entrada del colegio.</li></ul><p>Bailar en grupo tiene muchos beneficios: mejora la coordinación, la memoria y la forma física, y crea un ambiente de equipo. Lo importante no es hacerlo perfecto, sino disfrutar y que nadie se quede fuera.</p>`,
+      H5.flujo("Cinco pasos para un flashmob", ["Música|2–3 min", "Pasos|por ochos", "Ensayo|5, 6, 7, 8", "Entrada|uno a uno", "Actuar|disfrutar"], cMO)],
+  ],
+  ejemplos: [
+    ["Una coreografía tiene 6 ochos. ¿Cuántos tiempos dura? ¿Y cuántos compases de 4?", ["6 × 8 = 48 tiempos.", "48 : 4 = 12 compases."], "48 tiempos y 12 compases"],
+    ["Hay que elegir quién empieza a pillar entre 5 amigos con «Pito, pito, gorgorito…». ¿Por qué es un sistema justo?", ["Todos participan en el recuento.", "Nadie elige a dedo.", "El resultado depende del azar de la retahíla."], "Porque decide el azar y no una persona"],
+  ],
+  errores: ["Empezar a bailar sin contar: hay que esperar el «1» después de «5, 6, 7, 8».", "Pensar que los juegos tradicionales son cosa del pasado: se mantienen si se juegan."],
+  ejercicios: [
+    ["b", "Escribe una canción de corro y una retahíla para sortear.", "Ej.: Al corro de la patata; Pito, pito, gorgorito."],
+    ["b", "¿Cuántos tiempos tiene un «ocho»?", "Ocho tiempos (dos compases de 4)."],
+    ["b", "¿Qué compás tiene el vals?", "3/4, tres tiempos."],
+    ["b", "¿En qué ciudad está el Sambódromo?", "En Río de Janeiro (Brasil)."],
+    ["b", "Nombra dos manifestaciones españolas del patrimonio inmaterial de la UNESCO.", "Los castells y el flamenco."],
+    ["m", "¿Por qué las canciones de juego cambian de un lugar a otro?", "Porque se transmiten de boca en boca."],
+    ["m", "Explica para qué se cuenta «5, 6, 7, 8» antes de empezar a bailar.", "Para que todos empiecen a la vez en el siguiente 1."],
+    ["m", "Compara el carnaval de Río y el de Cádiz.", "Río: desfiles de samba bailada; Cádiz: chirigotas y comparsas que cantan."],
+    ["m", "¿Qué valores se necesitan para hacer castells?", "Fuerza, equilibrio, valor, sensatez, cooperación y confianza."],
+    ["m", "Según la lectura, ¿qué hicieron Irene y sus compañeros?", "Entrevistaron a sus mayores, recogieron juegos y canciones y crearon «La caja de los juegos»."],
+    ["a", "Entrevista a una persona mayor sobre los juegos de su infancia y escribe las reglas de uno.", "Respuesta libre."],
+    ["a", "Crea una coreografía de cuatro ochos y escríbela tiempo a tiempo.", "Respuesta libre."],
+    ["a", "Investiga un carnaval que no aparezca en el tema y presenta su música y sus bailes.", "Respuesta libre."],
+    ["a", "Organiza con tu grupo un flashmob siguiendo los cinco pasos.", "Respuesta libre."],
+  ],
+  quiz: [
+    ["Las retahílas como «Pito, pito» sirven para…", ["sortear", "calentar", "puntuar"], "Elegir al azar."],
+    ["Un compás de 4/4 tiene…", ["4 tiempos", "8 tiempos", "2 tiempos"], "Cuatro."],
+    ["La samba es típica del carnaval de…", ["Río de Janeiro", "Venecia", "Cádiz"], "Brasil."],
+    ["Los castells son…", ["torres humanas", "castillos de arena", "un baile en pareja"], "Cataluña."],
+    ["En un flashmob la coreografía se crea…", ["por ochos", "sin música", "de uno en uno"], "Contando."],
+  ],
+  examen: [
+    ["El patrimonio inmaterial está formado por…", ["costumbres y saberes", "edificios", "objetos de museo"], "Se transmite."],
+    ["Las chirigotas de Cádiz sobre todo…", ["cantan", "desfilan en carroza", "llevan máscaras venecianas"], "Letras de humor."],
+  ],
+  tarjetas: [
+    ["Canción de corro", "Se canta en círculo haciendo los gestos de la letra."],
+    ["Un ocho", "Ocho tiempos de música: dos compases de 4."],
+    ["Carnaval de Río", "Escuelas de samba en el Sambódromo."],
+    ["Patrimonio inmaterial", "Castells y flamenco (UNESCO, 2010)."],
+  ],
+  glosario: [
+    ["Retahíla", "Serie de palabras que se recitan para sortear."],
+    ["Corro", "Círculo de personas cogidas de las manos."],
+    ["Pulso", "Latido regular de la música."],
+    ["Compás", "Grupo de tiempos que se repite en la música."],
+    ["Tempo", "Velocidad de la música."],
+    ["Ocho", "Grupo de ocho tiempos que usan los bailarines."],
+    ["Coreografía", "Conjunto ordenado de pasos de un baile."],
+    ["Samba", "Baile brasileño de pasos rápidos y percusión."],
+    ["Comparsa", "Grupo de carnaval que canta o baila."],
+    ["Castells", "Torres humanas tradicionales de Cataluña."],
+    ["Patrimonio inmaterial", "Costumbres y saberes que se transmiten entre personas."],
+    ["Flashmob", "Baile en grupo que aparece por sorpresa en un lugar público."],
+  ],
+  situacion: {
+    titulo: "La caja de los juegos y el baile del patio",
+    reto: "La clase recopila juegos y canciones de las familias y prepara un flashmob para presentarlos en el recreo.",
+    pasos: ["Entrevistad a familiares y mayores y recoged reglas de juegos, canciones de corro y retahílas.", "Organizad todo en una «caja de los juegos» con fichas ilustradas y grabaciones.", "Cread una coreografía por ochos con pasos inspirados en danzas del mundo.", "Presentad la caja en el recreo, enseñad tres juegos y terminad con el flashmob."],
+    producto: "Una caja de juegos con fichas y un flashmob en el recreo.",
+    evaluacion: ["Recoge y explica juegos y canciones tradicionales.", "Cuenta la música en tiempos y ochos.", "Conoce danzas de carnaval de distintos lugares.", "Coopera en la creación y ejecución de una coreografía."],
+  },
+});
