@@ -139,3 +139,91 @@ module.exports = {
   fuentes: [RD, { t: "Instituto Nacional de Estadística (INE)", url: "https://www.ine.es/" }, wiki("Municipio de España", "Municipio_(España)"), wiki("Ayuntamiento", "Ayuntamiento")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Leer una pirámide de población sencilla", "Explicar la despoblación rural y sus soluciones", "Conocer los consejos de infancia y la participación de los niños", "Distinguir los sectores económicos y valorar el civismo"],
+  lectura: { titulo: "La última escuela del valle", html: `<p>En el pueblo de Valdecierzo, en la montaña de Teruel, viven 87 personas. Hace setenta años vivían más de mil. Muchas familias se fueron a la ciudad buscando trabajo, y el pueblo se fue quedando vacío.</p><p>Hace tres años, la escuela estuvo a punto de cerrar: solo quedaban dos alumnos, y la ley pedía un mínimo para mantenerla abierta.</p><p>—Si cierra la escuela, el pueblo se muere —dijo la alcaldesa en el pleno.</p><p>Los vecinos se pusieron manos a la obra. Arreglaron tres casas vacías y las ofrecieron con un alquiler muy barato a familias con niños. Pusieron internet rápido en todo el pueblo para que la gente pudiera teletrabajar. Y abrieron una pequeña tienda que también hacía de bar y de oficina de correos.</p><p>Poco a poco llegaron familias nuevas: una carpintera de Valencia con sus gemelos, una pareja que hacía quesos, un informático de Barcelona con su hija, una familia que venía de Marruecos.</p><p>Hoy la escuela tiene <b>nueve alumnos</b> de edades distintas que estudian juntos en la misma aula. Marta, de 9 años, dice que es la mejor escuela del mundo:</p><p>—Aquí todos nos ayudamos. Los mayores enseñan a los pequeños. Y en el recreo tenemos todo el monte para nosotros.</p>` },
+  tras: {
+    "La natalidad y la mortalidad": [
+      ["La pirámide de población", `<p>Para estudiar cómo es la población de un lugar, los geógrafos usan un gráfico llamado <mark>pirámide de población</mark>. Muestra cuántas personas hay de cada <b>edad</b> y de cada <b>sexo</b>:</p><ul><li>A la <b>izquierda</b> se representan los <b>hombres</b> y a la <b>derecha</b>, las <b>mujeres</b>.</li><li>Abajo están los más jóvenes y, subiendo, las edades mayores.</li><li>Cada barra indica cuántas personas hay en ese grupo de edad.</li></ul><p>Según su forma, sabemos cómo es esa población:</p><ul><li>Si la base es <b>ancha</b> y la parte de arriba estrecha, como un triángulo, hay muchos niños y pocos mayores: es una población <b>joven</b>, con mucha natalidad.</li><li>Si la base es <b>estrecha</b> y la parte de arriba ancha, hay pocos niños y muchos mayores: es una población <b>envejecida</b>.</li></ul><p>La pirámide de España tiene la base cada vez más estrecha, porque nacen pocos niños, y la parte alta cada vez más ancha, porque vivimos muchos años. La <b>esperanza de vida</b> en España supera los <b>83 años</b>, una de las más altas del mundo. España es un país con población <b>envejecida</b>.</p>`,
+        H6.dos("Pirámides", ["JOVEN", ["base ancha", "muchos niños", "pocos mayores"], cVE], ["ENVEJECIDA", ["base estrecha", "pocos niños", "muchos mayores"], cMO])],
+    ],
+    "¿Dónde vive la gente en España?": [
+      ["La España vaciada", `<p>Durante el siglo XX, millones de personas se marcharon de los pueblos a las ciudades buscando trabajo en fábricas y servicios. Este movimiento se llama <b>éxodo rural</b>. Como consecuencia, muchas zonas del interior de España se han quedado casi sin habitantes. Se habla de la <mark>España vaciada</mark>.</p><p>Las provincias con menos densidad de población son <b>Soria</b>, <b>Teruel</b> y <b>Cuenca</b>, con menos de 12 habitantes por kilómetro cuadrado. Hay comarcas con menos densidad que algunas zonas de Laponia. Cientos de pueblos están ya <b>abandonados</b>.</p><p>Problemas de la despoblación:</p><ul><li>Quedan sobre todo personas <b>mayores</b> y nacen pocos niños.</li><li>Cierran escuelas, tiendas, bancos y consultorios médicos.</li><li>Hay menos transporte público y peor conexión a internet.</li><li>Se abandonan campos y montes, y aumenta el riesgo de incendios.</li></ul><p>Algunas soluciones: llevar <b>internet rápido</b> a los pueblos para teletrabajar, ofrecer casas a nuevas familias, mantener abiertas las escuelas rurales, apoyar la agricultura, la ganadería y el turismo rural, y mejorar carreteras y transporte.</p><p>Los pueblos guardan paisajes, tradiciones y formas de vida que forman parte de nuestra riqueza.</p>`,
+        L6.filas("Menor densidad", [["Soria", "unos 9 hab./km²", cRO], ["Teruel", "unos 9 hab./km²", cNA], ["Cuenca", "unos 12 hab./km²", cMO], ["España", "unos 95 hab./km²", cAZ]]), ["eggSKh1ekZo", "España se está quedando sin población en zonas rurales", "CNN en Español", 359310]],
+    ],
+    "Participar en la vida del municipio": [
+      ["Los niños también participan", `<p>Los niños y niñas no votan en las elecciones, pero tienen derecho a <b>opinar</b> sobre las cosas que les afectan y a ser escuchados. Por eso, muchos ayuntamientos han creado formas de participación infantil:</p><ul><li>El <mark>consejo de infancia</mark> o consejo de niños y niñas: un grupo de alumnos de los colegios del municipio que se reúne varias veces al año para hacer propuestas al alcalde y a los concejales.</li><li>El <mark>pleno infantil</mark>: una sesión especial en el salón de plenos del ayuntamiento en la que los niños ocupan el lugar de los concejales, presentan sus ideas y las votan.</li><li>Los <b>presupuestos participativos</b>: el ayuntamiento reserva una parte del dinero para proyectos que eligen los vecinos, a veces también los niños.</li></ul><p>Gracias a estas propuestas, en muchos pueblos y ciudades se han arreglado parques, se han creado caminos escolares seguros, carriles bici o se han puesto más papeleras.</p><p>UNICEF da el sello de <b>Ciudad Amiga de la Infancia</b> a los municipios que escuchan a los niños y cuidan sus derechos. En España hay cientos.</p><p>¿Sabes si tu municipio tiene consejo de infancia? ¿Qué propondrías tú?</p>`,
+        H6.flujo("Participar", ["detectar|un problema", "proponer|una idea", "debatir|y votar", "el alcalde|responde"], cVE)],
+    ],
+  },
+  final: [
+    ["¿En qué trabaja la gente?", `<p>Las personas trabajan en actividades muy diferentes. Los geógrafos las agrupan en tres <mark>sectores económicos</mark>:</p><ul><li><b>Sector primario</b>: obtiene los productos directamente de la naturaleza. Son la <b>agricultura</b>, la <b>ganadería</b>, la <b>pesca</b>, la explotación de los bosques y la minería. Es más importante en las zonas rurales.</li><li><b>Sector secundario</b>: <b>transforma</b> las materias primas en productos elaborados. Son la <b>industria</b> (fábricas de coches, alimentos, ropa…), la <b>construcción</b> y la producción de energía.</li><li><b>Sector terciario</b> o de <b>servicios</b>: no produce objetos, sino que presta servicios a las personas. Son el comercio, el transporte, la sanidad, la educación, el turismo, los bancos, la cultura…</li></ul><p>Por ejemplo, el trigo lo cultiva un agricultor (primario), se convierte en harina y en pan en una fábrica o panadería (secundario) y lo vende una tienda (terciario).</p><p>En España, la mayoría de las personas, más de <b>siete de cada diez</b>, trabajan en el sector servicios. El <b>turismo</b> es muy importante: cada año nos visitan más de 90 millones de turistas extranjeros.</p>`,
+      L6.filas("Sectores económicos", [["primario", "agricultura, pesca", cVE], ["secundario", "industria, construcción", cNA], ["terciario", "servicios, turismo", cAZ], ["en España", "7 de cada 10: servicios", cMO]])],
+    ["Civismo: convivir en el municipio", `<p>Vivir en un pueblo o una ciudad significa compartir calles, plazas, parques y servicios con muchas otras personas. Para que la convivencia sea agradable, necesitamos <mark>civismo</mark>: comportarnos con respeto hacia los demás y hacia lo que es de todos.</p><p>Algunas normas de civismo:</p><ul><li>Usar las <b>papeleras</b> y separar los residuos en los contenedores.</li><li>Cuidar el <b>mobiliario urbano</b>: bancos, columpios, farolas, fuentes. Si se rompe, lo pagamos entre todos con nuestros impuestos.</li><li>Recoger los excrementos de los <b>perros</b>.</li><li>No hacer <b>ruido</b> por la noche ni gritar en los espacios públicos.</li><li>Respetar las normas de <b>tráfico</b>: cruzar por los pasos de peatones y con el semáforo en verde.</li><li>Ceder el asiento a personas mayores, embarazadas o con discapacidad en el transporte público.</li><li>No pintar paredes ni fachadas.</li><li>Saludar y ayudar a los vecinos.</li></ul><p>Las normas de convivencia de cada municipio se recogen en las <b>ordenanzas municipales</b>, que aprueba el ayuntamiento. La Policía Local vigila que se cumplan.</p>`,
+      H6.rueda("Civismo", "CIVISMO", [["papeleras", cVE], ["mobiliario", cNA], ["sin ruido", cAZ], ["tráfico", cRO]]), ["7wbhREcJpOM", "Las normas de convivencia", "Happy Learning Español", 569974]],
+  ],
+  ejemplos: [
+    ["Un pueblo de 90 habitantes ocupa 10 km². ¿Cuál es su densidad de población?", ["Densidad = habitantes : superficie.", "90 : 10."], "9 habitantes por km²."],
+    ["Un pescador captura atunes, una fábrica los enlata y un supermercado vende las latas. ¿Qué sector es cada uno?", ["Naturaleza: primario.", "Transformar: secundario; vender: terciario."], "Primario, secundario y terciario."],
+  ],
+  errores: ["Pensar que una pirámide con la base estrecha es de una población joven.", "Creer que los niños no pueden participar en la vida del municipio."],
+  ejercicios: [
+    ["b", "¿Qué muestra una pirámide de población?", "Cuántas personas hay de cada edad y sexo."],
+    ["b", "¿Qué es el éxodo rural?", "La marcha de personas del campo a la ciudad."],
+    ["b", "Escribe una provincia muy despoblada.", "Soria, Teruel o Cuenca."],
+    ["b", "¿Qué es un pleno infantil?", "Una sesión del ayuntamiento con niños como concejales."],
+    ["b", "¿A qué sector pertenece un médico?", "Al terciario."],
+    ["m", "¿Cómo es la pirámide de España? ¿Por qué?", "Base estrecha y parte alta ancha: pocos nacimientos y vida larga."],
+    ["m", "Escribe dos problemas de la despoblación y dos soluciones.", "Cierran escuelas, faltan servicios; internet, viviendas."],
+    ["m", "¿Qué es una Ciudad Amiga de la Infancia?", "Municipio reconocido por UNICEF por escuchar a los niños."],
+    ["m", "¿En qué sector trabaja la mayoría en España?", "En el sector servicios."],
+    ["m", "¿Qué son las ordenanzas municipales?", "Normas de convivencia aprobadas por el ayuntamiento."],
+    ["a", "Pregunta a tu familia dónde nacieron tus abuelos y si se mudaron.", "Respuesta abierta."],
+    ["a", "Escribe una propuesta para el consejo de infancia de tu municipio.", "Respuesta abierta."],
+    ["a", "Busca un producto y sigue su camino por los tres sectores.", "Respuesta abierta."],
+    ["a", "Diseña un cartel de civismo para tu barrio.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Una pirámide de base ancha indica población…", ["joven", "envejecida", "rural"], "Pirámide."],
+    ["La esperanza de vida en España supera los…", ["83 años", "50 años", "120 años"], "Pirámide."],
+    ["Una de las provincias más despobladas es…", ["Soria", "Madrid", "Barcelona"], "España vaciada."],
+    ["La industria es del sector…", ["secundario", "primario", "terciario"], "Sectores."],
+    ["Las normas de convivencia del municipio son las…", ["ordenanzas municipales", "leyes europeas", "reglas del fútbol"], "Civismo."],
+  ],
+  examen: [
+    ["En la lectura, ¿cuántos alumnos tiene hoy la escuela?", ["nueve", "dos", "cien"], "Lectura."],
+    ["El consejo de infancia sirve para…", ["que los niños propongan ideas", "poner multas", "cobrar impuestos"], "Participación."],
+  ],
+  tarjetas: [
+    ["Pirámide", "Hombres a la izquierda, mujeres a la derecha; España envejecida."],
+    ["España vaciada", "Éxodo rural; Soria, Teruel, Cuenca; internet y servicios."],
+    ["Participación infantil", "Consejo de infancia, pleno infantil, Ciudad Amiga."],
+    ["Sectores y civismo", "Primario, secundario, terciario; ordenanzas y respeto."],
+  ],
+  glosario: [
+    ["Pirámide de población", "Gráfico de la población por edad y sexo."],
+    ["Esperanza de vida", "Años que se espera que viva una persona."],
+    ["Envejecimiento", "Aumento de la proporción de personas mayores."],
+    ["Éxodo rural", "Marcha masiva del campo a la ciudad."],
+    ["Despoblación", "Pérdida de habitantes de un lugar."],
+    ["Teletrabajo", "Trabajar desde casa con internet."],
+    ["Consejo de infancia", "Grupo de niños que hace propuestas al ayuntamiento."],
+    ["Pleno", "Reunión de todos los concejales del ayuntamiento."],
+    ["Sector primario", "Actividades que obtienen productos de la naturaleza."],
+    ["Sector secundario", "Actividades que transforman materias primas."],
+    ["Sector terciario", "Actividades de servicios."],
+    ["Civismo", "Comportamiento respetuoso con los demás y lo común."],
+  ],
+  situacion: {
+    titulo: "Mi municipio, a examen",
+    reto: "La clase estudia su municipio y presenta propuestas de mejora como en un pleno infantil.",
+    pasos: ["Investigad la población, los servicios y los trabajos de vuestro municipio.", "Detectad un problema: limpieza, parques, tráfico, despoblación…", "Preparad una propuesta con datos y dibujos.", "Celebrad un pleno infantil en clase y votad las propuestas."],
+    producto: "Un dosier del municipio y un pleno infantil simulado.",
+    evaluacion: ["Obtiene datos del municipio.", "Detecta problemas reales.", "Propone soluciones razonadas.", "Participa con respeto en el debate."],
+  },
+});

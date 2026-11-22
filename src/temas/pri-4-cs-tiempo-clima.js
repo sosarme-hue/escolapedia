@@ -135,3 +135,92 @@ module.exports = {
   fuentes: [RD, { t: "Agencia Estatal de Meteorología (AEMET)", url: "https://www.aemet.es/" }, wiki("Clima de España", "Clima_de_España"), wiki("Ciclo hidrológico", "Ciclo_hidrológico")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+module.exports.bloques.find((b) => /Los climas de España/.test(b.html)).svg = L6.filas("Climas de España", [["oceánico", "norte: lluvioso, suave", cVE], ["mediterráneo", "costa este y sur", cNA], ["continental", "interior: extremo", cRO], ["de montaña", "frío y nieve", cAZ], ["subtropical", "Canarias: templado", cMO]]);
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Reconocer fenómenos meteorológicos extremos y cómo protegerse", "Explicar cómo se hace una previsión del tiempo", "Comprender las causas y consecuencias del cambio climático", "Construir y usar instrumentos meteorológicos sencillos"],
+  lectura: { titulo: "La gota fría", html: `<p>Aquel otoño, en el pueblo de Nerea, a orillas del Mediterráneo, había hecho mucho calor. El mar estaba templado como una bañera.</p><p>Un martes por la mañana, el móvil de su madre sonó con un pitido extraño, muy fuerte. Era un <b>aviso de Protección Civil</b>: «Alerta roja por lluvias muy intensas. Evite desplazamientos. No cruce cauces ni zonas inundables».</p><p>—¿Qué pasa? —preguntó Nerea.</p><p>—Viene una DANA, lo que los abuelos llaman gota fría —explicó su madre—. Aire muy frío en lo alto, y abajo el mar muy caliente. Pueden caer en unas horas tantas lluvias como en medio año.</p><p>El colegio cerró. Por la tarde, el cielo se puso casi negro y empezó a llover como Nerea no había visto nunca. El agua bajaba por las calles como un río. La rambla seca que había junto al pueblo, donde ella jugaba en verano, se llenó de agua marrón que arrastraba ramas y hasta un coche.</p><p>Nerea y su familia se quedaron en el piso de arriba, con linternas, agua y la radio encendida, siguiendo las indicaciones.</p><p>Al día siguiente salió el sol. Las calles estaban llenas de barro, y todos los vecinos salieron con palas y escobas a ayudar.</p><p>—La naturaleza es muy poderosa —dijo su abuelo—. Hay que respetarla y hacer caso de los avisos.</p>` },
+  tras: {
+    "Las precipitaciones": [
+      ["Fenómenos meteorológicos extremos", `<p>A veces el tiempo se vuelve peligroso. Son los <mark>fenómenos meteorológicos extremos</mark>:</p><ul><li><b>DANA o gota fría</b>: una bolsa de aire muy frío en lo alto de la atmósfera que, al encontrarse con aire cálido y húmedo, provoca lluvias torrenciales. Es típica del otoño en la costa mediterránea y puede causar graves <b>inundaciones</b>, como la de Valencia en octubre de 2024.</li><li><b>Olas de calor</b>: varios días seguidos con temperaturas muy altas. Son peligrosas para la salud, sobre todo de las personas mayores y los bebés.</li><li><b>Sequías</b>: largos periodos con muy poca lluvia. Se secan embalses y cultivos.</li><li><b>Tormentas</b> con rayos y granizo, y temporales de <b>viento</b> y oleaje.</li><li><b>Nevadas</b> intensas, como la borrasca Filomena, que en enero de 2021 cubrió Madrid de nieve.</li></ul><p>Cuando se esperan fenómenos peligrosos, la <b>AEMET</b> (Agencia Estatal de Meteorología) emite <b>avisos de colores</b>: <b>amarillo</b> (riesgo bajo, estar atento), <b>naranja</b> (riesgo importante) y <b>rojo</b> (riesgo extraordinario). Ante un aviso, hay que seguir siempre las indicaciones de Protección Civil: no cruzar ríos ni ramblas, no bajar a sótanos o garajes si hay inundación y beber mucha agua con calor.</p>`,
+        L6.filas("Avisos de la AEMET", [["amarillo", "riesgo bajo: atención", cNA], ["naranja", "riesgo importante", cMO], ["rojo", "riesgo extraordinario", cRO], ["qué hacer", "seguir a Protección Civil", cAZ]]), ["-ne2JJLdY5U", "Fenómenos meteorológicos extremos | Planeta Darwin", "CNTV Infantil", 601301]],
+    ],
+    "Los mapas del tiempo": [
+      ["Cómo se hace la previsión del tiempo", `<p>¿Cómo saben los meteorólogos el tiempo que hará mañana? Siguen varios pasos:</p><ol><li><b>Observar</b>: recogen millones de datos cada día de estaciones meteorológicas, boyas en el mar, aviones, globos sonda que suben a gran altura, radares que detectan la lluvia y <b>satélites</b> que fotografían las nubes desde el espacio.</li><li><b>Calcular</b>: con esos datos, potentes <b>superordenadores</b> hacen modelos matemáticos que calculan cómo cambiará la atmósfera en las próximas horas y días.</li><li><b>Interpretar</b>: los meteorólogos estudian los resultados, los comparan con su experiencia y preparan la previsión.</li><li><b>Comunicar</b>: la previsión se publica en la web y la aplicación de la AEMET, en la televisión y en la radio.</li></ol><p>Las previsiones son muy fiables para el día siguiente, bastante para tres o cuatro días, y menos seguras a más de una semana. La atmósfera es tan complicada que pequeños cambios pueden alterar mucho el resultado.</p><p>En España, el organismo oficial es la <b>AEMET</b>, que tiene su sede en Madrid y existe desde 1887. Antes de los satélites, la gente se fijaba en las nubes, el viento o el comportamiento de los animales, y de ahí nacieron muchos <b>refranes</b>.</p>`,
+        H6.flujo("La previsión", ["observar|datos", "calcular|ordenadores", "interpretar|expertos", "comunicar|avisos"], cAZ)],
+    ],
+    "Los climas de España": [
+      ["El cambio climático", `<p>El clima de la Tierra ha cambiado muchas veces a lo largo de su historia, pero ahora está cambiando <b>muy deprisa</b>, y la causa principal somos las personas. Es el <mark>cambio climático</mark>.</p><p>¿Por qué ocurre? Al quemar <b>carbón, petróleo y gas</b> en fábricas, coches, aviones y centrales eléctricas, se liberan gases, sobre todo <b>dióxido de carbono</b>. Estos gases se acumulan en la atmósfera y funcionan como una manta: retienen el calor del Sol. Es el <b>efecto invernadero</b>. También influye la tala de bosques, que absorben ese gas.</p><p>Consecuencias:</p><ul><li>La temperatura media del planeta sube.</li><li>Los <b>glaciares</b> y los hielos polares se derriten, y sube el nivel del mar.</li><li>Hay más <b>olas de calor</b>, sequías e incendios, y lluvias torrenciales más intensas.</li><li>Muchas especies de animales y plantas tienen problemas para adaptarse.</li></ul><p>En España, los veranos son cada vez más largos y calurosos, y los glaciares de los Pirineos están desapareciendo.</p><p>¿Qué podemos hacer? Ahorrar energía, usar transporte público, la bici o caminar, consumir productos locales, reducir residuos, plantar árboles y usar energías renovables como la solar y la eólica.</p>`,
+        H6.flujo("Cambio climático", ["quemar|combustibles", "gases|atmósfera", "retienen|calor", "sube la|temperatura"], cRO), ["FeKld35Pxhg", "El cambio climático para niños", "Mundo Divertido de Niños", 3871280]],
+    ],
+  },
+  final: [
+    ["Refranes del tiempo", `<p>Antes de que existieran los satélites y los ordenadores, las personas del campo y del mar observaban el cielo con mucha atención. Lo que aprendían lo resumían en <mark>refranes</mark> que pasaban de abuelos a nietos:</p><ul><li><b>«En abril, aguas mil.»</b> Abril suele ser un mes lluvioso.</li><li><b>«Cielo empedrado, suelo mojado.»</b> Las nubes pequeñas en forma de piedras (cirrocúmulos) suelen anunciar lluvia.</li><li><b>«Hasta el cuarenta de mayo no te quites el sayo.»</b> Hasta principios de junio puede volver el fresco, así que no guardes la ropa de abrigo.</li><li><b>«Arco iris al anochecer, buen tiempo al amanecer.»</b></li><li><b>«Cuando marzo mayea, mayo marcea.»</b> Si marzo es caluroso, mayo puede ser fresco.</li><li><b>«Año de nieves, año de bienes.»</b> La nieve llena los ríos y los embalses en primavera, y las cosechas son buenas.</li></ul><p>Algunos refranes tienen bastante fundamento científico, pero otros son solo tradiciones. Hoy la ciencia nos permite hacer previsiones mucho más fiables.</p><p>Pregunta en casa: ¿qué refranes del tiempo conocen tus abuelos? Seguro que en tu zona hay alguno propio.</p>`,
+      L6.filas("Refranes", [["abril", "aguas mil", cAZ], ["cielo empedrado", "suelo mojado", cMO], ["cuarenta de mayo", "no te quites el sayo", cNA], ["año de nieves", "año de bienes", cVE]])],
+    ["Tu propia estación meteorológica", `<p>Puedes construir algunos instrumentos sencillos para medir el tiempo en el colegio o en casa:</p><ul><li><mark>Pluviómetro</mark>: corta la parte de arriba de una botella de plástico transparente y colócala del revés dentro de la base, como un embudo. Pega una regla por fuera. Déjalo en un lugar despejado y mide cada día cuántos milímetros de agua ha recogido.</li><li><mark>Veleta</mark>: pincha una pajita con una flecha de cartulina en un extremo y una cola más grande en el otro sobre un lápiz con goma, clavado con un alfiler. Coloca debajo una rosa de los vientos con la N hacia el norte (usa una brújula). La flecha señala de dónde viene el viento.</li><li><mark>Anemómetro</mark>: pega cuatro vasitos de papel en los extremos de dos pajitas cruzadas y clávalas sobre un lápiz. Cuantas más vueltas dé en un minuto, más fuerte sopla el viento.</li><li>Un <b>termómetro</b> colocado a la sombra.</li></ul><p>Durante un mes, anota cada día a la misma hora la temperatura, la lluvia, el viento y el estado del cielo con símbolos. Al final, haz un gráfico y compara tus datos con los de la AEMET.</p>`,
+      H6.rueda("Mi estación", "ESTACIÓN", [["pluviómetro", cAZ], ["veleta", cNA], ["anemómetro", cVE], ["termómetro", cRO]])],
+  ],
+  ejemplos: [
+    ["El pluviómetro recoge 4, 0, 12 y 8 mm en cuatro días. ¿Cuánto llovió en total? ¿Y de media?", ["4 + 0 + 12 + 8 = 24.", "24 : 4."], "24 mm en total; 6 mm de media."],
+    ["La AEMET da aviso naranja por calor. ¿Qué harías?", ["Naranja es riesgo importante.", "Proteger a mayores y niños."], "Beber agua, no salir en las horas centrales, buscar sombra y estar pendiente de los mayores."],
+  ],
+  errores: ["Pensar que el cambio climático solo significa que hace más calor; también cambian las lluvias y aumentan los fenómenos extremos.", "Creer que se puede cruzar una rambla con poca agua durante una tormenta."],
+  ejercicios: [
+    ["b", "¿Qué significa DANA o gota fría?", "Bolsa de aire frío en altura que provoca lluvias torrenciales."],
+    ["b", "Escribe los tres colores de aviso de la AEMET.", "Amarillo, naranja y rojo."],
+    ["b", "¿Qué fotografían los satélites meteorológicos?", "Las nubes."],
+    ["b", "Escribe un refrán sobre el tiempo.", "En abril, aguas mil."],
+    ["b", "¿Qué mide un pluviómetro?", "La lluvia."],
+    ["m", "Ordena los pasos de una previsión: comunicar, observar, calcular, interpretar.", "Observar, calcular, interpretar, comunicar."],
+    ["m", "¿Qué es el efecto invernadero?", "Los gases retienen el calor del Sol como una manta."],
+    ["m", "Escribe tres consecuencias del cambio climático.", "Sube la temperatura, se derriten glaciares, más sequías."],
+    ["m", "¿Por qué las previsiones a dos semanas son poco seguras?", "La atmósfera es muy complicada y cambia mucho."],
+    ["m", "¿Qué indica una veleta?", "La dirección del viento."],
+    ["a", "Construye un pluviómetro y registra la lluvia durante un mes.", "Respuesta abierta."],
+    ["a", "Recoge cinco refranes del tiempo de tu familia.", "Respuesta abierta."],
+    ["a", "Haz un decálogo para frenar el cambio climático en el colegio.", "Respuesta abierta."],
+    ["a", "Presenta el tiempo de tu localidad como en la televisión.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["La gota fría es típica de…", ["otoño en el Mediterráneo", "verano en Galicia", "invierno en Canarias"], "Extremos."],
+    ["El aviso más grave es el…", ["rojo", "amarillo", "verde"], "Avisos."],
+    ["La agencia de meteorología de España es la…", ["AEMET", "NASA", "ONU"], "Previsión."],
+    ["El cambio climático lo causa sobre todo…", ["quemar combustibles", "la Luna", "los volcanes"], "Clima."],
+    ["«En abril…»", ["aguas mil", "sol a mil", "nieve mil"], "Refranes."],
+  ],
+  examen: [
+    ["En la lectura, ¿cómo se enteró la familia de Nerea de la alerta?", ["por un aviso en el móvil", "por una carta", "no se enteró"], "Lectura."],
+    ["El anemómetro mide…", ["la velocidad del viento", "la lluvia", "la temperatura"], "Estación."],
+  ],
+  tarjetas: [
+    ["Extremos", "DANA, olas de calor, sequías, nevadas; avisos amarillo, naranja, rojo."],
+    ["Previsión", "Observar, calcular, interpretar, comunicar; AEMET."],
+    ["Cambio climático", "Gases de combustibles, efecto invernadero, más calor y extremos."],
+    ["Refranes y estación", "En abril, aguas mil; pluviómetro, veleta, anemómetro."],
+  ],
+  glosario: [
+    ["DANA", "Depresión aislada en niveles altos; gota fría."],
+    ["Ola de calor", "Varios días seguidos con mucho calor."],
+    ["Sequía", "Largo periodo con poca lluvia."],
+    ["AEMET", "Agencia Estatal de Meteorología."],
+    ["Aviso meteorológico", "Alerta por tiempo peligroso."],
+    ["Satélite meteorológico", "Aparato que observa la atmósfera desde el espacio."],
+    ["Previsión", "Anuncio del tiempo que hará."],
+    ["Efecto invernadero", "Retención del calor por los gases de la atmósfera."],
+    ["Cambio climático", "Cambio rápido del clima causado por las personas."],
+    ["Energía renovable", "La que no se agota, como la solar o la eólica."],
+    ["Refrán", "Dicho popular que da un consejo o enseñanza."],
+    ["Pluviómetro", "Instrumento que mide la lluvia."],
+  ],
+  situacion: {
+    titulo: "El tiempo en el cole",
+    reto: "La clase monta su estación meteorológica y presenta un parte del tiempo semanal.",
+    pasos: ["Construid pluviómetro, veleta y anemómetro.", "Registrad los datos cada día a la misma hora.", "Comparad con la previsión de la AEMET.", "Presentad cada viernes el parte con mapa y símbolos."],
+    producto: "Una estación del aula y un parte del tiempo semanal.",
+    evaluacion: ["Construye y usa instrumentos.", "Registra datos con orden.", "Interpreta y compara previsiones.", "Comunica el parte con claridad."],
+  },
+});

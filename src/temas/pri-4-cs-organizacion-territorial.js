@@ -135,3 +135,92 @@ module.exports = {
   fuentes: [RD, { t: "Constitución española (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229" }, wiki("Comunidad autónoma", "Comunidad_autónoma"), wiki("Provincias de España", "Provincia_(España)")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+module.exports.bloques.find((b) => /Las 17 comunidades y sus capitales/.test(b.html)).svg = L6.filas("España en cifras", [["comunidades", "17", cAZ], ["ciudades autónomas", "Ceuta y Melilla", cNA], ["provincias", "50", cVE], ["municipios", "más de 8000", cMO]]);
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer algunos derechos y deberes de la Constitución", "Identificar las lenguas cooficiales de España", "Describir las instituciones de la UE y el euro", "Explicar cómo son las elecciones y los derechos de la infancia"],
+  lectura: { titulo: "La Constitución de la clase", html: `<p>El primer día de curso, la clase de 4.º B era un pequeño caos. Unos querían jugar al fútbol en el recreo y otros al escondite. Unos hablaban sin pedir turno y otros no se atrevían a hablar nunca.</p><p>—Vamos a hacer como España —dijo el maestro, don Iván—: vamos a escribir nuestra propia <b>Constitución</b>.</p><p>—¿Y eso qué es? —preguntó Hugo.</p><p>—Unas normas básicas que todos aceptamos, con nuestros derechos y nuestros deberes.</p><p>Se dividieron en grupos. Uno escribió los <b>derechos</b>: «Todos tenemos derecho a opinar», «Todos tenemos derecho a jugar en el recreo», «Nadie puede ser tratado peor por ser diferente». Otro escribió los <b>deberes</b>: «Respetar el turno de palabra», «Cuidar el material de todos», «Ayudar a los compañeros».</p><p>Después eligieron un <b>delegado</b> y una <b>subdelegada</b> con una votación secreta en una caja de zapatos. Y crearon una asamblea que se reuniría los viernes para resolver problemas.</p><p>Al final, todos votaron la Constitución de la clase. Salió aprobada por 23 votos a favor y 2 abstenciones. La firmaron uno a uno y la colgaron en la pared.</p><p>—Ahora —dijo don Iván—, la parte más difícil: cumplirla todos los días.</p>` },
+  tras: {
+    "La Constitución": [
+      ["Derechos y deberes", `<p>La Constitución reconoce los <mark>derechos</mark> de todas las personas y establece sus <mark>deberes</mark>. Empieza diciendo que todos los españoles son <b>iguales ante la ley</b>, sin que nadie pueda ser discriminado por su nacimiento, sexo, religión, opinión u otra circunstancia.</p><p>Algunos <b>derechos</b> importantes:</p><ul><li>Derecho a la <b>vida</b> y a la integridad física.</li><li><b>Libertad</b> de pensamiento, de religión y de expresión.</li><li>Derecho a la <b>educación</b>: la enseñanza básica es obligatoria y gratuita.</li><li>Derecho a la protección de la <b>salud</b>.</li><li>Derecho a una <b>vivienda</b> digna y a un trabajo.</li><li>Derecho a <b>votar</b> y a participar en los asuntos públicos.</li><li>Derecho a disfrutar de un <b>medio ambiente</b> adecuado.</li></ul><p>Y algunos <b>deberes</b>:</p><ul><li><b>Cumplir las leyes</b>.</li><li>Pagar los <b>impuestos</b>, con los que se financian colegios, hospitales y carreteras.</li><li>Conservar el medio ambiente.</li><li>Respetar los derechos de los demás.</li></ul><p>Derechos y deberes van juntos: para que se respeten mis derechos, yo debo respetar los de los demás.</p>`,
+        H6.dos("La Constitución", ["DERECHOS", ["educación y salud", "libertad", "votar"], cAZ], ["DEBERES", ["cumplir las leyes", "pagar impuestos", "cuidar el entorno"], cNA]), ["BOJfQNKR658", "Viva la Constitución, canción pedagógica infantil", "César García-Rincón de Castro", 430300]],
+    ],
+    "Las comunidades autónomas": [
+      ["Las lenguas de España", `<p>España es un país con una gran riqueza de lenguas. La Constitución dice que el <mark>castellano</mark> o español es la lengua oficial de todo el Estado, y que todos tienen el deber de conocerla y el derecho a usarla.</p><p>Además, en algunas comunidades autónomas hay otras <mark>lenguas cooficiales</mark>, que son oficiales junto con el castellano:</p><ul><li>El <b>catalán</b>, en Cataluña y las Islas Baleares. En la Comunidad Valenciana se llama <b>valenciano</b>.</li><li>El <b>gallego</b>, en Galicia.</li><li>El <b>euskera</b> o vasco, en el País Vasco y en parte de Navarra.</li><li>El <b>aranés</b>, en el Valle de Arán (Lleida).</li></ul><p>También hay otras lenguas y modalidades protegidas, como el asturiano o bable y el aragonés.</p><p>El castellano, el catalán y el gallego vienen del <b>latín</b>. El euskera, en cambio, es una lengua muy antigua cuyo origen sigue siendo un misterio: ya se hablaba antes de que llegaran los romanos.</p><p>La Constitución dice que esta variedad de lenguas es un <b>patrimonio cultural</b> que hay que respetar y proteger. Conocer más de una lengua es una gran riqueza.</p>`,
+        L6.filas("Lenguas cooficiales", [["catalán", "Cataluña, Baleares, Valencia", cRO], ["gallego", "Galicia", cAZ], ["euskera", "País Vasco, Navarra", cVE], ["aranés", "Valle de Arán", cMO]])],
+    ],
+    "España en Europa": [
+      ["Las instituciones de la UE y el euro", `<p>La <mark>Unión Europea</mark> tiene sus propias instituciones, con sede principalmente en <b>Bruselas</b> (Bélgica), <b>Estrasburgo</b> (Francia) y <b>Luxemburgo</b>:</p><ul><li>El <b>Parlamento Europeo</b>: sus diputados los elegimos los ciudadanos de todos los países cada cinco años. Aprueba leyes junto con el Consejo.</li><li>El <b>Consejo Europeo</b>: reúne a los presidentes y jefes de gobierno de los 27 países para decidir las grandes líneas.</li><li>La <b>Comisión Europea</b>: propone las leyes y vigila que se cumplan.</li><li>El <b>Tribunal de Justicia</b>: resuelve los conflictos sobre las leyes europeas.</li></ul><p>La UE tiene sus <b>símbolos</b>: una bandera azul con <b>12 estrellas doradas</b> en círculo (que representan la unidad, no el número de países), un himno (el «Himno a la alegría» de Beethoven) y el lema «Unida en la diversidad». El <b>9 de mayo</b> se celebra el Día de Europa.</p><p>Muchos países, entre ellos España desde <b>2002</b>, comparten una moneda: el <mark>euro</mark> (€). Antes, en España se usaba la peseta. Con el euro se puede pagar en muchos países sin cambiar de moneda.</p><p>Gracias al programa <b>Erasmus</b>, estudiantes de toda Europa pueden estudiar un tiempo en otro país.</p>`,
+        L6.filas("Unión Europea", [["países", "27", cAZ], ["bandera", "12 estrellas", cNA], ["moneda", "euro (2002)", cVE], ["Día de Europa", "9 de mayo", cMO]]), ["LyuGKkm4KEc", "¿Cómo se creó la Unión Europea?", "StateBalls Español", 355655]],
+    ],
+  },
+  final: [
+    ["Votar: así son las elecciones", `<p>En una <b>democracia</b>, los ciudadanos eligen a sus representantes mediante <mark>elecciones</mark>. En España pueden votar las personas mayores de <b>18 años</b>.</p><p>Hay varios tipos de elecciones:</p><ul><li><b>Generales</b>: para elegir a los diputados y senadores de las Cortes Generales.</li><li><b>Autonómicas</b>: para el parlamento de cada comunidad.</li><li><b>Municipales</b>: para el ayuntamiento.</li><li><b>Europeas</b>: para el Parlamento Europeo.</li></ul><p>Normalmente se celebran cada <b>cuatro años</b> (las europeas, cada cinco).</p><p>¿Cómo se vota?</p><ol><li>El día de las elecciones, cada persona va a su <b>colegio electoral</b>, que suele ser un colegio o un edificio público.</li><li>En una cabina, elige la <b>papeleta</b> del partido que prefiere y la mete en un sobre.</li><li>Muestra su documento de identidad a la <b>mesa electoral</b>, formada por vecinos elegidos por sorteo.</li><li>Mete el sobre en la <b>urna</b>.</li></ol><p>El voto es <b>secreto</b>: nadie puede saber a quién has votado. También es <b>libre</b> e <b>igual</b>: todos los votos valen lo mismo. Al terminar, se cuentan las papeletas delante de todos.</p>`,
+      H6.flujo("Votar", ["elegir|papeleta", "identificarse|en la mesa", "votar|en la urna", "contar|los votos"], cAZ)],
+    ["Los derechos de la infancia", `<p>Los niños y las niñas tienen también sus propios derechos. En <b>1989</b>, las Naciones Unidas aprobaron la <mark>Convención sobre los Derechos del Niño</mark>, que España firmó y cumple. Es el acuerdo internacional que más países han aceptado en el mundo.</p><p>Algunos de esos derechos son:</p><ul><li>Derecho a tener un <b>nombre</b> y una <b>nacionalidad</b>.</li><li>Derecho a la <b>educación</b> y al <b>juego</b>.</li><li>Derecho a la <b>salud</b>, a una alimentación adecuada y a una vivienda.</li><li>Derecho a vivir en <b>familia</b> y a ser protegidos frente a cualquier maltrato.</li><li>Derecho a <b>no trabajar</b> en trabajos que perjudiquen su salud o su educación.</li><li>Derecho a <b>expresar su opinión</b> y a ser escuchados en lo que les afecta.</li><li>Derecho a no ser discriminados.</li></ul><p>El <b>20 de noviembre</b> es el Día Universal de la Infancia. La organización <b>UNICEF</b> trabaja en todo el mundo para que estos derechos se cumplan.</p><p>Por desgracia, todavía hay millones de niños en el mundo que no pueden ir a la escuela o que tienen que trabajar. Conocer tus derechos te ayuda a defender los tuyos y los de los demás.</p>`,
+      H6.rueda("Derechos infancia", "INFANCIA", [["educación", cAZ], ["juego", cVE], ["salud", cRO], ["opinar", cNA]]), ["kSD_Vs6TaG0", "Derechos de los niños - UNICEF", "Distroller", 3270215]],
+  ],
+  ejemplos: [
+    ["España entró en la UE en 1986 y adoptó el euro en 2002. ¿Cuántos años pasaron?", ["2002 − 1986.", "Restamos."], "16 años."],
+    ["En la clase votan 25 alumnos: 14 a Laura, 9 a Pablo y 2 en blanco. ¿Quién gana? ¿Tiene más de la mitad?", ["La mitad de 25 es 12,5.", "14 es más que 12,5."], "Gana Laura, con mayoría absoluta."],
+  ],
+  errores: ["Pensar que las 12 estrellas de la bandera europea son los países.", "Creer que en España solo hay una lengua oficial en todas partes."],
+  ejercicios: [
+    ["b", "Escribe dos derechos de la Constitución.", "Educación, salud…"],
+    ["b", "Escribe dos deberes de los ciudadanos.", "Cumplir las leyes, pagar impuestos."],
+    ["b", "¿Qué lengua es cooficial en Galicia?", "El gallego."],
+    ["b", "¿Cuántas estrellas tiene la bandera de la UE?", "12."],
+    ["b", "¿A qué edad se puede votar en España?", "A los 18 años."],
+    ["m", "¿Qué lengua de España no viene del latín?", "El euskera."],
+    ["m", "¿Qué institución europea elegimos los ciudadanos?", "El Parlamento Europeo."],
+    ["m", "¿Qué significa que el voto es secreto?", "Nadie puede saber a quién has votado."],
+    ["m", "¿Cuándo es el Día Universal de la Infancia?", "El 20 de noviembre."],
+    ["m", "¿Para qué sirven los impuestos?", "Para pagar servicios como colegios y hospitales."],
+    ["a", "Escribid la Constitución de vuestra clase con derechos y deberes.", "Respuesta abierta."],
+    ["a", "Organizad una votación secreta para elegir delegado.", "Respuesta abierta."],
+    ["a", "Aprende a saludar en las lenguas cooficiales.", "Bon dia, bos días, egun on…"],
+    ["a", "Elige un derecho de la infancia y haz un cartel.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["La enseñanza básica en España es…", ["obligatoria y gratuita", "voluntaria", "solo para mayores"], "Derechos."],
+    ["El euskera se habla en…", ["el País Vasco", "Galicia", "Canarias"], "Lenguas."],
+    ["El euro se usa en España desde…", ["2002", "1978", "1986"], "UE."],
+    ["El voto en las elecciones es…", ["secreto", "público", "obligatorio a los 10"], "Elecciones."],
+    ["La Convención de los Derechos del Niño es de…", ["1989", "1492", "2020"], "Infancia."],
+  ],
+  examen: [
+    ["En la lectura, ¿dónde metieron los votos?", ["en una caja de zapatos", "en una mochila", "en el ordenador"], "Lectura."],
+    ["El lema de la UE es…", ["Unida en la diversidad", "Todos iguales", "Más allá"], "UE."],
+  ],
+  tarjetas: [
+    ["Derechos y deberes", "Igualdad, educación, salud, voto; cumplir leyes, impuestos."],
+    ["Lenguas", "Castellano oficial; catalán/valenciano, gallego, euskera, aranés."],
+    ["Unión Europea", "Parlamento, Consejo, Comisión; 12 estrellas; euro 2002."],
+    ["Democracia", "Voto libre, igual y secreto desde los 18; derechos de la infancia 1989."],
+  ],
+  glosario: [
+    ["Derecho", "Lo que una persona puede hacer o exigir."],
+    ["Deber", "Obligación que hay que cumplir."],
+    ["Discriminar", "Tratar peor a alguien por ser diferente."],
+    ["Impuesto", "Dinero que se paga al Estado para los servicios públicos."],
+    ["Lengua cooficial", "Lengua oficial junto con el castellano."],
+    ["Parlamento Europeo", "Institución de la UE elegida por los ciudadanos."],
+    ["Euro", "Moneda común de muchos países de la UE."],
+    ["Democracia", "Sistema en el que el pueblo elige a sus gobernantes."],
+    ["Urna", "Caja donde se depositan los votos."],
+    ["Papeleta", "Papel con la opción que se vota."],
+    ["Mesa electoral", "Personas que controlan una votación."],
+    ["UNICEF", "Organización de la ONU para la infancia."],
+  ],
+  situacion: {
+    titulo: "Elecciones en el aula",
+    reto: "La clase simula unas elecciones para elegir un proyecto de mejora del colegio.",
+    pasos: ["Formad grupos que propongan un proyecto (patio, biblioteca, huerto…).", "Preparad la campaña con carteles y un breve discurso.", "Montad el colegio electoral con urna, papeletas y mesa.", "Votad, contad los votos y comunicad el resultado."],
+    producto: "Una jornada electoral simulada con resultados.",
+    evaluacion: ["Explica cómo funciona el voto.", "Argumenta su propuesta.", "Respeta las normas y el resultado.", "Participa de forma democrática."],
+  },
+});
