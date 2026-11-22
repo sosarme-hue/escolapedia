@@ -136,3 +136,92 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer las tres terminaciones de los verbos: -ar, -er, -ir", "Usar verbos de órdenes en recetas e instrucciones", "Elegir verbos precisos en lugar de «hacer» y «decir»", "Conjugar verbos con yo, tú, él y ella"],
+  lectura: { titulo: "La receta del abuelo", html: `<p>Los sábados, el abuelo Tomás cocina con su nieta Valeria. Hoy van a preparar tortitas para el desayuno.</p><p>El abuelo saca un papel viejo de un cajón: es su receta, escrita a mano hace muchos años.</p><p>Valeria la lee en voz alta:</p><p>«Primero, <b>casca</b> dos huevos en un bol. Después, <b>añade</b> un vaso de leche y <b>bate</b> bien. <b>Echa</b> poco a poco la harina y <b>remueve</b> sin parar. <b>Calienta</b> la sartén con un poco de mantequilla. <b>Vierte</b> un cucharón de masa y <b>espera</b> a que salgan burbujas. Entonces, <b>dale</b> la vuelta».</p><p>—Abuelo, ¡esta receta está llena de órdenes!</p><p>—Claro —se ríe él—. Las recetas nos dicen qué hacer, paso a paso.</p><p>Valeria bate, remueve y espera. La primera tortita sale un poco quemada, pero la segunda queda perfecta. Al final, las comen con miel y fresas. ¡Qué rico desayuno!</p>` },
+  tras: {
+    "El nombre del verbo": [
+      ["Tres familias: -ar, -er, -ir", `<p>Todos los verbos, cuando los decimos por su nombre, terminan de una de estas <mark>tres formas</mark>:</p><ul><li>En <b>-ar</b>: cant<b>ar</b>, salt<b>ar</b>, jug<b>ar</b>, cocin<b>ar</b>, esper<b>ar</b>.</li><li>En <b>-er</b>: com<b>er</b>, beb<b>er</b>, corr<b>er</b>, le<b>er</b>, bat<b>er</b>.</li><li>En <b>-ir</b>: escrib<b>ir</b>, viv<b>ir</b>, dorm<b>ir</b>, sub<b>ir</b>, abr<b>ir</b>.</li></ul><p>Son como tres <b>familias</b> de verbos. Los de la misma familia cambian de forma parecida.</p><p>La familia más grande es la de <b>-ar</b>: ¡tiene muchísimos verbos! Cuando se inventan verbos nuevos, casi siempre son de -ar, como «chatear» o «tuitear».</p><p>Para saber de qué familia es un verbo, piensa en su nombre: «comemos» → comer → familia -er.</p><p>Los verbos <b>ir</b> y <b>ser</b> son muy cortos, pero también tienen nombre en -ir y en -er. ¡Hasta los verbos más pequeños pertenecen a una familia!</p><p><b>Actividad</b>: escribe cinco verbos de cada familia.</p>`,
+        L6.filas("Familias", [["-ar", "cantar", cRO], ["-er", "comer", cAZ], ["-ir", "vivir", cVE], ["la mayor", "-ar", cNA]])],
+    ],
+    "¿Quién lo hace?": [
+      ["Yo, tú, él, ella", `<p>El verbo cambia según <mark>quién</mark> hace la acción. Mira el verbo <b>cantar</b>:</p><ul><li><b>Yo</b> cant<b>o</b>.</li><li><b>Tú</b> cant<b>as</b>.</li><li><b>Él</b> o <b>ella</b> cant<b>a</b>.</li><li><b>Nosotros</b> cant<b>amos</b>.</li><li><b>Vosotros</b> cant<b>áis</b>.</li><li><b>Ellos</b> o <b>ellas</b> cant<b>an</b>.</li></ul><p>Las palabras yo, tú, él, ella, nosotros, vosotros, ellos y ellas se llaman <b>pronombres personales</b>. Sustituyen al nombre de las personas.</p><p>Cambiar el verbo así se llama <b>conjugar</b>. Fíjate en que el final cambia: -o, -as, -a, -amos, -áis, -an.</p><p>Gracias a esto, a veces no hace falta decir quién: «Cantamos» ya nos dice que somos nosotros.</p><p><b>Actividad</b>: conjuga el verbo «bailar» con todos los pronombres.</p>`,
+        H6.flujo("cantar", ["yo|canto", "tú|cantas", "ella|canta", "nosotros|cantamos"], cAZ)],
+    ],
+    "Ayer, hoy y mañana": [
+      ["Verbos que dan órdenes", `<p>Algunos verbos sirven para dar <mark>órdenes</mark> o <mark>instrucciones</mark>. Los usamos mucho en:</p><ul><li><b>Recetas</b>: «<b>Bate</b> los huevos», «<b>Calienta</b> la sartén».</li><li><b>Juegos</b>: «<b>Tira</b> el dado», «<b>Avanza</b> tres casillas».</li><li><b>Clase</b>: «<b>Abrid</b> el libro», «<b>Escribe</b> tu nombre».</li><li><b>Señales</b>: «<b>Empuje</b>», «<b>No pisar</b> el césped».</li></ul><p>Para pedir algo con educación, añadimos <b>por favor</b>: «Pásame la sal, por favor».</p><p>En las recetas, las órdenes van <b>en orden</b>, con palabras como primero, después, luego y al final. Si cambiamos el orden… ¡la tortita sale mal!</p><p>Fíjate en que las órdenes no llevan delante quién lo hace: no decimos «tú bate», sino solo «bate». ¡Ya se entiende que es para quien lee!</p><p><b>Actividad</b>: escribe las instrucciones para lavarte los dientes con cuatro verbos de orden.</p>`,
+        H6.rueda("Órdenes", "¡HAZ!", [["receta", cNA], ["juego", cAZ], ["clase", cVE], ["señal", cRO]])],
+    ],
+    "Verbos para hablar y sentir": [
+      ["Verbos más precisos", `<p>Hay dos verbos que usamos para casi todo: <mark>hacer</mark> y <mark>decir</mark>. Pero si buscamos un verbo más preciso, lo que escribimos queda mucho mejor:</p><ul><li>«Hacer un dibujo» → <b>dibujar</b>.</li><li>«Hacer una tarta» → <b>preparar</b> o <b>hornear</b> una tarta.</li><li>«Hacer una casa» → <b>construir</b> una casa.</li><li>«Decir un secreto» → <b>contar</b> o <b>susurrar</b> un secreto.</li><li>«Decir muy alto» → <b>gritar</b>.</li><li>«Decir una pregunta» → <b>preguntar</b>.</li></ul><p>También podemos cambiar <b>andar</b> por pasear, caminar, correr, trotar o cojear, según cómo se mueva el personaje.</p><p>Los buenos escritores siempre buscan el verbo justo.</p><p><b>Actividad</b>: cambia «hacer» en estas frases: hacer un poema, hacer una foto, hacer los deberes.</p>`,
+        H6.dos("Mejor", ["HACER", ["un dibujo", "una tarta", "una casa"], cMO], ["PRECISO", ["dibujar", "hornear", "construir"], cVE])],
+    ],
+  },
+  final: [
+    ["Verbos que no son acciones", `<p>Casi todos los verbos expresan acciones: correr, saltar, comer. Pero hay algunos verbos que <mark>no son acciones</mark> que se vean:</p><ul><li><b>Ser</b> y <b>estar</b>: «Valeria <b>es</b> alta», «La sopa <b>está</b> caliente».</li><li><b>Tener</b>: «Tengo un hermano».</li><li><b>Parecer</b>: «Parece cansado».</li><li><b>Pensar</b>, <b>saber</b>, <b>recordar</b>: ocurren dentro de nuestra cabeza.</li><li><b>Gustar</b>, <b>querer</b>, <b>odiar</b>: hablan de sentimientos.</li></ul><p>Aunque no se vean, ¡también son verbos! Cambian con yo, tú, él (yo soy, tú eres, él es) y con ayer, hoy y mañana (fui, soy, seré).</p><p>Ser y estar son los verbos más usados del español. Aparecen en casi todas las conversaciones.</p><p>¡Hasta el verbo <b>dormir</b> es un verbo, aunque mientras dormimos estemos quietos!</p><p><b>Actividad</b>: escribe tres frases sobre ti con «soy», «estoy» y «tengo».</p>`,
+      L6.filas("Sin acción", [["ser", "es alta", cNA], ["estar", "está caliente", cAZ], ["tener", "tengo", cVE], ["pensar", "en la cabeza", cRO]])],
+    ["Repaso: la receta del abuelo", `<p>Repasamos con la <mark>lectura</mark> de Valeria:</p><ul><li>Verbos de orden: <b>casca</b>, <b>añade</b>, <b>bate</b>, <b>echa</b>, <b>remueve</b>, <b>calienta</b>, <b>vierte</b>, <b>espera</b>.</li><li>Su nombre: cascar, añadir, batir, echar, remover, calentar, verter, esperar.</li><li>Familias: <b>-ar</b> (cascar, echar, calentar, esperar), <b>-er</b> (remover, verter) e <b>-ir</b> (añadir, batir).</li><li>Tiempo: «cocina» (presente), «sale quemada» (presente), «las comen» (presente). Si fuera ayer: cocinó, salió, comieron.</li><li>Quién: «el abuelo cocina» → él; «las comen» → ellos.</li></ul><p>¡Una receta es perfecta para practicar los verbos!</p><p><b>Actividad</b>: escribe la receta de tu bocadillo favorito con verbos de orden y palabras de orden.</p>`,
+      H6.flujo("Tortitas", ["casca|huevos", "bate|y echa", "calienta|sartén", "vierte|¡y vuelta!"], cNA)],
+  ],
+  ejemplos: [
+    ["¿De qué familia es «escribimos»?", ["Busco el nombre: escribir.", "Termina en -ir."], "Familia -ir."],
+    ["Cambia el verbo: «Hice un castillo de arena».", ["Busco uno más preciso."], "Construí un castillo de arena."],
+  ],
+  errores: ["Pensar que «ser» o «tener» no son verbos porque no son acciones que se vean.", "Usar siempre «hacer» y «decir» en lugar de verbos más precisos."],
+  ejercicios: [
+    ["b", "¿En qué terminan los nombres de los verbos?", "En -ar, -er o -ir."],
+    ["b", "Di un verbo de la familia -er.", "Comer, beber, correr…"],
+    ["b", "Conjuga «saltar» con yo.", "Yo salto."],
+    ["b", "Escribe una orden de un juego.", "Tira el dado."],
+    ["b", "Cambia «hacer un dibujo» por un verbo.", "Dibujar."],
+    ["m", "Conjuga «comer» con tú y con nosotros.", "Tú comes; nosotros comemos."],
+    ["m", "Clasifica: subir, leer, jugar.", "-ir, -er, -ar."],
+    ["m", "Escribe dos verbos más precisos que «decir».", "Gritar, susurrar, contar…"],
+    ["m", "¿Qué verbo no es una acción que se ve: correr o pensar?", "Pensar."],
+    ["m", "Escribe una orden educada con «por favor».", "Pásame el agua, por favor."],
+    ["a", "En la lectura, escribe tres verbos de orden y su nombre.", "Bate (batir), echa (echar), espera (esperar)…"],
+    ["a", "¿Por qué la primera tortita sale quemada?", "Respuesta libre: quizá la sartén estaba demasiado caliente."],
+    ["a", "Escribe instrucciones para plantar una semilla con cuatro órdenes.", "Respuesta libre."],
+    ["a", "Pasa a ayer: «Valeria bate y espera».", "Valeria batió y esperó."],
+  ],
+  quiz: [
+    ["«Escribir» es de la familia…", ["-ir", "-er", "-ar"], "Familias."],
+    ["Yo, tú, él son…", ["pronombres", "verbos", "adjetivos"], "Pronombres."],
+    ["«Bate los huevos» es una…", ["orden", "pregunta", "rima"], "Órdenes."],
+    ["Un verbo más preciso que «hacer una casa» es…", ["construir", "decir", "jugar"], "Preciso."],
+    ["«Ser» y «estar»…", ["son verbos", "no son verbos", "son nombres"], "Sin acción."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué preparan Valeria y su abuelo?", ["tortitas", "una tarta", "galletas"], "Lectura."],
+    ["«Remover» es de la familia…", ["-er", "-ar", "-ir"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Familias", "-ar (cantar), -er (comer), -ir (vivir)."],
+    ["Conjugar", "Yo canto, tú cantas, él canta…"],
+  ],
+  glosario: [
+    ["Verbo", "Palabra que dice lo que se hace o pasa."],
+    ["Infinitivo", "Nombre del verbo: cantar, comer, vivir."],
+    ["Conjugar", "Cambiar el verbo según quién y cuándo."],
+    ["Pronombre", "Palabra que sustituye al nombre: yo, tú…"],
+    ["Orden", "Frase que dice lo que hay que hacer."],
+    ["Instrucción", "Paso que hay que seguir."],
+    ["Receta", "Instrucciones para cocinar algo."],
+    ["Preciso", "Exacto, justo."],
+    ["Batir", "Mover rápido para mezclar."],
+    ["Verter", "Echar un líquido."],
+  ],
+  situacion: {
+    titulo: "Recetario de la clase",
+    reto: "Cada niño escribe con su familia una receta sencilla y la clase forma un recetario con todas.",
+    pasos: ["Elegir una receta fácil y apuntar los ingredientes.", "Escribir los pasos con verbos de orden.", "Revisar que los verbos sean precisos y estén en orden.", "Ilustrar la receta y juntarlas en un libro."],
+    producto: "Un recetario ilustrado de la clase.",
+    evaluacion: ["Clasifica verbos en -ar, -er, -ir.", "Conjuga con yo, tú, él.", "Usa verbos de orden.", "Elige verbos precisos."],
+  },
+});

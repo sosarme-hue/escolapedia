@@ -136,3 +136,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Distinguir vocales abiertas y cerradas", "Conocer la y como vocal y como consonante", "Saber que hay letras que suenan igual: b y v, ll e y", "Conocer otros alfabetos del mundo"],
+  lectura: { titulo: "La letra que se escapó", html: `<p>En el cuaderno de Sara vivían todas las letras muy tranquilas. Pero una noche, la letra <b>a</b> se enfadó.</p><p>—Estoy cansada de trabajar tanto —dijo—. Salgo en casi todas las palabras. ¡Me voy de vacaciones!</p><p>Y se escapó del cuaderno.</p><p>A la mañana siguiente, Sara abrió su libro y leyó: «L c s de mi bel est en l mont ñ».</p><p>—¿Qué es esto? ¡No se entiende nada!</p><p>Las otras letras estaban preocupadas. Sin la a, las palabras no sonaban bien. La casa no era casa, ni la montaña era montaña.</p><p>Las consonantes fueron a buscar a la a, que estaba tomando el sol en una hoja de dibujo.</p><p>—Vuelve, por favor —le pidieron—. Sin ti, no podemos decir nada.</p><p>La a sonrió y volvió a su sitio. Y Sara pudo leer por fin: «La casa de mi abuela está en la montaña».</p>` },
+  tras: {
+    "Las vocales": [
+      ["Vocales abiertas y cerradas", `<p>Las cinco vocales no se pronuncian igual. Fíjate en tu <b>boca</b> cuando las dices:</p><ul><li><mark>Abiertas</mark> (o fuertes): <b>a</b>, <b>e</b>, <b>o</b>. La boca se abre más. La más abierta de todas es la a: ¡como cuando el médico te mira la garganta!</li><li><mark>Cerradas</mark> (o débiles): <b>i</b>, <b>u</b>. La boca se cierra más. Con la i sonreímos; con la u ponemos los labios como para dar un beso.</li></ul><p>Las vocales cerradas, i y u, se juntan con facilidad con otras vocales en la misma sílaba: <b>pie</b>, <b>cuento</b>, <b>aire</b>, <b>ciudad</b>.</p><p>La vocal que más se usa en español es la <b>e</b>, seguida muy de cerca por la <b>a</b>.</p><p><b>Actividad</b>: mírate en un espejo y di las cinco vocales. ¿Cómo cambia tu boca?</p>`,
+        H6.dos("Vocales", ["ABIERTAS", ["a", "e", "o"], cRO], ["CERRADAS", ["i", "u", "se juntan"], cAZ]),
+        ["n7SNLXbi36Q", "La Ronda De Las Vocales", "Mundo Canticuentos", 591831864]],
+    ],
+    "Las consonantes": [
+      ["Letras que suenan igual", `<p>Algunas consonantes son diferentes, pero <mark>suenan igual</mark>. ¡Por eso cuesta escribirlas bien!</p><ul><li><b>b</b> y <b>v</b>: <b>b</b>arco y <b>v</b>aca suenan igual al principio.</li><li><b>ll</b> e <b>y</b>: en casi toda España suenan igual: <b>ll</b>uvia, <b>y</b>ate.</li><li><b>g</b> y <b>j</b> delante de e, i: <b>g</b>ente, <b>j</b>efe.</li><li><b>c</b> y <b>z</b>: <b>c</b>ine y <b>z</b>apato (como ya vimos).</li><li><b>c</b>, <b>qu</b> y <b>k</b>: <b>c</b>asa, <b>qu</b>eso, <b>k</b>ilo.</li></ul><p>¿Cómo sabemos cuál va? Con <b>práctica</b>, leyendo mucho y fijándonos en las palabras. También hay algunas reglas que aprenderemos poco a poco, como «antes de b, m».</p><p>Cuando dudes, busca la palabra en el diccionario.</p><p><b>Actividad</b>: haz dos columnas: palabras con b y palabras con v. ¿Cuántas encuentras en cinco minutos?</p>`,
+        L6.filas("Igual", [["b / v", "barco, vaca", cAZ], ["ll / y", "lluvia, yate", cVE], ["g / j", "gente, jefe", cNA], ["c / z", "cine, zapato", cRO]])],
+    ],
+    "Todas las palabras tienen vocal": [
+      ["La y: a veces vocal, a veces consonante", `<p>La letra <mark>y</mark> es muy curiosa: unas veces suena como consonante y otras como la vocal <b>i</b>.</p><ul><li>Como <b>consonante</b>: cuando va delante de una vocal. <b>y</b>ate, <b>y</b>ogur, ma<b>y</b>o, pla<b>y</b>a.</li><li>Como <b>vocal i</b>: cuando va sola o al final de una palabra. «Pan <b>y</b> leche», <b>hoy</b>, <b>rey</b>, <b>muy</b>, <b>doy</b>.</li></ul><p>Fíjate: «rey» termina en y, pero en plural se escribe «re<b>y</b>es», porque ahora va delante de la e y vuelve a ser consonante.</p><p>Cuando la y va sola entre dos palabras, significa «y además»: «perros <b>y</b> gatos». Es una palabra muy pequeña, ¡pero muy útil!</p><p><b>Actividad</b>: busca tres palabras donde la y suene como i y tres donde suene como consonante.</p>`,
+        H6.flujo("La y", ["yate|consonante", "playa|consonante", "hoy|como i", "rey|como i"], cMO)],
+    ],
+    "Contamos letras": [
+      ["Palabras sin consonantes y palabras raras", `<p>Hay palabras muy curiosas en español:</p><ul><li>Palabras hechas <b>solo de vocales</b>: <b>a</b>, <b>e</b>, <b>o</b>, <b>u</b>, <b>y</b>, <b>oía</b> y <b>ahí</b> (la h no suena).</li><li>Palabras que tienen <mark>las cinco vocales</mark>: <b>murciélago</b>, <b>eucalipto</b>, <b>abuelito</b>, <b>euforia</b>.</li><li>Palabras que se leen igual del derecho y del revés: <b>oso</b>, <b>ala</b>, <b>ojo</b>, <b>Ana</b>, <b>reconocer</b>. Se llaman <b>palíndromos</b>.</li></ul><p>Contar letras y vocales de estas palabras es un juego divertido. Por ejemplo, <b>murciélago</b> tiene 10 letras: 5 vocales y 5 consonantes.</p><p><b>Actividad</b>: busca una palabra con las cinco vocales y escribe un palíndromo.</p>`,
+        L6.filas("Curiosas", [["5 vocales", "murciélago", cVE], ["5 vocales", "eucalipto", cAZ], ["palíndromo", "oso, ala", cRO], ["solo vocal", "a, o, y", cNA]])],
+    ],
+  },
+  final: [
+    ["Otros alfabetos del mundo", `<p>No todos los idiomas usan las mismas letras que nosotros. Hay <mark>otros alfabetos</mark>:</p><ul><li>El <b>griego</b>: sus primeras letras son alfa (α) y beta (β). ¡De ahí viene la palabra «alfabeto»!</li><li>El <b>árabe</b>: se escribe de derecha a izquierda.</li><li>El <b>ruso</b> usa el alfabeto cirílico, con letras como Д o Ж.</li><li>El <b>chino</b> no tiene letras, sino miles de dibujitos llamados caracteres. Cada uno es una palabra o una idea.</li><li>El <b>braille</b> es un alfabeto de puntos en relieve que leen con los dedos las personas ciegas.</li></ul><p>Nuestro alfabeto se llama <b>latino</b>, porque viene del que usaban los antiguos romanos. Es el más usado del mundo.</p><p><b>Actividad</b>: si tienes compañeros que hablan otros idiomas, pídeles que escriban su nombre en su alfabeto.</p>`,
+      H6.rueda("Alfabetos", "ABC", [["griego", cAZ], ["árabe", cVE], ["chino", cRO], ["braille", cNA]])],
+    ["Repaso: la letra que se escapó", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>¿Qué letra se escapó? La <b>a</b>, una vocal abierta.</li><li>¿Por qué no se entendía el libro? Porque sin vocales las palabras no se pueden leer: <b>«L c s»</b> no suena a nada.</li><li>«La casa de mi abuela está en la montaña»: ¿cuántas a tiene? <b>9</b>.</li><li>¿Qué palabra tiene la letra ñ? <b>Montaña</b>.</li><li>¿Qué palabra tiene vocales juntas? <b>Abuela</b>: «bue» tiene u y e.</li><li>¿Quiénes fueron a buscar a la a? Las <b>consonantes</b>.</li></ul><p>La moraleja del cuento: todas las letras son importantes, pero sin vocales no hay palabras.</p><p><b>Actividad</b>: escribe una frase y tápale todas las vocales. ¿Tu compañero la puede adivinar?</p>`,
+      L6.filas("Lectura", [["se escapa", "la a", cRO], ["abierta", "a", cNA], ["ñ", "montaña", cAZ], ["ue juntas", "abuela", cVE]])],
+  ],
+  ejemplos: [
+    ["¿La y de «hoy» suena como vocal o consonante?", ["Va al final de la palabra."], "Como la vocal i."],
+    ["¿Qué vocales tiene «murciélago»?", ["u, i, e, a, o."], "Las cinco."],
+  ],
+  errores: ["Pensar que b y v suenan distinto y escribir según cómo suenan.", "Creer que la y siempre es consonante."],
+  ejercicios: [
+    ["b", "¿Cuáles son las vocales abiertas?", "a, e, o."],
+    ["b", "¿Cuáles son las vocales cerradas?", "i, u."],
+    ["b", "Di dos letras que suenan igual.", "b y v; ll e y…"],
+    ["b", "Escribe un palíndromo.", "Oso, ala, ojo…"],
+    ["b", "¿Qué alfabeto leen con los dedos las personas ciegas?", "El braille."],
+    ["m", "¿Cómo suena la y de «playa»? ¿Y la de «rey»?", "Consonante; como i."],
+    ["m", "Escribe una palabra con las cinco vocales.", "Murciélago, eucalipto…"],
+    ["m", "¿Cuántas letras tiene «murciélago»?", "10."],
+    ["m", "¿Qué idioma se escribe de derecha a izquierda?", "El árabe."],
+    ["m", "Escribe dos palabras con b y dos con v.", "Barco, bola; vaca, vaso."],
+    ["a", "En la lectura, ¿por qué se va la a?", "Porque está cansada de trabajar tanto."],
+    ["a", "¿Cuántas a tiene «La casa de mi abuela está en la montaña»?", "9."],
+    ["a", "¿De dónde viene la palabra «alfabeto»?", "De alfa y beta, las primeras letras griegas."],
+    ["a", "Explica por qué «rey» en plural es «reyes».", "Porque la y va delante de una vocal y pasa a sonar como consonante."],
+  ],
+  quiz: [
+    ["La vocal más abierta es la…", ["a", "i", "u"], "Abiertas."],
+    ["«Barco» y «vaca» empiezan con letras que…", ["suenan igual", "suenan distinto", "no suenan"], "Igual."],
+    ["La y de «muy» suena como…", ["i", "ll", "j"], "La y."],
+    ["«Oso» se lee igual al revés: es un…", ["palíndromo", "trabalenguas", "pareado"], "Curiosas."],
+    ["Nuestro alfabeto se llama…", ["latino", "griego", "cirílico"], "Alfabetos."],
+  ],
+  examen: [
+    ["En la lectura, ¿dónde estaba la a?", ["en una hoja de dibujo", "en la playa", "en un libro"], "Lectura."],
+    ["En «abuela», ¿qué vocales van juntas?", ["u y e", "a y b", "e y l"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Vocales", "Abiertas a, e, o; cerradas i, u."],
+    ["La y", "Consonante delante de vocal; i al final o sola."],
+  ],
+  glosario: [
+    ["Vocal abierta", "a, e, o: la boca se abre más."],
+    ["Vocal cerrada", "i, u: la boca se cierra más."],
+    ["Consonante", "Letra que necesita una vocal para sonar bien."],
+    ["Alfabeto", "Conjunto de letras de un idioma."],
+    ["Palíndromo", "Palabra que se lee igual al revés."],
+    ["Braille", "Alfabeto de puntos en relieve."],
+    ["Latino", "Alfabeto que viene de los romanos."],
+    ["Carácter", "Signo de la escritura china."],
+    ["Pronunciar", "Decir una palabra en voz alta."],
+    ["Murciélago", "Animal volador que tiene las cinco vocales."],
+  ],
+  situacion: {
+    titulo: "El museo de las letras",
+    reto: "La clase prepara un museo con letras curiosas: palabras con cinco vocales, palíndromos, letras que suenan igual y otros alfabetos.",
+    pasos: ["Buscar palabras con las cinco vocales y palíndromos.", "Hacer tarjetas de letras que suenan igual con ejemplos.", "Escribir el propio nombre en otro alfabeto o en braille.", "Organizar el museo y explicarlo a otra clase."],
+    producto: "Un museo de letras con tarjetas y carteles.",
+    evaluacion: ["Distingue vocales abiertas y cerradas.", "Reconoce letras que suenan igual.", "Sabe cuándo la y suena como i.", "Conoce otros alfabetos."],
+  },
+});

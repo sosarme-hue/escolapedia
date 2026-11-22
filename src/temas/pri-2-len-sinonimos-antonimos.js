@@ -136,3 +136,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Evitar repetir palabras usando sinónimos", "Formar antónimos con otros prefijos como a- y anti-", "Conocer palabras con varios significados", "Usar el diccionario de sinónimos"],
+  lectura: { titulo: "La redacción de Hugo", html: `<p>Hugo ha escrito una redacción sobre su perro para el cole. Se la lee a su hermana Alba en voz alta:</p><p>«Mi perro es muy bonito. Tiene el pelo bonito y unos ojos bonitos. Su collar también es bonito. Cuando corre por el parque, está muy bonito».</p><p>Alba se ríe.</p><p>—Hugo, ¡has dicho «bonito» cinco veces!</p><p>—Es que es verdad: es muy bonito.</p><p>—Ya, pero puedes decirlo de otras formas. Mira: precioso, guapo, brillante, elegante…</p><p>Hugo coge un lápiz y cambia algunas palabras:</p><p>«Mi perro es precioso. Tiene el pelo brillante y unos ojos muy expresivos. Su collar rojo es elegante. Cuando corre por el parque, parece un rayo».</p><p>—¡Ahora sí! —dice Alba—. Suena mucho mejor.</p><p>Al día siguiente, la maestra le pone a Hugo un «¡Excelente!» con una estrella. Y Hugo piensa: «Excelente… otro sinónimo de muy bien».</p>` },
+  tras: {
+    "Sinónimos para escribir mejor": [
+      ["No repetir palabras", `<p>Cuando escribimos, conviene <mark>no repetir</mark> la misma palabra muchas veces. El texto se vuelve aburrido, como la primera redacción de Hugo.</p><p>Para evitarlo, usamos <b>sinónimos</b>. Mira este ejemplo:</p><ul><li>Repetido: «Fui a la playa. En la playa había mucha gente. La playa estaba limpia».</li><li>Mejor: «Fui a la playa. Allí había mucha gente. La arena estaba limpia».</li></ul><p>Fíjate en que a veces no hace falta un sinónimo: podemos usar palabras como <b>allí</b>, <b>él</b>, <b>ella</b>, <b>lo</b> o <b>la</b> para no repetir.</p><p>Las palabras que más se repiten son: <b>bonito</b>, <b>grande</b>, <b>bueno</b>, <b>decir</b> y <b>hacer</b>. ¡Tenlo en cuenta!</p><p>Un buen truco es leer en voz alta lo que has escrito. Si oyes la misma palabra muchas veces, búscale un sinónimo.</p><p><b>Actividad</b>: escribe tres frases sobre tu juguete favorito sin repetir ningún adjetivo.</p>`,
+        H6.dos("Hugo", ["ANTES", ["bonito", "bonito", "bonito…"], cRO], ["DESPUÉS", ["precioso", "brillante", "elegante"], cVE]),
+        ["hNBZC1uf3Yc", "Sinónimos y antónimos con el Chavo", "Francisco Verdugo Rosas", 5202487]],
+    ],
+    "El sinónimo que encaja": [
+      ["Palabras con varios significados", `<p>Algunas palabras tienen <mark>varios significados</mark>. Se escriben igual, pero quieren decir cosas distintas:</p><ul><li><b>Vela</b>: la de un barco o la de una tarta de cumpleaños.</li><li><b>Hoja</b>: la de un árbol o la de un cuaderno.</li><li><b>Ratón</b>: el animal o el del ordenador.</li><li><b>Sierra</b>: la herramienta para cortar madera o un grupo de montañas.</li><li><b>Copa</b>: la de beber, la de un árbol o el trofeo de un campeonato.</li></ul><p>Por eso, para elegir un sinónimo, primero tenemos que saber <b>qué significado</b> tiene la palabra en la frase.</p><p>«La hoja del árbol» → no tiene un sinónimo exacto.</p><p>«La hoja del cuaderno» → sinónimo: <b>página</b> o <b>folio</b>.</p><p><b>Actividad</b>: dibuja los dos significados de «vela» y de «ratón».</p>`,
+        L6.filas("Varios", [["vela", "barco / tarta", cAZ], ["hoja", "árbol / papel", cVE], ["ratón", "animal / ordenador", cNA], ["copa", "vaso / trofeo", cRO]])],
+    ],
+    "Antónimos con in- e im-": [
+      ["Más prefijos: a-, anti-, dis-", `<p>Además de <b>des-</b>, <b>in-</b> e <b>im-</b>, hay otros trocitos que forman <mark>antónimos</mark>:</p><ul><li><b>a-</b>: normal → <b>a</b>normal; típico → <b>a</b>típico.</li><li><b>anti-</b>: significa «en contra de». <b>anti</b>pático es lo contrario de simpático. Un <b>anti</b>faz tapa la cara.</li><li><b>i-</b>: delante de l o r: legal → <b>i</b>legal; real → <b>i</b>rreal (¡con rr!).</li><li><b>dis-</b>: gusto → <b>dis</b>gusto; conforme → <b>dis</b>conforme.</li></ul><p>No todas las palabras pueden llevar estos trocitos. No decimos «desalto» ni «inbonito». Los antónimos de alto y bonito son palabras distintas: <b>bajo</b> y <b>feo</b>.</p><p>Si dudas, busca la palabra en el diccionario o pregunta a un adulto.</p><p><b>Actividad</b>: forma el antónimo de: simpático, legal, gusto, normal.</p>`,
+        H6.flujo("Prefijos", ["a-|anormal", "anti-|antipático", "i-|ilegal", "dis-|disgusto"], cAZ)],
+    ],
+    "¿Sinónimo o antónimo?": [
+      ["El diccionario de sinónimos", `<p>Existe un diccionario especial para encontrar palabras parecidas y contrarias: el <mark>diccionario de sinónimos y antónimos</mark>.</p><p>Funciona como el diccionario normal: las palabras están en orden alfabético. Pero, en lugar de la definición, aparece una lista:</p><ul><li><b>contento</b>: alegre, feliz, satisfecho, animado. <i>Contrarios</i>: triste, apenado.</li><li><b>rápido</b>: veloz, ligero, raudo. <i>Contrarios</i>: lento, pausado.</li></ul><p>Los escritores lo usan mucho para encontrar la palabra perfecta.</p><p>También hay diccionarios de sinónimos en <b>internet</b> y en los programas del ordenador: escribes una palabra y te salen muchas parecidas.</p><p>¡Pero cuidado! No todos los sinónimos encajan igual en cada frase. Hay que leer la frase con el sinónimo nuevo y comprobar que suena bien.</p><p><b>Actividad</b>: busca en un diccionario de sinónimos tres palabras para «grande».</p>`,
+        L6.filas("contento", [["sinónimo", "alegre", cVE], ["sinónimo", "feliz", cAZ], ["antónimo", "triste", cRO], ["antónimo", "apenado", cMO]])],
+    ],
+  },
+  final: [
+    ["El español de otros países", `<p>Muchas veces, la misma cosa se dice de <mark>formas distintas</mark> según el país o la región donde se habla español:</p><ul><li>En España decimos <b>coche</b>; en muchos países de América dicen <b>carro</b> o <b>auto</b>.</li><li>En España, <b>zumo</b>; en América, <b>jugo</b>.</li><li>En España, <b>gafas</b>; en América, <b>lentes</b> o <b>anteojos</b>.</li><li>En España, <b>patata</b>; en América, <b>papa</b>.</li><li>En España, <b>ordenador</b>; en América, <b>computadora</b>.</li></ul><p>Todas son palabras correctas. Son como sinónimos que se usan en lugares distintos.</p><p>El español lo hablan más de 500 millones de personas en el mundo. ¡Por eso tiene tantas palabras para decir lo mismo!</p><p>Si tienes compañeros de otros países, pregúntales cómo dicen ellos estas cosas.</p><p><b>Actividad</b>: haz una tabla con cinco palabras de España y cómo se dicen en otro país.</p>`,
+      L6.filas("España / América", [["coche", "carro", cAZ], ["zumo", "jugo", cNA], ["gafas", "lentes", cVE], ["patata", "papa", cRO]])],
+    ["Repaso: la redacción de Hugo", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>¿Qué palabra repetía Hugo? <b>Bonito</b>, cinco veces.</li><li>¿Qué sinónimos le dio Alba? <b>Precioso</b>, <b>guapo</b>, <b>brillante</b>, <b>elegante</b>.</li><li>¿Qué palabra escribió la maestra? <b>Excelente</b>, sinónimo de «muy bien».</li><li>Antónimo de bonito: <b>feo</b>.</li><li>Antónimo de brillante: <b>apagado</b> u <b>opaco</b>.</li><li>«Parece un rayo» es una <b>comparación</b>: corre muy rápido.</li></ul><p>Más preguntas:</p><ul><li>¿Qué palabra de la lectura tiene varios significados? <b>Rayo</b>: el de la tormenta y el de una rueda de bicicleta.</li><li>Antónimo de «contento» con prefijo: <b>descontento</b>.</li></ul><p><b>Actividad</b>: escribe una redacción sobre tu mascota o tu animal favorito sin repetir ningún adjetivo.</p>`,
+      H6.rueda("Bonito", "BONITO", [["precioso", cRO], ["guapo", cAZ], ["brillante", cNA], ["feo ✗", cMO]])],
+  ],
+  ejemplos: [
+    ["Cambia la palabra repetida: «Vi un perro. El perro ladraba».", ["Busco otra forma de nombrarlo.", "Puedo usar «él» o «el animal»."], "Vi un perro. El animal ladraba."],
+    ["Forma el antónimo de «simpático».", ["Uso el prefijo anti-."], "Antipático."],
+  ],
+  errores: ["Inventar antónimos como «inbonito» o «desalto».", "Elegir un sinónimo sin pensar el significado de la frase."],
+  ejercicios: [
+    ["b", "Di un sinónimo de «bonito».", "Precioso, guapo, lindo…"],
+    ["b", "Di dos significados de «hoja».", "La del árbol y la de papel."],
+    ["b", "Antónimo de «legal».", "Ilegal."],
+    ["b", "¿Cómo se dice «zumo» en América?", "Jugo."],
+    ["b", "Antónimo de «simpático».", "Antipático."],
+    ["m", "Escribe dos sinónimos y un antónimo de «rápido».", "Veloz, ligero; lento."],
+    ["m", "Di dos significados de «copa».", "Vaso o trofeo (o copa de árbol)."],
+    ["m", "Forma el antónimo de «gusto».", "Disgusto."],
+    ["m", "Cambia la palabra repetida: «Mi casa es grande. Tiene un jardín grande».", "Por ejemplo: amplio o enorme."],
+    ["m", "¿Por qué no decimos «desalto»?", "Porque el antónimo de alto es bajo."],
+    ["a", "En la lectura, ¿por qué se ríe Alba?", "Porque Hugo repite «bonito» cinco veces."],
+    ["a", "Escribe una frase con «sierra» de herramienta y otra con «sierra» de montañas.", "Respuesta libre."],
+    ["a", "Reescribe: «El día fue bonito. Comimos una tarta bonita».", "Por ejemplo: El día fue estupendo. Comimos una tarta deliciosa."],
+    ["a", "¿Para qué sirve el diccionario de sinónimos?", "Para encontrar palabras parecidas y contrarias."],
+  ],
+  quiz: [
+    ["Para no repetir palabras usamos…", ["sinónimos", "antónimos", "rimas"], "Repetir."],
+    ["«Vela» tiene…", ["varios significados", "un significado", "ningún sinónimo"], "Significados."],
+    ["El antónimo de «normal» es…", ["anormal", "desnormal", "innormal"], "Prefijos."],
+    ["En América, «patata» es…", ["papa", "papá", "tomate"], "Lenguas."],
+    ["Un sinónimo de «contento» es…", ["feliz", "triste", "lento"], "Diccionario."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué palabra repite Hugo?", ["bonito", "perro", "parque"], "Lectura."],
+    ["¿Qué le pone la maestra a Hugo?", ["¡Excelente!", "¡Bonito!", "Repite"], "Repaso."],
+  ],
+  tarjetas: [
+    ["No repetir", "Sinónimos o palabras como él, ella, allí."],
+    ["Prefijos", "des-, in-, im-, a-, anti-, dis-, i-."],
+  ],
+  glosario: [
+    ["Sinónimo", "Palabra de significado parecido."],
+    ["Antónimo", "Palabra de significado contrario."],
+    ["Repetir", "Decir lo mismo varias veces."],
+    ["Prefijo", "Trocito que va delante de una palabra."],
+    ["Significado", "Lo que quiere decir una palabra."],
+    ["Redacción", "Texto que escribimos sobre un tema."],
+    ["Expresivo", "Que muestra lo que siente."],
+    ["Excelente", "Muy bueno."],
+    ["Antipático", "Que no es simpático."],
+    ["Región", "Parte de un país."],
+  ],
+  situacion: {
+    titulo: "Detectives de palabras repetidas",
+    reto: "La clase revisa textos con palabras repetidas y los mejora con sinónimos, como hizo Hugo.",
+    pasos: ["Leer un texto con palabras repetidas y subrayarlas.", "Buscar sinónimos en el diccionario.", "Reescribir el texto sin repeticiones.", "Leerlo en voz alta y comparar las dos versiones."],
+    producto: "Un texto mejorado y un mural de sinónimos y antónimos.",
+    evaluacion: ["Encuentra palabras repetidas.", "Usa sinónimos adecuados.", "Forma antónimos con prefijos.", "Distingue significados de una palabra."],
+  },
+});

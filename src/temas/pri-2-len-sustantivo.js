@@ -137,3 +137,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Distinguir nombres de cosas que se tocan y de cosas que se sienten", "Formar nombres pequeños y grandes con -ito y -ón", "Conocer nombres propios de lugares y fiestas", "Escribir mayúsculas en nombres propios"],
+  lectura: { titulo: "La carta de Lucía", html: `<p>Lucía vive en Sevilla y tiene una amiga, Amira, que se ha ido a vivir a Galicia. Un domingo, Lucía decide escribirle una carta.</p><p>«Querida Amira:</p><p>¿Qué tal en tu nueva casa? Aquí en Sevilla hace mucho calor. Te echo de menos en el recreo.</p><p>Mi perrita Canela ha tenido cuatro cachorritos. Son tan pequeños que caben en la palma de la mano. Mi hermano les ha puesto nombres: Luna, Trufa, Chispa y Bombón.</p><p>En el cole estamos estudiando los ríos de España. El mío es el Guadalquivir y el tuyo, ahora, el Miño.</p><p>¿Vendrás en verano? Te guardo un cachorro, el más juguetón.</p><p>Un abrazo enorme y mucha alegría,</p><p>Lucía».</p><p>Lucía mete la carta en un sobre, escribe la dirección y pone un sello. ¡Qué ilusión le hará a Amira recibirla!</p>` },
+  tras: {
+    "Nombres comunes": [
+      ["Nombres que se tocan y que se sienten", `<p>Algunos sustantivos nombran cosas que podemos <mark>ver y tocar</mark>: mesa, perro, árbol, pelota, cachorro, sobre.</p><p>Pero otros nombran cosas que <mark>no se pueden tocar</mark>: las <b>sentimos</b> o las <b>pensamos</b>.</p><ul><li>Sentimientos: <b>alegría</b>, <b>miedo</b>, <b>amor</b>, <b>tristeza</b>, <b>ilusión</b>.</li><li>Ideas: <b>amistad</b>, <b>paz</b>, <b>libertad</b>, <b>verdad</b>.</li><li>Cualidades: <b>belleza</b>, <b>valentía</b>, <b>bondad</b>.</li></ul><p>¡También son sustantivos! Podemos ponerles delante un artículo: <b>la</b> alegría, <b>el</b> miedo, <b>la</b> amistad.</p><p>En la carta de Lucía hay muchos: abrazo, alegría, ilusión… Aunque no se pueden coger con la mano, son muy importantes.</p><p>Un truco para descubrirlos: si puedes decir «siento…» o «tengo…» delante, como «siento alegría» o «tengo miedo», seguramente es un sustantivo de este tipo.</p><p><b>Actividad</b>: escribe tres sustantivos de cosas que tocas y tres de cosas que sientes.</p>`,
+        H6.dos("Sustantivos", ["SE TOCAN", ["mesa", "perro", "pelota"], cAZ], ["SE SIENTEN", ["alegría", "miedo", "amistad"], cRO])],
+    ],
+    "Nombres propios": [
+      ["Nombres propios de lugares y fiestas", `<p>Los nombres propios no solo sirven para personas y mascotas. También nombran:</p><ul><li><mark>Ciudades y pueblos</mark>: Sevilla, Madrid, Barcelona, Cuenca.</li><li><b>Países</b>: España, Francia, Marruecos, Argentina.</li><li><b>Ríos</b>: Guadalquivir, Ebro, Tajo, Miño.</li><li><b>Montañas</b>: Pirineos, Teide, Mulhacén.</li><li><b>Fiestas</b>: Navidad, Carnaval, Semana Santa.</li><li><b>Títulos</b> de libros y películas: <i>Caperucita Roja</i>.</li></ul><p>Todos se escriben con <b>mayúscula</b> inicial.</p><p>¡Ojo! Los días de la semana y los meses <b>no</b> son nombres propios: se escriben con minúscula. Escribimos «lunes» y «enero», no «Lunes» ni «Enero» (salvo al principio de una frase).</p><p><b>Actividad</b>: escribe el nombre de tu pueblo o ciudad, de un río cercano y de tu fiesta favorita.</p>`,
+        L6.filas("Propios", [["ciudad", "Sevilla", cNA], ["río", "Guadalquivir", cAZ], ["montaña", "Teide", cVE], ["fiesta", "Carnaval", cRO]]),
+        ["kFFm5xvLHJA", "Nombres propios", "Profa. Kempis", 711305]],
+    ],
+    "Nombres individuales y colectivos": [
+      ["Nombres pequeños y grandes", `<p>Podemos cambiar un sustantivo añadiéndole un trocito al final para decir que algo es <mark>pequeño</mark> o <mark>grande</mark>:</p><ul><li>Pequeño o con cariño: <b>-ito</b>, <b>-ita</b>, <b>-illo</b>. perro → <b>perrito</b>; casa → <b>casita</b>; pan → <b>panecillo</b>; cachorro → <b>cachorrito</b>.</li><li>Grande: <b>-ón</b>, <b>-ona</b>, <b>-azo</b>. cabeza → <b>cabezón</b>; perro → <b>perrazo</b>; mujer → <b>mujerona</b>.</li></ul><p>A veces el nuevo nombre tiene un significado diferente: <b>bombón</b> no es una bomba grande, ni <b>ratón</b> es una rata grande. ¡Son palabras distintas!</p><p>Los nombres pequeños se usan mucho cuando hablamos con cariño: «mi abuelita», «mi perrita».</p><p>En cada región se prefieren unos trocitos distintos: en unos sitios dicen «chiquito», en otros «chiquillo» o «chiquitín». ¡Todos son correctos!</p><p><b>Actividad</b>: escribe el nombre pequeño y el grande de: gato, coche, zapato.</p>`,
+        H6.flujo("perro", ["pequeño|perrito", "normal|perro", "grande|perrazo", "cariño|¡perrito!"], cVE)],
+    ],
+    "Sustantivos en las frases": [
+      ["Mayúsculas: cuándo sí", `<p>Repasemos cuándo hay que escribir <mark>mayúscula</mark>:</p><ul><li>Al <b>principio</b> de un texto.</li><li>Después de un <b>punto</b>.</li><li>En los <b>nombres propios</b>: personas, animales, lugares, fiestas.</li><li>Después de los signos de cerrar <b>?</b> y <b>!</b>, si empieza una frase nueva.</li></ul><p>Y cuándo <b>no</b>:</p><ul><li>En los nombres comunes: mesa, perro, ciudad.</li><li>En los días de la semana y los meses: lunes, marzo.</li><li>En las estaciones: primavera, verano.</li></ul><p>Fíjate: «el perro de Lucía se llama Canela». <b>Perro</b> va con minúscula porque es común; <b>Lucía</b> y <b>Canela</b>, con mayúscula, porque son propios.</p><p><b>Actividad</b>: corrige: «el sábado fui a madrid con mi tía ana».</p>`,
+        L6.filas("Mayúscula", [["inicio", "sí", cVE], ["tras punto", "sí", cAZ], ["propios", "sí", cNA], ["días y meses", "no", cRO]])],
+    ],
+  },
+  final: [
+    ["Familias de palabras", `<p>Muchos sustantivos tienen <mark>familia</mark>: palabras que comparten un mismo trocito y se parecen en el significado.</p><ul><li><b>pan</b>: panadero, panadería, panecillo.</li><li><b>flor</b>: florero, floristería, florista, florecer.</li><li><b>mar</b>: marinero, marino, marea.</li><li><b>zapato</b>: zapatero, zapatería, zapatilla.</li><li><b>libro</b>: librería, librero, libreta.</li></ul><p>Fíjate en que muchos nombres de <b>tiendas</b> terminan en <b>-ería</b>: panadería, frutería, zapatería. Y muchos nombres de <b>oficios</b> terminan en <b>-ero</b> o <b>-era</b>: panadero, frutera, zapatero.</p><p>Conocer la familia de una palabra nos ayuda a entender palabras nuevas y a escribirlas bien.</p><p>Cuando encuentres una palabra nueva, piensa si se parece a otra que ya conoces: ¡quizá sea de la misma familia!</p><p><b>Actividad</b>: escribe la familia de «leche» y la de «fruta».</p>`,
+      H6.rueda("Familia", "PAN", [["panadero", cNA], ["panadería", cAZ], ["panecillo", cVE], ["empanada", cRO]])],
+    ["Repaso: la carta de Lucía", `<p>Repasamos con la <mark>carta</mark> de Lucía:</p><ul><li><b>Propios</b>: Lucía, Amira, Sevilla, Galicia, Canela, Luna, Trufa, Chispa, Bombón, Guadalquivir, Miño. Todos con mayúscula.</li><li><b>Comunes que se tocan</b>: casa, carta, sobre, sello, perrita, cachorros.</li><li><b>Comunes que se sienten</b>: alegría, ilusión.</li><li><b>Nombres pequeños</b>: perrita, cachorritos.</li><li><b>Colectivo</b>: los cuatro cachorros de Canela forman una <b>camada</b>.</li><li><b>Días</b>: domingo, con minúscula.</li></ul><p>¿Te has fijado? Una carta corta tiene un montón de sustantivos. Son las palabras que nombran todo lo que hay en el mundo.</p><p><b>Actividad</b>: escribe una carta a un amigo o familiar y subraya en rojo los nombres propios y en azul los comunes.</p>`,
+      H6.dos("Carta", ["PROPIOS", ["Lucía", "Sevilla", "Canela"], cRO], ["COMUNES", ["carta", "sobre", "alegría"], cAZ])],
+  ],
+  ejemplos: [
+    ["¿«Miedo» es un sustantivo?", ["Puedo decir «el miedo».", "Nombra un sentimiento."], "Sí, aunque no se puede tocar."],
+    ["Corrige: «en Agosto voy a cádiz».", ["Los meses van con minúscula.", "Las ciudades, con mayúscula."], "En agosto voy a Cádiz."],
+  ],
+  errores: ["Escribir los días de la semana y los meses con mayúscula.", "Pensar que solo son sustantivos las cosas que se pueden tocar."],
+  ejercicios: [
+    ["b", "Di un sustantivo que no se pueda tocar.", "Alegría, miedo, amistad…"],
+    ["b", "Escribe el nombre de un río.", "Ebro, Tajo, Guadalquivir…"],
+    ["b", "Nombre pequeño de «casa».", "Casita."],
+    ["b", "¿«Lunes» va con mayúscula?", "No."],
+    ["b", "Di una palabra de la familia de «pan».", "Panadero, panadería…"],
+    ["m", "Clasifica: amor, mesa, paz, libro.", "Se sienten: amor, paz; se tocan: mesa, libro."],
+    ["m", "Corrige: «mi gata luna nació en Marzo».", "Mi gata Luna nació en marzo."],
+    ["m", "Nombre grande de «perro».", "Perrazo."],
+    ["m", "¿Dónde trabaja un zapatero?", "En una zapatería."],
+    ["m", "Escribe dos nombres propios de fiestas.", "Navidad, Carnaval…"],
+    ["a", "En la lectura, ¿qué nombres pusieron a los cachorros?", "Luna, Trufa, Chispa y Bombón."],
+    ["a", "¿Por qué «bombón» no es una bomba grande?", "Porque es una palabra distinta, con otro significado."],
+    ["a", "Escribe una frase con un nombre de ciudad, uno de río y uno de sentimiento.", "Respuesta libre."],
+    ["a", "Escribe la familia de «flor».", "Florero, florista, floristería, florecer."],
+  ],
+  quiz: [
+    ["«Amistad» es un sustantivo que…", ["no se toca", "se toca", "no es sustantivo"], "Sentir."],
+    ["«Guadalquivir» se escribe con mayúscula por ser…", ["nombre propio", "común", "verbo"], "Propios."],
+    ["El nombre pequeño de «gato» es…", ["gatito", "gatazo", "gatón"], "-ito."],
+    ["Los meses se escriben con…", ["minúscula", "mayúscula", "números"], "Mayúsculas."],
+    ["La tienda del pan es la…", ["panadería", "panadero", "panera"], "Familias."],
+  ],
+  examen: [
+    ["En la lectura, ¿dónde vive ahora Amira?", ["en Galicia", "en Sevilla", "en Madrid"], "Lectura."],
+    ["¿Cuál de estos nombres de la carta es común?", ["sello", "Canela", "Miño"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Sustantivos que se sienten", "Alegría, miedo, amistad: no se tocan."],
+    ["Mayúscula", "Propios sí; días y meses no."],
+  ],
+  glosario: [
+    ["Sustantivo", "Palabra que nombra."],
+    ["Sentimiento", "Lo que sentimos: alegría, miedo…"],
+    ["Mayúscula", "Letra grande: A, B, C."],
+    ["Minúscula", "Letra pequeña: a, b, c."],
+    ["Diminutivo", "Nombre que indica pequeño: perrito."],
+    ["Aumentativo", "Nombre que indica grande: perrazo."],
+    ["Familia de palabras", "Palabras que comparten un trocito."],
+    ["Oficio", "Trabajo de una persona."],
+    ["Camada", "Grupo de crías nacidas a la vez."],
+    ["Carta", "Mensaje escrito para otra persona."],
+  ],
+  situacion: {
+    titulo: "El buzón de la clase",
+    reto: "La clase monta un buzón y cada niño escribe una carta a un compañero cuidando los sustantivos y las mayúsculas.",
+    pasos: ["Escribir una carta con saludo, mensaje y despedida.", "Usar nombres propios de personas, lugares y mascotas.", "Revisar las mayúsculas y minúsculas.", "Echar la carta al buzón y leer la que recibes."],
+    producto: "Un buzón de clase lleno de cartas.",
+    evaluacion: ["Usa sustantivos comunes y propios.", "Escribe mayúsculas correctamente.", "Forma diminutivos y aumentativos.", "Reconoce familias de palabras."],
+  },
+});
