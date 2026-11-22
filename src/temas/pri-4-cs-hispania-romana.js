@@ -139,3 +139,91 @@ module.exports = {
   fuentes: [RD, { t: "Museo Nacional de Arte Romano (Mérida)", url: "https://www.culturaydeporte.gob.es/mnromano/" }, wiki("Hispania", "Hispania"), wiki("Romanización de Hispania", "Romanización_de_Hispania")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer Emerita Augusta como gran ciudad de Hispania", "Describir los espectáculos romanos y sus edificios", "Explicar cómo funcionaba un acueducto", "Valorar el legado del latín y de los hispanos célebres"],
+  lectura: { titulo: "Un día en Emerita Augusta", html: `<p>Marco tenía diez años y vivía en <b>Emerita Augusta</b>, la actual Mérida, hace casi dos mil años. Aquella mañana se levantó temprano: ¡hoy había carreras en el circo!</p><p>Antes, acompañó a su madre al <b>foro</b>, la gran plaza de la ciudad, llena de templos, tiendas y gente que discutía de negocios. Luego pasaron por las <b>termas</b>, donde los hombres charlaban en el agua caliente y los esclavos llevaban toallas y aceites.</p><p>A mediodía comieron pan, aceitunas, queso y unos higos. Por la calzada, lisa y empedrada, pasaban carros cargados de ánforas de aceite que iban hacia el río Guadiana.</p><p>Por la tarde, Marco y su padre caminaron hasta el <b>circo</b>. Treinta mil personas gritaban en las gradas. Cuatro cuadrigas, tiradas por caballos, esperaban la salida. Marco animaba al equipo de los verdes.</p><p>—¡Vamos, vamos! —gritaba, saltando en la grada de piedra.</p><p>Las cuadrigas dieron siete vueltas a toda velocidad. Cuando el auriga verde cruzó la meta el primero, Marco abrazó a su padre.</p><p>Al volver a casa, bebió agua fresca de la fuente. Llegaba desde un embalse lejano por un acueducto altísimo. Marco pensó que vivía en la ciudad más maravillosa del mundo.</p>` },
+  tras: {
+    "Las ciudades romanas": [
+      ["Emerita Augusta, una pequeña Roma", `<p><mark>Emerita Augusta</mark>, la actual <b>Mérida</b> (Badajoz), fue fundada en el año <b>25 a. C.</b> por orden del emperador Augusto para los soldados veteranos (los «eméritos») que habían luchado en las guerras del norte de Hispania. Se convirtió en capital de la provincia de Lusitania y en una de las ciudades más importantes de todo el Imperio.</p><p>Hoy conserva tantos monumentos romanos que su conjunto arqueológico es <b>Patrimonio de la Humanidad</b> desde 1993:</p><ul><li>El <b>teatro</b>, con su escena de columnas de mármol. Cada verano acoge un festival de teatro clásico.</li><li>El <b>anfiteatro</b>, para las luchas de gladiadores.</li><li>El <b>circo</b>, uno de los mayores del mundo romano, para las carreras de carros.</li><li>El <b>puente</b> sobre el Guadiana, de casi 800 metros, que se usó durante siglos.</li><li>El <b>acueducto de los Milagros</b>, que traía agua del embalse de Proserpina.</li><li>El <b>templo de Diana</b> y el foro.</li></ul><p>En Mérida está también el <b>Museo Nacional de Arte Romano</b>, con mosaicos, esculturas y objetos de la vida cotidiana.</p>`,
+        H6.rueda("Emerita Augusta", "MÉRIDA", [["teatro", cRO], ["anfiteatro", cNA], ["circo", cMO], ["acueducto", cAZ]]), ["qva1mFBPnok", "Mérida y sus espectáculos", "Isaac Moreno Gallo", 67059]],
+    ],
+    "La sociedad y la vida en Hispania": [
+      ["Teatro, anfiteatro y circo", `<p>A los romanos les encantaban los <b>espectáculos</b>, que solían ser gratuitos porque los pagaban las autoridades para ganarse al pueblo. Cada tipo de espectáculo tenía su propio edificio:</p><ul><li>El <mark>teatro</mark> tenía forma de <b>semicírculo</b>. Allí se representaban comedias y tragedias. Los actores eran todos hombres y llevaban máscaras para que el público los distinguiera desde lejos.</li><li>El <mark>anfiteatro</mark> tenía forma <b>ovalada</b>, como dos teatros unidos. Allí luchaban los <b>gladiadores</b>, normalmente esclavos o prisioneros entrenados, y también se hacían luchas con animales salvajes. El más famoso es el Coliseo de Roma.</li><li>El <mark>circo</mark> era muy <b>alargado</b>, con una pista dividida por un muro central (la espina). Allí se celebraban las carreras de <b>cuadrigas</b>, carros tirados por cuatro caballos. Los aurigas eran tan famosos como los deportistas de hoy.</li></ul><p>En Hispania había espectáculos en muchas ciudades: en Tarragona se conserva un anfiteatro junto al mar, y en Sagunto, Cartagena e Itálica hay teatros y anfiteatros.</p><p>Algunos de estos edificios se siguen usando hoy para conciertos y obras de teatro.</p>`,
+        L6.filas("Espectáculos", [["teatro", "semicírculo: obras", cRO], ["anfiteatro", "óvalo: gladiadores", cNA], ["circo", "alargado: carreras", cMO], ["entrada", "solía ser gratis", cVE]]), ["zIM9EzdZtWc", "Lucha de gladiadores en el Coliseo de Roma", "Miguel Ángel Gómez Moreno", 657492]],
+    ],
+    "Las obras públicas romanas": [
+      ["El acueducto de Segovia", `<p>El <mark>acueducto de Segovia</mark> es una de las obras romanas mejor conservadas del mundo. Se construyó hacia finales del siglo I o principios del II d. C. y llevó agua a la ciudad durante casi dos mil años: ¡hasta el siglo XX!</p><p>Algunos datos asombrosos:</p><ul><li>La parte más famosa, la que cruza la plaza del Azoguejo, mide unos <b>28 metros de altura</b>, como un edificio de nueve pisos.</li><li>Tiene más de <b>160 arcos</b>, en dos alturas en la parte más alta.</li><li>Está hecho con unos 20 000 bloques de granito colocados <b>sin argamasa</b>: las piedras se sostienen solo por su peso y por el equilibrio de los arcos.</li></ul><p>¿Cómo funcionaba? El agua se recogía en la sierra, a unos 15 kilómetros, y bajaba por un canal con una <b>pendiente muy suave</b>, siempre un poco hacia abajo, gracias a la gravedad. Cuando el canal tenía que cruzar un valle, se elevaba sobre arcos. Al llegar, el agua iba a depósitos y de allí a las fuentes, las termas y las casas ricas.</p><p>El acueducto y la ciudad vieja de Segovia son <b>Patrimonio de la Humanidad</b> desde 1985.</p>`,
+        H6.flujo("Un acueducto", ["recoger|en la sierra", "bajar|por pendiente", "cruzar|sobre arcos", "repartir|a fuentes"], cAZ)],
+    ],
+  },
+  final: [
+    ["Hispanos famosos en Roma", `<p>Hispania se romanizó tanto que muchos de sus habitantes llegaron a ser personajes importantísimos en todo el Imperio.</p><ul><li><mark>Trajano</mark>, nacido en <b>Itálica</b> (cerca de Sevilla), fue el primer emperador nacido fuera de Italia. Gobernó entre los años 98 y 117, y con él el Imperio alcanzó su mayor extensión.</li><li><mark>Adriano</mark>, de familia de Itálica, fue el siguiente emperador. Viajó por todo el Imperio y mandó construir un gran muro en Britania para protegerlo.</li><li><mark>Teodosio</mark>, nacido probablemente en Coca (Segovia), fue el último emperador que gobernó todo el Imperio unido.</li><li><b>Séneca</b>, nacido en <b>Córdoba</b>, fue un gran filósofo y escritor; fue maestro del emperador Nerón.</li><li><b>Quintiliano</b>, de Calahorra, fue un famoso maestro de oratoria, el arte de hablar bien en público.</li><li><b>Columela</b>, de Cádiz, escribió un libro sobre agricultura.</li></ul><p>Hoy se puede visitar el conjunto arqueológico de <b>Itálica</b>, en Santiponce (Sevilla), con su enorme anfiteatro y casas con preciosos mosaicos.</p>`,
+      L6.filas("Hispanos célebres", [["Trajano", "emperador, de Itálica", cRO], ["Adriano", "emperador", cNA], ["Séneca", "filósofo, de Córdoba", cAZ], ["Quintiliano", "maestro, de Calahorra", cMO]])],
+    ["El latín, la lengua madre", `<p>El legado más importante de Roma lo usamos cada día sin darnos cuenta: la <b>lengua</b>. Los romanos hablaban <mark>latín</mark>, y con los siglos el latín que se hablaba en cada región fue cambiando hasta dar lugar a nuevas lenguas, las <b>lenguas romances</b>:</p><ul><li>En la península: el <b>castellano</b>, el <b>catalán</b>, el <b>gallego</b> y el <b>portugués</b>.</li><li>En otros lugares: el <b>francés</b>, el <b>italiano</b> y el <b>rumano</b>.</li></ul><p>Por eso estas lenguas se parecen tanto. Mira la palabra latina <i>aqua</i>: en castellano es <b>agua</b>, en catalán <b>aigua</b>, en italiano <b>acqua</b>. Y <i>noctem</i> dio <b>noche</b>, <b>nit</b>, <b>noite</b> y <b>nuit</b>.</p><p>Muchas palabras siguen siendo casi iguales, y otras expresiones latinas se usan todavía tal cual:</p><ul><li><b>Currículum</b>: «carrera» de la vida.</li><li><b>Ultimátum</b>: última advertencia.</li><li><b>Ídem</b>: lo mismo.</li><li><b>Etcétera</b>: «y las demás cosas».</li></ul><p>También usamos los <b>números romanos</b> para los siglos (siglo XXI), los nombres de reyes y papas (Felipe VI) y en algunos relojes.</p>`,
+      H6.rueda("Del latín", "LATÍN", [["castellano", cRO], ["catalán", cNA], ["gallego", cAZ], ["francés", cMO]])],
+  ],
+  ejemplos: [
+    ["Mérida se fundó en el 25 a. C. ¿Cuántos años tenía en el año 75 d. C.?", ["Del 25 a. C. al año 1: 25 años (no hay año 0).", "Del año 1 al 75: 74 años más."], "Unos 99 años."],
+    ["Un edificio romano es alargado, con un muro en medio de la pista. ¿Qué es?", ["Semicírculo: teatro; óvalo: anfiteatro.", "Alargado con espina: circo."], "Un circo, para carreras de cuadrigas."],
+  ],
+  errores: ["Pensar que los arcos del acueducto llevan el agua por dentro de las columnas.", "Creer que el castellano viene del árabe; viene sobre todo del latín."],
+  ejercicios: [
+    ["b", "¿Cómo se llamaba Mérida en época romana?", "Emerita Augusta."],
+    ["b", "¿Qué espectáculo se hacía en el anfiteatro?", "Luchas de gladiadores."],
+    ["b", "¿De qué piedra está hecho el acueducto de Segovia?", "De granito."],
+    ["b", "¿Dónde nació el emperador Trajano?", "En Itálica (Sevilla)."],
+    ["b", "Escribe tres lenguas romances.", "Castellano, catalán, francés…"],
+    ["m", "¿Para quiénes se fundó Emerita Augusta?", "Para soldados veteranos."],
+    ["m", "Relaciona cada edificio con su forma: teatro, anfiteatro, circo.", "Semicírculo, óvalo, alargado."],
+    ["m", "¿Cómo se mantienen las piedras del acueducto sin argamasa?", "Por su peso y el equilibrio de los arcos."],
+    ["m", "¿Qué fuerza movía el agua por el acueducto?", "La gravedad."],
+    ["m", "Escribe en números romanos el siglo actual.", "XXI."],
+    ["a", "Escribe el diario de un niño que asiste a una obra en el teatro de Mérida.", "Respuesta abierta."],
+    ["a", "Busca cinco palabras parecidas en castellano, catalán y francés.", "Respuesta abierta."],
+    ["a", "Construye una maqueta de un arco con piezas de cartón.", "Respuesta abierta."],
+    ["a", "Investiga un resto romano de tu comunidad.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Emerita Augusta es la actual…", ["Mérida", "Segovia", "Tarragona"], "Mérida."],
+    ["Las carreras de cuadrigas se hacían en el…", ["circo", "teatro", "foro"], "Espectáculos."],
+    ["El acueducto de Segovia mide unos…", ["28 metros", "280 metros", "3 metros"], "Acueducto."],
+    ["Trajano fue…", ["emperador", "gladiador", "esclavo"], "Hispanos."],
+    ["El castellano viene sobre todo del…", ["latín", "inglés", "griego"], "Latín."],
+  ],
+  examen: [
+    ["En la lectura, ¿a qué equipo animaba Marco?", ["a los verdes", "a los rojos", "a los azules"], "Lectura."],
+    ["Séneca nació en…", ["Córdoba", "Roma", "Burgos"], "Hispanos."],
+  ],
+  tarjetas: [
+    ["Mérida", "Emerita Augusta, 25 a. C.; teatro, anfiteatro, circo; Patrimonio 1993."],
+    ["Espectáculos", "Teatro (obras), anfiteatro (gladiadores), circo (cuadrigas)."],
+    ["Acueducto de Segovia", "Granito sin argamasa, 28 m, agua por gravedad."],
+    ["Legado", "Trajano, Adriano, Séneca; latín y lenguas romances."],
+  ],
+  glosario: [
+    ["Foro", "Plaza principal de una ciudad romana."],
+    ["Termas", "Baños públicos romanos."],
+    ["Anfiteatro", "Edificio ovalado para luchas de gladiadores."],
+    ["Circo", "Edificio alargado para carreras de carros."],
+    ["Gladiador", "Luchador de los espectáculos romanos."],
+    ["Cuadriga", "Carro tirado por cuatro caballos."],
+    ["Auriga", "Conductor de un carro de carreras."],
+    ["Acueducto", "Construcción para llevar agua a una ciudad."],
+    ["Argamasa", "Mezcla para pegar piedras o ladrillos."],
+    ["Emperador", "Jefe supremo del Imperio romano."],
+    ["Lengua romance", "Lengua nacida del latín."],
+    ["Emérito", "Soldado veterano retirado."],
+  ],
+  situacion: {
+    titulo: "Guías de Hispania",
+    reto: "La clase prepara una guía turística de la Hispania romana para visitar sus monumentos.",
+    pasos: ["Elegid un monumento romano de España.", "Investigad su historia, función y datos curiosos.", "Diseñad la página de la guía con un plano y dibujos.", "Presentad vuestra página como si fuerais guías."],
+    producto: "Una guía turística de la Hispania romana.",
+    evaluacion: ["Sitúa el monumento en el mapa y en el tiempo.", "Explica su función.", "Incluye datos correctos y curiosos.", "Expone con claridad."],
+  },
+});

@@ -138,3 +138,91 @@ module.exports = {
   fuentes: [RD, { t: "Museo Arqueológico Nacional: Edad Media", url: "https://www.man.es/" }, wiki("Edad Media", "Edad_Media"), wiki("Al-Ándalus", "Al-Ándalus")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer la Alhambra como joya de al-Ándalus", "Descubrir la figura histórica y legendaria del Cid", "Identificar las partes de un castillo", "Distinguir el arte románico y el gótico y conocer el Camino de Santiago"],
+  lectura: { titulo: "El pequeño escudero", html: `<p>Rodrigo tenía once años cuando llegó al castillo como <b>paje</b>. Su padre, un caballero, quería que aprendiera el oficio de las armas.</p><p>Los primeros meses no tocó una espada. Servía la mesa del señor, cuidaba los caballos en el establo y aprendía a leer con el capellán. Por las noches dormía sobre un jergón de paja junto a otros pajes.</p><p>A los catorce años se convirtió en <b>escudero</b>. Ahora acompañaba a su caballero a todas partes, le ayudaba a ponerse la pesada cota de malla y le llevaba el escudo y la lanza. Por las tardes practicaba en el patio de armas: montar a caballo, manejar la espada, lanzar contra un muñeco de madera que giraba y golpeaba si fallabas.</p><p>—La fuerza no basta —le decía su caballero—. Un buen caballero debe ser leal, valiente y proteger al débil.</p><p>Un invierno, unos enemigos atacaron el castillo. Rodrigo subió a la muralla con los arqueros y ayudó a llevar piedras y flechas. Tras tres días, los atacantes se rindieron.</p><p>Cuando cumplió veintiún años, en la capilla del castillo, su señor le tocó el hombro con la espada.</p><p>—Levántate, caballero —dijo.</p><p>Rodrigo había cumplido su sueño.</p>` },
+  tras: {
+    "La cultura de al-Ándalus": [
+      ["La Alhambra de Granada", `<p>La <mark>Alhambra</mark> es un conjunto de palacios, jardines y fortaleza construido sobre una colina de <b>Granada</b>. Su nombre significa «la roja», por el color de sus murallas. La construyeron sobre todo los reyes <b>nazaríes</b> en los siglos XIII y XIV, cuando Granada era el último reino musulmán de la península.</p><p>Sus partes principales son:</p><ul><li>La <b>Alcazaba</b>, la zona militar, con torres de vigilancia.</li><li>Los <b>Palacios Nazaríes</b>, donde vivían el rey y su familia. El más famoso es el <b>Patio de los Leones</b>, con una fuente sostenida por doce leones de mármol.</li><li>El <b>Generalife</b>, la residencia de descanso, rodeada de huertas y jardines.</li></ul><p>Lo que más asombra de la Alhambra es su <b>decoración</b>: paredes cubiertas de yeso tallado con formas geométricas y vegetales, azulejos de colores, techos de madera con miles de piezas y poemas escritos en árabe. Y por todas partes, el <b>agua</b>: fuentes, estanques y acequias que refrescan el aire.</p><p>La Alhambra es <b>Patrimonio de la Humanidad</b> desde 1984 y es uno de los monumentos más visitados de España.</p>`,
+        L6.filas("La Alhambra", [["dónde", "Granada", cRO], ["quién", "reyes nazaríes", cNA], ["joya", "Patio de los Leones", cMO], ["Patrimonio", "desde 1984", cAZ]]), ["t-Ce66T1lgE", "La Alhambra desvela sus misterios", "DMAX España", 115951]],
+    ],
+    "Los reinos cristianos y la Reconquista": [
+      ["El Cid Campeador", `<p><mark>Rodrigo Díaz de Vivar</mark>, llamado <b>el Cid Campeador</b>, es uno de los personajes más famosos de la Edad Media española. Nació hacia 1048 en Vivar, cerca de Burgos.</p><p>Fue un caballero al servicio del rey de Castilla. Era tan buen guerrero que lo llamaban «Campeador», que significa el que gana las batallas. La palabra «Cid» viene del árabe <i>sidi</i>, «señor», y se la daban también los musulmanes, que lo respetaban.</p><p>El rey Alfonso VI lo <b>desterró</b> de Castilla. Rodrigo luchó entonces a veces para reyes cristianos y otras para reyes musulmanes. Al final conquistó <b>Valencia</b> en 1094 y la gobernó hasta su muerte, en 1099. Su esposa, <b>doña Jimena</b>, defendió la ciudad unos años más.</p><p>Sus hazañas se contaron en el <b>Cantar de mio Cid</b>, un largo poema que los juglares recitaban de plaza en plaza. Es una de las primeras grandes obras escritas en castellano.</p><p>Con el tiempo, la historia y la <b>leyenda</b> se mezclaron. Se contaba, por ejemplo, que ganó una batalla después de muerto, atado a su caballo <b>Babieca</b>. Hoy sus restos y los de Jimena están en la catedral de Burgos.</p>`,
+        H6.dos("El Cid", ["HISTORIA", ["nació en Vivar", "conquistó Valencia", "murió en 1099"], cAZ], ["LEYENDA", ["Cantar de mio Cid", "caballo Babieca", "venció tras morir"], cNA])],
+    ],
+    "La vida en el castillo y en el monasterio": [
+      ["Las partes de un castillo", `<p>Los castillos se construían en lugares <b>altos</b> o difíciles de alcanzar, como colinas, rocas o junto a ríos, para ver venir al enemigo y defenderse mejor. Sus partes principales eran:</p><ul><li>El <b>foso</b>: una zanja ancha y profunda, a veces llena de agua, alrededor del castillo.</li><li>El <b>puente levadizo</b>: un puente que se subía con cadenas para cerrar el paso.</li><li>La <b>muralla</b>: el muro grueso que rodeaba el castillo. En la parte de arriba estaba el <b>adarve</b>, el camino por donde vigilaban los soldados, protegido por <b>almenas</b>.</li><li>Las <b>torres</b>, en las esquinas y a lo largo de la muralla.</li><li>El <b>patio de armas</b>: el espacio interior donde se entrenaban los soldados.</li><li>La <b>torre del homenaje</b>: la torre más alta y fuerte, donde vivía el señor. Era el último refugio si el enemigo entraba.</li><li>Otras dependencias: capilla, cocinas, establos, almacenes, el pozo y las mazmorras.</li></ul><p>En España hay tantos castillos que la región de <b>Castilla</b> tomó su nombre de ellos. Algunos famosos son el de Peñafiel, el de Coca, el Alcázar de Segovia o el de Loarre.</p>`,
+        H6.rueda("El castillo", "CASTILLO", [["foso", cAZ], ["muralla", cNA], ["patio de armas", cVE], ["torre homenaje", cRO]]), ["z4x58eEIuIo", "19 Castillos y Fortalezas más increíbles de la España Medieval", "Datos, Historia y otras Movidas", 158896]],
+    ],
+  },
+  final: [
+    ["El Camino de Santiago", `<p>A principios del siglo IX se dijo que en <b>Galicia</b> se había encontrado la tumba del apóstol <b>Santiago</b>. Sobre ella se construyó una iglesia, que luego se convirtió en la gran catedral de <mark>Santiago de Compostela</mark>.</p><p>Desde entonces, miles de <b>peregrinos</b> de toda Europa viajaron a pie para visitarla. Sus rutas formaron el <b>Camino de Santiago</b>. El más conocido es el <b>Camino Francés</b>, que entra desde Francia por los Pirineos y atraviesa Navarra, La Rioja, Castilla y León y Galicia.</p><p>El Camino fue muy importante en la Edad Media:</p><ul><li>A lo largo de él nacieron y crecieron <b>pueblos y ciudades</b>, con puentes, hospitales y albergues para los peregrinos.</li><li>Por él llegaron <b>ideas, estilos artísticos</b> como el románico y comerciantes de otros países.</li></ul><p>Los peregrinos llevaban un bastón, una calabaza para el agua y una <b>concha de vieira</b>, que se convirtió en el símbolo del Camino.</p><p>Hoy cientos de miles de personas siguen haciendo el Camino cada año, andando o en bicicleta, siguiendo las <b>flechas amarillas</b>. Es Patrimonio de la Humanidad desde 1993.</p>`,
+      L6.filas("El Camino", [["meta", "Santiago de Compostela", cAZ], ["símbolo", "concha de vieira", cNA], ["ruta famosa", "Camino Francés", cRO], ["señal", "flechas amarillas", cVE]]), ["mDo2Jwi6vgs", "La historia del apóstol Santiago", "INFINITO + 1", 374700]],
+    ["Arte románico y arte gótico", `<p>En los reinos cristianos se construyeron muchísimas iglesias, monasterios y catedrales. Hubo dos grandes estilos:</p><ul><li>El <mark>arte románico</mark> (siglos XI y XII). Sus iglesias tienen <b>muros muy gruesos</b>, ventanas <b>pequeñas</b> y <b>arcos de medio punto</b> (redondos). Por dentro son oscuras y recogidas. Muchas estaban en pueblos y en el Camino de Santiago. Ejemplos: la iglesia de San Martín de Frómista (Palencia) o San Clemente de Taüll (Lleida), con sus pinturas.</li><li>El <mark>arte gótico</mark> (siglos XIII al XV). Sus catedrales son <b>altísimas</b>, con <b>arcos apuntados</b> (en punta) y grandes <b>vidrieras</b> de colores que llenan el interior de luz. Se construían en las ciudades y tardaban a veces más de cien años en terminarse. Ejemplos: las catedrales de <b>Burgos</b>, <b>León</b> y <b>Toledo</b>.</li></ul><p>Una pista para distinguirlos: fíjate en los <b>arcos</b> y en la <b>luz</b>. Si los arcos son redondos y hay poca luz, probablemente es románico. Si los arcos acaban en punta y entra mucha luz de colores, es gótico.</p>`,
+      H6.dos("Dos estilos", ["ROMÁNICO", ["muros gruesos", "arco redondo", "poca luz"], cNA], ["GÓTICO", ["muy alto", "arco apuntado", "vidrieras y luz"], cAZ])],
+  ],
+  ejemplos: [
+    ["Una iglesia tiene arcos redondos, ventanas estrechas y muros gruesos. ¿De qué estilo es?", ["Arco redondo: románico.", "Poca luz y muros gruesos: románico."], "Románica."],
+    ["El Cid murió en 1099 y la Edad Media terminó en 1492. ¿Cuántos años pasaron?", ["1492 − 1099.", "Restamos."], "393 años."],
+  ],
+  errores: ["Pensar que el Cid solo luchó contra los musulmanes.", "Confundir el arco apuntado del gótico con el de medio punto del románico."],
+  ejercicios: [
+    ["b", "¿En qué ciudad está la Alhambra?", "En Granada."],
+    ["b", "¿Cómo se llamaba el caballo del Cid?", "Babieca."],
+    ["b", "¿Qué era el puente levadizo?", "Un puente que se subía para cerrar el paso."],
+    ["b", "¿Cuál es el símbolo del Camino de Santiago?", "La concha de vieira."],
+    ["b", "¿Qué estilo tiene grandes vidrieras?", "El gótico."],
+    ["m", "¿Qué significa «Cid»? ¿De qué lengua viene?", "Señor; del árabe."],
+    ["m", "¿Qué es la torre del homenaje?", "La torre más alta, donde vivía el señor."],
+    ["m", "¿Por qué crecieron pueblos a lo largo del Camino?", "Por los peregrinos: albergues, hospitales, comercio."],
+    ["m", "Nombra las tres partes principales de la Alhambra.", "Alcazaba, Palacios Nazaríes, Generalife."],
+    ["m", "Escribe dos catedrales góticas de España.", "Burgos, León, Toledo."],
+    ["a", "Dibuja un castillo y rotula sus partes.", "Respuesta abierta."],
+    ["a", "Escribe una noticia sobre la conquista de Valencia por el Cid.", "Respuesta abierta."],
+    ["a", "Diseña una vidriera gótica con papel de colores.", "Respuesta abierta."],
+    ["a", "Traza en un mapa el Camino Francés y nombra sus comunidades.", "Navarra, La Rioja, Castilla y León, Galicia."],
+  ],
+  quiz: [
+    ["La Alhambra la construyeron sobre todo los…", ["nazaríes", "romanos", "visigodos"], "Alhambra."],
+    ["El Cid conquistó…", ["Valencia", "Granada", "Roma"], "Cid."],
+    ["La zanja alrededor del castillo es el…", ["foso", "adarve", "patio"], "Castillo."],
+    ["Los peregrinos iban a…", ["Santiago de Compostela", "Sevilla", "Mérida"], "Camino."],
+    ["El arco apuntado es propio del…", ["gótico", "románico", "arte romano"], "Arte."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué era Rodrigo antes de ser escudero?", ["paje", "rey", "monje"], "Lectura."],
+    ["El Patio de los Leones está en…", ["la Alhambra", "Burgos", "Santiago"], "Alhambra."],
+  ],
+  tarjetas: [
+    ["Alhambra", "Granada, nazaríes; Patio de los Leones; Patrimonio 1984."],
+    ["El Cid", "Rodrigo Díaz de Vivar; Valencia 1094; Cantar de mio Cid."],
+    ["Castillo", "Foso, puente levadizo, muralla, patio de armas, torre del homenaje."],
+    ["Camino y arte", "Santiago, vieira; románico (redondo) y gótico (apuntado)."],
+  ],
+  glosario: [
+    ["Nazarí", "De la dinastía que reinó en Granada."],
+    ["Alcazaba", "Fortaleza militar musulmana."],
+    ["Destierro", "Castigo de expulsar a alguien de su tierra."],
+    ["Juglar", "Artista que recitaba y cantaba por los pueblos."],
+    ["Paje", "Niño que servía a un señor."],
+    ["Escudero", "Joven que servía a un caballero."],
+    ["Foso", "Zanja alrededor de un castillo."],
+    ["Almena", "Pieza de la muralla tras la que se protegían los soldados."],
+    ["Peregrino", "Persona que viaja a un lugar sagrado."],
+    ["Románico", "Estilo con muros gruesos y arcos redondos."],
+    ["Gótico", "Estilo con arcos apuntados y vidrieras."],
+    ["Vidriera", "Ventana de cristales de colores."],
+  ],
+  situacion: {
+    titulo: "Feria medieval",
+    reto: "La clase organiza una feria medieval con puestos sobre la vida en la Edad Media.",
+    pasos: ["Repartid puestos: castillo, al-Ándalus, el Cid, el Camino, catedrales.", "Investigad y preparad materiales: maquetas, dibujos, objetos.", "Preparad una breve explicación disfrazados de personajes.", "Recibid a los visitantes y responded a sus preguntas."],
+    producto: "Una feria medieval con puestos temáticos.",
+    evaluacion: ["Sitúa los hechos en su época.", "Explica con datos correctos.", "Elabora materiales cuidados.", "Se expresa con claridad ante el público."],
+  },
+});

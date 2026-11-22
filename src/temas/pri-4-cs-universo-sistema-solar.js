@@ -135,3 +135,92 @@ module.exports = {
   fuentes: [RD, wiki("Sistema solar", "Sistema_solar"), wiki("Fases lunares", "Fase_lunar"), { t: "Agencia Espacial Europea (ESA)", url: "https://www.esa.int/Space_in_Member_States/Spain" }],
   revisado: REV,
 };
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+module.exports.bloques.find((b) => /Cómo es cada planeta/.test(b.html)).svg = L6.filas("Los planetas", [["rocosos", "Mercurio, Venus, Tierra, Marte", cRO], ["gaseosos", "Júpiter, Saturno, Urano, Neptuno", cAZ], ["el mayor", "Júpiter", cNA], ["con anillos", "Saturno (y otros)", cMO]]);
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Reconocer algunas constelaciones y la estrella Polar", "Conocer planetas enanos, asteroides y cometas", "Narrar la llegada del ser humano a la Luna", "Explicar cómo se vive en la Estación Espacial Internacional"],
+  lectura: { titulo: "Un pequeño paso", html: `<p>El 20 de julio de 1969, millones de personas en todo el mundo estaban sentadas delante del televisor. En blanco y negro, con una imagen borrosa, se veía una nave extraña posada sobre un suelo gris lleno de polvo.</p><p>La nave se llamaba <b>Eagle</b>, «águila», y había llegado a la Luna desde el cohete <b>Apolo 11</b>. Dentro iban dos astronautas estadounidenses: <b>Neil Armstrong</b> y <b>Buzz Aldrin</b>. Un tercero, <b>Michael Collins</b>, esperaba dando vueltas alrededor de la Luna.</p><p>Se abrió la escotilla. Armstrong bajó despacio por la escalerilla, con su enorme traje blanco. Al llegar abajo, apoyó la bota en el suelo lunar y dijo:</p><p>—Es un pequeño paso para un hombre, pero un gran salto para la humanidad.</p><p>Era la primera vez que un ser humano pisaba otro mundo.</p><p>Los astronautas caminaron dando saltitos, porque en la Luna se pesa mucho menos. Recogieron rocas, hicieron fotos y clavaron una bandera. Pasaron unas dos horas y media fuera de la nave.</p><p>Las huellas de sus botas siguen allí. Como en la Luna no hay viento ni lluvia, nada las borra. Quizá duren millones de años.</p>` },
+  tras: {
+    "Galaxias y estrellas": [
+      ["Las constelaciones", `<p>Desde la Antigüedad, las personas han unido con líneas imaginarias las estrellas del cielo para formar figuras: son las <mark>constelaciones</mark>. Los griegos y otros pueblos les dieron nombres de animales, objetos y personajes de sus leyendas. Hoy los astrónomos reconocen <b>88 constelaciones</b>.</p><p>Algunas muy fáciles de encontrar desde España son:</p><ul><li>La <b>Osa Mayor</b>: siete estrellas brillantes forman un «carro» o un cazo.</li><li>La <b>Osa Menor</b>: tiene en la punta de su cola la <b>estrella Polar</b>.</li><li><b>Orión</b>, el cazador: en invierno se ven sus tres estrellas en fila, llamadas el «cinturón de Orión» o «las Tres Marías».</li><li><b>Casiopea</b>: tiene forma de W.</li></ul><p>La <mark>estrella Polar</mark> es muy especial: está casi justo encima del polo norte de la Tierra, así que no se mueve en el cielo y siempre señala el <b>norte</b>. Para encontrarla, prolonga cinco veces la distancia entre las dos estrellas del extremo del «carro» de la Osa Mayor.</p><p>Durante siglos, los marineros y viajeros se orientaron de noche gracias a ella. Para ver bien las estrellas, busca un lugar oscuro, lejos de las luces de la ciudad.</p>`,
+        H6.rueda("Constelaciones", "CIELO", [["Osa Mayor", cAZ], ["Osa Menor", cNA], ["Orión", cRO], ["Casiopea", cMO]]), ["678iu6ZmKLE", "Las estrellas | Los Exploradores del Espacio", "Shackleton Kids", 786388]],
+    ],
+    "El sistema solar": [
+      ["Planetas enanos, asteroides y cometas", `<p>Además del Sol y los ocho planetas, en el sistema solar hay muchos otros cuerpos más pequeños:</p><ul><li>Los <mark>planetas enanos</mark> son redondeados como los planetas, pero comparten su órbita con otros cuerpos. El más famoso es <b>Plutón</b>, que fue considerado el noveno planeta hasta 2006. Hay otros, como Ceres o Eris.</li><li>Los <mark>asteroides</mark> son rocas de formas irregulares. La mayoría están en el <b>cinturón de asteroides</b>, entre Marte y Júpiter. Algunos miden cientos de kilómetros; otros, como una casa.</li><li>Los <mark>cometas</mark> son bolas de hielo, polvo y roca que vienen de las zonas más lejanas del sistema solar. Cuando se acercan al Sol, el hielo se evapora y forman una larga <b>cola</b> brillante, que siempre apunta en dirección contraria al Sol. El cometa Halley se ve desde la Tierra cada 76 años; volverá en 2061.</li><li>Los <b>meteoritos</b> son trozos de roca que caen a la Tierra. Cuando un trocito pequeño arde en la atmósfera, vemos una <b>estrella fugaz</b>.</li></ul><p>Hace unos 66 millones de años, un enorme asteroide chocó contra la Tierra y provocó la desaparición de los dinosaurios.</p>`,
+        L6.filas("Astros menores", [["planeta enano", "Plutón, Ceres", cMO], ["asteroide", "roca irregular", cNA], ["cometa", "hielo con cola", cAZ], ["estrella fugaz", "roca que arde", cRO]])],
+    ],
+    "La exploración del espacio": [
+      ["La llegada a la Luna", `<p>En los años sesenta del siglo XX, los Estados Unidos y la Unión Soviética competían por ser los primeros en explorar el espacio. Fue la llamada <b>carrera espacial</b>.</p><ul><li>En <b>1957</b>, la Unión Soviética lanzó el <b>Sputnik 1</b>, el primer satélite artificial.</li><li>Ese mismo año, la perrita <b>Laika</b> fue el primer ser vivo en dar vueltas a la Tierra.</li><li>En <b>1961</b>, el soviético <b>Yuri Gagarin</b> fue el primer ser humano en viajar al espacio.</li><li>En <b>1963</b>, <b>Valentina Tereshkova</b> fue la primera mujer en el espacio.</li><li>El <mark>20 de julio de 1969</mark>, la misión estadounidense <b>Apolo 11</b> llevó a los primeros seres humanos a la Luna: <b>Neil Armstrong</b> y <b>Buzz Aldrin</b>.</li></ul><p>Entre 1969 y 1972, doce astronautas caminaron sobre la Luna. Trajeron a la Tierra casi 400 kilos de rocas lunares que todavía se estudian.</p><p>Hoy, varios países preparan nuevas misiones para volver a la Luna y, en el futuro, viajar a <b>Marte</b>. Quizá alguien de tu edad sea uno de los primeros en pisarlo.</p>`,
+        L6.filas("Carrera espacial", [["1957", "Sputnik y Laika", cRO], ["1961", "Gagarin", cNA], ["1963", "Tereshkova", cMO], ["1969", "Apolo 11 en la Luna", cAZ]]), ["16AhQaStWxg", "Apolo 11: cómo fue la llegada del hombre a la Luna", "BBC News Mundo", 948048]],
+    ],
+  },
+  final: [
+    ["La Estación Espacial Internacional", `<p>A unos <b>400 kilómetros</b> sobre nuestras cabezas da vueltas a la Tierra un gran laboratorio habitado: la <mark>Estación Espacial Internacional</mark> (EEI). La construyeron juntos varios países y agencias espaciales, entre ellas la Agencia Espacial Europea, de la que forma parte España. Hay personas viviendo en ella sin interrupción desde el año 2000.</p><p>Va tan rápido que da una vuelta a la Tierra cada hora y media: ¡sus tripulantes ven unos <b>16 amaneceres al día</b>!</p><p>Allí todo flota, así que la vida es muy diferente:</p><ul><li>Duermen en sacos de dormir <b>atados a la pared</b>.</li><li>La comida va en bolsas y envases cerrados para que las migas no se escapen.</li><li>Beben con pajita, y el agua se recicla, incluso la del sudor y la orina.</li><li>Hacen unas <b>dos horas de ejercicio</b> al día para que sus huesos y músculos no se debiliten.</li></ul><p>En la EEI se hacen experimentos para la medicina, la ciencia y para preparar viajes más largos. A veces se puede ver desde la Tierra a simple vista: parece una estrella muy brillante que cruza el cielo deprisa, sin parpadear.</p>`,
+      H6.rueda("Vida en la EEI", "EEI", [["dormir atado", cAZ], ["comida en bolsas", cNA], ["agua reciclada", cVE], ["ejercicio diario", cRO]]), ["WyA4WA21w3I", "Un día en el espacio", "TEC", 3687952]],
+    ["Los cielos de Canarias", `<p>Para observar bien el universo, los astrónomos necesitan cielos muy <b>oscuros</b>, <b>limpios</b> y <b>estables</b>. Las islas Canarias tienen algunos de los mejores cielos del mundo: están en lo alto de montañas, por encima de las nubes, lejos de grandes ciudades y con aire muy transparente.</p><p>Por eso allí se encuentran dos grandes observatorios:</p><ul><li>El <mark>Observatorio del Teide</mark>, en Tenerife, especializado en estudiar el <b>Sol</b>.</li><li>El <mark>Observatorio del Roque de los Muchachos</mark>, en La Palma, donde está el <b>Gran Telescopio Canarias</b>, uno de los telescopios ópticos más grandes del mundo. Su espejo mide más de diez metros de diámetro y está formado por 36 piezas hexagonales.</li></ul><p>Científicos de muchos países trabajan allí. Para proteger el cielo, en Canarias hay una <b>ley</b> que controla el alumbrado: las farolas deben iluminar hacia abajo y con luces que no molesten a los telescopios.</p><p>La luz artificial que ilumina el cielo por la noche se llama <b>contaminación lumínica</b>. Por su culpa, en las ciudades apenas se ven unas pocas estrellas. Apagar luces innecesarias ayuda a recuperar el cielo y además ahorra energía.</p>`,
+      L6.filas("Observatorios", [["Teide", "Tenerife: el Sol", cNA], ["Roque Muchachos", "La Palma", cAZ], ["GTC", "espejo de 10 m", cMO], ["enemigo", "contaminación lumínica", cRO]])],
+  ],
+  ejemplos: [
+    ["El cometa Halley pasó en 1986 y vuelve cada 76 años. ¿Cuándo volverá?", ["1986 + 76.", "Sumamos."], "En 2061."],
+    ["La EEI da una vuelta cada hora y media. ¿Cuántas vueltas da en 24 horas?", ["24 : 1,5.", "Cada 3 horas, 2 vueltas: 24 : 3 = 8; 8 × 2."], "16 vueltas."],
+  ],
+  errores: ["Pensar que una estrella fugaz es una estrella que se cae.", "Creer que la estrella Polar es la más brillante del cielo; lo especial es que no se mueve."],
+  ejercicios: [
+    ["b", "¿Qué es una constelación?", "Un grupo de estrellas que forman una figura imaginaria."],
+    ["b", "¿Qué estrella señala el norte?", "La estrella Polar."],
+    ["b", "¿Dónde está el cinturón de asteroides?", "Entre Marte y Júpiter."],
+    ["b", "¿Quién fue el primer ser humano que pisó la Luna?", "Neil Armstrong."],
+    ["b", "¿A qué altura vuela la EEI?", "Unos 400 km."],
+    ["m", "¿Por qué Plutón ya no es un planeta?", "Comparte órbita con otros cuerpos: es planeta enano."],
+    ["m", "¿Hacia dónde apunta la cola de un cometa?", "En dirección contraria al Sol."],
+    ["m", "Ordena: Gagarin, Apolo 11, Sputnik.", "Sputnik (1957), Gagarin (1961), Apolo 11 (1969)."],
+    ["m", "¿Por qué los astronautas hacen ejercicio en la EEI?", "Para que no se debiliten huesos y músculos."],
+    ["m", "¿Por qué hay observatorios en Canarias?", "Cielos oscuros, limpios y estables."],
+    ["a", "Una noche despejada, busca la Osa Mayor y la estrella Polar y dibújalas.", "Respuesta abierta."],
+    ["a", "Escribe una entrevista imaginaria a un astronauta de la EEI.", "Respuesta abierta."],
+    ["a", "Propón tres medidas contra la contaminación lumínica en tu barrio.", "Respuesta abierta."],
+    ["a", "Inventa tu propia constelación y su leyenda.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Hay oficialmente…", ["88 constelaciones", "8 constelaciones", "1000 constelaciones"], "Constelaciones."],
+    ["Plutón es un…", ["planeta enano", "cometa", "satélite"], "Astros menores."],
+    ["El Apolo 11 llegó a la Luna en…", ["1969", "1957", "2000"], "Luna."],
+    ["En la EEI los astronautas duermen…", ["atados a la pared", "en camas", "en el suelo"], "EEI."],
+    ["El Gran Telescopio Canarias está en…", ["La Palma", "Madrid", "Granada"], "Canarias."],
+  ],
+  examen: [
+    ["En la lectura, ¿cómo se llamaba la nave que se posó en la Luna?", ["Eagle", "Sputnik", "Titanic"], "Lectura."],
+    ["Una estrella fugaz es…", ["una roca que arde en la atmósfera", "una estrella que cae", "un planeta"], "Astros menores."],
+  ],
+  tarjetas: [
+    ["Constelaciones", "88; Osa Mayor, Orión; la Polar señala el norte."],
+    ["Astros menores", "Planetas enanos (Plutón), asteroides, cometas, meteoritos."],
+    ["La Luna", "Apolo 11, 20 de julio de 1969: Armstrong y Aldrin."],
+    ["EEI y Canarias", "Laboratorio a 400 km; observatorios del Teide y La Palma."],
+  ],
+  glosario: [
+    ["Constelación", "Grupo de estrellas que forman una figura imaginaria."],
+    ["Estrella Polar", "Estrella que indica el norte."],
+    ["Planeta enano", "Astro redondeado que comparte órbita con otros."],
+    ["Asteroide", "Roca de forma irregular que gira alrededor del Sol."],
+    ["Cometa", "Cuerpo de hielo y polvo con cola brillante."],
+    ["Meteorito", "Roca del espacio que cae a la Tierra."],
+    ["Satélite artificial", "Aparato fabricado que gira alrededor de la Tierra."],
+    ["Astronauta", "Persona que viaja al espacio."],
+    ["Carrera espacial", "Competición por explorar el espacio."],
+    ["Órbita", "Camino que sigue un astro alrededor de otro."],
+    ["Observatorio", "Lugar con telescopios para estudiar el cielo."],
+    ["Contaminación lumínica", "Exceso de luz artificial en el cielo nocturno."],
+  ],
+  situacion: {
+    titulo: "Misión espacial",
+    reto: "La clase prepara una misión imaginaria a la Luna o a Marte.",
+    pasos: ["Elegid destino y escribid qué queréis investigar.", "Diseñad la nave y la vida a bordo, como en la EEI.", "Preparad un mapa del cielo con constelaciones para orientarse.", "Presentad la misión en una rueda de prensa."],
+    producto: "Un dosier de misión espacial con dibujos.",
+    evaluacion: ["Usa datos reales del sistema solar.", "Explica la vida en el espacio.", "Trabaja en equipo.", "Comunica la misión con claridad."],
+  },
+});
