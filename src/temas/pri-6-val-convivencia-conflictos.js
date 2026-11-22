@@ -93,3 +93,91 @@ module.exports = P.tema({
   saberes: "Sociedad, justicia y democracia: normas de convivencia, gestión pacífica de conflictos, diálogo, mediación y prevención del acoso escolar",
   ideas: ["Asamblea para acordar las normas de clase y colgarlas en el aula.", "Role-play de conflictos cotidianos aplicando los cinco pasos y los mensajes yo.", "Formar un pequeño equipo de alumnos mediadores con rotación mensual."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Practicar la escucha activa y los mensajes en primera persona", "Negociar buscando soluciones en las que todos ganen", "Asumir el papel de testigo activo ante el acoso", "Conocer a constructores de paz y relacionar normas de clase y leyes"],
+  lectura: { titulo: "La naranja de la discordia", html: `<p>En el taller de cocina del viernes, a Sara y a Óliver les tocó la misma receta: un bizcocho de naranja. El problema es que en la cesta solo quedaba una naranja.</p><p>—¡La he cogido yo primero! —dijo Sara.</p><p>—¡Mentira, yo la vi antes! —protestó Óliver.</p><p>Empezaron a tirar cada uno de un lado. La monitora se acercó antes de que la naranja acabara en el suelo.</p><p>—Vale, parad. Podría cortarla por la mitad y en paz. Pero antes, ¿para qué la necesita cada uno exactamente?</p><p>—Yo necesito el zumo para el almíbar —dijo Óliver.</p><p>—Yo, la piel rallada para la masa —dijo Sara.</p><p>Se miraron. Después se echaron a reír.</p><p>Sara ralló con cuidado toda la piel y Óliver exprimió todo el zumo. Cada uno tuvo el cien por cien de lo que necesitaba, y no la mitad.</p><p>—Esto se llama negociar por intereses —dijo la monitora—. Cuando os peleáis por lo que queréis, uno gana y otro pierde. Cuando habláis de para qué lo queréis, a veces ganáis los dos.</p><p>Los bizcochos salieron estupendos. Y desde entonces, en esa clase, cuando hay una discusión, siempre hay alguien que pregunta: «¿Y para qué quieres tú la naranja?».</p>` },
+  tras: {
+    "Formas de afrontar un conflicto": [
+      ["Escuchar de verdad y hablar en primera persona", `<p>Para resolver un conflicto hablando, hay dos herramientas muy útiles.</p><p>La primera es la <mark>escucha activa</mark>: escuchar para <b>entender</b>, no para contestar. Consiste en:</p><ul><li>Mirar a la otra persona y dejar lo que estás haciendo.</li><li>No interrumpir ni preparar tu respuesta mientras habla.</li><li><b>Parafrasear</b>: repetir con tus palabras lo que has entendido. «Entonces, lo que te molesta es que no te avisé, ¿no?».</li><li>Hacer preguntas para comprender mejor y reconocer sus emociones: «Entiendo que te enfadaras».</li></ul><p>La segunda son los <mark>mensajes en primera persona</mark> o <b>mensajes yo</b>. En lugar de atacar («Tú siempre me dejas tirado», «Eres un egoísta»), expresas lo que sientes y lo que necesitas, sin culpar ni insultar. Tienen cuatro partes:</p><ol><li><b>Me siento…</b> (la emoción)</li><li><b>cuando…</b> (el hecho concreto, sin exagerar)</li><li><b>porque…</b> (por qué te afecta)</li><li><b>y me gustaría que…</b> (lo que propones)</li></ol><p>Por ejemplo: «Me siento triste cuando no me esperáis para ir al recreo, porque me quedo solo, y me gustaría que me avisarais». Es mucho más fácil que la otra persona escuche un mensaje así que uno lleno de reproches.</p>`,
+        H6.flujo("Un mensaje yo", ["me siento|emoción", "cuando|hecho", "porque|motivo", "me gustaría|propuesta"], cAZ)],
+    ],
+    "La mediación": [
+      ["Negociar para que todos ganen", `<p>En muchos conflictos, cada persona se aferra a su <b>posición</b>: lo que dice querer («quiero la naranja», «quiero elegir yo el juego»). Pero detrás de cada posición hay un <b>interés</b>: el motivo real, lo que de verdad necesita («necesito el zumo», «quiero divertirme y no aburrirme»).</p><p>Cuando solo discutimos posiciones, lo normal es que uno gane y el otro pierda, o que los dos se queden con la mitad. En cambio, cuando hablamos de intereses, a veces encontramos soluciones en las que <b>todos ganan</b>. Es la negociación <mark>gana-gana</mark>.</p><p>Pasos para negociar:</p><ol><li><b>Separar a las personas del problema</b>: el otro no es el enemigo; el enemigo es el problema.</li><li><b>Preguntar por los intereses</b>: «¿Para qué lo quieres?», «¿Qué es lo que más te importa?».</li><li><b>Inventar muchas opciones</b> antes de decidir, como en una lluvia de ideas, sin descartar ninguna al principio.</li><li><b>Elegir con criterios justos</b>: turnos, sorteo, lo que es más equitativo.</li><li><b>Llegar a un acuerdo</b> concreto y comprobar que se cumple.</li></ol><p>No siempre es posible que todos ganen del todo, pero casi siempre se puede encontrar algo mejor que «gano yo, pierdes tú». Negociar es una habilidad que usarás toda la vida: con amigos, en familia y en el trabajo.</p>`,
+        H6.dos("Negociar por…", ["POSICIONES", ["lo que digo querer", "gano o pierdo", "partir a la mitad"], cRO], ["INTERESES", ["lo que necesito", "buscar opciones", "ganamos los dos"], cVE]), ["BA57QYOyjCY", "Negociación: La Metafora de la Naranja", "YT Space For Experience", 312844]],
+    ],
+    "El acoso escolar no es un conflicto": [
+      ["El poder de los testigos", `<p>En casi todas las situaciones de acoso hay tres papeles: quien <b>acosa</b>, quien <b>sufre</b> el acoso y quienes lo <b>ven</b>: los <mark>testigos</mark> o espectadores. Normalmente, los testigos son la mayoría, y tienen mucho más poder del que creen.</p><p>Quien acosa suele buscar <b>público</b>: las risas, las miradas o el silencio de los demás le dan fuerza. Por eso, cuando los testigos dejan de reír y se ponen del lado de la víctima, el acoso suele perder fuerza rápidamente.</p><p>Qué puede hacer un <b>testigo activo</b>:</p><ul><li><b>No reírse</b> ni reenviar mensajes, fotos o vídeos que humillan a alguien.</li><li><b>Acompañar</b> a la persona que sufre: sentarse con ella, invitarla a jugar, decirle que no está sola.</li><li>Decir, si es seguro hacerlo: «Eso no está bien, déjalo».</li><li><b>Contarlo</b> a un adulto de confianza. Contar un acoso no es «chivarse»: chivarse es buscar que castiguen a alguien por algo sin importancia; contar un acoso es <b>proteger</b> a alguien que está sufriendo.</li><li>Hacerlo en grupo: es más fácil y más seguro.</li></ul><p>El acoso también puede darse por internet (<b>ciberacoso</b>), y ahí los testigos son todavía más numerosos. Las mismas reglas valen: no participar, apoyar y contarlo.</p>`,
+        H6.rueda("Testigo activo", "TESTIGO", [["no reír", cRO], ["acompañar", cVE], ["decir no", cNA], ["contarlo", cAZ]])],
+    ],
+  },
+  final: [
+    ["Constructores de paz", `<p>Algunas personas demostraron que los grandes conflictos también se pueden afrontar <b>sin violencia</b>:</p><ul><li><b>Mahatma Gandhi</b> (1869-1948) lideró la lucha por la independencia de la India frente al dominio británico con la <mark>no violencia</mark>: marchas, huelgas, boicots y desobediencia pacífica. En 1930 encabezó la famosa <b>Marcha de la Sal</b>, de casi 400 kilómetros, para protestar contra un impuesto injusto. La India logró la independencia en 1947. El 30 de enero, aniversario de su muerte, se celebra en los colegios españoles el <b>Día Escolar de la No Violencia y la Paz</b>.</li><li><b>Nelson Mandela</b> (1918-2013) luchó contra el <b>apartheid</b>, el sistema que separaba y discriminaba a las personas negras en Sudáfrica. Pasó <b>27 años en prisión</b>. Al salir, en lugar de buscar venganza, trabajó por la <b>reconciliación</b> entre blancos y negros. En 1993 recibió el Premio Nobel de la Paz y en 1994 fue elegido el primer presidente negro de su país.</li><li><b>Rigoberta Menchú</b> (1959), indígena maya de Guatemala, defendió los derechos de los pueblos indígenas y recibió el Nobel de la Paz en 1992.</li></ul><p>Sus vidas enseñan que la paz no es solo la ausencia de guerra: hay que <b>construirla</b> cada día con justicia, diálogo y perdón.</p>`,
+      L6.filas("Por la paz", [["Gandhi", "no violencia", cNA], ["Marcha de la Sal", "1930", cAZ], ["Mandela", "reconciliación", cVE], ["30 de enero", "Día de la Paz", cMO]]), ["7SZVtrCVMnM", "La vida de Nelson Mandela - Animación", "History on Maps", 555906]],
+    ["De las normas de clase a las leyes", `<p>Igual que en clase acordamos normas para convivir, la sociedad tiene sus propias normas: las <mark>leyes</mark>. Pero hay diferencias importantes:</p><ul><li>Las leyes son <b>obligatorias para todos</b>, también para los gobernantes.</li><li>Las aprueban unos representantes elegidos por los ciudadanos en <b>elecciones</b>.</li><li>Si no se cumplen, puede haber <b>sanciones</b> que deciden los jueces.</li></ul><p>En España, la norma más importante es la <b>Constitución de 1978</b>: todas las demás leyes deben respetarla. Las leyes las elaboran:</p><ul><li>Las <b>Cortes Generales</b> (el Congreso de los Diputados y el Senado), para toda España.</li><li>Los <b>parlamentos autonómicos</b>, para cada comunidad autónoma, en los temas que les corresponden.</li><li>Los <b>ayuntamientos</b> aprueban <b>ordenanzas municipales</b>: normas sobre ruido, limpieza, parques, mascotas o tráfico en la ciudad.</li></ul><p>Las leyes buscan lo mismo que las normas de clase: proteger los derechos de todos y permitir la convivencia. Por eso, en una democracia, si una ley parece injusta, no se desobedece por la fuerza, sino que se intenta <b>cambiar</b> por medios pacíficos: debatiendo, votando, manifestándose de forma pacífica o recogiendo firmas.</p>`,
+      H6.flujo("Quién hace las normas", ["clase|normas", "ayuntamiento|ordenanzas", "comunidad|leyes", "Cortes|leyes"], cMO)],
+  ],
+  ejemplos: [
+    ["Transforma en mensaje yo: «¡Siempre me quitas el estuche, eres un pesado!».", ["Emoción, hecho, motivo, propuesta.", "Sin insultos."], "«Me molesta cuando coges mi estuche sin pedirlo, porque luego no encuentro mis cosas, y me gustaría que me lo pidieras»."],
+    ["Dos hermanos quieren el ordenador a la vez: uno para un trabajo y otro para jugar. ¿Una solución gana-gana?", ["Intereses: terminar el trabajo / divertirse.", "Buscar opciones."], "Primero el trabajo, con un tiempo fijo, y luego el juego; o jugar a otra cosa mientras tanto."],
+  ],
+  errores: ["Pensar que contar un acoso es «chivarse».", "Creer que en un conflicto siempre tiene que haber un ganador y un perdedor."],
+  ejercicios: [
+    ["b", "¿Qué es parafrasear?", "Repetir con tus palabras lo que has entendido."],
+    ["b", "¿Cuáles son las partes de un mensaje yo?", "Me siento, cuando, porque, me gustaría."],
+    ["b", "¿Qué es una negociación gana-gana?", "Una en la que todos consiguen lo que necesitan."],
+    ["b", "¿Qué es un testigo activo?", "Quien ve un acoso y actúa para ayudar."],
+    ["b", "¿Cuándo se celebra el Día Escolar de la No Violencia y la Paz?", "El 30 de enero."],
+    ["m", "Explica la diferencia entre posición e interés.", "La posición es lo que dices querer; el interés, lo que realmente necesitas."],
+    ["m", "¿Por qué los testigos tienen tanto poder en el acoso?", "Porque quien acosa busca público; si le retiran el apoyo, pierde fuerza."],
+    ["m", "¿Qué fue la Marcha de la Sal?", "Una marcha pacífica de Gandhi contra un impuesto injusto en 1930."],
+    ["m", "¿Qué hizo Mandela al salir de prisión?", "Trabajar por la reconciliación en lugar de la venganza."],
+    ["m", "¿Quién aprueba las ordenanzas municipales?", "El ayuntamiento."],
+    ["a", "Representad por parejas un conflicto y resolvedlo con mensajes yo.", "Respuesta abierta."],
+    ["a", "Diseñad una campaña para que la clase sea «testigo activo».", "Respuesta abierta."],
+    ["a", "Investiga una ordenanza de tu municipio y explica a quién protege.", "Respuesta abierta."],
+    ["a", "Prepara un acto para el Día de la Paz con frases de Gandhi o Mandela.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Escuchar activamente es…", ["escuchar para entender", "preparar la respuesta", "interrumpir"], "Escucha."],
+    ["En la historia de la naranja, la solución fue…", ["dar a cada uno lo que necesitaba", "partirla por la mitad", "tirarla"], "Negociación."],
+    ["Quien acosa suele buscar…", ["público", "soledad", "silencio absoluto"], "Testigos."],
+    ["Mandela pasó en prisión…", ["27 años", "2 años", "50 años"], "Paz."],
+    ["La norma más importante de España es…", ["la Constitución", "una ordenanza", "el reglamento del colegio"], "Leyes."],
+  ],
+  examen: [
+    ["En la lectura, ¿para qué quería Sara la naranja?", ["para la piel rallada", "para el zumo", "para comérsela"], "Lectura."],
+    ["El apartheid era…", ["un sistema de discriminación racial", "un deporte", "un partido político"], "Paz."],
+  ],
+  tarjetas: [
+    ["Comunicar", "Escucha activa y mensajes yo (me siento, cuando, porque, me gustaría)."],
+    ["Negociar", "Posiciones vs. intereses; buscar opciones gana-gana."],
+    ["Testigos", "No reír, acompañar, decir no, contarlo: no es chivarse."],
+    ["Paz y leyes", "Gandhi, Mandela, Menchú; Constitución, Cortes, ordenanzas."],
+  ],
+  glosario: [
+    ["Escucha activa", "Escuchar con atención para entender al otro."],
+    ["Parafrasear", "Decir con otras palabras lo que se ha entendido."],
+    ["Mensaje yo", "Forma de expresar lo que sientes sin culpar."],
+    ["Posición", "Lo que una persona dice querer en un conflicto."],
+    ["Interés", "Lo que una persona realmente necesita."],
+    ["Gana-gana", "Solución en la que todas las partes ganan."],
+    ["Testigo activo", "Quien actúa para frenar un acoso."],
+    ["No violencia", "Forma de lucha pacífica, sin agresiones."],
+    ["Apartheid", "Sistema de separación racial en Sudáfrica."],
+    ["Reconciliación", "Volver a convivir en paz tras un conflicto."],
+    ["Ley", "Norma obligatoria aprobada por los representantes."],
+    ["Ordenanza", "Norma aprobada por un ayuntamiento."],
+  ],
+  situacion: {
+    titulo: "Equipo de convivencia",
+    reto: "La clase forma un equipo de convivencia que enseña a otras clases a resolver conflictos.",
+    pasos: ["Practicad la escucha activa y los mensajes yo con situaciones reales.", "Preparad un taller sobre negociación con la historia de la naranja.", "Cread un protocolo de testigo activo contra el acoso.", "Impartid el taller a una clase más pequeña y evaluad el resultado."],
+    producto: "Un taller de convivencia y un protocolo de testigos activos.",
+    evaluacion: ["Usa la escucha activa y los mensajes yo.", "Busca soluciones gana-gana.", "Sabe actuar como testigo activo.", "Valora la paz y las normas democráticas."],
+  },
+});

@@ -92,3 +92,91 @@ module.exports = P.tema({
   saberes: "Autoconocimiento y autonomía moral: identidad, autoconcepto y autoestima; reconocimiento y gestión de las emociones; empatía y comunicación asertiva",
   ideas: ["Diario de emociones durante una semana con palabras de distinta intensidad.", "Dinámica del «correo amable»: cada alumno recibe notas anónimas con sus cualidades.", "Teatro de situaciones para practicar respuestas pasivas, agresivas y asertivas."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Desarrollar una mentalidad de crecimiento ante los errores", "Reconocer y manejar el estrés y la ansiedad", "Comprender los cambios de la adolescencia", "Fortalecer la resiliencia y saber a quién pedir ayuda"],
+  lectura: { titulo: "Todavía", html: `<p>Nico odiaba las fracciones. Cada vez que el profesor ponía un problema en la pizarra, él pensaba lo mismo: «Yo no valgo para las mates».</p><p>Un día, después de suspender un control, escribió esa frase en la esquina del cuaderno. El profesor la vio al corregir y, en lugar de ponerle una nota, le añadió con bolígrafo verde una sola palabra al final: «todavía».</p><p>«Yo no valgo para las mates… todavía».</p><p>Nico se quedó mirando la palabra mucho rato. Al día siguiente, el profesor le explicó que el cerebro funciona como un músculo: cada vez que te esfuerzas con algo difícil, se crean nuevas conexiones.</p><p>—Equivocarse no significa que no sirvas —le dijo—. Significa que estás aprendiendo algo que aún no sabes.</p><p>Durante un mes, Nico practicó diez minutos cada tarde. Algunos días le salía; otros, no. Cuando se atascaba, en vez de rendirse, pedía ayuda a su hermana o volvía a ver el vídeo de clase.</p><p>En el siguiente control sacó un seis. No era un diez, pero era el seis más feliz de su vida.</p><p>Desde entonces, cuando algo le sale mal, Nico se oye a sí mismo añadiendo una palabra al final de la frase.</p>` },
+  tras: {
+    "La autoestima": [
+      ["La mentalidad de crecimiento", `<p>La psicóloga estadounidense <b>Carol Dweck</b> estudió durante años por qué algunas personas se rinden ante las dificultades y otras siguen intentándolo. Descubrió que depende mucho de lo que creemos sobre nuestras capacidades:</p><ul><li>Con una <b>mentalidad fija</b>, pensamos que la inteligencia o el talento son algo con lo que se nace y que no cambia: «soy malo dibujando», «no soy de ciencias». Entonces evitamos los retos, nos rendimos pronto y vivimos los errores como un fracaso personal.</li><li>Con una <mark>mentalidad de crecimiento</mark>, pensamos que las capacidades se pueden <b>desarrollar con esfuerzo, práctica y buenas estrategias</b>. Entonces aceptamos los retos, vemos los errores como oportunidades de aprender y nos inspira el éxito de los demás en lugar de darnos envidia.</li></ul><p>La ciencia le da la razón: el cerebro es <b>plástico</b>, es decir, cambia y crea nuevas conexiones cada vez que aprendemos algo nuevo, sobre todo cuando nos cuesta.</p><p>Una palabra mágica para practicar la mentalidad de crecimiento es <b>«todavía»</b>: «no sé hacerlo… todavía». También ayuda cambiar algunas frases:</p><ul><li>«Me rindo» → «Probaré otra estrategia».</li><li>«Es demasiado difícil» → «Me va a llevar tiempo».</li><li>«Ella es muy lista» → «¿Qué hace ella que yo pueda aprender?».</li></ul>`,
+        H6.dos("Dos mentalidades", ["FIJA", ["evita retos", "se rinde", "error = fracaso"], cRO], ["CRECIMIENTO", ["busca retos", "persiste", "error = aprender"], cVE]), ["cBYMq_gPULc", "La mentalidad que puede cambiar la vida de un niño. Carol Dweck, psicóloga e investigadora", "AprendemosJuntos", 482687]],
+    ],
+    "Gestionar las emociones": [
+      ["El estrés y la ansiedad", `<p>El <mark>estrés</mark> es la reacción del cuerpo ante una situación que vivimos como un reto o una amenaza: un examen, una actuación, un partido importante, un cambio de colegio. El cuerpo se prepara para actuar: el corazón late más deprisa, respiramos más rápido, los músculos se tensan y notamos «mariposas» en el estómago.</p><p>Un poco de estrés es <b>útil</b>: nos activa y nos ayuda a concentrarnos. El problema aparece cuando es muy intenso o dura mucho tiempo. Entonces puede haber dolor de cabeza o de tripa, problemas para dormir, irritabilidad o ganas de llorar. Cuando la preocupación es constante y no nos deja disfrutar, hablamos de <b>ansiedad</b>.</p><p>Algunas estrategias para manejarlo:</p><ul><li><b>Respiración en caja</b>: inspirar contando hasta 4, mantener 4, espirar en 4, esperar 4. Repetir varias veces.</li><li><b>Dividir</b> una tarea grande en pasos pequeños y empezar por el primero.</li><li><b>Mover el cuerpo</b>: hacer deporte, bailar, pasear.</li><li><b>Dormir bien</b> y comer de forma saludable.</li><li><b>Hablar</b> de lo que te preocupa con alguien de confianza.</li><li>Cambiar el pensamiento catastrófico («va a salir fatal») por uno realista («he estudiado y lo haré lo mejor que pueda»).</li></ul><p>Si la ansiedad no se va, es importante <b>pedir ayuda</b> a un adulto: hay profesionales que saben ayudar.</p>`,
+        H6.flujo("Respiración en caja", ["inspirar|4", "mantener|4", "espirar|4", "esperar|4"], cAZ)],
+    ],
+    "La empatía": [
+      ["La adolescencia: un cerebro en obras", `<p>Entre los 10 y los 14 años más o menos empieza la <mark>pubertad</mark>: el cuerpo cambia por la acción de unas sustancias llamadas <b>hormonas</b>. Se crece deprisa, cambian la voz y la piel, aparece vello y el cuerpo empieza a parecerse al de una persona adulta. Cada persona tiene su propio ritmo: hay quien empieza antes y quien empieza después, y todos los ritmos son normales.</p><p>Pero los cambios no son solo por fuera. El <b>cerebro</b> también se reorganiza durante la adolescencia, y lo hace por partes:</p><ul><li>Las zonas de las <b>emociones</b> y de la búsqueda de recompensas se activan mucho. Por eso las emociones se viven con más intensidad, la opinión de los amigos importa muchísimo y apetece probar cosas nuevas.</li><li>La zona de la frente, la <b>corteza prefrontal</b>, que se encarga de planificar, controlar los impulsos y pensar en las consecuencias, madura más despacio: no termina de hacerlo hasta pasados los 20 años.</li></ul><p>Por eso a veces nos sentimos como en una montaña rusa: alegres y, de repente, tristes o enfadados sin saber muy bien por qué. Es normal. Ayuda mucho dormir lo suficiente (unas 9 horas), hacer deporte, tener aficiones, hablar con la familia y con los amigos, y recordar que es una etapa de enormes oportunidades: el cerebro adolescente aprende muy rápido.</p>`,
+        L6.filas("Cerebro adolescente", [["emociones", "más intensas", cRO], ["amigos", "muy importantes", cNA], ["prefrontal", "madura despacio", cMO], ["aprender", "muy rápido", cVE]]), ["oW7qi3Dc_zg", "Qué ocurre en el cerebro durante la adolescencia | David Bueno, biólogo y genetista", "AprendemosJuntos", 304480]],
+    ],
+  },
+  final: [
+    ["La resiliencia", `<p>La <mark>resiliencia</mark> es la capacidad de <b>superar las dificultades</b> y salir de ellas reforzado. La palabra viene de la física: es la propiedad de algunos materiales de recuperar su forma después de doblarse, como un junco que el viento dobla pero no rompe.</p><p>Todos vivimos momentos difíciles: una mudanza, la separación de los padres, la pérdida de un ser querido, una enfermedad, una lesión, un suspenso o una amistad que se rompe. Ser resiliente no significa no sufrir, sino <b>encontrar la manera de seguir adelante</b>.</p><p>Los expertos han descubierto que la resiliencia no es algo con lo que se nace: se puede <b>aprender</b>. Algunas cosas que la fortalecen son:</p><ul><li>Tener <b>personas de confianza</b>: familia, amigos, profesores. Es el factor más importante.</li><li>Sentir que eres <b>capaz</b> de hacer cosas y tener pequeñas metas.</li><li>El <b>sentido del humor</b>, que ayuda a ver las cosas con perspectiva.</li><li>Ayudar a los demás.</li><li>Tener aficiones que te hagan disfrutar.</li><li>Pensar: «¿Qué puedo aprender de esto?».</li></ul><p>Muchas personas conocidas han mostrado resiliencia: deportistas que volvieron tras graves lesiones o personas que superaron grandes dificultades. Seguro que en tu familia también hay historias así: pregunta a tus abuelos.</p>`,
+      H6.rueda("Resiliencia", "SEGUIR", [["vínculos", cAZ], ["metas", cVE], ["humor", cNA], ["ayudar", cRO]])],
+    ["Pedir ayuda es de valientes", `<p>A veces pensamos que pedir ayuda es de débiles, o que debemos resolver solos nuestros problemas. Es al revés: <b>pedir ayuda es un acto de valentía</b> y de inteligencia emocional. Los adultos también lo hacen.</p><p>Es especialmente importante pedir ayuda cuando:</p><ul><li>Una tristeza, un miedo o una preocupación dura muchos días y no te deja disfrutar.</li><li>Alguien te hace daño, te amenaza, te acosa (también por internet) o te pide que guardes un secreto que te hace sentir mal.</li><li>Ves que un compañero o una compañera lo está pasando mal.</li></ul><p>¿A quién puedes acudir?</p><ul><li>A tu <b>familia</b> o a un adulto de confianza.</li><li>A tu <b>tutor o tutora</b>, a otro profesor o al orientador del colegio.</li><li>A tu <b>médico</b> o enfermera del centro de salud.</li><li>Al <b>Teléfono ANAR de Ayuda a Niños y Adolescentes</b>: <b>900 20 20 10</b>. Es gratuito, confidencial y funciona las 24 horas. También tienen chat en su web.</li><li>En una emergencia, al <b>112</b>.</li></ul><p>Si un amigo te cuenta algo grave, no tienes que resolverlo tú solo: ayúdale a buscar a un adulto. Contarlo no es traicionar, es cuidar.</p>`,
+      L6.filas("A quién acudir", [["familia", "adulto de confianza", cVE], ["colegio", "tutor, orientador", cAZ], ["ANAR", "900 20 20 10", cNA], ["emergencia", "112", cRO]]), ["KJxUkOTy3EE", "Puedes hablar con nosotros - Teléfono ANAR", "Fundación ANAR", 42264]],
+  ],
+  ejemplos: [
+    ["Laura dice «soy malísima en inglés, nunca aprenderé». ¿Cómo lo diría con mentalidad de crecimiento?", ["Añadir «todavía».", "Pensar en estrategias."], "«Aún me cuesta el inglés; si practico cada día, mejoraré»."],
+    ["Antes de un examen, a Hugo le late el corazón muy rápido. ¿Qué puede hacer?", ["Es una reacción de estrés.", "Respiración en caja."], "Respirar en caja (4-4-4-4) y pensar de forma realista."],
+  ],
+  errores: ["Pensar que la inteligencia es fija y no se puede desarrollar.", "Creer que pedir ayuda es de débiles."],
+  ejercicios: [
+    ["b", "¿Qué es la mentalidad de crecimiento?", "Creer que las capacidades se desarrollan con esfuerzo y práctica."],
+    ["b", "¿Qué es el estrés?", "La reacción del cuerpo ante un reto o amenaza."],
+    ["b", "¿Qué es la pubertad?", "La etapa de cambios corporales por las hormonas."],
+    ["b", "¿Qué es la resiliencia?", "La capacidad de superar las dificultades."],
+    ["b", "¿Cuál es el teléfono ANAR?", "900 20 20 10."],
+    ["m", "Transforma en frases de crecimiento: «me rindo», «es imposible».", "«Probaré otra estrategia», «me llevará tiempo»."],
+    ["m", "Explica la respiración en caja.", "Inspirar 4, mantener 4, espirar 4, esperar 4."],
+    ["m", "¿Por qué los adolescentes viven las emociones con más intensidad?", "Porque las zonas emocionales se activan mucho y la prefrontal madura más despacio."],
+    ["m", "Escribe tres cosas que fortalecen la resiliencia.", "Personas de confianza, metas, humor."],
+    ["m", "¿Qué harías si un amigo te cuenta que le están acosando?", "Escucharle y ayudarle a contarlo a un adulto."],
+    ["a", "Escribe una carta a tu «yo» de dentro de cinco años.", "Respuesta abierta."],
+    ["a", "Crea un cartel con estrategias contra el estrés para la clase.", "Respuesta abierta."],
+    ["a", "Entrevista a un familiar sobre una dificultad que superó.", "Respuesta abierta."],
+    ["a", "Elabora tu mapa de apoyos: personas a las que puedes acudir.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["La mentalidad de crecimiento la estudió…", ["Carol Dweck", "Freud", "Einstein"], "Mentalidad."],
+    ["Un poco de estrés puede ser…", ["útil", "siempre peligroso", "imposible"], "Estrés."],
+    ["La corteza prefrontal madura…", ["pasados los 20 años", "a los 5 años", "nunca"], "Adolescencia."],
+    ["La palabra resiliencia viene de…", ["la física", "la música", "la cocina"], "Resiliencia."],
+    ["El Teléfono ANAR es…", ["gratuito y confidencial", "de pago", "solo para adultos"], "Ayuda."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué palabra escribe el profesor en el cuaderno de Nico?", ["todavía", "suspenso", "nunca"], "Lectura."],
+    ["El factor más importante de la resiliencia es…", ["tener personas de confianza", "no sufrir nunca", "estar solo"], "Resiliencia."],
+  ],
+  tarjetas: [
+    ["Mentalidad de crecimiento", "Las capacidades se desarrollan; error = aprendizaje; «todavía»."],
+    ["Estrés", "Útil en dosis pequeñas; respiración en caja, dividir tareas, hablar."],
+    ["Adolescencia", "Hormonas; emociones intensas; prefrontal madura despacio."],
+    ["Resiliencia y ayuda", "Vínculos, metas, humor; ANAR 900 20 20 10; 112."],
+  ],
+  glosario: [
+    ["Mentalidad fija", "Creer que las capacidades no cambian."],
+    ["Mentalidad de crecimiento", "Creer que las capacidades se pueden desarrollar."],
+    ["Plasticidad cerebral", "Capacidad del cerebro para cambiar al aprender."],
+    ["Estrés", "Reacción del cuerpo ante un reto o amenaza."],
+    ["Ansiedad", "Preocupación intensa y constante."],
+    ["Pensamiento catastrófico", "Imaginar siempre lo peor."],
+    ["Pubertad", "Etapa de cambios físicos al inicio de la adolescencia."],
+    ["Hormonas", "Sustancias que regulan funciones del cuerpo."],
+    ["Corteza prefrontal", "Zona del cerebro que planifica y controla impulsos."],
+    ["Resiliencia", "Capacidad de superar dificultades."],
+    ["Vínculo", "Relación de afecto y confianza."],
+    ["Confidencial", "Que se mantiene en secreto."],
+  ],
+  situacion: {
+    titulo: "Rincón del bienestar",
+    reto: "La clase crea un rincón del bienestar con recursos para gestionar emociones y pedir ayuda.",
+    pasos: ["Recopilad estrategias contra el estrés y frases de mentalidad de crecimiento.", "Diseñad tarjetas de respiración y un termómetro de emociones.", "Elaborad un mural con personas y teléfonos de ayuda.", "Usad el rincón durante un mes y valorad qué funciona."],
+    producto: "Un rincón del bienestar con tarjetas, mural y estrategias.",
+    evaluacion: ["Identifica y nombra emociones y estrés.", "Aplica estrategias de autorregulación.", "Comprende los cambios de la adolescencia.", "Sabe a quién pedir ayuda."],
+  },
+});

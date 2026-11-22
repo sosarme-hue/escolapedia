@@ -92,3 +92,91 @@ module.exports = P.tema({
   saberes: "Sociedad, justicia y democracia: dignidad humana, Declaración Universal de los Derechos Humanos, Convención sobre los Derechos del Niño, relación entre derechos y deberes y mecanismos de protección",
   ideas: ["Leer en grupos una versión adaptada de los artículos de la Convención y representarlos con dibujos.", "Asamblea de clase para decidir algo real y ejercer el derecho a opinar.", "Investigar el trabajo de una ONG que defiende los derechos de la infancia."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer la historia de los derechos humanos hasta 1948", "Reflexionar sobre el trabajo infantil y el derecho a la educación", "Identificar organizaciones que defienden los derechos", "Conocer los derechos en la Constitución y el derecho a participar"],
+  lectura: { titulo: "La carta de Aisha", html: `<p>La clase de 6.º B se escribía cartas con un colegio de otro país gracias a un proyecto de una ONG. A Carla le tocó Aisha, una niña de su misma edad.</p><p>En la primera carta, Aisha le contaba que se levantaba antes del amanecer para ir a buscar agua con su hermana pequeña, que caminaba una hora hasta la escuela y que su asignatura favorita eran las matemáticas.</p><p>«Mi prima no viene a la escuela», escribía. «Trabaja en el mercado para ayudar a su familia. Yo tengo suerte. Quiero ser médica».</p><p>Carla leyó la carta varias veces. Pensó en todas las veces que había protestado por madrugar o por los deberes.</p><p>En clase, la tutora les explicó que millones de niños en el mundo no pueden ir a la escuela porque tienen que trabajar, viven en zonas de guerra o, en el caso de muchas niñas, simplemente porque no las dejan.</p><p>Esa tarde, Carla escribió su respuesta. Le habló de su perro, de su equipo de baloncesto y de que a ella también le gustaban las matemáticas. Al final añadió: «Ojalá tu prima pueda ir pronto a la escuela. Cuando seas médica, quiero que me lo cuentes».</p><p>Y pegó en el sobre una pegatina con forma de estrella.</p>` },
+  tras: {
+    "La Declaración Universal de los Derechos Humanos": [
+      ["Una larga historia de conquistas", `<p>La Declaración de 1948 no surgió de la nada. Es el resultado de <b>siglos de luchas</b> para limitar el poder de los gobernantes y reconocer la dignidad de todas las personas:</p><ul><li><b>1215, Carta Magna</b> (Inglaterra): los nobles obligaron al rey a aceptar que él también debía respetar unas leyes y que nadie podía ser encarcelado sin juicio.</li><li><b>1776</b>: en la independencia de Estados Unidos se proclamó que todos los hombres nacen iguales y tienen derecho a la vida, la libertad y la búsqueda de la felicidad.</li><li><b>1789, Declaración de los Derechos del Hombre y del Ciudadano</b> (Revolución francesa): libertad, igualdad ante la ley, libertad de expresión y de religión.</li><li><b>1791</b>: la escritora francesa <b>Olympe de Gouges</b> denunció que aquella Declaración olvidaba a las mujeres y escribió la <b>Declaración de los Derechos de la Mujer y la Ciudadana</b>. Fue ejecutada dos años después.</li><li><b>1948</b>: tras los horrores de la Segunda Guerra Mundial, la ONU aprobó en París la <b>Declaración Universal</b>. La comisión que la redactó estuvo presidida por la estadounidense <b>Eleanor Roosevelt</b>, que la defendió como una «carta magna para toda la humanidad».</li></ul><p>Cada conquista amplió el círculo de quienes tenían derechos: primero unos pocos, luego más, y finalmente, sobre el papel, todas las personas.</p>`,
+        H6.flujo("Historia", ["1215|Carta Magna", "1789|Francia", "1791|O. de Gouges", "1948|ONU"], cAZ)],
+    ],
+    "Los derechos de la infancia": [
+      ["Trabajo infantil y derecho a la educación", `<p>Aunque la Convención prohíbe que los niños hagan trabajos que les impidan estudiar o que dañen su salud, según la Organización Internacional del Trabajo y UNICEF, en el mundo hay unos <b>138 millones de niños y niñas</b> que trabajan, muchos de ellos en tareas peligrosas: en minas, en fábricas, en el campo con pesticidas, en la calle o en casas ajenas.</p><p>El trabajo infantil está muy ligado a la <b>pobreza</b>: cuando una familia no tiene lo suficiente para vivir, los hijos tienen que ayudar. Y al no ir a la escuela, de mayores tendrán peores trabajos, y la pobreza continúa. Por eso la <b>educación</b> es la mejor herramienta para romper ese círculo.</p><p>Dos jóvenes se convirtieron en símbolos de esta lucha:</p><ul><li><b>Iqbal Masih</b>, de Pakistán, fue vendido de muy pequeño a una fábrica de alfombras donde trabajaba atado a un telar. Logró escapar y empezó a denunciar la esclavitud infantil por todo el mundo. Fue asesinado en 1995, con solo 12 años. En su recuerdo, cada <b>16 de abril</b> se celebra el Día Mundial contra la Esclavitud Infantil.</li><li><b>Malala Yousafzai</b>, también de Pakistán, defendió el derecho de las niñas a estudiar. En 2012 sufrió un atentado, sobrevivió y siguió con su lucha. En 2014, con 17 años, se convirtió en la persona más joven en recibir el Premio Nobel de la Paz.</li></ul><p>El <b>12 de junio</b> es el Día Mundial contra el Trabajo Infantil.</p>`,
+        L6.filas("Contra el trabajo infantil", [["niños que trabajan", "unos 138 millones", cRO], ["Iqbal Masih", "16 de abril", cNA], ["Malala", "Nobel 2014", cAZ], ["12 de junio", "día mundial", cVE]]), ["xmeHfNxHtN8", "¿Quién es Malala Yousafzai? | Bios Aula365", "FlexFlix Kids en Español", 402973]],
+    ],
+    "Cuando los derechos no se respetan": [
+      ["Quién defiende los derechos", `<p>Para que los derechos no se queden en el papel, hay organizaciones que trabajan cada día para protegerlos:</p><ul><li><b>La ONU</b> (Organización de las Naciones Unidas), creada en 1945, reúne a casi todos los países del mundo para mantener la paz y promover los derechos humanos.</li><li><b>UNICEF</b>, la agencia de la ONU para la infancia, lleva vacunas, agua, alimentos y escuelas a los niños de todo el mundo.</li><li><b>ACNUR</b>, la agencia de la ONU para los <b>refugiados</b>: personas que han tenido que huir de su país por guerras o persecuciones. Hoy hay más de 100 millones de personas desplazadas por la fuerza en el mundo.</li><li><b>Cruz Roja</b>, fundada en 1863 por el suizo Henry Dunant tras ver el sufrimiento de los heridos en una batalla. Ayuda en guerras, catástrofes y emergencias.</li><li><b>Amnistía Internacional</b>: investiga y denuncia violaciones de derechos humanos, como la tortura o el encarcelamiento injusto.</li><li><b>Save the Children</b>, fundada en 1919 por Eglantyne Jebb, defensora de los derechos de la infancia.</li></ul><p>En España existe además el <b>Defensor del Pueblo</b>, una institución a la que cualquier persona puede acudir si cree que la Administración no ha respetado sus derechos.</p><p>Muchas de estas organizaciones funcionan gracias a <b>voluntarios</b> y a donaciones de personas como tú y tu familia.</p>`,
+        H6.rueda("Defensores", "DERECHOS", [["ONU", cAZ], ["UNICEF", cVE], ["ACNUR", cNA], ["Cruz Roja", cRO]]), ["EhQr3TpumFM", "El trabajo infantil en una de las minas de Bolivia más peligrosas del mundo", "UNICEF en español", 227543]],
+    ],
+  },
+  final: [
+    ["Los derechos en la Constitución española", `<p>La <b>Constitución de 1978</b> dedica su <b>Título I</b> a los derechos y deberes fundamentales. Algunos artículos importantes:</p><ul><li><b>Artículo 14</b>: todos los españoles son <b>iguales ante la ley</b>, sin que pueda haber discriminación por nacimiento, raza, sexo, religión, opinión o cualquier otra circunstancia.</li><li><b>Artículo 15</b>: derecho a la vida y a la integridad física y moral; prohíbe la tortura.</li><li><b>Artículo 16</b>: libertad ideológica y religiosa.</li><li><b>Artículo 20</b>: libertad de expresión.</li><li><b>Artículo 27</b>: derecho a la <b>educación</b>. La enseñanza básica es obligatoria y gratuita.</li><li><b>Artículo 39</b>: los poderes públicos protegen a la familia y a la infancia, y los niños gozan de la protección de los acuerdos internacionales que velan por sus derechos.</li><li><b>Artículo 43</b>: derecho a la protección de la salud.</li><li><b>Artículo 45</b>: derecho a disfrutar de un medio ambiente adecuado y deber de conservarlo.</li></ul><p>Los derechos fundamentales tienen una protección especial: si alguien considera que se han vulnerado, puede acudir a los tribunales y, en último término, al <b>Tribunal Constitucional</b>, mediante el <b>recurso de amparo</b>.</p><p>La Constitución también recoge <b>deberes</b>, como contribuir con impuestos al sostenimiento de los servicios públicos.</p>`,
+      L6.filas("Constitución", [["art. 14", "igualdad", cAZ], ["art. 20", "expresión", cNA], ["art. 27", "educación", cVE], ["art. 45", "medio ambiente", cMO]])],
+    ["Tu voz cuenta: el derecho a participar", `<p>El <b>artículo 12</b> de la Convención sobre los Derechos del Niño dice que los niños y niñas tienen derecho a <b>expresar su opinión</b> en los asuntos que les afectan y a que esa opinión se tenga en cuenta, según su edad y madurez. Es el <mark>derecho a la participación</mark>.</p><p>No significa que los niños decidan todo, sino que los adultos deben <b>escucharlos</b> antes de tomar decisiones sobre ellos: en la familia, en el colegio, en el barrio o en un juicio.</p><p>¿Cómo puedes participar?</p><ul><li>En clase, eligiendo <b>delegados</b> y participando en las asambleas.</li><li>En el colegio, a través de la representación del alumnado en el consejo escolar o de proyectos como los de patios, reciclaje o convivencia.</li><li>En tu ciudad, en los <b>consejos de infancia y adolescencia</b>: muchos ayuntamientos los tienen para que niños y niñas propongan mejoras en parques, calles o actividades. UNICEF reconoce como <b>Ciudades Amigas de la Infancia</b> a los municipios que escuchan a sus niños.</li><li>Firmando campañas, escribiendo cartas a las autoridades o participando en asociaciones juveniles.</li></ul><p>Participar se aprende participando: informarse, dar tu opinión con argumentos, escuchar a los demás y aceptar las decisiones de la mayoría respetando a las minorías.</p>`,
+      H6.flujo("Participar", ["informarse|primero", "opinar|argumentar", "escuchar|a todos", "decidir|juntos"], cRO)],
+  ],
+  ejemplos: [
+    ["Un ayuntamiento va a reformar un parque infantil. ¿Qué derecho tienen los niños del barrio?", ["Les afecta directamente.", "Artículo 12 de la Convención."], "El derecho a ser escuchados y dar su opinión."],
+    ["Una persona cree que la Administración ha vulnerado sus derechos. ¿A quién puede acudir sin necesidad de abogado?", ["Institución que defiende a los ciudadanos.", "Recogida en la Constitución."], "Al Defensor del Pueblo."],
+  ],
+  errores: ["Pensar que los derechos humanos existieron siempre.", "Creer que el derecho a participar significa que los niños decidan todo."],
+  ejercicios: [
+    ["b", "¿Quién presidió la comisión que redactó la Declaración de 1948?", "Eleanor Roosevelt."],
+    ["b", "¿Qué escribió Olympe de Gouges?", "La Declaración de los Derechos de la Mujer y la Ciudadana."],
+    ["b", "¿Qué hace ACNUR?", "Protege a las personas refugiadas."],
+    ["b", "¿Qué artículo de la Constitución recoge la igualdad?", "El artículo 14."],
+    ["b", "¿Qué dice el artículo 12 de la Convención?", "Que los niños tienen derecho a ser escuchados."],
+    ["m", "¿Por qué el trabajo infantil perpetúa la pobreza?", "Porque sin estudios solo se accede a peores trabajos."],
+    ["m", "¿Quién fue Iqbal Masih?", "Un niño paquistaní esclavizado que denunció la esclavitud infantil."],
+    ["m", "¿Qué es el recurso de amparo?", "El recurso ante el Tribunal Constitucional para defender derechos fundamentales."],
+    ["m", "Ordena: Declaración de 1789, Carta Magna, Declaración Universal.", "Carta Magna (1215), 1789, Declaración Universal (1948)."],
+    ["m", "Escribe tres formas de participar en tu ciudad.", "Consejos de infancia, campañas, asociaciones."],
+    ["a", "Escribe una carta a un niño o niña de otro país sobre tus derechos.", "Respuesta abierta."],
+    ["a", "Propón al ayuntamiento una mejora para la infancia del barrio.", "Respuesta abierta."],
+    ["a", "Investiga una ONG y presenta su trabajo.", "Respuesta abierta."],
+    ["a", "Haz una línea del tiempo ilustrada de los derechos humanos.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["La Carta Magna es de…", ["1215", "1789", "1948"], "Historia."],
+    ["Malala recibió el Nobel con…", ["17 años", "30 años", "12 años"], "Infancia."],
+    ["La Cruz Roja la fundó…", ["Henry Dunant", "Gandhi", "Eleanor Roosevelt"], "Organizaciones."],
+    ["El artículo 27 de la Constitución trata de…", ["la educación", "el deporte", "los impuestos"], "Constitución."],
+    ["Las Ciudades Amigas de la Infancia las reconoce…", ["UNICEF", "la FIFA", "el Senado"], "Participación."],
+  ],
+  examen: [
+    ["En la lectura, ¿por qué la prima de Aisha no va a la escuela?", ["porque trabaja en el mercado", "porque está enferma", "porque no quiere"], "Lectura."],
+    ["El Día Mundial contra el Trabajo Infantil es el…", ["12 de junio", "25 de diciembre", "1 de enero"], "Infancia."],
+  ],
+  tarjetas: [
+    ["Historia", "Carta Magna 1215, 1789, Olympe de Gouges 1791, ONU 1948."],
+    ["Trabajo infantil", "Unos 138 millones; Iqbal Masih, Malala; educación."],
+    ["Defensores", "ONU, UNICEF, ACNUR, Cruz Roja, Amnistía, Defensor del Pueblo."],
+    ["España y participación", "Arts. 14, 20, 27; amparo; art. 12 de la Convención."],
+  ],
+  glosario: [
+    ["Carta Magna", "Documento de 1215 que limitó el poder del rey inglés."],
+    ["Ciudadano", "Miembro de una sociedad con derechos y deberes."],
+    ["Trabajo infantil", "Trabajo que impide estudiar o daña a un niño."],
+    ["Esclavitud", "Situación de quien es propiedad de otro y obligado a trabajar."],
+    ["Refugiado", "Persona que huye de su país por guerra o persecución."],
+    ["ACNUR", "Agencia de la ONU para los refugiados."],
+    ["ONG", "Organización no gubernamental sin ánimo de lucro."],
+    ["Defensor del Pueblo", "Institución que defiende a los ciudadanos ante la Administración."],
+    ["Recurso de amparo", "Recurso ante el Tribunal Constitucional."],
+    ["Derechos fundamentales", "Derechos con protección especial en la Constitución."],
+    ["Participación", "Tomar parte en las decisiones que nos afectan."],
+    ["Delegado", "Representante elegido por un grupo."],
+  ],
+  situacion: {
+    titulo: "Consejo infantil de la clase",
+    reto: "La clase simula un consejo de infancia que presenta propuestas al ayuntamiento.",
+    pasos: ["Investigad qué derechos de la infancia podrían mejorarse en el barrio.", "Debatid y votad tres propuestas concretas.", "Redactad una carta formal argumentando las propuestas.", "Enviadla al ayuntamiento o presentadla al equipo directivo."],
+    producto: "Una carta con propuestas argumentadas y el acta del consejo.",
+    evaluacion: ["Conoce la historia y los documentos de derechos.", "Identifica vulneraciones y organizaciones defensoras.", "Argumenta con respeto.", "Participa de forma democrática."],
+  },
+});
