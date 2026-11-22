@@ -94,3 +94,100 @@ module.exports = tema({
   ideas: ["Círculo cromático de seis colores con témperas.", "Dibujo del mismo paisaje en cálidos y en fríos para comparar emociones.", "Caza de colores complementarios en obras de arte."],
   fuentes: [["Museo Nacional del Prado: educación", "https://www.museodelprado.es/aprende"], ["Museo Picasso Málaga: educación", "https://www.museopicassomalaga.org/"]],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Mezclar colores y obtener tonos y matices", "Distinguir colores terciarios", "Reconocer lo que expresan los colores", "Usar el color con intención en un dibujo"],
+  lectura: { titulo: "El arcoíris de Nora", html: `<p>Una tarde de primavera, después de una tormenta, Nora se asoma a la ventana y ve un arcoíris enorme sobre los tejados.</p><p>—¡Mamá, corre! ¡Tiene todos los colores!</p><p>Nora coge su caja de pinturas para dibujarlo, pero se lleva una sorpresa: solo le quedan el rojo, el amarillo, el azul y el blanco. Los demás se le gastaron en el colegio.</p><p>—No puedo pintar el arcoíris —dice triste.</p><p>Su madre sonríe y le trae un plato viejo.</p><p>—Con esos tres colores puedes hacer casi todos los demás. Prueba a mezclar.</p><p>Nora pone un poco de amarillo y un poco de rojo, y aparece un naranja precioso. Después mezcla amarillo y azul, y sale verde. Con rojo y azul consigue un violeta. Con un poco de blanco, el azul se vuelve azul cielo.</p><p>Al final, el plato está lleno de manchas de colores y su arcoíris de papel brilla casi tanto como el de verdad.</p><p>—¡Los colores son mágicos! —dice Nora.</p><p>—No es magia —responde su madre—. Es el círculo cromático.</p>` },
+  tras: {
+    "Los colores secundarios": [
+      ["Los colores terciarios", `<p>Ya sabes que al mezclar dos <b>primarios</b> obtenemos un <b>secundario</b>. Pero podemos seguir mezclando: si juntamos un color primario con el secundario que tiene al lado en el círculo, obtenemos un <mark>color terciario</mark>.</p><p>Hay seis colores terciarios:</p><ul><li><b>Amarillo + naranja</b> = amarillo anaranjado.</li><li><b>Rojo + naranja</b> = rojo anaranjado.</li><li><b>Rojo + violeta</b> = rojo violáceo.</li><li><b>Azul + violeta</b> = azul violáceo.</li><li><b>Azul + verde</b> = azul verdoso (turquesa).</li><li><b>Amarillo + verde</b> = amarillo verdoso (lima).</li></ul><p>Su nombre siempre lleva primero el color primario y después el secundario. Así sabemos de qué colores están hechos.</p><p>Con los terciarios, el círculo cromático pasa de 6 a <b>12 colores</b>. Cada color está entre los dos que lo forman, como en una familia ordenada.</p><p>Los pintores usan los terciarios para pasar de un color a otro poco a poco, sin saltos bruscos, por ejemplo en un cielo al atardecer.</p><p><b>Actividad</b>: con témperas, mezcla los seis terciarios y pinta con ellos una rueda de 12 colores.</p>`,
+        L6.filas("Terciarios", [["amarillo+naranja", "amarillo anaranjado", cNA], ["rojo+violeta", "rojo violáceo", cRO], ["azul+verde", "azul verdoso", cAZ], ["amarillo+verde", "amarillo verdoso", cVE]]),
+        ["b_dlTGhlpfU", "teoria del color I. Cómo mezclar colores básicos", "Alicia Gomar", 413207]],
+    ],
+    "Colores fríos": [
+      ["Lo que expresan los colores", `<p>Los colores no solo se ven: también nos hacen <mark>sentir</mark> cosas. Por eso los artistas los eligen con cuidado.</p><ul><li>El <b>rojo</b> suele expresar fuerza, energía, amor o peligro. Por eso es el color de las señales de alto.</li><li>El <b>amarillo</b> transmite alegría, luz y calor, como el sol.</li><li>El <b>naranja</b> es divertido y cálido, como el fuego de una chimenea o el otoño.</li><li>El <b>azul</b> da sensación de calma, tranquilidad y frío, como el mar o el cielo.</li><li>El <b>verde</b> recuerda la naturaleza, la vida y la esperanza.</li><li>El <b>violeta</b> nos parece misterioso y mágico.</li><li>Los colores <b>oscuros</b> pueden dar miedo o tristeza; los <b>claros</b>, suavidad y paz.</li></ul><p>No todas las personas sienten lo mismo con cada color, y en cada cultura pueden significar cosas distintas: en algunos países el blanco es el color del luto y en otros, de las bodas.</p><p>En los cuentos ilustrados y en el cine se usa mucho: una escena triste suele tener colores fríos y apagados; una fiesta, colores cálidos y vivos.</p><p><b>Actividad</b>: pinta dos veces la misma casa, una con colores alegres y otra con colores tristes. ¿Qué cambia?</p>`,
+        L6.filas("Emociones", [["rojo", "fuerza, amor", cRO], ["amarillo", "alegría", cNA], ["azul", "calma", cAZ], ["verde", "naturaleza", cVE]])],
+    ],
+    "Colores complementarios": [
+      ["Contraste y armonía", `<p>Cuando combinamos colores en un dibujo, podemos buscar dos efectos diferentes.</p><p><mark>Contraste</mark>: usamos colores muy distintos, que se separan mucho. El contraste más fuerte se consigue con los <b>complementarios</b> (rojo y verde, azul y naranja, amarillo y violeta) o con <b>claro y oscuro</b> (blanco y negro). El contraste llama la atención: por eso se usa en carteles, señales y portadas de libros. Un objeto rojo sobre un fondo verde parece que «salta» de la hoja.</p><p><mark>Armonía</mark>: usamos colores que se llevan bien porque están cerca en el círculo cromático, como amarillo, naranja y rojo, o azul, verde y turquesa. También hay armonía cuando usamos un solo color en tonos más claros y más oscuros (esto se llama <b>monocromía</b>). La armonía da sensación de calma y equilibrio.</p><p>Ni el contraste ni la armonía son mejores: depende de lo que queramos expresar. Un cartel de una fiesta pide contraste; un paisaje tranquilo al atardecer, armonía.</p><p><b>Actividad</b>: diseña dos carteles para el mismo concierto, uno con contraste y otro con armonía. Decid en clase cuál se ve mejor desde lejos.</p>`,
+        H6.dos("Combinar", ["CONTRASTE", ["opuestos", "llama la atención", "carteles"], cRO], ["ARMONÍA", ["vecinos", "calma", "paisajes"], cAZ])],
+    ],
+    "Blanco y negro: claro y oscuro": [
+      ["Tonos y matices", `<p>Un mismo color puede tener muchas versiones. A cada una la llamamos un <mark>tono</mark> o <b>matiz</b>.</p><ul><li>Si a un color le añadimos <b>blanco</b>, se vuelve más <b>claro</b>: el rojo se convierte en rosa, y el azul, en azul cielo.</li><li>Si le añadimos un poco de <b>negro</b>, se vuelve más <b>oscuro</b>: el rojo pasa a granate, y el azul, a azul marino.</li><li>Si le añadimos <b>gris</b> o un poco de su complementario, se vuelve más <b>apagado</b>, menos vivo.</li></ul><p>Una <b>escala de tonos</b> (o degradado) es una fila de cuadraditos del mismo color, ordenados del más claro al más oscuro. Sirve para practicar la mezcla y para dar <b>volumen</b> a los dibujos: la parte de un objeto donde da la luz se pinta más clara, y la parte en sombra, más oscura.</p><p><b>Truco</b>: para aclarar, pon primero el blanco y añade el color poco a poco. Para oscurecer, añade el negro de gota en gota, porque el negro es muy fuerte y lo cambia todo enseguida.</p><p><b>Actividad</b>: haz una escala de cinco tonos de verde, del verde más claro al más oscuro, y úsala para pintar las hojas de un árbol.</p>`,
+        H6.flujo("Escala", ["muy|claro", "claro|+blanco", "puro|color", "oscuro|+negro"], cVE)],
+    ],
+    "Los colores en el arte": [
+      ["Colores de la naturaleza", `<p>Antes de que existieran los tubos de pintura, las personas fabricaban los colores con lo que encontraban en la <mark>naturaleza</mark>. Estas sustancias que dan color se llaman <b>pigmentos</b>.</p><ul><li>Los artistas de la <b>Prehistoria</b> pintaban en las cuevas, como en Altamira, con tierras rojas y amarillas, con carbón y con grasa animal.</li><li>El azul más caro de la historia, el <b>azul ultramar</b>, se hacía moliendo una piedra preciosa llamada lapislázuli. ¡Valía más que el oro!</li><li>Algunos rojos salían de un pequeño insecto, la <b>cochinilla</b>, que todavía se usa hoy en alimentos.</li><li>Con plantas como la <b>cúrcuma</b> o el azafrán se tiñen telas de amarillo, y con el índigo, de azul.</li></ul><p>Hoy la mayoría de los pigmentos se fabrican en laboratorios, pero muchas personas siguen usando colores naturales.</p><p>Tú también puedes hacerlo: el zumo de remolacha da un rosa intenso, el café, un marrón, las espinacas cocidas, un verde, y la piel de cebolla hervida, un naranja.</p><p><b>Actividad</b>: con ayuda de un adulto, prepara pinturas con alimentos y pinta un dibujo con ellas. ¿Duran igual que las témperas?</p>`,
+        L6.filas("Pigmentos", [["tierra", "rojo, amarillo", cNA], ["lapislázuli", "azul ultramar", cAZ], ["cochinilla", "rojo", cRO], ["espinacas", "verde", cVE]])],
+    ],
+  },
+  final: [
+    ["El color a nuestro alrededor", `<p>El color no está solo en los cuadros. Está en todas partes y muchas veces nos da <mark>información</mark>.</p><ul><li><b>Semáforos</b>: rojo para parar, ámbar para tener cuidado y verde para pasar.</li><li><b>Contenedores de reciclaje</b>: amarillo para envases, azul para papel y cartón, verde para vidrio y marrón para restos orgánicos.</li><li><b>Señales</b>: las de peligro llevan borde rojo; las de información, fondo azul.</li><li><b>Equipos deportivos</b>: cada equipo tiene sus colores para distinguirse.</li><li><b>Banderas</b>: cada país elige colores con un significado para su historia.</li></ul><p>También las <b>marcas</b> y los anuncios eligen sus colores con cuidado para que los recordemos. Muchos restaurantes de comida rápida usan rojo y amarillo porque llaman la atención y dan sensación de energía.</p><p>Y en la naturaleza los colores también hablan: muchos animales venenosos, como algunas ranas, tienen colores muy vivos para avisar de que son peligrosos, y otros se <b>camuflan</b> con los colores de su entorno para que no los vean.</p><p><b>Actividad</b>: da un paseo por el colegio y apunta cinco lugares donde el color nos da un mensaje.</p>`,
+      L6.filas("Mensajes", [["semáforo", "rojo: parar", cRO], ["reciclaje", "azul: papel", cAZ], ["vidrio", "verde", cVE], ["envases", "amarillo", cNA]])],
+    ["Grandes artistas del color", `<p>Algunos artistas convirtieron el color en el gran protagonista de sus obras.</p><ul><li><b>Henri Matisse</b> (Francia) pintaba con colores muy puros y vivos. Al final de su vida, cuando ya no podía pintar de pie, <b>recortaba papeles</b> de colores y hacía con ellos grandes collages, como <i>El caracol</i>.</li><li><b>Vasili Kandinsky</b> (Rusia) creía que los colores eran como la música. Pintaba círculos, líneas y manchas de colores sin dibujar nada real: es la <b>pintura abstracta</b>. Su obra <i>Estudio de color: cuadrados con círculos concéntricos</i> es muy fácil de imitar en clase.</li><li><b>Sonia Delaunay</b> (Ucrania-Francia) pintó cuadros, telas y vestidos llenos de círculos de colores en movimiento.</li><li><b>Joaquín Sorolla</b> (Valencia) es llamado «el pintor de la luz»: pintaba playas con colores brillantes que parecen llenos de sol.</li></ul><p>Estos artistas nos enseñan que con el color podemos expresar alegría, ritmo y luz, aunque no dibujemos nada concreto.</p><p><b>Actividad</b>: a la manera de Kandinsky, pinta una cuadrícula de 12 cuadrados con círculos de colores dentro. Usa colores que contrasten.</p>`,
+      H6.rueda("Artistas", "COLOR", [["Matisse", cAZ], ["Kandinsky", cRO], ["Delaunay", cVE], ["Sorolla", cNA]])],
+  ],
+  ejemplos: [
+    ["¿Qué color obtengo al mezclar azul y verde?", ["El azul es primario y el verde es secundario.", "Es un terciario: primero el primario."], "Azul verdoso (turquesa)."],
+    ["¿Cómo consigo un rosa a partir del rojo?", ["Para aclarar se añade blanco.", "Se pone el blanco y se añade el rojo poco a poco."], "Mezclando rojo con blanco."],
+  ],
+  errores: ["Añadir mucho negro de golpe: oscurece demasiado y estropea la mezcla.", "Pensar que contraste y armonía son lo mismo: el contraste usa opuestos y la armonía, vecinos."],
+  ejercicios: [
+    ["b", "¿Cuántos colores tiene el círculo con terciarios?", "Doce."],
+    ["b", "¿Qué se añade a un color para aclararlo?", "Blanco."],
+    ["b", "¿Qué expresa normalmente el azul?", "Calma y tranquilidad."],
+    ["b", "¿Qué es un pigmento?", "Una sustancia que da color."],
+    ["b", "¿De qué color es el contenedor del papel?", "Azul."],
+    ["m", "Escribe la mezcla del rojo violáceo.", "Rojo + violeta."],
+    ["m", "Explica la diferencia entre contraste y armonía.", "Contraste: colores opuestos que llaman la atención; armonía: colores cercanos que dan calma."],
+    ["m", "¿Qué es una escala de tonos?", "Una fila del mismo color del más claro al más oscuro."],
+    ["m", "¿Con qué se hacía el azul ultramar?", "Moliendo lapislázuli."],
+    ["m", "¿Por qué algunos animales venenosos tienen colores vivos?", "Para avisar de que son peligrosos."],
+    ["a", "En la lectura, ¿cómo consigue Nora pintar el arcoíris con pocos colores?", "Mezclando rojo, amarillo y azul para obtener los secundarios, y blanco para aclarar."],
+    ["a", "Diseña un cartel con contraste y explica qué colores elegiste.", "Respuesta abierta (complementarios o claro-oscuro)."],
+    ["a", "Pinta una emoción solo con colores, sin dibujar nada real, como Kandinsky.", "Respuesta abierta."],
+    ["a", "Busca cinco usos del color que den información en tu barrio.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Amarillo + verde da…", ["amarillo verdoso", "naranja", "violeta"], "Terciarios."],
+    ["El rojo con negro se vuelve…", ["granate", "rosa", "naranja"], "Tonos."],
+    ["Colores vecinos en el círculo crean…", ["armonía", "contraste", "complementarios"], "Combinar."],
+    ["El pintor que recortaba papeles de colores fue…", ["Matisse", "Goya", "Velázquez"], "Artistas."],
+    ["El contenedor del vidrio es…", ["verde", "azul", "amarillo"], "Color alrededor."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué colores le quedaban a Nora?", ["rojo, amarillo, azul y blanco", "verde y naranja", "solo negro"], "Lectura."],
+    ["A Sorolla lo llaman…", ["el pintor de la luz", "el pintor de las sombras", "el pintor de cuevas"], "Artistas."],
+  ],
+  tarjetas: [
+    ["Terciarios", "Primario + secundario vecino: 12 colores en el círculo."],
+    ["Tonos", "Con blanco, más claro; con negro, más oscuro."],
+    ["Contraste y armonía", "Opuestos que llaman la atención; vecinos que dan calma."],
+    ["Pigmentos", "Tierras, lapislázuli, cochinilla, plantas."],
+  ],
+  glosario: [
+    ["Color terciario", "Mezcla de un primario y un secundario vecino."],
+    ["Tono", "Cada versión más clara u oscura de un color."],
+    ["Matiz", "Pequeña variación de un color."],
+    ["Degradado", "Paso gradual de claro a oscuro."],
+    ["Contraste", "Unión de colores muy diferentes."],
+    ["Armonía", "Unión de colores que combinan bien."],
+    ["Monocromía", "Uso de un solo color en varios tonos."],
+    ["Pigmento", "Sustancia que da color."],
+    ["Lapislázuli", "Piedra azul usada para el azul ultramar."],
+    ["Camuflaje", "Colores que ayudan a esconderse."],
+    ["Pintura abstracta", "Pintura que no representa cosas reales."],
+    ["Collage", "Obra hecha pegando papeles u otros materiales."],
+  ],
+  situacion: {
+    titulo: "La exposición del color",
+    reto: "La clase prepara una exposición para enseñar a otros cursos cómo funcionan los colores y qué nos hacen sentir.",
+    pasos: ["Pintar un círculo cromático de 12 colores con témperas.", "Hacer escalas de tonos de tres colores.", "Pintar dos obras de la misma escena: una alegre y otra triste.", "Crear un cuadro abstracto a la manera de Kandinsky y explicarlo."],
+    producto: "Una exposición con círculos, escalas y cuadros, con carteles explicativos.",
+    evaluacion: ["Mezcla correctamente primarios, secundarios y terciarios.", "Aclara y oscurece colores con cuidado.", "Usa el color para expresar una emoción.", "Explica su obra con vocabulario del tema."],
+  },
+});

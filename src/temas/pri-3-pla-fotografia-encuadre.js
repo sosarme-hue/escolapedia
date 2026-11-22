@@ -95,3 +95,100 @@ module.exports = tema({
   ideas: ["Paseo fotográfico con cuatro retos de plano.", "Marcos de cartulina para practicar encuadres.", "Exposición de fotos con la explicación de cada encuadre."],
   fuentes: [["Museo Reina Sofía: fotografía", "https://www.museoreinasofia.es/"], ["Fundación Mapfre: exposiciones de fotografía", "https://www.fundacionmapfre.org/arte-y-cultura/"]],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Entender cómo funciona una cámara", "Usar el enfoque, el color y las líneas en una foto", "Respetar a las personas al fotografiar", "Contar una historia con una serie de fotos"],
+  lectura: { titulo: "La foto de la abuela", html: `<p>En casa de la abuela Rosa hay una caja de lata llena de fotos antiguas. Un sábado lluvioso, Marcos y su hermana Elena la abren sobre la mesa del comedor.</p><p>Las fotos son pequeñas, con los bordes blancos y ondulados. Casi todas son en blanco y negro.</p><p>—¿Por qué no tienen colores? —pregunta Elena.</p><p>—Porque entonces casi todas las fotos se hacían así —explica la abuela—. Y no se podían ver al momento. Había que llevar el carrete a una tienda y esperar varios días.</p><p>Marcos coge una foto: una niña con trenzas, muy seria, delante de una puerta.</p><p>—¿Quién es?</p><p>—Soy yo, con siete años. Fue la primera foto que me hicieron. Mi padre ahorró para pagar al fotógrafo del pueblo.</p><p>Los niños se miran sorprendidos. Ellos tienen cientos de fotos en el móvil de sus padres.</p><p>—Por eso cada foto era un tesoro —dice la abuela—. Antes de disparar, pensábamos muy bien qué queríamos fotografiar.</p><p>Esa tarde, Marcos le hace una foto a la abuela con la caja en las manos. Antes de disparar, piensa muy bien el encuadre.</p>` },
+  tras: {
+    "¿Qué es la fotografía?": [
+      ["¿Cómo funciona una cámara?", `<p>Todas las cámaras, desde las más antiguas hasta la del móvil, funcionan con la misma idea: dejar entrar la <mark>luz</mark> por un agujerito y recogerla dentro, en la oscuridad.</p><ul><li>El <b>objetivo</b> es la parte delantera, con lentes de cristal. Por él entra la luz.</li><li>El <b>diafragma</b> es un agujero que se abre más o menos, como la pupila del ojo, para dejar pasar más o menos luz.</li><li>El <b>obturador</b> es una puertecita que se abre un instante cuando pulsamos el botón. ¡Clic!</li><li>El <b>sensor</b> (antes, la <b>película</b> o carrete) recoge la luz y guarda la imagen.</li><li>El <b>visor</b> o la <b>pantalla</b> nos deja ver lo que vamos a fotografiar.</li></ul><p>La idea viene de la <b>cámara oscura</b>: si en una habitación totalmente oscura hacemos un agujero pequeño en la ventana, en la pared de enfrente aparece la imagen de la calle, ¡pero al revés! Ya lo conocían los sabios de la Antigüedad.</p><p>Nuestro <b>ojo</b> funciona de forma parecida: la pupila deja pasar la luz y la retina la recoge.</p><p><b>Actividad</b>: con una caja de zapatos, papel vegetal y un alfiler, construid una cámara oscura y mirad la ventana a través de ella.</p>`,
+        L6.filas("Cámara", [["objetivo", "entra la luz", cAZ], ["diafragma", "más o menos luz", cVE], ["obturador", "¡clic!", cRO], ["sensor", "guarda la imagen", cNA]]),
+        ["8Lin117admE", "FOTOGRAFÍA para PEKES (y no tanto) en CASA", "RBG Escuela", 58835]],
+    ],
+    "El punto de vista": [
+      ["Enfocado y desenfocado", `<p>Una foto está <mark>enfocada</mark> cuando lo que fotografiamos se ve nítido, con los bordes claros. Está <b>desenfocada</b> cuando se ve borroso.</p><p>Las cámaras y los móviles enfocan solos, pero podemos ayudarles: si tocamos la pantalla del móvil sobre una cosa, la cámara la enfocará a ella.</p><p>Una foto puede salir <b>borrosa</b> por dos motivos:</p><ul><li>Porque la cámara ha enfocado otra cosa (por ejemplo, el fondo en vez de la persona).</li><li>Porque nos hemos <b>movido</b> al disparar, o se ha movido lo que fotografiamos. Esto se llama foto <b>movida</b>. Para evitarla, sujeta la cámara con las dos manos, pega los codos al cuerpo y pulsa el botón con suavidad.</li></ul><p>A veces el desenfoque se busca a propósito: si el <b>primer plano</b> está enfocado y el <b>fondo</b>, desenfocado, la persona o la flor destacan mucho más. Muchos móviles tienen el «modo retrato» para conseguirlo.</p><p>Y cuando algo se mueve muy deprisa, como una rueda o una cascada, el fotógrafo puede dejar a propósito una estela borrosa que transmite <b>velocidad</b>.</p><p><b>Actividad</b>: haz dos fotos de una flor: una con el fondo enfocado y otra con el fondo desenfocado. ¿Cuál te gusta más?</p>`,
+        H6.dos("Foco", ["ENFOCADO", ["nítido", "bordes claros", "destaca"], cAZ], ["BORROSO", ["sin nitidez", "fondo suave", "o movido"], cMO])],
+    ],
+    "La luz en la foto": [
+      ["Color o blanco y negro", `<p>Hoy casi todas las fotos son en color, pero durante casi cien años la fotografía fue en <mark>blanco y negro</mark>, como las de la lectura.</p><p>Una foto en blanco y negro no tiene colores, sino <b>grises</b>: desde el blanco más puro hasta el negro más profundo. Por eso en ella se notan mucho más:</p><ul><li>Las <b>luces y sombras</b>.</li><li>Las <b>formas</b> y las líneas.</li><li>Las <b>texturas</b>: arrugas, madera, piedra.</li><li>Las <b>expresiones</b> de las caras.</li></ul><p>El blanco y negro suele dar un aire <b>antiguo</b>, serio o elegante.</p><p>La foto en <b>color</b>, en cambio, es más alegre y real. Los colores llaman la atención y pueden expresar emociones, como en la pintura: colores cálidos para la alegría, colores fríos para la calma.</p><p>También existe el tono <b>sepia</b>, marrón y amarillento, que recuerda a las fotos muy antiguas.</p><p>Con el móvil podemos convertir una foto en color en blanco y negro con un solo toque. Prueba a hacerlo con un retrato y con un paisaje: verás que la misma foto transmite cosas distintas.</p><p><b>Actividad</b>: elige una foto tuya y compárala en color, en blanco y negro y en sepia. ¿Qué sientes con cada una?</p>`,
+        L6.filas("Versiones", [["color", "alegre, real", cRO], ["blanco y negro", "luces, formas", cAZ], ["sepia", "antigua", cNA], ["grises", "texturas", cMO]])],
+    ],
+    "Componer la foto: la regla de los tercios": [
+      ["Líneas que guían la mirada", `<p>En una buena foto, nuestros ojos saben adónde mirar. Los fotógrafos usan las <mark>líneas</mark> del paisaje para llevar la mirada hacia lo importante.</p><ul><li><b>Líneas que se alejan</b>: un camino, una vía de tren o una fila de árboles que se pierde a lo lejos nos lleva la mirada hasta el fondo. Si al final hay una persona o una casa, la veremos enseguida.</li><li><b>Líneas horizontales</b>: el mar, el horizonte o un banco transmiten <b>calma</b>.</li><li><b>Líneas verticales</b>: árboles, farolas o edificios transmiten <b>fuerza</b> y altura.</li><li><b>Líneas diagonales</b>: una escalera o una rampa transmiten <b>movimiento</b>.</li><li><b>Curvas</b>: un río o una carretera de montaña hacen la foto más suave.</li></ul><p>También podemos usar <b>marcos naturales</b>: fotografiar a través de una ventana, una puerta, un arco o unas ramas. El marco rodea lo importante y lo destaca.</p><p>Y la <b>simetría</b>: un edificio reflejado en un lago, o un pasillo visto desde el centro, dan fotos muy ordenadas y bonitas.</p><p><b>Actividad</b>: busca en el colegio un pasillo, una escalera y una ventana, y haz una foto usando cada uno para guiar la mirada.</p>`,
+        H6.flujo("Líneas", ["horizontal|calma", "vertical|fuerza", "diagonal|movimiento", "curva|suavidad"], cVE)],
+    ],
+    "Fotógrafos y fotos con historia": [
+      ["Fotografiar con respeto", `<p>Hacer fotos es divertido, pero también hay que hacerlo con <mark>respeto</mark>.</p><ul><li><b>Pide permiso</b> antes de fotografiar a una persona. Cada persona tiene derecho a decidir sobre su propia imagen.</li><li><b>No compartas</b> fotos de otras personas sin su permiso, sobre todo en internet. Lo que se sube a internet puede quedarse allí para siempre.</li><li><b>Borra</b> la foto si alguien te lo pide.</li><li>No hagas fotos para <b>burlarte</b> de nadie.</li><li>En museos, iglesias y algunos espectáculos, <b>no siempre se pueden hacer fotos</b>, o no con flash, porque la luz fuerte estropea las obras de arte o molesta.</li><li>Cuida tu <b>propia imagen</b>: no envíes fotos tuyas a personas que no conoces y pregunta siempre a un adulto.</li></ul><p>En España, la ley protege especialmente la imagen de los <b>niños y niñas</b>. Por eso en las excursiones y en las fiestas del colegio piden permiso a las familias antes de publicar fotos.</p><p>Una buena fotógrafa o un buen fotógrafo no solo hace fotos bonitas: también trata bien a las personas que fotografía.</p><p><b>Actividad</b>: escribid en grupo cinco normas para hacer fotos en clase y colgadlas en la pared.</p>`,
+        H6.rueda("Respeto", "FOTOS", [["permiso", cVE], ["no subir", cRO], ["borrar", cAZ], ["sin flash", cNA]])],
+    ],
+  },
+  final: [
+    ["Contar una historia con fotos", `<p>Una sola foto puede contar mucho, pero con <mark>varias fotos en orden</mark> podemos contar una historia completa, como en un cómic.</p><p>Una <b>serie fotográfica</b> es un grupo de fotos sobre un mismo tema. Una <b>fotonovela</b> es una historia contada con fotos y bocadillos, igual que un cómic, pero con personas reales que actúan.</p><p>Para hacer una buena historia con fotos:</p><ul><li><b>1. Piensa la historia</b>: con principio, nudo y final. Por ejemplo, cómo se planta una semilla y cómo crece.</li><li><b>2. Haz un guion</b> con las fotos que necesitas: unas cinco o seis.</li><li><b>3. Varía los planos</b>: un plano general para situar la historia, primeros planos para las caras y planos detalle para los objetos importantes.</li><li><b>4. Ordena las fotos</b> y elige las mejores. No hace falta usarlas todas.</li><li><b>5. Añade textos</b> cortos o bocadillos si lo necesitas.</li></ul><p>También se puede hacer una serie de fotos del <b>mismo lugar</b> en distintos momentos: el patio por la mañana y por la tarde, o un árbol en cada estación.</p><p><b>Actividad</b>: en grupos, haced una fotonovela de seis fotos sobre una aventura en el colegio.</p>`,
+      H6.flujo("Historia", ["idea|principio", "guion|6 fotos", "planos|variados", "ordenar|y textos"], cRO)],
+    ["Guardar y retocar las fotos", `<p>Después de hacer las fotos, hay que <mark>elegirlas, ordenarlas y cuidarlas</mark>.</p><p><b>Elegir</b>: con el móvil hacemos muchas fotos parecidas. Un buen fotógrafo elige solo las mejores: las que están enfocadas, bien encuadradas y cuentan algo. Las demás se borran.</p><p><b>Ordenar</b>: guardar las fotos en carpetas o álbumes con un nombre (por ejemplo, «Excursión granja 2026») ayuda a encontrarlas después.</p><p><b>Retocar</b>: los programas y aplicaciones permiten:</p><ul><li><b>Recortar</b> la foto para mejorar el encuadre.</li><li><b>Girarla</b> si el horizonte ha quedado torcido.</li><li><b>Aclararla</b> u oscurecerla.</li><li>Cambiar los colores o pasarla a blanco y negro.</li></ul><p>Pero cuidado: algunas fotos de internet y de anuncios están tan retocadas que <b>no muestran la realidad</b>. Personas con la piel perfecta, comidas que parecen enormes, paisajes con colores imposibles… Hay que mirarlas con <b>sentido crítico</b>.</p><p>Por último, las fotos más especiales se pueden <b>imprimir</b>, como las de la caja de la abuela Rosa. Un álbum de papel dura muchos años.</p><p><b>Actividad</b>: elige tus tres mejores fotos del paseo fotográfico, recórtalas para mejorar el encuadre y explica por qué las elegiste.</p>`,
+      L6.filas("Después", [["elegir", "las mejores", cVE], ["ordenar", "álbumes", cAZ], ["retocar", "recortar, girar", cNA], ["imprimir", "dura años", cMO]])],
+  ],
+  ejemplos: [
+    ["Una foto ha salido borrosa porque te moviste. ¿Cómo lo evitas?", ["La foto movida se debe al movimiento.", "Hay que sujetar bien la cámara."], "Sujetando con las dos manos, codos pegados y pulsando suavemente."],
+    ["¿Qué líneas usarías para transmitir calma?", ["Cada tipo de línea expresa algo.", "Las horizontales, como el mar, dan calma."], "Líneas horizontales."],
+  ],
+  errores: ["Hacer fotos a otras personas o subirlas a internet sin pedir permiso.", "Creer que todas las fotos de internet muestran la realidad, aunque estén retocadas."],
+  ejercicios: [
+    ["b", "¿Por qué parte de la cámara entra la luz?", "Por el objetivo."],
+    ["b", "¿Qué parte se abre al pulsar el botón?", "El obturador."],
+    ["b", "¿Qué es una foto movida?", "Una foto borrosa porque se movió la cámara o el objeto."],
+    ["b", "¿Qué tono marrón recuerda a las fotos antiguas?", "El sepia."],
+    ["b", "¿Qué hay que hacer antes de fotografiar a una persona?", "Pedirle permiso."],
+    ["m", "Explica qué es la cámara oscura.", "Una habitación oscura con un agujero donde aparece la imagen de fuera al revés."],
+    ["m", "¿Qué se nota más en una foto en blanco y negro?", "Las luces y sombras, las formas, las texturas y las expresiones."],
+    ["m", "¿Qué transmite una línea diagonal?", "Movimiento."],
+    ["m", "¿Qué es una fotonovela?", "Una historia contada con fotos y bocadillos."],
+    ["m", "¿Para qué sirve recortar una foto?", "Para mejorar el encuadre."],
+    ["a", "En la lectura, ¿por qué cada foto antigua era un tesoro?", "Porque eran caras, había pocas y había que esperar días para verlas."],
+    ["a", "Haz una serie de cuatro fotos del mismo árbol o rincón en momentos distintos.", "Respuesta abierta."],
+    ["a", "Busca en un anuncio una foto retocada y explica qué cambiaron.", "Respuesta abierta."],
+    ["a", "Compara el ojo humano con una cámara.", "La pupila es como el diafragma y la retina como el sensor."],
+  ],
+  quiz: [
+    ["La parte que guarda la imagen en una cámara digital es…", ["el sensor", "el visor", "el objetivo"], "Cámara."],
+    ["Fondo borroso y persona nítida se consigue con…", ["el modo retrato", "el flash", "el sepia"], "Foco."],
+    ["Un camino que se aleja sirve para…", ["guiar la mirada", "oscurecer la foto", "hacer sepia"], "Líneas."],
+    ["En los museos a menudo no se puede usar…", ["el flash", "los ojos", "el permiso"], "Respeto."],
+    ["Una historia con fotos y bocadillos es una…", ["fotonovela", "cámara oscura", "silueta"], "Historia."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué edad tenía la abuela en su primera foto?", ["siete años", "dos años", "veinte años"], "Lectura."],
+    ["La puertecita que se abre un instante es…", ["el obturador", "el sensor", "el visor"], "Cámara."],
+  ],
+  tarjetas: [
+    ["La cámara", "Objetivo, diafragma, obturador y sensor."],
+    ["Enfoque", "Nítido o borroso; foto movida; modo retrato."],
+    ["Líneas", "Horizontales calma, verticales fuerza, diagonales movimiento."],
+    ["Respeto", "Pedir permiso, no subir sin permiso, borrar si lo piden."],
+  ],
+  glosario: [
+    ["Objetivo", "Parte de la cámara con lentes por donde entra la luz."],
+    ["Diafragma", "Agujero que deja pasar más o menos luz."],
+    ["Obturador", "Puertecita que se abre al disparar."],
+    ["Sensor", "Pieza que recoge la luz y guarda la imagen."],
+    ["Cámara oscura", "Caja o sala oscura con un agujero que proyecta la imagen."],
+    ["Enfocar", "Conseguir que la imagen se vea nítida."],
+    ["Foto movida", "Foto borrosa por el movimiento."],
+    ["Sepia", "Tono marrón de las fotos antiguas."],
+    ["Marco natural", "Ventana, arco o ramas que rodean lo importante."],
+    ["Serie fotográfica", "Grupo de fotos sobre un mismo tema."],
+    ["Fotonovela", "Historia contada con fotos y bocadillos."],
+    ["Retocar", "Cambiar una foto con un programa."],
+  ],
+  situacion: {
+    titulo: "El colegio en fotos",
+    reto: "La clase prepara una exposición de fotos que muestre el colegio de una manera diferente, cuidando la técnica y el respeto.",
+    pasos: ["Construir una cámara oscura y entender cómo entra la luz.", "Escribir las normas de respeto para hacer fotos.", "Hacer fotos usando líneas, marcos, enfoque y blanco y negro.", "Elegir, recortar y ordenar las mejores fotos para la exposición."],
+    producto: "Una exposición de fotos con título y una fotonovela por grupo.",
+    evaluacion: ["Explica las partes de la cámara.", "Usa líneas, planos y enfoque con intención.", "Pide permiso y respeta las normas.", "Elige y ordena sus fotos con sentido."],
+  },
+});

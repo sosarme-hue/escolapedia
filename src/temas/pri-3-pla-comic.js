@@ -99,3 +99,100 @@ module.exports = tema({
   ideas: ["Tebeo de la clase con una tira de cada alumno.", "Muestrario de onomatopeyas inventadas.", "Rincón de lectura de cómics en la biblioteca."],
   fuentes: [["Biblioteca Nacional de España: el cómic", "https://www.bne.es/es/colecciones/comic"], ["Diccionario de la RAE: tebeo", "https://dle.rae.es/tebeo"]],
 });
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Crear un personaje de cómic con rasgos propios", "Usar planos y fondos en las viñetas", "Conocer la historia del cómic y sus autores", "Planificar un cómic con guion y boceto"],
+  lectura: { titulo: "El superhéroe de Hugo", html: `<p>Hugo no sabía escribir cuentos largos. Cada vez que la maestra pedía una redacción, se quedaba mirando la hoja en blanco durante media hora.</p><p>Un día, la maestra propuso algo distinto:</p><p>—Esta semana vamos a contar una historia en un cómic de seis viñetas.</p><p>A Hugo se le iluminó la cara. Le encantaba dibujar. Esa tarde inventó a su personaje: el Capitán Calcetín, un calcetín desparejado que buscaba a su compañero por toda la casa.</p><p>En la primera viñeta, el Capitán salía de la lavadora. En la segunda, buscaba bajo la cama y un bocadillo decía: «¿Dónde estás, hermano?». En la tercera, un perro enorme lo perseguía: «¡GUAU, GUAU!». Hugo dibujó líneas de movimiento para que se notara lo rápido que corría.</p><p>En la última viñeta, el calcetín encontraba a su pareja en la mochila del perro. Los dos se abrazaban con corazones alrededor.</p><p>Cuando Hugo leyó su cómic en voz alta, toda la clase se rio.</p><p>—¿Ves? —le dijo la maestra—. Sí sabes contar historias. Solo necesitabas tu propia forma de hacerlo.</p>` },
+  tras: {
+    "La viñeta y la tira": [
+      ["Planos en las viñetas", `<p>En el cómic, igual que en el cine, el dibujante decide <mark>desde qué distancia</mark> vemos a los personajes. Cada forma de encuadrar se llama <b>plano</b>.</p><ul><li><b>Plano general</b>: se ve el personaje entero y mucho paisaje alrededor. Sirve para mostrar <b>dónde</b> ocurre la historia: una ciudad, un bosque, una playa.</li><li><b>Plano entero</b>: se ve al personaje de pies a cabeza. Sirve para ver lo que hace, por ejemplo correr o saltar.</li><li><b>Plano medio</b>: se ve de la cintura para arriba. Es el plano típico de las conversaciones.</li><li><b>Primer plano</b>: solo se ve la cara. Sirve para mostrar <b>emociones</b>: sorpresa, miedo, alegría.</li><li><b>Plano detalle</b>: se ve una sola cosa muy de cerca, como una llave, un ojo o una nota. Sirve para que el lector se fije en algo importante.</li></ul><p>Un buen cómic <b>combina</b> planos distintos. Si todas las viñetas tienen el mismo plano, la historia resulta aburrida. Normalmente se empieza con un plano general para situar al lector.</p><p><b>Actividad</b>: dibuja a un mismo personaje en tres viñetas: plano general, plano medio y primer plano.</p>`,
+        H6.flujo("Planos", ["general|lugar", "entero|acción", "medio|diálogo", "primer|emoción"], cAZ)],
+    ],
+    "Los bocadillos": [
+      ["Las letras en el cómic", `<p>En un cómic, las <mark>letras</mark> también se dibujan, y su forma nos dice cómo se habla.</p><ul><li>Las letras <b>normales</b>, en mayúsculas y claras, son para hablar en tono normal. Muchos cómics escriben todo en mayúsculas para que se lea bien.</li><li>Las letras <b>grandes y gruesas</b> indican que el personaje <b>grita</b>: «¡SOCORRO!».</li><li>Las letras <b>pequeñitas</b> indican que habla muy bajo, que susurra o que está cansado.</li><li>Las letras <b>temblorosas</b> indican miedo o frío.</li><li>Las letras <b>en negrita</b> señalan la palabra más importante de una frase.</li></ul><p>Los dibujantes usan también <b>signos</b> dentro de los bocadillos para expresar sin palabras:</p><ul><li>«<b>?</b>» para la duda o la sorpresa.</li><li>«<b>!</b>» para el asombro.</li><li>«<b>...</b>» cuando el personaje se queda callado.</li><li>Una <b>bombilla</b> para una idea; <b>notas musicales</b> para cantar; <b>zzz</b> para dormir; <b>sapos y culebras</b> o rayos para los enfados.</li></ul><p>Estos signos se llaman <b>metáforas visuales</b>, porque dicen con un dibujo lo que siente o piensa el personaje.</p><p><b>Actividad</b>: escribe «hola» de cuatro maneras distintas: gritando, susurrando, con miedo y con alegría.</p>`,
+        L6.filas("Letras", [["grandes", "grita", cRO], ["pequeñas", "susurra", cAZ], ["temblorosas", "miedo", cMO], ["bombilla", "idea", cNA]])],
+    ],
+    "Caras que hablan: las emociones": [
+      ["Crear un personaje", `<p>Todo cómic necesita un buen <mark>personaje</mark>. Para crearlo, hazte estas preguntas:</p><ul><li><b>¿Quién es?</b> Puede ser una persona, un animal, un robot o incluso un objeto, como el calcetín de la lectura.</li><li><b>¿Cómo es por fuera?</b> Elige una forma sencilla para la cabeza y el cuerpo (un círculo, un rectángulo, un triángulo) y un <b>rasgo especial</b> que lo distinga: un pelo de punta, unas gafas enormes, una capa, un sombrero.</li><li><b>¿Cómo es por dentro?</b> ¿Es valiente, despistado, gruñón, miedoso? Su carácter decidirá cómo actúa.</li><li><b>¿Qué quiere?</b> Todo personaje busca algo, y eso mueve la historia.</li></ul><p>Un consejo muy importante: el personaje tiene que ser <b>fácil de dibujar</b>, porque lo vas a repetir en todas las viñetas. Si es muy complicado, en cada viñeta te saldrá diferente.</p><p>Los dibujantes hacen una <b>hoja de personaje</b>: lo dibujan de frente, de perfil y de espaldas, con varias expresiones, para que siempre se parezca.</p><p><b>Actividad</b>: inventa un personaje y dibuja su hoja de personaje: de frente, de perfil, contento y enfadado.</p>`,
+        H6.rueda("Personaje", "¿QUIÉN?", [["forma", cAZ], ["rasgo", cRO], ["carácter", cVE], ["deseo", cNA]])],
+    ],
+    "Líneas de movimiento": [
+      ["El fondo y el color", `<p>Los personajes no flotan en el aire: están en un <mark>lugar</mark>. El <b>fondo</b> de la viñeta nos dice dónde ocurre la escena y si es de día o de noche.</p><p>No hace falta dibujar el fondo en todas las viñetas. Un truco de los dibujantes es dibujarlo con detalle en la primera viñeta de cada escena (en plano general) y luego simplificarlo, o poner solo un color, para que destaquen los personajes.</p><p>El <b>color</b> también cuenta cosas:</p><ul><li>Colores <b>cálidos</b> (rojo, naranja) para escenas de acción, peligro o enfado.</li><li>Colores <b>fríos</b> (azul, violeta) para la noche, la tristeza o el misterio.</li><li>Un fondo <b>de un solo color</b> muy vivo, sin dibujo, para un momento de sorpresa.</li></ul><p>Muchos cómics se colorean después de dibujar a lápiz y repasar con <b>tinta negra</b>. Este repaso se llama <b>entintado</b> y hace que las líneas queden limpias.</p><p>También hay cómics en <b>blanco y negro</b>, como muchos mangas japoneses, que usan tramas de puntos y rayas para hacer sombras.</p><p><b>Actividad</b>: dibuja la misma viñeta dos veces: una de día con colores cálidos y otra de noche con colores fríos.</p>`,
+        H6.dos("Color", ["CÁLIDOS", ["acción", "peligro", "alegría"], cRO], ["FRÍOS", ["noche", "tristeza", "misterio"], cAZ])],
+    ],
+    "Principio, nudo y final": [
+      ["Del guion al boceto", `<p>Los profesionales no dibujan un cómic directamente. Siguen unos <mark>pasos</mark>:</p><ul><li><b>1. La idea</b>: se piensa de qué tratará la historia en una o dos frases. Por ejemplo: «Un calcetín busca a su pareja por toda la casa».</li><li><b>2. El guion</b>: se escribe qué pasa en cada viñeta, qué dicen los personajes y qué sonidos hay. Es como el plan de la historia.</li><li><b>3. El boceto</b>: se dibujan las viñetas con muy poco detalle, con «muñecos de palitos», para decidir dónde va cada cosa y cuánto espacio dejar a los bocadillos.</li><li><b>4. El dibujo</b>: se dibuja a lápiz con detalle.</li><li><b>5. El entintado</b>: se repasan las líneas con rotulador negro y se borra el lápiz.</li><li><b>6. El color y las letras</b>: se colorea y se escriben los textos.</li></ul><p>En los cómics grandes, cada paso lo hace una persona distinta: <b>guionista</b>, <b>dibujante</b>, <b>entintador</b>, <b>colorista</b> y <b>rotulista</b>. ¡Es un trabajo en equipo!</p><p>Un error frecuente es escribir los bocadillos al final y que no quepan. Por eso, en el boceto, hay que dejar el espacio de los textos desde el principio.</p><p><b>Actividad</b>: escribe el guion de una tira de cuatro viñetas antes de dibujarla.</p>`,
+        L6.filas("Pasos", [["1 idea", "una frase", cNA], ["2 guion", "qué pasa", cAZ], ["3 boceto", "palitos", cVE], ["4 tinta", "y color", cRO]]),
+        ["ID0swKPytGA", "Cómo crear una historieta paso a paso (con ejemplos fáciles)", "Te Lo Explico", 702848]],
+    ],
+  },
+  final: [
+    ["Historia del cómic", `<p>Contar historias con dibujos es muy antiguo. Las pinturas de las cuevas, los relieves de Egipto o los tapices medievales ya mostraban escenas en orden. Pero el <mark>cómic moderno</mark> nació a finales del siglo XIX en los periódicos.</p><ul><li>En <b>Estados Unidos</b> aparecieron las primeras tiras cómicas en los periódicos de los domingos. Después llegaron los superhéroes, como Superman (1938).</li><li>En <b>España</b>, los cómics se llamaron <b>tebeos</b> por una revista infantil llamada <i>TBO</i>, nacida en 1917. Muy famosos son <b>Mortadelo y Filemón</b>, de Francisco Ibáñez, y <b>Zipi y Zape</b>.</li><li>En <b>Bélgica y Francia</b> nacieron <b>Tintín</b>, el joven reportero de Hergé, y <b>Astérix</b>, el galo que bebe una poción mágica.</li><li>En <b>Japón</b> se llaman <b>manga</b> y se leen de derecha a izquierda. Sus personajes suelen tener ojos muy grandes.</li><li>En <b>Argentina</b>, Quino creó a <b>Mafalda</b>, una niña que hacía preguntas muy inteligentes sobre el mundo.</li></ul><p>Hoy el cómic se considera un arte, a veces llamado <b>el noveno arte</b>, y hay museos y festivales dedicados a él.</p><p><b>Actividad</b>: trae a clase tu tebeo favorito y explica de qué país es y quién lo creó.</p>`,
+      L6.filas("Países", [["España", "tebeo, Mortadelo", cRO], ["Bélgica", "Tintín", cAZ], ["Japón", "manga", cMO], ["Argentina", "Mafalda", cVE]])],
+    ["Cómics sin palabras", `<p>Algunos cómics se cuentan <mark>sin una sola palabra</mark>: todo se entiende por los dibujos. Se llaman <b>cómics mudos</b>.</p><p>Para que se entiendan bien, el dibujante tiene que:</p><ul><li>Dibujar las <b>expresiones</b> de las caras muy claras: cejas, ojos y boca dicen lo que siente el personaje.</li><li>Usar <b>gestos</b> del cuerpo exagerados: brazos arriba para la alegría, hombros caídos para la tristeza.</li><li>Ordenar bien las <b>acciones</b>, paso a paso, para que el lector no se pierda.</li><li>Usar <b>metáforas visuales</b> y onomatopeyas, que no son palabras de un idioma concreto.</li></ul><p>Los cómics mudos tienen una gran ventaja: los puede leer <b>cualquier persona del mundo</b>, hable el idioma que hable, e incluso niños que todavía no saben leer.</p><p>También sirven para practicar: si tu historia se entiende sin texto, es que los dibujos están bien contados. Muchos dibujantes prueban primero sus viñetas sin bocadillos para comprobarlo.</p><p><b>Actividad</b>: dibuja una tira muda de cuatro viñetas sobre algo que te pasó en el recreo. Pásala a un compañero y pídele que te cuente lo que entiende.</p>`,
+      H6.dos("Sin texto", ["SE USAN", ["caras", "gestos", "orden"], cVE], ["VENTAJA", ["todo el mundo", "sin idioma", "sin leer"], cNA])],
+  ],
+  ejemplos: [
+    ["¿Qué plano usarías para mostrar el miedo de un personaje?", ["El miedo se ve en la cara.", "El plano que muestra la cara es el primer plano."], "Primer plano."],
+    ["¿Cómo se escribe que un personaje grita?", ["Las letras muestran el tono.", "Para gritar, letras grandes y gruesas."], "Con letras grandes, gruesas y exclamaciones."],
+  ],
+  errores: ["Dibujar los bocadillos al final sin dejar espacio, y que el texto no quepa.", "Crear un personaje tan complicado que sale distinto en cada viñeta."],
+  ejercicios: [
+    ["b", "¿Qué plano muestra el lugar de la historia?", "El plano general."],
+    ["b", "¿Qué significa una bombilla sobre la cabeza?", "Que el personaje tiene una idea."],
+    ["b", "¿Cómo se llaman los cómics en Japón?", "Manga."],
+    ["b", "¿Qué es el entintado?", "Repasar con tinta negra el dibujo a lápiz."],
+    ["b", "En la lectura, ¿quién es el Capitán Calcetín?", "Un calcetín desparejado que busca a su compañero."],
+    ["m", "Ordena: boceto, idea, entintado, guion.", "Idea, guion, boceto, entintado."],
+    ["m", "¿Por qué se llaman tebeos en España?", "Por la revista infantil TBO."],
+    ["m", "¿Qué es una hoja de personaje?", "Dibujos del personaje desde varios lados y con varias expresiones."],
+    ["m", "¿Qué colores usarías para una escena de noche?", "Colores fríos: azul y violeta."],
+    ["m", "Nombra dos ventajas de un cómic mudo.", "Lo entiende cualquier persona y niños que no saben leer."],
+    ["a", "En la lectura, ¿qué recursos usa Hugo para que su cómic sea divertido?", "Un personaje original, bocadillos, la onomatopeya GUAU, líneas de movimiento y corazones."],
+    ["a", "Escribe el guion de un cómic de seis viñetas.", "Respuesta abierta."],
+    ["a", "Dibuja una tira usando al menos tres planos distintos.", "Respuesta abierta."],
+    ["a", "Compara un cómic español y un manga.", "Respuesta abierta (sentido de lectura, ojos grandes, color)."],
+  ],
+  quiz: [
+    ["El plano que muestra solo una cosa muy de cerca es…", ["plano detalle", "plano general", "plano medio"], "Planos."],
+    ["Las letras pequeñitas indican que el personaje…", ["susurra", "grita", "canta"], "Letras."],
+    ["Mortadelo y Filemón los creó…", ["Francisco Ibáñez", "Hergé", "Quino"], "Historia."],
+    ["El primer paso para hacer un cómic es…", ["la idea", "el color", "el entintado"], "Pasos."],
+    ["Un cómic sin palabras se llama…", ["cómic mudo", "tebeo", "guion"], "Sin texto."],
+  ],
+  examen: [
+    ["En la lectura, ¿dónde encuentra el calcetín a su pareja?", ["en la mochila del perro", "en la lavadora", "bajo la cama"], "Lectura."],
+    ["Mafalda es un cómic de…", ["Argentina", "Japón", "Bélgica"], "Historia."],
+  ],
+  tarjetas: [
+    ["Planos", "General, entero, medio, primer plano y detalle."],
+    ["Letras y signos", "Grandes para gritar, pequeñas para susurrar; bombilla, zzz."],
+    ["Pasos", "Idea, guion, boceto, dibujo, entintado, color y letras."],
+    ["Historia", "Tebeo, Mortadelo, Tintín, Astérix, manga, Mafalda."],
+  ],
+  glosario: [
+    ["Plano", "Distancia desde la que vemos la escena."],
+    ["Primer plano", "Plano que muestra la cara."],
+    ["Plano general", "Plano que muestra el lugar."],
+    ["Metáfora visual", "Dibujo que expresa una idea o emoción."],
+    ["Hoja de personaje", "Dibujos de un personaje desde varios lados."],
+    ["Fondo", "Lugar dibujado detrás de los personajes."],
+    ["Guion", "Plan escrito de lo que pasa en cada viñeta."],
+    ["Boceto", "Dibujo rápido de prueba."],
+    ["Entintado", "Repaso del dibujo con tinta negra."],
+    ["Tebeo", "Nombre del cómic en España."],
+    ["Manga", "Cómic japonés."],
+    ["Cómic mudo", "Cómic sin palabras."],
+  ],
+  situacion: {
+    titulo: "El tebeo de la clase",
+    reto: "Cada alumno crea un personaje y una tira, y la clase los reúne en un tebeo para la biblioteca del colegio.",
+    pasos: ["Inventar un personaje y hacer su hoja de personaje.", "Escribir la idea y el guion de una tira de seis viñetas.", "Hacer el boceto con planos variados y espacio para los bocadillos.", "Dibujar, entintar, colorear y unir todas las tiras en un tebeo con portada."],
+    producto: "Un tebeo de la clase con todas las tiras y una portada.",
+    evaluacion: ["Crea un personaje reconocible en todas las viñetas.", "Usa planos, bocadillos y onomatopeyas.", "Sigue los pasos de guion, boceto y entintado.", "La historia tiene principio, nudo y final."],
+  },
+});
