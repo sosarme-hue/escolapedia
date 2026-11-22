@@ -94,3 +94,90 @@ module.exports = tema({
   ideas: ["Rutina de calentamiento vocal de tres minutos antes de cada clase.", "Canon a tres voces con una melodía inventada por el grupo.", "Escuchar fragmentos de distintas voces y clasificarlas por su tesitura."],
   fuentes: [["Escolanía de Montserrat", "https://www.escolania.cat/"], ["Orfeó Català", "https://www.orfeocatala.cat/"]],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { L: L5, H: H5, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 75,
+  objetivos: ["Conocer grandes voces de la ópera española", "Mejorar la dicción y la articulación al cantar y al hablar", "Descubrir cantos tradicionales del mundo", "Experimentar con la percusión vocal y la lectura expresiva"],
+  lectura: { titulo: "La niña que cantaba en la escalera", html: `<p>En un piso pequeño de Barcelona, hace muchos años, vivía una niña que cantaba a todas horas: mientras ayudaba en casa, mientras bajaba la escalera y mientras esperaba en la cola del mercado. Su familia tenía poco dinero, y nadie imaginaba que aquella voz llegaría a los teatros más importantes del mundo.</p><p>Gracias a una familia que la ayudó a pagar sus estudios, la niña pudo entrar en el conservatorio del Liceu. Allí pasó años aprendiendo a respirar, a colocar la voz y a cuidarla como si fuera un tesoro. Se llamaba Montserrat Caballé.</p><p>Un día de 1965, en Nueva York, tuvo que sustituir a otra cantante en el último momento. Cuando terminó de cantar, el público se puso en pie y aplaudió durante más de veinte minutos. Al día siguiente, todos los periódicos hablaban de la soprano española.</p><p>Años después, Montserrat grabó con el cantante de rock Freddie Mercury una canción para los Juegos Olímpicos de Barcelona 92. Mucha gente que nunca había escuchado ópera descubrió así su voz.</p><p>Cuando le preguntaban por su secreto, ella decía que no había ningún secreto: solo trabajo, paciencia y mucho cariño por la música. Y añadía siempre lo mismo: «La voz hay que cuidarla todos los días».</p>` },
+  tras: {
+    "Los tipos de voz": [
+      ["Grandes voces de la ópera española", `<p>España ha dado al mundo algunas de las mejores voces de la <b>ópera</b>, un espectáculo en el que se canta toda la historia con acompañamiento de orquesta.</p><ul><li><b>Montserrat Caballé</b> (Barcelona, 1933-2018), <b>soprano</b>. Era famosa por sus <i>pianissimi</i>, unos sonidos agudos muy suaves que parecían flotar en el aire.</li><li><b>Victoria de los Ángeles</b> (Barcelona, 1923-2005), <b>soprano</b> de voz cálida y luminosa.</li><li><b>Teresa Berganza</b> (Madrid, 1933-2022), <b>mezzosoprano</b>. Fue una de las mejores intérpretes de <i>Carmen</i> y de las óperas de Mozart y Rossini.</li><li><b>Plácido Domingo</b> (Madrid, 1941), <b>tenor</b> que ha cantado más de cien papeles distintos y también ha dirigido orquestas.</li><li><b>José Carreras</b> (Barcelona, 1946), <b>tenor</b>. Junto a Plácido Domingo y el italiano Luciano Pavarotti formó el grupo <b>Los Tres Tenores</b>, que llenaba estadios.</li><li><b>Alfredo Kraus</b> (Las Palmas, 1927-1999), <b>tenor</b> famoso por su elegancia y por cuidar su voz durante toda su vida.</li></ul><p>Para cantar ópera sin micrófono por encima de una orquesta, estos cantantes entrenaron durante muchos años la respiración y la resonancia. Escuchar sus grabaciones es la mejor forma de distinguir los tipos de voz.</p>`,
+        L5.filas("Voces españolas", [["soprano", "Montserrat Caballé", cRO], ["mezzosoprano", "Teresa Berganza", cNA], ["tenor", "Plácido Domingo", cAZ], ["tenor", "José Carreras", cVE]]), ["RxZSP1Dc78Q", "Montserrat Caballé - O mio babbino caro", "LadyArmide", 34726900]],
+    ],
+    "Cantar bien: postura y respiración": [
+      ["Dicción y articulación", `<p>Cantar bien no es solo afinar: también hay que <b>pronunciar</b> con claridad para que el público entienda la letra. Eso se llama <b>dicción</b>.</p><p>Las <b>vocales</b> son las que llevan el sonido. Al cantar, hay que abrir bien la boca y alargarlas: en una nota larga sobre la palabra «sol», mantenemos la <b>o</b> y solo al final cerramos con la <b>l</b>.</p><p>Las <b>consonantes</b> dan claridad. Hay que pronunciarlas con energía, sobre todo al principio y al final de las palabras, y todos los cantantes del coro deben hacerlo a la vez.</p><p>Para entrenar la <b>articulación</b>, es decir, el movimiento de la lengua, los labios y la mandíbula, son muy útiles los <b>trabalenguas</b>. Empieza despacio y ve acelerando sin perder claridad:</p><ul><li><i>Tres tristes tigres tragaban trigo en un trigal.</i></li><li><i>Pablito clavó un clavito. ¿Qué clavito clavó Pablito?</i></li><li><i>El cielo está enladrillado; ¿quién lo desenladrillará?</i></li></ul><p>Otros ejercicios: decir las vocales exagerando mucho la forma de la boca (a, e, i, o, u), hacer «muecas» para relajar la cara o leer un texto con un lápiz entre los dientes, sin morderlo fuerte, y después sin él: notarás que pronuncias mucho mejor.</p><p>La buena dicción también te ayudará a hablar en público y a leer en voz alta.</p>`,
+        H5.flujo("Calentar la dicción", ["Muecas", "Vocales|exageradas", "Trabalen-|guas", "Cantar"], cVE), ["flQguql3uOw", "Los 10 mejores TRABALENGUAS DIFÍCILES", "Videonarium", 2505424]],
+    ],
+    "Cantar juntos: el coro": [
+      ["Cantos tradicionales del mundo", `<p>En todas las culturas del mundo, las personas cantan, y cada una tiene sus propias formas de hacerlo. Varias de ellas, como el flamenco, el canto difónico mongol, el canto a tenore o la polifonía georgiana, han sido declaradas por la UNESCO <b>Patrimonio Cultural Inmaterial de la Humanidad</b>.</p><ul><li>El <b>flamenco</b> (Andalucía), con su <b>cante</b> lleno de emoción, a menudo acompañado de guitarra, palmas y baile.</li><li>El <b>canto difónico</b> de <b>Mongolia</b> (khöömei): el cantante produce <b>dos sonidos a la vez</b> con la garganta, uno grave y continuo y otro agudo que suena como un silbido por encima.</li><li>El <b>yodel</b> de los Alpes: saltos rápidos entre la voz normal y la voz aguda de cabeza, que se oyen de una montaña a otra.</li><li>El <b>canto a tenore</b> de Cerdeña (Italia), cuatro voces masculinas, una de ellas muy grave y gutural.</li><li>Los <b>cantos polifónicos</b> de Georgia, en el Cáucaso, con voces que se entrelazan.</li></ul><p>En España también hay cantos de trabajo, nanas, jotas, albadas, habaneras o el <b>Misteri d'Elx</b>, un drama cantado que se representa cada agosto en Elche desde hace siglos y que también es Patrimonio de la Humanidad.</p><p>Pregunta en casa: ¿qué canciones te cantaban de pequeño? ¿Qué canciones cantaban tus abuelos? Así ayudas a que esos cantos no se pierdan.</p>`,
+        L5.filas("Cantos del mundo", [["flamenco", "España", cRO], ["khöömei", "Mongolia", cAZ], ["yodel", "Alpes", cVE], ["a tenore", "Cerdeña", cNA], ["Misteri d'Elx", "Elche", cMO]]), ["gLu91xnSvuc", "Bukhu \"River\"", "Bukhu Ganburged", 1474661]],
+    ],
+  },
+  final: [
+    ["Percusión vocal: el beatbox", `<p>Con la voz no solo se canta: también se pueden imitar instrumentos. El <b>beatbox</b> o <b>percusión vocal</b> consiste en imitar con la boca el sonido de una batería y otros efectos rítmicos.</p><p>Los tres sonidos básicos son:</p><ul><li><b>Bombo</b>: se pronuncia una <b>«b»</b> fuerte con los labios cerrados que se abren de golpe, sin voz. Suena «b».</li><li><b>Caja</b>: se pronuncia una <b>«p»</b> o una <b>«k»</b> explosiva, o un «pf» con los labios.</li><li><b>Charles</b>: se pronuncia una <b>«ts»</b> corta, como un pequeño chasquido.</li></ul><p>Combinándolos se hacen ritmos. Prueba este, muy sencillo, en un compás de cuatro tiempos:</p><p><b>b - ts - k - ts | b - ts - k - ts</b></p><p>Cuando lo domines, cambia el orden, añade más bombos o haz pausas. Los grandes beatboxers son capaces de hacer al mismo tiempo el ritmo, la línea del bajo e incluso cantar la melodía.</p><p>También hay grupos <b>a capela</b>, que cantan sin instrumentos: unas voces hacen la melodía, otras los acordes, otra el bajo y otra la percusión vocal. Suena como una banda completa, pero todo está hecho con la voz.</p><p>Recuerda: para el beatbox, como para cantar, hay que respirar bien y no forzar la garganta.</p>`,
+      L5.filas("Sonidos del beatbox", [["bombo", "b", cRO], ["caja", "k o pf", cAZ], ["charles", "ts", cVE], ["ritmo", "b ts k ts", cNA]])],
+    ["Leer en voz alta con expresión", `<p>La voz hablada también se puede trabajar como un instrumento. Cuando leemos en voz alta, podemos usar las mismas <b>cualidades del sonido</b> que en la música:</p><ul><li><b>Intensidad</b>: hablar más fuerte en los momentos importantes y más suave en los secretos o las escenas de miedo.</li><li><b>Altura</b> o <b>entonación</b>: subir la voz al final de una pregunta, bajarla al final de una afirmación, cambiar el tono para cada personaje.</li><li><b>Velocidad</b>: más rápido en las escenas de acción, más lento en las descripciones o en los finales.</li><li><b>Pausas</b>: detenerse en los puntos y las comas, y hacer un silencio antes de una sorpresa.</li></ul><p>Los <b>actores de doblaje</b>, los <b>locutores</b> de radio y los narradores de audiolibros dominan estas técnicas. Un buen narrador consigue que el oyente imagine la historia solo con la voz.</p><p>Para practicar, marca en un texto con colores dónde vas a hacer pausas, qué palabras vas a resaltar y qué voz pondrás a cada personaje. Después, <b>grábate</b> con un móvil y escúchate: es la mejor forma de mejorar.</p><p>Hablar bien en público es una habilidad que te servirá toda la vida: en clase, en una entrevista o al contar un cuento a alguien pequeño.</p>`,
+      H5.dos("Leer con expresión", ["Voz", ["fuerte o suave", "aguda o grave", "una por personaje"], cAZ], ["Tiempo", ["rápido o lento", "pausas", "silencio antes"], cRO])],
+  ],
+  ejemplos: [
+    ["¿Qué tipo de voz tenía Teresa Berganza?", ["Era una voz femenina.", "Estaba entre la soprano y la contralto."], "Mezzosoprano."],
+    ["Escribe un ritmo de beatbox de cuatro tiempos con dos bombos.", ["Bombo = b, caja = k, charles = ts.", "Colocamos el bombo en los tiempos 1 y 3."], "b - ts - b - k."],
+  ],
+  errores: ["Cerrar las vocales demasiado pronto al cantar notas largas: se pierde el sonido.", "Leer en voz alta siempre al mismo volumen y velocidad: el texto suena aburrido."],
+  ejercicios: [
+    ["b", "¿Qué tipo de voz tenía Montserrat Caballé?", "Soprano."],
+    ["b", "¿Quiénes formaban Los Tres Tenores?", "Plácido Domingo, José Carreras y Luciano Pavarotti."],
+    ["b", "¿Para qué sirven los trabalenguas?", "Para entrenar la articulación."],
+    ["b", "¿Qué tiene de especial el canto difónico?", "Se producen dos sonidos a la vez."],
+    ["b", "¿Qué sonido del beatbox imita el bombo?", "Una «b» explosiva."],
+    ["m", "Explica la diferencia entre dicción y afinación.", "La dicción es pronunciar claro; la afinación, dar las notas exactas."],
+    ["m", "Nombra dos cantos tradicionales españoles que sean Patrimonio de la Humanidad.", "El flamenco y el Misteri d'Elx."],
+    ["m", "¿Cómo cambia la entonación en una pregunta?", "Sube al final."],
+    ["m", "¿Qué es un grupo a capela?", "Un grupo que canta sin instrumentos."],
+    ["m", "Di un trabalenguas tres veces, cada vez más rápido, sin equivocarte.", "Respuesta práctica."],
+    ["a", "Crea un ritmo de beatbox de ocho tiempos y enséñaselo a un compañero.", "Respuesta abierta."],
+    ["a", "Pregunta en casa por una canción tradicional y apréndela.", "Respuesta abierta."],
+    ["a", "Prepara la lectura expresiva de un cuento con voces para cada personaje y grábala.", "Respuesta abierta."],
+    ["a", "Escucha un aria de una cantante española y describe su voz.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Plácido Domingo es…", ["tenor", "bajo", "soprano"], "Voz masculina aguda."],
+    ["Pronunciar con claridad al cantar es la…", ["dicción", "tesitura", "muda"], "Letra clara."],
+    ["El khöömei es un canto de…", ["Mongolia", "Andalucía", "Suiza"], "Difónico."],
+    ["El charles del beatbox se imita con…", ["ts", "b", "m"], "Chasquido."],
+    ["Al final de una pregunta, la voz…", ["sube", "baja", "se calla"], "Entonación."],
+  ],
+  examen: [
+    ["El Misteri d'Elx se representa en…", ["Elche", "Sevilla", "Bilbao"], "Agosto."],
+    ["Un grupo que canta sin instrumentos es…", ["a capela", "sinfónico", "de cámara"], "Solo voces."],
+  ],
+  tarjetas: [
+    ["Ópera española", "Caballé, De los Ángeles, Berganza, Domingo, Carreras, Kraus."],
+    ["Dicción", "Vocales abiertas y largas; consonantes claras; trabalenguas."],
+    ["Cantos del mundo", "Flamenco, khöömei, yodel, a tenore, Misteri d'Elx."],
+    ["Beatbox", "Bombo b, caja k, charles ts."],
+  ],
+  glosario: [
+    ["Ópera", "Obra de teatro cantada con orquesta."],
+    ["Aria", "Canción para un solista dentro de una ópera."],
+    ["Pianissimo", "Muy suave."],
+    ["Dicción", "Manera de pronunciar las palabras."],
+    ["Articulación", "Movimiento de labios, lengua y mandíbula al hablar."],
+    ["Trabalenguas", "Frase difícil de pronunciar rápido."],
+    ["Canto difónico", "Canto que produce dos sonidos a la vez."],
+    ["Yodel", "Canto alpino con saltos entre voz normal y aguda."],
+    ["Patrimonio inmaterial", "Tradición viva que se protege por su valor."],
+    ["Beatbox", "Imitación de la batería con la boca."],
+    ["A capela", "Canto sin acompañamiento de instrumentos."],
+    ["Entonación", "Subidas y bajadas de la voz al hablar."],
+  ],
+  situacion: {
+    titulo: "Festival de voces",
+    reto: "La clase organiza un festival donde la voz es el único instrumento: canto, beatbox, cantos del mundo y lectura expresiva.",
+    pasos: ["Formad grupos: coro, beatbox, cantos tradicionales y narradores.", "Calentad la voz y la dicción cada día con estiramientos, vocales y trabalenguas.", "Preparad cada número: un canon, un ritmo de beatbox, una canción de otra cultura y un cuento leído.", "Presentad el festival a otra clase sin usar ningún instrumento."],
+    producto: "Un festival de voces con cuatro números.",
+    evaluacion: ["Conoce tipos de voz y voces famosas.", "Pronuncia con buena dicción.", "Valora cantos de otras culturas.", "Usa la voz con expresión y creatividad."],
+  },
+});

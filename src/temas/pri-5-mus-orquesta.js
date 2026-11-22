@@ -95,3 +95,90 @@ module.exports = tema({
   ideas: ["Mural de la orquesta con los instrumentos en su sitio.", "Juego de reconocer timbres con fragmentos cortos.", "Dirigir a la clase con los gestos de 2, 3 y 4 tiempos."],
   fuentes: [["Orquesta y Coro Nacionales de España", "https://ocne.mcu.es/"], ["Orquesta Sinfónica de RTVE", "https://www.rtve.es/orquesta-coro/"]],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { L: L5, H: H5, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 75,
+  objetivos: ["Conocer los instrumentos de cuerda pulsada y percutida", "Reconocer instrumentos tradicionales de España", "Clasificar los instrumentos según cómo producen el sonido", "Disfrutar de obras pensadas para conocer la orquesta"],
+  lectura: { titulo: "El minuto antes del concierto", html: `<p>Era la primera vez que Aitana iba a un concierto de una orquesta sinfónica. El auditorio era enorme, con paredes de madera y cientos de butacas. En el escenario, los músicos iban ocupando sus sillas con los instrumentos en la mano.</p><p>De repente, todo el mundo empezó a tocar a la vez, cada uno una cosa distinta. Sonaba como un gallinero.</p><p>—¿Ya ha empezado? —susurró Aitana, decepcionada.</p><p>—No —le contestó su tía—. Están calentando y repasando los pasajes difíciles.</p><p>Entonces entró una violinista y la sala aplaudió.</p><p>—Es la concertino, la primera violinista —explicó la tía—. Ahora viene lo mejor.</p><p>La concertino hizo un gesto al oboísta, y este tocó una sola nota larga: un la. Uno a uno, todos los instrumentos fueron ajustando su sonido a esa nota, primero los vientos y después las cuerdas, hasta que sonó como una única voz.</p><p>Luego, silencio. Entró la directora, saludó, levantó la batuta… y la orquesta empezó a tocar. Esta vez no sonaba a gallinero: sonaba a magia.</p><p>Al salir, Aitana le preguntó a su tía por qué afinaban con el oboe.</p><p>—Porque su sonido es claro y penetrante, y se oye bien por encima de todos. Y porque es difícil de reajustar: es más fácil que los demás se adapten a él.</p>` },
+  tras: {
+    "La cuerda frotada": [
+      ["Cuerda pulsada y cuerda percutida", `<p>No todos los instrumentos de cuerda se tocan con arco. Según cómo se hace vibrar la cuerda, hay tres tipos:</p><ul><li><b>Cuerda frotada</b>: con un arco, como el violín.</li><li><b>Cuerda pulsada</b>: se pellizca la cuerda con los dedos o con una púa. Es el caso de la <b>guitarra</b>, el <b>arpa</b>, el <b>laúd</b> o la <b>bandurria</b>. El <b>arpa</b> es el único de ellos que suele formar parte de la orquesta sinfónica: tiene 47 cuerdas y siete pedales para cambiar de nota.</li><li><b>Cuerda percutida</b>: la cuerda se golpea. El ejemplo más famoso es el <b>piano</b>: al pulsar una tecla, un macillo forrado de fieltro golpea las cuerdas.</li></ul><p>El piano lo inventó el italiano <b>Bartolomeo Cristofori</b> hacia el año <b>1700</b>. Lo llamó «clave con piano y forte», porque, a diferencia del clave, que pellizcaba las cuerdas, podía tocar suave (<i>piano</i>) o fuerte (<i>forte</i>) según la fuerza con que se pulsara la tecla. Un piano moderno tiene 88 teclas y más de 200 cuerdas.</p><p>La <b>guitarra española</b> moderna debe mucho a un constructor de Almería, <b>Antonio de Torres</b>, que en el siglo XIX le dio el tamaño y la forma que hoy conocemos.</p>`,
+        L5.filas("Tipos de cuerda", [["frotada", "violín, chelo", cAZ], ["pulsada", "guitarra, arpa", cVE], ["percutida", "piano", cRO]]), ["M1AOgM1GA4s", "🎼La Historia del piano 🎹¿Quién inventó el piano? 🎶 Evolución del piano 🎹Origen del piano🎵", "jd plus network", 43782]],
+    ],
+    "La percusión": [
+      ["Instrumentos tradicionales de España", `<p>Además de los instrumentos de la orquesta, cada región de España tiene sus <b>instrumentos tradicionales</b>, que acompañan fiestas, bailes y procesiones.</p><ul><li><b>Castañuelas</b>: dos piezas cóncavas de madera que se hacen chocar con los dedos. Acompañan las sevillanas, las jotas y la danza española.</li><li><b>Gaita</b>: instrumento de viento con un saco de piel o de tela que guarda el aire. Es típica de <b>Galicia</b> y <b>Asturias</b>.</li><li><b>Dulzaina</b> y <b>tamboril</b>: la dulzaina es un instrumento de lengüeta doble con un sonido muy potente, muy usada en Castilla, Aragón y la Comunidad Valenciana. Suele ir con un tambor.</li><li><b>Txistu</b>: flauta de tres agujeros del <b>País Vasco</b> que se toca con una mano, mientras la otra toca el tamboril.</li><li><b>Txalaparta</b>: tablas de madera que dos personas golpean con palos verticales, también vasca.</li><li><b>Bandurria</b> y <b>laúd</b>: de cuerda pulsada, forman las rondallas y tunas.</li><li><b>Timple</b>: pequeña guitarra de cinco cuerdas de las <b>Islas Canarias</b>.</li><li><b>Flabiol</b> y <b>tenora</b>: forman parte de la <b>cobla</b> que toca las sardanas en Cataluña.</li></ul><p>Busca qué instrumentos tradicionales se tocan en tu comunidad y en qué fiestas.</p>`,
+        L5.filas("Instrumentos de España", [["castañuelas", "Andalucía, jota", cRO], ["gaita", "Galicia, Asturias", cAZ], ["txistu", "País Vasco", cVE], ["timple", "Canarias", cNA], ["tenora", "Cataluña", cMO]]), ["_n7LW0CuZAI", "15 MUSICAL INSTRUMENTS OF SPAIN | LESSON #28|  MUSICAL INSTRUMENTS | LEARNING MUSIC HUB", "Learning Music Hub - Musical Instruments", 125865]],
+    ],
+    "El director y la batuta": [
+      ["Un día de concierto", `<p>Un concierto sinfónico sigue unos rituales que conviene conocer para disfrutarlo:</p><ol><li>Los músicos entran y <b>calientan</b> sus instrumentos. Se oye un murmullo de notas desordenadas.</li><li>Entra el <b>concertino</b>, el primer violín, y el público aplaude.</li><li>El <b>oboe</b> da la nota <b>la</b> y toda la orquesta <b>afina</b> a partir de ella.</li><li>Entra el <b>director</b> o la <b>directora</b>. Aplausos. Saluda al público y al concertino.</li><li>Silencio total… y empieza la música.</li></ol><p>Muchas obras sinfónicas tienen varias partes llamadas <b>movimientos</b>. La costumbre es <b>no aplaudir entre movimientos</b>, sino al final de la obra completa, cuando el director baja la batuta y se gira. Si tienes dudas, espera a que aplauda el resto del público.</p><p>Durante el concierto se apagan los móviles, no se habla y se procura no toser. Al final, si te ha gustado, puedes aplaudir mucho tiempo: el director saldrá a saludar varias veces y hará levantarse a los solistas.</p><p>Muchas orquestas ofrecen <b>conciertos escolares y familiares</b>, con explicaciones y obras más cortas. También se puede asistir a algunos <b>ensayos abiertos</b>, donde se ve cómo el director corrige y trabaja con los músicos.</p>`,
+        H5.flujo("Antes de empezar", ["Calentar", "Concer-|tino", "Afinar|con el la", "Director"], cAZ)],
+    ],
+  },
+  final: [
+    ["Clasificar los instrumentos como un científico", `<p>Las familias de la orquesta (cuerda, viento madera, viento metal y percusión) son muy prácticas, pero no sirven para todos los instrumentos del mundo. Por eso, en <b>1914</b>, dos investigadores, <b>Hornbostel</b> y <b>Sachs</b>, propusieron una clasificación según <b>qué es lo que vibra</b>:</p><ul><li><b>Idiófonos</b>: vibra el propio cuerpo del instrumento. Castañuelas, xilófono, triángulo, platillos, maracas.</li><li><b>Membranófonos</b>: vibra una membrana tensa, una piel o un plástico. Tambor, bombo, timbales, pandero.</li><li><b>Cordófonos</b>: vibran cuerdas tensas. Violín, guitarra, arpa, piano.</li><li><b>Aerófonos</b>: vibra una columna de aire. Flauta, trompeta, gaita, órgano, armónica.</li><li><b>Electrófonos</b>: el sonido se produce con electricidad. Sintetizador, teclado electrónico, theremín.</li></ul><p>Con esta clasificación se puede ordenar cualquier instrumento, aunque venga de una cultura muy lejana. Por ejemplo, el <b>didgeridoo</b> australiano es un aerófono, y el <b>djembé</b> africano, un membranófono.</p><p>Un detalle curioso: el piano es un cordófono aunque sus cuerdas se golpeen, y los timbales son membranófonos aunque den notas afinadas.</p>`,
+      L5.filas("¿Qué vibra?", [["idiófonos", "el cuerpo", cNA], ["membranófonos", "una membrana", cRO], ["cordófonos", "las cuerdas", cAZ], ["aerófonos", "el aire", cVE], ["electrófonos", "electricidad", cMO]])],
+    ["Obras para conocer la orquesta", `<p>Algunos compositores escribieron obras pensadas especialmente para que los niños y las niñas conocieran los instrumentos de la orquesta.</p><p><b>Pedro y el lobo</b> (1936), del ruso <b>Serguéi Prokófiev</b>, es un cuento musical con narrador. Cada personaje está representado por un instrumento y una melodía propia:</p><ul><li>Pedro: la <b>cuerda</b>.</li><li>El pájaro: la <b>flauta</b>.</li><li>El pato: el <b>oboe</b>.</li><li>El gato: el <b>clarinete</b>.</li><li>El abuelo: el <b>fagot</b>.</li><li>El lobo: las <b>trompas</b>.</li><li>Los disparos de los cazadores: los <b>timbales</b> y el <b>bombo</b>.</li></ul><p>Al escucharla, aprendes a reconocer el timbre de cada instrumento siguiendo la historia.</p><p><b>Guía de orquesta para jóvenes</b> (1946), del británico <b>Benjamin Britten</b>, empieza con un tema que toca toda la orquesta. Después, cada familia y cada instrumento lo repiten a su manera, de los más agudos a los más graves. Al final, todos se juntan en una gran fuga.</p><p>También <b>El carnaval de los animales</b>, del francés Camille Saint-Saëns, retrata animales con instrumentos: los elefantes con el contrabajo, el cisne con el violonchelo y los canguros con los pianos.</p>`,
+      L5.filas("Pedro y el lobo", [["Pedro", "cuerda", cAZ], ["pájaro", "flauta", cVE], ["pato", "oboe", cNA], ["gato", "clarinete", cMO], ["lobo", "trompas", cRO]]), ["bAfWiaPTDGU", "Los instrumentos de Pedro y el lobo / Peter and the wolf (Prokofiev)", "Álvaro Castillo", 301012]],
+  ],
+  ejemplos: [
+    ["Clasifica la pandereta según Hornbostel y Sachs.", ["Tiene una membrana que vibra al golpearla.", "Pero también sonajas de metal que vibran solas."], "Es un membranófono con elementos idiófonos (las sonajas)."],
+    ["¿Por qué la orquesta afina con el oboe?", ["Su sonido es claro y se oye por encima de todos.", "Es difícil de reajustar."], "Porque da un la claro y estable al que se adaptan los demás."],
+  ],
+  errores: ["Pensar que el piano es de percusión en la orquesta: es un cordófono de cuerda percutida.", "Aplaudir entre los movimientos de una sinfonía: se aplaude al final."],
+  ejercicios: [
+    ["b", "¿Quién inventó el piano?", "Bartolomeo Cristofori, hacia 1700."],
+    ["b", "Nombra dos instrumentos de cuerda pulsada.", "Guitarra y arpa."],
+    ["b", "¿De dónde es típico el txistu?", "Del País Vasco."],
+    ["b", "¿Qué instrumento da el la para afinar?", "El oboe."],
+    ["b", "¿Qué instrumento representa al pato en Pedro y el lobo?", "El oboe."],
+    ["m", "Explica qué vibra en un idiófono y en un aerófono.", "En el idiófono, el propio cuerpo; en el aerófono, el aire."],
+    ["m", "¿Por qué el piano se llamaba «piano y forte»?", "Porque podía tocar suave o fuerte según la fuerza en la tecla."],
+    ["m", "¿Cuándo se aplaude en un concierto sinfónico?", "Al final de la obra completa."],
+    ["m", "Clasifica: castañuelas, gaita, timple, bombo.", "Idiófono, aerófono, cordófono, membranófono."],
+    ["m", "¿Qué hace la Guía de orquesta para jóvenes de Britten?", "Presenta cada familia e instrumento con el mismo tema."],
+    ["a", "Construye un instrumento casero de cada tipo de Hornbostel-Sachs.", "Respuesta abierta."],
+    ["a", "Escucha Pedro y el lobo y dibuja cada personaje con su instrumento.", "Respuesta abierta."],
+    ["a", "Investiga un instrumento tradicional de tu comunidad y preséntalo.", "Respuesta abierta."],
+    ["a", "Inventa un cuento musical en el que cada personaje tenga un instrumento.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El arpa es un instrumento de cuerda…", ["pulsada", "frotada", "percutida"], "Se pellizca."],
+    ["La gaita es típica de…", ["Galicia y Asturias", "Canarias", "Murcia"], "Saco de aire."],
+    ["Si vibra una piel, el instrumento es…", ["membranófono", "idiófono", "cordófono"], "Membrana."],
+    ["En Pedro y el lobo, el lobo lo tocan…", ["las trompas", "las flautas", "los violines"], "Viento metal."],
+    ["Las partes de una sinfonía se llaman…", ["movimientos", "estrofas", "capítulos"], "Concierto."],
+  ],
+  examen: [
+    ["Un sintetizador es un…", ["electrófono", "aerófono", "idiófono"], "Electricidad."],
+    ["La guitarra española moderna la definió…", ["Antonio de Torres", "Cristofori", "Britten"], "Almería, siglo XIX."],
+  ],
+  tarjetas: [
+    ["Cuerda", "Frotada (violín), pulsada (guitarra, arpa), percutida (piano)."],
+    ["España", "Castañuelas, gaita, dulzaina, txistu, timple, tenora."],
+    ["Hornbostel-Sachs", "Idiófonos, membranófonos, cordófonos, aerófonos, electrófonos."],
+    ["Obras didácticas", "Pedro y el lobo, Guía de Britten, El carnaval de los animales."],
+  ],
+  glosario: [
+    ["Cuerda pulsada", "Cuerda que se pellizca con los dedos o una púa."],
+    ["Cuerda percutida", "Cuerda que se golpea, como en el piano."],
+    ["Macillo", "Pieza del piano que golpea las cuerdas."],
+    ["Púa", "Pieza pequeña para pulsar las cuerdas."],
+    ["Cobla", "Agrupación catalana que toca sardanas."],
+    ["Concertino", "Primer violín de la orquesta."],
+    ["Movimiento", "Cada parte de una obra larga."],
+    ["Idiófono", "Instrumento cuyo propio cuerpo vibra."],
+    ["Membranófono", "Instrumento con una membrana que vibra."],
+    ["Cordófono", "Instrumento con cuerdas que vibran."],
+    ["Aerófono", "Instrumento en el que vibra el aire."],
+    ["Electrófono", "Instrumento que produce el sonido con electricidad."],
+  ],
+  situacion: {
+    titulo: "Nuestra orquesta de instrumentos caseros",
+    reto: "La clase construye instrumentos caseros de las cinco familias científicas y toca con ellos una versión de un cuento musical.",
+    pasos: ["Repartid las familias: idiófonos, membranófonos, cordófonos, aerófonos y uno electrófono con una aplicación.", "Construid los instrumentos con materiales reciclados y clasificadlos.", "Inventad un cuento al estilo de Pedro y el lobo, con un instrumento para cada personaje.", "Ensayad con un director o directora, afinad lo que se pueda y presentad el concierto."],
+    producto: "Un concierto con instrumentos caseros y un cuento musical.",
+    evaluacion: ["Distingue cuerda frotada, pulsada y percutida.", "Conoce instrumentos tradicionales de España.", "Clasifica instrumentos según qué vibra.", "Reconoce timbres en obras didácticas."],
+  },
+});

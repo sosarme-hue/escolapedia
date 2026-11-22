@@ -91,3 +91,90 @@ module.exports = tema({
   ideas: ["Juego de adivinar timbres con los ojos cerrados.", "Musicograma inventado de una pieza breve.", "Medición del ruido del aula con una app de decibelios."],
   fuentes: [["Orquesta y Coro Nacionales de España: actividades educativas", "https://ocne.mcu.es/"], ["Hear the World (salud auditiva)", "https://www.hear-the-world.com/es"]],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { L: L5, H: H5, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 75,
+  objetivos: ["Saber a qué velocidad viaja el sonido y qué es el eco", "Relacionar la altura con la frecuencia y conocer los límites del oído", "Leer silencios y notas con puntillo", "Escuchar el paisaje sonoro y entender la acústica de los espacios"],
+  lectura: { titulo: "Contar la tormenta", html: `<p>Aquella tarde de verano, el cielo se puso negro de golpe. Pablo y su abuela estaban en el porche de la casa del pueblo cuando un relámpago iluminó las montañas.</p><p>—¡Rápido, cuenta! —dijo la abuela—. Uno, dos, tres…</p><p>Pablo contó con ella hasta que, al llegar a nueve, se oyó el trueno, largo y profundo.</p><p>—Nueve segundos. Divide entre tres: la tormenta está a unos tres kilómetros —explicó la abuela.</p><p>—¿Y eso cómo lo sabes?</p><p>—Porque la luz llega casi al instante, pero el sonido es mucho más lento: recorre más o menos un kilómetro cada tres segundos. Si cuentas los segundos entre el rayo y el trueno, sabes a qué distancia está.</p><p>Siguieron contando. Seis segundos. Luego cuatro. Luego dos.</p><p>—Se está acercando. Mejor entramos —dijo la abuela.</p><p>Desde la ventana, Pablo escuchó la lluvia golpear el tejado, el viento en los árboles y el agua correr por el canalón. Cerró los ojos y se dio cuenta de que la tormenta era como una orquesta: había sonidos graves y agudos, largos y cortos, fuertes y suaves.</p><p>—Abuela —dijo—, la tormenta también es música.</p>` },
+  tras: {
+    "¿Cómo se produce el sonido?": [
+      ["La velocidad del sonido y el eco", `<p>El sonido necesita un <b>medio</b> para viajar: el aire, el agua o un sólido. En el espacio, donde no hay aire, no se oye nada, aunque haya una explosión.</p><p>El sonido viaja a distinta velocidad según el medio:</p><ul><li>En el <b>aire</b>, a unos <b>340 metros por segundo</b>. Es decir, tarda unos tres segundos en recorrer un kilómetro.</li><li>En el <b>agua</b>, unas cuatro veces más rápido, a unos <b>1500 metros por segundo</b>. Por eso las ballenas se comunican a grandes distancias.</li><li>En los <b>sólidos</b>, como el acero, aún más rápido: unos <b>5000 metros por segundo</b>. Si pegas la oreja a una mesa y alguien da golpecitos en el otro extremo, lo oirás muy claro.</li></ul><p>La <b>luz</b> es muchísimo más rápida que el sonido. Por eso, en una tormenta, vemos el relámpago antes de oír el trueno. Si cuentas los segundos y los divides entre tres, sabrás a cuántos kilómetros está.</p><p>Cuando el sonido choca con una superficie grande y dura, como una montaña o una pared, <b>rebota</b> y vuelve: es el <b>eco</b>. Para oír el eco separado del sonido original, la pared tiene que estar a más de unos 17 metros. Los murciélagos y los delfines usan el eco para orientarse: es la <b>ecolocalización</b>.</p>`,
+        H5.barras("Velocidad del sonido (m/s)", [["aire", 340, cAZ, "340"], ["agua", 1500, cVE, "1500"], ["acero", 5000, cRO, "5000"]], 5000)],
+    ],
+    "La altura en el pentagrama": [
+      ["Frecuencia y límites del oído", `<p>La altura de un sonido depende de la <b>frecuencia</b>, es decir, de cuántas veces vibra por segundo. Se mide en <b>hercios</b> (Hz). Un hercio es una vibración por segundo.</p><ul><li>Cuantas <b>más</b> vibraciones por segundo, más <b>agudo</b> es el sonido.</li><li>Cuantas <b>menos</b> vibraciones, más <b>grave</b>.</li></ul><p>Los músicos usan una nota de referencia para afinar: el <b>la</b> que vibra <b>440 veces por segundo</b> (440 Hz). Es el sonido del <b>diapasón</b>, una pequeña horquilla de metal que, al golpearla, da siempre esa nota. Si subimos una octava, el la siguiente vibra el doble: 880 Hz.</p><p>El oído humano puede oír sonidos entre unos <b>20 Hz</b> (muy graves) y <b>20 000 Hz</b> (muy agudos). Con la edad se pierde la capacidad de oír los más agudos.</p><p>Hay sonidos que nosotros no oímos, pero otros animales sí:</p><ul><li>Los <b>ultrasonidos</b>, por encima de 20 000 Hz, los usan los murciélagos y los delfines. Los perros también los oyen: por eso existen silbatos para perros que nosotros no escuchamos. En medicina se usan para las <b>ecografías</b>.</li><li>Los <b>infrasonidos</b>, por debajo de 20 Hz, los usan los <b>elefantes</b> y las ballenas para comunicarse a varios kilómetros.</li></ul>`,
+        L5.filas("Lo que oímos y lo que no", [["infrasonidos", "elefantes, ballenas", cMO], ["20-20 000 Hz", "oído humano", cVE], ["la del diapasón", "440 Hz", cAZ], ["ultrasonidos", "murciélagos, delfines", cRO]])],
+    ],
+    "La duración: largo y corto": [
+      ["Silencios y puntillo", `<p>En música, el <b>silencio</b> también se escribe. Cada figura tiene su <b>silencio</b> correspondiente, que dura exactamente lo mismo que ella:</p><ul><li>Silencio de <b>redonda</b>: un rectángulo que cuelga de la cuarta línea del pentagrama. Dura 4 tiempos.</li><li>Silencio de <b>blanca</b>: un rectángulo apoyado sobre la tercera línea. Dura 2 tiempos.</li><li>Silencio de <b>negra</b>: un signo en zigzag. Dura 1 tiempo.</li><li>Silencio de <b>corchea</b>: parece un 7 con una bolita. Dura medio tiempo.</li></ul><p>Un truco para no confundir los dos primeros: el silencio de redonda «pesa más» y por eso <b>cuelga</b>; el de blanca es más ligero y se <b>sienta</b> encima de la línea.</p><p>El <b>puntillo</b> es un punto que se escribe a la derecha de una nota o de un silencio. Hace que dure <b>la mitad más</b> de lo que duraba:</p><ul><li>Blanca con puntillo: 2 + 1 = <b>3 tiempos</b>. Es muy útil en los compases de tres por cuatro.</li><li>Negra con puntillo: 1 + ½ = <b>un tiempo y medio</b>.</li></ul><p>Los silencios no son huecos vacíos: dan respiración, crean tensión y hacen que la música tenga ritmo. Prueba a dar palmas a un ritmo y a contar los silencios en voz baja.</p>`,
+        L5.tabla("Silencios y puntillo", ["figura", "tiempos", "con puntillo"], [["redonda", "4", "6"], ["blanca", "2", "3"], ["negra", "1", "1 y ½"], ["corchea", "½", "¾"]], cAZ), ["uv216ZjuTuY", "DOMINA la lectura rítmica con estos ejercicios musicales", "Juan Martinez", 377270]],
+    ],
+  },
+  final: [
+    ["La acústica de los espacios", `<p>Un mismo instrumento suena distinto en un baño, en un gimnasio, en una habitación llena de cojines o al aire libre. Eso se debe a la <b>acústica</b>, la forma en que el sonido se comporta en cada espacio.</p><p>Cuando suena una nota en una sala, el sonido rebota muchas veces en las paredes, el suelo y el techo. Esos rebotes hacen que el sonido se alargue un poco después de dejar de tocar: es la <b>reverberación</b>.</p><ul><li>En un <b>baño</b> o una iglesia, con paredes duras y lisas, hay mucha reverberación: la voz suena más potente, pero las palabras se mezclan.</li><li>En una habitación con <b>alfombras, cortinas y muebles blandos</b>, el sonido se absorbe y casi no rebota: suena «seco».</li></ul><p>Los arquitectos que diseñan auditorios estudian la acústica con mucho cuidado: eligen la forma de la sala, los materiales de las paredes y la colocación de las butacas para que la música llegue clara a todos.</p><p>Hace unos 2300 años, los griegos construyeron el <b>teatro de Epidauro</b>, que tiene una acústica asombrosa: desde la última fila, a unos 60 metros, se oye una moneda caer o una cerilla encenderse en el escenario. La forma de las gradas filtra los ruidos graves del ambiente y deja pasar bien las voces.</p>`,
+      H5.dos("Mucho o poco rebote", ["Duras", ["baño, iglesia", "mucha", "reverberación"], cAZ], ["Blandas", ["cortinas, cojines", "sonido", "seco"], cNA]), ["kshkn4_sTWg", "Teatro de Epidauro, Grecia", "P. José de Jesús Aguilar Valdés", 37595]],
+    ["El paisaje sonoro", `<p>Igual que hay paisajes que se ven, hay <b>paisajes que se oyen</b>. Un <b>paisaje sonoro</b> es el conjunto de sonidos de un lugar: un bosque, un mercado, una playa, el patio del colegio a la hora del recreo.</p><p>El compositor canadiense <b>R. Murray Schafer</b> inventó esta idea en los años setenta. Proponía escuchar con atención el mundo que nos rodea, como si fuera una gran composición musical.</p><p>En un paisaje sonoro podemos distinguir:</p><ul><li><b>Sonidos de la naturaleza</b>: viento, agua, pájaros, insectos, lluvia.</li><li><b>Sonidos humanos</b>: voces, pasos, risas, aplausos.</li><li><b>Sonidos de máquinas</b>: coches, motores, sirenas, electrodomésticos.</li></ul><p>En las ciudades, las máquinas tapan muchas veces los sonidos naturales. El exceso de ruido es una forma de <b>contaminación acústica</b>, que causa estrés, dificulta dormir y concentrarse, y también afecta a los animales.</p><p>Haz un <b>paseo de escucha</b>: camina en silencio por tu barrio durante cinco minutos y apunta todos los sonidos que oigas. Después clasifícalos y dibuja un <b>mapa sonoro</b> con símbolos para cada sonido: graves y agudos, fuertes y suaves, largos y cortos. ¡Estarás usando las cuatro cualidades del sonido!</p>`,
+      H5.rueda("Paisaje sonoro", "ESCUCHA", [["naturaleza", cVE], ["personas", cNA], ["máquinas", cMO], ["silencio", cAZ]]), ["OvNITCYZFYE", "PAISAJE SONORO | Música para niños", "El Baúl de los sonidos", 28985]],
+  ],
+  ejemplos: [
+    ["Entre el relámpago y el trueno pasan 12 segundos. ¿A qué distancia está la tormenta?", ["El sonido recorre 1 km cada 3 segundos.", "12 ÷ 3 = 4."], "A unos 4 kilómetros."],
+    ["¿Cuántos tiempos dura una blanca con puntillo seguida de un silencio de negra?", ["Blanca con puntillo: 2 + 1 = 3.", "Silencio de negra: 1."], "4 tiempos en total."],
+  ],
+  errores: ["Pensar que en el espacio se oyen las explosiones: sin aire no hay sonido.", "Confundir el silencio de redonda (cuelga) con el de blanca (se apoya)."],
+  ejercicios: [
+    ["b", "¿A qué velocidad viaja el sonido en el aire?", "A unos 340 metros por segundo."],
+    ["b", "¿Qué es el eco?", "Un sonido que rebota en una superficie y vuelve."],
+    ["b", "¿Qué nota da el diapasón y a cuántos hercios?", "El la, a 440 Hz."],
+    ["b", "¿Cuántos tiempos dura una negra con puntillo?", "Un tiempo y medio."],
+    ["b", "¿Qué es un paisaje sonoro?", "El conjunto de sonidos de un lugar."],
+    ["m", "¿Por qué vemos el relámpago antes de oír el trueno?", "Porque la luz es mucho más rápida que el sonido."],
+    ["m", "¿Qué animales usan infrasonidos y cuáles ultrasonidos?", "Infrasonidos: elefantes y ballenas. Ultrasonidos: murciélagos y delfines."],
+    ["m", "¿Qué es la reverberación y dónde hay mucha?", "La prolongación del sonido por los rebotes; en baños e iglesias."],
+    ["m", "Escribe un compás de 3/4 usando una blanca con puntillo.", "Una blanca con puntillo ocupa todo el compás."],
+    ["m", "Si el la vibra a 440 Hz, ¿a cuánto vibra el la una octava más aguda?", "A 880 Hz."],
+    ["a", "Haz un paseo de escucha y dibuja el mapa sonoro de tu barrio.", "Respuesta abierta."],
+    ["a", "Compara cómo suena tu voz en el baño, en clase y en el patio, y explica por qué.", "Respuesta abierta."],
+    ["a", "Inventa un ritmo de cuatro compases con silencios y puntillos y tócalo con palmas.", "Respuesta abierta."],
+    ["a", "Construye un teléfono de vasos y cuerda y comprueba cómo viaja el sonido por un sólido.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El sonido viaja más rápido en…", ["el acero", "el aire", "el vacío"], "Sólidos."],
+    ["Una vibración por segundo es un…", ["hercio", "decibelio", "metro"], "Frecuencia."],
+    ["El puntillo añade…", ["la mitad del valor", "el doble", "un tiempo siempre"], "Mitad más."],
+    ["Un baño con azulejos tiene mucha…", ["reverberación", "absorción", "silencio"], "Rebotes."],
+    ["La idea de paisaje sonoro la propuso…", ["R. Murray Schafer", "Mozart", "Brunelleschi"], "Años setenta."],
+  ],
+  examen: [
+    ["El oído humano oye aproximadamente entre…", ["20 y 20 000 Hz", "1 y 100 Hz", "50 000 y 100 000 Hz"], "Límites del oído."],
+    ["El silencio de corchea dura…", ["medio tiempo", "dos tiempos", "un tiempo"], "Como la corchea."],
+  ],
+  tarjetas: [
+    ["Velocidad", "Aire 340 m/s, agua 1500, acero 5000; 1 km cada 3 s."],
+    ["Frecuencia", "Hz; la = 440 Hz; oído de 20 a 20 000 Hz."],
+    ["Silencios y puntillo", "Cada figura tiene su silencio; puntillo = mitad más."],
+    ["Acústica", "Reverberación; Epidauro; paisaje sonoro."],
+  ],
+  glosario: [
+    ["Medio", "Material por el que viaja el sonido."],
+    ["Eco", "Sonido que vuelve tras rebotar."],
+    ["Ecolocalización", "Orientarse con el eco de los propios sonidos."],
+    ["Frecuencia", "Número de vibraciones por segundo."],
+    ["Hercio", "Unidad de frecuencia: una vibración por segundo."],
+    ["Diapasón", "Horquilla de metal que da la nota la para afinar."],
+    ["Ultrasonido", "Sonido demasiado agudo para el oído humano."],
+    ["Infrasonido", "Sonido demasiado grave para el oído humano."],
+    ["Puntillo", "Punto que alarga una figura la mitad de su valor."],
+    ["Reverberación", "Prolongación del sonido por los rebotes en una sala."],
+    ["Acústica", "Forma en que se comporta el sonido en un espacio."],
+    ["Paisaje sonoro", "Conjunto de sonidos de un lugar."],
+  ],
+  situacion: {
+    titulo: "Detectives del sonido",
+    reto: "La clase investiga el sonido del colegio: mide distancias con el eco, compara la acústica de los espacios y crea un mapa sonoro.",
+    pasos: ["Haced un paseo de escucha por el colegio y anotad los sonidos de cada espacio.", "Comparad la reverberación del gimnasio, la biblioteca y el aula cantando la misma nota.", "Construid teléfonos de vasos y comprobad cómo viaja el sonido por un sólido.", "Dibujad un mapa sonoro con símbolos y proponed ideas para reducir el ruido."],
+    producto: "Un mapa sonoro del colegio con propuestas contra el ruido.",
+    evaluacion: ["Explica cómo viaja el sonido y qué es el eco.", "Relaciona altura y frecuencia.", "Lee silencios y puntillos.", "Analiza la acústica y el paisaje sonoro."],
+  },
+});
