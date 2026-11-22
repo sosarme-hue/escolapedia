@@ -137,3 +137,93 @@ module.exports = {
   fuentes: FONTS,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conèixer rondalles i llegendes catalanes", "Inventar un conte amb les tres parts", "Fer i resoldre endevinalles", "Llegir i recitar en veu alta amb bona entonació"],
+  lectura: { titulo: "La llegenda de Sant Jordi", html: `<p>Fa molts i molts anys, prop del poble de Montblanc, hi vivia un drac terrible. Cada dia volia menjar, i la gent del poble li havia de portar animals.</p><p>Quan ja no quedaven ovelles ni vaques, el rei va decidir fer un sorteig: cada dia, una persona del poble aniria a la cova del drac.</p><p>Un dia, la mala sort va tocar a la princesa. Tothom plorava. La princesa va sortir del castell, sola i trista, cap a la cova.</p><p>De sobte, va aparèixer un cavaller amb una armadura brillant, damunt d'un cavall blanc. Era Sant Jordi.</p><p>—No tinguis por, princesa! —va cridar.</p><p>Sant Jordi va lluitar contra el drac i el va vèncer amb la seva llança. De la sang del drac va néixer un roser ple de roses vermelles.</p><p>El cavaller va collir una rosa i la va regalar a la princesa.</p><p>Per això, cada 23 d'abril, a Catalunya regalem roses i llibres.</p>` },
+  tras: {
+    "Les rondalles": [
+      ["Llegendes de la nostra terra", `<p>Les <mark>llegendes</mark> són històries antigues que expliquen l'origen d'un lloc, d'una festa o d'un costum. Barregen fets reals amb fets fantàstics.</p><p>Algunes llegendes catalanes molt conegudes:</p><ul><li><b>Sant Jordi i el drac</b>: explica per què regalem roses el 23 d'abril.</li><li><b>Les quatre barres</b>: diuen que la senyera es va pintar amb els dits plens de sang d'un comte ferit sobre un escut daurat.</li><li><b>El comte Arnau</b>: un cavaller que galopa per les muntanyes amb un cavall de foc.</li><li><b>Les goges</b> o <b>dones d'aigua</b>: fades que viuen als rius i les fonts.</li><li><b>El drac de Sant Llorenç</b>: un drac que vivia en una cova de muntanya.</li></ul><p>Les llegendes passaven d'avis a néts, explicades a la vora del foc.</p><p><b>Activitat</b>: pregunta a casa si coneixen alguna llegenda del vostre poble o comarca.</p>`,
+        L6.filas("Llegendes", [["Sant Jordi", "roses", cRO], ["4 barres", "senyera", cNA], ["Arnau", "cavall", cMO], ["goges", "rius", cAZ]]),
+        ["e3OLcrQ6rMk", "La llegenda de Sant Jordi", "Pau Font Sancho", 78616]],
+    ],
+    "Les tres parts": [
+      ["Inventem un conte", `<p>Per <mark>inventar un conte</mark> podem seguir uns passos:</p><ul><li><b>1. Triar el personatge</b>: un nen, un animal que parla, una bruixa simpàtica… Com es diu? Com és?</li><li><b>2. Triar el lloc</b>: un bosc, un castell, una ciutat sota el mar, l'espai…</li><li><b>3. Plantejament</b>: comencem amb «Hi havia una vegada…» i presentem el personatge.</li><li><b>4. Nus</b>: passa un problema. «Un dia…» El personatge s'ha de posar en marxa.</li><li><b>5. Desenllaç</b>: el problema se soluciona. «Finalment…» I acabem amb «I vet aquí un gat, vet aquí un gos…».</li></ul><p>Paraules que ajuden a enllaçar: <b>primer</b>, <b>després</b>, <b>de sobte</b>, <b>llavors</b>, <b>al final</b>.</p><p>Un truc: tira un dau de dibuixos per triar personatge, lloc i problema a l'atzar!</p><p><b>Activitat</b>: inventa un conte curt amb un drac, una biblioteca i una clau perduda.</p>`,
+        H6.flujo("Conte", ["qui?|personatge", "on?|lloc", "un dia|problema", "al final|solució"], cAZ)],
+    ],
+    "Les endevinalles": [
+      ["Endevinalles populars", `<p>Les <mark>endevinalles</mark> populars s'expliquen des de fa molts anys. Moltes rimen i són molt enginyoses:</p><ul><li>«<b>Tinc fulles i no soc arbre, tinc llom i no soc animal.</b>» (El llibre)</li><li>«<b>Té dents i no menja, té barba i no és home.</b>» (L'all)</li><li>«<b>Quan és petit, porta cua; quan és gran, salta i canta.</b>» (La granota: de capgròs a granota)</li><li>«<b>Blanca per dins, verda per fora; si vols que t'ho digui, espera't.</b>» (La pera)</li><li>«<b>Quina cosa és que, com més gran, menys es veu?</b>» (La foscor)</li></ul><p>Per endevinar-les cal llegir amb atenció i pensar en totes les pistes. Algunes amaguen la solució dins mateix de la frase, com la de la pera: «es<b>pera</b>'t»!</p><p><b>Activitat</b>: aprèn una endevinalla de memòria i fes-la a la teva família.</p>`,
+        H6.rueda("Endevina", "QUÈ ÉS?", [["llibre", cAZ], ["all", cVE], ["granota", cNA], ["pera", cRO]])],
+    ],
+    "Per a què serveix?": [
+      ["Llegir en veu alta", `<p>Llegir un conte o un poema en <mark>veu alta</mark> és tot un art. Ho fem bé quan:</p><ul><li>Llegim a poc a poc, <b>sense córrer</b>.</li><li>Pronunciem <b>clar</b>, perquè tothom ens entengui.</li><li>Fem una petita <b>pausa</b> a les comes i una més llarga als punts.</li><li>Pugem la veu a les <b>preguntes</b> (¿?) i la fem més forta a les <b>exclamacions</b> (!).</li><li>Canviem la veu per a cada <b>personatge</b>: veu greu per al drac, veu dolça per a la princesa.</li><li>Mirem de tant en tant el <b>públic</b>.</li></ul><p>Abans de llegir en veu alta, és bo llegir el text en silenci una vegada per entendre'l bé.</p><p>Llegir en veu alta per a algú és un regal: als avis i als germans petits els encanta!</p><p><b>Activitat</b>: llegeix la llegenda de Sant Jordi en veu alta canviant la veu de cada personatge.</p>`,
+        L6.filas("Veu alta", [["a poc a poc", "sense córrer", cAZ], ["coma", "pausa", cVE], ["?", "puja la veu", cNA], ["!", "més fort", cRO]])],
+    ],
+  },
+  final: [
+    ["Sant Jordi: dia del llibre i la rosa", `<p>El <mark>23 d'abril</mark>, diada de Sant Jordi, és una festa molt especial a Catalunya:</p><ul><li>Els carrers s'omplen de <b>parades</b> de llibres i de roses.</li><li>Tradicionalment es regalen <b>roses</b> i <b>llibres</b> a les persones que estimem.</li><li>Els escriptors i escriptores <b>signen</b> els seus llibres als lectors.</li><li>Les escoles fan <b>jocs florals</b>: concursos de contes i poemes.</li><li>Els balcons es decoren amb <b>senyeres</b>.</li></ul><p>També és el <b>Dia Internacional del Llibre</b>, perquè el 23 d'abril van morir dos grans escriptors: Cervantes i Shakespeare.</p><p>És una festa de l'amor, de la cultura i de la lectura, i no és festiu: es treballa i es va a escola.</p><p><b>Activitat</b>: fes un punt de llibre decorat amb una rosa per regalar-lo per Sant Jordi.</p>`,
+      H6.dos("23 d'abril", ["ROSA", ["vermella", "amor", "parades"], cRO], ["LLIBRE", ["llegir", "signatures", "jocs florals"], cAZ])],
+    ["Repàs: la llegenda de Sant Jordi", `<p>Repassem amb la <mark>lectura</mark>:</p><ul><li>És una <b>llegenda</b>: barreja fets que podrien ser reals amb fets fantàstics.</li><li><b>Plantejament</b>: un drac terrible viu prop de Montblanc i vol menjar.</li><li><b>Nus</b>: la mala sort toca a la <b>princesa</b>, que ha d'anar a la cova.</li><li><b>Desenllaç</b>: <b>Sant Jordi</b> vèn el drac amb la llança.</li><li>De la sang del drac neix un <b>roser</b> amb roses vermelles.</li><li>La llegenda explica per què regalem <b>roses</b> el 23 d'abril.</li></ul><p>Personatges: el drac (dolent), la princesa, el rei i Sant Jordi (l'heroi).</p><p><b>Activitat</b>: representeu la llegenda amb titelles fetes amb mitjons.</p>`,
+      H6.flujo("Llegenda", ["drac|Montblanc", "princesa|sorteig", "Jordi|lluita", "roser|roses"], cVE)],
+  ],
+  ejemplos: [
+    ["Quina part del conte és «Un dia, la mala sort va tocar a la princesa»?", ["Hi apareix el problema."], "El nus."],
+    ["Endevina: té dents i no menja, té barba i no és home.", ["És una planta de cuina amb grans."], "L'all."],
+  ],
+  errores: ["Llegir en veu alta molt de pressa i sense fer pauses.", "Explicar un conte sense problema: només plantejament i final."],
+  ejercicios: [
+    ["b", "Què és una llegenda?", "Una història antiga que explica l'origen d'alguna cosa."],
+    ["b", "Quin dia és Sant Jordi?", "El 23 d'abril."],
+    ["b", "Com comencen molts contes?", "Hi havia una vegada…"],
+    ["b", "Què regalem per Sant Jordi?", "Roses i llibres."],
+    ["b", "Endevina: tinc fulles i no soc arbre, tinc llom i no soc animal.", "El llibre."],
+    ["m", "Digues les tres parts d'un conte.", "Plantejament, nus i desenllaç."],
+    ["m", "Què fem a les comes quan llegim?", "Una petita pausa."],
+    ["m", "Digues dues paraules per enllaçar un conte.", "Primer, després, de sobte, al final."],
+    ["m", "Qui són les goges?", "Fades o dones d'aigua dels rius."],
+    ["m", "Per què el 23 d'abril és el Dia del Llibre?", "Perquè van morir Cervantes i Shakespeare."],
+    ["a", "A la lectura, què neix de la sang del drac?", "Un roser amb roses vermelles."],
+    ["a", "Quin és el nus de la llegenda?", "La princesa ha d'anar a la cova del drac."],
+    ["a", "Inventa un conte curt amb les tres parts.", "Resposta oberta."],
+    ["a", "On és la pista amagada a l'endevinalla de la pera?", "A «espera't»."],
+  ],
+  quiz: [
+    ["Explica l'origen d'una festa…", ["una llegenda", "una notícia", "una recepta"], "Llegendes."],
+    ["Al final del conte hi ha el…", ["desenllaç", "plantejament", "títol"], "Parts."],
+    ["Té dents i no menja:", ["l'all", "la pera", "el llibre"], "Endevinalles."],
+    ["A les exclamacions la veu…", ["és més forta", "s'atura", "és molt baixa"], "Veu alta."],
+    ["Per Sant Jordi regalem…", ["roses i llibres", "torrons", "ous"], "Sant Jordi."],
+  ],
+  examen: [
+    ["A la lectura, a prop de quin poble vivia el drac?", ["Montblanc", "Girona", "Vic"], "Lectura."],
+    ["Amb què vèn Sant Jordi el drac?", ["amb la llança", "amb una rosa", "amb un llibre"], "Repàs."],
+  ],
+  tarjetas: [
+    ["Inventar un conte", "Personatge, lloc, problema i solució."],
+    ["Sant Jordi", "23 d'abril: roses, llibres i llegenda del drac."],
+  ],
+  glosario: [
+    ["Llegenda", "Història antiga que explica l'origen d'alguna cosa."],
+    ["Rondalla", "Conte popular de tradició oral."],
+    ["Cavaller", "Home que anava a cavall i lluitava."],
+    ["Llança", "Arma llarga amb punta."],
+    ["Roser", "Planta que fa roses."],
+    ["Sorteig", "Triar a l'atzar."],
+    ["Goges", "Fades dels rius i les fonts."],
+    ["Endevinalla", "Joc per endevinar una cosa amb pistes."],
+    ["Entonació", "Manera de pujar i baixar la veu."],
+    ["Jocs florals", "Concurs de contes i poemes."],
+  ],
+  situacion: {
+    titulo: "La nostra diada de Sant Jordi",
+    reto: "La classe prepara una parada de Sant Jordi amb contes inventats, endevinalles i punts de llibre per regalar.",
+    pasos: ["Inventar un conte curt amb plantejament, nus i desenllaç.", "Il·lustrar-lo i fer-ne un petit llibret.", "Preparar endevinalles per als visitants.", "Llegir els contes en veu alta a la parada."],
+    producto: "Una parada de Sant Jordi amb llibrets i endevinalles.",
+    evaluacion: ["Coneix llegendes catalanes.", "Inventa un conte amb les tres parts.", "Resol i fa endevinalles.", "Llegeix en veu alta amb entonació."],
+  },
+});

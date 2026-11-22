@@ -136,3 +136,93 @@ module.exports = {
   fuentes: FONTS,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Distingir majúscules i minúscules", "Ordenar paraules que comencen per la mateixa lletra", "Trobar paraules al diccionari amb les paraules guia", "Fer servir l'ordre alfabètic a la vida de cada dia"],
+  lectura: { titulo: "La biblioteca desordenada", html: `<p>Un dilluns al matí, la senyora Roser, la bibliotecària de l'escola, va obrir la porta i es va quedar parada.</p><p>—Oh, no! Qui ha desordenat tots els llibres?</p><p>Els contes eren per terra, barrejats: el de les bruixes al costat del dels dinosaures, i el de les zebres amb el dels avions.</p><p>Els nens i nenes de segon van venir a ajudar.</p><p>—Els hem d'ordenar per ordre alfabètic, pel cognom de l'autor —va explicar la senyora Roser.</p><p>L'Arnau agafava els de la A i la B. La Laia, els de la M. I el Pau, que és el més alt, posava els de la Z al prestatge de dalt de tot.</p><p>—I aquests dos que comencen per C? —va preguntar la Laia.</p><p>—Mira la segona lletra! —va dir l'Arnau.</p><p>Al final de la tarda, tots els llibres eren al seu lloc. La senyora Roser va somriure.</p><p>—Gràcies! Ara tothom trobarà el seu conte preferit en un tres i no res.</p><p>Però qui havia desordenat la biblioteca? Darrere d'un prestatge, un gatet dormia tranquil·lament…</p>` },
+  tras: {
+    "La ce trencada": [
+      ["Majúscules i minúscules", `<p>Cada lletra té dues formes: la <mark>majúscula</mark> (gran) i la <mark>minúscula</mark> (petita): A a, B b, C c, D d…</p><p>Escrivim amb <b>majúscula</b>:</p><ul><li>La primera lletra quan comencem a escriure: «<b>A</b>vui fa sol.»</li><li>Després d'un punt: «Plou. <b>T</b>inc el paraigua.»</li><li>Els <b>noms propis</b> de persones: Marta, Pere, Jordi.</li><li>Els noms de <b>ciutats, pobles i països</b>: Girona, Reus, Itàlia.</li><li>Els noms dels <b>animals de companyia</b>: el meu gos es diu Bruc.</li></ul><p>En canvi, els dies de la setmana i els mesos s'escriuen amb <b>minúscula</b>: dilluns, gener.</p><p>Al diccionari les paraules surten en minúscula, tret dels noms propis.</p><p><b>Activitat</b>: escriu el teu nom, el del teu poble i el de la teva mascota amb majúscula.</p>`,
+        H6.dos("Lletres", ["MAJÚSCULA", ["Marta", "Girona", "inici"], cRO], ["MINÚSCULA", ["dilluns", "gener", "casa"], cAZ])],
+    ],
+    "Què és l'ordre alfabètic?": [
+      ["Si comencen igual, la segona lletra", `<p>Quan dues paraules comencen per la <mark>mateixa lletra</mark>, mirem la <b>segona</b>:</p><ul><li><b>ca</b>sa, <b>co</b>txe, <b>cu</b>ina → a va abans que o, i o abans que u.</li><li><b>pa</b>, <b>pe</b>ra, <b>pi</b>lota, <b>po</b>ma.</li></ul><p>Si també la segona és igual, mirem la <b>tercera</b>:</p><ul><li><b>mar</b>, <b>mas</b>, <b>mat</b>í → r, s, t.</li><li><b>gat</b>, <b>gal</b>l → l va abans que t: gall, gat.</li></ul><p>És com en una cursa: si dos corredors arriben alhora, mirem qui ha fet el pas següent primer.</p><p>Exemple: ordenem <i>sol, sabata, sopa, sac</i>:</p><ul><li>Primer les que fan <b>sa</b>: sabata, sac (b abans que c).</li><li>Després les que fan <b>so</b>: sol, sopa (l abans que p).</li></ul><p>Resultat: sabata, sac, sol, sopa.</p><p><b>Activitat</b>: ordena els noms dels companys que comencen per la mateixa lletra.</p>`,
+        H6.flujo("Ordre", ["sabata|sa-b", "sac|sa-c", "sol|so-l", "sopa|so-p"], cVE)],
+    ],
+    "El diccionari": [
+      ["Les paraules guia", `<p>A dalt de cada pàgina del diccionari hi ha dues paraules en negreta: són les <mark>paraules guia</mark>.</p><ul><li>La de l'<b>esquerra</b> és la primera paraula de la pàgina.</li><li>La de la <b>dreta</b> és l'última.</li></ul><p>Si la paraula que busquem va entre totes dues en ordre alfabètic, és en aquella pàgina!</p><p>Exemple: a dalt de la pàgina diu <b>gall — gerro</b>. Hi trobarem <i>gat</i>? Sí, perquè gat va després de gall i abans de gerro. I <i>gos</i>? No, perquè gos va després de gerro.</p><p>Consells per buscar ràpid:</p><ul><li>Obre el diccionari més o menys pel lloc de la lletra: la A al principi, la M al mig, la Z al final.</li><li>Mira les paraules guia, no totes les paraules.</li><li>Busca els verbs acabats en <b>-ar</b>, <b>-er</b>, <b>-re</b> o <b>-ir</b>: «menjar», no «menjo».</li></ul><p><b>Activitat</b>: fes una cursa amb un company: qui troba abans la paraula «tortuga»?</p>`,
+        L6.filas("Guia", [["esquerra", "primera", cAZ], ["dreta", "última", cRO], ["A", "al principi", cVE], ["Z", "al final", cNA]])],
+    ],
+    "Per a què serveix?": [
+      ["L'ordre alfabètic a tot arreu", `<p>L'<mark>ordre alfabètic</mark> ens ajuda a trobar les coses de pressa. El trobem a molts llocs:</p><ul><li>A la <b>llista de classe</b>: els alumnes van ordenats pel cognom.</li><li>A la <b>biblioteca</b>: els llibres es col·loquen pel cognom de l'autor.</li><li>A l'<b>agenda del telèfon</b>: els contactes estan ordenats per nom.</li><li>Als <b>índexs</b> dels llibres i a les <b>enciclopèdies</b>.</li><li>Als <b>timbres</b> i les bústies d'alguns edificis.</li><li>A les llistes de <b>vocabulari</b> i als glossaris.</li></ul><p>Imagina't una agenda amb mil noms barrejats! Trigaríem moltíssim a trobar el telèfon de l'àvia.</p><p><b>Activitat</b>: fes una agenda de la classe amb el nom de cada company en ordre alfabètic.</p>`,
+        H6.rueda("On?", "ABC", [["llista", cAZ], ["biblioteca", cVE], ["agenda", cNA], ["índex", cRO]]),
+        ["T-AKoOvcKX8", "Abecedari català", "Enfants du Monde", 4122183]],
+    ],
+  },
+  final: [
+    ["Jocs amb l'abecedari", `<p>Amb l'abecedari podem fer <mark>jocs</mark> molt divertits:</p><ul><li><b>L'abecedari d'animals</b>: cada lletra, un animal. A d'ànec, B de balena, C de cavall, D de dofí…</li><li><b>Paraules encadenades</b>: la paraula nova comença per l'última lletra de l'anterior: sol → lluna → aranya → anell…</li><li><b>Sopa de lletres</b>: trobar paraules amagades en un quadre de lletres.</li><li><b>L'acròstic</b>: escrivim un nom de dalt a baix i fem una paraula amb cada lletra: <b>S</b>ol, <b>O</b>s, <b>L</b>luna.</li><li><b>Veig, veig</b>: «Veig, veig una cosa que comença per la P…» «La pissarra!»</li></ul><p>Jugant, aprenem l'ordre de les lletres sense adonar-nos-en.</p><p><b>Activitat</b>: fes un acròstic amb el teu nom.</p>`,
+      L6.filas("Jocs", [["animals", "A d'ànec", cVE], ["encadenades", "sol-lluna", cAZ], ["acròstic", "S-O-L", cRO], ["veig, veig", "per la P", cNA]])],
+    ["Repàs: la biblioteca desordenada", `<p>Repassem amb la <mark>lectura</mark>:</p><ul><li>Els llibres s'ordenen pel <b>cognom de l'autor</b>, en ordre alfabètic.</li><li>L'Arnau col·loca els de la <b>A</b> i la <b>B</b>: són al principi.</li><li>La Laia fa els de la <b>M</b>: al mig.</li><li>El Pau posa els de la <b>Z</b> al final, a dalt de tot.</li><li>Si dos llibres comencen per <b>C</b>, mirem la <b>segona lletra</b>.</li><li>Ordenar ajuda a trobar els contes <b>de pressa</b>.</li></ul><p>I el culpable del desordre era… un gatet! Els noms dels personatges (Roser, Arnau, Laia, Pau) porten <b>majúscula</b>.</p><p><b>Activitat</b>: ordena alfabèticament els noms dels personatges de la lectura.</p>`,
+      H6.flujo("Biblioteca", ["A-B|Arnau", "M|Laia", "Z|Pau", "C?|2a lletra"], cMO)],
+  ],
+  ejemplos: [
+    ["Ordena: pera, poma, pa.", ["Totes comencen per p.", "Mirem la segona lletra: a, e, o."], "Pa, pera, poma."],
+    ["Les paraules guia són «lleó — lloro». Hi és «llop»?", ["llop va després de lleó i abans de lloro."], "Sí."],
+  ],
+  errores: ["Escriure els noms de persones o pobles amb minúscula.", "Buscar al diccionari el verb conjugat («menjo») en lloc de l'infinitiu («menjar»)."],
+  ejercicios: [
+    ["b", "Escriu amb majúscula: barcelona.", "Barcelona."],
+    ["b", "Quina lletra va després de la M?", "La N."],
+    ["b", "Ordena: dau, abella, cotxe.", "Abella, cotxe, dau."],
+    ["b", "Què són les paraules guia?", "Les paraules de dalt de la pàgina del diccionari."],
+    ["b", "Els mesos van amb majúscula o minúscula?", "Amb minúscula."],
+    ["m", "Ordena: sol, sabata, sopa.", "Sabata, sol, sopa."],
+    ["m", "Ordena: gat, gall, gos.", "Gall, gat, gos."],
+    ["m", "Com buscaries «corro» al diccionari?", "Buscant «córrer»."],
+    ["m", "Digues tres llocs on hi ha ordre alfabètic.", "Llista de classe, biblioteca, agenda."],
+    ["m", "Fes tres paraules encadenades després de «sol».", "Lluna, aranya, anell…"],
+    ["a", "A la lectura, per què el Pau posa els llibres de la Z?", "Perquè és el més alt i van a dalt de tot."],
+    ["a", "Qui havia desordenat la biblioteca?", "Un gatet."],
+    ["a", "Paraules guia «mar — mel». Hi és «mató»? I «mico»?", "Mató sí; mico no."],
+    ["a", "Fes un abecedari d'animals de la A a la F.", "Ànec, balena, cavall, dofí, elefant, foca."],
+  ],
+  quiz: [
+    ["S'escriu amb majúscula…", ["Lleida", "dilluns", "gener"], "Majúscules."],
+    ["Va primer…", ["casa", "cotxe", "cuina"], "Segona lletra."],
+    ["Les paraules guia són a…", ["dalt de la pàgina", "la portada", "l'última pàgina"], "Diccionari."],
+    ["Al diccionari busquem…", ["menjar", "menjo", "menjava"], "Verbs."],
+    ["Una paraula per a cada lletra d'un nom és un…", ["acròstic", "conte", "poema"], "Jocs."],
+  ],
+  examen: [
+    ["A la lectura, qui és la bibliotecària?", ["la senyora Roser", "la Laia", "la mestra Pau"], "Lectura."],
+    ["Com s'ordenen els llibres?", ["pel cognom de l'autor", "per colors", "per mida"], "Repàs."],
+  ],
+  tarjetas: [
+    ["Segona lletra", "Si comencen igual, mira la segona, i després la tercera."],
+    ["Paraules guia", "Esquerra: primera de la pàgina. Dreta: última."],
+  ],
+  glosario: [
+    ["Majúscula", "Lletra gran: A, B, C."],
+    ["Minúscula", "Lletra petita: a, b, c."],
+    ["Nom propi", "Nom d'una persona, un lloc o un animal concret."],
+    ["Paraules guia", "Paraules de dalt de la pàgina del diccionari."],
+    ["Infinitiu", "Nom del verb: menjar, córrer."],
+    ["Índex", "Llista dels temes d'un llibre."],
+    ["Acròstic", "Text fet amb les lletres d'un nom."],
+    ["Bibliotecària", "Persona que té cura d'una biblioteca."],
+    ["Prestatge", "Lleixa on es posen els llibres."],
+    ["Cognom", "Nom de família."],
+  ],
+  situacion: {
+    titulo: "El diccionari de la classe",
+    reto: "La classe fa un diccionari il·lustrat amb paraules noves que aprèn cada setmana, ordenades alfabèticament.",
+    pasos: ["Triar paraules noves de les lectures i els temes.", "Escriure cada paraula amb un dibuix i una explicació.", "Ordenar les fitxes alfabèticament, mirant la segona lletra si cal.", "Posar paraules guia a cada pàgina i enquadernar el diccionari."],
+    producto: "Un diccionari il·lustrat de la classe.",
+    evaluacion: ["Fa servir bé majúscules i minúscules.", "Ordena paraules mirant la segona lletra.", "Fa servir les paraules guia.", "Reconeix l'ordre alfabètic a la vida diària."],
+  },
+});

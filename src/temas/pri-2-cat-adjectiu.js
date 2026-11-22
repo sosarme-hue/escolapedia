@@ -135,3 +135,93 @@ module.exports = {
   fuentes: FONTS,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Fer servir adjectius contraris", "Descriure emocions amb adjectius", "Fer comparacions: blanc com la neu", "Descriure un animal o una persona en un text curt"],
+  lectura: { titulo: "El drac que no feia por", html: `<p>Hi havia una vegada, en una cova fosca i humida, un drac molt <b>gran</b> i <b>verd</b>. Tenia les ales <b>llargues</b>, la cua <b>punxeguda</b> i les dents <b>blanques</b> com la neu.</p><p>Tothom al poble deia que era un drac <b>ferotge</b> i <b>perillós</b>. Per això ningú no s'hi acostava.</p><p>Un dia, una nena <b>valenta</b> que es deia Martina va entrar a la cova. El drac la va mirar amb uns ulls <b>grossos</b> i <b>tristos</b>.</p><p>—Que em menjaràs? —va preguntar la Martina.</p><p>—Jo? No! Soc vegetarià —va dir el drac amb una veu <b>suau</b>—. Només estic <b>sol</b> i <b>avorrit</b>.</p><p>La Martina va riure. Aquell drac no era gens ferotge: era <b>tímid</b> i <b>tendre</b>.</p><p>L'endemà, tots els nens del poble van anar a jugar a la cova. El drac els feia volar per sobre les muntanyes.</p><p>Des d'aquell dia, el drac verd va ser el drac més <b>feliç</b> del món.</p>` },
+  tras: {
+    "Adjectius de color i de mida": [
+      ["Adjectius contraris", `<p>Molts adjectius tenen un <mark>contrari</mark>: una paraula que vol dir tot el contrari.</p><ul><li><b>gran</b> ↔ <b>petit</b></li><li><b>alt</b> ↔ <b>baix</b></li><li><b>llarg</b> ↔ <b>curt</b></li><li><b>gras</b> ↔ <b>prim</b></li><li><b>ràpid</b> ↔ <b>lent</b></li><li><b>calent</b> ↔ <b>fred</b></li><li><b>nou</b> ↔ <b>vell</b></li><li><b>net</b> ↔ <b>brut</b></li><li><b>ple</b> ↔ <b>buit</b></li></ul><p>Amb els contraris podem comparar coses: «La girafa és <b>alta</b> i el conill és <b>baix</b>.» «El got de l'Anna és <b>ple</b> i el meu és <b>buit</b>.»</p><p>Alguns contraris es fan afegint <b>in-</b> o <b>des-</b> al davant: <i>feliç → infeliç</i>, <i>ordenat → desordenat</i>.</p><p>Els adjectius també concorden amb el nom: «una casa <b>petita</b>», «uns cotxes <b>ràpids</b>».</p><p><b>Activitat</b>: juga amb un company: tu dius un adjectiu i ell en diu el contrari.</p>`,
+        L6.filas("Contraris", [["gran", "petit", cAZ], ["ràpid", "lent", cRO], ["calent", "fred", cNA], ["net", "brut", cVE]])],
+    ],
+    "Adjectius de com som": [
+      ["Adjectius d'emocions", `<p>Hi ha adjectius que diuen com ens <mark>sentim</mark> per dins:</p><ul><li><b>content</b> o <b>alegre</b>: quan rius i tot va bé.</li><li><b>trist</b>: quan perds alguna cosa o algú marxa.</li><li><b>enfadat</b>: quan alguna cosa no t'agrada gens.</li><li><b>espantat</b>: quan tens por.</li><li><b>nerviós</b>: abans d'un examen o d'una actuació.</li><li><b>tranquil</b>: quan estàs relaxat.</li><li><b>avorrit</b>: quan no tens res a fer.</li><li><b>sorprès</b>: quan passa una cosa que no esperaves.</li></ul><p>És important saber dir com ens sentim: «Avui estic <b>trist</b> perquè el meu amic està malalt.» Així els altres ens poden entendre i ajudar.</p><p>Les emocions canvien: ara podem estar enfadats i d'aquí a una estona, contents.</p><p>Tots els sentiments són normals. El que importa és expressar-los sense fer mal a ningú.</p><p><b>Activitat</b>: fes una roda de les emocions i assenyala com et sents avui.</p>`,
+        H6.rueda("Emocions", "ESTIC", [["content", cNA], ["trist", cAZ], ["enfadat", cRO], ["nerviós", cMO]]),
+        ["lYriMzzMsUw", "El Pot Petit - El lleó vergonyós", "El Pot Petit", 27085154]],
+    ],
+    "L'adjectiu concorda": [
+      ["Blanc com la neu", `<p>Per descriure millor podem fer <mark>comparacions</mark>: diem que una cosa és com una altra que ho és molt.</p><ul><li><b>blanc com la neu</b></li><li><b>negre com el carbó</b></li><li><b>vermell com un tomàquet</b></li><li><b>dur com una pedra</b></li><li><b>lleuger com una ploma</b></li><li><b>ràpid com un llamp</b></li><li><b>fort com un roure</b></li><li><b>dolç com la mel</b></li></ul><p>Exemples:</p><ul><li>«Quan em fa vergonya, em poso <b>vermell com un tomàquet</b>.»</li><li>«Aquest pa és <b>dur com una pedra</b>!»</li></ul><p>Les comparacions fan que els textos siguin més bonics i fàcils d'imaginar. Els poetes en fan servir moltes!</p><p>Algunes comparacions són frases fetes que diem cada dia sense pensar-hi: «més content que un gínjol», «més llest que la fam».</p><p><b>Activitat</b>: inventa tres comparacions noves: «alt com…», «suau com…», «content com…».</p>`,
+        H6.flujo("Com", ["blanc|neu", "dur|pedra", "dolç|mel", "ràpid|llamp"], cVE)],
+    ],
+    "Per a què serveix?": [
+      ["Descriure un animal", `<p>Per <mark>descriure</mark> un animal o una persona seguim un ordre:</p><ul><li><b>1. Qui és</b>: «La meva gossa es diu Lluna.»</li><li><b>2. Com és per fora</b>: mida, color, pèl, ulls… «És <b>petita</b> i <b>blanca</b>. Té el pèl <b>arrissat</b> i les orelles <b>llargues</b>.»</li><li><b>3. Com és de caràcter</b>: «És <b>juganera</b>, <b>carinyosa</b> i una mica <b>tafanera</b>.»</li><li><b>4. Què li agrada</b>: «Li agrada córrer pel parc i menjar galetes.»</li></ul><p>Per fer una bona descripció:</p><ul><li>Fes servir <b>molts adjectius</b>.</li><li>Fes que <b>concordin</b> amb el nom: gossa blanc<b>a</b>, orelles llargu<b>es</b>.</li><li>Afegeix alguna <b>comparació</b>: «Té el pèl suau com el cotó.»</li></ul><p><b>Activitat</b>: descriu la teva mascota o un animal que t'agradi seguint els quatre passos.</p>`,
+        L6.filas("Descriure", [["1", "qui és", cAZ], ["2", "com és per fora", cVE], ["3", "caràcter", cNA], ["4", "què li agrada", cRO]])],
+    ],
+  },
+  final: [
+    ["Endevina qui és!", `<p>Amb adjectius podem fer <mark>endevinalles</mark>. Escoltem i pensem:</p><ul><li>«Soc <b>gran</b> i <b>gris</b>, tinc les orelles <b>enormes</b> i el nas molt <b>llarg</b>. Qui soc?» (L'elefant)</li><li>«Soc <b>petit</b> i <b>verd</b>, salto molt i visc a la bassa. Qui soc?» (La granota)</li><li>«Soc <b>groc</b>, <b>rodó</b> i <b>calent</b>, i surto cada matí. Qui soc?» (El sol)</li><li>«Soc <b>blanca</b> i <b>freda</b>, i a l'hivern cobreixo les muntanyes. Qui soc?» (La neu)</li></ul><p>Per fer una bona endevinalla, triem adjectius que donin <b>pistes</b>, però sense dir el nom.</p><p>Al joc «Qui és qui?» també fem servir adjectius: «Té el cabell <b>ros</b>? Porta ulleres <b>vermelles</b>?»</p><p><b>Activitat</b>: inventa una endevinalla amb tres adjectius i fes-la als companys.</p>`,
+      H6.dos("Endevina", ["PISTES", ["gris", "salta", "calent"], cMO], ["SOLUCIÓ", ["elefant", "granota", "sol"], cVE])],
+    ["Repàs: el drac que no feia por", `<p>Repassem amb la <mark>lectura</mark>:</p><ul><li>La cova era <b>fosca</b> i <b>humida</b>.</li><li>El drac era <b>gran</b> i <b>verd</b>, amb les ales <b>llargues</b> i la cua <b>punxeguda</b>.</li><li>Tenia les dents <b>blanques com la neu</b>: una comparació!</li><li>La gent deia que era <b>ferotge</b> i <b>perillós</b>.</li><li>La Martina era <b>valenta</b>.</li><li>En realitat, el drac estava <b>sol</b> i <b>avorrit</b>, i era <b>tímid</b> i <b>tendre</b>.</li><li>Al final, era el drac més <b>feliç</b> del món.</li></ul><p>El conte ens ensenya que no hem de jutjar ningú abans de conèixer-lo. Per fora el drac semblava perillós, però per dins era bo.</p><p><b>Activitat</b>: dibuixa el drac i escriu-hi al voltant tots els adjectius de la lectura.</p>`,
+      L6.filas("Drac", [["cova", "fosca", cMO], ["dents", "blanques", cAZ], ["Martina", "valenta", cRO], ["final", "feliç", cNA]])],
+  ],
+  ejemplos: [
+    ["Digues el contrari de «ple».", ["Un got ple té aigua; si no en té…"], "Buit."],
+    ["Completa: «lleuger com…»", ["Pensem en una cosa que pesa molt poc."], "Lleuger com una ploma."],
+  ],
+  errores: ["No fer concordar: «la gossa blanc» en lloc de «la gossa blanca».", "Fer una descripció només amb el color, sense dir com és de caràcter."],
+  ejercicios: [
+    ["b", "Contrari de «alt».", "Baix."],
+    ["b", "Contrari de «net».", "Brut."],
+    ["b", "Com estàs quan tens por?", "Espantat."],
+    ["b", "Completa: «blanc com…»", "La neu."],
+    ["b", "Digues un adjectiu de caràcter.", "Juganer, carinyós, tímid…"],
+    ["m", "Contrari de «ordenat» amb des-.", "Desordenat."],
+    ["m", "Completa: «dur com…»", "Una pedra."],
+    ["m", "Fes concordar: les orelles (llarg).", "Les orelles llargues."],
+    ["m", "Escriu una frase amb un adjectiu d'emoció.", "Resposta oberta."],
+    ["m", "Endevina: soc petit i verd, salto i visc a la bassa.", "La granota."],
+    ["a", "A la lectura, com era el drac de veritat?", "Tímid, tendre, sol i avorrit."],
+    ["a", "Copia la comparació de la lectura.", "Blanques com la neu."],
+    ["a", "Descriu un animal en quatre passos.", "Resposta oberta."],
+    ["a", "Inventa una endevinalla amb tres adjectius.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["El contrari de «ràpid» és…", ["lent", "gran", "fort"], "Contraris."],
+    ["Abans d'un examen estem…", ["nerviosos", "avorrits", "freds"], "Emocions."],
+    ["«Dolç com…»", ["la mel", "la pedra", "el carbó"], "Comparacions."],
+    ["Primer pas per descriure:", ["dir qui és", "dir què li agrada", "dibuixar-lo"], "Descriure."],
+    ["«Gran, gris i nas llarg» és…", ["l'elefant", "la granota", "el sol"], "Endevinalles."],
+  ],
+  examen: [
+    ["A la lectura, com es diu la nena?", ["Martina", "Laia", "Anna"], "Lectura."],
+    ["Què menja el drac?", ["és vegetarià", "nens", "peixos"], "Repàs."],
+  ],
+  tarjetas: [
+    ["Contraris", "gran-petit, ple-buit, net-brut, feliç-infeliç."],
+    ["Comparacions", "blanc com la neu, dur com una pedra."],
+  ],
+  glosario: [
+    ["Contrari", "Paraula que vol dir el contrari d'una altra."],
+    ["Emoció", "Allò que sentim per dins."],
+    ["Comparació", "Dir que una cosa és com una altra."],
+    ["Descripció", "Text que explica com és algú o alguna cosa."],
+    ["Caràcter", "Manera de ser d'una persona o un animal."],
+    ["Ferotge", "Molt salvatge i perillós."],
+    ["Tímid", "Que té vergonya."],
+    ["Punxegut", "Que acaba en punta."],
+    ["Tafaner", "Que vol saber-ho tot."],
+    ["Endevinalla", "Joc en què s'ha d'endevinar una cosa per les pistes."],
+  ],
+  situacion: {
+    titulo: "El zoo dels adjectius",
+    reto: "La classe crea un zoo imaginari amb animals inventats i una fitxa descriptiva de cadascun.",
+    pasos: ["Inventar i dibuixar un animal fantàstic.", "Escriure com és per fora amb adjectius de color, mida i forma.", "Escriure com és de caràcter i quines emocions té.", "Afegir una comparació i presentar l'animal com una endevinalla."],
+    producto: "Un mural del zoo amb fitxes descriptives.",
+    evaluacion: ["Fa servir adjectius contraris.", "Descriu emocions.", "Fa comparacions.", "Escriu una descripció ordenada."],
+  },
+});
