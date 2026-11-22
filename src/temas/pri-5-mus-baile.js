@@ -91,3 +91,90 @@ module.exports = tema({
   ideas: ["Coreografía de clase con forma A B A.", "Investigar y bailar una danza popular de la comunidad.", "Juego de estatuas cambiando nivel y energía según la música."],
   fuentes: [["Compañía Nacional de Danza", "https://cndanza.mcu.es/"], ["Ballet Nacional de España", "https://balletnacional.mcu.es/"]],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { L: L5, H: H5, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 75,
+  objetivos: ["Conocer grandes ballets y figuras de la danza en España", "Descubrir el baile flamenco y sus elementos", "Valorar danzas de otras culturas del mundo", "Explorar la danza contemporánea y cómo se escribe la danza"],
+  lectura: { titulo: "Los zapatos que hablaban", html: `<p>La primera vez que Lucía entró en la escuela de flamenco de su barrio, se asustó un poco. El suelo de madera retumbaba como un tambor gigante bajo los pies de las alumnas mayores, que golpeaban con fuerza, rapidísimo, mientras la guitarra sonaba y alguien daba palmas.</p><p>—¿Cómo pueden mover los pies tan rápido? —le preguntó a la profesora.</p><p>—Con muchos años de práctica —respondió ella—. Pero lo importante no es la velocidad. En el flamenco, los pies hablan. Cada golpe es una palabra.</p><p>Le dio unos zapatos negros con clavos en la punta y en el tacón.</p><p>—Escucha: planta, tacón, punta. Planta, tacón, punta.</p><p>Lucía lo intentó. Al principio sonaba desordenado, como lluvia sobre un tejado. Pero la profesora empezó a dar palmas a un ritmo regular y, poco a poco, los pies de Lucía se fueron acomodando a él.</p><p>Al acabar la clase, una de las alumnas mayores le dijo:</p><p>—El primer día yo tampoco sabía nada. Ahora bailo en festivales.</p><p>Lucía volvió a casa repitiendo el ritmo con los pies por toda la calle. Su madre se rio al verla:</p><p>—¿Qué haces?</p><p>—¡Hablo con los zapatos! —contestó.</p>` },
+  tras: {
+    "La danza clásica: el ballet": [
+      ["Grandes ballets y bailarines españoles", `<p>Algunos ballets se representan desde hace más de cien años en teatros de todo el mundo. Muchos tienen música del compositor ruso <b>Piotr Ilich Chaikovski</b>:</p><ul><li><b>El lago de los cisnes</b> (1877): un príncipe se enamora de Odette, una princesa convertida en cisne por un hechicero. Su «danza de los pequeños cisnes», con cuatro bailarinas cogidas de las manos, es una de las más famosas.</li><li><b>El cascanueces</b> (1892): la historia de una niña que, en Nochebuena, recibe un cascanueces que cobra vida. Se representa sobre todo en Navidad.</li><li><b>La bella durmiente</b> (1890), basada en el cuento tradicional.</li></ul><p>España tiene grandes figuras del ballet. <b>Tamara Rojo</b>, nacida en Montreal y criada en Madrid, fue primera bailarina y directora del English National Ballet de Londres. <b>Ángel Corella</b> fue estrella del American Ballet Theatre de Nueva York.</p><p>Además, en España existe un estilo propio: la <b>danza española</b>, que mezcla la técnica del ballet con el flamenco, la escuela bolera y las danzas populares, y se baila a menudo con castañuelas. El <b>Ballet Nacional de España</b> se dedica a este estilo, mientras que la <b>Compañía Nacional de Danza</b> se dedica al ballet y la danza contemporánea.</p>`,
+        L5.filas("Ballets de Chaikovski", [["1877", "El lago de los cisnes", cAZ], ["1890", "La bella durmiente", cNA], ["1892", "El cascanueces", cRO]]), ["km3XRd3r7to", "El Lago de los Cisnes (Ballet de Moscú) Swan Lake", "Ayuntamiento de la Villa de La Orotava", 4555457]],
+    ],
+    "Las danzas populares": [
+      ["El baile flamenco", `<p>El <b>flamenco</b> es un arte que nació en <b>Andalucía</b> y que reúne tres elementos: el <b>cante</b> (la voz), el <b>toque</b> (la guitarra) y el <b>baile</b>. En 2010, la UNESCO lo declaró <b>Patrimonio Cultural Inmaterial de la Humanidad</b>.</p><p>En el baile flamenco destacan:</p><ul><li>El <b>zapateado</b>: golpes rítmicos con los pies, con zapatos que llevan clavos en la punta y el tacón. Se combinan golpes de <b>planta</b>, <b>tacón</b> y <b>punta</b>.</li><li>Las <b>palmas</b>: pueden ser <b>sordas</b> (con las manos huecas, suenan graves y suaves) o <b>sonoras</b> (con los dedos de una mano sobre la palma de la otra, suenan fuertes y agudas).</li><li>El <b>braceo</b>: movimientos de brazos y manos, lentos y expresivos, con giros de muñeca llamados <b>floreo</b>.</li><li>Los <b>pitos</b>: chasquidos de dedos.</li></ul><p>El flamenco tiene muchos estilos, llamados <b>palos</b>, cada uno con su ritmo y su carácter: las <b>alegrías</b> son festivas, la <b>soleá</b> es solemne, las <b>bulerías</b> son rápidas y juguetonas.</p><p>Muchos palos se cuentan en ciclos de <b>doce tiempos</b>, con acentos en lugares especiales. Prueba a dar palmas contando del 1 al 12 y acentuando el 3, el 6, el 8, el 10 y el 12: es el compás de la soleá.</p>`,
+        L5.filas("El flamenco", [["cante", "la voz", cRO], ["toque", "la guitarra", cNA], ["baile", "zapateado y braceo", cAZ], ["palmas", "sordas y sonoras", cVE]]), ["-QfR34lNkkk", "22 Flamenco Kids", "Studio Danza", 1240693]],
+    ],
+    "Danzas de salón y urbanas": [
+      ["Danzas del mundo", `<p>En todos los continentes, las personas bailan para celebrar, rezar, contar historias o sentirse parte de un grupo. Estas son algunas danzas tradicionales del mundo:</p><ul><li>La <b>haka</b> (Nueva Zelanda): una danza del pueblo <b>maorí</b> con gritos, golpes en el pecho y los muslos, y gestos con la lengua y los ojos. Antes se bailaba antes de las batallas; hoy se baila en celebraciones, despedidas y antes de los partidos del equipo nacional de rugby.</li><li>La <b>danza del león</b> (China): dos bailarines dentro de un disfraz de león imitan sus movimientos al ritmo de tambores y platillos para dar buena suerte en el Año Nuevo chino.</li><li>La <b>samba</b> (Brasil): con mucho ritmo de percusión, es la protagonista del carnaval de Río de Janeiro.</li><li>El <b>bharatanatyam</b> (India): una danza clásica muy antigua en la que cada gesto de las manos y de los ojos tiene un significado.</li><li>Las danzas de <b>África occidental</b>, acompañadas por tambores como el <b>djembé</b>, en círculo, donde todos participan.</li><li>El <b>tango</b> (Argentina y Uruguay), declarado Patrimonio de la Humanidad en 2009.</li></ul><p>Cada danza refleja la historia, las creencias y la forma de vivir de un pueblo. Aprender un baile de otra cultura es una forma de conocerla y respetarla.</p>`,
+        L5.filas("Danzas del mundo", [["haka", "Nueva Zelanda", cMO], ["danza del león", "China", cRO], ["samba", "Brasil", cVE], ["bharatanatyam", "India", cNA], ["tango", "Argentina, Uruguay", cAZ]]), ["vnvI6V-TtLs", "Maori All Blacks Haka at sold-out BC Place in Vancouver", "Rugby Canada", 38912872]],
+    ],
+  },
+  final: [
+    ["La danza contemporánea", `<p>A principios del siglo XX, algunas bailarinas y bailarines sintieron que el ballet tenía demasiadas reglas. Querían moverse con más <b>libertad</b> y expresar emociones de forma más natural. Así nació la <b>danza moderna</b> y, después, la <b>danza contemporánea</b>.</p><p>La estadounidense <b>Isadora Duncan</b> fue una de las pioneras: bailaba <b>descalza</b>, con túnicas sueltas inspiradas en la Grecia antigua, y con movimientos que imitaban las olas o el viento. Más tarde, <b>Martha Graham</b> creó una técnica basada en la respiración: contraer y soltar el cuerpo. La alemana <b>Pina Bausch</b> mezcló danza y teatro, con bailarines que hablaban, reían o corrían por escenarios llenos de tierra, agua o flores.</p><p>Algunas características de la danza contemporánea:</p><ul><li>Se baila a menudo <b>descalzo</b> y en contacto con el <b>suelo</b>: rodar, caer, levantarse.</li><li>Cualquier movimiento puede ser danza: caminar, saltar, abrazar, temblar.</li><li>Puede bailarse con cualquier música, con sonidos o incluso en silencio.</li><li>Busca <b>expresar</b> ideas y emociones, no solo hacer movimientos bonitos.</li></ul><p>En clase podéis probarlo: elegid una emoción (alegría, miedo, calma) y cread una secuencia de cuatro movimientos libres que la expresen, sin hablar.</p>`,
+      H5.dos("Clásica o contemporánea", ["Ballet", ["zapatillas de punta", "posiciones fijas", "elevarse"], cAZ], ["Contemporánea", ["pies descalzos", "movimiento libre", "suelo y emoción"], cRO])],
+    ["Escribir la danza", `<p>La música se puede escribir en una partitura para que otras personas la toquen siglos después. Pero ¿cómo se escribe una danza?</p><p>Durante mucho tiempo, los bailes se aprendían viéndolos y copiándolos. Si nadie los recordaba, se perdían. Por eso, a lo largo de la historia se han inventado varios sistemas de <b>notación de la danza</b>:</p><ul><li>En el siglo XVIII, en la corte de Francia, se dibujaban en el papel los <b>caminos</b> que seguían los bailarines por el suelo, con símbolos para cada paso.</li><li>En <b>1928</b>, el húngaro <b>Rudolf Laban</b> inventó un sistema, la <b>labanotación</b>, que se escribe en columnas verticales: cada columna corresponde a una parte del cuerpo (pierna derecha, brazo izquierdo…) y unos símbolos indican la dirección, el nivel (alto, medio, bajo) y la duración de cada movimiento.</li><li>Hoy, además, se graban las coreografías en <b>vídeo</b>.</li></ul><p>En clase podemos inventar nuestra propia notación sencilla: una flecha para indicar la dirección, un círculo para un giro, una línea ondulada para un movimiento suave, un punto para un salto. Escribid una coreografía de ocho tiempos con vuestros símbolos y dádsela a otro grupo para ver si son capaces de bailarla.</p>`,
+      L5.filas("Nuestra notación", [["flecha", "dirección", cAZ], ["círculo", "giro", cVE], ["línea ondulada", "movimiento suave", cNA], ["punto", "salto", cRO]])],
+  ],
+  ejemplos: [
+    ["En una danza, los bailarines llevan zapatos con clavos y dan golpes rítmicos con los pies. ¿Qué baile es?", ["Los golpes con los pies son el zapateado.", "Es típico de Andalucía."], "El flamenco."],
+    ["¿Qué compositor escribió El cascanueces y cuándo se representa?", ["Es un ballet ruso.", "Su historia ocurre en Nochebuena."], "Chaikovski; se representa sobre todo en Navidad."],
+  ],
+  errores: ["Pensar que el flamenco es solo baile: también es cante y toque de guitarra.", "Creer que la danza contemporánea no tiene técnica: exige mucho entrenamiento."],
+  ejercicios: [
+    ["b", "¿Quién compuso la música de El lago de los cisnes?", "Chaikovski."],
+    ["b", "¿Cuáles son los tres elementos del flamenco?", "Cante, toque y baile."],
+    ["b", "¿De qué pueblo es la haka?", "Del pueblo maorí de Nueva Zelanda."],
+    ["b", "¿Cómo bailaba Isadora Duncan?", "Descalza, con túnicas y movimientos libres."],
+    ["b", "¿Quién inventó la labanotación?", "Rudolf Laban, en 1928."],
+    ["m", "Explica la diferencia entre palmas sordas y sonoras.", "Las sordas se dan con las manos huecas y suenan suaves; las sonoras, con los dedos en la palma y suenan fuertes."],
+    ["m", "¿Qué es la danza española?", "Un estilo que mezcla ballet, flamenco, escuela bolera y danzas populares."],
+    ["m", "¿Para qué se baila la danza del león en China?", "Para dar buena suerte en el Año Nuevo."],
+    ["m", "Nombra tres palos del flamenco.", "Alegrías, soleá y bulerías."],
+    ["m", "¿Por qué es útil escribir la danza?", "Para que no se pierda y otros puedan bailarla."],
+    ["a", "Da palmas al compás de doce tiempos de la soleá.", "Respuesta práctica."],
+    ["a", "Crea una secuencia de danza contemporánea que exprese una emoción.", "Respuesta abierta."],
+    ["a", "Inventa una notación y escribe una coreografía de ocho tiempos.", "Respuesta abierta."],
+    ["a", "Investiga una danza de otro país y enséñala a la clase.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El cascanueces se representa sobre todo en…", ["Navidad", "verano", "carnaval"], "Nochebuena."],
+    ["El flamenco es Patrimonio de la Humanidad desde…", ["2010", "1910", "1980"], "UNESCO."],
+    ["La samba es protagonista del carnaval de…", ["Río de Janeiro", "Cádiz", "Venecia"], "Brasil."],
+    ["La danza contemporánea se baila a menudo…", ["descalzo", "con zapatillas de punta", "con patines"], "Contacto con el suelo."],
+    ["La labanotación sirve para…", ["escribir la danza", "afinar", "componer canciones"], "Notación."],
+  ],
+  examen: [
+    ["Tamara Rojo dirigió el…", ["English National Ballet", "Ballet de Moscú", "Teatro de la Zarzuela"], "Londres."],
+    ["Los golpes de pies del flamenco se llaman…", ["zapateado", "braceo", "floreo"], "Planta, tacón, punta."],
+  ],
+  tarjetas: [
+    ["Ballet", "Chaikovski: Lago, Bella durmiente, Cascanueces; Tamara Rojo, Ángel Corella."],
+    ["Flamenco", "Cante, toque y baile; zapateado, palmas, braceo; palos."],
+    ["Danzas del mundo", "Haka, danza del león, samba, bharatanatyam, tango."],
+    ["Contemporánea", "Duncan, Graham, Bausch; libertad y expresión; labanotación."],
+  ],
+  glosario: [
+    ["Primera bailarina", "Bailarina principal de una compañía."],
+    ["Danza española", "Estilo que une ballet, flamenco y danzas populares."],
+    ["Cante", "Canto flamenco."],
+    ["Toque", "Guitarra flamenca."],
+    ["Zapateado", "Golpes rítmicos con los pies."],
+    ["Braceo", "Movimiento de brazos en el flamenco."],
+    ["Palo", "Cada estilo del flamenco."],
+    ["Haka", "Danza tradicional maorí."],
+    ["Danza contemporánea", "Danza libre que busca expresar ideas y emociones."],
+    ["Notación", "Sistema de símbolos para escribir algo."],
+    ["Labanotación", "Sistema de Laban para escribir la danza."],
+    ["Coreografía", "Secuencia de movimientos de una danza."],
+  ],
+  situacion: {
+    titulo: "Festival de danzas del mundo",
+    reto: "La clase organiza un festival en el que cada grupo presenta una danza de un estilo diferente y la escribe con su propia notación.",
+    pasos: ["Repartid los estilos: ballet, flamenco, danza del mundo y danza contemporánea.", "Investigad el origen, la música y los movimientos característicos de vuestra danza.", "Cread una coreografía corta y escribidla con una notación inventada.", "Presentad el festival con una breve explicación antes de cada baile."],
+    producto: "Un festival de danzas con coreografías escritas.",
+    evaluacion: ["Conoce ballets y figuras de la danza española.", "Identifica los elementos del flamenco.", "Respeta y valora danzas de otras culturas.", "Crea y escribe una coreografía."],
+  },
+});

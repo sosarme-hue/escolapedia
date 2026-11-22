@@ -95,3 +95,90 @@ module.exports = P.tema({
   saberes: "Autoconocimiento y autonomía moral: identidad personal, cualidades y limitaciones; identificación y gestión de emociones y sentimientos; autoestima; autorregulación emocional y estrategias de calma; resiliencia",
   ideas: ["Diario de emociones semanal con colores para cada emoción.", "Rincón de la calma en el aula con técnicas de respiración visibles.", "Teatro de situaciones para practicar el semáforo y los mensajes «yo»."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { L: L5, H: H5, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 60,
+  objetivos: ["Ampliar el vocabulario emocional con emociones complejas", "Practicar la atención plena para calmarse", "Desarrollar la empatía y la escucha", "Cuidar las emociones en el uso de pantallas y saber pedir ayuda"],
+  lectura: { titulo: "El volcán de Daniel", html: `<p>Daniel tenía fama de «explosivo». Si perdía en un juego, tiraba las cartas. Si alguien se reía de él, gritaba. Después se sentía fatal, pero no sabía cómo evitarlo.</p><p>Un día, la tutora le pidió que se quedara un momento después de clase.</p><p>—Daniel, ¿qué notas en el cuerpo justo antes de explotar?</p><p>Él se quedó pensando. Nadie le había preguntado nunca eso.</p><p>—Calor en la cara… las manos apretadas… y como si el corazón me fuera a mil.</p><p>—Esas son las señales de tu volcán. Si aprendes a notarlas a tiempo, podrás parar antes de que entre en erupción.</p><p>La tutora le enseñó un juego: cuando notara las señales, tenía que buscar cinco cosas que pudiera ver, cuatro que pudiera tocar, tres que pudiera oír, dos que pudiera oler y una que pudiera saborear.</p><p>A la semana siguiente, en un partido de fútbol, un compañero le hizo una falta y se rio. Daniel sintió el calor en la cara. Respiró. Miró a su alrededor: la portería, el árbol, una pelota, sus zapatillas, una nube. Tocó la valla fría. Oyó un pájaro…</p><p>Cuando terminó, el volcán se había calmado. Fue hacia su compañero y le dijo: «Me ha molestado que te rieras. No lo vuelvas a hacer, por favor».</p><p>No hubo gritos. Y Daniel se sintió más fuerte que nunca.</p>` },
+  tras: {
+    "Las emociones básicas": [
+      ["Más allá de las emociones básicas", `<p>Además de las emociones básicas, sentimos muchas otras más <b>complejas</b>, que mezclan varias emociones y dependen de lo que pensamos sobre nosotros mismos y sobre los demás:</p><ul><li><b>Vergüenza</b>: cuando sentimos que los demás nos miran o nos juzgan. Nos dan ganas de escondernos.</li><li><b>Culpa</b>: cuando creemos que hemos hecho algo mal. Nos impulsa a pedir perdón y reparar el daño.</li><li><b>Orgullo</b>: cuando conseguimos algo con esfuerzo. Nos anima a seguir.</li><li><b>Celos</b>: cuando tenemos miedo de perder el cariño de alguien por culpa de otra persona.</li><li><b>Envidia</b>: cuando queremos algo que tiene otra persona.</li><li><b>Frustración</b>: cuando algo no sale como esperábamos.</li><li><b>Gratitud</b>: cuando valoramos lo que alguien ha hecho por nosotros.</li></ul><p>Cuantas <b>más palabras</b> conocemos para nombrar lo que sentimos, mejor nos entendemos y mejor podemos explicarlo. No es lo mismo decir «estoy mal» que «estoy frustrado porque he estudiado mucho y me ha salido mal el examen».</p><p>Las emociones también tienen <b>intensidad</b>: el enfado puede ir desde una pequeña molestia hasta la rabia; la alegría, desde la satisfacción hasta la euforia. Ponerle un número del 1 al 10 a lo que sentimos nos ayuda a medirlo.</p>`,
+        L5.filas("Emociones complejas", [["vergüenza", "me miran y me juzgan", cRO], ["culpa", "he hecho algo mal", cMO], ["orgullo", "lo he conseguido", cVE], ["celos", "miedo a perder cariño", cNA], ["gratitud", "valoro lo que me dan", cAZ]])],
+    ],
+    "Técnicas para calmarse": [
+      ["La atención plena", `<p>La <b>atención plena</b> (en inglés, <i>mindfulness</i>) consiste en <b>prestar atención al momento presente</b>, a lo que pasa dentro y fuera de nosotros, sin juzgarlo. Muchas veces, cuando estamos nerviosos o enfadados, nuestra mente salta al pasado («¿por qué me dijo eso?») o al futuro («¿y si sale mal?»). La atención plena nos trae de vuelta al aquí y ahora.</p><p>Un ejercicio muy útil cuando una emoción nos desborda es la técnica <b>5-4-3-2-1</b>. Busca a tu alrededor:</p><ul><li><b>5</b> cosas que puedas <b>ver</b>.</li><li><b>4</b> cosas que puedas <b>tocar</b>.</li><li><b>3</b> cosas que puedas <b>oír</b>.</li><li><b>2</b> cosas que puedas <b>oler</b>.</li><li><b>1</b> cosa que puedas <b>saborear</b>.</li></ul><p>Al concentrarte en tus sentidos, el cerebro deja de dar vueltas a lo que te preocupa y el cuerpo se calma.</p><p>Otro ejercicio es el <b>escáner corporal</b>: tumbado o sentado, con los ojos cerrados, recorre con la atención tu cuerpo desde los pies hasta la cabeza, notando cada parte sin moverte. Si encuentras una zona tensa, respira imaginando que el aire llega hasta allí.</p><p>Practicar unos minutos al día, por ejemplo al volver del recreo, ayuda a concentrarse mejor y a estar más tranquilos.</p>`,
+        H5.barras("Técnica 5-4-3-2-1", [["ver", 5, cAZ, "5"], ["tocar", 4, cVE, "4"], ["oír", 3, cNA, "3"], ["oler", 2, cMO, "2"], ["saborear", 1, cRO, "1"]], 5), ["8lM8pgMgjEs", "Habilidad de afrontamiento: Técnica de conexión a tierra 5, 4, 3, 2, 1", "Stand4Kind", 230864]],
+    ],
+    "Expresar lo que siento": [
+      ["La empatía", `<p>La <b>empatía</b> es la capacidad de <b>ponerse en el lugar de otra persona</b>: entender lo que siente y por qué, aunque nosotros no sintamos lo mismo. Es como «ponerse sus zapatos».</p><p>Para ser empático hay que:</p><ul><li><b>Observar</b>: fijarse en la cara, los gestos y el tono de voz de la otra persona.</li><li><b>Escuchar de verdad</b>: sin interrumpir, sin mirar el móvil, mirando a los ojos.</li><li><b>Preguntar</b>: «¿Cómo estás?», «¿Qué te ha pasado?», «¿Quieres hablar?».</li><li><b>Validar</b>: aceptar lo que siente, aunque nos parezca exagerado. En vez de «no es para tanto», decir «entiendo que estés triste».</li><li><b>Ofrecer ayuda</b> sin imponerla: «¿Puedo hacer algo por ti?».</li></ul><p>La empatía no significa estar siempre de acuerdo ni hacer lo que el otro quiere. Significa <b>comprender</b> y <b>respetar</b> sus emociones.</p><p>Las personas empáticas tienen más amigos, resuelven mejor los conflictos y hacen que los grupos funcionen mejor. Y lo mejor de todo: la empatía se puede entrenar. Cada vez que te preguntas «¿cómo se sentirá?», tu empatía crece un poco.</p>`,
+        H5.flujo("Ser empático", ["Observar", "Escuchar", "Validar", "Ayudar"], cVE), ["4Hgmfkg-UTk", "EL VALOR DE LA EMPATÍA!!", "Juan lebu salazar", 4096455]],
+    ],
+  },
+  final: [
+    ["Emociones y pantallas", `<p>Los móviles, las tabletas, los videojuegos y las redes sociales también influyen en cómo nos sentimos, aunque a veces no nos demos cuenta.</p><ul><li><b>Comparación</b>: en las redes, la gente suele enseñar solo sus mejores momentos, con fotos retocadas. Si nos comparamos, podemos pensar que los demás son más felices, más guapos o tienen vidas más interesantes. ¡Pero solo vemos una parte!</li><li><b>Los «me gusta»</b>: si nuestra autoestima depende de cuántos «me gusta» recibimos, nos sentiremos bien o mal según lo que opinen desconocidos.</li><li><b>Miedo a perderse algo</b>: la sensación de tener que mirar el móvil constantemente para no quedarse fuera.</li><li><b>Enfado en los videojuegos</b>: perder una partida puede provocar mucha frustración, especialmente si llevamos mucho tiempo jugando.</li><li><b>Sueño</b>: usar pantallas antes de dormir hace que descansemos peor, y estar cansados nos vuelve más irritables.</li></ul><p>Algunos consejos: poner límites de tiempo, no usar pantallas la última hora antes de dormir, hacer otras actividades que nos gusten (deporte, leer, estar con amigos) y preguntarnos de vez en cuando: «¿Cómo me siento después de usar esto?».</p><p>Si algo que ves en internet te hace sentir mal o te da miedo, cuéntaselo a un adulto de confianza.</p>`,
+      L5.filas("Pantallas y emociones", [["comparar", "solo vemos una parte", cRO], ["me gusta", "no miden lo que vales", cNA], ["videojuegos", "frustración si abuso", cMO], ["antes de dormir", "peor descanso", cAZ]])],
+    ["Pedir ayuda", `<p>Todas las personas pasamos por momentos difíciles: una pelea con amigos, problemas en casa, malas notas, la pérdida de alguien querido o sentirnos solos. Sentirse mal a veces es <b>normal</b>, y pedir ayuda no es de débiles: es de <b>valientes</b>.</p><p>¿Cuándo conviene pedir ayuda?</p><ul><li>Cuando una emoción desagradable dura muchos días.</li><li>Cuando no podemos dormir, comer o concentrarnos.</li><li>Cuando alguien nos hace daño, nos insulta o nos amenaza, en persona o por internet.</li><li>Cuando sentimos que no podemos solos.</li></ul><p>¿A quién podemos acudir? A las personas adultas de <b>confianza</b>: la familia, el tutor o la tutora, el orientador del colegio, el médico o la médica. También a un amigo, que puede acompañarnos a hablar con un adulto.</p><p>En España existe además un teléfono gratuito para niños y adolescentes, el de la <b>Fundación ANAR</b>: <b>900 20 20 10</b>. Atiende las 24 horas, es confidencial y no aparece en la factura del teléfono.</p><p>Un <b>diario de emociones</b> también ayuda: escribir cada día cómo te has sentido y por qué te permite conocerte mejor y detectar si algo no va bien.</p><p>Y recuerda: si un amigo te cuenta que lo está pasando mal, escúchale y anímale a pedir ayuda.</p>`,
+      H5.dos("Pedir ayuda", ["Cuándo", ["dura muchos días", "me hacen daño", "no puedo solo"], cNA], ["A quién", ["familia y tutor", "orientador", "ANAR 900 20 20 10"], cAZ])],
+  ],
+  ejemplos: [
+    ["Has estudiado mucho y has suspendido. ¿Qué emoción compleja sientes y cómo la expresarías?", ["No ha salido lo que esperabas: frustración.", "Usa un mensaje «yo»."], "Frustración: «Me siento frustrado porque me he esforzado y no me ha salido bien»."],
+    ["Un compañero llora porque su perro está enfermo. ¿Qué respuesta es empática?", ["Validar su emoción.", "Ofrecer ayuda sin imponerla."], "«Entiendo que estés triste. ¿Quieres que te acompañe?»"],
+  ],
+  errores: ["Decir «no es para tanto» a alguien que lo está pasando mal: invalida su emoción.", "Pensar que pedir ayuda es de débiles: es de valientes."],
+  ejercicios: [
+    ["b", "Nombra tres emociones complejas.", "Por ejemplo: vergüenza, orgullo y celos."],
+    ["b", "¿Qué es la atención plena?", "Prestar atención al momento presente sin juzgarlo."],
+    ["b", "¿Qué significa validar una emoción?", "Aceptar lo que siente la otra persona."],
+    ["b", "¿Por qué no conviene usar pantallas antes de dormir?", "Porque descansamos peor."],
+    ["b", "¿Qué teléfono gratuito atiende a niños y adolescentes en España?", "El de la Fundación ANAR, 900 20 20 10."],
+    ["m", "Explica la diferencia entre celos y envidia.", "Los celos son miedo a perder el cariño; la envidia es querer lo que tiene otro."],
+    ["m", "Haz la técnica 5-4-3-2-1 en clase y escribe lo que has encontrado.", "Respuesta práctica."],
+    ["m", "Transforma en empática la frase «Deja de llorar, que no es nada».", "Por ejemplo: «Veo que estás triste. ¿Quieres contarme qué te pasa?»."],
+    ["m", "¿Por qué no debemos compararnos con lo que vemos en las redes?", "Porque solo muestran una parte, a menudo retocada."],
+    ["m", "Nombra tres situaciones en las que conviene pedir ayuda.", "Emoción que dura mucho, alguien me hace daño, no puedo solo."],
+    ["a", "Lleva un diario de emociones durante una semana con la intensidad del 1 al 10.", "Respuesta abierta."],
+    ["a", "Crea un cartel para el rincón de la calma con la técnica 5-4-3-2-1.", "Respuesta abierta."],
+    ["a", "Representa con compañeros una escena con una respuesta empática y otra que no lo sea.", "Respuesta abierta."],
+    ["a", "Haz un plan personal de uso de pantallas para una semana.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["La emoción de querer lo que tiene otro es…", ["envidia", "gratitud", "orgullo"], "Emoción compleja."],
+    ["En la técnica 5-4-3-2-1, el 3 es para…", ["oír", "ver", "oler"], "Sentidos."],
+    ["Ponerse en el lugar del otro es…", ["empatía", "vergüenza", "culpa"], "Sus zapatos."],
+    ["Las fotos de las redes muestran…", ["solo una parte", "toda la realidad", "siempre la verdad"], "Comparación."],
+    ["Pedir ayuda es de…", ["valientes", "débiles", "mayores solo"], "Ayuda."],
+  ],
+  examen: [
+    ["Recorrer el cuerpo con la atención es el…", ["escáner corporal", "semáforo", "mensaje yo"], "Atención plena."],
+    ["La culpa nos impulsa a…", ["reparar el daño", "escondernos siempre", "gritar"], "Pedir perdón."],
+  ],
+  tarjetas: [
+    ["Emociones complejas", "Vergüenza, culpa, orgullo, celos, envidia, frustración, gratitud."],
+    ["Atención plena", "5-4-3-2-1 y escáner corporal."],
+    ["Empatía", "Observar, escuchar, validar, ayudar."],
+    ["Ayuda", "Adultos de confianza; ANAR 900 20 20 10."],
+  ],
+  glosario: [
+    ["Emoción compleja", "Emoción que mezcla otras y depende de lo que pensamos."],
+    ["Vergüenza", "Malestar al sentirnos juzgados."],
+    ["Culpa", "Malestar al creer que hemos hecho algo mal."],
+    ["Frustración", "Malestar cuando algo no sale como esperábamos."],
+    ["Gratitud", "Agradecimiento por lo que nos dan."],
+    ["Intensidad", "Fuerza con que sentimos una emoción."],
+    ["Atención plena", "Atención al momento presente sin juzgar."],
+    ["Escáner corporal", "Recorrer el cuerpo con la atención."],
+    ["Empatía", "Capacidad de ponerse en el lugar del otro."],
+    ["Validar", "Aceptar la emoción de otra persona."],
+    ["Confidencial", "Que se guarda en secreto."],
+    ["Diario de emociones", "Cuaderno donde se anota cómo nos sentimos."],
+  ],
+  situacion: {
+    titulo: "La caja de herramientas emocionales",
+    reto: "Cada alumno construye una caja con herramientas para conocer, calmar y expresar sus emociones, y la clase crea una versión gigante para el aula.",
+    pasos: ["Haced tarjetas con el vocabulario emocional y la intensidad del 1 al 10.", "Añadid tarjetas con técnicas de calma: respiración, 5-4-3-2-1, escáner corporal.", "Incluid frases de mensajes «yo» y de respuestas empáticas.", "Terminad con una tarjeta de «a quién pedir ayuda» con nombres y el teléfono ANAR."],
+    producto: "Una caja de herramientas emocionales personal y otra de aula.",
+    evaluacion: ["Nombra emociones complejas.", "Usa técnicas de atención plena.", "Responde con empatía.", "Sabe cuándo y a quién pedir ayuda."],
+  },
+});

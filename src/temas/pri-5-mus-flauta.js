@@ -91,3 +91,90 @@ module.exports = tema({
   ideas: ["Concierto de aula con piezas de tres notas.", "Juego de pregunta-respuesta improvisada con si, la y sol.", "Grabar la interpretación del grupo y escucharla para mejorar."],
   fuentes: [["Sociedad Española de la Flauta de Pico", "https://www.flautadepico.es/"], ["Museu de la Música de Barcelona", "https://www.museumusica.bcn.cat/"]],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { L: L5, H: H5, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 75,
+  objetivos: ["Limpiar y cuidar la flauta dulce correctamente", "Distinguir la digitación barroca de la alemana", "Conocer la historia de la flauta dulce", "Estudiar una pieza con método e improvisar con la escala pentatónica"],
+  lectura: { titulo: "La flauta del desván", html: `<p>Buscando adornos de Navidad en el desván de su abuela, Martina encontró una caja larga y estrecha, forrada de tela verde. Dentro había una flauta de madera oscura, brillante, muy distinta de la flauta de plástico que usaba en el colegio.</p><p>—Era de tu bisabuelo —le dijo la abuela—. La tocaba en una agrupación de música antigua. Decía que la flauta dulce no era un instrumento de juguete, sino uno de los más antiguos y elegantes de Europa.</p><p>Martina se la llevó a clase. El profesor de Música la examinó con mucho cuidado.</p><p>—Es una flauta contralto de madera de peral —explicó—. Y mirad aquí: tiene una «B» grabada. Significa que tiene digitación barroca. Vuestras flautas de plástico, ¿qué letra tienen?</p><p>Todos buscaron en sus flautas. Algunas tenían una B y otras no tenían ninguna letra.</p><p>—Por eso a algunos os sale el fa un poco raro —sonrió el profesor—. Hoy vamos a descubrir por qué.</p><p>Aquella tarde, Martina aprendió que su flauta tenía una historia de cientos de años, que Bach y Vivaldi habían escrito música para ella y que, como cualquier instrumento, había que cuidarla para que sonara bien. Desde entonces, lava su flauta de plástico cada semana con el mismo cuidado con que su abuela guarda la de madera.</p>` },
+  tras: {
+    "Las partes de la flauta": [
+      ["Cuidar y limpiar la flauta", `<p>La flauta dulce es un instrumento que nos metemos en la boca, así que necesita una buena <b>higiene</b>. Además, si está sucia o mojada por dentro, suena peor.</p><p>Después de tocar:</p><ul><li>Sacude la flauta con suavidad para eliminar la saliva acumulada. Tapa la ventana con un dedo y sopla fuerte una vez: así sale el agua del canal.</li><li>Seca el interior con la <b>baqueta</b> (la varilla que viene con la flauta) y un trozo de tela fina que no suelte pelusa.</li><li>Guárdala en su <b>funda</b>, no suelta en la mochila, para que no se golpee ni se ensucie.</li></ul><p>Una vez a la semana, si es de <b>plástico</b>:</p><ul><li>Desmonta las piezas girándolas con cuidado.</li><li>Lávalas con <b>agua templada</b> (nunca muy caliente, porque el plástico se puede deformar) y un poco de jabón suave.</li><li>Acláralas bien y déjalas secar al aire antes de montarlas.</li></ul><p>Las flautas de <b>madera</b> nunca se lavan con agua: solo se secan con un paño después de usarlas y se engrasan de vez en cuando.</p><p>Otras normas importantes: <b>no compartas</b> tu flauta con nadie, no comas mientras tocas y lávate los dientes o enjuágate la boca antes de tocar si acabas de merendar.</p>`,
+        L5.filas("Cuidar la flauta", [["al terminar", "sacudir y secar", cAZ], ["guardar", "siempre en su funda", cVE], ["semanal", "agua templada y jabón", cNA], ["nunca", "compartirla", cRO]])],
+    ],
+    "Las notas graves: mano derecha": [
+      ["Digitación barroca y alemana", `<p>Existen dos sistemas de digitación para la flauta dulce: el <b>barroco</b> (también llamado inglés) y el <b>alemán</b>. La diferencia está en algunas notas, sobre todo en el <b>fa</b>.</p><ul><li>En la flauta <b>alemana</b>, el fa se hace de forma sencilla: se tapan el pulgar, los tres dedos de la mano izquierda y el primer dedo de la mano derecha (0 1 2 3 4). Para que esto funcione, el quinto agujero es más pequeño de lo normal.</li><li>En la flauta <b>barroca</b>, para el fa hay que hacer una «horquilla»: se tapan el pulgar, la mano izquierda y el primer dedo de la derecha, se deja libre el segundo y se tapan los dos últimos (0 1 2 3 4 – 6 7).</li></ul><p>La digitación alemana se inventó en el siglo XX para hacer más fácil el fa a los principiantes. Pero tiene un problema: otras notas, como el fa sostenido, salen desafinadas o son muy difíciles. Por eso, la mayoría de los profesores y músicos prefieren la flauta <b>barroca</b>.</p><p>¿Cómo saber cuál tienes? Muchas flautas barrocas llevan grabada una <b>B</b> (de <i>barroca</i> o <i>baroque</i>) cerca del pie. También puedes fijarte en los agujeros: en la barroca, el quinto agujero (el del segundo dedo de la mano derecha) es más grande que el cuarto; en la alemana, es más pequeño.</p><p>Las demás notas que conoces (si, la, sol, do, re, mi) se tocan igual en las dos.</p>`,
+        H5.dos("El fa en cada flauta", ["Alemana", ["0 1 2 3 4", "fa fácil", "fa♯ difícil"], cAZ], ["Barroca", ["0 1 2 3 4 · 6 7", "fa en horquilla", "más afinada"], cRO]), ["t27bIvVrpAo", "Flauta dulce barroca vs. alemana | Tutorial 2020 - Tipos de digitación | Cómo tocar todas las notas", "Lian B. Insigne", 50109]],
+    ],
+    "Interpretar en grupo": [
+      ["Historia de la flauta dulce", `<p>La flauta dulce tiene una larga historia. Ya se tocaba en la <b>Edad Media</b>, y en el <b>Renacimiento</b> (siglos XV y XVI) era uno de los instrumentos más populares de Europa. Se construían familias completas, de la más aguda a la más grave, para tocar música a varias voces, igual que un coro.</p><p>En el <b>Barroco</b> (siglos XVII y XVIII), la flauta dulce vivió su época de oro. Grandes compositores como <b>Bach</b>, <b>Händel</b>, <b>Vivaldi</b> y <b>Telemann</b> escribieron sonatas y conciertos para ella, sobre todo para la flauta <b>contralto</b>. En esa época se llamaba simplemente «flauta», mientras que la flauta que se toca de lado era la «flauta travesera».</p><p>A finales del siglo XVIII, la flauta travesera, más potente, la fue sustituyendo en las orquestas, y la flauta dulce casi desapareció durante más de cien años.</p><p>En el siglo XX, en Inglaterra y Alemania, algunos músicos interesados en la <b>música antigua</b> volvieron a construir flautas dulces copiando instrumentos de museo. Pronto se dieron cuenta de que era un instrumento ideal para la <b>escuela</b>: barato, ligero, fácil de empezar y con un sonido agradable.</p><p>Hoy hay flautistas profesionales que dan conciertos por todo el mundo, y compositores actuales que escriben obras nuevas para ella.</p>`,
+        L5.filas("Historia de la flauta", [["Edad Media", "ya se tocaba", cMO], ["Renacimiento", "familias de flautas", cVE], ["Barroco", "Bach, Händel, Vivaldi", cRO], ["siglo XX", "vuelve a las escuelas", cAZ]])],
+    ],
+  },
+  final: [
+    ["Cómo estudiar una pieza nueva", `<p>Cuando recibes una partitura nueva, no se trata de tocarla una y otra vez de principio a fin hasta que salga. Los músicos profesionales siguen un <b>método</b> que ahorra tiempo y errores:</p><ol><li><b>Escucha</b> la pieza, si es posible, para saber cómo debe sonar.</li><li><b>Observa</b> la partitura: el compás, la armadura, el tempo, las notas que aparecen y las repeticiones.</li><li><b>Lee el ritmo</b> en voz alta o con palmas, sin la flauta.</li><li><b>Di el nombre de las notas</b> mientras pones los dedos, sin soplar.</li><li><b>Divide</b> la pieza en fragmentos cortos (por ejemplo, de dos en dos compases) y estudia primero el más difícil.</li><li>Toca <b>despacio</b>, con el metrónomo, y ve subiendo el tempo poco a poco solo cuando te salga bien.</li><li><b>Une</b> los fragmentos y toca la pieza entera.</li></ol><p>Algunos errores frecuentes que conviene evitar: soplar demasiado fuerte (sale un pitido agudo), no tapar bien los agujeros con la yema del dedo (el sonido se rompe) y no articular con la lengua (las notas suenan pegadas).</p><p>Es mejor estudiar <b>diez minutos cada día</b> que una hora el domingo. El cerebro aprende mejor con práctica frecuente y corta.</p>`,
+      H5.flujo("Estudiar una pieza", ["Escuchar", "Ritmo|y notas", "Por|trozos", "Lento y|subir"], cVE), ["8s1CBBKeSJk", "3 Errores más comunes al tocar la Flauta - Clase de Flauta Dulce", "Aguará Música", 193181]],
+    ["Improvisar con la escala pentatónica", `<p><b>Improvisar</b> es inventar música en el momento, mientras se toca. Puede parecer difícil, pero hay un truco para que todo suene bien: usar la <b>escala pentatónica</b>.</p><p>La escala pentatónica tiene solo <b>cinco notas</b> y no tiene semitonos, así que cualquier combinación suena agradable. En la flauta, una pentatónica muy cómoda es la de <b>sol</b>: <b>sol, la, si, re, mi</b> (agudos). Fíjate en que nos saltamos el do y el fa.</p><p>Esta escala se usa en la música tradicional de muchos lugares del mundo: China, Japón, Escocia, África o en las canciones infantiles de muchos países. También es muy habitual en el blues y el rock.</p><p>Para empezar a improvisar:</p><ul><li><b>Pregunta y respuesta</b>: un compañero toca una frase corta de cuatro tiempos, y tú respondes con otra frase de cuatro tiempos inventada.</li><li><b>Sobre un ostinato</b>: un grupo toca un ritmo con percusión y tú improvisas por encima.</li><li><b>Con un final fijo</b>: inventa lo que quieras, pero termina siempre en <b>sol</b>, que es la nota «de casa».</li></ul><p>No existen los errores en la improvisación: si una nota no te gusta, la siguiente puede arreglarlo. ¡Lo importante es escuchar y atreverse!</p>`,
+      L5.filas("Pentatónica de sol", [["1", "sol", cAZ], ["2", "la", cVE], ["3", "si", cNA], ["4", "re agudo", cRO], ["5", "mi agudo", cMO]])],
+  ],
+  ejemplos: [
+    ["Tu flauta tiene el quinto agujero más grande que el cuarto. ¿De qué tipo es?", ["En la barroca, el quinto agujero es más grande que el cuarto.", "En la alemana, el quinto es más pequeño."], "Es una flauta barroca."],
+    ["Inventa una respuesta de cuatro tiempos a la pregunta «sol la si si».", ["Usa notas de la pentatónica: sol, la, si, re, mi.", "Termina en sol."], "Por ejemplo: re si la sol."],
+  ],
+  errores: ["Lavar una flauta de plástico con agua muy caliente: se puede deformar.", "Estudiar siempre la pieza entera y rápido: es mejor por fragmentos y despacio."],
+  ejercicios: [
+    ["b", "¿Con qué se seca el interior de la flauta?", "Con la baqueta y una tela fina."],
+    ["b", "¿Con qué agua se lava una flauta de plástico?", "Con agua templada y jabón suave."],
+    ["b", "¿Qué letra suelen llevar las flautas barrocas?", "Una B."],
+    ["b", "¿Cuántas notas tiene la escala pentatónica?", "Cinco."],
+    ["b", "Nombra dos compositores barrocos que escribieron para flauta dulce.", "Por ejemplo, Bach y Telemann."],
+    ["m", "¿Por qué la mayoría de profesores prefieren la flauta barroca?", "Porque otras notas como el fa sostenido salen mejor afinadas."],
+    ["m", "¿Por qué la flauta dulce casi desapareció a finales del siglo XVIII?", "Porque la flauta travesera, más potente, la sustituyó."],
+    ["m", "Escribe la pentatónica de sol.", "sol, la, si, re, mi."],
+    ["m", "¿Qué pasa si soplas demasiado fuerte?", "Sale un pitido agudo."],
+    ["m", "Ordena los pasos para estudiar una pieza.", "Escuchar, observar, leer ritmo, notas sin soplar, por fragmentos, lento, unir."],
+    ["a", "Improvisa una melodía de ocho tiempos con la pentatónica y termínala en sol.", "Respuesta abierta."],
+    ["a", "Haz un juego de pregunta y respuesta con un compañero durante dos minutos.", "Respuesta abierta."],
+    ["a", "Escucha una sonata barroca para flauta dulce y describe su sonido.", "Respuesta abierta."],
+    ["a", "Diseña un cartel con las normas de higiene de la flauta para tu clase.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Las flautas de madera se limpian…", ["solo con un paño", "con agua caliente", "en el lavavajillas"], "Sin agua."],
+    ["El fa en horquilla es de la flauta…", ["barroca", "alemana", "travesera"], "0 1 2 3 4 · 6 7."],
+    ["La flauta dulce vivió su época de oro en el…", ["Barroco", "siglo XXI", "Romanticismo"], "Bach, Händel."],
+    ["La pentatónica de sol no tiene…", ["do ni fa", "sol ni la", "si ni re"], "Sin semitonos."],
+    ["Para estudiar mejor, conviene practicar…", ["poco cada día", "solo el domingo", "solo en clase"], "Constancia."],
+  ],
+  examen: [
+    ["La digitación alemana se inventó en el…", ["siglo XX", "Renacimiento", "Barroco"], "Para principiantes."],
+    ["Improvisar es…", ["inventar música mientras se toca", "leer una partitura", "afinar"], "Creación."],
+  ],
+  tarjetas: [
+    ["Cuidar la flauta", "Secar, funda, lavar con agua templada; no compartir."],
+    ["Barroca o alemana", "Diferente fa; la barroca lleva B y afina mejor."],
+    ["Historia", "Edad Media, Renacimiento, Barroco; vuelve en el siglo XX."],
+    ["Pentatónica", "sol la si re mi; pregunta y respuesta."],
+  ],
+  glosario: [
+    ["Baqueta", "Varilla para limpiar el interior de la flauta."],
+    ["Higiene", "Limpieza para cuidar la salud."],
+    ["Digitación", "Posición de los dedos para cada nota."],
+    ["Horquilla", "Digitación en la que se deja un agujero libre entre otros tapados."],
+    ["Flauta contralto", "Flauta dulce más grande y grave que la soprano."],
+    ["Flauta travesera", "Flauta que se toca de lado."],
+    ["Música antigua", "Música de la Edad Media, el Renacimiento y el Barroco."],
+    ["Fragmento", "Trozo pequeño de una pieza."],
+    ["Improvisar", "Inventar música en el momento."],
+    ["Pentatónica", "Escala de cinco notas."],
+    ["Pregunta y respuesta", "Juego de frases musicales que se contestan."],
+    ["Yema", "Parte blanda de la punta del dedo."],
+  ],
+  situacion: {
+    titulo: "Concierto de flautas con improvisación",
+    reto: "La clase prepara un concierto de flauta con una pieza estudiada con método y un momento de improvisación por parejas.",
+    pasos: ["Revisad y limpiad las flautas y comprobad si son barrocas o alemanas.", "Estudiad una pieza por fragmentos, con metrónomo, durante dos semanas.", "Preparad por parejas una improvisación de pregunta y respuesta con la pentatónica de sol.", "Presentad el concierto con una breve explicación de la historia de la flauta dulce."],
+    producto: "Un concierto de flauta con pieza e improvisación.",
+    evaluacion: ["Cuida y limpia su flauta.", "Conoce su tipo de digitación.", "Estudia con método.", "Improvisa con la pentatónica."],
+  },
+});
