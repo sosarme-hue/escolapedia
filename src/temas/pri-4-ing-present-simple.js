@@ -91,3 +91,91 @@ module.exports = tema({
   ideas: ["Juego «true or false» por parejas sobre gustos y costumbres.", "Tarjetas de verbos: el alumnado coloca la -s, -es o -ies.", "Encuesta de clase y frases en tercera persona con los resultados."],
   fuentes: [["Cambridge Dictionary: present simple", "https://dictionary.cambridge.org/grammar/british-grammar/present-simple-i-work"], ["British Council LearnEnglish Kids: grammar practice", "https://learnenglishkids.britishcouncil.org/grammar-practice"]],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Say what you like, love and hate with -ing", "Pronounce the -s ending: /s/, /z/ and /ɪz/", "Use the present simple for facts about the world", "Write a description of a family member"],
+  lectura: { titulo: "My cousin Zoe", html: `<p>My cousin <b>Zoe</b> lives in Dublin, in Ireland. She is ten years old and she is my favourite cousin. We <b>don't see</b> each other very often, but we <b>talk</b> on the computer every Sunday.</p><p>Zoe <b>loves</b> animals. She <b>has</b> got a dog called Biscuit and two rabbits. Every morning, she <b>feeds</b> the rabbits before school, and in the afternoon she <b>takes</b> Biscuit for a walk.</p><p>She <b>likes</b> drawing and reading comics, but she <b>doesn't like</b> football. She says it's boring! She <b>hates</b> getting up early, but she <b>loves</b> pancakes for breakfast.</p><p>At school, Zoe <b>studies</b> English and <b>Irish</b>. Irish is another language: it <b>sounds</b> very different from English! She <b>speaks</b> a little Spanish too, because my aunt is from Valencia.</p><p>In Ireland, it <b>rains</b> a lot. That's why the grass is so green! Zoe <b>doesn't mind</b> the rain. She <b>wears</b> her yellow boots and she <b>jumps</b> in the puddles.</p><p>I <b>like</b> sunny days, and Zoe <b>likes</b> rainy days. I <b>play</b> football and she <b>draws</b>. We <b>are</b> very different, but we <b>are</b> best friends.</p><p>Next summer, Zoe <b>is coming</b> to Spain. I can't wait!</p>` },
+  tras: {
+    "He, she, it: add -s": [
+      ["Like, love, hate + -ing", `<p>To talk about what we like and don't like, we use these verbs with a <b>noun</b> or a verb in <b>-ing</b>:</p><ul><li><b>love</b> (encantar) ❤️❤️: «I <b>love</b> swimming.»</li><li><b>like</b> (gustar) ❤️: «I <b>like</b> reading.»</li><li><b>don't mind</b> (no me importa) 😐: «I <b>don't mind</b> doing homework.»</li><li><b>don't like</b> (no gustar) 👎: «I <b>don't like</b> cleaning my room.»</li><li><b>hate</b> (odiar) 👎👎: «I <b>hate</b> getting up early.»</li></ul><p>Notice: after these verbs, the next verb takes <b>-ing</b>: <i>like swim<b>ming</b></i>, <i>love danc<b>ing</b></i>, <i>hate wait<b>ing</b></i>.</p><p>With <b>he</b>, <b>she</b> and <b>it</b>, remember the <b>-s</b>:</p><ul><li>«She <b>loves</b> drawing.»</li><li>«He <b>likes</b> playing chess.»</li><li>«My cat <b>hates</b> having a bath!»</li><li>«She <b>doesn't like</b> football.» (Negative: <i>doesn't</i> + verb without -s.)</li></ul><p>Questions:</p><ul><li>«<b>Do</b> you <b>like</b> singing?» → «Yes, I do.» / «No, I don't.»</li><li>«<b>Does</b> your brother <b>like</b> pizza?» → «Yes, he does.»</li></ul><p>Be careful: in Spanish we say <i>me gusta</i>, but in English the person goes first: «<b>I</b> like…», not «Me like…».</p>`,
+        L6.filas("How much?", [["love", "swimming", cRO], ["like", "reading", cNA], ["don't mind", "homework", cAZ], ["don't like", "cleaning", cMO], ["hate", "getting up early", cVE]]), ["Vt7jYkjgjTA", "Love, like, don't like, hate + ing", "Santillana Honduras", 170480]],
+    ],
+    "Negative: doesn't": [
+      ["Pronouncing the -s: /s/, /z/, /ɪz/", `<p>When we add <b>-s</b> or <b>-es</b> to a verb with <i>he</i>, <i>she</i> or <i>it</i>, it doesn't always sound the same. There are <mark>three sounds</mark>:</p><ul><li><b>/s/</b>, like a snake: after the sounds <i>p, t, k, f</i>.<br><i>stop<b>s</b>, eat<b>s</b>, like<b>s</b>, walk<b>s</b>, laugh<b>s</b></i>.</li><li><b>/z/</b>, like a bee (bzzz): after most other sounds, and after vowels.<br><i>play<b>s</b>, read<b>s</b>, live<b>s</b>, run<b>s</b>, go<b>es</b>, see<b>s</b></i>.</li><li><b>/ɪz/</b>, an extra syllable: after the sounds <i>s, z, sh, ch, x</i> and <i>dge</i>.<br><i>watch<b>es</b>, wash<b>es</b>, kiss<b>es</b>, fix<b>es</b>, danc<b>es</b>, chang<b>es</b></i>.</li></ul><p>The third group is the most important, because the verb has <b>one more syllable</b>: <i>watch</i> (1 syllable) → <i>watch-es</i> (2 syllables). <i>dance</i> (1) → <i>dan-ces</i> (2).</p><p>Practise with these tongue twisters:</p><ul><li>«She <b>watches</b> and <b>washes</b> and <b>fixes</b> the boxes.»</li><li>«He <b>plays</b> and <b>reads</b> and <b>runs</b> and <b>sees</b>.»</li><li>«It <b>eats</b> and <b>sleeps</b> and <b>walks</b> and <b>talks</b>.»</li></ul><p>Don't worry if it's difficult at first: listening and repeating is the best way to learn.</p>`,
+        L6.filas("Three sounds", [["/s/", "eats, walks, likes", cAZ], ["/z/", "plays, reads, goes", cVE], ["/ɪz/", "watches, dances", cRO]]), ["cWNW3-4Wpao", "Los tres sonidos de la s: [s], [z], [ɪz]", "ElementalEnglish", 528267]],
+    ],
+    "Time words": [
+      ["Facts about the world", `<p>We use the present simple for <b>habits</b>, but also for <mark>facts</mark> (hechos): things that are always true.</p><p><b>Facts about nature:</b></p><ul><li>«The sun <b>rises</b> in the east and <b>sets</b> in the west.»</li><li>«Water <b>boils</b> at 100 degrees.»</li><li>«The Earth <b>goes</b> round the Sun.»</li><li>«Bees <b>make</b> honey.»</li><li>«Cows <b>eat</b> grass.»</li><li>«Penguins <b>live</b> in the Antarctic.»</li></ul><p><b>Facts about countries and people:</b></p><ul><li>«People in Brazil <b>speak</b> Portuguese.»</li><li>«It <b>rains</b> a lot in Ireland.»</li><li>«The river Ebro <b>flows</b> into the Mediterranean Sea.»</li></ul><p><b>Facts about you:</b></p><ul><li>«I <b>live</b> in Murcia.» «My mum <b>works</b> in a hospital.» «My brother <b>studies</b> at university.»</li></ul><p>And negative facts:</p><ul><li>«Penguins <b>don't fly</b>.»</li><li>«A spider <b>doesn't have</b> six legs. It has eight!»</li><li>«The Moon <b>doesn't give</b> light. It reflects the light of the Sun.»</li></ul><p>Facts don't need time words like <i>today</i> or <i>now</i>, because they are true every day: yesterday, today and tomorrow. That's why science books, encyclopedias and documentaries use the present simple all the time. Look for facts in your science book and read them in English!</p><p>Game: say a fact. Is it <b>true</b> or <b>false</b>? «Fish breathe with lungs.» → False! Fish breathe with gills.</p>`,
+        H6.dos("Facts", ["TRUE", ["bees make honey", "water boils at 100°", "cows eat grass"], cVE], ["FALSE", ["penguins fly", "spiders have 6 legs", "fish have lungs"], cRO])],
+    ],
+  },
+  final: [
+    ["Writing about a family member", `<p>Let's write a short description of someone in our <mark>family</mark>, using the present simple. Follow this plan:</p><ol><li><b>Introduction</b>: who is it? «This is my aunt Carmen. She is thirty-five years old. She lives in Seville.»</li><li><b>Appearance</b>: «She is tall and she has got long black hair and brown eyes.»</li><li><b>Job and routine</b>: «She is a vet (veterinaria). She works in an animal hospital. She gets up at seven and she starts work at eight.»</li><li><b>Likes and dislikes</b>: «She loves dancing flamenco and she likes cooking. She doesn't like cold weather.»</li><li><b>Why you like this person</b>: «She is very funny and she always tells me stories about animals. I love visiting her!»</li></ol><p>Checklist before you finish:</p><ul><li>Did you add <b>-s</b> to the verbs with <i>he</i> or <i>she</i>? (She live<b>s</b>, she work<b>s</b>, she love<b>s</b>.)</li><li>Did you use <b>doesn't</b> in negatives? (She <b>doesn't</b> like…)</li><li>Did you use <b>-ing</b> after like, love and hate?</li><li>Did you start each sentence with a <b>capital letter</b> and finish with a <b>full stop</b>?</li><li>Did you use <b>and</b> and <b>but</b> to join ideas?</li></ul><p>Add a photo or a drawing, and your description is ready!</p>`,
+      H6.flujo("My aunt", ["who?|name, age", "looks|tall, hair", "job|vet", "likes|dancing"], cAZ)],
+    ["Present simple questions review", `<p>Let's review the <mark>questions</mark> in the present simple. Remember: we use <b>do</b> or <b>does</b> at the beginning.</p><ul><li><b>Do</b> + I / you / we / they + verb: «<b>Do</b> you <b>live</b> near the school?»</li><li><b>Does</b> + he / she / it + verb (without -s!): «<b>Does</b> she <b>live</b> near the school?» Not «Does she lives…».</li></ul><p><b>Short answers</b>:</p><ul><li>«Yes, I <b>do</b>.» / «No, I <b>don't</b>.»</li><li>«Yes, she <b>does</b>.» / «No, she <b>doesn't</b>.»</li></ul><p><b>Wh- questions</b> (with question words) go before do / does:</p><ul><li>«<b>Where</b> do you live?» → «I live in Toledo.»</li><li>«<b>What</b> does your dad do?» → «He's a taxi driver.» (This question asks about the job!)</li><li>«<b>When</b> do you play tennis?» → «On Fridays.»</li><li>«<b>What time</b> does the film start?» → «At six o'clock.»</li><li>«<b>How</b> do you go to school?» → «On foot.» / «By bus.»</li></ul><p>A trick: in the question, the <b>-s</b> goes to <b>does</b>, not to the verb. It can't be in two places at the same time!</p><p>Now interview a friend: ask five questions with <i>do</i> and five with <i>does</i> about your friend's family.</p>`,
+      L6.filas("Questions", [["Do you…?", "Yes, I do.", cAZ], ["Does she…?", "No, she doesn't.", cVE], ["Where do…?", "I live in…", cNA], ["What does he do?", "He's a vet.", cMO]])],
+  ],
+  ejemplos: [
+    ["Complete: She ___ (love / dance).", ["love + s with she: loves.", "After love, the verb takes -ing: dancing."], "She loves dancing."],
+    ["Which sound: watches, plays, eats?", ["watches: after ch → /ɪz/.", "plays: after a vowel → /z/. eats: after t → /s/."], "watches /ɪz/, plays /z/, eats /s/"],
+  ],
+  errores: ["Forgetting -ing after like: «I like swim».", "Using -s twice in questions: «Does she likes…?»."],
+  ejercicios: [
+    ["b", "Complete: I ___ (like) reading comics.", "like"],
+    ["b", "Complete: He ___ (hate) getting up early.", "hates"],
+    ["b", "True or false: Bees make honey.", "True."],
+    ["b", "Write the -ing form of swim and dance.", "swimming, dancing"],
+    ["b", "Complete: ___ your sister like cats?", "Does"],
+    ["m", "Which sound has the -s in «washes»?", "/ɪz/"],
+    ["m", "Correct: She don't like football.", "She doesn't like football."],
+    ["m", "Write two facts about animals.", "For example: Cows eat grass. Penguins don't fly."],
+    ["m", "Answer: Does Zoe like football?", "No, she doesn't."],
+    ["m", "Write a question with Where for «I live in Toledo».", "Where do you live?"],
+    ["a", "Write a description of a family member (5 sentences).", "Open answer."],
+    ["a", "Write three true and three false facts for a quiz.", "Open answer."],
+    ["a", "Make a chart: what your classmates love and hate.", "Open answer."],
+    ["a", "Interview a friend with five do/does questions.", "Open answer."],
+  ],
+  quiz: [
+    ["I love ___ .", ["swimming", "swim", "swims"], "Like / love + ing."],
+    ["She ___ like football.", ["doesn't", "don't", "isn't"], "Negative."],
+    ["«Watches» has the sound…", ["/ɪz/", "/s/", "/z/"], "Pronunciation."],
+    ["Water ___ at 100 degrees.", ["boils", "boil", "boiling"], "Facts."],
+    ["___ your dad work in a shop?", ["Does", "Do", "Is"], "Questions."],
+  ],
+  examen: [
+    ["In the reading, what does Zoe hate?", ["getting up early", "drawing", "pancakes"], "Reading."],
+    ["What does your mum do? asks about her…", ["job", "age", "hobbies"], "Questions."],
+  ],
+  tarjetas: [
+    ["Like + ing", "love, like, don't mind, don't like, hate + -ing."],
+    ["-s sounds", "/s/ eats, /z/ plays, /ɪz/ watches."],
+    ["Facts", "The sun rises in the east. Penguins don't fly."],
+    ["Questions", "Do you…? Does she…? Where do you live?"],
+  ],
+  glosario: [
+    ["love", "encantar"],
+    ["like", "gustar"],
+    ["don't mind", "no importar"],
+    ["hate", "odiar"],
+    ["fact", "hecho"],
+    ["true", "verdadero"],
+    ["false", "falso"],
+    ["boil", "hervir"],
+    ["rise", "salir (el sol)"],
+    ["feed", "dar de comer"],
+    ["vet", "veterinario/a"],
+    ["description", "descripción"],
+  ],
+  situacion: {
+    titulo: "Our family album",
+    reto: "The class makes an album in English with descriptions of family members.",
+    pasos: ["Choose a family member and bring a photo or make a drawing.", "Write a description: appearance, job, routine, likes and dislikes.", "Check the -s endings and the negatives with doesn't.", "Read your description aloud and practise the -s sounds."],
+    producto: "A class family album in English.",
+    evaluacion: ["Uses the present simple correctly with he and she.", "Uses like, love and hate + -ing.", "Pronounces the -s endings.", "Organises the description in paragraphs."],
+  },
+});

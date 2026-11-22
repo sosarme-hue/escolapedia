@@ -91,3 +91,91 @@ module.exports = tema({
   ideas: ["Mímica: un alumno representa una acción y los demás dicen el verbo.", "Póster de la rutina en seis viñetas y exposición oral.", "Encuesta «What time do you get up?» y gráfico de la clase."],
   fuentes: [["British Council LearnEnglish Kids: grammar practice", "https://learnenglishkids.britishcouncil.org/grammar-practice"], ["Cambridge Dictionary: present simple", "https://dictionary.cambridge.org/grammar/british-grammar/present-simple-i-work"]],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Use routine verbs with get, put on and take off", "Talk about the days of the week and the weekend", "Describe healthy habits", "Describe the routine of a person with a job, using he and she"],
+  lectura: { titulo: "Two days, two routines", html: `<p>Hi! My name is <b>Hugo</b> and I'm nine years old. I live in Zaragoza. My routine is very different on school days and at the weekend.</p><p>From <b>Monday to Friday</b>, I <b>get up</b> at half past seven. I have a shower, I <b>get dressed</b> and I have breakfast with my sister: usually cereal and an orange. At a quarter past eight, my dad takes us to school by car.</p><p>School starts at nine o'clock. I have lunch in the school canteen at one o'clock. On <b>Tuesdays and Thursdays</b>, I go to basketball after school. On <b>Wednesdays</b>, I have English lessons. I do my homework at six, and I have dinner at half past eight. I go to bed at half past nine. I always read a book in bed!</p><p>At the <b>weekend</b>, everything changes. On <b>Saturdays</b>, I <b>never</b> get up early. I wake up at nine, but I stay in bed and play with my cat, Lola. Then I have a big breakfast: pancakes! In the afternoon, I meet my friends in the park and we ride our bikes.</p><p>On <b>Sundays</b>, we <b>usually</b> visit my grandparents. My grandma cooks paella and my grandpa tells funny stories.</p><p>On Sunday evening, I prepare my school bag and I <b>put on</b> my pyjamas early. Monday is coming again!</p>` },
+  tras: {
+    "Morning verbs": [
+      ["Get, put on, take off", `<p>Many routine verbs in English are made of <b>two words</b>. They are very useful, so learn them as a group:</p><p><b>With get:</b></p><ul><li><b>get up</b> (levantarse): «I <b>get up</b> at seven.»</li><li><b>get dressed</b> (vestirse): «I <b>get dressed</b> in my bedroom.»</li><li><b>get undressed</b> (desvestirse).</li><li><b>get ready</b> (prepararse): «I <b>get ready</b> for school.»</li><li><b>get home</b> (llegar a casa): «I <b>get home</b> at five.»</li></ul><p><b>With put on and take off:</b></p><ul><li><b>put on</b> (ponerse ropa): «I <b>put on</b> my shoes.»</li><li><b>take off</b> (quitarse ropa): «I <b>take off</b> my coat.»</li></ul><p><b>Other two-word verbs:</b></p><ul><li><b>wake up</b> (despertarse): «I <b>wake up</b> at seven, but I <b>get up</b> at a quarter past seven.» Notice the difference: you <i>wake up</i> when you open your eyes; you <i>get up</i> when you get out of bed!</li><li><b>brush my teeth</b> (lavarme los dientes), <b>brush my hair</b> (peinarme).</li><li><b>have a shower / a bath</b> (ducharme / bañarme).</li><li><b>go to bed</b> (acostarme).</li></ul><p>Remember: with <b>he</b> and <b>she</b>, the first word takes <b>-s</b>: «She <b>gets</b> up», «He <b>puts</b> on his shoes», «She <b>wakes</b> up».</p>`,
+        L6.filas("Two-word verbs", [["wake up", "despertarse", cAZ], ["get up", "levantarse", cVE], ["get dressed", "vestirse", cNA], ["put on", "ponerse", cMO], ["take off", "quitarse", cRO]])],
+    ],
+    "At school and in the afternoon": [
+      ["Days of the week and the weekend", `<p>To talk about routines on different days, use <b>on</b> + day: «<b>On Mondays</b>, I go swimming.» Notice: we add <b>-s</b> to the day when we do something every week.</p><p>The days of the week always start with a <b>capital letter</b> (mayúscula) in English:</p><ul><li><b>Monday</b>, <b>Tuesday</b>, <b>Wednesday</b>, <b>Thursday</b>, <b>Friday</b> → school days (weekdays).</li><li><b>Saturday</b>, <b>Sunday</b> → <b>the weekend</b> (el fin de semana).</li></ul><p>Useful expressions:</p><ul><li><b>from Monday to Friday</b> (de lunes a viernes)</li><li><b>at the weekend</b> (el fin de semana)</li><li><b>every day</b> (todos los días)</li><li><b>on Tuesdays and Thursdays</b> (los martes y los jueves)</li><li><b>after school</b> (después del cole)</li></ul><p>Weekend activities:</p><ul><li><i>sleep late</i> (dormir hasta tarde)</li><li><i>visit my grandparents</i></li><li><i>go to the cinema</i> / <i>go to the park</i></li><li><i>play with my friends</i></li><li><i>go for a walk</i> (ir de paseo)</li><li><i>help at home</i></li></ul><p>Careful with spelling: <b>Wednesday</b> has a silent <i>d</i>: we say /ˈwenzdeɪ/. And <b>Thursday</b> starts with <i>th</i>.</p>`,
+        L6.filas("My week", [["Mondays", "swimming", cAZ], ["Wednesdays", "English", cVE], ["Fridays", "pizza night", cNA], ["Saturdays", "park", cMO], ["Sundays", "grandparents", cRO]]), ["_oEAdz3MAj0", "What do you do every day?", "Fun Kids English", 1126732]],
+    ],
+    "How often? Always, usually, never": [
+      ["Healthy habits", `<p>A good routine helps us to be <mark>healthy and happy</mark>. Doctors say that children of your age should:</p><ul><li><b>Sleep</b> about <b>ten hours</b> every night. «I go to bed at nine and I get up at seven.»</li><li><b>Have breakfast</b> every morning. Breakfast gives you energy for school.</li><li><b>Eat fruit and vegetables</b> every day. «I <b>always</b> eat an apple at break time.»</li><li><b>Drink water</b> when you are thirsty, not fizzy drinks.</li><li><b>Brush your teeth</b> twice a day (dos veces al día): in the morning and before bed.</li><li><b>Wash your hands</b> before meals and after the toilet.</li><li><b>Do exercise</b> or play outside for at least one hour a day.</li><li><b>Use screens</b> only a little, and never just before going to bed.</li></ul><p>Use adverbs of frequency to talk about your habits: «I <b>always</b> brush my teeth.» «I <b>sometimes</b> eat sweets.» «I <b>never</b> drink coffee.»</p><p>Remember the position: adverbs go <b>before</b> the main verb, but <b>after</b> the verb <i>be</i>: «I <b>usually</b> walk to school.» / «I <b>am usually</b> happy on Fridays.»</p><p>Is your routine healthy? Check it with the list above!</p>`,
+        H6.dos("Habits", ["HEALTHY", ["sleep 10 hours", "eat fruit", "play outside"], cVE], ["UNHEALTHY", ["too many screens", "fizzy drinks", "no breakfast"], cRO]), ["7HD313xrUf4", "Good habits vs bad habits for kids", "LunioVerse", 4511201]],
+    ],
+  },
+  final: [
+    ["A day in the life of a baker", `<p>People with different <mark>jobs</mark> have very different routines. Read about Pablo, a <b>baker</b> (panadero):</p><p><i>Pablo is a baker. He <b>gets up</b> at three o'clock in the morning, when everybody is sleeping! He <b>has</b> a coffee and he <b>goes</b> to the bakery. He <b>starts</b> work at four o'clock. He <b>makes</b> bread, croissants and cakes. At seven o'clock, the bakery <b>opens</b>, and people <b>buy</b> fresh bread for breakfast. Pablo <b>finishes</b> work at two o'clock in the afternoon. He <b>has</b> lunch and then he <b>sleeps</b> for two hours. He <b>goes</b> to bed at nine o'clock in the evening.</i></p><p>Notice that with <b>he</b> and <b>she</b> all the verbs end in <b>-s</b> or <b>-es</b>: gets, goes, makes, finishes. And <i>have</i> becomes <b>has</b>.</p><p>Other jobs with special routines:</p><ul><li>A <b>nurse</b> (enfermero/a) sometimes works at night.</li><li>A <b>farmer</b> (granjero/a) gets up very early to feed the animals.</li><li>A <b>firefighter</b> (bombero/a) works for 24 hours and then rests.</li><li>A <b>teacher</b> works in the morning and corrects homework in the afternoon.</li></ul><p>Ask someone in your family about their job routine and write about it in English.</p>`,
+      H6.flujo("Pablo's day", ["3:00|gets up", "4:00|starts work", "7:00|shop opens", "2:00|finishes"], cNA)],
+    ["Routines around the world", `<p>Children all over the world have routines, but they are not always the same. Look at these differences:</p><ul><li>In <b>Spain</b>, families often have lunch at about two o'clock and dinner at about nine. That's late for many other countries!</li><li>In the <b>United Kingdom</b>, children usually have lunch at school at about twelve o'clock, and dinner at about six. They often wear a <b>school uniform</b>.</li><li>In <b>Japan</b>, children usually help to <b>clean</b> their classroom at the end of the day. Everybody works together!</li><li>In <b>Finland</b>, children have short lessons with long breaks to play outside, even in the snow.</li><li>In some countries near the <b>equator</b>, school starts very early in the morning, because it is very hot in the afternoon.</li></ul><p>To compare, use expressions like:</p><ul><li>«In Spain, we have dinner <b>later than</b> in England.»</li><li>«In Japan, children clean the classroom. <b>In my school</b>, the cleaners do it.»</li><li>«<b>Both</b> English and Spanish children go to school from Monday to Friday.»</li></ul><p>What do you think? Which routine do you like best? Would you like to clean your classroom like Japanese children?</p>`,
+      L6.filas("Around the world", [["Spain", "about 2 p.m.", cRO], ["UK", "about 12 p.m.", cAZ], ["Japan", "clean the class", cVE], ["Finland", "long breaks", cNA]])],
+  ],
+  ejemplos: [
+    ["Write about Hugo: «I get up at half past seven» (he).", ["With he, add -s to get.", "The rest doesn't change."], "He gets up at half past seven."],
+    ["Complete: ___ Saturdays, I sleep late. (on / in / at)", ["Days of the week go with on.", "Add -s for something every week."], "On Saturdays, I sleep late."],
+  ],
+  errores: ["Confusing wake up and get up.", "Writing the days with a small letter: «monday»."],
+  ejercicios: [
+    ["b", "What is the opposite of put on?", "take off"],
+    ["b", "Write the days of the weekend.", "Saturday and Sunday."],
+    ["b", "How many hours should children sleep?", "About ten hours."],
+    ["b", "What time does Pablo the baker get up?", "At three o'clock."],
+    ["b", "Complete: I ___ dressed in my bedroom.", "get"],
+    ["m", "Write three things you do at the weekend.", "Open answer."],
+    ["m", "Write the sentence with he: I put on my shoes.", "He puts on his shoes."],
+    ["m", "Write two healthy habits with always.", "For example: I always brush my teeth. I always have breakfast."],
+    ["m", "What do Japanese children do at the end of the day?", "They clean their classroom."],
+    ["m", "Correct: On monday I go to swimming.", "On Mondays I go swimming."],
+    ["a", "Write about the routine of someone in your family with a job.", "Open answer."],
+    ["a", "Compare your weekday and your weekend routine.", "Open answer."],
+    ["a", "Make a healthy habits poster for your class.", "Open answer."],
+    ["a", "Compare routines in Spain and the UK.", "Open answer."],
+  ],
+  quiz: [
+    ["You ___ up when you open your eyes.", ["wake", "get", "put"], "Two-word verbs."],
+    ["I play football ___ Tuesdays.", ["on", "in", "at"], "Days."],
+    ["Children should brush their teeth…", ["twice a day", "once a week", "never"], "Healthy habits."],
+    ["Pablo ___ bread every day.", ["makes", "make", "making"], "He / she + s."],
+    ["In the UK, children often wear a…", ["school uniform", "costume", "pyjamas"], "Around the world."],
+  ],
+  examen: [
+    ["In the reading, what does Hugo have for breakfast on Saturdays?", ["pancakes", "cereal", "paella"], "Reading."],
+    ["Which day has a silent d?", ["Wednesday", "Monday", "Friday"], "Days."],
+  ],
+  tarjetas: [
+    ["Two-word verbs", "wake up, get up, get dressed, put on, take off."],
+    ["Days", "On Mondays…; at the weekend; capital letters."],
+    ["Healthy habits", "Sleep 10 hours, eat fruit, brush your teeth twice a day."],
+    ["He / she", "He gets up, she goes, he has, she finishes."],
+  ],
+  glosario: [
+    ["routine", "rutina"],
+    ["wake up", "despertarse"],
+    ["get up", "levantarse"],
+    ["get dressed", "vestirse"],
+    ["put on", "ponerse (ropa)"],
+    ["take off", "quitarse (ropa)"],
+    ["weekend", "fin de semana"],
+    ["weekday", "día laborable"],
+    ["healthy", "sano, saludable"],
+    ["habit", "hábito, costumbre"],
+    ["baker", "panadero"],
+    ["school uniform", "uniforme escolar"],
+  ],
+  situacion: {
+    titulo: "A day in our lives",
+    reto: "The class makes a video or a book about their routines and the routines of people at school.",
+    pasos: ["Write your weekday and weekend routine with times.", "Interview someone at school (the cook, the caretaker, a teacher) about their routine.", "Write their routine with he or she.", "Present it with photos or drawings."],
+    producto: "A class book or video of routines.",
+    evaluacion: ["Uses routine verbs correctly.", "Adds -s with he and she.", "Uses on + days and times.", "Talks about healthy habits."],
+  },
+});

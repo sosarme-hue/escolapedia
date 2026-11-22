@@ -91,3 +91,91 @@ module.exports = tema({
   ideas: ["Juego de mímica «Mime and guess».", "Describir por parejas una ilustración de un parque con muchas acciones.", "Postal inventada desde un lugar de vacaciones."],
   fuentes: [["Cambridge Dictionary: present continuous", "https://dictionary.cambridge.org/grammar/british-grammar/present-continuous"], ["British Council LearnEnglish Kids: grammar practice", "https://learnenglishkids.britishcouncil.org/grammar-practice"]],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Choose between the present simple and the present continuous", "Give short answers: Yes, I am / No, he isn't", "Describe where things are in a picture", "Talk about the weather and clothes now and have a phone conversation"],
+  lectura: { titulo: "A phone call from the mountains", html: `<p><i>Ring, ring!</i></p><p><b>Mum:</b> Hello, Leo! How are you? What <b>are</b> you <b>doing</b>?</p><p><b>Leo:</b> Hi, Mum! I'm great! I'm at the summer camp in the Pyrenees. Right now I'<b>m sitting</b> on a big rock next to the lake.</p><p><b>Mum:</b> How lovely! What's the weather like?</p><p><b>Leo:</b> It's sunny, but it's a bit cold. I'<b>m wearing</b> my red jumper and my cap.</p><p><b>Mum:</b> And what are the other children doing?</p><p><b>Leo:</b> Well, Nico and Iker <b>are swimming</b> in the lake. The water is freezing! Sara <b>is taking</b> photos of the mountains. And the monitors <b>are cooking</b> sausages on the barbecue. It smells delicious!</p><p><b>Mum:</b> <b>Are</b> you <b>having</b> fun?</p><p><b>Leo:</b> Yes, I <b>am</b>! Every day we <b>go</b> hiking in the morning and we <b>play</b> games in the afternoon. But today is special: we'<b>re having</b> a barbecue and tonight we'<b>re sleeping</b> in tents!</p><p><b>Mum:</b> Wow! <b>Is</b> it <b>raining</b> there?</p><p><b>Leo:</b> No, it <b>isn't</b>. But look… some grey clouds <b>are coming</b>. Oh no, it's starting to rain! I have to go, Mum!</p><p><b>Mum:</b> Run, Leo! Bye! Love you!</p><p><b>Leo:</b> Bye, Mum!</p>` },
+  tras: {
+    "Spelling the -ing form": [
+      ["Present simple or present continuous?", `<p>We have two presents in English, and they are used for different things:</p><ul><li>The <b>present simple</b> is for <mark>habits</mark> and things that are always true: «I <b>play</b> football <b>every Saturday</b>.» «Leo <b>goes</b> hiking <b>every day</b>.»</li><li>The <b>present continuous</b> is for things that are happening <mark>now</mark>, at this moment: «I <b>am playing</b> football <b>now</b>.» «Leo <b>is sitting</b> on a rock <b>right now</b>.»</li></ul><p>Time words help you choose:</p><ul><li>Present simple: <i>every day, usually, always, never, on Mondays, at the weekend</i>.</li><li>Present continuous: <i>now, right now, at the moment, today, look!, listen!</i></li></ul><p>Compare these pairs:</p><ul><li>«My dad <b>works</b> in a bank.» (his job) / «Today my dad <b>is working</b> at home.» (only today)</li><li>«It <b>rains</b> a lot in Galicia.» (a fact) / «Look! It<b>'s raining</b>!» (now)</li><li>«I <b>usually wear</b> jeans.» / «<b>Today</b> I<b>'m wearing</b> a dress.»</li></ul><p>A useful trick: if you can add <i>now</i> or <i>at the moment</i> to the sentence, use the continuous. If you can add <i>every day</i> or <i>usually</i>, use the simple.</p><p>Some verbs are almost never in the continuous form: <b>like, love, hate, want, know, have got</b>. We say «I <b>like</b> this song» (not «I'm liking»), and «I <b>know</b> the answer» (not «I'm knowing»).</p>`,
+        H6.dos("Which present?", ["SIMPLE", ["every day", "usually", "I play"], cAZ], ["CONTINUOUS", ["now", "at the moment", "I'm playing"], cNA]), ["OsW5sV3GMDM", "Present simple and present continuous", "BBC Learning English", 1081053]],
+    ],
+    "Questions: What are you doing?": [
+      ["Short answers", `<p>When somebody asks a <b>yes / no question</b> in the present continuous, we can answer with a <mark>short answer</mark>. We use the verb <b>be</b>, not the -ing verb:</p><ul><li>«<b>Are</b> you watching TV?» → «Yes, I <b>am</b>.» / «No, I<b>'m not</b>.»</li><li>«<b>Is</b> she reading?» → «Yes, she <b>is</b>.» / «No, she <b>isn't</b>.»</li><li>«<b>Is</b> it raining?» → «Yes, it <b>is</b>.» / «No, it <b>isn't</b>.»</li><li>«<b>Are</b> they playing?» → «Yes, they <b>are</b>.» / «No, they <b>aren't</b>.»</li><li>«<b>Are</b> we winning?» → «Yes, we <b>are</b>!» / «No, we <b>aren't</b>.»</li></ul><p>Important rules:</p><ul><li>In <b>affirmative</b> short answers, we <b>don't</b> use contractions: «Yes, I <b>am</b>», not «Yes, I'm».</li><li>In <b>negative</b> short answers, we usually use contractions: «No, she <b>isn't</b>».</li><li>Don't repeat the -ing verb: «Yes, I am», not «Yes, I am watching».</li></ul><p>After a short answer, you can add more information to keep the conversation going:</p><ul><li>«Are you doing your homework?» → «No, I'm not. <b>I'm drawing</b>.»</li><li>«Is your brother sleeping?» → «Yes, he is. <b>He's very tired</b>.»</li></ul>`,
+        L6.dialogo("Short answers", [["Ana", "Are you watching TV?", cAZ], ["Leo", "No, I'm not. I'm reading.", cRO], ["Ana", "Is it raining?", cAZ], ["Leo", "Yes, it is!", cRO]])],
+    ],
+    "Describing a picture": [
+      ["Where is it? Positions in a picture", `<p>To describe a picture, we need to say <b>what</b> people are doing and <mark>where</mark> they are. These expressions are very useful:</p><ul><li><b>in the middle</b> (en el centro): «<b>In the middle</b>, there is a big tree.»</li><li><b>on the left</b> (a la izquierda) / <b>on the right</b> (a la derecha): «<b>On the left</b>, a girl is riding a bike.»</li><li><b>at the top</b> (arriba) / <b>at the bottom</b> (abajo): «<b>At the top</b>, some birds are flying.»</li><li><b>in the background</b> (al fondo): «<b>In the background</b>, there are mountains.»</li><li><b>in the foreground</b> (en primer plano): «<b>In the foreground</b>, a dog is sleeping.»</li><li><b>next to</b> (al lado de), <b>behind</b> (detrás de), <b>in front of</b> (delante de), <b>under</b> (debajo de).</li></ul><p>Now read this description:</p><p><i>This is a picture of a park on a sunny day. <b>In the middle</b>, there is a fountain and two children are playing with water. <b>On the left</b>, a man is reading a newspaper on a bench. <b>On the right</b>, a woman is walking her dog. <b>In the background</b>, some boys are playing football. <b>At the top</b>, the sun is shining. Everybody is having a good time!</i></p><p>A good description goes in order: first say what the picture shows in general, then describe the middle, then the left and the right, and finally the background. Don't jump from one place to another, or your listener will get lost!</p><p>Use <b>there is / there are</b> for things, and the <b>present continuous</b> for actions.</p>`,
+        H6.rueda("A picture", "MIDDLE", [["on the left", cAZ], ["on the right", cVE], ["at the top", cNA], ["background", cMO]]), ["miqycqj39AU", "Describing pictures", "WabiSabiTeacher", 207334]],
+    ],
+  },
+  final: [
+    ["Weather and clothes right now", `<p>The present continuous is perfect for talking about the <mark>weather</mark> and the <mark>clothes</mark> we are wearing <b>now</b>.</p><p><b>Weather now:</b></p><ul><li>«It<b>'s raining</b>.» (Está lloviendo.)</li><li>«It<b>'s snowing</b>.» (Está nevando.)</li><li>«The sun <b>is shining</b>.» (Brilla el sol.)</li><li>«The wind <b>is blowing</b>.» (Sopla el viento.)</li></ul><p>But with adjectives we use <i>is</i>: «It<b>'s sunny</b>.» «It<b>'s windy</b>.» «It<b>'s cold</b>.» «It<b>'s cloudy</b>.»</p><p><b>Clothes now:</b></p><ul><li>«I<b>'m wearing</b> a blue T-shirt and jeans.»</li><li>«She<b>'s wearing</b> a raincoat and boots, because it's raining.»</li><li>«They<b>'re wearing</b> shorts and sandals, because it's hot.»</li><li>«What <b>are</b> you <b>wearing</b> today?»</li></ul><p>Useful clothes words: <i>jumper</i> (jersey), <i>coat</i> (abrigo), <i>raincoat</i> (chubasquero), <i>scarf</i> (bufanda), <i>gloves</i> (guantes), <i>cap</i> (gorra), <i>trainers</i> (zapatillas de deporte), <i>shorts</i> (pantalones cortos).</p><p>Remember that we say <b>wear</b> for clothes, glasses and jewellery: «He's wearing glasses.»</p><p>Look out of the window now. What's the weather like? And what are you wearing? Tell your partner!</p>`,
+      L6.filas("Right now", [["It's raining", "raincoat, boots", cAZ], ["It's snowing", "coat, gloves", cVE], ["It's sunny", "shorts, cap", cNA], ["It's windy", "jumper, scarf", cMO]])],
+    ["On the phone", `<p>When we talk on the <mark>phone</mark> or send a message, we often ask what the other person is doing <b>now</b>. Here are some useful phrases:</p><p><b>Starting the call:</b></p><ul><li>«Hello! It's Leo.» (On the phone, we say <i>It's…</i>, not <i>I am…</i>.)</li><li>«Hi, Leo! How are you?»</li><li>«Can I speak to Nico, please?»</li></ul><p><b>Asking and answering:</b></p><ul><li>«What are you doing?» → «I'm watching a film.»</li><li>«Where are you?» → «I'm at the beach.»</li><li>«Are you busy?» (¿Estás ocupado?) → «No, I'm not. I'm just relaxing.»</li><li>«Who are you with?» → «I'm with my cousins.»</li></ul><p><b>Ending the call:</b></p><ul><li>«I have to go now.» (Tengo que irme.)</li><li>«Talk to you later!» / «See you soon!»</li><li>«Bye!»</li></ul><p>In messages, people often use short forms: <i>What r u doing?</i> But at school, always write the full words: <i>What <b>are you</b> doing?</i></p><p>Role-play: with a partner, imagine you are in different places (a zoo, a football match, the beach…). Call each other and describe what is happening around you.</p>`,
+      L6.dialogo("A phone call", [["Leo", "Hi! It's Leo. What's up?", cAZ], ["Sara", "I'm at the beach!", cRO], ["Leo", "Are you swimming?", cAZ], ["Sara", "No. I'm eating ice cream.", cRO]])],
+  ],
+  ejemplos: [
+    ["Choose: «I (play / am playing) tennis every Sunday.»", ["Every Sunday is a habit.", "Habits use the present simple."], "I play tennis every Sunday."],
+    ["Answer with a short answer: «Is your mum cooking?» (no)", ["Use be: is → isn't.", "Don't repeat cooking."], "No, she isn't."],
+  ],
+  errores: ["Using the present continuous for habits: «I'm going to school every day».", "Answering «Yes, I'm» instead of «Yes, I am»."],
+  ejercicios: [
+    ["b", "Complete: Look! It ___ (snow).", "'s snowing / is snowing"],
+    ["b", "Answer: Are you reading? (yes)", "Yes, I am."],
+    ["b", "What do you say first on the phone?", "Hello! It's…"],
+    ["b", "Translate: a la izquierda.", "on the left"],
+    ["b", "Complete: I'm ___ (wear) a jumper.", "wearing"],
+    ["m", "Choose: She (works / is working) in a bank. Today she (works / is working) at home.", "works; is working"],
+    ["m", "Answer: Are they playing football? (no)", "No, they aren't."],
+    ["m", "Write two sentences about the weather now.", "Open answer."],
+    ["m", "Correct: I'm liking this song.", "I like this song."],
+    ["m", "Write what Leo's friends are doing in the reading.", "Nico and Iker are swimming. Sara is taking photos."],
+    ["a", "Describe a picture of a park with five positions.", "Open answer."],
+    ["a", "Write a phone conversation from a zoo.", "Open answer."],
+    ["a", "Write five sentences: what you usually do and what you are doing today.", "Open answer."],
+    ["a", "Describe what your classmates are wearing today.", "Open answer."],
+  ],
+  quiz: [
+    ["I ___ my homework every day.", ["do", "am doing", "doing"], "Simple or continuous."],
+    ["Is she sleeping? Yes, she ___ .", ["is", "'s", "sleeping"], "Short answers."],
+    ["«Al fondo» is…", ["in the background", "on the left", "at the top"], "Positions."],
+    ["It's ___ . Take your raincoat.", ["raining", "rain", "rains"], "Weather."],
+    ["On the phone we say…", ["It's Leo.", "I am Leo.", "Here Leo."], "Phone."],
+  ],
+  examen: [
+    ["In the reading, what is Leo wearing?", ["a red jumper and a cap", "a raincoat", "shorts"], "Reading."],
+    ["Which verb is NOT used in the continuous?", ["like", "play", "read"], "Simple or continuous."],
+  ],
+  tarjetas: [
+    ["Simple vs continuous", "Habits: I play. Now: I'm playing."],
+    ["Short answers", "Yes, I am. No, she isn't. Yes, they are."],
+    ["Positions", "in the middle, on the left / right, in the background."],
+    ["Weather and phone", "It's raining. I'm wearing… Hello! It's Leo."],
+  ],
+  glosario: [
+    ["now", "ahora"],
+    ["at the moment", "en este momento"],
+    ["short answer", "respuesta corta"],
+    ["in the middle", "en el centro"],
+    ["on the left", "a la izquierda"],
+    ["on the right", "a la derecha"],
+    ["in the background", "al fondo"],
+    ["wear", "llevar puesto"],
+    ["raincoat", "chubasquero"],
+    ["shine", "brillar"],
+    ["busy", "ocupado"],
+    ["phone call", "llamada de teléfono"],
+  ],
+  situacion: {
+    titulo: "Live reporters",
+    reto: "The class becomes a team of TV reporters describing what is happening at school right now.",
+    pasos: ["In groups, choose a place: the playground, the library, the gym, the canteen.", "Take photos or draw what people are doing.", "Write a live report with the present continuous and positions.", "Present it like a TV news report: «Hello! It's Ana, live from the playground…»"],
+    producto: "A live news report in English.",
+    evaluacion: ["Uses the present continuous for actions now.", "Uses positions to describe the place.", "Gives correct short answers.", "Speaks clearly and with confidence."],
+  },
+});
