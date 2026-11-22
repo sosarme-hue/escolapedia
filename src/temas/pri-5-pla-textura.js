@@ -96,3 +96,90 @@ module.exports = tema({
   ideas: ["Catálogo de texturas en una cartulina de nueve cuadros.", "Juego de adivinar materiales con los ojos cerrados.", "Salida al patio para hacer frottage de cortezas, rejillas y suelos."],
   fuentes: [["Fundació Antoni Tàpies", "https://fundaciotapies.org/"], ["Museo Reina Sofía: colección", "https://www.museoreinasofia.es/coleccion"]],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { L: L5, H: H5, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 75,
+  objetivos: ["Crear texturas visuales con tramas y puntos", "Producir texturas con materiales reciclados", "Conocer el trencadís de Gaudí como arte de texturas", "Valorar la textura como información para personas ciegas"],
+  lectura: { titulo: "Las manos de Irene", html: `<p>Irene es ciega desde que nació, pero dice que ella «ve con las manos». El primer día que llegó a la clase de quinto, pidió permiso para tocar las paredes, las mesas y la pizarra.</p><p>—Así sé dónde estoy —explicó—. La pared del pasillo es rugosa, la puerta es lisa y fría, y vuestras mesas tienen una esquina rota que pincha un poco.</p><p>Nadie se había fijado nunca en esa esquina.</p><p>En la clase de Plástica, el profesor propuso un reto: hacer un mural que Irene pudiera «mirar» con las manos. Los alumnos se pusieron a buscar materiales: cartón ondulado para las montañas, papel de lija para la arena de la playa, algodón para las nubes, lana para la hierba, y tapones de botella para las piedras del camino.</p><p>Cuando terminaron, Irene recorrió el mural con los dedos, despacio, de izquierda a derecha.</p><p>—Aquí hay una playa… y el mar, que es suave y ondulado. Y esto son nubes. ¡Es un paisaje!</p><p>Toda la clase aplaudió. Ese día aprendieron algo que no venía en el libro: la textura no solo se ve; también se cuenta, se toca y se comparte.</p>` },
+  tras: {
+    "Textura visual": [
+      ["Tramas, puntos y rayas", `<p>Con un simple lápiz o un rotulador podemos crear muchísimas <b>texturas visuales</b>. Basta con repetir pequeñas marcas de manera ordenada: esto se llama una <b>trama</b>.</p><ul><li><b>Punteado</b>: muchos puntos juntos. Cuantos más puntos, más oscura parece la zona.</li><li><b>Rayado</b>: líneas paralelas, muy juntas para oscurecer o separadas para aclarar.</li><li><b>Rayado cruzado</b>: dos capas de líneas que se cruzan. Da sombras más intensas.</li><li><b>Ondas, espirales o escamas</b>: sirven para imitar agua, pelo, piel de pez o tejados.</li></ul><p>Los dibujantes de cómic y los grabadores usan estas tramas para dar volumen y sombra sin usar color.</p><p>A finales del siglo XIX, el pintor francés <b>Georges Seurat</b> llevó el punteado a la pintura con el <b>puntillismo</b>: pintaba cuadros enteros con pequeños puntos de colores puros, uno al lado de otro. De cerca solo se ven puntos, pero de lejos el ojo los mezcla y vemos figuras, árboles y reflejos en el agua.</p><p>Prueba a dibujar una manzana solo con puntos: muchos puntos en la zona de sombra y pocos en la zona de luz.</p>`,
+        L5.filas("Tramas para dibujar", [["punteado", "puntos juntos", cAZ], ["rayado", "líneas paralelas", cVE], ["cruzado", "líneas que se cruzan", cRO], ["ondas", "agua, pelo", cMO]]), ["0z4aWdyItJw", "Técnica de PUNTILLISMO ● CREA una obra de arte con puntos ● Dibujo FÁCIL con puntos 🍎", "Adriana Arunima", 1597767]],
+    ],
+    "Estampado, esgrafiado y collage": [
+      ["Texturas con material reciclado", `<p>No hace falta comprar materiales caros para trabajar la textura: muchos objetos que tiramos a la basura son perfectos para crear obras táctiles y visuales.</p><ul><li><b>Cartón ondulado</b>: quitando la capa lisa aparecen rayas en relieve, ideales para tejados, campos o el mar.</li><li><b>Papel de burbujas</b>: si lo pintamos y lo presionamos sobre un papel, estampa una textura de puntos redondos, como la piel de un reptil o un panal.</li><li><b>Papel arrugado</b>: arrugado y estirado otra vez, parece una roca o la corteza de un árbol.</li><li><b>Redes de las bolsas de fruta</b>: sirven como plantilla para estampar escamas o redes de pescar.</li><li><b>Tapones, chapas y bandejas</b>: aportan relieve en un collage.</li><li><b>Lana, telas viejas y algodón</b>: dan texturas blandas para pelo, nubes o hierba.</li></ul><p>Antes de pegar, piensa qué textura corresponde a cada parte: lo áspero para la roca, lo suave para el cielo. Usa cola blanca para los materiales ligeros y cola más fuerte para los pesados, siempre con la ayuda de un adulto si es necesario.</p><p>Así, además de crear, ayudas al planeta dando una segunda vida a los residuos.</p>`,
+        L5.filas("Reciclar texturas", [["cartón", "rayas en relieve", cNA], ["burbujas", "puntos redondos", cAZ], ["papel arrugado", "roca, corteza", cMO], ["red de fruta", "escamas", cRO], ["lana", "pelo, hierba", cVE]])],
+    ],
+    "La textura en el arte": [
+      ["Gaudí y el trencadís", `<p>Uno de los ejemplos más famosos de textura en el arte es el <b>trencadís</b>, una técnica que usó el arquitecto <b>Antoni Gaudí</b> en muchas de sus obras, junto con su colaborador <b>Josep Maria Jujol</b>.</p><p>El trencadís (en catalán, «troceado») consiste en cubrir superficies con <b>trozos de cerámica rota</b>, azulejos, platos o vidrios de colores, pegados con mortero. Como los trozos son irregulares, se adaptan muy bien a las formas curvas, que a Gaudí le encantaban.</p><p>En el <b>Park Güell</b> de Barcelona puedes ver el gran banco ondulado y el famoso dragón de la escalinata, cubiertos de trencadís de mil colores. Al tocarlo se notan las juntas entre las piezas y los cambios de relieve, y al mirarlo la luz se refleja de manera distinta en cada trozo.</p><p>Gaudí aprovechaba piezas defectuosas de las fábricas de cerámica: era también una forma de <b>reciclar</b>.</p><p>En clase podemos hacer un trencadís de papel: recorta trozos irregulares de papel de colores o de revistas y pégalos sobre una silueta dibujada, como un lagarto o una flor, dejando una pequeña separación entre cada trozo.</p>`,
+        H5.flujo("Hacer un trencadís", ["Romper|piezas", "Dibujar|silueta", "Pegar|trozos", "Rellenar|juntas"], cAZ), ["hSbDvnV9A98", "El trencadís, marca de Gaudí", "Basílica de la Sagrada Família", 21680]],
+    ],
+  },
+  final: [
+    ["Texturas que informan en la ciudad", `<p>La textura no solo sirve para hacer arte: también da <b>información</b>, especialmente a las personas ciegas o con poca visión.</p><p>Si te fijas en las aceras, cerca de los pasos de peatones y en los andenes del metro, verás unas baldosas especiales llamadas <b>pavimento podotáctil</b>. Se notan con los pies y con el bastón:</p><ul><li>Las baldosas con <b>botones</b> (pequeños círculos en relieve) avisan de un <b>peligro o de una parada</b>: el borde del andén o el inicio de un paso de peatones.</li><li>Las baldosas con <b>rayas</b> indican la <b>dirección</b> que hay que seguir.</li></ul><p>Otra textura que informa es el <b>braille</b>, un sistema de lectura con puntos en relieve inventado por el francés <b>Louis Braille</b>, que se quedó ciego de niño. Cada letra se forma con hasta seis puntos. Lo encontrarás en las cajas de medicamentos, en los botones de los ascensores y en algunos carteles.</p><p>Los diseñadores y arquitectos tienen en cuenta estas texturas para que la ciudad sea <b>accesible</b> para todos. La próxima vez que salgas a la calle, busca baldosas podotáctiles y piensa qué información dan.</p>`,
+      H5.dos("Baldosas que hablan", ["Botones", ["peligro", "parada", "borde"], cRO], ["Rayas", ["dirección", "por aquí", "seguir"], cVE])],
+    ["Arte para tocar", `<p>En la mayoría de museos hay un cartel que dice «No tocar». Pero existen museos y exposiciones pensados precisamente para <b>tocar</b>.</p><p>En Madrid está el <b>Museo Tiflológico de la ONCE</b>. «Tiflológico» viene de una palabra griega que significa «ciego». En él se pueden tocar <b>maquetas de monumentos</b> de todo el mundo, como la catedral de Santiago, el Coliseo de Roma o la Torre Eiffel, y obras de artistas ciegos o con discapacidad visual.</p><p>Muchos museos ofrecen también <b>réplicas táctiles</b> de cuadros famosos: el cuadro se convierte en relieve, con texturas distintas para el cielo, la ropa o la piel, para que las personas ciegas puedan «verlo» con las manos.</p><p>También existen <b>libros táctiles</b> para niños, con páginas en las que se tocan telas, relieves y braille.</p><p>Crear una obra para tocar es un reto interesante: hay que pensar en texturas muy diferentes entre sí, en relieves que no se rompan y en materiales agradables y seguros.</p><p>Cierra los ojos y toca un objeto de tu mochila: ¿podrías describirlo solo por su textura?</p>`,
+      L5.filas("Para ver con las manos", [["maquetas", "monumentos", cAZ], ["réplicas", "cuadros en relieve", cNA], ["libros táctiles", "telas y braille", cVE]]), ["-5JNV436A7k", "Visita Virtual 360º al Museo Tiflológico de la ONCE", "ONCE", 5152]],
+  ],
+  ejemplos: [
+    ["¿Cómo dibujarías la sombra de una pelota solo con un bolígrafo?", ["Usa una trama: rayado o punteado.", "Más marcas en la zona oscura y menos en la iluminada."], "Con puntos o rayas más juntos en la sombra y más separados en la zona de luz."],
+    ["¿Qué material reciclado usarías para el mar en un collage táctil?", ["El mar tiene ondas.", "El cartón ondulado tiene rayas en relieve."], "Cartón ondulado pintado de azul."],
+  ],
+  errores: ["Creer que la textura visual se puede tocar: solo parece rugosa, pero el papel es liso.", "Pegar materiales pesados con poca cola: se despegan; elige el pegamento según el material."],
+  ejercicios: [
+    ["b", "Nombra tres tramas que puedes dibujar con un lápiz.", "Punteado, rayado y rayado cruzado."],
+    ["b", "¿Qué pintor pintaba con pequeños puntos de colores?", "Georges Seurat (puntillismo)."],
+    ["b", "¿Qué es el trencadís?", "Revestimiento con trozos de cerámica rota."],
+    ["b", "¿Dónde puedes ver el dragón de trencadís de Gaudí?", "En el Park Güell de Barcelona."],
+    ["b", "¿Quién inventó el sistema braille?", "Louis Braille."],
+    ["m", "Explica qué indican las baldosas de botones y las de rayas.", "Botones: peligro o parada. Rayas: dirección."],
+    ["m", "Propón un material reciclado para hacer: hierba, roca y escamas.", "Lana, papel arrugado y red de bolsa de fruta."],
+    ["m", "¿Por qué el trencadís se adapta bien a las formas curvas?", "Porque las piezas son pequeñas e irregulares."],
+    ["m", "¿Qué significa «tiflológico»?", "Relacionado con la ceguera."],
+    ["m", "Dibuja un mismo cuadrado con cuatro tramas distintas.", "Respuesta abierta."],
+    ["a", "Crea un trencadís de papel con la silueta de un animal.", "Respuesta abierta."],
+    ["a", "Haz un paisaje táctil con cinco materiales reciclados diferentes.", "Respuesta abierta."],
+    ["a", "Busca en tu barrio baldosas podotáctiles y haz un plano con su posición.", "Respuesta abierta."],
+    ["a", "Dibuja una fruta en estilo puntillista con rotuladores de colores.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Repetir marcas de forma ordenada crea una…", ["trama", "escultura", "gama"], "Textura visual."],
+    ["El puntillismo se basa en…", ["puntos de color", "trozos de cerámica", "frotar papel"], "Seurat."],
+    ["El trencadís lo usó sobre todo…", ["Gaudí", "Van Gogh", "Picasso"], "Park Güell."],
+    ["Las baldosas con botones indican…", ["peligro o parada", "dirección", "salida"], "Podotáctil."],
+    ["El braille se lee…", ["con los dedos", "con los pies", "con lupa"], "Puntos en relieve."],
+  ],
+  examen: [
+    ["El papel de burbujas pintado estampa…", ["puntos redondos", "rayas", "líneas cruzadas"], "Estampado."],
+    ["El Museo Tiflológico está pensado para…", ["tocar las obras", "ver películas", "escuchar música"], "Accesible."],
+  ],
+  tarjetas: [
+    ["Tramas", "Punteado, rayado, cruzado; más marcas, más sombra."],
+    ["Reciclar texturas", "Cartón, burbujas, papel arrugado, redes, lana."],
+    ["Trencadís", "Cerámica rota; Gaudí y Jujol; Park Güell."],
+    ["Texturas que informan", "Podotáctil (botones y rayas) y braille."],
+  ],
+  glosario: [
+    ["Trama", "Repetición ordenada de marcas que crea una textura visual."],
+    ["Punteado", "Trama hecha con puntos."],
+    ["Rayado cruzado", "Trama de líneas que se cruzan."],
+    ["Puntillismo", "Pintura hecha con pequeños puntos de colores puros."],
+    ["Collage", "Obra hecha pegando materiales distintos."],
+    ["Trencadís", "Revestimiento de trozos de cerámica rota."],
+    ["Mortero", "Masa que une piezas en construcción."],
+    ["Podotáctil", "Pavimento con relieve que se nota con los pies."],
+    ["Braille", "Sistema de lectura con puntos en relieve."],
+    ["Tiflológico", "Relacionado con la ceguera."],
+    ["Réplica táctil", "Copia en relieve de una obra para tocarla."],
+    ["Accesible", "Que todas las personas pueden usar o entender."],
+  ],
+  situacion: {
+    titulo: "Un mural para ver con las manos",
+    reto: "La clase crea un mural táctil con materiales reciclados que pueda disfrutar cualquier persona, también con los ojos cerrados.",
+    pasos: ["Elegid un tema (un paisaje, el barrio, el fondo del mar) y dibujad un boceto con zonas.", "Asignad a cada zona una textura muy distinta y un material reciclado.", "Construid el mural por equipos, cuidando que nada pinche ni se despegue.", "Probadlo con los ojos tapados y añadid una cartela en braille hecha con puntos de cola."],
+    producto: "Un mural táctil de materiales reciclados.",
+    evaluacion: ["Usa tramas y texturas variadas.", "Elige materiales adecuados para cada zona.", "Relaciona su obra con artistas como Gaudí o Seurat.", "Piensa en la accesibilidad de su obra."],
+  },
+});

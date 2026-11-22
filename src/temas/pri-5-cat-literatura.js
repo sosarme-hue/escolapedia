@@ -88,3 +88,93 @@ module.exports = P.tema({
   saberes: "Educació literària: el text literari; els gèneres (narrativa, lírica i teatre); conte, novel·la, llegenda, rondalla i faula; vers, estrofa, mesura i rima; recursos literaris; el text teatral, diàleg i acotacions; lectura i creació de textos",
   ideas: ["Biblioteca d'aula classificada per gèneres literaris.", "Recital de poemes propis el Dia de Sant Jordi.", "Representació d'escenes curtes escrites pels alumnes, amb acotacions."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Reconèixer les fórmules i l'estructura de les rondalles", "Conèixer alguns grans autors de la literatura catalana", "Llegir i crear formes de poesia popular, cal·ligrames i haikus", "Conèixer tradicions literàries com Sant Jordi i els Pastorets"],
+  lectura: { titulo: "Les rondalles de l'avi Quim", html: `<p>Cada estiu, la Mar passava quinze dies a casa de l'avi Quim, en un poble petit del Pirineu. A la nit, quan s'apagava el televisor, l'avi s'asseia a la butaca i començava sempre igual:</p><p>—Vet aquí una vegada, que per molts anys sigui dit i per molts anys sigui contat…</p><p>I aleshores venia una història de gegants, de bruixes, de pastors espavilats o d'un mig pollastre que anava a veure el rei. La Mar escoltava amb els ulls ben oberts fins que l'avi deia:</p><p>—I conte contat, ja s'ha acabat.</p><p>Un dia, la Mar li va preguntar on havia après tantes rondalles.</p><p>—De la meva àvia, que les havia après de la seva mare —va respondre l'avi—. Abans no hi havia llibres a totes les cases, i les històries passaven de boca en boca. Però un senyor que es deia Joan Amades va anar pels pobles escoltant la gent gran i les va escriure perquè no es perdessin.</p><p>L'avi va treure d'un prestatge un llibre vell, amb les tapes desgastades. Era un recull de rondalles.</p><p>—Ara te'l deixo a tu —li va dir—. Però promet-me una cosa: quan siguis gran, explica-les als teus nets.</p><p>Aquell estiu, la Mar va llegir el llibre sencer. I quan va tornar a l'escola, va ser ella qui va començar a explicar rondalles als seus companys.</p>` },
+  tras: {
+    "Llegendes, rondalles i faules": [
+      ["Les rondalles i les seves fórmules", `<p>Les <b>rondalles</b> són contes populars que s'han transmès de generació en generació <b>de manera oral</b>. Per això no se'n coneix l'autor i n'hi ha moltes versions diferents segons el poble o la persona que les explica.</p><p>Com que s'explicaven en veu alta, tenen unes <b>fórmules</b> fixes que ajuden a recordar-les i que avisen l'oient que comença o acaba la història:</p><ul><li><b>Fórmules d'inici</b>: <i>Vet aquí una vegada…</i>, <i>Una vegada hi havia…</i>, <i>En temps de les bruixes…</i></li><li><b>Fórmules de final</b>: <i>I conte contat, ja s'ha acabat.</i> <i>I van ser feliços i van menjar anissos.</i> <i>Vet aquí un gat, vet aquí un gos, aquest conte ja s'ha fos.</i></li></ul><p>També hi trobem <b>repeticions</b> (tres germans, tres proves, tres intents), personatges que són <b>bons o dolents</b> sense matisos, i elements <b>màgics</b>.</p><p>Tres grans recopiladors van posar per escrit les rondalles de la nostra llengua: <b>Joan Amades</b> a Catalunya, <b>Antoni Maria Alcover</b> a Mallorca, amb les <i>Rondaies mallorquines</i>, i <b>Enric Valor</b> al País Valencià, amb les <i>Rondalles valencianes</i>.</p><p>Algunes rondalles molt conegudes són <i>La rateta que escombrava l'escaleta</i>, <i>En Patufet</i> o <i>La història d'un mig pollastre</i>.</p>`,
+        H.flujo("Estructura d'una rondalla", ["Vet aquí|una vegada", "Aventura|i proves", "Conte|contat"], NA), ["FMm_rUszmuY", "Història d'un mig pollastre — Catacric, catacrac", "La Colla - À Punt", 79347]],
+    ],
+    "La narrativa: conte i novel·la": [
+      ["Grans noms de la literatura catalana", `<p>La literatura catalana té més de <b>vuit-cents anys</b> d'història i grans autors que s'han traduït a moltes llengües. Aquests són alguns noms que convé conèixer:</p><ul><li><b>Ramon Llull</b> (segle XIII), de Mallorca, va ser un dels primers grans escriptors en català. Al <i>Llibre de les bèsties</i> explica una faula amb animals: el lleó és el rei i la guineu, molt astuta, intenta enganyar-lo.</li><li><b>Ausiàs March</b> (segle XV), de València, va ser un gran poeta de l'amor.</li><li><b>Joanot Martorell</b> (segle XV) va escriure <i>Tirant lo Blanc</i>, una novel·la de cavallers que va admirar Cervantes.</li><li><b>Jacint Verdaguer</b> (segle XIX) va escriure grans poemes com <i>Canigó</i>, sobre les llegendes del Pirineu.</li><li><b>Mercè Rodoreda</b> (segle XX) és l'autora de <i>La plaça del Diamant</i>, una de les novel·les catalanes més traduïdes.</li><li><b>Miquel Martí i Pol</b> (segle XX) va escriure poemes senzills i emotius que molts nens aprenen a l'escola.</li></ul><p>També hi ha autors que han escrit pensant en els lectors joves. <b>Josep Vallverdú</b> va escriure <i>Rovelló</i>, la història d'un gos, i <b>Joaquim Carbó</b>, <i>La casa sota la sorra</i>, una novel·la d'aventures.</p><p>Molts d'aquests llibres els pots trobar a la biblioteca de l'escola o del barri.</p>`,
+        L.filas("Autors i obres", [["Ramon Llull", "Llibre de les bèsties", AZ], ["J. Martorell", "Tirant lo Blanc", RO], ["J. Verdaguer", "Canigó", VE], ["M. Rodoreda", "La plaça del Diamant", NA], ["J. Vallverdú", "Rovelló", MO]]), ["3Ysv_UoctcI", "Què diuen els ocells. Jacint Verdaguer i els ocells del Ter a Manlleu. (CAT- ES - EN)", "Museu del Ter", 32513]],
+    ],
+    "La mesura i la rima": [
+      ["La poesia popular", `<p>A més dels poemes d'autor, existeix una <b>poesia popular</b>, d'autor desconegut, que la gent ha anat dient, cantant i transmetent de boca en boca. Té ritme, rima i molt d'enginy.</p><ul><li><b>La corranda</b>: estrofa de <b>quatre versos</b> de set síl·labes, en què rimen el segon i el quart. Sovint s'improvisa i es canta en festes.</li><li><b>L'auca</b>: una història explicada en una sèrie de <b>vinyetes</b> (tradicionalment, quaranta-vuit). Sota cada dibuix hi ha un <b>rodolí</b>: dos versos que rimen. És com un antecedent del còmic.</li><li><b>L'endevinalla</b>: un petit poema que descriu una cosa sense dir-ne el nom. <i>Té barbes i no és home, té dents i no menja.</i> (L'all.)</li><li><b>L'embarbussament</b>: una frase difícil de pronunciar de pressa. <i>Setze jutges d'un jutjat mengen fetge d'un penjat.</i></li></ul><p>Aquí tens una corranda inventada:</p><p><i>A la plaça del meu poble<br>hi ha un plàtan molt antic:<br>quan fa sol, a la seva ombra<br>fa la migdiada el ric.</i></p><p>La poesia popular ens ensenya que tots podem jugar amb les paraules. Prova d'inventar-ne una!</p>`,
+        H.rueda("Poesia popular", "POPULAR", [["corranda", AZ], ["auca", VE], ["endevinalla", RO], ["rodolí", SO]])],
+    ],
+    "El llenguatge de la poesia": [
+      ["Cal·ligrames i haikus", `<p>Hi ha poemes que juguen amb la <b>forma</b> i amb la <b>brevetat</b>.</p><p>Un <b>cal·ligrama</b> és un poema en què les paraules s'escriuen formant un <b>dibuix</b> relacionat amb el que diuen. Un poema sobre la pluja es pot escriure amb línies que cauen com gotes; un poema sobre el sol, en forma de cercle amb raigs. El poeta francès Guillaume Apollinaire els va fer famosos, i en català en van fer <b>Joan Salvat-Papasseit</b> i <b>Josep Maria Junoy</b>. Més tard, <b>Joan Brossa</b> va crear molta <b>poesia visual</b>, que barreja paraules, lletres i objectes.</p><p>El <b>haiku</b> és una forma de poesia que ve del <b>Japó</b>. Té només <b>tres versos</b>: el primer de cinc síl·labes, el segon de set i el tercer de cinc (5-7-5). Parla de la <b>natura</b> i de les estacions, i vol captar un instant, com una fotografia feta amb paraules.</p><p><i>Cau la fulla seca,<br>el vent de tardor la porta<br>lluny del castanyer.</i></p><p>Per escriure un haiku, surt al pati o mira per la finestra, tria una cosa petita (una formiga, una gota, una fulla) i descriu-la sense explicar què sents: deixa que el lector ho imagini.</p>`,
+        H.dos("Jugar amb la forma", ["Cal·ligrama", ["les paraules", "fan un dibuix", "forma visual"], AZ], ["Haiku", ["tres versos", "5 - 7 - 5", "natura"], VE]), ["0buX1bdODKQ", "Cómo Hacer un Caligrama", "Azahara Letras - Caligrafía y Lettering", 276300]],
+    ],
+  },
+  final: [
+    ["Sant Jordi: la llegenda i el Dia del Llibre", `<p>La <b>llegenda de Sant Jordi</b> és una de les més conegudes de la nostra cultura. Segons la versió catalana, fa molts anys, a prop del poble de <b>Montblanc</b>, hi vivia un <b>drac</b> terrible que atemoria tothom. Per calmar-lo, els habitants li havien de donar una persona cada dia, escollida a sorts. Un dia, la sort va recaure en la <b>princesa</b>.</p><p>Quan la princesa ja era davant del drac, va aparèixer un <b>cavaller</b> amb armadura, muntat en un cavall blanc: era <b>Sant Jordi</b>. Va lluitar amb el drac i el va vèncer clavant-li la llança. De la <b>sang del drac</b> va néixer un <b>roser</b> amb roses vermelles, i el cavaller en va collir una per a la princesa.</p><p>Per això, cada <b>23 d'abril</b>, Dia de Sant Jordi, és tradició regalar <b>roses i llibres</b>. Els carrers s'omplen de parades i els escriptors signen els seus llibres.</p><p>A més, el 23 d'abril és el <b>Dia Internacional del Llibre</b>, declarat per la UNESCO, perquè és la data que es recorda la mort de dos grans escriptors: Miguel de Cervantes i William Shakespeare, tots dos l'any 1616.</p><p>Sant Jordi és el patró de Catalunya, i també d'Aragó i d'altres llocs del món, com Anglaterra.</p>`,
+      L.filas("Sant Jordi", [["data", "23 d'abril", AZ], ["llegenda", "cavaller, drac, princesa", VE], ["símbol", "la rosa vermella", RO], ["tradició", "regalar llibres", NA]]), ["WXM3Nw_tJ1E", "AMBAUKA - La Llegenda de Sant Jordi (CANÇÓ + VIDEOCLIP)", "AMBAUKA Música i espectacles familiars", 3373190]],
+    ["El teatre popular: Pastorets i titelles", `<p>El teatre no només es fa en grans sales: hi ha formes de <b>teatre popular</b> que fan els veïns de pobles i barris, i que formen part de les tradicions.</p><p><b>Els Pastorets</b> són una obra de teatre que es representa per <b>Nadal</b> a moltes poblacions de Catalunya. La versió més coneguda la va escriure <b>Josep Maria Folch i Torres</b> l'any 1916. Explica com uns pastors van a adorar el Nen Jesús mentre els <b>dimonis</b>, com Satanàs i Llucifer, intenten impedir-ho, i els <b>àngels</b> els ajuden. Els personatges més divertits són dos pastors, <b>Lluquet</b> i <b>Rovelló</b>, que fan riure tothom amb les seves bromes.</p><p>Els actors solen ser <b>aficionats</b>: nens, joves i grans del poble que assagen durant mesos. Per a molts, és la primera vegada que pugen a un escenari.</p><p>Els <b>titelles</b> són una altra forma de teatre popular. Són ninots que es mouen amb la mà, amb fils (marionetes) o amb pals. Els titellaires fan obres per a tots els públics, sovint amb personatges que parlen amb el públic. També hi ha el <b>teatre d'ombres</b>, que fa servir siluetes retallades i una llum darrere d'una tela.</p><p>Fer teatre ajuda a perdre la vergonya, a treballar en equip i a parlar bé en públic.</p>`,
+      L.filas("Teatre popular", [["Pastorets", "per Nadal", RO], ["titelles", "ninots de mà o fils", AZ], ["ombres", "siluetes i llum", MO]]), ["NBiROlKu7GA", "Excursió als Pastorets - Titó", "SX3", 197237]],
+  ],
+  ejemplos: [
+    ["Comprova si aquest vers és d'un haiku: «Cau la fulla seca».", ["Comptem síl·labes: Cau / la / fu / lla / se(ca).", "Comptem fins a l'última síl·laba tònica: 5."], "Sí, té cinc síl·labes i pot ser el primer vers d'un haiku."],
+    ["Identifica el gènere: «Vet aquí una vegada un gat que volia ser rei…»", ["Comença amb una fórmula d'inici.", "És un conte popular."], "És una rondalla."],
+  ],
+  errores: ["Pensar que les rondalles tenen un autor conegut: són populars i de transmissió oral.", "Explicar la llegenda de Sant Jordi sense el roser: la rosa neix de la sang del drac i és el símbol de la diada."],
+  ejercicios: [
+    ["b", "Escriu una fórmula d'inici i una de final de les rondalles.", "Exemple: Vet aquí una vegada… / I conte contat, ja s'ha acabat."],
+    ["b", "Qui va escriure el Tirant lo Blanc?", "Joanot Martorell."],
+    ["b", "Quants versos té un haiku i quantes síl·labes cadascun?", "Tres versos: 5, 7 i 5 síl·labes."],
+    ["b", "Què es regala el dia de Sant Jordi?", "Roses i llibres."],
+    ["b", "Qui són Lluquet i Rovelló?", "Els pastors còmics dels Pastorets."],
+    ["m", "Explica la diferència entre una auca i un còmic.", "L'auca té vinyetes amb rodolins sota el dibuix; el còmic fa servir bafarades."],
+    ["m", "Digues de pressa: «Setze jutges d'un jutjat mengen fetge d'un penjat.» Quins dígrafs hi trobes?", "tj (jutjat) i tg (fetge)."],
+    ["m", "Endevina: «Té barbes i no és home, té dents i no menja.»", "L'all."],
+    ["m", "Per què el 23 d'abril és el Dia Internacional del Llibre?", "Perquè es recorda la mort de Cervantes i Shakespeare."],
+    ["m", "Qui van recollir les rondalles a Mallorca i al País Valencià?", "Antoni Maria Alcover i Enric Valor."],
+    ["a", "Escriu un haiku sobre una cosa que vegis des de la finestra.", "Resposta oberta."],
+    ["a", "Fes un cal·ligrama amb un poema sobre la lluna o el mar.", "Resposta oberta."],
+    ["a", "Crea una auca de vuit vinyetes sobre la teva escola, amb un rodolí a cada una.", "Resposta oberta."],
+    ["a", "Reescriu la llegenda de Sant Jordi canviant el final.", "Resposta oberta."],
+  ],
+  quiz: [
+    ["«I conte contat, ja s'ha acabat» és una fórmula…", ["de final", "d'inici", "de diàleg"], "Rondalles."],
+    ["Qui va escriure el «Llibre de les bèsties»?", ["Ramon Llull", "Mercè Rodoreda", "Jacint Verdaguer"], "Segle XIII."],
+    ["Un haiku té…", ["tres versos", "quatre versos", "catorze versos"], "5-7-5."],
+    ["Un poema que forma un dibuix és un…", ["cal·ligrama", "sonet", "rodolí"], "Forma visual."],
+    ["De la sang del drac de Sant Jordi va néixer…", ["un roser", "un llibre", "un arbre"], "La rosa."],
+  ],
+  examen: [
+    ["Les «Rondalles valencianes» les va recollir…", ["Enric Valor", "Joan Amades", "Ramon Llull"], "País Valencià."],
+    ["Els Pastorets es representen…", ["per Nadal", "per Sant Jordi", "a l'estiu"], "Teatre popular."],
+  ],
+  tarjetas: [
+    ["Rondalla", "Conte popular oral amb fórmules d'inici i final."],
+    ["Autors clàssics", "Llull, March, Martorell, Verdaguer, Rodoreda."],
+    ["Haiku", "Poema japonès de tres versos (5-7-5) sobre la natura."],
+    ["Sant Jordi", "23 d'abril: llegenda del drac, roses i llibres."],
+  ],
+  glosario: [
+    ["Rondalla", "Conte popular de transmissió oral."],
+    ["Fórmula", "Expressió fixa que obre o tanca un conte."],
+    ["Recopilador", "Persona que recull i escriu textos populars."],
+    ["Corranda", "Estrofa popular de quatre versos que sovint es canta."],
+    ["Auca", "Història en vinyetes amb un rodolí sota cada una."],
+    ["Rodolí", "Dos versos que rimen entre ells."],
+    ["Endevinalla", "Text breu que descriu una cosa perquè l'endevinin."],
+    ["Embarbussament", "Frase difícil de pronunciar de pressa."],
+    ["Cal·ligrama", "Poema amb les paraules formant un dibuix."],
+    ["Haiku", "Poema japonès de tres versos de 5, 7 i 5 síl·labes."],
+    ["Pastorets", "Obra de teatre popular que es fa per Nadal."],
+    ["Titella", "Ninot que es mou amb la mà, amb fils o amb pals."],
+  ],
+  situacion: {
+    titulo: "La nostra diada de Sant Jordi",
+    reto: "La classe organitza una diada literària per Sant Jordi amb una parada de textos propis: rondalles, auques, haikus, cal·ligrames i endevinalles.",
+    pasos: ["Repartiu-vos els gèneres: rondalla, auca, haiku, cal·ligrama i poesia popular.", "Escriviu i il·lustreu els textos seguint les característiques de cada gènere.", "Prepareu una parada amb els textos, roses de paper i punts de llibre.", "El dia de la diada, llegiu els textos a les famílies o a altres cursos."],
+    producto: "Una parada literària amb textos propis de diferents gèneres.",
+    evaluacion: ["Fa servir les fórmules de les rondalles.", "Coneix autors i obres de la literatura catalana.", "Crea textos de poesia popular, haikus i cal·ligrames.", "Explica la llegenda i la tradició de Sant Jordi."],
+  },
+});

@@ -93,3 +93,90 @@ module.exports = tema({
   ideas: ["Taller del mismo paisaje en dos gamas.", "Escala de siete tonos de un color con blanco y negro.", "Galería de clase: clasificar reproducciones de obras por su gama."],
   fuentes: [["Museo Sorolla", "https://www.culturaydeporte.gob.es/msorolla/inicio.html"], ["Van Gogh Museum: colour", "https://www.vangoghmuseum.nl/en"]],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+const { L: L5, H: H5, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 75,
+  objetivos: ["Diferenciar el color luz del color pigmento", "Usar colores neutros y tierras y conocer su origen", "Crear armonías y contrastes de color con intención", "Entender el color en la naturaleza, en el diseño y en las personas con daltonismo"],
+  lectura: { titulo: "La caja de los colores perdidos", html: `<p>Al fondo del aula de Plástica había una caja de madera que nadie abría. Un lunes, la profesora la puso sobre la mesa y levantó la tapa con cuidado. Dentro había frascos de cristal con polvos de colores: un rojo oscuro como la sangre seca, un amarillo como la arena, un marrón que olía a tierra mojada y un negro brillante.</p><p>—Estos son pigmentos naturales —explicó—. Con colores como estos pintaron los artistas de la Prehistoria los bisontes de las cuevas. Los sacaban de la tierra, de las piedras y del carbón de las hogueras.</p><p>Lucía cogió un poco de polvo rojo con la yema del dedo.</p><p>—¿Y cómo lo pegaban a la pared?</p><p>—Lo mezclaban con agua, con grasa animal o con saliva. Hoy hacemos lo mismo, pero con otros aglutinantes: aceite, cola o acrílico.</p><p>Después, la profesora apagó la luz y encendió tres linternas con filtros rojo, verde y azul. Al juntar los tres círculos de luz en la pared, en el centro apareció una mancha… ¡blanca!</p><p>—¿Cómo puede ser? —preguntó Hugo—. Si mezclo pinturas de esos colores, me sale un marrón feísimo.</p><p>La profesora sonrió.</p><p>—Porque la luz y la pintura no se mezclan igual. Hoy vamos a descubrir por qué.</p>` },
+  tras: {
+    "El círculo cromático": [
+      ["Color luz y color pigmento", `<p>Hay dos maneras de mezclar colores, y funcionan al revés.</p><p>El <b>color pigmento</b> es el de las pinturas, las ceras y las tintas. Sus primarios son el <b>cian, el magenta y el amarillo</b>. Cada vez que mezclamos, la mezcla refleja menos luz y se vuelve <b>más oscura</b>: por eso se llama <b>mezcla sustractiva</b> (que resta). Si mezclamos los tres primarios, obtenemos un color muy oscuro, casi negro. Las impresoras usan estos tres colores más el negro: es el sistema <b>CMYK</b>.</p><p>El <b>color luz</b> es el de las pantallas, los focos y el arcoíris. Sus primarios son el <b>rojo, el verde y el azul</b> (en inglés, <b>RGB</b>). Al mezclar luces, el resultado es <b>más claro</b>: es una <b>mezcla aditiva</b> (que suma). Rojo y verde dan amarillo, y los tres juntos dan <b>luz blanca</b>.</p><p>Si miras la pantalla de un móvil con una lupa, verás pequeños puntos rojos, verdes y azules. Según cuánto brilla cada uno, nuestro ojo ve millones de colores distintos.</p><p>Isaac Newton descubrió que la luz blanca del sol contiene todos los colores: al pasarla por un <b>prisma</b>, se separa en un arcoíris.</p>`,
+        H5.dos("Luz y pigmento", ["Luz (RGB)", ["rojo, verde", "y azul", "suman: blanco"], cAZ], ["Pigmento", ["cian, magenta", "y amarillo", "restan: oscuro"], cRO]), ["5E3kl_7_cT0", "¿Qué es la luz? ¿Por qué vemos colores?", "CuriosaMente", 1906235]],
+    ],
+    "Más claro y más oscuro": [
+      ["Neutros y colores tierra", `<p>Además de los colores del círculo, en Plástica usamos mucho los <b>neutros</b> y los <b>colores tierra</b>.</p><p>Los <b>neutros</b> son el <b>blanco, el negro y los grises</b>. No son ni cálidos ni fríos, y combinan con cualquier color. Un gris puede volverse algo cálido si le añadimos una pizca de naranja, o algo frío con una pizca de azul. Muchos diseñadores usan fondos neutros para que destaque un solo color.</p><p>Los <b>colores tierra</b> son los <b>ocres, sienas, marrones</b> y rojos oscuros. Se llaman así porque, desde la Prehistoria, se obtienen de la tierra y de las rocas, sobre todo de minerales con <b>óxido de hierro</b>. En las cuevas de Altamira, los bisontes están pintados con rojos de óxido de hierro y negros de carbón.</p><p>Un <b>pigmento</b> es el polvo de color. Para convertirlo en pintura hay que mezclarlo con un <b>aglutinante</b>, que lo pega a la superficie: aceite (óleo), goma arábiga (acuarela), cola (témpera) o resina (acrílico).</p><p>Puedes fabricar tu propia pintura tierra: tamiza tierra fina de diferentes colores, mézclala con un poco de cola blanca y agua, y pinta sobre cartón.</p>`,
+        L5.filas("Neutros y tierras", [["blanco", "aclara", cAZ], ["negro", "oscurece", cMO], ["gris", "neutro", cVE], ["ocre", "tierra amarilla", cNA], ["siena", "tierra rojiza", cRO]]), ["DrUakdp8A6Q", "Arte rupestre | Clases de artes para niños | Capicúa", "CNTV Infantil", 480649]],
+    ],
+    "Color y emoción": [
+      ["El color en la naturaleza y en las culturas", `<p>En la naturaleza, el color no es un adorno: tiene funciones muy importantes.</p><ul><li><b>Camuflaje</b>: muchos animales tienen colores parecidos a su entorno para esconderse, como el camaleón, el búho entre la corteza o la perdiz entre las hierbas secas.</li><li><b>Advertencia</b>: otros usan colores muy llamativos, como el amarillo y el negro de las avispas o el rojo intenso de algunas ranas venenosas, para avisar de que son peligrosos.</li><li><b>Atracción</b>: las flores tienen colores vivos para atraer a los insectos polinizadores, y muchos pájaros macho, como el pavo real, lucen plumas brillantes.</li></ul><p>El color también tiene <b>significados</b> distintos según la cultura. En España, el negro se asocia al luto, pero en algunos países de Asia el color del luto es el <b>blanco</b>. En China, el <b>rojo</b> es el color de la suerte y de las celebraciones, y las novias tradicionalmente visten de rojo. El verde se relaciona con la naturaleza y, en muchos lugares, con la esperanza.</p><p>Por eso, cuando creamos una obra, el color comunica muchas cosas, y es bueno pensar quién la va a mirar.</p>`,
+        L5.filas("Funciones del color", [["camuflaje", "esconderse", cVE], ["advertencia", "avisar de peligro", cRO], ["atracción", "llamar la atención", cNA]])],
+    ],
+  },
+  final: [
+    ["Armonía y contraste", `<p>Cuando elegimos los colores de una obra, podemos buscar dos efectos distintos: <b>armonía</b> o <b>contraste</b>.</p><p>La <b>armonía</b> se consigue con colores que se llevan bien y no chocan:</p><ul><li><b>Armonía de análogos</b>: colores vecinos en el círculo cromático, como amarillo, naranja y rojo, o azul, turquesa y verde. Transmite calma y unidad.</li><li><b>Armonía monocromática</b>: un solo color con sus tonos claros y oscuros.</li></ul><p>El <b>contraste</b> hace que unas zonas destaquen sobre otras:</p><ul><li><b>Contraste de complementarios</b>: colores opuestos, como azul y naranja. Es muy llamativo; se usa en carteles y portadas.</li><li><b>Contraste de claro y oscuro</b>: un color muy claro junto a uno muy oscuro, como el amarillo sobre el negro.</li><li><b>Contraste de temperatura</b>: un detalle cálido en una obra fría, o al revés.</li></ul><p>Un buen truco es la regla del <b>60-30-10</b>: un color principal ocupa más o menos el 60 % de la obra, un segundo color el 30 % y un color de acento, que contraste, solo el 10 %. Así la obra queda equilibrada y el acento atrae la mirada.</p>`,
+      H5.barras("Regla 60-30-10", [["principal", 60, cAZ, "60 %"], ["secundario", 30, cVE, "30 %"], ["acento", 10, cNA, "10 %"]], 60)],
+    ["El color en el diseño y el daltonismo", `<p>A nuestro alrededor, el color sirve para dar <b>información</b>. El semáforo usa rojo, ámbar y verde; las señales de prohibición son rojas, las de obligación, azules, y las de peligro llevan amarillo; en los mapas, el azul es el agua y el verde, las zonas bajas.</p><p>Las marcas también eligen sus colores con mucho cuidado, porque queremos reconocerlas de un vistazo y porque cada color transmite una sensación: confianza, energía, naturaleza…</p><p>Pero no todas las personas ven los colores igual. El <b>daltonismo</b> es una alteración de la vista que hace difícil distinguir algunos colores, sobre todo el <b>rojo y el verde</b>. Afecta aproximadamente a <b>1 de cada 12 hombres</b> y a muchas menos mujeres. En una clase de 25 alumnos, es posible que haya alguien con daltonismo.</p><p>Por eso, un buen diseño no confía <b>solo</b> en el color para dar información. Añade también <b>formas, símbolos o textos</b>: por ejemplo, el semáforo tiene las luces siempre en la misma posición, y en un gráfico se pueden usar rayas y puntos, además de colores.</p><p>Diseñar pensando en todas las personas se llama <b>diseño accesible</b>.</p>`,
+      L5.filas("Colores que informan", [["rojo", "prohibido, parar", cRO], ["azul", "obligación", cAZ], ["amarillo", "peligro", cNA], ["verde", "salida, seguir", cVE]]), ["xsMTrfzikUY", "¿QUÉ ES EL DALTONISMO? | Draw My Life", "TikTak Draw", 293294]],
+  ],
+  ejemplos: [
+    ["¿Qué color obtienes al mezclar luz roja y luz verde? ¿Y pintura roja y pintura verde?", ["La luz suma: mezcla aditiva.", "La pintura resta: mezcla sustractiva."], "Con luz, amarillo; con pintura, un marrón oscuro."],
+    ["Diseña una portada con la regla 60-30-10 usando azul, blanco y naranja.", ["Principal: azul (60 %).", "Secundario: blanco (30 %).", "Acento complementario: naranja (10 %)."], "Fondo azul, textos blancos y un detalle naranja que atrae la mirada."],
+  ],
+  errores: ["Pensar que la luz y la pintura se mezclan igual: la luz se aclara al mezclar y la pintura se oscurece.", "Dar información solo con colores, olvidando a las personas con daltonismo."],
+  ejercicios: [
+    ["b", "¿Cuáles son los primarios del color luz?", "Rojo, verde y azul (RGB)."],
+    ["b", "¿Qué se obtiene mezclando los tres primarios de luz?", "Luz blanca."],
+    ["b", "Nombra tres colores neutros.", "Blanco, negro y gris."],
+    ["b", "¿De dónde se obtienen los colores tierra?", "De tierras y rocas con óxidos de hierro."],
+    ["b", "¿Para qué sirve el aglutinante?", "Para pegar el pigmento a la superficie."],
+    ["m", "Explica la diferencia entre armonía de análogos y contraste de complementarios.", "Los análogos son vecinos y dan calma; los complementarios son opuestos y dan mucho contraste."],
+    ["m", "Pon un ejemplo de camuflaje y uno de color de advertencia.", "Camuflaje: el camaleón. Advertencia: las rayas amarillas y negras de la avispa."],
+    ["m", "¿Por qué el semáforo tiene las luces siempre en el mismo orden?", "Para que las personas con daltonismo lo entiendan por la posición."],
+    ["m", "¿Qué significa el rojo en China?", "Suerte y celebración."],
+    ["m", "Mira con una lupa una pantalla. ¿Qué ves?", "Pequeños puntos rojos, verdes y azules."],
+    ["a", "Fabrica pintura con tierra y cola y pinta un animal como en la Prehistoria.", "Respuesta abierta."],
+    ["a", "Haz dos versiones de un mismo dibujo: una en armonía de análogos y otra con contraste de complementarios.", "Respuesta abierta."],
+    ["a", "Diseña un cartel accesible que dé información con color y también con símbolos.", "Respuesta abierta."],
+    ["a", "Busca tres animales con colores de advertencia y dibújalos.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["La mezcla de luces es…", ["aditiva", "sustractiva", "neutra"], "Suma luz."],
+    ["Los primarios de las impresoras son…", ["cian, magenta y amarillo", "rojo, verde y azul", "blanco y negro"], "CMYK."],
+    ["El ocre es un color…", ["tierra", "frío", "neutro"], "Óxido de hierro."],
+    ["Colores vecinos en el círculo forman una…", ["armonía de análogos", "contraste", "monocromía"], "Calma."],
+    ["El daltonismo afecta sobre todo a distinguir…", ["rojo y verde", "blanco y negro", "azul y amarillo"], "Más frecuente."],
+  ],
+  examen: [
+    ["En la regla 60-30-10, el acento ocupa…", ["el 10 %", "el 60 %", "el 30 %"], "Detalle."],
+    ["Las rayas de la avispa son un color de…", ["advertencia", "camuflaje", "armonía"], "Peligro."],
+  ],
+  tarjetas: [
+    ["Luz y pigmento", "Luz RGB suma (blanco); pigmento CMY resta (oscuro)."],
+    ["Neutros y tierras", "Blanco, negro, gris; ocre, siena, marrón."],
+    ["Armonía y contraste", "Análogos dan calma; complementarios, contraste."],
+    ["Diseño accesible", "Color + forma o símbolo, pensando en el daltonismo."],
+  ],
+  glosario: [
+    ["Mezcla aditiva", "Mezcla de luces que da colores más claros."],
+    ["Mezcla sustractiva", "Mezcla de pigmentos que da colores más oscuros."],
+    ["RGB", "Rojo, verde y azul: primarios de la luz."],
+    ["CMYK", "Cian, magenta, amarillo y negro de las impresoras."],
+    ["Prisma", "Pieza de cristal que separa la luz en colores."],
+    ["Neutro", "Blanco, negro o gris."],
+    ["Pigmento", "Polvo que da color a una pintura."],
+    ["Aglutinante", "Sustancia que une el pigmento a la superficie."],
+    ["Análogos", "Colores vecinos en el círculo cromático."],
+    ["Acento", "Color pequeño que contrasta y atrae la mirada."],
+    ["Daltonismo", "Dificultad para distinguir algunos colores."],
+    ["Diseño accesible", "Diseño pensado para que lo entienda todo el mundo."],
+  ],
+  situacion: {
+    titulo: "El laboratorio del color",
+    reto: "La clase monta un laboratorio con cuatro estaciones para que otros cursos descubran cómo funciona el color.",
+    pasos: ["Estación de luz: linternas con papel de celofán rojo, verde y azul para mezclar luces.", "Estación de pigmentos: fabricar pintura con tierra y cola.", "Estación de armonías: tarjetas de colores para crear combinaciones análogas y complementarias.", "Estación accesible: rediseñar un cartel para que se entienda sin depender del color."],
+    producto: "Un laboratorio de cuatro estaciones con fichas explicativas.",
+    evaluacion: ["Explica la diferencia entre luz y pigmento.", "Usa neutros y tierras correctamente.", "Crea armonías y contrastes con intención.", "Diseña pensando en las personas con daltonismo."],
+  },
+});
