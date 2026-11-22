@@ -136,3 +136,91 @@ module.exports = {
   fuentes: [RD, { t: "Agencia Española de Seguridad Alimentaria y Nutrición (AESAN)", url: "https://www.aesan.gob.es/" }, wiki("Nutrición", "Nutrición"), wiki("Dieta equilibrada", "Dieta_equilibrada")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer la dieta mediterránea y su valor", "Detectar el azúcar escondido en alimentos y bebidas", "Componer un plato saludable y beber suficiente agua", "Evitar el desperdicio de alimentos"],
+  lectura: { titulo: "Detectives del azúcar", html: `<p>La maestra de 4.º llegó a clase con una bolsa del supermercado y un paquete de terrones de azúcar.</p><p>—Hoy vamos a ser detectives —dijo—. Vamos a descubrir cuánto azúcar se esconde en lo que comemos.</p><p>Sacó una lata de refresco, un zumo envasado, un yogur de fresa, unas galletas de chocolate y un bote de tomate frito. En cada etiqueta, los alumnos buscaron la línea que decía «azúcares».</p><p>—Cada terrón tiene unos 4 gramos de azúcar —explicó—. Si la lata tiene 35 gramos, ¿cuántos terrones son?</p><p>Carmen hizo la división: 35 entre 4…</p><p>—¡Casi nueve terrones!</p><p>Fueron colocando al lado de cada producto los terrones que le correspondían. La lata de refresco tenía la montaña más alta. Pero lo que más les sorprendió fue el tomate frito.</p><p>—¿El tomate lleva azúcar? —preguntó Óscar.</p><p>—Muchos alimentos lo llevan aunque no sean dulces —respondió la maestra—. Por eso hay que leer las etiquetas.</p><p>Al final, en la mesa, al lado del vaso de agua no había ni un solo terrón.</p><p>—El agua siempre gana —dijo Carmen.</p><p>Esa tarde, en el supermercado, Óscar no dejó a su padre meter nada en el carro sin leer antes la etiqueta.</p>` },
+  tras: {
+    "Una dieta equilibrada": [
+      ["La dieta mediterránea", `<p>En los países que rodean el mar Mediterráneo, como España, Italia o Grecia, se ha comido durante siglos de una forma que hoy se considera una de las más sanas del mundo: la <mark>dieta mediterránea</mark>. En 2010, la UNESCO la declaró <b>Patrimonio Cultural Inmaterial de la Humanidad</b>.</p><p>Sus características principales son:</p><ul><li><b>Aceite de oliva</b> como grasa principal, para cocinar y para aliñar.</li><li>Muchas <b>frutas, verduras y hortalizas</b> de temporada.</li><li><b>Legumbres</b> (lentejas, garbanzos, judías) varias veces por semana.</li><li><b>Cereales</b>: pan, arroz y pasta, mejor integrales.</li><li><b>Pescado</b> con frecuencia, y menos carne roja.</li><li><b>Frutos secos</b>, yogur y queso en cantidades moderadas.</li><li><b>Agua</b> como bebida principal.</li></ul><p>Pero la dieta mediterránea no es solo lo que se come, sino también <b>cómo</b>: cocinar en casa con productos frescos, comer sentados en familia, sin prisas, y hacer actividad física.</p><p>Platos como el gazpacho, las lentejas con verduras, la ensalada o el pescado al horno son buenos ejemplos de nuestra tradición mediterránea.</p>`,
+        H6.rueda("Mediterránea", "SALUD", [["aceite", cNA], ["verduras", cVE], ["legumbres", cMO], ["pescado", cAZ]])],
+    ],
+    "Malos hábitos y enfermedades": [
+      ["El azúcar escondido", `<p>El azúcar da energía, pero tomar demasiado favorece la <b>caries</b>, la <b>obesidad</b> y otras enfermedades. La Organización Mundial de la Salud recomienda tomar muy poco <b>azúcar añadido</b>: lo ideal es no pasar de unos <mark>25 gramos al día</mark>, es decir, unos seis terrones.</p><p>El problema es que mucho azúcar está <b>escondido</b> en alimentos que no parecen dulces o que parecen sanos:</p><ul><li>Una lata de <b>refresco</b> puede tener unos 35 gramos: ¡más de lo recomendado para todo el día!</li><li>Los <b>zumos envasados</b> y los batidos llevan bastante azúcar.</li><li>Los <b>cereales de desayuno</b>, las galletas y la bollería.</li><li>Los <b>yogures</b> de sabores y los postres lácteos.</li><li>El <b>tomate frito</b>, el kétchup y algunas salsas.</li></ul><p>En la lista de ingredientes, el azúcar puede aparecer con otros nombres: <b>glucosa</b>, <b>fructosa</b>, <b>sacarosa</b>, <b>jarabe</b>, <b>dextrosa</b> o <b>miel</b>.</p><p>Consejos: beber agua en lugar de refrescos, comer la fruta entera en lugar de en zumo, elegir yogur natural y endulzarlo con fruta, y dejar los dulces para ocasiones especiales.</p>`,
+        L6.filas("Azúcar escondido", [["refresco", "unos 35 g", cRO], ["máximo diario", "unos 25 g", cAZ], ["1 terrón", "unos 4 g", cNA], ["agua", "0 g", cVE]]), ["tkIuQPSynIE", "Azúcares en bebidas comerciales", "SoyRafaCarbajal", 708292]],
+    ],
+    "Leer las etiquetas": [
+      ["El plato saludable", `<p>Una forma sencilla de comer bien en la comida y en la cena es imaginar el <b>plato</b> dividido en partes:</p><ul><li><b>La mitad</b> del plato: <mark>verduras y hortalizas</mark>, crudas o cocinadas, de distintos colores. Pueden acompañarse de fruta de postre.</li><li><b>Una cuarta parte</b>: <b>cereales</b>, preferiblemente integrales (pan, arroz, pasta) o patata.</li><li><b>La otra cuarta parte</b>: <b>proteínas</b> saludables: legumbres, pescado, huevo, carne blanca o frutos secos.</li><li>Para cocinar y aliñar: <b>aceite de oliva</b>.</li><li>Para beber: <b>agua</b>.</li></ul><p>No hace falta que cada plato sea exactamente así; un plato de lentejas con verduras o una paella con pescado y ensalada también cumplen la idea.</p><p>Otros consejos:</p><ul><li>Cuantos más <b>colores</b> haya en el plato, más variedad de vitaminas.</li><li>Prefiere alimentos <b>frescos</b> y poco procesados.</li><li>Sirve raciones adecuadas: escucha a tu cuerpo y para cuando estés saciado.</li></ul><p>Fíjate en el menú del comedor escolar: ¿se parece al plato saludable?</p>`,
+        L6.filas("El plato", [["mitad", "verduras", cVE], ["un cuarto", "cereales", cNA], ["un cuarto", "proteínas", cRO], ["beber", "agua", cAZ]])],
+    ],
+  },
+  final: [
+    ["El agua, el nutriente olvidado", `<p>El <b>agua</b> no aporta energía, pero es imprescindible: <mark>más de la mitad de nuestro cuerpo es agua</mark>. Podemos pasar semanas sin comer, pero solo unos pocos días sin beber.</p><p>¿Para qué sirve el agua en el cuerpo?</p><ul><li>Forma parte de la sangre y transporta los nutrientes.</li><li>Ayuda a eliminar los desechos con la orina y el sudor.</li><li>Regula la temperatura del cuerpo.</li><li>Ayuda a la digestión.</li></ul><p>Perdemos agua constantemente: al orinar, al sudar e incluso al respirar (el vaho del cristal en invierno es agua de tu aliento). Por eso hay que <b>reponerla</b>.</p><p>Un niño de tu edad necesita alrededor de un litro y medio de líquido al día, que se toma bebiendo agua y también con los alimentos (fruta, verdura, sopa, leche). Cuando hace calor o haces deporte, necesitas más.</p><p>Una pista para saber si bebes suficiente: si tu orina es de color claro, vas bien; si es oscura, necesitas beber más. Y no esperes a tener sed: la sed ya es un aviso de que te falta agua.</p><p>La mejor bebida para acompañar las comidas y quitar la sed es siempre el agua.</p>`,
+      H6.rueda("El agua", "CUERPO", [["sangre", cRO], ["orina", cNA], ["sudor", cAZ], ["digestión", cVE]])],
+    ["Comer sin desperdiciar", `<p>Cada año se tiran a la basura toneladas de comida en buen estado. Solo en los hogares españoles se desperdician <mark>más de mil millones de kilos</mark> de alimentos al año. Es una pena, porque mucha gente en el mundo pasa hambre, y además producir esos alimentos gastó agua, energía y tierra.</p><p>Los alimentos que más se tiran son las frutas, las verduras, el pan y los lácteos.</p><p>Qué podemos hacer en casa y en el colegio:</p><ul><li><b>Planificar</b> el menú de la semana y hacer una lista de la compra.</li><li><b>Comprar</b> solo lo que se necesita, aunque haya ofertas.</li><li><b>Fijarse en las fechas</b>: consumir primero lo que caduca antes.</li><li><b>Conservar bien</b>: cada alimento en su sitio (nevera, congelador, despensa).</li><li><b>Aprovechar las sobras</b>: el pan duro sirve para torrijas o migas; las verduras, para cremas; el arroz, para croquetas.</li><li>Servir <b>raciones adecuadas</b> y repetir si se tiene más hambre.</li><li>En el comedor del colegio, pedir la cantidad que se va a comer.</li></ul><p>Muchas recetas tradicionales, como la ropa vieja o el salmorejo, nacieron precisamente para no desperdiciar nada.</p>`,
+      H6.flujo("No desperdiciar", ["planificar|el menú", "comprar|lo justo", "conservar|bien", "aprovechar|sobras"], cVE)],
+  ],
+  ejemplos: [
+    ["Un batido tiene 24 g de azúcar. ¿Cuántos terrones de 4 g son?", ["24 : 4.", "Comparar con 25 g diarios."], "6 terrones: casi todo el azúcar recomendado del día."],
+    ["Un plato tiene arroz, pollo y patatas fritas. ¿Qué le falta para ser un plato saludable?", ["Mitad del plato: verduras.", "Hay dos cuartos de cereales o tubérculos."], "Verduras u hortalizas en la mitad del plato."],
+  ],
+  errores: ["Pensar que un alimento que no sabe dulce no puede llevar azúcar.", "Creer que solo hay que beber agua cuando se tiene mucha sed."],
+  ejercicios: [
+    ["b", "¿Qué grasa es la principal de la dieta mediterránea?", "El aceite de oliva."],
+    ["b", "¿Cuánto azúcar añadido recomienda como máximo la OMS al día?", "Unos 25 gramos."],
+    ["b", "¿Qué ocupa la mitad del plato saludable?", "Las verduras y hortalizas."],
+    ["b", "¿Qué parte del cuerpo es agua?", "Más de la mitad."],
+    ["b", "Escribe una receta para aprovechar el pan duro.", "Torrijas, migas, pan rallado…"],
+    ["m", "Escribe tres nombres con los que aparece el azúcar en las etiquetas.", "Glucosa, fructosa, jarabe…"],
+    ["m", "¿Cuándo declaró la UNESCO la dieta mediterránea Patrimonio de la Humanidad?", "En 2010."],
+    ["m", "¿Por qué es mejor comer la fruta entera que en zumo?", "Tiene fibra y menos azúcar libre; sacia más."],
+    ["m", "¿Cómo saber si bebes suficiente agua?", "Si la orina es clara."],
+    ["m", "Escribe tres formas de evitar el desperdicio de comida.", "Planificar, comprar lo justo, aprovechar sobras."],
+    ["a", "Busca en casa tres productos y calcula cuántos terrones de azúcar tienen.", "Respuesta abierta."],
+    ["a", "Diseña el menú de un día siguiendo el plato saludable.", "Respuesta abierta."],
+    ["a", "Durante una semana, apunta la comida que se tira en casa y propón mejoras.", "Respuesta abierta."],
+    ["a", "Entrevista a un abuelo sobre una receta de aprovechamiento.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["La dieta mediterránea incluye mucho…", ["aceite de oliva y legumbres", "refrescos y bollería", "comida rápida"], "Mediterránea."],
+    ["Una lata de refresco puede tener unos…", ["35 g de azúcar", "2 g de azúcar", "0 g de azúcar"], "Azúcar."],
+    ["En el plato saludable, los cereales ocupan…", ["un cuarto", "la mitad", "todo"], "Plato."],
+    ["Si la orina es oscura…", ["necesitas beber más", "bebes demasiado", "es normal siempre"], "Agua."],
+    ["El pan duro puede servir para…", ["torrijas", "tirarlo", "regar plantas"], "Desperdicio."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué alimento no dulce les sorprendió por llevar azúcar?", ["el tomate frito", "el agua", "la manzana"], "Lectura."],
+    ["La dieta mediterránea es Patrimonio de la Humanidad desde…", ["2010", "1910", "1990"], "Mediterránea."],
+  ],
+  tarjetas: [
+    ["Dieta mediterránea", "Aceite de oliva, verduras, legumbres, pescado, agua; UNESCO 2010."],
+    ["Azúcar escondido", "Máximo unos 25 g al día; refrescos, zumos, salsas; glucosa, jarabe…"],
+    ["Plato saludable", "Mitad verduras, un cuarto cereales, un cuarto proteínas, agua."],
+    ["Agua y desperdicio", "Más de la mitad del cuerpo es agua; planificar y aprovechar sobras."],
+  ],
+  glosario: [
+    ["Nutriente", "Sustancia de los alimentos que el cuerpo aprovecha."],
+    ["Dieta", "Lo que comemos y bebemos habitualmente."],
+    ["Dieta mediterránea", "Forma de comer tradicional de los países mediterráneos."],
+    ["Legumbre", "Semilla como la lenteja, el garbanzo o la judía."],
+    ["Integral", "Cereal que conserva la cáscara y tiene más fibra."],
+    ["Azúcar añadido", "Azúcar que se pone a un alimento al fabricarlo o cocinarlo."],
+    ["Caries", "Agujero en el diente causado por bacterias."],
+    ["Proteína", "Nutriente que sirve para crecer y reparar el cuerpo."],
+    ["Hidratación", "Mantener el agua que necesita el cuerpo."],
+    ["Desperdicio alimentario", "Comida en buen estado que se tira."],
+    ["Sobras", "Comida que queda después de comer."],
+    ["Saciado", "Que ya no tiene hambre."],
+  ],
+  situacion: {
+    titulo: "Menú mediterráneo",
+    reto: "La clase diseña un menú semanal saludable y sin desperdicio para el comedor escolar.",
+    pasos: ["Analizad el menú actual del comedor con el plato saludable.", "Diseñad cinco comidas con platos de la dieta mediterránea.", "Calculad el azúcar de los postres y bebidas y elegid opciones mejores.", "Proponed medidas contra el desperdicio y presentad el menú."],
+    producto: "Un menú semanal ilustrado con propuestas.",
+    evaluacion: ["Aplica los principios de una dieta equilibrada.", "Lee e interpreta etiquetas.", "Propone medidas contra el desperdicio.", "Presenta su trabajo con argumentos."],
+  },
+});

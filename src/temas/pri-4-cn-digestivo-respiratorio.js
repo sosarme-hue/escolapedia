@@ -139,3 +139,91 @@ module.exports = {
   fuentes: [RD, wiki("Aparato digestivo", "Aparato_digestivo"), wiki("Aparato respiratorio", "Aparato_respiratorio"), wiki("Alvéolo pulmonar", "Alvéolo_pulmonar")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer cuánto dura y cuánto mide el viaje de los alimentos", "Explicar cómo respiramos en la montaña y bajo el agua", "Conocer los daños del tabaco y la contaminación", "Entender los reflejos de la tos y el estornudo y cómo actuar ante un atragantamiento"],
+  lectura: { titulo: "La subida al Mulhacén", html: `<p>Aquel verano, Elena subió con su padre y su tío al <b>Mulhacén</b>, la montaña más alta de la península, en Sierra Nevada.</p><p>Al principio caminaba rápido y charlaba sin parar. Pero a medida que subían, notó algo raro: le costaba más respirar, el corazón le latía deprisa y tenía que pararse a menudo.</p><p>—¿Estoy cansada? —preguntó.</p><p>—Un poco, pero no solo eso —dijo su tío, que era médico—. Aquí arriba, a más de 3 000 metros, el aire tiene menos oxígeno en cada respiración. Tus pulmones tienen que trabajar más para conseguir el mismo.</p><p>—Entonces, ¿cómo suben al Everest?</p><p>—Muchos alpinistas llevan botellas de oxígeno. Y antes de subir pasan semanas en campamentos a mucha altura, para que su cuerpo se acostumbre.</p><p>Caminaron despacio, respirando hondo, bebiendo agua y comiendo frutos secos. Por fin, llegaron a la cumbre. Elena miró a su alrededor: montañas y nubes por debajo de sus pies.</p><p>Respiró profundamente. El aire era frío y limpio.</p><p>—Nunca había notado lo importante que es respirar —dijo.</p><p>—Eso nos pasa a todos —sonrió su padre—. Hasta que nos falta.</p>` },
+  tras: {
+    "Absorción y eliminación": [
+      ["El viaje de un bocadillo", `<p>¿Cuánto tarda un bocadillo en recorrer todo el aparato digestivo? Mucho más de lo que imaginas. El tubo digestivo de un adulto mide unos <mark>8 o 9 metros</mark> de largo, ¡como un autobús!</p><ul><li><b>Boca</b>: unos segundos o un minuto, masticando y mezclando con saliva.</li><li><b>Esófago</b>: unos 10 segundos para bajar al estómago.</li><li><b>Estómago</b>: entre 2 y 4 horas. Allí los jugos gástricos convierten el alimento en una papilla.</li><li><b>Intestino delgado</b>: mide unos 6 o 7 metros, enrollado dentro del abdomen. El alimento pasa allí varias horas mientras se absorben los nutrientes.</li><li><b>Intestino grueso</b>: mide alrededor de metro y medio. Aquí se absorbe el agua y se forman las heces. Puede tardar uno o dos días.</li></ul><p>En total, desde que comemos hasta que expulsamos los restos pasan normalmente entre <b>uno y tres días</b>.</p><p>Los alimentos con mucha <b>fibra</b> (fruta, verdura, legumbres, pan integral) ayudan a que el viaje sea más fácil. Los alimentos muy grasientos tardan más en digerirse y pueden dar sensación de pesadez.</p>`,
+        L6.filas("Tiempos", [["esófago", "unos 10 s", cAZ], ["estómago", "2 a 4 horas", cNA], ["intestino delgado", "6 a 7 m", cVE], ["total", "1 a 3 días", cRO]])],
+    ],
+    "El intercambio de gases": [
+      ["Respirar en la montaña y bajo el agua", `<p>Nuestro aparato respiratorio está preparado para el aire que hay cerca del nivel del mar. En lugares extremos, necesita ayuda:</p><p><b>En la alta montaña</b> el aire está menos «apretado», y en cada respiración entra <mark>menos oxígeno</mark>. Por eso, por encima de los 2 500 o 3 000 metros, es normal respirar más deprisa, cansarse antes o tener dolor de cabeza: es el <b>mal de altura</b>. Los alpinistas suben poco a poco para que el cuerpo se adapte, fabricando más glóbulos rojos. En las cimas más altas del mundo, como el Everest, muchos usan botellas de oxígeno.</p><p><b>Bajo el agua</b> no podemos respirar, porque no tenemos branquias:</p><ul><li>Al bucear <b>en apnea</b>, aguantamos la respiración. Una persona normal aguanta menos de un minuto; algunos campeones entrenados, varios minutos.</li><li>Los <b>buceadores</b> llevan una botella con aire comprimido y un regulador para respirarlo.</li><li>Las <b>ballenas y los delfines</b>, que son mamíferos, suben a la superficie a respirar por el espiráculo, el orificio de su cabeza. El cachalote puede aguantar más de una hora sumergido.</li></ul><p>En cambio, los astronautas llevan en su traje el oxígeno, porque en el espacio no hay aire.</p>`,
+        H6.dos("Respirar", ["MONTAÑA", ["menos oxígeno", "adaptarse", "botellas"], cAZ], ["AGUA", ["apnea", "botella", "ballenas"], cVE])],
+    ],
+    "Cuidar los dos aparatos": [
+      ["El humo que daña los pulmones", `<p>Los pulmones son muy delicados y lo que respiramos les afecta directamente.</p><p>El <b>tabaco</b> es uno de sus peores enemigos. Su humo contiene miles de sustancias químicas, muchas de ellas tóxicas, y la <b>nicotina</b>, que crea adicción: cuesta mucho dejarlo.</p><ul><li>El humo ensucia y destruye poco a poco los alvéolos, y los pulmones se vuelven grises y pierden capacidad.</li><li>Los fumadores se cansan antes, tosen más y tienen mucho más riesgo de sufrir enfermedades graves de pulmón y de corazón.</li><li>Las personas que están cerca respiran también el humo: son <b>fumadores pasivos</b>. Los niños son los más perjudicados.</li><li>Los <b>cigarrillos electrónicos</b> y los vapeadores también contienen sustancias perjudiciales y nicotina.</li></ul><p>En España, la ley prohíbe fumar en lugares cerrados públicos, como bares, colegios u hospitales, y también en las zonas de juegos infantiles al aire libre.</p><p>La <b>contaminación</b> del aire de las ciudades, por el humo de coches y calefacciones, también daña los pulmones. Caminar, ir en bici, usar transporte público y tener más zonas verdes ayuda a que todos respiremos un aire más limpio.</p><p>La mejor decisión es <mark>no empezar nunca a fumar</mark>.</p>`,
+        H6.rueda("Pulmones sanos", "AIRE LIMPIO", [["no fumar", cRO], ["deporte", cVE], ["bici", cAZ], ["árboles", cNA]])],
+    ],
+  },
+  final: [
+    ["Toser, estornudar e hipo", `<p>Algunas acciones de nuestro cuerpo ocurren sin que las decidamos: son <b>actos reflejos</b>. Varios tienen que ver con la respiración y sirven para protegernos:</p><ul><li><b>La tos</b>: cuando algo molesta en la garganta o los bronquios (polvo, mucosidad, un trocito de comida), los pulmones expulsan el aire de golpe para sacarlo.</li><li><b>El estornudo</b>: limpia la nariz. ¡El aire puede salir a gran velocidad! Por eso hay que estornudar en el codo o en un pañuelo, para no esparcir microbios.</li><li><b>El bostezo</b>: abrimos mucho la boca y tomamos una gran bocanada de aire. Aparece cuando tenemos sueño o estamos aburridos, y se contagia con facilidad.</li><li><b>El hipo</b>: el diafragma se contrae de repente y sin control, y al cerrarse la garganta suena el «hip». Suele pasar al comer o beber muy deprisa, y desaparece solo.</li><li><b>Tragar</b>: cuando tragamos, una tapita llamada <b>epiglotis</b> cierra el paso hacia la tráquea para que la comida vaya al esófago. Si hablamos o reímos con la boca llena, puede fallar y nos «atragantamos».</li></ul><p>Estos reflejos son como un sistema de seguridad que funciona día y noche, sin que tengamos que pensar en él.</p>`,
+      L6.filas("Reflejos", [["tos", "limpia bronquios", cAZ], ["estornudo", "limpia la nariz", cVE], ["hipo", "diafragma", cNA], ["epiglotis", "cierra la tráquea", cRO]])],
+    ["Atragantamientos: cómo actuar", `<p>Un <b>atragantamiento</b> ocurre cuando un trozo de comida o un objeto pequeño se queda en la garganta y tapa el paso del aire. Es una emergencia, pero saber actuar puede salvar una vida.</p><p><b>Cómo prevenirlo:</b></p><ul><li>Comer sentado, despacio y masticando bien.</li><li>No hablar, reír, correr ni jugar con comida en la boca.</li><li>No meterse en la boca objetos pequeños, como tapones o piezas de juguetes.</li><li>Tener cuidado con alimentos peligrosos para niños pequeños, como frutos secos enteros, uvas enteras o caramelos duros.</li></ul><p><b>Si alguien se atraganta:</b></p><ol><li>Si puede <b>toser</b>, anímale a seguir tosiendo con fuerza: la tos es la mejor forma de expulsar el objeto.</li><li>Si no puede toser, hablar ni respirar, <mark>avisa enseguida a un adulto</mark> y pide que llamen al <b>112</b>.</li><li>Los adultos que lo han aprendido pueden dar golpes en la espalda y hacer la <b>maniobra de Heimlich</b>: presiones fuertes hacia dentro y hacia arriba en la parte alta del abdomen.</li></ol><p>Muchos colegios organizan cursos de primeros auxilios. ¡Aprender es una forma de cuidar a los demás!</p>`,
+      H6.flujo("Atragantamiento", ["tose|anímale", "no respira|avisa", "112|llama", "Heimlich|un adulto"], cRO), ["tc3mSYjMunM", "La maniobra de Heimlich si te atragantas. Situación simulada", "Miguel Angel De la Camara Egea", 9848007]],
+  ],
+  ejemplos: [
+    ["Un alpinista se cansa mucho a 4 000 metros aunque esté entrenado. ¿Por qué?", ["En la altura el aire tiene menos oxígeno.", "Los pulmones deben trabajar más."], "Por la falta de oxígeno: es el mal de altura."],
+    ["Un compañero tose fuerte tras atragantarse con una galleta. ¿Qué haces?", ["Si tose, el aire pasa.", "La tos ayuda a expulsar el trozo."], "Animarle a toser y avisar a un adulto si no mejora."],
+  ],
+  errores: ["Pensar que la digestión termina en el estómago.", "Creer que el humo del tabaco solo perjudica a quien fuma."],
+  ejercicios: [
+    ["b", "¿Cuánto mide más o menos el tubo digestivo de un adulto?", "Unos 8 o 9 metros."],
+    ["b", "¿Por qué cuesta respirar en la alta montaña?", "Porque hay menos oxígeno en cada respiración."],
+    ["b", "¿Qué sustancia del tabaco crea adicción?", "La nicotina."],
+    ["b", "¿Para qué sirve el estornudo?", "Para limpiar la nariz."],
+    ["b", "¿A qué número se llama en una emergencia?", "Al 112."],
+    ["m", "Ordena por tiempo: esófago, estómago, intestino grueso.", "Esófago (segundos), estómago (horas), intestino grueso (uno o dos días)."],
+    ["m", "¿Qué es un fumador pasivo?", "Quien respira el humo de otros."],
+    ["m", "¿Cómo respiran las ballenas?", "Suben a la superficie y respiran por el espiráculo."],
+    ["m", "¿Qué hace la epiglotis?", "Cierra la tráquea al tragar."],
+    ["m", "Escribe tres formas de prevenir atragantamientos.", "Comer sentado y despacio, no hablar con la boca llena, no meterse objetos."],
+    ["a", "Mide un cordel de 8 metros y compáralo con la longitud de tu cuerpo.", "Respuesta abierta."],
+    ["a", "Haz un cartel contra el tabaco para la entrada del colegio.", "Respuesta abierta."],
+    ["a", "Cuenta tus respiraciones en un minuto en reposo y después de correr.", "Respuesta abierta."],
+    ["a", "Investiga qué es el mal de altura y cómo se previene.", "Subir poco a poco, beber agua, descansar."],
+  ],
+  quiz: [
+    ["En el estómago el alimento pasa…", ["entre 2 y 4 horas", "10 segundos", "una semana"], "Digestión."],
+    ["El mal de altura se debe a…", ["la falta de oxígeno", "el exceso de agua", "el frío"], "Montaña."],
+    ["El humo que respiran los que están cerca de un fumador los convierte en…", ["fumadores pasivos", "deportistas", "alérgicos"], "Tabaco."],
+    ["El hipo lo produce…", ["el diafragma", "el estómago", "la nariz"], "Reflejos."],
+    ["Si alguien atragantado puede toser, hay que…", ["animarle a toser", "darle agua", "tumbarle"], "Atragantamiento."],
+  ],
+  examen: [
+    ["En la lectura, ¿por qué le costaba respirar a Elena?", ["porque arriba hay menos oxígeno", "porque estaba enferma", "porque hacía calor"], "Lectura."],
+    ["La maniobra de Heimlich se hace…", ["en la parte alta del abdomen", "en la cabeza", "en las piernas"], "Atragantamiento."],
+  ],
+  tarjetas: [
+    ["Viaje del alimento", "Tubo de 8-9 m; estómago 2-4 h; total de 1 a 3 días; la fibra ayuda."],
+    ["Respirar en extremos", "Montaña: menos oxígeno, adaptarse. Agua: apnea, botella, ballenas."],
+    ["Tabaco", "Nicotina adictiva; daña alvéolos; fumadores pasivos; no empezar."],
+    ["Reflejos y emergencias", "Tos, estornudo, hipo, epiglotis; atragantamiento: toser, 112, Heimlich."],
+  ],
+  glosario: [
+    ["Digestión", "Transformación de los alimentos en nutrientes."],
+    ["Fibra", "Parte de los vegetales que ayuda al intestino."],
+    ["Heces", "Restos que se expulsan tras la digestión."],
+    ["Alvéolo", "Saquito del pulmón donde se intercambian los gases."],
+    ["Mal de altura", "Malestar por la falta de oxígeno en la montaña."],
+    ["Apnea", "Aguantar la respiración."],
+    ["Espiráculo", "Orificio por el que respiran ballenas y delfines."],
+    ["Nicotina", "Sustancia del tabaco que crea adicción."],
+    ["Fumador pasivo", "Persona que respira el humo de otros."],
+    ["Acto reflejo", "Respuesta rápida del cuerpo que no decidimos."],
+    ["Epiglotis", "Tapita que cierra la tráquea al tragar."],
+    ["Atragantamiento", "Obstrucción de la garganta que impide respirar."],
+  ],
+  situacion: {
+    titulo: "Campaña de respirar bien",
+    reto: "La clase prepara una campaña sobre hábitos saludables para el aparato digestivo y respiratorio.",
+    pasos: ["Investigad en grupos: digestión, altura y buceo, tabaco y contaminación, atragantamientos.", "Preparad carteles con datos y consejos claros.", "Ensayad cómo actuar ante un atragantamiento (sin hacer la maniobra a nadie).", "Presentad la campaña a otras clases."],
+    producto: "Una exposición de carteles y una charla para otros cursos.",
+    evaluacion: ["Explica el funcionamiento de los dos aparatos.", "Identifica hábitos saludables y riesgos.", "Sabe cómo pedir ayuda en una emergencia.", "Comunica con claridad."],
+  },
+});

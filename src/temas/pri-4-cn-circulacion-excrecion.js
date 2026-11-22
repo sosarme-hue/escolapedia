@@ -136,3 +136,91 @@ module.exports = {
   fuentes: [RD, wiki("Aparato circulatorio", "Aparato_circulatorio"), wiki("Corazón", "Corazón"), wiki("Aparato urinario", "Aparato_urinario")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer los grupos sanguíneos y el valor de donar sangre", "Conocer a Miguel Servet y William Harvey, descubridores de la circulación", "Explicar el papel del sudor y de la piel en la excreción", "Actuar ante pequeñas heridas y conocer datos asombrosos del corazón"],
+  lectura: { titulo: "La bolsa de mamá", html: `<p>Un sábado por la mañana, Daniel acompañó a su madre a un autobús muy especial aparcado en la plaza del pueblo. En el lateral ponía: «Donación de sangre».</p><p>—¿Te van a quitar sangre? —preguntó Daniel, un poco asustado.</p><p>—Me van a sacar un poquito, menos de medio litro. Mi cuerpo la vuelve a fabricar en unas semanas.</p><p>Dentro del autobús, una enfermera le hizo unas preguntas a su madre, le midió la tensión y le pinchó en el dedo para comprobar que estaba bien. Después la tumbaron en un sillón y le pusieron una aguja en el brazo. La sangre empezó a caer despacio a una bolsa.</p><p>—¿Y para qué sirve? —preguntó Daniel.</p><p>—Para personas que han tenido un accidente, que se operan o que están enfermas —explicó la enfermera—. La sangre no se puede fabricar en ninguna fábrica. Solo la pueden dar personas como tu madre.</p><p>Al terminar, le dieron a su madre un zumo y unas galletas. En la bolsa había una etiqueta: <b>0 positivo</b>.</p><p>—Es su grupo sanguíneo —dijo la enfermera—. Hay varios, y es importante saber cuál es para dar a cada enfermo la sangre adecuada.</p><p>Al salir, Daniel miró a su madre con orgullo.</p><p>—Cuando tenga dieciocho años, vengo yo también.</p>` },
+  tras: {
+    "La sangre": [
+      ["Grupos sanguíneos y donación", `<p>No todas las personas tienen la misma sangre. En <b>1901</b>, el médico austriaco <b>Karl Landsteiner</b> descubrió que hay distintos <mark>grupos sanguíneos</mark>: <b>A</b>, <b>B</b>, <b>AB</b> y <b>0</b>. Además, cada grupo puede ser <b>positivo</b> o <b>negativo</b> (el factor Rh).</p><p>Este descubrimiento fue muy importante, porque antes las <b>transfusiones</b> (pasar sangre de una persona a otra) muchas veces salían mal. Si se mezcla sangre de grupos que no son compatibles, el cuerpo la rechaza.</p><ul><li>El grupo <b>0 negativo</b> se llama <b>donante universal</b>: sus glóbulos rojos pueden darse a casi cualquier persona en una emergencia.</li><li>El grupo <b>AB positivo</b> se llama <b>receptor universal</b>: puede recibir glóbulos rojos de cualquier grupo.</li><li>En España, el grupo más frecuente es el <b>A positivo</b>, seguido del <b>0 positivo</b>.</li></ul><p>La sangre <b>no se puede fabricar</b> artificialmente. Por eso es tan importante la <b>donación</b>: en España pueden donar las personas sanas de entre 18 y 65 años que pesen más de 50 kilos. Es voluntaria, gratuita y anónima. Cada donación puede ayudar a varios enfermos.</p>`,
+        L6.filas("Grupos", [["A, B, AB, 0", "Landsteiner 1901", cAZ], ["0 negativo", "donante universal", cRO], ["AB positivo", "receptor universal", cVE], ["donar", "de 18 a 65 años", cNA]]), ["LdUzvEDMUME", "Los grupos sanguíneos explicados", "El Robot de Platón", 1940352]],
+    ],
+    "El corazón": [
+      ["Servet y Harvey: el descubrimiento de la circulación", `<p>Durante muchos siglos, los médicos creyeron que la sangre se fabricaba en el hígado y se consumía en el cuerpo, como el agua que riega un campo y desaparece. Nadie sabía que la sangre <b>daba vueltas</b>.</p><p>El primero en describir parte del recorrido en Europa fue el aragonés <b>Miguel Servet</b>, nacido en Villanueva de Sijena (Huesca). En un libro de <b>1553</b> explicó la <mark>circulación pulmonar</mark>: la sangre sale del corazón, va a los pulmones, se mezcla allí con el aire y vuelve al corazón. Servet tuvo una vida difícil por sus ideas y murió en la hoguera ese mismo año.</p><p>En <b>1628</b>, el médico inglés <b>William Harvey</b> demostró que la sangre circula por todo el cuerpo en un <b>circuito cerrado</b>, impulsada por el corazón como una bomba. Lo comprobó con experimentos: calculó cuánta sangre bombea el corazón en una hora y vio que era muchísima más de la que el cuerpo podía fabricar. ¡Tenía que ser siempre la misma sangre, dando vueltas!</p><p>Faltaba una pieza: cómo pasaba la sangre de las arterias a las venas. Años después, con el microscopio, el italiano Marcello Malpighi descubrió los <b>capilares</b>.</p>`,
+        H6.flujo("Descubrimiento", ["antes|hígado", "1553|Servet", "1628|Harvey", "después|capilares"], cRO)],
+    ],
+    "Cómo se forma la orina": [
+      ["El sudor y la piel", `<p>Los riñones no son los únicos órganos que eliminan desechos. La <b>piel</b> también participa en la excreción gracias al <b>sudor</b>.</p><p>En la piel tenemos millones de <b>glándulas sudoríparas</b>, unos pequeños tubos enrollados que fabrican el sudor y lo expulsan por los poros. El sudor es sobre todo <b>agua</b> con un poco de sal y otras sustancias de desecho. Por eso sabe salado.</p><p>Pero la función más importante del sudor es <mark>refrescarnos</mark>. Cuando hace calor o hacemos ejercicio, el cuerpo se calienta. Entonces sudamos, y al evaporarse el sudor de la piel, se lleva el calor, como cuando sales de la piscina y sientes frío al secarte con el aire.</p><p>Al sudar mucho perdemos agua y sales. Si no bebemos, podemos <b>deshidratarnos</b>: nos sentimos cansados, con dolor de cabeza y mareados. Por eso:</p><ul><li>Bebe agua antes, durante y después del ejercicio.</li><li>En verano, evita las horas de más calor y lleva gorra.</li><li>Dúchate después de hacer deporte: el sudor en sí no huele, pero las bacterias de la piel lo descomponen y producen el mal olor.</li></ul>`,
+        H6.rueda("Excreción", "DESECHOS", [["riñones", cAZ], ["piel", cNA], ["pulmones", cVE], ["hígado", cMO]])],
+    ],
+  },
+  final: [
+    ["Datos asombrosos del corazón", `<p>El corazón es un músculo incansable. Algunos datos para hacerse una idea de su trabajo:</p><ul><li>Late unas <b>100 000 veces al día</b> y más de 2 500 millones de veces a lo largo de una vida.</li><li>Cada día bombea unos <b>7 000 litros</b> de sangre: ¡suficiente para llenar decenas de bañeras!</li><li>Si pusiéramos en fila todos los vasos sanguíneos de un adulto, medirían unos <mark>100 000 kilómetros</mark>: darían más de dos vueltas a la Tierra. La mayoría son capilares finísimos.</li><li>Una gota de sangre tarda menos de un minuto en recorrer todo el cuerpo y volver al corazón.</li><li>El corazón de un bebé late más rápido que el de un adulto; el de un ratón, ¡más de 500 veces por minuto!; el de una ballena azul, solo unas pocas veces.</li><li>El «pum-pum» que oímos son las <b>válvulas</b> del corazón al cerrarse, unas puertas que impiden que la sangre vuelva hacia atrás.</li></ul><p>Los médicos escuchan esos sonidos con el <b>fonendoscopio</b>, un invento que se creó hace unos 200 años. Antes, ¡ponían la oreja directamente sobre el pecho del paciente!</p>`,
+      L6.filas("El corazón", [["latidos", "100 000 al día", cRO], ["bombea", "7 000 L al día", cAZ], ["vasos", "100 000 km", cVE], ["sonido", "válvulas", cNA]])],
+    ["Pequeñas heridas: primeros auxilios", `<p>Cuando nos hacemos una herida, se rompen vasos sanguíneos y sale sangre. Enseguida, unas células de la sangre, las <b>plaquetas</b>, empiezan a taponar la herida formando un <b>coágulo</b>. Después se forma la costra, que protege la piel mientras se cura. ¡No hay que arrancarla!</p><p>Qué hacer ante una <b>herida pequeña</b>, como un rasguño en la rodilla:</p><ol><li>Lavarse bien las manos.</li><li>Limpiar la herida con agua y jabón o con suero, de dentro hacia fuera, para quitar la tierra.</li><li>Aplicar un desinfectante adecuado si lo indica un adulto.</li><li>Cubrirla con una tirita o una gasa limpia.</li></ol><p>Si la herida <b>sangra</b>, hay que <mark>apretar con una gasa limpia</mark> durante varios minutos sin levantarla para mirar.</p><p>Hay que avisar a un adulto y acudir al médico o llamar al <b>112</b> si la herida es grande o profunda, si sangra mucho y no para, si la ha causado un objeto oxidado o la mordedura de un animal, o si hay algo clavado (en ese caso, no se debe sacar).</p><p>Ante cualquier emergencia, lo más importante es mantener la calma y pedir ayuda.</p>`,
+      H6.flujo("Una herida", ["lavar|manos", "limpiar|agua", "presionar|si sangra", "cubrir|tirita"], cVE)],
+  ],
+  ejemplos: [
+    ["Una persona del grupo A positivo necesita sangre en una emergencia y no se sabe su grupo. ¿Qué sangre se suele usar?", ["Si no se conoce el grupo, hay que usar una muy compatible.", "El 0 negativo es donante universal."], "0 negativo."],
+    ["Después de una carrera estás sudando mucho. ¿Para qué sirve el sudor y qué debes hacer?", ["El sudor refresca al evaporarse.", "Se pierde agua."], "Refrescarte; beber agua para no deshidratarte."],
+  ],
+  errores: ["Pensar que todas las personas tienen la misma sangre.", "Creer que el sudor es solo suciedad y no sirve para nada."],
+  ejercicios: [
+    ["b", "¿Cuáles son los cuatro grupos sanguíneos?", "A, B, AB y 0."],
+    ["b", "¿Quién descubrió la circulación pulmonar en 1553?", "Miguel Servet."],
+    ["b", "¿Qué glándulas fabrican el sudor?", "Las glándulas sudoríparas."],
+    ["b", "¿Cuántas veces late el corazón al día más o menos?", "Unas 100 000."],
+    ["b", "¿Qué se hace si una herida sangra?", "Presionar con una gasa limpia."],
+    ["m", "¿Qué demostró William Harvey?", "Que la sangre circula en un circuito cerrado impulsada por el corazón."],
+    ["m", "¿Por qué el 0 negativo es donante universal?", "Sus glóbulos rojos se pueden dar a casi cualquier persona."],
+    ["m", "¿Cómo nos refresca el sudor?", "Al evaporarse se lleva el calor de la piel."],
+    ["m", "¿Qué hacen las plaquetas en una herida?", "Forman un coágulo que tapona la herida."],
+    ["m", "¿Qué produce el sonido del corazón?", "El cierre de las válvulas."],
+    ["a", "Pregunta en casa qué grupo sanguíneo tiene cada uno y haz una tabla.", "Respuesta abierta."],
+    ["a", "Prepara un botiquín escolar con la lista de lo necesario.", "Respuesta abierta."],
+    ["a", "Escribe una biografía breve de Miguel Servet.", "Respuesta abierta."],
+    ["a", "Diseña un cartel para animar a donar sangre.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Los grupos sanguíneos los descubrió…", ["Landsteiner", "Harvey", "Servet"], "Grupos."],
+    ["Miguel Servet nació en…", ["Aragón", "Galicia", "Canarias"], "Historia."],
+    ["El sudor sirve sobre todo para…", ["refrescarnos", "alimentarnos", "respirar"], "Piel."],
+    ["Los vasos sanguíneos de un adulto miden unos…", ["100 000 km", "100 m", "1 km"], "Corazón."],
+    ["Si hay algo clavado en una herida…", ["no hay que sacarlo", "hay que sacarlo rápido", "hay que lavarlo con lejía"], "Primeros auxilios."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué grupo sanguíneo tenía la madre de Daniel?", ["0 positivo", "AB negativo", "A positivo"], "Lectura."],
+    ["En España se puede donar sangre a partir de los…", ["18 años", "10 años", "50 años"], "Donación."],
+  ],
+  tarjetas: [
+    ["Grupos sanguíneos", "A, B, AB, 0 y Rh; 0 negativo donante universal; donar de 18 a 65 años."],
+    ["Historia", "Servet 1553 (circulación pulmonar), Harvey 1628 (circuito cerrado), Malpighi (capilares)."],
+    ["Sudor", "Glándulas sudoríparas; agua y sales; refresca; beber para no deshidratarse."],
+    ["Corazón y heridas", "100 000 latidos al día; 100 000 km de vasos; lavar, presionar, cubrir."],
+  ],
+  glosario: [
+    ["Grupo sanguíneo", "Tipo de sangre de una persona: A, B, AB o 0."],
+    ["Transfusión", "Pasar sangre de una persona a otra."],
+    ["Donante", "Persona que da sangre u otra parte de su cuerpo."],
+    ["Circulación pulmonar", "Recorrido de la sangre del corazón a los pulmones y vuelta."],
+    ["Capilar", "Vaso sanguíneo finísimo."],
+    ["Válvula", "Puerta del corazón que impide que la sangre retroceda."],
+    ["Glándula sudorípara", "Pequeño órgano de la piel que fabrica sudor."],
+    ["Deshidratación", "Falta de agua en el cuerpo."],
+    ["Plaqueta", "Célula de la sangre que ayuda a cerrar las heridas."],
+    ["Coágulo", "Tapón de sangre que detiene una hemorragia."],
+    ["Fonendoscopio", "Aparato para escuchar el corazón y los pulmones."],
+    ["Primeros auxilios", "Primera ayuda que se da a un herido."],
+  ],
+  situacion: {
+    titulo: "Nuestro corazón en datos",
+    reto: "La clase investiga cómo cambia el pulso con la actividad y presenta los resultados.",
+    pasos: ["Tomad el pulso en reposo durante un minuto.", "Repetid después de saltar un minuto y tras descansar cinco minutos.", "Recoged los datos de toda la clase en una tabla y haced un gráfico.", "Explicad los resultados y proponed hábitos para cuidar el corazón."],
+    producto: "Un informe con tabla, gráfico y conclusiones.",
+    evaluacion: ["Explica cómo circula la sangre.", "Mide y registra datos con precisión.", "Interpreta un gráfico.", "Propone hábitos saludables."],
+  },
+});
