@@ -138,3 +138,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Bailar con pañuelos, cintas y aros", "Seguir una coreografía con figuras", "Conocer danzas tradicionales de España", "Respetar al compañero de baile"],
+  lectura: { titulo: "La fiesta del pueblo", html: `<p>En agosto, Elena fue con sus padres a las fiestas del pueblo de sus abuelos.</p><p>Por la tarde, en la plaza, la banda de música empezó a tocar. Las personas mayores se pusieron en un gran corro, se dieron la mano y comenzaron a bailar.</p><p>—Es la <b>jota</b> —le explicó su abuela—. La bailamos aquí desde hace muchísimos años.</p><p>Elena miraba cómo saltaban, giraban y levantaban los brazos al ritmo de las <b>castañuelas</b>. Le parecía dificilísimo.</p><p>—¿Quieres probar? —le preguntó su abuelo, tendiéndole la mano.</p><p>Elena dudó, pero aceptó. El abuelo le enseñó un paso sencillo: un saltito con el pie derecho, otro con el izquierdo, y vuelta.</p><p>Al principio se equivocaba y pisaba a su abuelo. Pero él se reía y le decía:</p><p>—¡No pasa nada! ¡Escucha la música y déjate llevar!</p><p>Poco a poco, Elena cogió el ritmo. Al final del baile, toda la plaza aplaudió.</p><p>—¡El año que viene te enseñaré la jota completa! —le dijo su abuelo, sudando y feliz.</p>` },
+  tras: {
+    "Antes de bailar": [
+      ["Bailar con objetos", `<p>Podemos bailar con <mark>objetos</mark> que hacen nuestros movimientos más bonitos y visibles:</p><ul><li><b>Pañuelos</b>: los movemos arriba y abajo, en círculos, como si fueran pájaros o el viento.</li><li><b>Cintas</b> de gimnasia rítmica: dibujan espirales y serpientes en el aire.</li><li><b>Aros</b>: podemos bailar dentro, girarlos en la cintura o pasarlos al compañero.</li><li><b>Globos</b>: los tocamos al ritmo para que no caigan.</li><li><b>Palos</b> o bastones: los chocamos con el compañero siguiendo el ritmo.</li></ul><p>Con música <b>lenta</b>, movimientos suaves y grandes. Con música <b>rápida</b>, movimientos cortos y enérgicos.</p><p>Los objetos se cuidan: no los tiramos ni los usamos para molestar.</p><p><b>Actividad</b>: haz una cinta con un palo y una tira de papel crepé, y baila con ella.</p>`,
+        H6.rueda("Objetos", "BAILAR", [["pañuelo", cRO], ["cinta", cAZ], ["aro", cNA], ["palos", cVE]])],
+    ],
+    "Danzas por parejas": [
+      ["Las figuras de la danza", `<p>Las danzas se forman con <mark>figuras</mark>: movimientos que hacemos juntos. Algunas muy sencillas:</p><ul><li><b>El túnel</b>: dos filas de parejas hacen un puente con los brazos y la última pareja pasa por debajo.</li><li><b>El molino</b>: cuatro personas juntan las manos derechas en el centro y giran.</li><li><b>La cadena</b>: dando la mano derecha a uno y la izquierda al siguiente, avanzamos en zigzag.</li><li><b>El saludo</b>: inclinación hacia la pareja al empezar y al terminar.</li><li><b>El paseo</b>: las parejas caminan juntas en círculo.</li></ul><p>Una <b>coreografía</b> es una danza con varias figuras en orden. Para aprenderla:</p><ul><li>Primero sin música, contando los pasos.</li><li>Después, despacio con música.</li><li>Por último, a la velocidad normal.</li></ul><p><b>Actividad</b>: aprended una coreografía con saludo, paseo, molino y túnel.</p>`,
+        H6.flujo("Coreografía", ["saludo|inicio", "paseo|círculo", "molino|girar", "túnel|pasar"], cMO),
+        ["FPZhCp5pOFE", "Pica-Pica - El baile de la fruta", "Pica-Pica", 284331310]],
+    ],
+    "Danzas de muchos lugares": [
+      ["Danzas tradicionales de España", `<p>En España hay muchísimas <mark>danzas tradicionales</mark>. Cada región tiene las suyas:</p><ul><li><b>La jota</b>: Aragón, Navarra, Valencia y otros lugares. Con saltos, giros y castañuelas.</li><li><b>La sardana</b>: Cataluña. Se baila en corro, de la mano, con pasos cortos y largos.</li><li><b>La muñeira</b>: Galicia. Con gaitas y pandereta, muy saltarina.</li><li><b>Las sevillanas</b>: Andalucía. Por parejas, con palmas y vueltas.</li><li><b>El chotis</b>: Madrid. Por parejas, muy agarrados, girando sobre una baldosa.</li><li><b>El aurresku</b>: País Vasco. Un baile de honor con patadas muy altas.</li><li><b>La isa</b>: Canarias.</li></ul><p>Muchas se bailan con <b>trajes típicos</b> en las fiestas.</p><p><b>Actividad</b>: busca qué danza tradicional se baila en tu comunidad y aprende un paso.</p>`,
+        L6.filas("España", [["jota", "Aragón", cRO], ["sardana", "Cataluña", cAZ], ["muñeira", "Galicia", cVE], ["sevillanas", "Andalucía", cNA]])],
+    ],
+    "Bailar en grupo": [
+      ["Respetar al compañero", `<p>Cuando bailamos con otras personas, el <mark>respeto</mark> es lo más importante:</p><ul><li>Aceptamos a <b>cualquier pareja</b>, sea chico o chica, amigo o no tanto.</li><li>Damos la mano con <b>suavidad</b>: sin apretar ni tirar.</li><li>Si el compañero se equivoca, <b>no nos reímos</b> de él: le ayudamos.</li><li>Si nos equivocamos nosotros, no pasa nada: <b>seguimos</b> bailando.</li><li>Respetamos el <b>espacio</b> de las demás parejas.</li><li>Al terminar, damos las <b>gracias</b> a la pareja.</li></ul><p>Bailar juntos crea <b>amistad</b>: nos coordinamos, nos miramos, sonreímos y compartimos la música.</p><p>Nadie nace sabiendo bailar. ¡Lo importante es disfrutar!</p><p><b>Actividad</b>: bailad una danza cambiando de pareja cada vez que la música pare.</p>`,
+        H6.dos("Pareja", ["SÍ", ["suave", "ayudar", "gracias"], cVE], ["NO", ["tirar", "reírse", "empujar"], cRO])],
+    ],
+  },
+  final: [
+    ["Bailes del mundo", `<p>En todo el mundo se baila. Algunas <mark>danzas</mark> famosas:</p><ul><li><b>El vals</b> (Austria): por parejas, girando con un ritmo de tres pasos: un, dos, tres.</li><li><b>El tango</b> (Argentina): por parejas, elegante y dramático.</li><li><b>La samba</b> (Brasil): muy alegre, con mucho movimiento de cadera, en el Carnaval.</li><li><b>La danza del león</b> (China): dos bailarines dentro de un disfraz de león, en el Año Nuevo chino.</li><li><b>El haka</b> (Nueva Zelanda): una danza maorí con gritos, golpes en el pecho y caras feroces.</li><li><b>Las danzas africanas</b>: con muchos tambores y movimientos de todo el cuerpo.</li><li><b>El ballet</b> (Francia y Rusia): con zapatillas de punta y saltos muy altos.</li></ul><p><b>Actividad</b>: elige un baile del mundo, busca un vídeo y aprende un paso.</p>`,
+      L6.filas("Mundo", [["vals", "Austria", cAZ], ["tango", "Argentina", cMO], ["samba", "Brasil", cVE], ["haka", "N. Zelanda", cRO]])],
+    ["Repaso: la fiesta del pueblo", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Las fiestas son en <b>agosto</b>, en la <b>plaza</b> del pueblo.</li><li>Toca la <b>banda</b> de música.</li><li>Los mayores bailan la <b>jota</b> en un gran <b>corro</b>.</li><li>Usan <b>castañuelas</b> para marcar el ritmo.</li><li>El abuelo enseña a Elena un <b>paso sencillo</b>: saltito derecho, saltito izquierdo y vuelta.</li><li>Elena se equivoca, pero el abuelo le dice: «¡Escucha la música y déjate llevar!».</li><li>Al final, toda la plaza <b>aplaude</b>.</li></ul><p>Las danzas tradicionales pasan de abuelos a nietos y unen a todo el pueblo en las fiestas.</p><p><b>Actividad</b>: pregunta a tus abuelos qué bailaban en las fiestas cuando eran jóvenes.</p>`,
+      H6.flujo("Jota", ["agosto|plaza", "corro|mayores", "abuelo|enseña", "Elena|¡baila!"], cNA)],
+  ],
+  ejemplos: [
+    ["¿Qué danza se baila en Cataluña en corro?", ["Pasos cortos y largos, de la mano."], "La sardana."],
+    ["¿Cómo aprendes una coreografía?", ["De despacio a rápido."], "Primero sin música, después despacio y al final normal."],
+  ],
+  errores: ["Negarse a bailar con una pareja por ser chico o chica.", "Reírse del compañero que se equivoca."],
+  ejercicios: [
+    ["b", "Di un objeto para bailar.", "Pañuelo, cinta, aro…"],
+    ["b", "¿Qué es una coreografía?", "Una danza con varias figuras en orden."],
+    ["b", "¿De dónde es la muñeira?", "De Galicia."],
+    ["b", "¿Qué decimos a la pareja al terminar?", "Gracias."],
+    ["b", "¿De dónde es el tango?", "De Argentina."],
+    ["m", "Explica la figura del molino.", "Cuatro juntan las manos derechas y giran."],
+    ["m", "¿Cómo se mueve el pañuelo con música lenta?", "Suave y en grande."],
+    ["m", "¿Qué instrumento acompaña la jota?", "Las castañuelas."],
+    ["m", "¿Qué haces si tu pareja se equivoca?", "Le ayudo sin reírme."],
+    ["m", "¿Qué es el haka?", "Una danza maorí de Nueva Zelanda."],
+    ["a", "En la lectura, ¿qué paso enseña el abuelo?", "Saltito derecho, saltito izquierdo y vuelta."],
+    ["a", "¿Qué consejo le da el abuelo a Elena?", "Escuchar la música y dejarse llevar."],
+    ["a", "Inventa una coreografía con cuatro figuras.", "Respuesta libre."],
+    ["a", "¿Por qué crees que las danzas unen al pueblo?", "Porque bailan juntos personas de todas las edades."],
+  ],
+  quiz: [
+    ["Las espirales en el aire se hacen con…", ["cintas", "aros", "palos"], "Objetos."],
+    ["Pasar bajo los brazos es el…", ["túnel", "molino", "saludo"], "Figuras."],
+    ["Las sevillanas son de…", ["Andalucía", "Galicia", "Madrid"], "España."],
+    ["Con la pareja damos la mano…", ["con suavidad", "apretando", "tirando"], "Respeto."],
+    ["El vals se baila contando…", ["un, dos, tres", "uno y dos", "hasta diez"], "Mundo."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué danza bailan?", ["la jota", "la sardana", "el tango"], "Lectura."],
+    ["¿Quién enseña a Elena?", ["su abuelo", "su madre", "la banda"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Figuras", "Saludo, paseo, molino, túnel, cadena."],
+    ["Danzas de España", "Jota, sardana, muñeira, sevillanas, chotis, aurresku."],
+  ],
+  glosario: [
+    ["Danza", "Baile con pasos y movimientos."],
+    ["Coreografía", "Danza con figuras en orden."],
+    ["Figura", "Movimiento que se hace en grupo al bailar."],
+    ["Castañuelas", "Instrumento de madera que se toca con los dedos."],
+    ["Jota", "Danza tradicional con saltos."],
+    ["Sardana", "Danza catalana en corro."],
+    ["Muñeira", "Danza gallega."],
+    ["Traje típico", "Ropa tradicional de un lugar."],
+    ["Pareja", "Persona con la que se baila."],
+    ["Haka", "Danza maorí de Nueva Zelanda."],
+  ],
+  situacion: {
+    titulo: "Festival de danzas",
+    reto: "La clase prepara un festival con una danza tradicional, una danza del mundo y una coreografía inventada con objetos.",
+    pasos: ["Elegir las tres danzas y repartir los grupos.", "Aprender los pasos despacio y sin música.", "Preparar objetos: pañuelos, cintas o aros.", "Bailar ante las familias respetando a las parejas."],
+    producto: "Un festival de danzas de la clase.",
+    evaluacion: ["Baila con objetos al ritmo.", "Sigue una coreografía.", "Conoce danzas tradicionales.", "Respeta a su pareja."],
+  },
+});

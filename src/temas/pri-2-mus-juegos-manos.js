@@ -137,3 +137,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Cuidar la voz al cantar", "Cantar canciones en canon", "Acompañar canciones con percusión corporal", "Conocer canciones de cuna y de trabajo"],
+  lectura: { titulo: "Las palmas de la abuela Rosa", html: `<p>Cuando la abuela Rosa era pequeña, no tenía muchos juguetes. Pero tenía algo mejor: un montón de <b>canciones</b> y unas manos muy rápidas.</p><p>Un domingo, mientras llovía, sus nietas Nora y Alma se aburrían en el sofá.</p><p>—Venid aquí —dijo la abuela—. Os voy a enseñar un juego de manos que me enseñó mi madre.</p><p>Se sentó frente a ellas y empezó a cantar: «<i>Chocolate, molinillo, corre, corre, que te pillo…</i>». Y mientras cantaba, chocaba las manos con las de Nora: palma con palma, cruzadas, aplauso, ¡y vuelta a empezar!</p><p>—¡Más despacio, abuela! —reía Nora.</p><p>La abuela lo repitió muy lentamente. Primero las palmas, luego las cruzadas, luego todo junto.</p><p>A la tercera vez, a Nora le salió perfecto. Después lo aprendió Alma. Y al final, las tres jugaban en corro, cada vez más rápido, hasta que se equivocaban y se morían de risa.</p><p>—Abuela, ¿te sabes más? —preguntó Alma.</p><p>—¡Uy, cientos! —contestó ella, con una sonrisa traviesa.</p>` },
+  tras: {
+    "Cantar bien": [
+      ["Cuidar la voz", `<p>La <mark>voz</mark> es un instrumento que llevamos siempre con nosotros. Hay que cuidarla:</p><ul><li><b>No gritar</b>: los gritos dañan las cuerdas vocales.</li><li><b>Beber agua</b> a menudo, sobre todo cuando cantamos o hablamos mucho.</li><li><b>Calentar</b> la voz antes de cantar: hacer sirenas («uuuu» de grave a agudo), soplar con los labios como un caballo, bostezar.</li><li><b>Respirar</b> bien: coger aire por la nariz, llenando la barriga, antes de cada frase.</li><li><b>Postura</b>: de pie o sentados con la espalda recta y los hombros relajados.</li><li><b>Descansar</b> la voz si está ronca.</li></ul><p>Cantar <b>bonito</b> no es cantar fuerte. Es cantar afinado, con buena respiración y escuchando a los demás.</p><p><b>Actividad</b>: haz el calentamiento de voz de la sirena y el caballo antes de cantar.</p>`,
+        H6.rueda("Voz", "CUIDAR", [["no gritar", cRO], ["agua", cAZ], ["calentar", cNA], ["respirar", cVE]])],
+    ],
+    "¿Qué es un juego de manos?": [
+      ["Percusión corporal", `<p>Nuestro cuerpo es un <mark>instrumento de percusión</mark>. Podemos hacer sonidos distintos:</p><ul><li><b>Palmas</b>: chocando las manos. Suenan fuerte y claro.</li><li><b>Pitos</b> o chasquidos: con los dedos. Suenan agudos y suaves.</li><li><b>Muslos</b>: golpeando con las manos en las piernas. Suenan graves.</li><li><b>Pies</b>: dando pisotones en el suelo. Suenan muy graves.</li><li><b>Pecho</b>: golpeando suavemente con la mano abierta.</li></ul><p>Combinándolos, hacemos ritmos: <i>pies, muslos, palmas, pitos</i>. Del más grave al más agudo, ¡como una escalera de sonidos!</p><p>Con percusión corporal podemos acompañar canciones sin necesidad de instrumentos. Hay grupos famosos que hacen espectáculos solo con el cuerpo.</p><p><b>Actividad</b>: inventa un ritmo de cuatro tiempos con pies, muslos, palmas y pitos.</p>`,
+        H6.flujo("Cuerpo", ["pies|grave", "muslos|medio", "palmas|claro", "pitos|agudo"], cAZ)],
+    ],
+    "Paso a paso": [
+      ["Cantar en canon", `<p>Un <mark>canon</mark> es una canción que se canta en grupos que empiezan en momentos distintos. ¡Parece un eco que se persigue!</p><ul><li>El <b>grupo 1</b> empieza a cantar.</li><li>Cuando el grupo 1 termina la primera frase, empieza el <b>grupo 2</b> desde el principio.</li><li>Después entra el <b>grupo 3</b>, y así.</li><li>Cada grupo canta su parte sin hacer caso a los demás… ¡y suena precioso!</li></ul><p>Cánones famosos:</p><ul><li>«<b>Frère Jacques</b>» (Martinillo): «Martinillo, Martinillo, ¿dónde estás?…»</li><li>«<b>Row, row, row your boat</b>».</li><li>«<b>El canon del reloj</b>».</li></ul><p>Lo difícil es no perderse cuando los otros cantan otra cosa. ¡Hay que concentrarse mucho!</p><p><b>Actividad</b>: cantad «Martinillo» en canon a dos grupos y después a cuatro.</p>`,
+        L6.filas("Canon", [["grupo 1", "empieza", cAZ], ["grupo 2", "entra después", cRO], ["grupo 3", "entra después", cVE], ["todos", "a la vez", cNA]]),
+        ["y2gLDgzmSf8", "Pica-Pica - En la calle 24", "Pica-Pica", 56168323]],
+    ],
+    "¿Para qué sirve?": [
+      ["Canciones de cuna y de trabajo", `<p>Las canciones populares nacieron para <mark>acompañar</mark> momentos de la vida:</p><p><b>Canciones de cuna o nanas</b>: para dormir a los bebés. Son lentas, suaves y repetitivas.</p><ul><li>«<i>Duérmete, niño, duérmete ya…</i>»</li><li>«<i>Este niño tiene sueño…</i>»</li></ul><p><b>Canciones de trabajo</b>: se cantaban para que el trabajo fuera más llevadero y para trabajar todos al mismo ritmo.</p><ul><li>Canciones de <b>siega</b> (al cortar el trigo).</li><li>Canciones de <b>lavanderas</b> (lavando en el río).</li><li>Canciones de <b>marineros</b> (al remar o tirar de las redes).</li></ul><p>También hay canciones de <b>fiesta</b>, de <b>Navidad</b> (villancicos) y de <b>juego</b>.</p><p>Muchas no tienen autor conocido: se han transmitido de padres a hijos durante siglos.</p><p><b>Actividad</b>: pregunta en casa por una nana y cántasela a un muñeco.</p>`,
+        H6.dos("Canciones", ["CUNA", ["lenta", "suave", "dormir"], cAZ], ["TRABAJO", ["ritmo", "segar", "remar"], cNA])],
+    ],
+  },
+  final: [
+    ["Vasos y ritmo", `<p>Un juego muy popular es el de los <mark>vasos</mark>: se hacen ritmos golpeando, girando y pasando un vaso de plástico sobre la mesa.</p><p>Movimientos básicos:</p><ul><li><b>Palmas</b>: dos palmadas.</li><li><b>Golpes en la mesa</b>: con las manos, a los lados del vaso.</li><li><b>Levantar y dejar</b> el vaso con un golpe.</li><li><b>Girar</b> el vaso boca abajo.</li><li><b>Pasar</b> el vaso al compañero de la derecha.</li></ul><p>Se aprende <b>paso a paso</b>, muy despacio, y después se va acelerando. En grupo, sentados en círculo, todos pasan el vaso a la vez… ¡y si alguien se equivoca, se acumulan los vasos!</p><p>Este juego desarrolla la coordinación, la memoria y el sentido del ritmo.</p><p><b>Actividad</b>: aprende el ritmo de los vasos con tu grupo y hacedlo en círculo.</p>`,
+      L6.filas("Vasos", [["palmas", "dos", cAZ], ["mesa", "golpes", cVE], ["vaso", "levantar", cNA], ["pasar", "derecha", cRO]])],
+    ["Repaso: las palmas de la abuela Rosa", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>La abuela Rosa no tenía muchos juguetes, pero sí muchas <b>canciones</b>.</li><li>Aprendió el juego de manos de <b>su madre</b>: se transmite de generación en generación.</li><li>La canción es «<b>Chocolate, molinillo</b>».</li><li>Los movimientos: <b>palma con palma</b>, <b>cruzadas</b>, <b>aplauso</b>.</li><li>Para aprenderlo, primero <b>despacio</b>, por partes, y después todo junto.</li><li>Al final juegan en <b>corro</b>, cada vez más rápido.</li></ul><p>Los juegos de manos unen la música, el ritmo, la memoria y la diversión. ¡Y se pueden jugar en cualquier sitio!</p><p><b>Actividad</b>: enseña a alguien de tu familia un juego de manos que hayas aprendido en clase.</p>`,
+      H6.flujo("Rosa", ["madre|enseña", "abuela|enseña", "despacio|por partes", "corro|¡rápido!"], cMO)],
+  ],
+  ejemplos: [
+    ["¿Qué sonido corporal es más grave, palmas o pies?", ["Golpear el suelo suena más profundo."], "Los pies."],
+    ["¿Cómo se canta un canon?", ["Los grupos entran en momentos distintos."], "Un grupo empieza y los demás entran después cantando lo mismo."],
+  ],
+  errores: ["Cantar gritando para que se oiga más.", "Querer aprender un juego de manos rápido desde el principio."],
+  ejercicios: [
+    ["b", "Di una forma de cuidar la voz.", "No gritar, beber agua…"],
+    ["b", "Di un sonido de percusión corporal.", "Palmas, pitos, muslos, pies."],
+    ["b", "¿Qué es una nana?", "Una canción de cuna para dormir."],
+    ["b", "Di un canon famoso.", "Martinillo."],
+    ["b", "¿Con qué se juega en el juego de los vasos?", "Con un vaso de plástico."],
+    ["m", "Ordena de grave a agudo: pitos, pies, palmas.", "Pies, palmas, pitos."],
+    ["m", "¿Para qué servían las canciones de trabajo?", "Para hacer el trabajo más llevadero y al mismo ritmo."],
+    ["m", "¿Cómo se calienta la voz?", "Sirenas, caballo, bostezos."],
+    ["m", "¿Qué es lo difícil de un canon?", "No perderse cuando los otros cantan otra cosa."],
+    ["m", "¿Cómo son las nanas?", "Lentas, suaves y repetitivas."],
+    ["a", "En la lectura, ¿quién enseñó el juego a la abuela?", "Su madre."],
+    ["a", "¿Cómo consigue Nora aprenderlo?", "Repitiéndolo muy despacio, por partes."],
+    ["a", "Inventa una percusión corporal para una canción.", "Respuesta libre."],
+    ["a", "¿Por qué muchas canciones populares no tienen autor conocido?", "Porque se han transmitido de boca en boca durante siglos."],
+  ],
+  quiz: [
+    ["Para cuidar la voz no hay que…", ["gritar", "beber agua", "respirar"], "Voz."],
+    ["El sonido corporal más agudo son los…", ["pitos", "pies", "muslos"], "Percusión."],
+    ["En un canon los grupos…", ["entran en momentos distintos", "cantan cosas diferentes", "no cantan"], "Canon."],
+    ["Las nanas sirven para…", ["dormir", "bailar", "correr"], "Cuna."],
+    ["En el juego de los vasos se pasa a la…", ["derecha", "ventana", "mochila"], "Vasos."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué tiempo hace?", ["llueve", "nieva", "hace sol"], "Lectura."],
+    ["¿Cómo se llaman las nietas?", ["Nora y Alma", "Elena y Sara", "Lía y Ane"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Percusión corporal", "Pies, muslos, palmas, pitos: de grave a agudo."],
+    ["Canon", "Mismo canto, grupos que entran después."],
+  ],
+  glosario: [
+    ["Cuerdas vocales", "Parte de la garganta que produce la voz."],
+    ["Afinado", "Que canta las notas correctas."],
+    ["Percusión corporal", "Música hecha con golpes en el cuerpo."],
+    ["Pitos", "Chasquidos con los dedos."],
+    ["Canon", "Canción cantada por grupos que entran en momentos distintos."],
+    ["Nana", "Canción para dormir a los bebés."],
+    ["Canción de trabajo", "Canción que acompaña una tarea."],
+    ["Villancico", "Canción de Navidad."],
+    ["Popular", "Del pueblo, sin autor conocido."],
+    ["Coordinación", "Mover partes del cuerpo a la vez y en orden."],
+  ],
+  situacion: {
+    titulo: "Concierto de manos y voces",
+    reto: "La clase prepara un concierto con un canon, un juego de manos y una canción acompañada de percusión corporal.",
+    pasos: ["Calentar la voz y ensayar el canon por grupos.", "Aprender un juego de manos paso a paso.", "Inventar la percusión corporal para una canción.", "Actuar ante otra clase y enseñarles un juego."],
+    producto: "Un concierto con voces, manos y percusión corporal.",
+    evaluacion: ["Cuida la voz al cantar.", "Mantiene su parte en un canon.", "Hace percusión corporal al ritmo.", "Conoce canciones populares."],
+  },
+});

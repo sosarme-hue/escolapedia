@@ -138,3 +138,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Distinguir fuerte y suave además de lento y rápido", "Conocer obras famosas lentas y rápidas", "Reconocer el director de orquesta y sus gestos", "Comportarse bien en un concierto"],
+  lectura: { titulo: "El concierto de Martina", html: `<p>Martina fue por primera vez a un concierto de verdad, en un gran auditorio. Llevaba su vestido favorito y estaba muy nerviosa.</p><p>Las luces se apagaron y apareció la <b>orquesta</b>: más de cincuenta músicos con violines, flautas, trompetas y tambores. Al final entró el <b>director</b>, y todo el público aplaudió.</p><p>El director levantó la batuta y… ¡empezó la música!</p><p>Primero sonó una música <b>lenta</b> y <b>suave</b>, como un río tranquilo. Martina cerró los ojos e imaginó un cisne nadando.</p><p>De pronto, la música se volvió <b>rápida</b> y <b>fuerte</b>. Los tambores retumbaban y los violines corrían. ¡Parecía una tormenta! Martina abrió los ojos de golpe.</p><p>Al final, la música fue frenando poco a poco, cada vez más suave… hasta el silencio.</p><p>Martina quiso aplaudir, pero su madre le susurró:</p><p>—Espera a que el director baje los brazos.</p><p>Cuando el director se giró hacia el público, todo el auditorio aplaudió. Martina, la que más.</p>` },
+  tras: {
+    "Lento y rápido": [
+      ["Fuerte y suave", `<p>Además de <b>lenta</b> o <b>rápida</b>, la música puede ser <mark>fuerte</mark> o <mark>suave</mark>. ¡No es lo mismo!</p><ul><li><b>Lento</b> y <b>rápido</b> hablan de la <b>velocidad</b>.</li><li><b>Fuerte</b> y <b>suave</b> hablan del <b>volumen</b> (la intensidad).</li></ul><p>Una música puede ser:</p><ul><li><b>Lenta y suave</b>: una nana.</li><li><b>Lenta y fuerte</b>: una marcha solemne con tambores.</li><li><b>Rápida y suave</b>: unos ratoncitos corriendo de puntillas.</li><li><b>Rápida y fuerte</b>: una tormenta o una carrera.</li></ul><p>En las partituras, los músicos escriben <b><i>f</i></b> (forte) para fuerte y <b><i>p</i></b> (piano) para suave.</p><p>Cuando la música se va haciendo más fuerte poco a poco se llama <b>crescendo</b>.</p><p><b>Actividad</b>: tocad un tambor de las cuatro formas: lento-suave, lento-fuerte, rápido-suave y rápido-fuerte.</p>`,
+        L6.filas("Música", [["lenta + suave", "nana", cAZ], ["lenta + fuerte", "marcha", cMO], ["rápida + suave", "ratones", cVE], ["rápida + fuerte", "tormenta", cRO]])],
+    ],
+    "Acelerar y frenar": [
+      ["El director de orquesta", `<p>El <mark>director</mark> de orquesta no toca ningún instrumento, pero es muy importante: dirige a todos los músicos con sus <b>gestos</b>.</p><ul><li>Usa una <b>batuta</b>: un palito fino y blanco.</li><li>Con la mano derecha marca el <b>pulso</b> y la velocidad.</li><li>Con la izquierda indica el <b>volumen</b>: si la sube, más fuerte; si la baja, más suave.</li><li>Si mueve la batuta <b>deprisa</b>, la música va rápida; si la mueve <b>despacio</b>, va lenta.</li><li>Con la mirada indica a cada grupo cuándo debe <b>entrar</b>.</li><li>Cuando cierra la mano, la música <b>para</b>.</li></ul><p>Todos los músicos le miran de vez en cuando para tocar juntos y a la vez.</p><p><b>Actividad</b>: haz de director con un lápiz y dirige a la clase mientras canta: más rápido, más lento, más fuerte y más suave.</p>`,
+        H6.rueda("Director", "BATUTA", [["rápido", cRO], ["lento", cAZ], ["fuerte", cNA], ["suave", cVE]])],
+    ],
+    "Música que cuenta": [
+      ["Obras lentas y rápidas", `<p>Algunas obras de música clásica son famosas por ser muy <mark>lentas</mark> o muy <mark>rápidas</mark>:</p><p><b>Lentas</b>:</p><ul><li><b>El cisne</b>, de Saint-Saëns: un violonchelo suave como un cisne deslizándose por el lago.</li><li><b>Claro de luna</b>, de Debussy: tranquila como una noche.</li><li><b>La canción de cuna</b>, de Brahms.</li></ul><p><b>Rápidas</b>:</p><ul><li><b>El vuelo del moscardón</b>, de Rimski-Kórsakov: notas rapidísimas que imitan el zumbido de un insecto.</li><li><b>En la gruta del rey de la montaña</b>, de Grieg: empieza lenta y va acelerando hasta ser frenética.</li><li><b>La marcha turca</b>, de Mozart.</li></ul><p>Escuchar estas obras nos ayuda a imaginar historias y a reconocer la velocidad.</p><p><b>Actividad</b>: escucha El vuelo del moscardón y vuela por la clase como un moscardón.</p>`,
+        H6.dos("Obras", ["LENTAS", ["El cisne", "Claro de luna", "Brahms"], cAZ], ["RÁPIDAS", ["Moscardón", "Grieg", "Mozart"], cRO]),
+        ["M93qXQWaBdE", "El vuelo del moscardón - Rimski-Kórsakov", "Rousseau", 28391170]],
+    ],
+    "Lento, rápido y emociones": [
+      ["En el concierto", `<p>Ir a un <mark>concierto</mark> es una experiencia especial. Hay que saber comportarse:</p><ul><li><b>Llegar puntuales</b>, antes de que empiece.</li><li><b>Apagar</b> los móviles.</li><li><b>No hablar</b> ni hacer ruido mientras suena la música.</li><li><b>No comer</b> en la sala.</li><li><b>Aplaudir</b> al principio, cuando sale el director, y al final de la obra.</li><li>Esperar a que el director <b>baje los brazos</b> antes de aplaudir: a veces hay silencios en medio de la obra.</li><li>Si la música dura mucho, cerrar los ojos e <b>imaginar</b> una historia.</li></ul><p>Los músicos han ensayado muchísimas horas. Escucharles con atención es una forma de respetar su trabajo.</p><p>Hay conciertos especiales para familias y niños en muchos auditorios.</p><p><b>Actividad</b>: organizad un concierto en clase y practicad cómo ser un buen público.</p>`,
+        H6.flujo("Concierto", ["llegar|puntual", "silencio|escuchar", "brazos abajo|esperar", "¡aplaudir!|final"], cNA)],
+    ],
+  },
+  final: [
+    ["Dibujar la música", `<p>Mientras escuchamos música, podemos <mark>dibujar</mark> lo que sentimos:</p><ul><li>Música <b>lenta</b>: líneas largas, onduladas y suaves, como olas.</li><li>Música <b>rápida</b>: líneas cortas, puntos, zigzags.</li><li>Música <b>fuerte</b>: trazos gruesos, colores oscuros o intensos, apretando el lápiz.</li><li>Música <b>suave</b>: trazos finos, colores claros, sin apretar.</li><li>Música <b>alegre</b>: colores cálidos como el amarillo o el naranja.</li><li>Música <b>triste</b>: colores fríos como el azul o el gris.</li></ul><p>No hay dibujos correctos o incorrectos: cada persona siente la música a su manera.</p><p>Algunos pintores famosos, como Kandinsky, pintaban escuchando música. Decía que veía los colores de los sonidos.</p><p><b>Actividad</b>: escucha dos obras, una lenta y otra rápida, y dibuja cada una con ceras.</p>`,
+      L6.filas("Dibujar", [["lenta", "olas", cAZ], ["rápida", "zigzag", cRO], ["fuerte", "trazo grueso", cMO], ["suave", "trazo fino", cVE]])],
+    ["Repaso: el concierto de Martina", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>Martina va a un <b>auditorio</b>: un lugar para conciertos.</li><li>La <b>orquesta</b> tiene más de cincuenta músicos.</li><li>El <b>director</b> entra el último y levanta la <b>batuta</b>.</li><li>Primero, música <b>lenta y suave</b>: un cisne.</li><li>Después, <b>rápida y fuerte</b>: una tormenta.</li><li>Al final, frena y se hace <b>suave</b> hasta el <b>silencio</b>.</li><li>Hay que esperar a que el director <b>baje los brazos</b> para aplaudir.</li></ul><p>La música puede hacernos imaginar historias y sentir emociones, sin necesidad de palabras.</p><p><b>Actividad</b>: inventa qué historia imaginarías tú con una música lenta y otra rápida.</p>`,
+      H6.flujo("Martina", ["lenta|cisne", "rápida|tormenta", "frena|silencio", "brazos|¡aplauso!"], cMO)],
+  ],
+  ejemplos: [
+    ["Una nana, ¿cómo es?", ["Para dormir a un bebé."], "Lenta y suave."],
+    ["¿Qué indica el director subiendo la mano izquierda?", ["La izquierda marca el volumen."], "Que toquen más fuerte."],
+  ],
+  errores: ["Confundir fuerte con rápido y suave con lento.", "Aplaudir en mitad de una obra, en un silencio."],
+  ejercicios: [
+    ["b", "¿Qué es más rápido, una nana o una tormenta?", "Una tormenta."],
+    ["b", "¿Qué usa el director para dirigir?", "La batuta."],
+    ["b", "¿Cómo se escribe fuerte en la partitura?", "f (forte)."],
+    ["b", "Di una norma del concierto.", "No hablar, apagar el móvil…"],
+    ["b", "¿Cómo es El vuelo del moscardón?", "Muy rápido."],
+    ["m", "¿Qué diferencia hay entre rápido y fuerte?", "Rápido es velocidad; fuerte es volumen."],
+    ["m", "¿Qué es un crescendo?", "Cuando la música se hace más fuerte poco a poco."],
+    ["m", "¿Qué hace el director si cierra la mano?", "Parar la música."],
+    ["m", "¿Con qué instrumento suena El cisne?", "Con el violonchelo."],
+    ["m", "¿Cómo dibujas una música rápida?", "Con líneas cortas, puntos y zigzags."],
+    ["a", "En la lectura, ¿qué imagina Martina con la música lenta?", "Un cisne nadando."],
+    ["a", "¿Por qué la madre le dice que espere para aplaudir?", "Porque hay que esperar a que el director baje los brazos."],
+    ["a", "Describe una música rápida y suave que te imagines.", "Respuesta libre."],
+    ["a", "¿Cómo empieza y cómo acaba En la gruta del rey de la montaña?", "Empieza lenta y acaba muy rápida."],
+  ],
+  quiz: [
+    ["Fuerte y suave hablan del…", ["volumen", "tamaño", "color"], "Volumen."],
+    ["La batuta la usa el…", ["director", "violinista", "público"], "Director."],
+    ["El vuelo del moscardón es…", ["rápido", "lento", "silencioso"], "Obras."],
+    ["En el concierto se aplaude…", ["al final", "en cada nota", "nunca"], "Concierto."],
+    ["Música suave se dibuja con trazo…", ["fino", "grueso", "negro"], "Dibujar."],
+  ],
+  examen: [
+    ["En la lectura, ¿dónde es el concierto?", ["en un auditorio", "en la playa", "en el colegio"], "Lectura."],
+    ["¿Qué parece la música rápida y fuerte?", ["una tormenta", "un cisne", "una nana"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Velocidad y volumen", "Lento/rápido es velocidad; fuerte/suave es volumen."],
+    ["Director", "Batuta: derecha marca el pulso, izquierda el volumen."],
+  ],
+  glosario: [
+    ["Volumen", "Lo fuerte o suave que suena algo."],
+    ["Forte", "Fuerte, en las partituras: f."],
+    ["Piano", "Suave, en las partituras: p."],
+    ["Crescendo", "Ir haciéndose más fuerte poco a poco."],
+    ["Director", "Persona que dirige una orquesta."],
+    ["Batuta", "Palito que usa el director."],
+    ["Auditorio", "Sala grande para conciertos."],
+    ["Orquesta", "Grupo grande de músicos."],
+    ["Obra", "Pieza de música compuesta por alguien."],
+    ["Moscardón", "Insecto grande que zumba."],
+  ],
+  situacion: {
+    titulo: "Pequeños directores",
+    reto: "La clase hace una orquesta de instrumentos sencillos y por turnos cada alumno la dirige con una batuta.",
+    pasos: ["Repartir instrumentos de percusión.", "Practicar los gestos del director: rápido, lento, fuerte, suave y parar.", "Cada alumno dirige un minuto a la orquesta.", "Hacer un concierto final y practicar ser buen público."],
+    producto: "Un concierto dirigido por los alumnos.",
+    evaluacion: ["Distingue lento-rápido y fuerte-suave.", "Conoce obras lentas y rápidas.", "Entiende los gestos del director.", "Se comporta bien en un concierto."],
+  },
+});

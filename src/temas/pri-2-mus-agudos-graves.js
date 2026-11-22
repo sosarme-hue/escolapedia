@@ -137,3 +137,93 @@ module.exports = {
   fuentes: FUENTES,
   revisado: "2026-11-13",
 };
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Reconocer instrumentos agudos y graves de la orquesta", "Fabricar un instrumento con sonidos de distintas alturas", "Distinguir las voces agudas y graves", "Escuchar un cuento musical: Pedro y el lobo"],
+  lectura: { titulo: "La orquesta de los animales", html: `<p>En el bosque se iba a celebrar un gran concierto. Cada animal tenía que tocar un instrumento.</p><p>El <b>elefante</b>, que era enorme, eligió la <b>tuba</b>. ¡Bum, bum! Sonaba grave y profundo, como un trueno lejano.</p><p>El <b>pajarito</b>, que era muy pequeño, eligió la <b>flauta</b>. ¡Fiu, fiu! Sonaba agudo y brillante, como su propio canto.</p><p>El <b>oso</b> tocó el <b>contrabajo</b>, grande como él. Su sonido era grave y cálido.</p><p>El <b>ratón</b> tocó el <b>violín</b>, pequeño y fino, con un sonido agudo y dulce.</p><p>Al principio, todos tocaban a la vez y era un lío. Entonces la lechuza, la directora, levantó la batuta.</p><p>—Primero, los graves. Después, los agudos. Y al final… ¡todos juntos!</p><p>Así lo hicieron. Los graves sonaban como el suelo del bosque, y los agudos, como las hojas de los árboles. Juntos, la música era preciosa.</p><p>Todos los animales del bosque aplaudieron hasta que les dolieron las patas.</p>` },
+  tras: {
+    "Agudo no es fuerte": [
+      ["Agudos y graves en la orquesta", `<p>En la <mark>orquesta</mark> hay instrumentos agudos y graves. Normalmente, cuanto más <b>grande</b> es el instrumento, más <b>grave</b> suena.</p><p><b>Instrumentos agudos</b> (pequeños):</p><ul><li>El <b>violín</b>.</li><li>La <b>flauta travesera</b> y el <b>flautín</b>.</li><li>La <b>trompeta</b>.</li></ul><p><b>Instrumentos graves</b> (grandes):</p><ul><li>El <b>contrabajo</b>: más alto que una persona.</li><li>La <b>tuba</b>: un gran tubo de metal enrollado.</li><li>El <b>fagot</b>.</li><li>El <b>timbal</b>: un tambor enorme.</li></ul><p>En la familia de cuerda pasa lo mismo: el violín (agudo), la viola, el violonchelo y el contrabajo (el más grave).</p><p><b>Actividad</b>: escucha instrumentos de la orquesta y clasifícalos en agudos y graves.</p>`,
+        H6.dos("Orquesta", ["AGUDOS", ["violín", "flauta", "trompeta"], cNA], ["GRAVES", ["contrabajo", "tuba", "timbal"], cAZ])],
+    ],
+    "El xilófono": [
+      ["Botellas musicales", `<p>Podemos fabricar un instrumento con <mark>botellas de cristal</mark> y agua:</p><ul><li>Coloca en fila <b>cinco botellas</b> iguales.</li><li>Llénalas con <b>distinta cantidad</b> de agua: la primera casi vacía y la última casi llena.</li><li>Puedes teñir el agua con colorante para que quede más bonito.</li><li>Golpéalas suavemente con una <b>cuchara de madera</b>.</li></ul><p>¿Qué pasa?</p><ul><li>Si la <b>golpeamos</b>, la que tiene más agua suena más grave.</li><li>Si <b>soplamos</b> por la boca de la botella, la que tiene más agua suena más aguda, porque queda menos aire.</li></ul><p>¡Haz la prueba y compruébalo tú mismo!</p><p><b>Actividad</b>: fabrica tu xilófono de botellas e intenta tocar una melodía sencilla.</p>`,
+        H6.flujo("Botellas", ["5 botellas|iguales", "agua|distinta", "cuchara|golpear", "soplar|¡prueba!"], cVE)],
+    ],
+    "Las voces": [
+      ["Voces agudas y graves", `<p>Las <mark>voces</mark> de las personas también son agudas o graves:</p><ul><li>Los <b>niños y niñas</b> tienen voces agudas.</li><li>Las <b>mujeres</b> suelen tener voces más agudas que los hombres.</li><li>Los <b>hombres</b> suelen tener voces graves.</li></ul><p>En un coro, las voces tienen nombres:</p><ul><li><b>Soprano</b>: la voz más aguda de mujer.</li><li><b>Contralto</b>: voz grave de mujer.</li><li><b>Tenor</b>: voz aguda de hombre.</li><li><b>Bajo</b>: la voz más grave de hombre.</li></ul><p>Cuando los niños crecen, hacia los 12 o 14 años, la voz de los chicos <b>cambia</b> y se hace más grave. Es lo que se llama «cambio de voz».</p><p>Podemos jugar a imitar voces: un ratón (agudo), un oso (grave), un pajarito (agudo), un gigante (grave).</p><p><b>Actividad</b>: lee una frase con voz de ratón y después con voz de gigante.</p>`,
+        L6.filas("Coro", [["soprano", "mujer aguda", cRO], ["contralto", "mujer grave", cMO], ["tenor", "hombre agudo", cAZ], ["bajo", "hombre grave", cVE]])],
+    ],
+    "¿Para qué sirve?": [
+      ["Pedro y el lobo", `<p><mark>Pedro y el lobo</mark> es un cuento musical del compositor ruso Serguéi Prokófiev. Cada personaje tiene su instrumento y su melodía:</p><ul><li><b>Pedro</b>: los violines y la cuerda (alegre).</li><li><b>El pájaro</b>: la flauta (muy aguda y rápida).</li><li><b>El pato</b>: el oboe (un poco gangoso).</li><li><b>El gato</b>: el clarinete (suave y sigiloso).</li><li><b>El abuelo</b>: el fagot (grave y gruñón).</li><li><b>El lobo</b>: las trompas (graves y amenazantes).</li><li><b>Los cazadores</b>: los timbales y el bombo (disparos).</li></ul><p>Escuchando la música, sabemos qué personaje aparece sin necesidad de verlo. Los animales pequeños tienen instrumentos agudos, y los grandes o peligrosos, graves.</p><p><b>Actividad</b>: escucha el cuento y levanta la tarjeta del personaje cuando suene su instrumento.</p>`,
+        H6.rueda("Pedro", "CUENTO", [["pájaro", cNA], ["pato", cAZ], ["abuelo", cMO], ["lobo", cRO]]),
+        ["P_Mx86DTdSM", "Pedro y el lobo - Música maestro", "Disney", 128836]],
+    ],
+  },
+  final: [
+    ["Los sonidos de los animales", `<p>Los <mark>animales</mark> también hacen sonidos agudos y graves:</p><ul><li><b>Agudos</b>: el pájaro (pío), el ratón (iii), el pollito, el grillo, el mosquito.</li><li><b>Graves</b>: el león (rugido), la vaca (muuu), el oso, la rana grande, el elefante.</li></ul><p>Normalmente, los animales <b>pequeños</b> tienen sonidos agudos y los <b>grandes</b>, graves. Pero hay sorpresas: ¡el elefante también puede hacer un barrito muy agudo con la trompa!</p><p>Algunos animales hacen sonidos que no podemos oír:</p><ul><li>Los <b>murciélagos</b> y los <b>delfines</b> hacen sonidos tan agudos que nuestro oído no los capta.</li><li>Las <b>ballenas</b> y los elefantes hacen sonidos tan graves que tampoco los oímos, pero viajan muy lejos.</li></ul><p><b>Actividad</b>: haz una lista de cinco animales agudos y cinco graves e imita sus sonidos.</p>`,
+      L6.filas("Animales", [["pájaro", "agudo", cNA], ["ratón", "agudo", cVE], ["león", "grave", cRO], ["vaca", "grave", cMO]])],
+    ["Repaso: la orquesta de los animales", `<p>Repasamos con la <mark>lectura</mark>:</p><ul><li>El <b>elefante</b> toca la <b>tuba</b>: grave, como un trueno.</li><li>El <b>pajarito</b> toca la <b>flauta</b>: aguda y brillante.</li><li>El <b>oso</b> toca el <b>contrabajo</b>: grave y cálido.</li><li>El <b>ratón</b> toca el <b>violín</b>: agudo y dulce.</li><li>Cada animal elige un instrumento de su <b>tamaño</b>.</li><li>La <b>lechuza</b> es la <b>directora</b>: usa una batuta.</li><li>Primero los graves, después los agudos y al final todos juntos.</li></ul><p>En una orquesta hacen falta instrumentos agudos y graves: juntos suenan mejor que por separado.</p><p><b>Actividad</b>: haced en clase una orquesta: unos con sonidos agudos y otros graves.</p>`,
+      H6.flujo("Orquesta", ["elefante|tuba", "pájaro|flauta", "oso|contrabajo", "ratón|violín"], cAZ)],
+  ],
+  ejemplos: [
+    ["¿Qué suena más grave, el violín o el contrabajo?", ["El más grande suena más grave."], "El contrabajo."],
+    ["¿Qué instrumento es el pájaro en Pedro y el lobo?", ["Es un animal pequeño y rápido."], "La flauta."],
+  ],
+  errores: ["Pensar que agudo es lo mismo que fuerte.", "Creer que todos los instrumentos grandes suenan fuerte."],
+  ejercicios: [
+    ["b", "¿El violín es agudo o grave?", "Agudo."],
+    ["b", "¿La tuba es aguda o grave?", "Grave."],
+    ["b", "¿Cómo es la voz de los niños?", "Aguda."],
+    ["b", "¿Quién escribió Pedro y el lobo?", "Prokófiev."],
+    ["b", "Di un animal con sonido grave.", "León, vaca, oso…"],
+    ["m", "Ordena de agudo a grave: violonchelo, violín, contrabajo.", "Violín, violonchelo, contrabajo."],
+    ["m", "¿Qué voz es la más grave de hombre?", "Bajo."],
+    ["m", "¿Qué instrumento es el lobo?", "Las trompas."],
+    ["m", "¿Cómo suena la botella con más agua si la golpeas?", "Más grave."],
+    ["m", "¿Qué es una soprano?", "La voz más aguda de mujer."],
+    ["a", "En la lectura, ¿por qué el elefante elige la tuba?", "Porque es grande y grave como él."],
+    ["a", "¿Por qué el ratón toca el violín?", "Porque es pequeño y agudo."],
+    ["a", "Inventa un cuento con tres personajes y su instrumento.", "Respuesta libre."],
+    ["a", "¿Por qué no oímos los sonidos de los murciélagos?", "Porque son demasiado agudos."],
+  ],
+  quiz: [
+    ["El más grave de la cuerda es el…", ["contrabajo", "violín", "viola"], "Orquesta."],
+    ["Soplando, la botella con más agua suena…", ["más aguda", "más grave", "igual"], "Botellas."],
+    ["La voz más aguda de mujer es…", ["soprano", "bajo", "tenor"], "Voces."],
+    ["En Pedro y el lobo, el gato es el…", ["clarinete", "fagot", "violín"], "Pedro."],
+    ["Los animales grandes suelen sonar…", ["graves", "agudos", "en silencio"], "Animales."],
+  ],
+  examen: [
+    ["En la lectura, ¿quién dirige la orquesta?", ["la lechuza", "el oso", "el elefante"], "Lectura."],
+    ["¿Qué toca el oso?", ["el contrabajo", "la flauta", "el violín"], "Repaso."],
+  ],
+  tarjetas: [
+    ["Tamaño y altura", "Instrumento grande, sonido grave; pequeño, agudo."],
+    ["Voces", "Soprano y tenor (agudas); contralto y bajo (graves)."],
+  ],
+  glosario: [
+    ["Agudo", "Sonido alto y fino."],
+    ["Grave", "Sonido bajo y profundo."],
+    ["Orquesta", "Grupo grande de instrumentos."],
+    ["Contrabajo", "Instrumento de cuerda muy grande y grave."],
+    ["Tuba", "Instrumento de metal grande y grave."],
+    ["Soprano", "Voz más aguda de mujer."],
+    ["Bajo", "Voz más grave de hombre."],
+    ["Batuta", "Palito con el que dirige el director."],
+    ["Compositor", "Persona que crea música."],
+    ["Melodía", "Sucesión de sonidos que forma una canción."],
+  ],
+  situacion: {
+    titulo: "Nuestro cuento musical",
+    reto: "La clase crea un cuento musical como Pedro y el lobo, donde cada personaje tiene un sonido agudo o grave.",
+    pasos: ["Inventar un cuento con cuatro personajes.", "Elegir para cada uno un instrumento agudo o grave.", "Fabricar un xilófono de botellas para los efectos.", "Representar el cuento con narrador y músicos."],
+    producto: "Un cuento musical representado por la clase.",
+    evaluacion: ["Distingue instrumentos agudos y graves.", "Fabrica un instrumento de alturas.", "Reconoce voces agudas y graves.", "Asocia personajes e instrumentos."],
+  },
+});
