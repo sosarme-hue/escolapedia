@@ -109,3 +109,93 @@ module.exports = P.tema({
   saberes: "Sentido numérico: la multiplicación como suma repetida y como disposición rectangular; dobles y triples",
   ideas: ["Material manipulativo para formar grupos iguales antes de usar el signo ×.", "Disposiciones rectangulares con gomets o en el geoplano.", "Problemas de la vida cotidiana: patas, ruedas, cajas y paquetes."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Multiplicar con saltos en la recta", "Saber que el orden de los factores no cambia el producto", "Repartir en grupos iguales", "Resolver problemas sencillos de multiplicar"],
+  lectura: { titulo: "Los bocadillos de la excursión", html: `<p>Mañana la clase de 2.º B se va de excursión al bosque. La señorita Carmen ha pedido ayuda para preparar los bocadillos.</p><p>Lola y Nico están en la cocina del cole. Hay 6 bandejas y en cada bandeja caben 4 bocadillos.</p><p>—¿Cuántos bocadillos podemos poner? —pregunta Nico.</p><p>Lola empieza a contar de uno en uno: uno, dos, tres…</p><p>—¡Así tardamos mucho! —dice Nico—. Mejor sumamos: 4 + 4 + 4 + 4 + 4 + 4.</p><p>—Eso es lo mismo que 6 veces 4 —dice la señorita Carmen—. Se escribe 6 × 4.</p><p>Cuentan de 4 en 4: 4, 8, 12, 16, 20, 24.</p><p>—¡Veinticuatro bocadillos!</p><p>—Y somos veintidós niños, más la señorita y el conductor… ¡justo veinticuatro!</p><p>Los tres se ríen. Las multiplicaciones también sirven para que nadie se quede sin bocadillo.</p>` },
+  tras: {
+    "Sumar el mismo número": [
+      ["Saltos en la recta", `<p>Podemos multiplicar dando <mark>saltos iguales</mark> en la recta numérica.</p><p>Para hacer <b>4 × 3</b>, empezamos en el 0 y damos <b>4 saltos</b> de <b>3</b> en 3:</p><ul><li>Primer salto: llegamos al 3.</li><li>Segundo salto: al 6.</li><li>Tercer salto: al 9.</li><li>Cuarto salto: ¡al <b>12</b>!</li></ul><p>Entonces, 4 × 3 = 12.</p><p>El primer número nos dice <b>cuántos saltos</b> damos. El segundo, <b>lo largo</b> que es cada salto.</p><p>Es como una rana que salta siempre la misma distancia. Si la rana da 5 saltos de 2, llega al 10: 5 × 2 = 10.</p><p><b>Actividad</b>: dibuja una recta del 0 al 20 y haz los saltos de 3 × 5.</p>`,
+        H6.flujo("4 × 3", ["salto 1|llego al 3", "salto 2|al 6", "salto 3|al 9", "salto 4|¡al 12!"], cVE),
+        ["1zApiPxabpY", "Sumas repetidas que dan multiplicaciones | Matemáticas | Khan Academy en Español", "KhanAcademyEspañol", 69154]],
+    ],
+    "Filas y columnas": [
+      ["El orden no importa", `<p>Mira una caja de bombones con <b>2 filas</b> de <b>5 bombones</b>: 2 × 5 = 10.</p><p>Ahora gira la caja. ¡Ahora hay <b>5 filas</b> de <b>2 bombones</b>! 5 × 2 = 10.</p><p>Hay los mismos bombones, solo hemos girado la caja. Por eso:</p><p><b>2 × 5 = 5 × 2</b></p><p>En la multiplicación, el <mark>orden de los números no cambia el resultado</mark>. Esta regla se llama <b>propiedad conmutativa</b>, igual que en la suma.</p><p>¡Es una gran ayuda! Si sabes que 3 × 8 = 24, también sabes que 8 × 3 = 24. Así tienes que aprender la mitad de cuentas.</p><p>Muchas veces es más fácil pensar el número pequeño de veces: 2 × 9 es «dos veces nueve», más rápido que nueve veces dos.</p><p><b>Actividad</b>: coloca 12 fichas en 3 filas de 4. Después gíralas. ¿Qué multiplicaciones ves?</p>`,
+        H6.dos("Girar la caja", ["2 FILAS", ["de 5", "2 × 5 = 10"], cAZ], ["5 FILAS", ["de 2", "5 × 2 = 10"], cRO])],
+    ],
+    "Dobles y triples": [
+      ["Repartir en grupos iguales", `<p>Multiplicar es juntar grupos iguales. <mark>Repartir</mark> es lo contrario: hacer grupos iguales con lo que tenemos.</p><p>Tenemos <b>12 caramelos</b> y somos <b>3 amigos</b>. Repartimos uno a uno, como cuando se reparten cartas: uno para ti, uno para ti, uno para mí… Al final, cada uno tiene <b>4 caramelos</b>.</p><p>Lo comprobamos con una multiplicación: 3 amigos × 4 caramelos = 12. ¡Correcto!</p><p>Al repartir bien, todos reciben <b>lo mismo</b>. Es justo.</p><p>A veces <b>sobra</b> algo. Si tenemos 13 caramelos para 3 amigos, cada uno recibe 4 y sobra 1. ¡Podemos partirlo o guardarlo!</p><p>El año que viene aprenderás que esto se llama <b>dividir</b>. Por ahora, basta con repartir de uno en uno y contar lo que recibe cada uno.</p><p><b>Actividad</b>: reparte 15 lápices entre 5 compañeros. ¿Cuántos recibe cada uno?</p>`,
+        L6.filas("12 entre 3", [["amigo 1", "4 caramelos", cAZ], ["amigo 2", "4 caramelos", cVE], ["amigo 3", "4 caramelos", cNA], ["prueba", "3 × 4 = 12", cRO]])],
+    ],
+    "¿Para qué sirve?": [
+      ["Problemas de multiplicar", `<p>En los problemas, algunas palabras nos avisan de que hay que <mark>multiplicar</mark>:</p><ul><li><b>cada</b>: «Cada bolsa tiene 5 canicas».</li><li><b>veces</b>: «Salta 3 veces».</li><li><b>grupos de</b>, <b>cajas de</b>, <b>filas de</b>.</li><li><b>el doble</b>, <b>el triple</b>.</li></ul><p>Por ejemplo: «Compro 4 bolsas. <b>Cada</b> bolsa tiene 5 canicas. ¿Cuántas canicas tengo?»</p><ul><li>Datos: 4 bolsas, 5 canicas en cada una.</li><li>Operación: 4 × 5 = 20.</li><li>Solución: <b>Tengo 20 canicas</b>.</li></ul><p>Un consejo: haz un dibujo rápido con círculos y puntos. Así ves los grupos y no te equivocas.</p><p><b>Actividad</b>: resuelve: «En una mesa hay 3 platos con 6 galletas cada uno. ¿Cuántas galletas hay?».</p>`,
+        H6.rueda("Pistas", "×", [["cada", cAZ], ["veces", cVE], ["grupos de", cNA], ["el doble", cRO]])],
+    ],
+  },
+  final: [
+    ["Multiplicar con dibujos", `<p>Cuando una multiplicación nos cuesta, podemos <mark>dibujarla</mark>. Hay varias formas:</p><ul><li><b>Grupos</b>: dibuja círculos y pon puntos dentro. 3 × 4: tres círculos con 4 puntos cada uno.</li><li><b>Filas</b>: dibuja puntos en filas y columnas, como una cuadrícula. 3 × 4: tres filas de cuatro puntos.</li><li><b>Saltos</b>: dibuja una recta y haz los saltos.</li><li><b>Torres</b>: dibuja torres de cubos de la misma altura.</li></ul><p>Después, cuenta todos los puntos o cubos. ¡Ese es el resultado!</p><p>Con el tiempo, ya no necesitarás dibujar: te sabrás las tablas de memoria. Pero dibujar te ayuda a <b>entender</b> lo que significa multiplicar.</p><p><b>Actividad</b>: dibuja 2 × 6 de dos maneras distintas.</p>`,
+      L6.filas("3 × 4", [["grupos", "3 círculos de 4", cAZ], ["filas", "3 filas de 4", cVE], ["saltos", "3 saltos de 4", cNA], ["torres", "3 torres de 4", cRO]])],
+    ["Repaso: la granja de las patas", `<p>En la granja de la tía Rosa hay muchos animales. ¡Vamos a contar sus <mark>patas</mark> multiplicando!</p><ul><li><b>4 gallinas</b>, con 2 patas cada una: 4 × 2 = <b>8 patas</b>.</li><li><b>3 cerdos</b>, con 4 patas: 3 × 4 = <b>12 patas</b>.</li><li><b>2 arañas</b> en el granero, con 8 patas: 2 × 8 = <b>16 patas</b>.</li><li><b>5 patos</b>, con 2 patas: 5 × 2 = <b>10 patas</b>.</li></ul><p>Si sumamos todas: 8 + 12 + 16 + 10 = <b>46 patas</b>. ¡Cuántas!</p><p>¿Y si llega un caballo? Tiene 4 patas: 1 × 4 = 4. Ahora hay 50 patas.</p><p>¿Y si se van las arañas? 0 arañas × 8 patas = 0. ¡Ya no hay patas de araña!</p><p><b>Actividad</b>: inventa tu granja y calcula cuántas patas hay en total.</p>`,
+      L6.filas("Patas", [["4 gallinas", "4 × 2 = 8", cNA], ["3 cerdos", "3 × 4 = 12", cRO], ["2 arañas", "2 × 8 = 16", cMO], ["5 patos", "5 × 2 = 10", cAZ]])],
+  ],
+  ejemplos: [
+    ["¿Cuánto es 5 × 3 con saltos?", ["Doy 5 saltos de 3.", "3, 6, 9, 12, 15."], "15."],
+    ["Reparte 10 cromos entre 2 amigos.", ["Repartimos uno a uno.", "Comprobamos: 2 × 5 = 10."], "5 cromos cada uno."],
+  ],
+  errores: ["Confundir el número de saltos con el tamaño de cada salto.", "Sumar los dos números en vez de multiplicarlos: 4 × 3 no es 7."],
+  ejercicios: [
+    ["b", "Haz 3 saltos de 5 en la recta. ¿Dónde llegas?", "Al 15."],
+    ["b", "Si 4 × 2 = 8, ¿cuánto es 2 × 4?", "8."],
+    ["b", "Reparte 8 galletas entre 2 niños.", "4 cada uno."],
+    ["b", "¿Qué palabra de un problema avisa de multiplicar?", "Cada, veces, grupos de…"],
+    ["b", "¿Cuántas patas tienen 3 gallinas?", "6."],
+    ["m", "Dibuja 4 × 3 en filas y di el resultado.", "4 filas de 3: 12."],
+    ["m", "Reparte 20 canicas entre 4 niños.", "5 cada uno."],
+    ["m", "Hay 5 cajas con 3 lápices cada una. ¿Cuántos lápices hay?", "15."],
+    ["m", "Reparte 7 cromos entre 3 amigos. ¿Sobra alguno?", "2 cada uno y sobra 1."],
+    ["m", "¿Cuántas patas tienen 2 perros y 3 pájaros?", "8 + 6 = 14."],
+    ["a", "En la lectura, ¿cuántos bocadillos caben y cómo lo calculan?", "24; 6 × 4, contando de 4 en 4."],
+    ["a", "Escribe dos multiplicaciones que den 12.", "3 × 4, 4 × 3, 2 × 6, 6 × 2…"],
+    ["a", "Inventa un problema con la palabra «cada» y resuélvelo.", "Respuesta abierta."],
+    ["a", "¿Cuántas ruedas hay en 3 bicis y 2 coches?", "6 + 8 = 14."],
+  ],
+  quiz: [
+    ["4 saltos de 3 llegan al…", ["12", "7", "34"], "Saltos."],
+    ["2 × 5 es igual que…", ["5 × 2", "2 + 5", "25"], "Orden."],
+    ["12 caramelos entre 3 amigos son…", ["4 cada uno", "3 cada uno", "9 cada uno"], "Repartir."],
+    ["«Cada caja tiene 6» nos dice que hay que…", ["multiplicar", "restar", "no hacer nada"], "Problemas."],
+    ["2 arañas de 8 patas tienen…", ["16 patas", "10 patas", "8 patas"], "Granja."],
+  ],
+  examen: [
+    ["En la lectura, ¿cuántas bandejas hay?", ["6", "4", "24"], "Lectura."],
+    ["0 arañas × 8 patas es…", ["0", "8", "1"], "Granja."],
+  ],
+  tarjetas: [
+    ["Saltos", "4 × 3: cuatro saltos de tres en la recta."],
+    ["Repartir", "Hacer grupos iguales; se comprueba multiplicando."],
+  ],
+  glosario: [
+    ["Multiplicar", "Sumar varias veces el mismo número."],
+    ["Factor", "Cada número que se multiplica."],
+    ["Producto", "Resultado de multiplicar."],
+    ["Por", "Forma de leer el signo ×."],
+    ["Grupos iguales", "Grupos con la misma cantidad."],
+    ["Recta numérica", "Línea con los números en orden."],
+    ["Conmutativa", "El orden no cambia el resultado."],
+    ["Repartir", "Dar a cada uno la misma cantidad."],
+    ["Sobrar", "Quedar algo después de repartir."],
+    ["Doble", "Dos veces un número."],
+  ],
+  situacion: {
+    titulo: "Preparamos la merienda",
+    reto: "La clase organiza una merienda y tiene que calcular cuántas cosas necesita multiplicando y repartiendo.",
+    pasos: ["Contar cuántos niños hay en cada mesa y cuántas mesas.", "Calcular cuántos vasos, servilletas y galletas hacen falta multiplicando.", "Repartir las galletas a partes iguales entre las mesas.", "Dibujar las cuentas con grupos, filas o saltos."],
+    producto: "Una hoja de cálculos y la merienda preparada.",
+    evaluacion: ["Relaciona la multiplicación con la suma repetida.", "Usa saltos, filas y grupos.", "Reparte en grupos iguales.", "Resuelve problemas sencillos."],
+  },
+});

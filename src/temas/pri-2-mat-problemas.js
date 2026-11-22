@@ -103,3 +103,93 @@ module.exports = P.tema({
   saberes: "Resolución de problemas: problemas aditivos de una operación (cambio, combinación y comparación) con números hasta el 999",
   ideas: ["Rutina de los 4 pasos (leo, datos, operación, solución) en un cartel del aula.", "Dramatizar los problemas con objetos antes de escribirlos.", "Invención de problemas por parejas a partir de un dibujo."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Descubrir los datos que sobran", "Resolver problemas de comparar", "Resolver problemas de dos pasos", "Revisar si la solución tiene sentido"],
+  lectura: { titulo: "El mercadillo solidario", html: `<p>El colegio ha organizado un mercadillo solidario para ayudar a un refugio de animales. Los niños de 2.º venden pulseras que han hecho ellos mismos.</p><p>A primera hora tienen 60 pulseras. Por la mañana venden 25. A la hora del recreo, la clase de 3.º les trae 15 pulseras más.</p><p>—¿Cuántas pulseras tenemos ahora? —pregunta la maestra.</p><p>Jaime levanta la mano:</p><p>—¡Cien! Porque 60 más 25 más 15.</p><p>Lucía frunce el ceño.</p><p>—No puede ser. Si hemos vendido pulseras, tenemos menos, no más.</p><p>Vuelven a leer el problema con calma. Primero restan lo vendido: 60 − 25 = 35. Después suman las nuevas: 35 + 15 = 50.</p><p>—¡Cincuenta pulseras! —dice Jaime—. Me había equivocado porque no leí bien.</p><p>—Por eso hay que leer despacio y pensar si la solución tiene sentido —dice la maestra.</p><p>Al final del día venden todas. ¡El refugio está muy contento!</p>` },
+  tras: {
+    "Los datos y la pregunta": [
+      ["Datos que sobran", `<p>A veces un problema tiene <mark>datos que no necesitamos</mark>. Están ahí para que pensemos bien.</p><p>«En el parque hay 12 niños jugando al fútbol y 8 niñas saltando a la comba. Hace mucho sol y son las 5 de la tarde. ¿Cuántos niños y niñas hay?»</p><ul><li>Datos útiles: <b>12</b> y <b>8</b>.</li><li>Datos que sobran: el sol y <b>las 5</b> de la tarde. ¡El 5 no se suma!</li><li>Operación: 12 + 8 = 20.</li></ul><p>Para encontrar los datos útiles, lee primero la <b>pregunta</b> y piensa qué necesitas saber para contestarla. Después busca esos datos en el texto.</p><p>Un buen truco es <b>subrayar</b> los datos útiles con un color y <b>tachar</b> los que sobran.</p><p><b>Actividad</b>: «Ana tiene 9 años y 14 cromos. Su hermano le da 6 cromos. ¿Cuántos cromos tiene?». ¿Qué dato sobra?</p>`,
+        H6.dos("Datos", ["ÚTILES", ["12 niños", "8 niñas", "subrayo"], cVE], ["SOBRAN", ["hace sol", "las 5", "tacho"], cRO])],
+    ],
+    "¿Cuándo restamos?": [
+      ["Problemas de comparar", `<p>En algunos problemas comparamos dos cantidades para saber <mark>cuántos más</mark> o <mark>cuántos menos</mark> hay.</p><p>«Marta tiene 34 canicas y Pablo tiene 21. ¿Cuántas canicas <b>más</b> tiene Marta?»</p><p>Aunque la pregunta dice «más», ¡hay que <b>restar</b>! Buscamos la diferencia: 34 − 21 = <b>13</b>. Marta tiene 13 canicas más que Pablo.</p><p>También al revés: «¿Cuántas canicas <b>menos</b> tiene Pablo?». La respuesta es la misma: 13 menos.</p><p>Un dibujo ayuda mucho: dos barras, una larga para Marta y otra corta para Pablo. El trozo que sobra en la barra larga es la diferencia.</p><p>Recuerda: en los problemas de comparar, siempre restamos el <b>grande menos el pequeño</b>.</p><p><b>Actividad</b>: «Un perro pesa 25 kilos y un gato 4. ¿Cuántos kilos más pesa el perro?».</p>`,
+        L6.filas("Comparar", [["Marta", "34 canicas", cAZ], ["Pablo", "21 canicas", cVE], ["diferencia", "34 − 21 = 13", cRO], ["solución", "13 más", cNA]])],
+    ],
+    "Un problema de restar": [
+      ["Problemas de dos pasos", `<p>Algunos problemas necesitan <mark>dos operaciones</mark>, una detrás de otra. Como en la lectura del mercadillo.</p><p>«En el autobús van 30 personas. En una parada <b>bajan</b> 12 y <b>suben</b> 8. ¿Cuántas personas van ahora?»</p><ul><li><b>Paso 1</b>: bajan 12, restamos. 30 − 12 = 18.</li><li><b>Paso 2</b>: suben 8, sumamos. 18 + 8 = 26.</li><li><b>Solución</b>: ahora van 26 personas.</li></ul><p>Para no perdernos, resolvemos <b>una cosa cada vez</b>, en el orden en que pasan en la historia. Y escribimos el resultado de cada paso.</p><p>Hacer un dibujo o una <b>línea de tiempo</b> con lo que ocurre primero y después también ayuda.</p><p><b>Actividad</b>: «Tenía 20 €. Gasté 7 € en un libro y mi abuela me dio 5 €. ¿Cuánto tengo?».</p>`,
+        H6.flujo("Autobús", ["30|al principio", "− 12|bajan", "+ 8|suben", "= 26|ahora"], cNA),
+        ["uGbbW1F_ASU", "www.matecitos.com: 2º Primaria: Problemas con Sumas y Restas", "Matecitos", 365813]],
+    ],
+    "Escribir la solución": [
+      ["¿Tiene sentido la solución?", `<p>Cuando terminamos un problema, hay que <mark>revisar</mark> si la solución <b>tiene sentido</b>. Hazte estas preguntas:</p><ul><li><b>¿He contestado a la pregunta?</b> Si preguntan «cuántos lápices», la respuesta debe hablar de lápices.</li><li><b>¿Es lógico el número?</b> Si una clase tiene 25 niños y faltan 3, no pueden quedar 28. ¡Tienen que ser menos!</li><li><b>¿Está cerca de mi estimación?</b> Calcula más o menos antes de hacer la cuenta.</li><li><b>¿He hecho bien la operación?</b> Haz la prueba.</li></ul><p>En la lectura, Jaime dijo 100 pulseras, pero Lucía se dio cuenta de que era imposible, porque habían vendido muchas. ¡Así descubrió el error!</p><p>Revisar no es perder el tiempo: es la mejor forma de no equivocarse.</p><p><b>Actividad</b>: revisa esta solución: «Tenía 40 cromos y perdí 15. Me quedan 55 cromos». ¿Tiene sentido?</p>`,
+        H6.rueda("¿Tiene sentido?", "REVISAR", [["la pregunta", cAZ], ["lógico", cVE], ["estimar", cNA], ["prueba", cRO]])],
+    ],
+  },
+  final: [
+    ["Problemas de dinero", `<p>Los problemas de <mark>dinero</mark> son de los más útiles. Usamos sumas para saber cuánto cuesta todo, y restas para saber cuánto nos queda o cuánto nos devuelven.</p><p>«En la feria, Álex compra un algodón de azúcar de 3 € y una entrada a los coches de choque de 4 €. Paga con un billete de 10 €. ¿Cuánto le devuelven?»</p><ul><li><b>Paso 1</b>: ¿cuánto gasta? 3 + 4 = 7 €.</li><li><b>Paso 2</b>: ¿cuánto le devuelven? 10 − 7 = 3 €.</li><li><b>Solución</b>: le devuelven 3 €.</li></ul><p>También podemos preguntarnos si nos llega el dinero: si tengo 15 € y quiero algo de 18 €, me faltan 18 − 15 = 3 €.</p><p>¡No olvides poner el símbolo <b>€</b> en la solución!</p><p><b>Actividad</b>: con dinero de juguete, representad el problema de la feria en parejas.</p>`,
+      L6.filas("Feria", [["algodón", "3 €", cRO], ["coches", "4 €", cAZ], ["gasto", "3 + 4 = 7 €", cVE], ["vuelta", "10 − 7 = 3 €", cNA]])],
+    ["Repaso: el detective de problemas", `<p>Ahora eres un <mark>detective de problemas</mark>. Sigue tu plan para resolver este caso:</p><p>«En la biblioteca hay 85 libros de cuentos y 40 de animales. Los niños se llevan prestados 32 libros de cuentos. ¿Cuántos libros de cuentos quedan?»</p><ul><li><b>Lee</b> dos veces con calma.</li><li><b>Pregunta</b>: ¿cuántos libros de <b>cuentos</b> quedan?</li><li><b>Datos útiles</b>: 85 y 32. El 40 <b>sobra</b>, porque son de animales.</li><li><b>Operación</b>: se llevan libros, quedan menos. Restamos: 85 − 32 = 53.</li><li><b>Solución</b>: quedan 53 libros de cuentos.</li><li><b>Revisa</b>: 53 + 32 = 85. ¡Correcto! Y 53 es menor que 85: tiene sentido.</li></ul><p>¡Caso resuelto, detective!</p><p><b>Actividad</b>: inventa un caso de detective con un dato que sobre y pásaselo a un compañero.</p>`,
+      H6.flujo("Detective", ["leer|2 veces", "datos|útiles", "operar|85 − 32", "revisar|53 ✓"], cMO)],
+  ],
+  ejemplos: [
+    ["«Tengo 18 globos rojos y 7 azules. Tengo 8 años.» ¿Cuántos globos tengo?", ["El dato «8 años» sobra.", "18 + 7 = 25."], "Tengo 25 globos."],
+    ["«Había 40 peces, se van 15 y llegan 10.» ¿Cuántos hay?", ["Paso 1: 40 − 15 = 25.", "Paso 2: 25 + 10 = 35."], "Hay 35 peces."],
+  ],
+  errores: ["Usar todos los números que aparecen, aunque algunos sobren.", "Sumar cuando la pregunta dice «cuántos más», aunque se trate de comparar y haya que restar."],
+  ejercicios: [
+    ["b", "«Hay 15 patos y 9 se van volando.» ¿Cuántos quedan?", "6 patos."],
+    ["b", "«Lucas tiene 7 años y 12 coches.» ¿Qué dato sobra si preguntan por los coches?", "Los 7 años."],
+    ["b", "Juan tiene 20 cromos y Eva 14. ¿Cuántos más tiene Juan?", "6 más."],
+    ["b", "Compro algo de 5 € y pago con 10 €. ¿Cuánto me devuelven?", "5 €."],
+    ["b", "Si había 25 niños y se van 3, ¿pueden quedar 28?", "No, tienen que ser menos: 22."],
+    ["m", "Un tren lleva 48 personas. Bajan 15 y suben 20. ¿Cuántas van?", "53."],
+    ["m", "Una cuerda mide 75 cm y otra 50 cm. ¿Cuánto más mide la primera?", "25 cm."],
+    ["m", "Compro un zumo de 2 € y un bocadillo de 4 €. Pago con 10 €. ¿Cuánto me devuelven?", "4 €."],
+    ["m", "En un árbol hay 34 pájaros. Llegan 12 y se van 20. ¿Cuántos hay?", "26."],
+    ["m", "Revisa: «Tenía 50 € y gasté 20 €. Me quedan 70 €». ¿Está bien?", "No; quedan 30 €."],
+    ["a", "En la lectura, ¿qué error cometió Jaime y cómo lo descubrieron?", "Sumó todo; Lucía vio que vendiendo debían tener menos. Eran 50."],
+    ["a", "Inventa un problema de dos pasos con el dinero de tu hucha.", "Respuesta abierta."],
+    ["a", "Inventa un problema de comparar con la altura de dos personas.", "Respuesta abierta."],
+    ["a", "Hay 100 sillas. Se ocupan 45 y luego se van 10 personas. ¿Cuántas sillas libres hay?", "65."],
+  ],
+  quiz: [
+    ["En un problema, un dato que no se usa…", ["sobra", "se suma siempre", "es la pregunta"], "Datos."],
+    ["«¿Cuántas más tiene Marta?» se resuelve…", ["restando", "sumando todo", "multiplicando"], "Comparar."],
+    ["30 personas, bajan 12 y suben 8: van…", ["26", "50", "10"], "Dos pasos."],
+    ["Si faltan niños, deben quedar…", ["menos", "más", "los mismos"], "Sentido."],
+    ["Gasto 7 € y pago con 10 €: me devuelven…", ["3 €", "17 €", "7 €"], "Dinero."],
+  ],
+  examen: [
+    ["En la lectura, ¿cuántas pulseras tienen después del recreo?", ["50", "100", "35"], "Lectura."],
+    ["En el caso del detective, ¿qué dato sobra?", ["40", "85", "32"], "Detective."],
+  ],
+  tarjetas: [
+    ["Dos pasos", "Una cosa cada vez, en el orden en que pasa."],
+    ["Revisar", "¿Contesta la pregunta? ¿Es lógico? ¿Hice la prueba?"],
+  ],
+  glosario: [
+    ["Problema", "Historia con números y una pregunta."],
+    ["Dato", "Número o información útil del problema."],
+    ["Dato que sobra", "Información que no hace falta."],
+    ["Pregunta", "Lo que hay que averiguar."],
+    ["Operación", "Cuenta que hacemos: suma o resta."],
+    ["Solución", "Frase que contesta la pregunta."],
+    ["Comparar", "Ver cuánto más o menos hay."],
+    ["Diferencia", "Lo que hay de más en una cantidad."],
+    ["Revisar", "Comprobar que todo está bien."],
+    ["Solidario", "Que ayuda a otros."],
+  ],
+  situacion: {
+    titulo: "Nuestro mercadillo solidario",
+    reto: "La clase prepara un mercadillo solidario y resuelve los problemas de cuentas que van surgiendo durante la venta.",
+    pasos: ["Fabricar objetos para vender y ponerles precio.", "Apuntar cuántos hay, cuántos se venden y cuántos se añaden.", "Resolver problemas de dos pasos y de dar la vuelta.", "Revisar cada solución y explicar si tiene sentido."],
+    producto: "Un mercadillo con una libreta de cuentas y problemas resueltos.",
+    evaluacion: ["Distingue los datos útiles de los que sobran.", "Resuelve problemas de comparar.", "Resuelve problemas de dos pasos.", "Revisa si la solución tiene sentido."],
+  },
+});

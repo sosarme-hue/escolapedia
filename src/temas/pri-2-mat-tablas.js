@@ -105,3 +105,93 @@ module.exports = P.tema({
   saberes: "Sentido numérico: construcción y memorización progresiva de las tablas de multiplicar del 2, 3, 4, 5 y 10; conteos de 2 en 2, de 5 en 5 y de 10 en 10",
   ideas: ["Construir cada tabla con saltos en la recta numérica antes de memorizarla.", "Tablero del 100 para descubrir regularidades de las tablas.", "Canciones y juegos de cartas para la memorización."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer las tablas del 1 y del 0", "Descubrir la tabla del 6 a partir de la del 3", "Leer la tabla pitagórica", "Encontrar patrones en las tablas"],
+  lectura: { titulo: "La canción del autobús", html: `<p>Cada mañana, la ruta del autobús escolar tarda veinte minutos en llegar al colegio. Para no aburrirse, Iris y su amigo Samuel cantan las tablas.</p><p>—Dos por uno, dos; dos por dos, cuatro; dos por tres, seis… —cantan con la música de una canción de la radio.</p><p>El conductor, Paco, los escucha por el espejo y se ríe.</p><p>—¿Y la del cinco? —les pregunta.</p><p>—¡Esa es facilísima! Termina siempre en cinco o en cero, como el reloj.</p><p>Un día, Paco les pone un reto:</p><p>—Si hay 3 filas de 4 asientos libres, ¿cuántos niños más pueden subir?</p><p>Iris piensa: tres por cuatro… «Tres veces cuatro, cuatro, ocho, doce».</p><p>—¡Doce!</p><p>—Muy bien. Y cuando bajéis, contad cuántas ruedas tiene el autobús.</p><p>Desde ese día, en el autobús de la ruta 5, todos los niños cantan las tablas.</p>` },
+  tras: {
+    "¿Qué es una tabla?": [
+      ["Las tablas del 1 y del 0", `<p>Hay dos tablas muy especiales y muy fáciles.</p><p><mark>La tabla del 1</mark>: cuando multiplicamos por 1, el número <b>no cambia</b>. 1 × 7 = 7; 1 × 9 = 9; 6 × 1 = 6. Es como tener <b>un solo grupo</b>: si tienes una caja con 7 lápices, tienes 7 lápices.</p><p><mark>La tabla del 0</mark>: cuando multiplicamos por 0, el resultado es siempre <b>0</b>. 0 × 5 = 0; 8 × 0 = 0. Es como tener cajas <b>vacías</b>: aunque tengas 8 cajas, si no hay nada dentro, tienes 0 cosas.</p><p>Estas dos reglas sirven para todos los números, ¡incluso para los muy grandes! 1 × 500 = 500 y 0 × 500 = 0.</p><p>No las confundas: multiplicar por 1 deja el número igual; multiplicar por 0 lo convierte en 0.</p><p><b>Actividad</b>: escribe cinco multiplicaciones por 1 y cinco por 0 con números grandes.</p>`,
+        H6.dos("Especiales", ["× 1", ["no cambia", "1 × 7 = 7", "un grupo"], cAZ], ["× 0", ["siempre 0", "8 × 0 = 0", "cajas vacías"], cRO])],
+    ],
+    "La tabla del 4: el doble del doble": [
+      ["La tabla del 6: el doble del 3", `<p>La <mark>tabla del 6</mark> parece difícil, pero tiene un truco: cada resultado es el <b>doble</b> de la tabla del 3.</p><ul><li>3 × 2 = 6 → 6 × 2 = <b>12</b>.</li><li>3 × 3 = 9 → 6 × 3 = <b>18</b>.</li><li>3 × 4 = 12 → 6 × 4 = <b>24</b>.</li><li>3 × 5 = 15 → 6 × 5 = <b>30</b>.</li></ul><p>Contamos de 6 en 6: <b>6, 12, 18, 24, 30, 36, 42, 48, 54, 60</b>.</p><p>Fíjate: todos los resultados de la tabla del 6 son <b>pares</b>.</p><p>Piensa en una caja de huevos de media docena: tiene 6 huevos. Con 4 cajas, tienes 4 × 6 = 24 huevos. Y un insecto tiene 6 patas: 3 hormigas tienen 3 × 6 = 18 patas.</p><p><b>Actividad</b>: escribe la tabla del 3 y, al lado, dobla cada resultado para obtener la del 6.</p>`,
+        L6.filas("3 → 6", [["3 × 2 = 6", "6 × 2 = 12", cAZ], ["3 × 3 = 9", "6 × 3 = 18", cVE], ["3 × 4 = 12", "6 × 4 = 24", cNA], ["3 × 5 = 15", "6 × 5 = 30", cRO]])],
+    ],
+    "Trucos para recordar": [
+      ["Patrones en las tablas", `<p>Las tablas esconden <mark>patrones</mark>: cosas que se repiten siempre igual. Encontrarlos ayuda a recordar.</p><ul><li><b>Tabla del 2</b>: todos los resultados son <b>pares</b> y terminan en 0, 2, 4, 6, 8, 0, 2…</li><li><b>Tabla del 5</b>: terminan en <b>5 y 0</b>, uno sí y otro no.</li><li><b>Tabla del 10</b>: terminan siempre en <b>0</b>.</li><li><b>Tabla del 4</b>: las últimas cifras se repiten: 4, 8, 2, 6, 0, 4, 8, 2, 6, 0.</li><li><b>Tabla del 3</b>: los resultados son par, impar, par, impar… 3, 6, 9, 12, 15…</li></ul><p>Si pintamos en un tablero del 1 al 100 los números de una tabla, aparecen <b>dibujos</b>: la del 5 y la del 10 forman columnas, y la del 3 forma líneas inclinadas.</p><p><b>Actividad</b>: pinta en un tablero los resultados de la tabla del 4 y describe el dibujo que sale.</p>`,
+        H6.rueda("Patrones", "TABLAS", [["×2 pares", cAZ], ["×5: 5 y 0", cVE], ["×10: 0", cNA], ["×4: 4826", cRO]]),
+        ["Sumvx-bjTYM", "Tablas de Multiplicar para Niños - Aprende Jugando con Canciones Infantiles - Canti Rondas", "Canti Rondas", 6755806]],
+    ],
+    "¿Para qué sirve?": [
+      ["La tabla pitagórica", `<p>La <mark>tabla pitagórica</mark> es un cuadro con <b>todas las tablas juntas</b>. Se llama así por Pitágoras, un sabio de la antigua Grecia.</p><p>Arriba hay una fila con los números del 1 al 10. A la izquierda, una columna con los mismos números. Para buscar un resultado:</p><ul><li>Busca el primer número en la <b>columna</b> de la izquierda.</li><li>Busca el segundo número en la <b>fila</b> de arriba.</li><li>Sigue con el dedo hacia la derecha y hacia abajo hasta que se crucen. ¡Ahí está el resultado!</li></ul><p>Para 3 × 4: fila del 3, columna del 4. Se cruzan en el <b>12</b>.</p><p>Si miras bien, el 12 aparece también en la fila del 4 y la columna del 3. ¡Porque 3 × 4 = 4 × 3!</p><p><b>Actividad</b>: construye tu tabla pitagórica hasta el 5 en una cuadrícula y cuélgala en tu cuarto.</p>`,
+        H6.flujo("3 × 4", ["fila|del 3", "columna|del 4", "se cruzan|aquí", "= 12|¡listo!"], cMO)],
+    ],
+  },
+  final: [
+    ["Las tablas en la vida", `<p>Usamos las tablas mucho más de lo que creemos:</p><ul><li><b>En la tienda</b>: 3 helados de 2 € cuestan 3 × 2 = <b>6 €</b>.</li><li><b>En el reloj</b>: cada número del reloj son 5 minutos. Si la aguja larga está en el 4, han pasado 4 × 5 = <b>20 minutos</b>.</li><li><b>En los deportes</b>: en baloncesto, cada canasta de lejos vale 3 puntos. 4 canastas son 4 × 3 = <b>12 puntos</b>.</li><li><b>En la cocina</b>: si una receta lleva 2 huevos y queremos hacer el triple, necesitamos 3 × 2 = <b>6 huevos</b>.</li><li><b>Con el calendario</b>: una semana tiene 7 días. Dos semanas son 2 × 7 = <b>14 días</b>.</li></ul><p>Cuando sabes las tablas de memoria, haces todas estas cuentas en un momento, sin papel.</p><p><b>Actividad</b>: busca en casa tres situaciones en las que usarías una tabla de multiplicar.</p>`,
+      L6.filas("En la vida", [["tienda", "3 × 2 € = 6 €", cAZ], ["reloj", "4 × 5 = 20 min", cVE], ["baloncesto", "4 × 3 = 12", cRO], ["semanas", "2 × 7 = 14 días", cNA]])],
+    ["Repaso: el bingo de las tablas", `<p>¡Vamos a jugar al <mark>bingo de las tablas</mark>!</p><ul><li><b>1.</b> Cada jugador dibuja un cartón con 9 casillas y escribe en ellas resultados de las tablas del 2, 3, 4, 5 y 10: por ejemplo, 8, 15, 12, 20, 6…</li><li><b>2.</b> El maestro saca una tarjeta con una multiplicación, como <b>4 × 5</b>, y la lee en voz alta.</li><li><b>3.</b> Quien tenga el resultado (<b>20</b>) en su cartón lo tacha.</li><li><b>4.</b> ¡El primero que tache una línea grita «línea»! Y el primero que tache todo el cartón grita «¡bingo!».</li></ul><p>Truco: un mismo resultado puede salir de varias multiplicaciones. El 12 sale de 3 × 4, 4 × 3, 2 × 6 y 6 × 2. ¡Atento!</p><p>Repetir las tablas jugando, cantando o en el autobús, como en la lectura, es la mejor manera de aprenderlas.</p><p><b>Actividad</b>: jugad al bingo de las tablas en clase.</p>`,
+      H6.flujo("Bingo", ["cartón|9 números", "sale|4 × 5", "tacho|el 20", "¡bingo!|gano"], cNA)],
+  ],
+  ejemplos: [
+    ["¿Cuánto es 6 × 4 usando la tabla del 3?", ["3 × 4 = 12.", "El doble de 12 es 24."], "24."],
+    ["¿Cuánto es 9 × 0?", ["Multiplicar por 0 siempre da 0.", "Son 9 cajas vacías."], "0."],
+  ],
+  errores: ["Pensar que multiplicar por 0 deja el número igual: da siempre 0.", "Confundir multiplicar por 1 (no cambia) con sumar 1."],
+  ejercicios: [
+    ["b", "¿Cuánto es 1 × 8?", "8."],
+    ["b", "¿Cuánto es 7 × 0?", "0."],
+    ["b", "Cuenta de 6 en 6 hasta el 30.", "6, 12, 18, 24, 30."],
+    ["b", "¿En qué terminan los resultados de la tabla del 5?", "En 5 o en 0."],
+    ["b", "¿Cuántos minutos marca la aguja larga en el 6?", "30 minutos."],
+    ["m", "Calcula 6 × 3 doblando la tabla del 3.", "3 × 3 = 9; doble 18."],
+    ["m", "Escribe tres multiplicaciones que den 20.", "4 × 5, 5 × 4, 2 × 10, 10 × 2."],
+    ["m", "¿Cuántos días son 3 semanas?", "21."],
+    ["m", "3 entradas de cine cuestan 5 € cada una. ¿Cuánto pagamos?", "15 €."],
+    ["m", "¿Qué cifras finales se repiten en la tabla del 4?", "4, 8, 2, 6, 0."],
+    ["a", "En la lectura, ¿cuántos niños pueden subir si hay 3 filas de 4 asientos?", "12."],
+    ["a", "¿Por qué todos los resultados de la tabla del 6 son pares?", "Porque son el doble de la tabla del 3."],
+    ["a", "Busca en la tabla pitagórica dónde aparece el 12.", "3 × 4, 4 × 3, 2 × 6, 6 × 2 (y 1 × 12 si llega)."],
+    ["a", "Inventa un problema de la vida diaria con la tabla del 5.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["1 × 9 es…", ["9", "10", "1"], "Tabla del 1."],
+    ["6 × 5 es…", ["30", "11", "25"], "Tabla del 6."],
+    ["Los resultados de la tabla del 10 terminan en…", ["0", "5", "1"], "Patrones."],
+    ["En la tabla pitagórica, fila 3 y columna 4 se cruzan en…", ["12", "7", "34"], "Pitagórica."],
+    ["Cuatro canastas de 3 puntos son…", ["12 puntos", "7 puntos", "43 puntos"], "Vida."],
+  ],
+  examen: [
+    ["En la lectura, ¿dónde cantan las tablas?", ["en el autobús", "en el comedor", "en el parque"], "Lectura."],
+    ["5 × 0 es…", ["0", "5", "50"], "Tabla del 0."],
+  ],
+  tarjetas: [
+    ["× 1 y × 0", "Por 1 no cambia; por 0 da 0."],
+    ["Tabla del 6", "El doble de la tabla del 3."],
+  ],
+  glosario: [
+    ["Tabla de multiplicar", "Lista de un número multiplicado por 1, 2, 3… hasta 10."],
+    ["Doble", "Dos veces un número."],
+    ["Patrón", "Algo que se repite siempre igual."],
+    ["Tabla pitagórica", "Cuadro con todas las tablas juntas."],
+    ["Fila", "Línea de casillas de izquierda a derecha."],
+    ["Columna", "Línea de casillas de arriba abajo."],
+    ["Media docena", "Seis cosas."],
+    ["Docena", "Doce cosas."],
+    ["Memorizar", "Aprender algo de memoria."],
+    ["Pitágoras", "Sabio de la antigua Grecia."],
+  ],
+  situacion: {
+    titulo: "El concurso de las tablas",
+    reto: "La clase organiza un concurso para aprender las tablas jugando, con canciones, bingo y una tabla pitagórica gigante.",
+    pasos: ["Construir en el suelo o en la pared una tabla pitagórica gigante.", "Inventar una canción para una tabla y cantarla en grupo.", "Jugar al bingo de las tablas.", "Resolver problemas de la vida diaria usando las tablas."],
+    producto: "Una tabla pitagórica gigante y una canción de las tablas.",
+    evaluacion: ["Conoce las tablas del 0, 1, 2, 3, 4, 5, 6 y 10.", "Usa patrones y dobles para recordar.", "Lee la tabla pitagórica.", "Aplica las tablas en problemas."],
+  },
+});

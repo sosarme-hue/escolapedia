@@ -101,3 +101,93 @@ module.exports = P.tema({
   saberes: "Sentido numérico: resta de números naturales con llevadas; relación entre suma y resta; estrategias de comprobación",
   ideas: ["Material multibase para representar el canje de una decena por diez unidades.", "Acordar en el ciclo un único algoritmo (pedir prestado o llevar) y mantenerlo.", "Problemas de cambio, comparación y complemento con situaciones del aula."],
 });
+
+// ---------- Nivel libro (2º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  limites: { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] },
+  minutos: 70,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Restar con ceros", "Relacionar la suma y la resta", "Estimar y restar de cabeza", "Calcular cuánto falta y la diferencia"],
+  lectura: { titulo: "Las páginas de Mateo", html: `<p>Mateo se ha apuntado al reto de lectura de la biblioteca. Tiene que leer un libro de aventuras de 82 páginas antes del viernes.</p><p>El lunes lee un montón: ¡hasta la página 37!</p><p>—¿Cuántas me faltan? —pregunta a su hermana mayor, Alba.</p><p>—Resta: 82 menos 37.</p><p>Mateo lo escribe en columna. Dos menos siete… ¡no se puede!</p><p>—Pide ayuda a las decenas —le dice Alba—. Rompe una y tendrás doce unidades.</p><p>Doce menos siete, cinco. Y como ha usado una decena, se lleva una. Ocho menos tres menos una… cuatro. ¡Cuarenta y cinco!</p><p>—Me faltan 45 páginas. Si leo 15 cada día, termino el jueves.</p><p>—¿Y cómo sabes que la resta está bien?</p><p>Mateo suma 45 más 37. ¡Da 82! Sonríe y vuelve a abrir el libro por la página 38.</p>` },
+  tras: {
+    "Paso a paso: 42 − 17": [
+      ["Restar con ceros", `<p>Las restas con <mark>ceros</mark> en el número de arriba parecen difíciles, pero se hacen igual.</p><p>Mira <b>60 − 24</b>:</p><ul><li><b>Unidades</b>: 0 − 4 no se puede. Pedimos una decena: 10 − 4 = <b>6</b>. Nos llevamos 1.</li><li><b>Decenas</b>: 6 − 2 − 1 = <b>3</b>.</li></ul><p>El resultado es <b>36</b>.</p><p>Otro ejemplo: <b>100 − 45</b>. Aquí hay dos ceros. Pensamos en el 100 como 10 decenas: 100 − 45 = <b>55</b>. Lo comprobamos: 55 + 45 = 100.</p><p>Un truco para restar a 100: busca lo que le falta al número para llegar a 100. A 45 le faltan 5 para el 50, y 50 para el 100: 5 + 50 = 55.</p><p><b>Actividad</b>: resta 80 − 37 y 100 − 62.</p>`,
+        L6.filas("60 − 24", [["U", "0 − 4 no se puede", cRO], ["pido", "10 − 4 = 6", cAZ], ["D", "6 − 2 − 1 = 3", cVE], ["total", "36", cNA]]),
+        ["L6NOkLq6kHk", "COMO HACER UNA RESTA Super Facil  - RESTA para principiantes", "Daniel Carreón", 1925965]],
+    ],
+    "La prueba de la resta": [
+      ["La suma y la resta son familia", `<p>La <mark>suma</mark> y la <mark>resta</mark> son operaciones contrarias: una deshace lo que hace la otra.</p><p>Con tres números podemos hacer una <b>familia</b> de cuentas. Con 8, 5 y 13:</p><ul><li>8 + 5 = 13</li><li>5 + 8 = 13</li><li>13 − 5 = 8</li><li>13 − 8 = 5</li></ul><p>Si sabes una, ¡sabes las cuatro!</p><p>Esto sirve para buscar números escondidos. Si <b>__ + 7 = 15</b>, hacemos la resta: 15 − 7 = <b>8</b>.</p><p>Y también para la prueba de la resta, que ya conoces: el resultado más lo que quitamos da el número de arriba.</p><p><b>Actividad</b>: escribe la familia de cuentas de 9, 6 y 15.</p>`,
+        H6.rueda("Familia", "8 · 5 · 13", [["8 + 5", cAZ], ["5 + 8", cVE], ["13 − 5", cRO], ["13 − 8", cNA]])],
+    ],
+    "¿Para qué sirve?": [
+      ["Cuánto falta y cuánto más", `<p>Restamos para muchas cosas, no solo para «quitar».</p><ul><li><b>Cuánto queda</b>: tenía 50 cromos y regalé 18. Me quedan 50 − 18 = <b>32</b>.</li><li><b>Cuánto falta</b>: quiero ahorrar 40 € y tengo 26 €. Me faltan 40 − 26 = <b>14 €</b>.</li><li><b>Cuánto más</b> (la <mark>diferencia</mark>): Ana mide 132 cm y Luis 119 cm. Ana mide 132 − 119 = <b>13 cm</b> más.</li></ul><p>En los tres casos hacemos una resta, aunque la pregunta sea distinta.</p><p>Para la diferencia, siempre restamos el número <b>grande</b> menos el <b>pequeño</b>.</p><p><b>Actividad</b>: tu hermano tiene 12 años y tú, 7. ¿Cuántos años más tiene él?</p>`,
+        L6.filas("Restamos para…", [["queda", "50 − 18 = 32", cAZ], ["falta", "40 − 26 = 14", cVE], ["diferencia", "132 − 119 = 13", cRO], ["siempre", "grande − pequeño", cNA]])],
+    ],
+    "Restar con centenas": [
+      ["Restar de cabeza", `<p>Algunas restas se pueden hacer <mark>de cabeza</mark>, sin escribir.</p><ul><li><b>Restar 10</b>: solo baja la cifra de las decenas. 74 − 10 = 64.</li><li><b>Restar 9</b>: resta 10 y suma 1. 52 − 9: 52 − 10 = 42, más 1, <b>43</b>.</li><li><b>Restar decenas</b>: 85 − 30 = 55. Las unidades no cambian.</li><li><b>Contar hacia delante</b>: para 63 − 58, cuenta desde 58 hasta 63: 59, 60, 61, 62, 63. Son <b>5</b>.</li></ul><p>Contar hacia delante va muy bien cuando los dos números están <b>cerca</b>.</p><p>Antes de restar en columna, piensa: ¿puedo hacerlo de cabeza? Muchas veces es más rápido. Y si te equivocas, no pasa nada: con la práctica cada día te saldrá mejor.</p><p><b>Actividad</b>: resta de cabeza: 96 − 10, 47 − 9, 70 − 40, 102 − 98.</p>`,
+        H6.flujo("52 − 9", ["52 − 10|resto 10", "= 42|me pasé 1", "42 + 1|sumo 1", "= 43|¡listo!"], cMO)],
+    ],
+  },
+  final: [
+    ["Estimar una resta", `<p>Igual que con la suma, podemos <mark>estimar</mark> el resultado de una resta redondeando los números a la decena.</p><p><b>82 − 37</b> → 80 − 40 = <b>40</b>. El resultado exacto es <b>45</b>. ¡Está cerca!</p><p>Si al hacer 82 − 37 nos sale 55 o 119, sabremos que algo está mal.</p><p>Un error muy común es restar siempre la cifra pequeña menos la grande en cada columna. En 82 − 37, quien hace «7 − 2 = 5» en las unidades obtiene 55, que está lejos de 40. Por eso conviene estimar primero.</p><p>Estimar también sirve para decidir rápido: si tienes 50 € y quieres comprar algo de 38 €, sabes que te sobrarán más o menos 10 €.</p><p><b>Actividad</b>: estima y después calcula: 71 − 28; 93 − 46.</p>`,
+      H6.dos("82 − 37", ["ESTIMO", ["80 − 40", "≈ 40"], cNA], ["CALCULO", ["82 − 37", "= 45 ✓"], cVE])],
+    ["Repaso: la carrera de restas", `<p>Repasamos con una <mark>carrera</mark>: cada resta correcta te hace avanzar una casilla.</p><ul><li><b>Casilla 1</b>: 54 − 28 = 26.</li><li><b>Casilla 2</b>: 70 − 35 = 35.</li><li><b>Casilla 3</b>: 300 − 120 = 180.</li><li><b>Casilla 4</b>: de cabeza, 65 − 9 = 56.</li><li><b>Casilla 5</b>: falta un número: __ + 18 = 40. Es el <b>22</b>.</li><li><b>Casilla 6</b>: problema. Un tren lleva 145 personas y bajan 62. ¿Cuántas quedan? 145 − 62 = <b>83</b>.</li></ul><p>Recuerda los pasos: el grande arriba, unidades con unidades, pedir una decena si arriba hay menos, llevarse 1 y hacer la prueba.</p><p><b>Actividad</b>: haz la carrera con un compañero y comprobad cada resta con una suma.</p>`,
+      L6.filas("Carrera", [["1", "54 − 28 = 26", cAZ], ["2", "70 − 35 = 35", cVE], ["3", "300 − 120 = 180", cNA], ["6", "145 − 62 = 83", cRO]])],
+  ],
+  ejemplos: [
+    ["Resta 50 − 17.", ["Unidades: 0 − 7 no se puede; 10 − 7 = 3. Me llevo 1.", "Decenas: 5 − 1 − 1 = 3."], "33."],
+    ["Si __ + 9 = 21, ¿qué número falta?", ["Usamos la resta: 21 − 9.", "21 − 9 = 12."], "12."],
+  ],
+  errores: ["Restar en cada columna la cifra pequeña menos la grande, aunque la pequeña esté arriba.", "Olvidar el 1 que nos llevamos al restar las decenas."],
+  ejercicios: [
+    ["b", "Resta: 40 − 16.", "24."],
+    ["b", "Resta de cabeza: 87 − 10.", "77."],
+    ["b", "Escribe la familia de 4, 7 y 11.", "4 + 7 = 11; 7 + 4 = 11; 11 − 7 = 4; 11 − 4 = 7."],
+    ["b", "Tenía 30 € y gasté 12 €. ¿Cuánto me queda?", "18 €."],
+    ["b", "Estima 59 − 21.", "Unos 40."],
+    ["m", "Resta: 100 − 37.", "63."],
+    ["m", "Resta de cabeza: 64 − 9.", "55."],
+    ["m", "¿Qué número falta? __ + 26 = 50.", "24."],
+    ["m", "Un árbol mide 245 cm y otro 180 cm. ¿Cuánto más mide el primero?", "65 cm."],
+    ["m", "Calcula 403 − 158.", "245."],
+    ["a", "En la lectura, ¿cuántas páginas le faltan a Mateo y cómo lo comprueba?", "45; sumando 45 + 37 = 82."],
+    ["a", "Una niña restó 72 − 48 y le salió 36. ¿Qué error cometió?", "Hizo 8 − 2 en las unidades; lo correcto es 24."],
+    ["a", "Cuenta hacia delante para resolver 202 − 195.", "7."],
+    ["a", "Inventa un problema de «cuánto falta» y resuélvelo.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["60 − 24 es…", ["36", "44", "46"], "Ceros."],
+    ["Si 8 + 5 = 13, entonces 13 − 5 es…", ["8", "5", "18"], "Familia."],
+    ["La diferencia entre 132 y 119 es…", ["13", "23", "251"], "Diferencia."],
+    ["52 − 9 de cabeza es…", ["43", "41", "61"], "Cabeza."],
+    ["82 − 37 se estima como…", ["80 − 40", "90 − 30", "82 − 30"], "Estimar."],
+  ],
+  examen: [
+    ["En la lectura, ¿cuántas páginas tiene el libro de Mateo?", ["82", "37", "45"], "Lectura."],
+    ["145 − 62 es…", ["83", "93", "207"], "Carrera."],
+  ],
+  tarjetas: [
+    ["Familia de cuentas", "Con 8, 5 y 13: dos sumas y dos restas."],
+    ["Restar 9", "Resta 10 y suma 1."],
+  ],
+  glosario: [
+    ["Minuendo", "Número de arriba en una resta."],
+    ["Sustraendo", "Número que se quita."],
+    ["Diferencia", "Resultado de una resta."],
+    ["Llevar", "Sumar 1 a la columna siguiente al restar."],
+    ["Pedir prestado", "Romper una decena en 10 unidades."],
+    ["Prueba", "Suma para comprobar la resta."],
+    ["Familia de cuentas", "Sumas y restas hechas con los mismos tres números."],
+    ["Estimar", "Calcular más o menos un resultado."],
+    ["Contar hacia delante", "Contar desde el número pequeño hasta el grande."],
+    ["Reto", "Desafío que hay que conseguir."],
+  ],
+  situacion: {
+    titulo: "El reto de lectura",
+    reto: "La clase organiza un reto de lectura y cada alumno calcula cuántas páginas le faltan cada día para terminar su libro.",
+    pasos: ["Elegir un libro y apuntar su número de páginas.", "Cada día, restar las páginas leídas para saber cuántas faltan.", "Comprobar cada resta con una suma.", "Comparar con un compañero quién lleva más y calcular la diferencia."],
+    producto: "Una tabla de lectura con las restas de cada día.",
+    evaluacion: ["Resta llevando con números de dos y tres cifras.", "Comprueba las restas con la suma.", "Resuelve problemas de quedar, faltar y diferencia.", "Estima antes de calcular."],
+  },
+});
