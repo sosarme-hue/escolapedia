@@ -88,3 +88,92 @@ module.exports = P.tema({
   saberes: "Educación literaria: el texto literario; los géneros narrativo, lírico y dramático; cuento, novela, leyenda, fábula y mito; verso, estrofa, medida y rima; recursos literarios básicos; el texto teatral y su representación",
   ideas: ["Recital de poemas escritos por el alumnado con medida de versos.", "Teatro leído por grupos con escenas breves inventadas.", "Mural de géneros literarios con portadas de libros de la biblioteca del aula."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 85,
+  objetivos: ["Conocer el romance y la literatura de tradición oral", "Reconocer más recursos literarios y cómo se pone en escena una obra", "Conocer autores importantes y recomendar libros"],
+  lectura: { titulo: "El juglar del mercado", html: `<p>Hace muchos siglos, cuando casi nadie sabía leer, los días de mercado llegaba a la plaza del pueblo un personaje muy esperado: el <b>juglar</b>.</p><p>Se subía a un cajón de madera, afinaba su vihuela y, cuando la gente se arremolinaba a su alrededor, empezaba a recitar historias de caballeros, batallas y amores imposibles. Lo hacía en verso, con un ritmo pegadizo que todos podían seguir:</p><p><i>«¡Quién hubiera tal ventura<br>sobre las aguas del mar<br>como hubo el conde Arnaldos<br>la mañana de San Juan!»</i></p><p>Los niños se sentaban en primera fila con la boca abierta. Los mayores repetían los versos más bonitos y, al volver a casa, se los contaban a quienes no habían podido ir. Así, de boca en boca, las historias viajaban de pueblo en pueblo y de abuelos a nietos.</p><p>Muchas de aquellas historias se han conservado hasta hoy, aunque nadie recuerda quién las inventó. Son parte de la <b>literatura popular</b>, un tesoro que pertenece a todos.</p><p>En este tema descubrirás esos versos antiguos y muchas otras formas de la <b>literatura</b>.</p>` },
+  tras: {
+    "La lírica: verso y estrofa": [
+      ["El romance", `<p>El <b>romance</b> es una de las formas poéticas más famosas de la literatura española. Nació en la <b>Edad Media</b>, hacia el siglo XIV, y lo difundían los <b>juglares</b>, que lo recitaban o cantaban en plazas, castillos y mercados.</p><p>Sus características son:</p><ul><li>Tiene un número <b>indefinido</b> de versos: puede ser corto o muy largo.</li><li>Los versos son <b>octosílabos</b> (de ocho sílabas).</li><li>Riman en <b>asonante</b> los versos <b>pares</b> (solo coinciden las vocales a partir de la última sílaba tónica), y los impares quedan <b>sueltos</b>, sin rima.</li><li>Suele <b>contar una historia</b>: hazañas de caballeros, leyendas, amores, sucesos misteriosos. Por eso mezcla la lírica con la narrativa.</li><li>Muchas veces empieza de golpe y termina de forma <b>abierta</b>, dejando al oyente con ganas de saber más.</li></ul><p>En el fragmento del conde Arnaldos de la lectura, los versos pares terminan en <i>mar</i> y <i>Juan</i>: las dos palabras tienen la vocal <b>a</b> tónica. Es una rima asonante en <b>a</b>.</p><p>Los romances más antiguos son <b>anónimos</b> y forman el <i>Romancero viejo</i>. Siglos después, poetas como Federico García Lorca escribieron nuevos romances, como los de su <i>Romancero gitano</i>.</p>`,
+        L.filas("El romance", [["Origen", "Edad Media · juglares", AZ], ["Versos", "octosílabos (8 sílabas)", VE], ["Rima", "asonante en los pares", RO], ["Contenido", "cuenta una historia", NA]]), ["Qx_WnMetRyQ", "ROMANCE DE LA LUNA. FEDERICO GARCIA LORCA. Por Joan Mora", "joanmoralocutor", 328331]],
+    ],
+    "El lenguaje de la poesía": [
+      ["Más recursos literarios", `<p>Además de la comparación, la metáfora, la personificación y la hipérbole, los poetas usan otros recursos que juegan con el sonido y la forma de las palabras:</p><ul><li><b>Anáfora</b>: repetir una o varias palabras al principio de varios versos. Da ritmo y fuerza: «<i>Verde</i> que te quiero verde. / <i>Verde</i> viento. <i>Verdes</i> ramas» (García Lorca).</li><li><b>Aliteración</b>: repetir un mismo sonido para crear un efecto musical: «En el silencio solo se escuchaba / un susurro de abejas que sonaba» (Garcilaso de la Vega). La repetición de la <b>s</b> imita el zumbido.</li><li><b>Onomatopeya</b>: palabras que imitan sonidos reales: «el <i>tictac</i> del reloj», «el <i>cricrí</i> de los grillos».</li><li><b>Interrogación retórica</b>: una pregunta que no espera respuesta, sino que sirve para expresar un sentimiento: «¿Qué es la vida sin amigos?».</li><li><b>Enumeración</b>: una lista de elementos seguidos: «Cielo, mar, arena y sol: el verano llegó».</li></ul><p>Cuando leas un poema, intenta descubrir qué recursos usa el autor y qué efecto consiguen: ¿te hacen imaginar algo?, ¿le dan musicalidad?, ¿transmiten un sentimiento?</p>`,
+        L.filas("Más recursos", [["Anáfora", "repite al inicio del verso", AZ], ["Aliteración", "repite un sonido", VE], ["Onomatopeya", "tictac · cricrí", RO], ["Pregunta", "retórica: sin respuesta", NA], ["Enumeración", "lista de elementos", MO]])],
+    ],
+    "El teatro": [
+      ["Del texto al escenario", `<p>Una obra de teatro no está completa hasta que se <b>representa</b>. Para ello trabaja un equipo de muchas personas:</p><ul><li>El <b>autor</b> o dramaturgo escribe el texto.</li><li>El <b>director</b> decide cómo se va a representar: cómo se mueven los actores, cómo hablan y cómo es el escenario.</li><li>Los <b>actores</b> y <b>actrices</b> memorizan su papel y dan vida a los personajes con la voz, los gestos y el movimiento.</li><li>Los <b>escenógrafos</b> diseñan el <b>decorado</b>, que representa el lugar donde ocurre la acción.</li><li>Los encargados de <b>vestuario</b>, <b>maquillaje</b>, <b>iluminación</b> y <b>sonido</b> ayudan a crear el ambiente.</li><li>El <b>apuntador</b>, escondido, recordaba en voz baja el texto a los actores si se les olvidaba.</li></ul><p>Antes del estreno hay muchos <b>ensayos</b>. Al principio, los actores leen el texto sentados; después lo ensayan moviéndose por el escenario y, por último, hacen el <b>ensayo general</b> con vestuario y luces.</p><p>Según su tema y su final, las obras teatrales pueden ser <b>comedias</b> (divertidas, con final feliz), <b>tragedias</b> (serias, con final triste) o <b>dramas</b> (mezclan momentos serios y alegres). También hay teatro de <b>títeres</b>, de <b>sombras</b> y <b>musicales</b>.</p>`,
+        H.flujo("Montar una obra", ["texto", "reparto", "ensayos", "decorado y|vestuario", "ensayo|general", "estreno"], MO)],
+    ],
+  },
+  final: [
+    ["La literatura de tradición oral", `<p>La <b>literatura popular</b> o de tradición oral es la que se ha transmitido <b>de boca en boca</b> durante siglos, sin que se conozca a su autor. Cada persona que la repetía podía cambiar algo, por eso existen muchas <b>versiones</b> de una misma canción o un mismo cuento. Algunas de sus formas son:</p><ul><li><b>Refranes</b>: frases breves que encierran un consejo o una enseñanza, a menudo con rima: «A quien madruga, Dios le ayuda», «Más vale pájaro en mano que ciento volando».</li><li><b>Adivinanzas</b>: juegos de palabras que describen algo de forma escondida para que se adivine: «Blanca por dentro, verde por fuera; si quieres que te lo diga, espera» (la pera).</li><li><b>Trabalenguas</b>: frases difíciles de pronunciar deprisa: «Tres tristes tigres tragaban trigo en un trigal».</li><li><b>Retahílas</b> y <b>canciones de corro</b>: textos rimados para jugar o para echar a suertes: «Pito, pito, gorgorito…».</li><li><b>Nanas</b>: canciones para dormir a los bebés.</li><li><b>Cuentos populares</b>, leyendas y romances.</li></ul><p>Esta literatura nos conecta con nuestros abuelos y bisabuelos. Pregunta en tu familia qué refranes, canciones o cuentos conocen: ¡quizá descubras alguno que no está escrito en ningún libro!</p>`,
+      L.filas("Tradición oral", [["Refrán", "consejo breve con rima", AZ], ["Adivinanza", "descubre lo escondido", VE], ["Trabalenguas", "difícil de pronunciar", RO], ["Nana", "canción para dormir", NA]])],
+    ["Autores que debes conocer", `<p>Estos son algunos escritores importantes que puedes empezar a leer:</p><ul><li><b>Miguel de Cervantes</b> (1547-1616) escribió <i>Don Quijote de la Mancha</i>, la novela más famosa en español, sobre un hidalgo que se vuelve loco de tanto leer libros de caballerías y sale a buscar aventuras con su escudero Sancho Panza. Hay adaptaciones para niños.</li><li><b>Federico García Lorca</b> (1898-1936), poeta y dramaturgo granadino, escribió poemas llenos de música y color, y muchas canciones para niños.</li><li><b>Gloria Fuertes</b> (1917-1998), poeta madrileña, dedicó gran parte de su obra a los niños con poemas divertidos, juegos de palabras y mucho humor.</li><li><b>Ana María Matute</b> (1925-2014) escribió novelas y cuentos, algunos para niños, como <i>Paulina</i>.</li><li><b>Elvira Lindo</b> (nacida en 1962) creó a Manolito Gafotas, un niño de Carabanchel que cuenta su vida con mucha gracia.</li></ul><p>También hay grandes autores de otros países traducidos al español, como <b>Roald Dahl</b> (<i>Matilda</i>), <b>Michael Ende</b> (<i>La historia interminable</i>) o <b>Astrid Lindgren</b> (<i>Pippi Calzaslargas</i>).</p><p>La biblioteca de tu colegio o de tu barrio es el mejor lugar para descubrirlos.</p>`,
+      H.linea("Autores en el tiempo", [["1605", "Quijote"], ["1898", "nace Lorca"], ["1917", "nace G. Fuertes"], ["1994", "Manolito"]])],
+    ["Leer y recomendar libros", `<p>Leer es un placer, pero también es divertido <b>compartir</b> lo que leemos. Cuando termines un libro, puedes preparar una <b>recomendación</b> o una <b>reseña</b> para tus compañeros. Una buena reseña tiene estas partes:</p><ol><li><b>Ficha del libro</b>: título, autor, ilustrador y editorial.</li><li><b>De qué trata</b>: un resumen breve del argumento, <b>sin contar el final</b>. ¡No hay que hacer <i>spoilers</i>!</li><li><b>Los personajes</b>: quién es el protagonista y qué te ha parecido.</li><li><b>Tu opinión</b>: qué te ha gustado más y qué menos, y por qué. Da razones: «me ha gustado porque tiene mucha intriga y no podía parar de leer».</li><li><b>Para quién es</b>: a quién se lo recomendarías y una puntuación (por ejemplo, de una a cinco estrellas).</li></ol><p>En muchos colegios funcionan <b>clubes de lectura</b>: un grupo de personas lee el mismo libro y luego se reúne para comentarlo. Cada uno aporta su punto de vista y descubre cosas que no había visto. Recuerda las normas: respetar los turnos, escuchar las opiniones distintas y justificar lo que piensas.</p><p>Si un libro no te engancha, no pasa nada: prueba otro. ¡Seguro que hay alguno hecho para ti!</p>`,
+      L.filas("Una buena reseña", [["Ficha", "título · autor · editorial", AZ], ["Argumento", "sin contar el final", VE], ["Personajes", "protagonista", NA], ["Opinión", "con razones", RO], ["Para quién", "y puntuación", MO]])],
+  ],
+  ejemplos: [
+    ["Mide estos versos y di si es un romance: «Por el mes era de mayo / cuando hace la calor».", ["Contamos las sílabas del primero: Por-el-mes-e-ra-de-ma-yo. Son 8: es octosílabo.", "cuan-do-ha-ce-la-ca-lor: 7 sílabas, pero acaba en palabra aguda y se cuenta una más: 8.", "Son octosílabos y el verso par acaba en o tónica: forma típica del romance."], "Es el comienzo de un romance: versos octosílabos"],
+    ["¿Qué recurso hay en «Tres tristes tigres tragaban trigo»?", ["Se repite el sonido tr en casi todas las palabras.", "La repetición de un sonido se llama aliteración. Además, es un trabalenguas popular."], "Aliteración (es un trabalenguas)"],
+  ],
+  errores: ["Contar el final del libro en una reseña.", "Pensar que la literatura popular tiene un autor conocido: es anónima y se transmite de boca en boca."],
+  ejercicios: [
+    ["b", "¿Quiénes difundían los romances en la Edad Media?", "Los juglares."],
+    ["b", "¿Cuántas sílabas tienen los versos de un romance?", "Ocho: son octosílabos."],
+    ["b", "Escribe un refrán y explica su significado.", "Respuesta abierta. Por ejemplo: «A quien madruga, Dios le ayuda»: quien se esfuerza pronto consigue más."],
+    ["b", "¿Quién escribió Don Quijote de la Mancha?", "Miguel de Cervantes."],
+    ["b", "Escribe una adivinanza que conozcas.", "Respuesta abierta."],
+    ["m", "¿Qué es una anáfora? Pon un ejemplo inventado.", "Repetir palabras al principio de varios versos. Por ejemplo: «Te busco en el mar, / te busco en el cielo»."],
+    ["m", "¿Qué hace el director de una obra de teatro?", "Decide cómo se representa: movimientos, forma de hablar y escenario."],
+    ["m", "Explica la diferencia entre comedia y tragedia.", "La comedia es divertida y acaba bien; la tragedia es seria y acaba mal."],
+    ["m", "¿Por qué existen muchas versiones de una misma canción popular?", "Porque se transmitía de boca en boca y cada persona podía cambiar algo."],
+    ["m", "¿Qué no debe aparecer en una reseña?", "El final del libro."],
+    ["a", "Escribe cuatro versos octosílabos con rima asonante en los pares sobre tu colegio.", "Respuesta abierta."],
+    ["a", "Recoge en tu familia un refrán, una canción o un cuento popular y escríbelo.", "Respuesta abierta."],
+    ["a", "Escribe la reseña del último libro que hayas leído con todas sus partes.", "Respuesta abierta."],
+    ["a", "Inventa un trabalenguas con aliteración.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El romance tiene versos de…", ["ocho sílabas", "once sílabas", "cuatro sílabas"], "Octosílabos."],
+    ["En el romance riman…", ["los versos pares", "todos los versos", "los impares"], "En asonante."],
+    ["Repetir un sonido es…", ["aliteración", "anáfora", "hipérbole"], "Tres tristes tigres."],
+    ["El decorado lo diseña…", ["el escenógrafo", "el apuntador", "el autor"], "Representa el lugar."],
+    ["Gloria Fuertes fue…", ["una poeta para niños", "una pintora", "una actriz de cine"], "Poemas con humor."],
+  ],
+  examen: [
+    ["La literatura de tradición oral es…", ["anónima y se transmite de boca en boca", "siempre escrita en libros", "de un solo autor conocido"], "Refranes, nanas, romances."],
+    ["«A quien madruga, Dios le ayuda» es un…", ["refrán", "trabalenguas", "romance"], "Consejo breve."],
+  ],
+  tarjetas: [
+    ["Romance", "Octosílabos con rima asonante en los pares."],
+    ["Anáfora", "Repetición al principio de los versos."],
+    ["Tradición oral", "Refranes, adivinanzas, trabalenguas, nanas."],
+    ["Reseña", "Ficha, argumento sin final, opinión y recomendación."],
+  ],
+  glosario: [
+    ["Literatura", "Arte que usa las palabras para crear belleza."],
+    ["Narrativa", "Género que cuenta historias."],
+    ["Lírica", "Género que expresa sentimientos, normalmente en verso."],
+    ["Teatro", "Género escrito para ser representado."],
+    ["Verso", "Cada línea de un poema."],
+    ["Estrofa", "Grupo de versos."],
+    ["Romance", "Poema de versos octosílabos con rima asonante en los pares."],
+    ["Juglar", "Artista medieval que recitaba y cantaba en público."],
+    ["Anáfora", "Repetición de palabras al principio de los versos."],
+    ["Aliteración", "Repetición de un sonido."],
+    ["Acotación", "Indicación del autor teatral sobre el escenario o los personajes."],
+    ["Refrán", "Dicho popular con una enseñanza."],
+    ["Reseña", "Texto que resume y valora un libro."],
+  ],
+  situacion: {
+    titulo: "Festival de literatura",
+    reto: "La clase organiza un festival con un recital de romances, una representación teatral y una feria de libros recomendados.",
+    pasos: ["Recopilad romances, refranes, adivinanzas y trabalenguas, también preguntando a vuestras familias.", "Por grupos, preparad un recital de romances como juglares y una pequeña escena teatral con decorado y vestuario sencillos.", "Escribid reseñas de vuestros libros favoritos y montad una feria de recomendaciones.", "Celebrad el festival invitando a otra clase o a las familias."],
+    producto: "Un festival literario con recital, teatro y feria de libros.",
+    evaluacion: ["Reconoce el romance y la literatura de tradición oral.", "Identifica recursos literarios.", "Participa en una representación teatral.", "Escribe reseñas con opinión razonada."],
+  },
+});

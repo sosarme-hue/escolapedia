@@ -88,3 +88,90 @@ module.exports = P.tema({
   saberes: "Ortografía: uso de ll e y; homófonos con ll/y; uso de c y z, plurales en -ces y verbos en -zar; -cc-; sonidos suave y fuerte de r y uso de rr; uso de la x; estrategias para mejorar la ortografía",
   ideas: ["Dictados por parejas con autocorrección.", "Mural de familias de palabras para resolver dudas ortográficas.", "Concurso de palabras compuestas con rr (pararrayos, autorretrato…)."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 85,
+  objetivos: ["Resolver dudas de d/z final, s/c/z y x/s", "Usar bien las mayúsculas", "Puntuar correctamente con punto, coma, dos puntos y signos de interrogación"],
+  lectura: { titulo: "La carta de la abuela Rosario", html: `<p>La abuela Rosario se mudó a un pueblo de la costa y empezó a escribir cartas a su nieta Lola. En la primera ponía: «Querida Lola: aquí el mar está muy bonito. Ayer fui a <b>cazar</b> conchas a la playa y me encontré una <b>casa</b> de cangrejos. Cuando vuelvas te <b>coseré</b> el vestido y te <b>coceré</b> unas galletas».</p><p>Lola se rio mucho. ¿Cazar conchas? ¡Las conchas no se cazan! Leyó otra vez y entendió que la abuela, que había nacido en Andalucía, pronunciaba igual la c, la z y la s. En su pueblo decían «casa» tanto para la vivienda como para la caza.</p><p>Esa tarde, Lola contestó la carta: «Querida abuela: ¡me ha encantado tu carta! Una cosa: se dice <b>recoger</b> conchas, no cazarlas, jaja. Y las galletas se <b>cuecen</b> en el horno, mientras que el vestido se <b>cose</b> con aguja».</p><p>La abuela le respondió con un dibujo de una caracola y una frase: «Tienes razón, mi niña. La ortografía es como una brújula: aunque todos hablemos distinto, nos ayuda a entendernos por escrito».</p>` },
+  tras: {
+    "La c y la z": [
+      ["¿Termina en -d o en -z?", `<p>Al final de palabra, la <b>d</b> y la <b>z</b> pueden sonar muy parecidas o casi no oírse. Muchas personas dicen «verdaz», «Madriz» o «pare» en lugar de <i>verdad</i>, <i>Madrid</i> o <i>pared</i>. Para saber cuál escribir, hay un truco infalible: <b>forma el plural</b>.</p><ul><li>Si el plural lleva <b>-des</b>, la palabra termina en <b>d</b>: <i>verdades → verdad</i>, <i>paredes → pared</i>, <i>ciudades → ciudad</i>, <i>redes → red</i>, <i>césped → céspedes</i>.</li><li>Si el plural lleva <b>-ces</b>, la palabra termina en <b>z</b>: <i>peces → pez</i>, <i>luces → luz</i>, <i>lápices → lápiz</i>, <i>nueces → nuez</i>, <i>voces → voz</i>.</li></ul><p>Con los verbos también funciona: el imperativo de vosotros termina en <b>-d</b> (<i>cantad, comed, venid</i>), igual que el sustantivo <i>salud</i> (de <i>saludable</i>).</p><p>Otro truco es pensar en la <b>familia</b> de la palabra: <i>amistad</i> → <i>amistades</i>; <i>capaz</i> → <i>capacidad</i>; <i>feliz</i> → <i>felicidad</i>.</p><p>Recuerda también las palabras que acaban en <b>-dad</b> y <b>-tad</b>, que son muchísimas: <i>bondad, libertad, igualdad, dificultad, voluntad</i>.</p>`,
+        L.filas("Truco del plural", [["-des", "paredes → pared", AZ], ["-des", "verdades → verdad", VE], ["-ces", "peces → pez", RO], ["-ces", "luces → luz", NA]])],
+    ],
+    "Más reglas de c y z": [
+      ["Seseo, ceceo y palabras homófonas", `<p>En gran parte de Andalucía, en Canarias y en toda América se pronuncia igual la <b>s</b> que la <b>c</b> (ante e, i) y la <b>z</b>. Es el <b>seseo</b>: dicen <i>«sapato»</i> por <i>zapato</i>. En algunas zonas de Andalucía se da el fenómeno contrario, el <b>ceceo</b>: se pronuncia la s como z (<i>«zeñor»</i>). Son formas de hablar <b>correctas</b> en su zona, pero al escribir hay que usar la letra adecuada.</p><p>Para quienes sesean o cecean es especialmente importante conocer las palabras <b>homófonas</b> con s, c y z, que suenan igual pero significan cosas distintas:</p><ul><li><i>casa</i> (vivienda) / <i>caza</i> (de cazar).</li><li><i>coser</i> (con aguja) / <i>cocer</i> (cocinar en agua).</li><li><i>cima</i> (parte alta de un monte) / <i>sima</i> (agujero profundo en la tierra).</li><li><i>ciervo</i> (animal) / <i>siervo</i> (sirviente).</li><li><i>abrasar</i> (quemar) / <i>abrazar</i> (rodear con los brazos).</li><li><i>has</i> (verbo haber) / <i>haz</i> (de hacer, o de luz).</li><li><i>vos</i> (pronombre) / <i>voz</i> (sonido).</li></ul><p>El contexto de la frase te dirá cuál necesitas. Si dudas, busca en el diccionario: allí verás el significado de cada una.</p>`,
+        L.tabla("Suenan igual", ["Con s", "Con c / z"], [["casa (vivienda)", "caza (cazar)"], ["coser (aguja)", "cocer (cocinar)"], ["sima (agujero)", "cima (monte)"], ["abrasar (quemar)", "abrazar"]])],
+    ],
+    "La x": [
+      ["¿Con x o con s?", `<p>Muchas personas pronuncian la <b>x</b> delante de consonante como una <b>s</b>: dicen «estraño» o «escursión». Por eso dudamos al escribir. Estas pistas te ayudarán:</p><ul><li>Llevan <b>x</b> las palabras con los prefijos <b>ex-</b> (fuera de, que ya no es) y <b>extra-</b> (fuera de, muy): <i>exportar, excavar, exalumno, extraordinario, extraterrestre</i>.</li><li>Llevan <b>x</b> las que empiezan por <b>expl-</b> y <b>expr-</b>: <i>explicar, explorar, explosión, expresar, exprimir</i>.</li><li>Llevan <b>s</b> las que empiezan por <b>es-</b> y no tienen el significado de «fuera»: <i>espalda, espejo, estrella, esponja, espontáneo, estrategia, esplendor</i>.</li></ul><p>Hay algunas parejas que cambian de significado:</p><ul><li><i>contexto</i> (situación) / <i>contesto</i> (de contestar).</li><li><i>expiar</i> (pagar una culpa) / <i>espiar</i> (observar a escondidas).</li><li><i>expirar</i> (morir, acabarse un plazo) / <i>espirar</i> (echar el aire).</li><li><i>sexto</i> (número ordinal) / <i>cesto</i> (cesta).</li></ul><p>Fíjate también en palabras con <b>x</b> entre vocales que pueden confundirse con <b>cc</b> o <b>gs</b>: <i>examen, éxito, exacto, taxi, oxígeno</i>.</p>`,
+        L.tabla("Parejas con x y con s", ["Con x", "Con s"], [["expiar (culpa)", "espiar (mirar)"], ["expirar (acabar)", "espirar (aire)"], ["contexto", "contesto"], ["sexto", "cesto"]])],
+    ],
+  },
+  final: [
+    ["Las mayúsculas", `<p>Las letras <b>mayúsculas</b> sirven para destacar el principio de un texto o ciertas palabras. Se escriben con mayúscula inicial:</p><ul><li>La primera palabra de un escrito y la que va después de un <b>punto</b>, de un signo de <b>interrogación</b> o <b>exclamación</b> que cierra la oración, o de puntos suspensivos que la terminan.</li><li>Los <b>nombres propios</b> de personas, animales, lugares, ríos, montañas, planetas: <i>Laura, Rufo, Sevilla, Ebro, Teide, Marte</i>.</li><li>Los nombres de <b>instituciones</b> y organismos: <i>Real Academia Española, Ayuntamiento de Burgos</i>.</li><li>La primera palabra del <b>título</b> de un libro, una película o una canción: <i>Cien años de soledad</i>, <i>El principito</i>.</li></ul><p>En cambio, se escriben con <b>minúscula</b>:</p><ul><li>Los <b>días</b> de la semana, los <b>meses</b> y las <b>estaciones</b>: <i>lunes, abril, verano</i>.</li><li>Los <b>gentilicios</b> y los nombres de los <b>idiomas</b>: <i>español, francés, gallego</i>.</li><li>Los <b>cargos</b> y títulos: <i>el rey, la presidenta, el alcalde</i>.</li><li>Los puntos cardinales cuando no forman parte de un nombre: <i>el norte de España</i>, pero <i>Corea del Norte</i>.</li></ul><p>Importante: las mayúsculas también llevan <b>tilde</b> cuando les corresponde: <i>Ángela, ÁFRICA, Óscar</i>.</p>`,
+      H.dos("¿Mayúscula o minúscula?", ["Mayúscula", ["Laura · Ebro", "tras un punto", "Ángela (con tilde)"], AZ], ["Minúscula", ["lunes · abril", "español · francés", "el rey"], RO])],
+    ["Los signos de puntuación", `<p>Los signos de puntuación organizan el texto y marcan las pausas y la entonación. Un mismo grupo de palabras puede cambiar de significado según cómo se puntúe: «No, quiero ir» frente a «No quiero ir».</p><ul><li><b>El punto (.)</b> marca el final de una oración. Hay <b>punto y seguido</b> (seguimos en la misma línea y el mismo tema), <b>punto y aparte</b> (cambiamos de párrafo) y <b>punto final</b>.</li><li><b>La coma (,)</b> marca una pausa breve. Se usa para separar los elementos de una <b>enumeración</b> («Compré pan, leche y huevos»: delante de <i>y</i> no va coma), para separar el <b>vocativo</b>, la persona a la que hablamos («Marta, ven aquí»), y antes de <i>pero</i>, <i>aunque</i> o <i>sino</i>.</li><li><b>Los dos puntos (:)</b> se usan antes de una enumeración anunciada («Tengo tres mascotas: un perro, un gato y un loro»), después del saludo de una carta («Querida Lola:») y antes de citar palabras textuales.</li><li><b>Los signos de interrogación (¿?) y exclamación (¡!)</b> en español se escriben siempre <b>al principio y al final</b>. Después de ellos no se pone punto.</li></ul><p>Un consejo: lee tus textos en voz alta. Donde haces una pausa natural, probablemente haga falta un signo.</p>`,
+      L.filas("Signos básicos", [["Punto", "final de oración", AZ], ["Coma", "enumeraciones · vocativo", VE], ["Dos puntos", "enumerar · cartas", NA], ["¿? ¡!", "al principio y al final", RO]])],
+  ],
+  ejemplos: [
+    ["¿Se escribe «verdad» o «verdaz»? ¿Y «actriz» o «actrid»?", ["Formamos el plural de la primera: verdades. Lleva -des, así que termina en d.", "Formamos el plural de la segunda: actrices. Lleva -ces, así que termina en z."], "verdad y actriz"],
+    ["Puntúa: «marta trae lápices gomas y reglas»", ["Marta es nombre propio y empieza el texto: mayúscula.", "Es una enumeración: comas entre los elementos y ninguna delante de y.", "Termina la oración: punto."], "Marta trae lápices, gomas y reglas."],
+  ],
+  errores: ["Escribir con mayúscula los días, los meses o los idiomas: «Lunes», «Abril», «Inglés».", "Olvidar el signo de apertura en las preguntas y exclamaciones: «Qué hora es?»."],
+  ejercicios: [
+    ["b", "Completa con d o z: verda_, pe_, pare_, lu_.", "Verdad, pez, pared, luz."],
+    ["b", "Escribe dos palabras con ex- y dos con es-.", "Por ejemplo: exportar, excursión; espejo, estrella."],
+    ["b", "Corrige: «el Lunes 5 de Abril fui a madrid».", "El lunes 5 de abril fui a Madrid."],
+    ["b", "Escribe una oración con casa y otra con caza.", "Por ejemplo: «Mi casa es azul». «La caza está prohibida en el parque»."],
+    ["b", "Pon los signos: «Cómo te llamas»", "¿Cómo te llamas?"],
+    ["m", "Explica el truco del plural para saber si una palabra termina en d o z.", "Si el plural lleva -des, termina en d; si lleva -ces, en z."],
+    ["m", "Completa con coser o cocer: «Voy a ___ el botón» / «Hay que ___ la pasta».", "Coser el botón; cocer la pasta."],
+    ["m", "Escribe con s o x: e_plorar, e_palda, e_traordinario, e_pejo.", "Explorar, espalda, extraordinario, espejo."],
+    ["m", "Puntúa: «Querida abuela te echo de menos»", "Querida abuela: te echo de menos."],
+    ["m", "¿Qué es el seseo? ¿Es incorrecto?", "Pronunciar igual s, c y z; es una forma correcta de hablar en su zona, pero al escribir hay que usar la letra adecuada."],
+    ["m", "¿Por qué lleva tilde «ÁFRICA»?", "Porque las mayúsculas llevan tilde cuando les corresponde: es esdrújula."],
+    ["a", "Escribe una carta breve a un familiar con saludo, dos párrafos y despedida, cuidando mayúsculas y puntuación.", "Respuesta abierta."],
+    ["a", "Explica la diferencia entre «No, quiero ir» y «No quiero ir».", "En la primera responde que no a algo y dice que quiere ir; en la segunda, dice que no quiere ir."],
+    ["a", "Escribe tres parejas de homófonos con s y c/z y una oración con cada palabra.", "Respuesta abierta: casa/caza, coser/cocer, sima/cima…"],
+    ["a", "Diferencia expirar y espirar con un ejemplo de cada una.", "Expirar: «El plazo expira hoy». Espirar: «Inspira y espira despacio»."],
+  ],
+  quiz: [
+    ["Se escribe…", ["pared", "parez", "pare"], "Plural: paredes."],
+    ["«Coser» se hace con…", ["aguja", "agua hirviendo", "horno"], "Cocer es en agua."],
+    ["Se escribe…", ["explorar", "esplorar", "exsplorar"], "Empieza por expl-."],
+    ["Se escriben con minúscula…", ["los meses", "los nombres de ríos", "los títulos al empezar"], "abril, mayo."],
+    ["En «Compré pan, leche y huevos» la coma separa…", ["una enumeración", "un vocativo", "una pregunta"], "Elementos de una lista."],
+  ],
+  examen: [
+    ["El plural de «luz» es…", ["luces", "luzes", "ludes"], "z → c delante de e."],
+    ["Es correcto…", ["¿Vienes?", "Vienes?", "¿Vienes?."], "Signos de apertura y cierre, sin punto."],
+  ],
+  tarjetas: [
+    ["d o z final", "Plural en -des → d; plural en -ces → z."],
+    ["Homófonos s/c/z", "casa/caza, coser/cocer, sima/cima."],
+    ["Minúscula", "Días, meses, idiomas, cargos."],
+    ["Coma", "Enumeraciones y vocativo; no delante de y."],
+  ],
+  glosario: [
+    ["Ortografía", "Normas para escribir correctamente."],
+    ["Homófonas", "Palabras que suenan igual y se escriben distinto."],
+    ["Seseo", "Pronunciar la c y la z como s."],
+    ["Ceceo", "Pronunciar la s como z."],
+    ["Prefijo ex-", "Significa «fuera de» o «que ya no es»."],
+    ["Mayúscula", "Letra de mayor tamaño que inicia textos y nombres propios."],
+    ["Nombre propio", "El que nombra a un ser concreto."],
+    ["Punto y aparte", "El que cierra un párrafo."],
+    ["Coma", "Signo que marca una pausa breve."],
+    ["Vocativo", "Palabra con la que llamamos a alguien."],
+    ["Enumeración", "Lista de elementos."],
+    ["Dos puntos", "Signo que anuncia una enumeración o una cita."],
+  ],
+  situacion: {
+    titulo: "Correos de la clase",
+    reto: "La clase monta una oficina de correos interna y se escriben cartas entre compañeros y con otra clase.",
+    pasos: ["Preparad un buzón y un listado de destinatarios de la clase y de otra clase.", "Escribid una carta con saludo, cuerpo y despedida contando algo de vuestra semana.", "Antes de enviarla, revisadla con la lista de control: d/z, s/c/z, x/s, mayúsculas y puntuación.", "Responded a las cartas recibidas y recoged en un mural los errores más frecuentes y su solución."],
+    producto: "Un intercambio de cartas y un mural de errores corregidos.",
+    evaluacion: ["Aplica el truco del plural para d/z.", "Distingue homófonos con s, c y z.", "Usa correctamente las mayúsculas.", "Puntúa con punto, coma, dos puntos y signos dobles."],
+  },
+});

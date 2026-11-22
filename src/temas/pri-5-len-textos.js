@@ -88,3 +88,92 @@ module.exports = P.tema({
   saberes: "Comunicación escrita: la narración (elementos, narrador y estructura); la descripción de personas, animales, lugares y objetos; el diálogo, estilo directo e indirecto y uso de la raya; planificación, textualización y revisión de textos",
   ideas: ["Dados de cuentos (personaje, lugar, problema) para inventar narraciones.", "Galería de retratos escritos de personajes de libros leídos en clase.", "Transformar una viñeta de cómic en un diálogo con rayas y luego en estilo indirecto."],
 });
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 85,
+  objetivos: ["Crear personajes y ordenar los hechos de una narración", "Usar verbos de habla variados en los diálogos", "Escribir noticias, instrucciones y cómics"],
+  lectura: { titulo: "El periódico del colegio", html: `<p>Cuando la directora anunció que el colegio iba a tener su propio periódico, la clase de quinto se volvió loca de entusiasmo. Había que repartir el trabajo.</p><p>Amaia y Bruno se encargarían de las <b>noticias</b>: qué había pasado en el festival de primavera, quién había ganado el torneo de ajedrez y cuándo se inauguraría el nuevo huerto escolar.</p><p>Sara, que dibujaba de maravilla, haría un <b>cómic</b> con las aventuras de Ratón Pelón, la mascota de la biblioteca.</p><p>Iván, el cocinillas de la clase, escribiría una sección de <b>recetas</b> fáciles: «Brochetas de fruta en cinco pasos».</p><p>Y Lucía, que siempre estaba leyendo, escribiría un <b>cuento</b> por entregas sobre una niña que encuentra una puerta secreta en el sótano del colegio.</p><p>Al principio todos escribían de la misma forma, pero el maestro les explicó que cada texto tiene sus propias reglas: la noticia debe responder a seis preguntas; la receta necesita pasos ordenados; el cómic cuenta con dibujos y bocadillos, y el cuento debe enganchar al lector desde la primera línea.</p><p>Un mes después salió el primer número. Se agotó en un recreo.</p>` },
+  tras: {
+    "Los elementos de la narración": [
+      ["Dar vida a los personajes", `<p>Los buenos personajes parecen personas de verdad: tienen un aspecto, una forma de ser, deseos y miedos. Para crearlos, puedes usar dos técnicas:</p><ul><li><b>Caracterización directa</b>: el narrador nos dice cómo es el personaje. «Marcos era muy tímido y casi nunca hablaba en clase».</li><li><b>Caracterización indirecta</b>: el lector descubre cómo es por lo que <b>hace</b>, lo que <b>dice</b> o cómo reaccionan los demás. «Cuando la maestra le preguntó, Marcos se puso rojo como un tomate y miró al suelo». No hace falta decir que es tímido: lo vemos.</li></ul><p>La segunda técnica suele ser más interesante, porque el lector participa. Los escritores dicen: «<b>Muestra, no cuentes</b>».</p><p>Antes de escribir, prepara una <b>ficha del personaje</b> con estas preguntas:</p><ol><li>¿Cómo se llama y cuántos años tiene?</li><li>¿Cómo es por fuera? Elige un rasgo especial que lo haga reconocible (una cicatriz, un sombrero, una risa contagiosa).</li><li>¿Cómo es por dentro? ¿Qué le gusta y qué le da miedo?</li><li>¿Qué <b>quiere</b> conseguir en la historia? ¿Qué se lo impide?</li></ol><p>Ese deseo y ese obstáculo son el motor del <b>nudo</b> de la narración.</p>`,
+        L.filas("Ficha del personaje", [["Nombre", "y edad", AZ], ["Por fuera", "un rasgo especial", VE], ["Por dentro", "gustos y miedos", NA], ["Quiere", "su objetivo", RO], ["Obstáculo", "lo que se lo impide", MO]])],
+    ],
+    "La estructura de la narración": [
+      ["El orden de los hechos", `<p>No todas las historias se cuentan en el mismo orden. El narrador puede elegir entre varias formas:</p><ul><li><b>Orden cronológico</b> o lineal: los hechos se cuentan en el mismo orden en que ocurrieron, del principio al final. Es el más sencillo y el más frecuente en los cuentos populares: «Érase una vez… Un día… Al final…».</li><li><b>Retrospección</b> (o <i>flashback</i>): la historia vuelve atrás para contar algo que ocurrió antes. «Mientras miraba la vieja foto, Clara recordó aquel verano de hacía diez años…». Sirve para explicar el pasado de un personaje.</li><li><b>Empezar por el medio</b>: la historia comienza en un momento emocionante y después explica cómo se llegó hasta ahí. «La puerta se cerró de golpe y la linterna se apagó. ¿Cómo había acabado Lucía encerrada en el sótano?». Es una forma muy eficaz de <b>enganchar</b> al lector.</li></ul><p>Para que el lector no se pierda, usa <b>marcadores temporales</b>: <i>aquella mañana, horas después, al día siguiente, años atrás, mientras tanto, de repente, por fin</i>.</p><p>Fíjate también en el <b>ritmo</b>: puedes resumir mucho tiempo en una frase («Pasaron tres inviernos») o detenerte en un momento importante con todo detalle.</p>`,
+        L.filas("Tres órdenes", [["Cronológico", "principio → final", AZ], ["Retrospección", "vuelve al pasado", VE], ["Por el medio", "empieza en la acción", RO]])],
+    ],
+    "Estilo directo e indirecto": [
+      ["Los verbos de habla", `<p>En los diálogos, el narrador usa <b>verbos de habla</b> para indicar quién habla y cómo lo hace. El más común es <i>decir</i>, pero si lo repites todo el rato el texto queda pobre. Hay muchos verbos más precisos:</p><ul><li>Para <b>preguntar</b> y <b>responder</b>: <i>preguntó, quiso saber, respondió, contestó, replicó</i>.</li><li>Para el <b>volumen</b>: <i>gritó, exclamó, chilló, susurró, murmuró, cuchicheó</i>.</li><li>Para la <b>emoción</b>: <i>sollozó, se quejó, protestó, suspiró, se rio, balbuceó</i>.</li><li>Para el <b>orden</b> de la conversación: <i>añadió, continuó, insistió, interrumpió, concluyó</i>.</li></ul><p>Compara: «—Tengo miedo —<b>dijo</b> Lucía» y «—Tengo miedo —<b>susurró</b> Lucía». Con un solo verbo, el lector imagina la escena mucho mejor.</p><p>Al pasar del estilo directo al indirecto, recuerda que cambian algunas palabras:</p><ul><li>Los <b>pronombres</b> y las personas: «Yo voy» → Dijo que <b>él</b> iba.</li><li>Los <b>tiempos verbales</b>: «Voy» → dijo que <b>iba</b>; «iré» → dijo que <b>iría</b>.</li><li>Las palabras de <b>tiempo y lugar</b>: <i>hoy</i> → <i>aquel día</i>; <i>mañana</i> → <i>al día siguiente</i>; <i>aquí</i> → <i>allí</i>.</li></ul>`,
+        L.filas("Mejor que «dijo»", [["Preguntar", "quiso saber · replicó", AZ], ["Volumen", "gritó · susurró", VE], ["Emoción", "sollozó · suspiró", RO], ["Orden", "añadió · interrumpió", NA]])],
+    ],
+  },
+  final: [
+    ["La noticia", `<p>La <b>noticia</b> es un texto de los periódicos, la radio, la televisión o internet que informa sobre un hecho <b>real</b>, <b>reciente</b> e <b>interesante</b> para el público. Es una narración, pero con reglas propias.</p><p>Una buena noticia responde a <b>seis preguntas</b>: <b>¿qué?</b> ocurrió, <b>¿quién?</b> participó, <b>¿cuándo?</b>, <b>¿dónde?</b>, <b>¿cómo?</b> y <b>¿por qué?</b></p><p>Su estructura es como una <b>pirámide invertida</b>: lo más importante va al principio y los detalles, al final. Tiene estas partes:</p><ul><li><b>Titular</b>: una frase breve y llamativa que resume la noticia. «El huerto escolar da su primera cosecha».</li><li><b>Entradilla</b>: el primer párrafo, que responde a las preguntas principales. «Los alumnos de quinto del colegio Miguel Hernández recogieron ayer veinte kilos de tomates en el huerto que plantaron en marzo».</li><li><b>Cuerpo</b>: los demás párrafos, con detalles, explicaciones y, a veces, declaraciones de los protagonistas entre comillas.</li></ul><p>La noticia debe ser <b>objetiva</b>: cuenta los hechos sin dar la opinión del periodista. Se escribe normalmente en <b>tercera persona</b> y en pasado.</p><p>Antes de compartir una noticia en internet, comprueba que la publica un medio fiable: hay muchas noticias falsas.</p>`,
+      H.piramide("Pirámide invertida", [["Titular", RO], ["Entradilla", NA], ["Cuerpo: detalles", AZ]])],
+    ["Las instrucciones", `<p>Los <b>textos instructivos</b> explican cómo hacer algo paso a paso: una receta de cocina, las reglas de un juego, el montaje de un mueble o el funcionamiento de un aparato. Su objetivo es que el lector consiga hacerlo sin ayuda.</p><p>Una receta, por ejemplo, tiene dos partes:</p><ul><li><b>Ingredientes</b> o materiales: una lista con las cantidades exactas. «2 plátanos, 10 fresas, 1 kiwi, palitos de brocheta».</li><li><b>Preparación</b> o pasos: las acciones numeradas y en orden. «1. Lava las fresas. 2. Pela el plátano y el kiwi. 3. Corta la fruta en trozos. 4. Ensártala en los palitos alternando colores».</li></ul><p>Para escribir bien unas instrucciones:</p><ol><li>Usa <b>verbos en imperativo</b> (<i>corta, mezcla, añade</i>) o en <b>infinitivo</b> (<i>cortar, mezclar</i>), pero no mezcles las dos formas.</li><li>Escribe <b>frases cortas</b>, con una acción en cada paso.</li><li>Usa <b>números</b> o <b>conectores de orden</b>: <i>primero, después, a continuación, por último</i>.</li><li>Añade <b>dibujos</b> o esquemas si ayudan a entender.</li><li>Incluye <b>advertencias</b> de seguridad: «Pide ayuda a un adulto para usar el cuchillo».</li></ol><p>Comprueba tus instrucciones pidiendo a alguien que las siga al pie de la letra.</p>`,
+      H.flujo("Brochetas de fruta", ["lavar", "pelar", "cortar", "ensartar", "servir"], VE)],
+    ["El cómic", `<p>El <b>cómic</b> (también llamado <i>historieta</i> o <i>tebeo</i>) cuenta una historia combinando <b>dibujos</b> y <b>texto</b>. Es una forma de narración con su propio lenguaje:</p><ul><li><b>Viñetas</b>: los recuadros donde se dibuja cada momento de la historia. Se leen de izquierda a derecha y de arriba abajo.</li><li><b>Bocadillos</b>: los globos que contienen lo que dicen los personajes. Su forma indica cómo hablan: con borde normal, hablan; con borde de nube, piensan; con borde en zigzag, gritan; con línea discontinua, susurran.</li><li><b>Cartelas</b>: los recuadros, normalmente en la parte de arriba de la viñeta, donde habla el narrador: «Mientras tanto, en el sótano…».</li><li><b>Onomatopeyas</b>: palabras que imitan sonidos: <i>¡crash!, ¡zas!, ¡bum!, ¡toc, toc!, ¡miau!</i></li><li><b>Líneas cinéticas</b>: rayitas que indican movimiento, y <b>metáforas visuales</b>, como una bombilla para una idea o estrellitas para un golpe.</li></ul><p>Para crear tu propio cómic, escribe primero un <b>guion</b>: decide cuántas viñetas tendrás, qué se dibuja en cada una y qué dice cada personaje. Después dibuja a lápiz, añade los bocadillos y, por último, repasa y colorea.</p>`,
+      L.filas("Lenguaje del cómic", [["Viñeta", "cada recuadro", AZ], ["Bocadillo", "lo que dicen o piensan", VE], ["Cartela", "habla el narrador", NA], ["Onomatopeya", "¡crash! ¡bum!", RO]])],
+  ],
+  ejemplos: [
+    ["Escribe la entradilla de esta noticia: el equipo de baloncesto del colegio ganó la liga el sábado en el polideportivo municipal.", ["¿Quién? El equipo de baloncesto del colegio. ¿Qué? Ganó la liga.", "¿Cuándo? El sábado. ¿Dónde? En el polideportivo municipal.", "Unimos los datos en una o dos frases en tercera persona y en pasado."], "«El equipo de baloncesto del colegio se proclamó campeón de la liga el pasado sábado en el polideportivo municipal»"],
+    ["Pasa a estilo indirecto: «—Mañana iré a tu casa —dijo Pablo».", ["Cambia el verbo: iré → iría.", "Cambia el tiempo: mañana → al día siguiente.", "Cambia la persona: tu casa → su casa (o la casa de…)."], "Pablo dijo que al día siguiente iría a su casa"],
+  ],
+  errores: ["Repetir siempre «dijo» en los diálogos.", "Dar la opinión en una noticia: la noticia informa de forma objetiva."],
+  ejercicios: [
+    ["b", "Escribe las seis preguntas que debe responder una noticia.", "Qué, quién, cuándo, dónde, cómo y por qué."],
+    ["b", "Escribe cinco verbos de habla distintos de «decir».", "Por ejemplo: gritó, susurró, preguntó, respondió, suspiró."],
+    ["b", "¿Qué partes tiene una receta?", "Ingredientes y preparación."],
+    ["b", "¿Qué indica un bocadillo con borde de nube en un cómic?", "Que el personaje piensa."],
+    ["b", "Escribe tres onomatopeyas.", "Por ejemplo: ¡bum!, ¡crash!, ¡miau!"],
+    ["m", "Convierte en caracterización indirecta: «Ana era muy nerviosa».", "Por ejemplo: «Ana se mordía las uñas y no paraba de mover la pierna»."],
+    ["m", "Pasa a estilo indirecto: «—Hoy estoy cansado —dijo Juan».", "Juan dijo que aquel día estaba cansado."],
+    ["m", "Ordena estas partes de la noticia de más a menos importante: cuerpo, titular, entradilla.", "Titular, entradilla, cuerpo."],
+    ["m", "Escribe un inicio de cuento que empiece «por el medio».", "Respuesta abierta. Por ejemplo: «El suelo tembló y la linterna se apagó…»."],
+    ["m", "Escribe una advertencia de seguridad para una receta.", "Por ejemplo: «Pide ayuda a un adulto para encender el horno»."],
+    ["a", "Escribe una noticia sobre algo que haya pasado en tu colegio con titular, entradilla y cuerpo.", "Respuesta abierta, objetiva y en tercera persona."],
+    ["a", "Escribe las instrucciones de un juego de patio con materiales, número de jugadores y pasos.", "Respuesta abierta."],
+    ["a", "Crea la ficha de un personaje para un cuento y escribe un párrafo en el que se vea su carácter sin decirlo.", "Respuesta abierta."],
+    ["a", "Escribe el guion de un cómic de cuatro viñetas: qué se ve y qué dice cada personaje.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El primer párrafo de una noticia se llama…", ["entradilla", "titular", "cartela"], "Responde a las preguntas principales."],
+    ["«Muestra, no cuentes» se refiere a la caracterización…", ["indirecta", "directa", "objetiva"], "El lector lo descubre."],
+    ["Volver al pasado en una narración se llama…", ["retrospección", "desenlace", "entradilla"], "También flashback."],
+    ["En las instrucciones se usan verbos en…", ["imperativo o infinitivo", "futuro", "condicional"], "Corta, mezcla."],
+    ["En un cómic, el narrador habla en…", ["la cartela", "el bocadillo", "la onomatopeya"], "Recuadro de la viñeta."],
+  ],
+  examen: [
+    ["La estructura de la noticia es como una…", ["pirámide invertida", "escalera", "rueda"], "Lo importante, primero."],
+    ["«Susurró» es un verbo de habla que indica…", ["volumen bajo", "una pregunta", "enfado"], "Hablar muy bajito."],
+  ],
+  tarjetas: [
+    ["Caracterización", "Directa (lo dice) o indirecta (lo muestra)."],
+    ["Noticia", "Titular, entradilla y cuerpo; seis preguntas."],
+    ["Instrucciones", "Materiales y pasos ordenados en imperativo."],
+    ["Cómic", "Viñetas, bocadillos, cartelas y onomatopeyas."],
+  ],
+  glosario: [
+    ["Narración", "Texto que cuenta hechos que les ocurren a unos personajes."],
+    ["Narrador", "Voz que cuenta la historia."],
+    ["Protagonista", "Personaje principal."],
+    ["Caracterización", "Forma de presentar cómo es un personaje."],
+    ["Retrospección", "Salto atrás en el tiempo de la narración."],
+    ["Descripción", "Texto que explica cómo es algo o alguien."],
+    ["Diálogo", "Conversación entre personajes."],
+    ["Verbo de habla", "Verbo que introduce lo que dice un personaje."],
+    ["Noticia", "Texto que informa de un hecho real y reciente."],
+    ["Entradilla", "Primer párrafo de una noticia."],
+    ["Texto instructivo", "El que explica cómo hacer algo paso a paso."],
+    ["Viñeta", "Cada recuadro de un cómic."],
+    ["Onomatopeya", "Palabra que imita un sonido."],
+  ],
+  situacion: {
+    titulo: "El periódico de quinto",
+    reto: "La clase edita un periódico escolar con noticias, recetas, un cómic y un cuento por entregas.",
+    pasos: ["Formad la redacción: equipos de noticias, de recetas e instrucciones, de cómic y de cuento.", "Cada equipo planifica su texto siguiendo sus reglas: seis preguntas, pasos ordenados, guion de viñetas o ficha de personajes.", "Escribid los borradores y revisadlos con otro equipo usando una lista de control.", "Maquetad el periódico en papel o en digital y repartidlo por el colegio."],
+    producto: "Un número del periódico escolar.",
+    evaluacion: ["Construye narraciones con personajes y orden temporal claros.", "Usa verbos de habla variados y el estilo indirecto.", "Escribe noticias objetivas con su estructura.", "Redacta instrucciones y cómics con sus elementos."],
+  },
+});
