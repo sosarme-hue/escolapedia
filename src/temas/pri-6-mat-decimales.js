@@ -91,3 +91,95 @@ module.exports = P.tema({
   saberes: "Sentido numérico: números decimales hasta las milésimas, relación con las fracciones decimales, comparación, redondeo y operaciones",
   ideas: ["Tienda de clase con precios en euros y céntimos.", "Cuadrados de 10 × 10 para representar décimas y centésimas.", "Carreras de la clase cronometradas y ordenadas por tiempos."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmbbmma",
+  objetivos: ["Pasar cualquier fracción a número decimal dividiendo", "Dividir entre un número decimal", "Multiplicar y dividir mentalmente por 0,1, 0,01 y 0,5", "Usar decimales para comparar precios y conocer su historia"],
+  lectura: { titulo: "Las centésimas de Ana", html: `<p>Ana llevaba todo el año entrenando para la final de 60 metros del campeonato escolar. En la salida, el corazón le latía tan fuerte que casi no oyó el disparo.</p><p>Corrió como nunca. Al cruzar la meta, no sabía si había ganado: Lucía y ella habían llegado casi a la vez.</p><p>Todo el público miró el marcador electrónico. Primero apareció un tiempo: 8,47 segundos. Después, el otro: 8,52.</p><p>—¿Quién ha ganado? —preguntó alguien.</p><p>—¡8,47 es menos tiempo! —gritó el entrenador—. ¡Ha ganado Ana!</p><p>La diferencia había sido de solo cinco centésimas de segundo, menos de lo que se tarda en parpadear. A simple vista era imposible saberlo, pero los decimales no dejaban lugar a dudas.</p><p>Después de la carrera, Lucía se acercó a felicitarla.</p><p>—El año que viene te gano por una décima —le dijo, riendo.</p><p>—Trato hecho —contestó Ana.</p><p>En el deporte, en el dinero, en las medidas y en la ciencia, a veces las cifras que hay después de la coma son las más importantes. En este tema aprenderás a manejarlas con seguridad.</p>` },
+  tras: {
+    "Fracciones decimales y decimales": [
+      ["De cualquier fracción a decimal", `<p>No solo las fracciones decimales se pueden escribir como decimal. <b>Cualquier fracción</b> se convierte en número decimal <b>dividiendo el numerador entre el denominador</b>:</p><ul><li>3/4 = 3 : 4 = <b>0,75</b></li><li>2/5 = 2 : 5 = <b>0,4</b></li><li>3/8 = 3 : 8 = <b>0,375</b></li></ul><p>Para dividir, añadimos una coma y ceros al dividendo: 3 = 3,000. Seguimos dividiendo hasta que el resto sea 0.</p><p>A veces el resto nunca llega a 0 y las cifras decimales se <b>repiten sin fin</b>: 1/3 = 0,333…; 2/3 = 0,666…; 1/11 = 0,0909… Son los <b>decimales periódicos</b>. La parte que se repite se llama <b>periodo</b>. En la práctica, los redondeamos: 2/3 ≈ 0,67.</p><p>Hay fracciones que conviene saberse de memoria porque aparecen mucho: 1/2 = 0,5; 1/4 = 0,25; 3/4 = 0,75; 1/5 = 0,2; 1/10 = 0,1. Así, si una oferta dice «un cuarto de kilo», sabrás enseguida que son 0,25 kg, es decir, 250 gramos.</p>`,
+        L6.filas("Fracción → decimal", [["1/2", "0,5", cAZ], ["1/4", "0,25", cVE], ["3/4", "0,75", cNA], ["1/3", "0,333...", cRO]]), ["3t7fQ2cPjxw", "Convertir fracción en decimal", "Matemáticas profe Alex", 5551439]],
+    ],
+    "Comparar y ordenar decimales": [
+      ["Decimales en la recta numérica", `<p>Los números decimales se pueden representar en la <b>recta numérica</b>, igual que los naturales. Entre dos números naturales consecutivos, por ejemplo entre 2 y 3, hay muchos decimales.</p><p>Para situar 2,7, dividimos el tramo entre 2 y 3 en <b>10 partes iguales</b>: cada parte es una décima. Contamos siete partes desde el 2 y marcamos el punto.</p><p>¿Y si queremos situar 2,75? Hacemos «zoom»: dividimos el tramo entre 2,7 y 2,8 en otras 10 partes, que ahora son centésimas, y contamos cinco. 2,75 queda justo en medio de 2,7 y 2,8.</p><p>Esto muestra algo muy curioso: entre dos decimales cualesquiera <b>siempre</b> podemos encontrar otro. Entre 2,7 y 2,8 está 2,75; entre 2,75 y 2,76 está 2,755, y así sin fin. Por eso no tiene sentido preguntar cuál es «el decimal siguiente» a 2,7.</p><p>La recta numérica también ayuda a <b>redondear</b>: 2,74 está más cerca de 2,7 que de 2,8, así que redondeado a las décimas es 2,7. En cambio, 2,76 está más cerca de 2,8.</p><p>Los termómetros, las reglas y las básculas son, en el fondo, rectas numéricas con decimales.</p>`,
+        L6.filas("Zoom en la recta", [["entre 2 y 3", "décimas: 2,1 ... 2,9", cAZ], ["entre 2,7 y 2,8", "centésimas", cVE], ["2,75", "en medio", cNA], ["siempre", "hay otro en medio", cRO]])],
+    ],
+    "Multiplicar decimales": [
+      ["Atajos con 0,1, 0,01 y 0,5", `<p>Algunas multiplicaciones y divisiones con decimales se hacen de cabeza si sabemos qué significan:</p><ul><li>Multiplicar por <b>0,1</b> es lo mismo que <b>dividir entre 10</b>: 36 × 0,1 = 3,6.</li><li>Multiplicar por <b>0,01</b> es <b>dividir entre 100</b>: 250 × 0,01 = 2,5.</li><li>Multiplicar por <b>0,5</b> es calcular la <b>mitad</b>: 18 × 0,5 = 9.</li><li>Multiplicar por <b>0,25</b> es calcular la <b>cuarta parte</b>: 40 × 0,25 = 10.</li><li>Dividir entre <b>0,5</b> es <b>multiplicar por 2</b>: 7 : 0,5 = 14. ¿Cuántas medias pizzas hay en 7 pizzas? ¡14!</li></ul><p>Un detalle sorprendente: al multiplicar por un número <b>menor que 1</b>, el resultado es <b>más pequeño</b> que el número de partida. Y al dividir entre un número menor que 1, el resultado es <b>más grande</b>. Parece al revés de lo que pasa con los números naturales, pero tiene sentido: la mitad de algo es menos, y en algo caben muchas mitades.</p>`,
+        L6.filas("Atajos", [["× 0,1", "÷ 10", cAZ], ["× 0,01", "÷ 100", cVE], ["× 0,5", "la mitad", cNA], ["÷ 0,5", "× 2", cRO]])],
+    ],
+    "Dividir con decimales": [
+      ["Dividir entre un número decimal", `<p>¿Cómo se divide cuando el <b>divisor</b> es decimal, por ejemplo 4,5 : 0,15? El truco es convertir el divisor en un número natural.</p><p>Si multiplicamos el dividendo y el divisor por el <b>mismo número</b>, el cociente no cambia. Así que multiplicamos los dos por 10, 100 o 1 000, según las cifras decimales del divisor:</p><ul><li>4,5 : 0,15 → multiplicamos por 100 → 450 : 15 = <b>30</b>.</li><li>12 : 0,4 → multiplicamos por 10 → 120 : 4 = <b>30</b>.</li><li>7,2 : 0,08 → multiplicamos por 100 → 720 : 8 = <b>90</b>.</li></ul><p>Para hacerlo bien:</p><ol><li>Cuenta las cifras decimales del <b>divisor</b>.</li><li>Mueve la coma ese número de lugares a la derecha en el divisor y en el dividendo. Si faltan cifras en el dividendo, añade ceros.</li><li>Divide como siempre.</li></ol><p>Comprobación: cociente × divisor = dividendo. 30 × 0,15 = 4,5. ¡Correcto!</p>`,
+        H6.flujo("Dividir entre decimal", ["Contar|decimales", "Mover|comas", "Dividir", "Comprobar"], cAZ)],
+    ],
+  },
+  final: [
+    ["Decimales en el supermercado", `<p>Los decimales son imprescindibles para comprar con cabeza:</p><ul><li><b>Precio por kilo</b>: si las manzanas cuestan 2,45 €/kg y compramos 1,8 kg, pagaremos 2,45 × 1,8 = <b>4,41 €</b>.</li><li><b>Comparar ofertas</b>: un pack de 6 yogures cuesta 2,70 € y uno de 4 cuesta 1,96 €. ¿Cuál sale más barato por unidad? 2,70 : 6 = 0,45 € y 1,96 : 4 = 0,49 €. El pack de 6 es más barato.</li><li><b>Etiquetas</b>: por ley, los supermercados deben indicar el <b>precio por unidad de medida</b> (por kilo o por litro). Así es más fácil comparar envases de distinto tamaño.</li><li><b>El cambio</b>: si pagamos 10 € y la compra cuesta 7,35 €, nos devuelven 2,65 €.</li></ul><p>Cuidado con los precios terminados en ,99: 9,99 € parece mucho menos que 10 €, pero la diferencia es solo de un céntimo. Las tiendas los usan precisamente porque nuestro cerebro se fija más en la primera cifra.</p><p>Antes de pagar, haz una <b>estimación</b>: redondea cada precio al euro más cercano y súmalos. Así sabrás si el total tiene sentido.</p>`,
+      H6.dos("Comparar ofertas", ["Pack de 6", ["2,70 €", "0,45 € cada uno", "más barato"], cVE], ["Pack de 4", ["1,96 €", "0,49 € cada uno", "más caro"], cRO])],
+    ["Historia de la coma decimal", `<p>Aunque hoy nos parezcan muy naturales, los números decimales tardaron siglos en usarse de forma habitual:</p><ul><li>Hace más de mil años, matemáticos del mundo árabe, como <b>al-Uqlidisi</b> en el siglo X, ya usaban fracciones decimales en sus cálculos.</li><li>En 1585, el ingeniero flamenco <b>Simon Stevin</b> publicó un librito titulado <i>La décima</i>, en el que explicaba con sencillez cómo calcular con decimales y defendía que se usaran en el comercio, las medidas y las monedas.</li><li>A principios del siglo XVII, el escocés <b>John Napier</b> popularizó el uso de un signo para separar la parte entera de la decimal.</li><li>A finales del siglo XVIII, con el <b>sistema métrico decimal</b> nacido en Francia, los decimales se volvieron imprescindibles para medir.</li></ul><p>Hoy, en España y en gran parte de Europa se usa la <b>coma</b> como separador decimal: 3,5. En los países de habla inglesa y en otros como México se usa el <b>punto</b>: 3.5. Las normas internacionales admiten los dos. Por eso, al leer datos de otros países o usar una calculadora, conviene fijarse bien.</p>`,
+      L6.filas("Historia de los decimales", [["siglo X", "al-Uqlidisi", cNA], ["1585", "Simon Stevin", cAZ], ["siglo XVII", "John Napier", cVE], ["hoy", "coma o punto", cMO]]), ["NEPaQ1ae5Rs", "La historia de las fracciones y los números decimales", "Telesecundaria MX", 144198]],
+  ],
+  ejemplos: [
+    ["Calcula 4,5 : 0,15.", ["El divisor tiene 2 decimales: multiplicamos ambos por 100.", "450 : 15."], "30."],
+    ["Escribe 3/8 como número decimal.", ["Dividimos 3 : 8 añadiendo ceros.", "3,000 : 8."], "0,375."],
+  ],
+  errores: ["Mover la coma solo en el divisor al dividir entre un decimal: hay que moverla también en el dividendo.", "Pensar que multiplicar siempre da un resultado mayor: al multiplicar por un número menor que 1, el resultado disminuye."],
+  ejercicios: [
+    ["b", "Escribe 3/4 como número decimal.", "0,75."],
+    ["b", "Escribe 2/5 como número decimal.", "0,4."],
+    ["b", "Calcula mentalmente: 36 × 0,1.", "3,6."],
+    ["b", "Calcula mentalmente: 18 × 0,5.", "9."],
+    ["b", "¿Qué signo se usa normalmente en España para separar los decimales?", "La coma."],
+    ["m", "Escribe 1/8 como número decimal.", "0,125."],
+    ["m", "Calcula: 4,5 : 0,15.", "30."],
+    ["m", "Calcula: 12 : 0,4.", "30."],
+    ["m", "Calcula: 7 : 0,5.", "14."],
+    ["m", "Las manzanas cuestan 2,45 €/kg. ¿Cuánto cuestan 1,8 kg?", "4,41 €."],
+    ["a", "Un pack de 6 yogures cuesta 2,70 € y uno de 4 cuesta 1,96 €. ¿Cuál es más barato por unidad?", "El de 6: 0,45 € frente a 0,49 €."],
+    ["a", "Escribe 2/3 como decimal y redondéalo a las centésimas.", "0,666… ≈ 0,67."],
+    ["a", "Calcula: 7,2 : 0,08 y comprueba el resultado.", "90; 90 × 0,08 = 7,2."],
+    ["a", "Un coche gasta 6,4 L cada 100 km. ¿Cuántos litros gasta en 350 km?", "6,4 × 3,5 = 22,4 L."],
+  ],
+  quiz: [
+    ["1/4 en decimal es…", ["0,25", "0,4", "1,4"], "1 : 4."],
+    ["Multiplicar por 0,1 equivale a…", ["dividir entre 10", "multiplicar por 10", "sumar 0,1"], "Atajo."],
+    ["6 : 0,5 = …", ["12", "3", "0,3"], "Dividir entre 0,5 es duplicar."],
+    ["Simon Stevin publicó La décima en…", ["1585", "1202", "1789"], "Historia."],
+    ["1/3 en decimal es…", ["0,333…", "0,3", "0,13"], "Periódico."],
+  ],
+  examen: [
+    ["2,4 : 0,6 = …", ["4", "0,4", "40"], "24 : 6."],
+    ["Medio kilo a 3,20 €/kg cuesta…", ["1,60 €", "6,40 €", "3,20 €"], "× 0,5."],
+  ],
+  tarjetas: [
+    ["Fracción → decimal", "Numerador : denominador. 1/3 = 0,333… (periódico)."],
+    ["Atajos", "× 0,1 = ÷ 10; × 0,5 = mitad; ÷ 0,5 = × 2."],
+    ["Dividir entre decimal", "Mover la coma en divisor y dividendo."],
+    ["Historia", "al-Uqlidisi, Stevin (1585), Napier."],
+  ],
+  glosario: [
+    ["Decimal periódico", "Decimal con cifras que se repiten sin fin."],
+    ["Periodo", "Cifras que se repiten en un decimal periódico."],
+    ["Dividendo", "Número que se divide."],
+    ["Divisor", "Número entre el que se divide."],
+    ["Cociente", "Resultado de la división."],
+    ["Precio por kilo", "Lo que cuesta un kilogramo de un producto."],
+    ["Precio unitario", "Lo que cuesta cada unidad."],
+    ["Estimación", "Cálculo aproximado."],
+    ["Separador decimal", "Signo que separa la parte entera de la decimal."],
+    ["Sistema métrico decimal", "Sistema de medidas basado en potencias de 10."],
+    ["Centésima", "Cada una de las 100 partes iguales de una unidad."],
+    ["Oferta", "Producto a un precio especial."],
+  ],
+  situacion: {
+    titulo: "Compra inteligente",
+    reto: "Con folletos de supermercado, la clase planifica la compra de una semana para una familia con un presupuesto fijo.",
+    pasos: ["Haced una lista de la compra con cantidades en kilos, litros o unidades.", "Calculad el precio de cada producto con decimales y comparad ofertas por precio unitario.", "Sumad el total y comprobad con una estimación que no supera el presupuesto.", "Presentad la compra y explicad qué ofertas elegisteis y por qué."],
+    producto: "Una lista de la compra con cálculos y justificación de las ofertas.",
+    evaluacion: ["Opera con decimales sin errores.", "Compara precios unitarios.", "Estima resultados.", "Justifica sus decisiones."],
+  },
+});

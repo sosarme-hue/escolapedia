@@ -94,3 +94,91 @@ module.exports = P.tema({
   saberes: "Sentido numérico: múltiplos y divisores, criterios de divisibilidad, números primos y compuestos, descomposición factorial y aplicaciones del m.c.m. y el m.c.d.",
   ideas: ["Criba de Eratóstenes en una tabla 10 × 10 coloreando por equipos.", "Formar rectángulos con fichas para descubrir los divisores de un número.", "Problemas de semáforos y autobuses que coinciden (m.c.m.)."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbbmmmmaa",
+  objetivos: ["Aplicar los criterios de divisibilidad entre 4, 6, 9 y 11", "Conocer curiosidades de los números primos y su uso actual", "Calcular el m.c.m. y el m.c.d. con la descomposición en factores primos", "Reconocer si un problema se resuelve con el m.c.m. o con el m.c.d."],
+  lectura: { titulo: "Las cigarras de los números primos", html: `<p>En algunos bosques del este de Estados Unidos ocurre algo sorprendente. Durante años no se ve ni una sola cigarra de cierta especie. Y, de repente, un año salen de la tierra millones a la vez, cantan durante unas semanas, ponen sus huevos y desaparecen.</p><p>Lo más curioso es cada cuánto tiempo lo hacen: unas especies salen cada <b>13 años</b> y otras cada <b>17 años</b>. Las ninfas pasan todo ese tiempo bajo tierra, alimentándose de las raíces de los árboles.</p><p>¿Por qué 13 y 17? Los científicos tienen una hipótesis. Los dos son <b>números primos</b>. Imagina un depredador que aparece cada 4 años. Si las cigarras salieran cada 12 años, coincidirían con él muy a menudo, porque 12 es múltiplo de 4. Pero con un ciclo de 13 años, solo coinciden cada 52 años, que es el mínimo común múltiplo de 4 y 13.</p><p>Además, cuando una población de 13 años y otra de 17 viven cerca, solo salen a la vez cada 221 años. Así no compiten por el mismo alimento.</p><p>Puede que las cigarras no sepan matemáticas, pero la naturaleza parece haber elegido los números primos para protegerlas. En este tema verás por qué estos números son tan especiales.</p>` },
+  tras: {
+    "Criterios de divisibilidad": [
+      ["Más criterios: entre 4, 6, 9 y 11", `<p>Además de los criterios del 2, 3, 5 y 10, hay otros muy útiles:</p><ul><li><b>Entre 4</b>: si el número formado por sus <b>dos últimas cifras</b> es múltiplo de 4. 316 sí es divisible entre 4, porque 16 lo es.</li><li><b>Entre 6</b>: si es divisible <b>entre 2 y entre 3</b> a la vez. 252 es par y sus cifras suman 9: sí es divisible entre 6.</li><li><b>Entre 9</b>: si la <b>suma de sus cifras</b> es múltiplo de 9. 4 518: 4 + 5 + 1 + 8 = 18, que es múltiplo de 9. Sí.</li><li><b>Entre 11</b>: suma las cifras de los lugares impares y las de los lugares pares, empezando por la derecha. Si la <b>diferencia</b> es 0 o múltiplo de 11, el número es divisible entre 11. En 2 728: (8 + 7) − (2 + 2) = 15 − 4 = 11. Sí: 2 728 : 11 = 248.</li></ul><p>Truco: los números de dos cifras iguales (22, 33, 44…) siempre son múltiplos de 11. Y si un número es divisible entre 9, también lo es entre 3.</p>`,
+        L6.filas("Más criterios", [["÷ 4", "dos últimas cifras", cAZ], ["÷ 6", "entre 2 y entre 3", cVE], ["÷ 9", "suma de cifras", cNA], ["÷ 11", "resta alterna", cMO]])],
+    ],
+    "Números primos y compuestos": [
+      ["Los primos, un misterio infinito", `<p>Los números primos fascinan a los matemáticos desde hace miles de años:</p><ul><li>Hacia el año 300 a. C., el griego <b>Euclides</b> demostró que hay <b>infinitos</b> números primos: nunca se acaban.</li><li>Cuanto más grandes son los números, más separados suelen estar los primos, pero aparecen sin un patrón sencillo. Nadie ha encontrado una fórmula que los genere todos.</li><li>Hay parejas de primos que solo se separan en 2: los <b>primos gemelos</b>, como 11 y 13, 17 y 19 o 41 y 43. Todavía no se sabe si hay infinitas parejas.</li><li>El mayor número primo conocido se descubrió en 2024 con ayuda de muchos ordenadores. ¡Tiene más de <b>41 millones de cifras</b>!</li></ul><p>Los primos no son solo una curiosidad. Se usan en la <b>criptografía</b>, la ciencia de los códigos secretos. Cuando compras por internet o envías un mensaje, la seguridad se basa en multiplicar dos primos enormes: multiplicarlos es fácil, pero averiguar cuáles eran a partir del resultado es tan difícil que ni los ordenadores más potentes pueden hacerlo en un tiempo razonable.</p>`,
+        L6.filas("Curiosidades de los primos", [["Euclides", "hay infinitos", cAZ], ["gemelos", "11 y 13, 17 y 19", cVE], ["récord 2024", "más de 41 millones de cifras", cNA], ["criptografía", "seguridad en internet", cRO]]), ["GYXLIfiL6zs", "La incógnita de más de 2.300 años de los números primos | BBC Mundo", "BBC News Mundo", 536653]],
+    ],
+    "Descomponer en factores primos": [
+      ["El árbol de factores y los números perfectos", `<p>Otra forma de descomponer un número es el <b>árbol de factores</b>. Se empieza escribiendo el número como producto de dos factores cualesquiera, y se sigue descomponiendo cada rama hasta que todas terminan en números primos.</p><p>Ejemplo con 72: 72 = 8 × 9. Después, 8 = 2 × 2 × 2 y 9 = 3 × 3. Al final, 72 = 2 × 2 × 2 × 3 × 3 = <b>2³ × 3²</b>. Si hubiéramos empezado por 72 = 6 × 12, habríamos llegado al mismo resultado: la descomposición en factores primos de un número es <b>única</b>. Es como la huella dactilar de cada número.</p><p>Conocer los divisores de un número permite descubrir curiosidades. Un número es <b>perfecto</b> si es igual a la suma de sus divisores, sin contarse a sí mismo:</p><ul><li>6 = 1 + 2 + 3</li><li>28 = 1 + 2 + 4 + 7 + 14</li></ul><p>Los siguientes números perfectos son 496 y 8 128. Los griegos los consideraban especiales y ya los conocían hace más de 2 000 años. Hoy solo se conocen unos cincuenta, y todos son pares. Nadie sabe todavía si existe alguno impar.</p>`,
+        L6.filas("Árbol de factores de 72", [["72", "8 × 9", cAZ], ["8", "2 × 2 × 2", cVE], ["9", "3 × 3", cNA], ["resultado", "2³ × 3²", cRO]])],
+    ],
+  },
+  final: [
+    ["m.c.m. y m.c.d. con factores primos", `<p>Cuando los números son grandes, escribir listas de múltiplos o divisores es muy lento. Es más rápido usar la <b>descomposición en factores primos</b>.</p><p>Ejemplo con 12 y 18:</p><ul><li>12 = 2² × 3</li><li>18 = 2 × 3²</li></ul><p><b>m.c.d.</b>: se toman solo los factores <b>comunes</b>, con el exponente <b>más pequeño</b>: 2 × 3 = <b>6</b>.</p><p><b>m.c.m.</b>: se toman <b>todos</b> los factores, comunes y no comunes, con el exponente <b>más grande</b>: 2² × 3² = 4 × 9 = <b>36</b>.</p><p>Otro ejemplo: 40 = 2³ × 5 y 60 = 2² × 3 × 5.</p><ul><li>m.c.d. (40, 60) = 2² × 5 = 20.</li><li>m.c.m. (40, 60) = 2³ × 3 × 5 = 120.</li></ul><p>Una comprobación curiosa: el producto del m.c.d. por el m.c.m. es igual al producto de los dos números. 6 × 36 = 216 = 12 × 18. Y 20 × 120 = 2 400 = 40 × 60.</p><p>Si dos números no tienen ningún factor primo en común, su m.c.d. es 1 y se llaman <b>primos entre sí</b>, como 8 y 15.</p>`,
+      H6.dos("Con factores primos", ["m.c.d.", ["solo comunes", "menor exponente", "12 y 18 → 6"], cVE], ["m.c.m.", ["todos los factores", "mayor exponente", "12 y 18 → 36"], cAZ])],
+    ["¿m.c.m. o m.c.d.? Resolver problemas", `<p>En los problemas, lo difícil suele ser saber si hay que calcular el m.c.m. o el m.c.d. Fíjate en lo que se pregunta:</p><ul><li>Se usa el <b>m.c.m.</b> cuando algo <b>se repite</b> en ciclos y queremos saber <b>cuándo vuelven a coincidir</b>. El resultado es <b>mayor o igual</b> que los datos. Ejemplo: un autobús pasa cada 12 minutos y otro cada 18. Si han salido juntos a las 9:00, ¿cuándo vuelven a coincidir? m.c.m. (12, 18) = 36: a las 9:36.</li><li>Se usa el <b>m.c.d.</b> cuando queremos <b>repartir</b> o <b>cortar</b> en partes iguales lo <b>más grandes posible</b>, sin que sobre nada. El resultado es <b>menor o igual</b> que los datos. Ejemplo: tenemos dos cintas de 24 cm y 36 cm y queremos cortarlas en trozos iguales lo más largos posible. m.c.d. (24, 36) = 12: trozos de 12 cm (2 de una cinta y 3 de la otra).</li></ul><p>Pistas en el enunciado: «cada», «a la vez», «de nuevo», «coincidir» suelen indicar m.c.m. «Repartir», «lo más grande posible», «sin que sobre», «agrupar» suelen indicar m.c.d.</p>`,
+      H6.dos("¿Cuál uso?", ["m.c.m.", ["coincidir", "cada... a la vez", "resultado mayor"], cAZ], ["m.c.d.", ["repartir", "lo más grande", "resultado menor"], cVE]), ["hpwzXMAQOIo", "06 Problemas de MCD y mcm", "Píldoras matemáticas", 822997]],
+  ],
+  ejemplos: [
+    ["¿Es 5 346 divisible entre 6? ¿Y entre 9?", ["Es par: divisible entre 2.", "5 + 3 + 4 + 6 = 18: divisible entre 3 y entre 9."], "Sí es divisible entre 6 y también entre 9."],
+    ["Calcula el m.c.m. y el m.c.d. de 40 y 60 con factores primos.", ["40 = 2³ × 5; 60 = 2² × 3 × 5.", "m.c.d.: comunes con menor exponente; m.c.m.: todos con mayor exponente."], "m.c.d. = 20; m.c.m. = 120."],
+  ],
+  errores: ["Pensar que un número es divisible entre 6 solo porque es par: también debe serlo entre 3.", "Usar el m.c.m. en un problema de repartir en grupos lo más grandes posible: ahí se usa el m.c.d."],
+  ejercicios: [
+    ["b", "¿Es 732 divisible entre 4?", "Sí: 32 es múltiplo de 4."],
+    ["b", "¿Es 4 671 divisible entre 9?", "Sí: 4 + 6 + 7 + 1 = 18."],
+    ["b", "Escribe tres parejas de primos gemelos.", "Por ejemplo: 3 y 5, 11 y 13, 29 y 31."],
+    ["b", "¿Quién demostró que hay infinitos números primos?", "Euclides."],
+    ["b", "Descompón 18 en factores primos.", "2 × 3²."],
+    ["m", "¿Es 3 586 divisible entre 11?", "Sí: (6 + 5) − (8 + 3) = 0."],
+    ["m", "¿Es 1 234 divisible entre 6? Explica por qué.", "No: es par, pero 1 + 2 + 3 + 4 = 10 no es múltiplo de 3."],
+    ["m", "Calcula el m.c.d. de 36 y 48 con factores primos.", "36 = 2² × 3²; 48 = 2⁴ × 3; m.c.d. = 2² × 3 = 12."],
+    ["m", "Calcula el m.c.m. de 8 y 12 con factores primos.", "8 = 2³; 12 = 2² × 3; m.c.m. = 2³ × 3 = 24."],
+    ["m", "¿Son 8 y 15 primos entre sí? ¿Por qué?", "Sí: no tienen factores primos comunes; m.c.d. = 1."],
+    ["a", "Un faro se enciende cada 15 segundos y otro cada 20. Si se encienden juntos, ¿cuándo vuelven a coincidir?", "m.c.m. (15, 20) = 60 segundos."],
+    ["a", "Hay 48 lápices y 72 gomas. Se quieren hacer lotes iguales, lo más grandes posible, sin que sobre nada. ¿Cuántos lotes y qué lleva cada uno?", "m.c.d. (48, 72) = 24 lotes de 2 lápices y 3 gomas."],
+    ["a", "Comprueba que m.c.d. × m.c.m. = producto de los números con 8 y 12.", "m.c.d. = 4, m.c.m. = 24; 4 × 24 = 96 = 8 × 12."],
+    ["a", "Unas cigarras salen cada 13 años y otras cada 17. ¿Cada cuántos años salen a la vez?", "m.c.m. (13, 17) = 221 años."],
+  ],
+  quiz: [
+    ["Un número es divisible entre 9 si…", ["sus cifras suman un múltiplo de 9", "acaba en 9", "es impar"], "Criterio del 9."],
+    ["Los primos gemelos se diferencian en…", ["2", "1", "10"], "11 y 13."],
+    ["m.c.d. (12, 18) con factores primos es…", ["6", "36", "2"], "2 × 3."],
+    ["Para saber cuándo coinciden dos autobuses se usa el…", ["m.c.m.", "m.c.d.", "divisor"], "Ciclos."],
+    ["Los números primos se usan en…", ["criptografía", "cocina", "geografía"], "Seguridad."],
+  ],
+  examen: [
+    ["¿Es 2 728 divisible entre 11?", ["sí", "no", "solo entre 2"], "15 − 4 = 11."],
+    ["m.c.m. (40, 60) = …", ["120", "20", "240"], "2³ × 3 × 5."],
+  ],
+  tarjetas: [
+    ["Criterios 4, 6, 9, 11", "Dos últimas cifras; 2 y 3; suma de cifras; resta alterna."],
+    ["Primos", "Infinitos (Euclides), gemelos, criptografía."],
+    ["Con factores primos", "m.c.d.: comunes, menor exponente. m.c.m.: todos, mayor exponente."],
+    ["¿Cuál uso?", "Coincidir → m.c.m. Repartir lo más grande → m.c.d."],
+  ],
+  glosario: [
+    ["Criterio de divisibilidad", "Regla para saber si un número es divisible sin dividir."],
+    ["Primos gemelos", "Pareja de primos que se diferencian en 2."],
+    ["Infinito", "Que no tiene fin."],
+    ["Criptografía", "Ciencia de los códigos secretos."],
+    ["Factor primo", "Número primo que divide a otro."],
+    ["Exponente", "Número que indica cuántas veces se repite un factor."],
+    ["Factores comunes", "Factores que aparecen en todos los números."],
+    ["Primos entre sí", "Números cuyo m.c.d. es 1."],
+    ["m.c.m.", "Mínimo común múltiplo."],
+    ["m.c.d.", "Máximo común divisor."],
+    ["Ciclo", "Periodo de tiempo que se repite."],
+    ["Hipótesis", "Explicación posible que hay que comprobar."],
+  ],
+  situacion: {
+    titulo: "Detectives de la divisibilidad",
+    reto: "La clase prepara un concurso de retos de divisibilidad y problemas de m.c.m. y m.c.d. para otro curso.",
+    pasos: ["Cada grupo inventa cinco números y comprueba con los criterios entre qué números son divisibles.", "Escribid dos problemas de «coincidir» y dos de «repartir» con su solución.", "Preparad tarjetas con pistas para descubrir si es m.c.m. o m.c.d.", "Organizad el concurso y corregid juntos las respuestas."],
+    producto: "Un concurso de retos con tarjetas de pistas y soluciones.",
+    evaluacion: ["Aplica los criterios de divisibilidad.", "Descompone en factores primos.", "Calcula m.c.m. y m.c.d.", "Elige la operación adecuada en los problemas."],
+  },
+});

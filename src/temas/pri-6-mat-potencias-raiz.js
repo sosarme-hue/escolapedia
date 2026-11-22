@@ -94,3 +94,91 @@ module.exports = P.tema({
   saberes: "Sentido numérico: potencias de base y exponente naturales, potencias de base 10 y raíz cuadrada",
   ideas: ["Construir cuadrados y cubos con cubitos encajables y contar las piezas.", "Papel cuadriculado: dibujar cuadrados y relacionar el área con la raíz.", "Concurso de cadenas de mensajes para ver cómo crecen las potencias."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmbmbmaa",
+  objetivos: ["Escribir números grandes en notación científica", "Multiplicar y dividir potencias de la misma base", "Aproximar raíces cuadradas por tanteo", "Reconocer el crecimiento de las potencias en situaciones reales"],
+  lectura: { titulo: "El secreto que voló", html: `<p>A las nueve de la mañana, Marta le contó un secreto a dos amigas: el viernes habría una fiesta sorpresa para la profesora. «No se lo digáis a nadie», les pidió.</p><p>Pero a las nueve y diez, cada una de ellas se lo había contado a otras dos personas. «Solo a dos, no pasa nada», pensaron.</p><p>Y esas cuatro hicieron lo mismo. Y las ocho siguientes también…</p><p>Marta, que era muy buena en matemáticas, se puso pálida cuando hizo la cuenta. Cada diez minutos, el número de personas que se enteraban se multiplicaba por dos: 2, 4, 8, 16, 32, 64. A las diez de la mañana, en la última ronda, se acababan de enterar 64 personas nuevas. ¡Y ya lo sabían 127 en total, contándola a ella!</p><p>—Si esto sigue así —le dijo a su amigo Iván—, antes del recreo lo sabrá el colegio entero.</p><p>—¿Tan rápido? —preguntó él.</p><p>—Es una potencia de 2. Crece despacio al principio, pero luego se dispara.</p><p>Al final, la profesora se enteró a la hora de comer. Puso cara de sorpresa el viernes, pero guiñó un ojo a Marta.</p><p>Las potencias explican cómo crecen los rumores, las bacterias o los virus informáticos. En este tema aprenderás a manejarlas.</p>` },
+  tras: {
+    "Potencias de 10": [
+      ["La notación científica", `<p>Los científicos trabajan con números enormes, como distancias entre estrellas, o muy pequeños, como el tamaño de las células. Para escribirlos de forma corta usan la <b>notación científica</b>: un número entre 1 y 10 multiplicado por una potencia de 10.</p><ul><li>La distancia de la Tierra al Sol, 150 000 000 km, se escribe <b>1,5 × 10⁸ km</b>.</li><li>La velocidad de la luz, unos 300 000 km por segundo, es <b>3 × 10⁵ km/s</b>.</li><li>La población mundial, unos 8 000 000 000 de personas, es <b>8 × 10⁹</b>.</li></ul><p>¿Cómo se hace? Coloca la coma después de la primera cifra y cuenta cuántos lugares la has movido: ese es el exponente. En 45 000 000, la coma se mueve 7 lugares: 4,5 × 10⁷.</p><p>Y al revés: para pasar 3,2 × 10⁵ a número normal, mueve la coma 5 lugares a la derecha, añadiendo ceros: 320 000.</p><p>Las calculadoras también usan esta notación cuando el resultado no cabe en la pantalla. Si ves algo como «2.5E12», significa 2,5 × 10¹².</p><p>La notación científica también sirve para números muy <b>pequeños</b>, como el tamaño de una bacteria, que mide alrededor de una millonésima de metro. Para ellos se usan exponentes negativos, que estudiarás en Secundaria. Lo importante ahora es entender la idea: la potencia de 10 nos dice el <b>tamaño</b> del número, y la primera parte nos da sus <b>cifras</b> principales.</p>`,
+        L6.filas("Notación científica", [["Tierra–Sol", "1,5 × 10⁸ km", cNA], ["luz", "3 × 10⁵ km/s", cAZ], ["población", "8 × 10⁹", cVE], ["45 000 000", "4,5 × 10⁷", cMO]])],
+    ],
+    "Calcular potencias sin equivocarse": [
+      ["Operar con potencias de la misma base", `<p>Cuando las potencias tienen la <b>misma base</b>, hay atajos para operar sin calcularlas:</p><ul><li><b>Multiplicar</b>: se deja la base y se <b>suman</b> los exponentes. 2³ × 2⁴ = 2³⁺⁴ = 2⁷ = 128. Comprobación: 8 × 16 = 128.</li><li><b>Dividir</b>: se deja la base y se <b>restan</b> los exponentes. 5⁶ : 5⁴ = 5² = 25.</li><li><b>Potencia de una potencia</b>: se <b>multiplican</b> los exponentes. (3²)³ = 3⁶ = 729.</li></ul><p>¿Por qué funciona? Porque 2³ × 2⁴ es (2 × 2 × 2) × (2 × 2 × 2 × 2): en total, siete doses multiplicados.</p><p>Un caso especial: cualquier número (distinto de 0) elevado a <b>0</b> vale <b>1</b>. Por ejemplo, 7⁰ = 1. Se entiende con la división: 7³ : 7³ = 7⁰, y cualquier número dividido entre sí mismo da 1.</p><p>¡Cuidado! Estas reglas solo sirven con la <b>misma base</b>. 2³ × 3² no se puede simplificar así: hay que calcular 8 × 9 = 72.</p>`,
+        L6.filas("Misma base", [["multiplicar", "se suman exponentes", cAZ], ["dividir", "se restan exponentes", cVE], ["potencia de potencia", "se multiplican", cNA], ["exponente 0", "vale 1", cRO]]), ["U8LGr4IoYo8", "MULTIPLICACIÓN DE POTENCIAS CON LA MISMA BASE Super facil", "Daniel Carreón", 2832519]],
+    ],
+    "Raíces exactas y aproximadas": [
+      ["Aproximar raíces por tanteo", `<p>Cuando una raíz no es exacta, podemos aproximarla <b>por tanteo</b>: probando números y acercándonos poco a poco.</p><p>Ejemplo: ¿cuánto es √300?</p><ul><li>Buscamos dos cuadrados perfectos entre los que esté 300: 17² = 289 y 18² = 324. Así que √300 está entre 17 y 18. La <b>raíz entera</b> es 17 y el <b>resto</b> es 300 − 289 = 11.</li><li>Como 300 está más cerca de 289 que de 324, la raíz estará más cerca de 17. Probamos con decimales: 17,3² = 299,29 y 17,4² = 302,76. Por tanto, √300 ≈ 17,3.</li></ul><p>Otro ejemplo famoso es √2, la diagonal de un cuadrado de lado 1. Se sabe que 1,4² = 1,96 y 1,5² = 2,25, así que √2 está entre 1,4 y 1,5. Afinando más: 1,41² = 1,9881. Su valor es 1,41421…, con infinitas cifras decimales que nunca se repiten.</p><p>Para comprobar una raíz, recuerda siempre: <b>raíz entera al cuadrado + resto = radicando</b>. En el ejemplo: 17² + 11 = 289 + 11 = 300.</p>`,
+        H6.flujo("Raíz por tanteo", ["Cuadrados|cercanos", "Raíz|entera", "Probar|decimales"], cMO)],
+    ],
+  },
+  final: [
+    ["La leyenda del ajedrez", `<p>Cuenta una antigua leyenda de la India que el inventor del ajedrez presentó el juego a un rey. Al rey le gustó tanto que le ofreció la recompensa que quisiera.</p><p>El sabio pidió algo que parecía muy modesto: un grano de trigo en la primera casilla del tablero, dos en la segunda, cuatro en la tercera, ocho en la cuarta… y así, <b>doblando</b> cada vez, hasta la casilla 64.</p><p>El rey se rio de una petición tan pequeña. Pero cuando sus matemáticos hicieron la cuenta, se llevaron un susto:</p><ul><li>En la casilla 10 había 2⁹ = 512 granos.</li><li>En la casilla 21, más de un millón: 2²⁰ = 1 048 576.</li><li>En la casilla 64, 2⁶³ granos.</li></ul><p>En total, el tablero necesitaba 2⁶⁴ − 1 granos: unos <b>18 trillones</b> (18 446 744 073 709 551 615). ¡Más trigo del que se ha cosechado en toda la historia de la humanidad!</p><p>Este tipo de crecimiento, en el que una cantidad se multiplica una y otra vez por el mismo número, se llama <b>crecimiento exponencial</b>. Así crecen, mientras tienen alimento, las bacterias que se dividen en dos cada cierto tiempo.</p>`,
+      H6.barras("Granos por casilla", [["casilla 1", 1, cVE, "1"], ["casilla 2", 2, cVE, "2"], ["casilla 3", 4, cNA, "4"], ["casilla 4", 8, cNA, "8"], ["casilla 5", 16, cRO, "16"], ["casilla 6", 32, cRO, "32"]], 32), ["J1WVXoTZReM", "La LEYENDA del TABLERO DE AJEDREZ y los GRANOS DE TRIGO - MITOS y LEYENDAS ♟️", "Historias De Leyenda", 475021]],
+    ["Bits, bytes y potencias de 2", `<p>Los ordenadores y los móviles funcionan con un sistema muy sencillo: solo usan dos símbolos, el <b>0</b> y el <b>1</b> (apagado y encendido). Cada uno de esos símbolos se llama <b>bit</b>.</p><ul><li>Con 1 bit se pueden escribir 2 valores: 0 o 1.</li><li>Con 2 bits, 2² = 4 valores: 00, 01, 10, 11.</li><li>Con 3 bits, 2³ = 8 valores.</li><li>Un <b>byte</b> son 8 bits, así que puede tomar 2⁸ = <b>256</b> valores distintos. Por eso, durante años, muchas imágenes usaban 256 colores.</li></ul><p>En informática se suele usar 2¹⁰ = <b>1 024</b> como «mil», porque se parece mucho. Así, tradicionalmente, un kilobyte son 1 024 bytes y un megabyte, 1 024 kilobytes. Por eso las memorias de los móviles y de las tarjetas suelen tener capacidades como 32, 64, 128 o 256 GB: ¡todas son potencias de 2!</p><p>Cada bit más <b>duplica</b> la cantidad de valores posibles. Por eso las contraseñas largas son mucho más seguras: cada carácter añadido multiplica el número de combinaciones que habría que probar.</p>`,
+      L6.filas("Potencias de 2 en informática", [["1 bit", "2 valores", cAZ], ["1 byte = 8 bits", "2⁸ = 256 valores", cVE], ["2¹⁰", "1 024", cNA], ["memorias", "64, 128, 256 GB", cMO]])],
+  ],
+  ejemplos: [
+    ["Calcula 2³ × 2⁴ usando la regla de la misma base.", ["Misma base: se suman los exponentes.", "2⁷ = 128."], "128."],
+    ["Escribe 45 000 000 en notación científica.", ["Pon la coma tras la primera cifra: 4,5.", "Se ha movido 7 lugares."], "4,5 × 10⁷."],
+  ],
+  errores: ["Multiplicar los exponentes al multiplicar potencias de la misma base: se suman.", "Aplicar las reglas de la misma base a potencias con bases distintas."],
+  ejercicios: [
+    ["b", "Calcula usando la regla: 2³ × 2².", "2⁵ = 32."],
+    ["b", "Calcula: 7⁵ : 7³.", "7² = 49."],
+    ["b", "¿Cuánto vale 5⁰?", "1."],
+    ["b", "Escribe 4 000 000 en notación científica.", "4 × 10⁶."],
+    ["b", "¿Cuántos bits tiene un byte?", "8."],
+    ["m", "Calcula: (2³)².", "2⁶ = 64."],
+    ["m", "Halla la raíz entera y el resto de √200.", "14, resto 4."],
+    ["m", "Escribe como número: 3,2 × 10⁵.", "320 000."],
+    ["m", "En la leyenda del ajedrez, ¿cuántos granos hay en la casilla 10?", "2⁹ = 512."],
+    ["m", "Calcula: 10⁴ × 10³.", "10⁷ = 10 000 000."],
+    ["a", "Una bacteria se divide en dos cada 20 minutos. Si empezamos con una, ¿cuántas habrá a las 2 horas?", "6 divisiones: 2⁶ = 64."],
+    ["a", "¿Cuántos valores distintos se pueden escribir con 4 bits?", "2⁴ = 16."],
+    ["a", "Aproxima √300 hasta las décimas por tanteo.", "17,3 (17,3² = 299,29)."],
+    ["a", "Escribe la distancia Tierra–Sol, 1,5 × 10⁸ km, con todas sus cifras.", "150 000 000 km."],
+  ],
+  quiz: [
+    ["Cualquier número (no 0) elevado a 0 vale…", ["1", "0", "el mismo número"], "Exponente 0."],
+    ["2³ × 2² = …", ["2⁵", "2⁶", "4⁵"], "Se suman."],
+    ["3 × 10⁴ = …", ["30 000", "3 000", "300 000"], "Notación científica."],
+    ["2¹⁰ = …", ["1 024", "1 000", "2 048"], "Informática."],
+    ["En la leyenda, la casilla 4 tiene…", ["8 granos", "4 granos", "16 granos"], "2³."],
+  ],
+  examen: [
+    ["6⁵ : 6³ = …", ["36", "6", "216"], "6²."],
+    ["La raíz entera de √300 es…", ["17", "18", "15"], "17² = 289."],
+  ],
+  tarjetas: [
+    ["Notación científica", "Número entre 1 y 10 × potencia de 10."],
+    ["Misma base", "Multiplicar: sumar exponentes. Dividir: restar."],
+    ["Raíz por tanteo", "Cuadrados cercanos, raíz entera, probar decimales."],
+    ["Crecimiento exponencial", "Ajedrez: 2⁶⁴ − 1 granos; bits y bytes."],
+  ],
+  glosario: [
+    ["Notación científica", "Forma de escribir números con una potencia de 10."],
+    ["Base", "Número que se multiplica por sí mismo en una potencia."],
+    ["Exponente", "Número de veces que se repite la base."],
+    ["Tanteo", "Método de probar valores hasta acercarse al resultado."],
+    ["Raíz entera", "Mayor número cuyo cuadrado no supera al radicando."],
+    ["Resto de una raíz", "Radicando menos el cuadrado de la raíz entera."],
+    ["Radicando", "Número que está dentro del símbolo de la raíz."],
+    ["Crecimiento exponencial", "Crecimiento en el que una cantidad se multiplica una y otra vez."],
+    ["Bit", "Unidad mínima de información: 0 o 1."],
+    ["Byte", "Grupo de 8 bits."],
+    ["Kilobyte", "En informática, tradicionalmente 1 024 bytes."],
+    ["Leyenda", "Relato tradicional con elementos imaginarios."],
+  ],
+  situacion: {
+    titulo: "¿Cuánto crece?",
+    reto: "La clase investiga situaciones de crecimiento por potencias y las representa en un mural con gráficos.",
+    pasos: ["Elegid una situación: la leyenda del ajedrez, un rumor, bacterias o una cadena de mensajes.", "Calculad con potencias cuánto crece en cada paso durante al menos ocho pasos.", "Representad los resultados en un gráfico de barras y escribidlos en notación científica cuando sean grandes.", "Explicad a la clase por qué el crecimiento exponencial sorprende tanto."],
+    producto: "Un mural con cálculos, gráficos y conclusiones.",
+    evaluacion: ["Calcula potencias correctamente.", "Usa la notación científica.", "Representa datos en un gráfico.", "Explica el crecimiento exponencial."],
+  },
+});
