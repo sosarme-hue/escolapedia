@@ -137,3 +137,86 @@ module.exports = {
   fuentes: [RD, wiki("Al-Ándalus", "Al-Ándalus"), wiki("Reconquista", "Reconquista"), wiki("Camino de Santiago", "Camino_de_Santiago"), wiki("Mezquita-catedral de Córdoba", "Mezquita-catedral_de_Córdoba")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 85,
+  objetivos: ["Describir la Alhambra como gran obra del arte nazarí", "Conocer la figura histórica del Cid y el Cantar de mio Cid", "Reconocer palabras de origen árabe en nuestro idioma"],
+  lectura: { titulo: "Una noche en Córdoba", html: `<p>Año 960. Córdoba es una de las ciudades más grandes y ricas del mundo. Yusuf, un niño de once años, acompaña a su tío, que es librero, por las calles estrechas de la ciudad. Por la noche, algunas están <b>iluminadas</b> con faroles, algo que en casi ninguna otra ciudad de Europa existe todavía.</p><p>Pasan junto a la gran <b>Mezquita</b>, con su bosque de columnas y arcos rojos y blancos, y llegan al zoco, el mercado, donde se venden sedas, especias, cerámica, cuero y libros. Su tío trabaja para la <b>biblioteca del califa</b>, que tiene, según cuentan, cientos de miles de libros.</p><p>En la tienda, Yusuf conoce a un médico judío y a un astrónomo musulmán que discuten sobre las estrellas. Más tarde, su tío le enseña unos números nuevos, que vienen de la India y que se escriben con solo diez cifras, incluido el <b>cero</b>.</p><p>—Con ellos se calcula mucho mejor que con los números romanos —le explica.</p><p>Yusuf vive en <b>al-Ándalus</b>, el territorio de la península gobernado por musulmanes durante casi ocho siglos. En este tema conocerás su historia y la de los reinos cristianos.</p>` },
+  tras: {
+    "Ciencia, cultura y arte andalusí": [
+      ["La Alhambra de Granada", `<p>Cuando el resto de al-Ándalus ya había pasado a los reinos cristianos, el <b>reino nazarí de Granada</b> resistió durante más de dos siglos y medio, de 1238 a 1492. Sus reyes construyeron en lo alto de una colina una ciudad palacio llamada <b>la Alhambra</b>, que significa «la roja», por el color de sus muros.</p><p>Por fuera parece una fortaleza sencilla, pero por dentro guarda algunos de los palacios más bellos del mundo:</p><ul><li>Paredes cubiertas de <b>yeserías</b> talladas con formas geométricas, plantas y letras árabes que forman poemas.</li><li><b>Azulejos</b> de colores, techos de madera labrada y cúpulas de <b>mocárabes</b>, que parecen panales o estalactitas.</li><li>Mucha <b>agua</b>: estanques, fuentes y canales que reflejan los edificios y refrescan el ambiente. El más famoso es el <b>Patio de los Leones</b>, con una fuente sostenida por doce leones de mármol.</li><li>Junto a ella están los jardines del <b>Generalife</b>, donde los reyes descansaban.</li></ul><p>En 1492, los Reyes Católicos conquistaron Granada y el último rey nazarí, Boabdil, les entregó las llaves de la ciudad. La Alhambra es Patrimonio de la Humanidad y uno de los monumentos más visitados de España.</p>`,
+        svg("La Alhambra: yeserías, azulejos, mocárabes y el Patio de los Leones con su fuente", `${tit("La Alhambra")}${fichas([["Yeserías", "formas y poemas tallados", COL.marron], ["Azulejos", "de muchos colores", COL.azul], ["Mocárabes", "cúpulas como panales", COL.naranja], ["Agua", "Patio de los Leones", COL.agua]])}`)],
+    ],
+    "La sociedad de los reinos cristianos": [
+      ["El Cid Campeador", `<p><b>Rodrigo Díaz de Vivar</b>, conocido como <b>el Cid Campeador</b>, es uno de los personajes más famosos de la Edad Media española. Nació hacia 1048 en Vivar, un pueblo cercano a Burgos, y fue un caballero castellano al servicio del rey.</p><p>Su vida fue muy agitada. Tras enfrentarse con el rey <b>Alfonso VI</b>, fue <b>desterrado</b>, es decir, expulsado del reino de Castilla. Entonces luchó a sueldo para distintos señores, tanto cristianos como musulmanes, porque en aquella época las alianzas cambiaban con frecuencia. Su apodo, «Cid», viene del árabe <i>sidi</i>, que significa «señor».</p><p>Su mayor hazaña fue la conquista de <b>Valencia</b> en 1094, que gobernó hasta su muerte en 1099. Después, su esposa <b>Jimena</b> defendió la ciudad durante algunos años más.</p><p>Hacia el año 1200 se escribió el <b>Cantar de mio Cid</b>, un largo poema que cuenta sus aventuras, mezclando historia y leyenda. Es la obra más antigua de la literatura española que se conserva casi completa. En él, el Cid aparece como un héroe valiente, leal y buen padre de sus hijas.</p>`,
+        svg("Vida del Cid: nace hacia 1048, conquista Valencia en 1094 y muere en 1099; el Cantar se escribe hacia 1200", `${tit("El Cid Campeador")}${linea([["1048", "nace en Vivar", COL.marron], ["1094", "conquista Valencia", COL.rojo], ["1099", "muere en Valencia", COL.gris], ["1200", "Cantar de mio Cid", COL.azul]])}`)],
+    ],
+  },
+  final: [
+    ["Palabras que nos dejó el árabe", `<p>Después del latín, el <b>árabe</b> es la lengua que más palabras ha aportado al castellano: alrededor de <b>4000</b>. Muchas empiezan por <b>al-</b> o <b>a-</b>, porque <i>al</i> era el artículo «el» en árabe y se quedó pegado a la palabra. Las usamos todos los días sin darnos cuenta:</p><ul><li><b>En la cocina</b>: aceite, aceituna, azúcar, arroz, zanahoria, berenjena, naranja, albóndiga.</li><li><b>En la casa</b>: almohada, alfombra, azulejo, alcoba, taza.</li><li><b>En los oficios y la ciudad</b>: albañil, alcalde, aldea, barrio, almacén, aduana.</li><li><b>En la ciencia</b>: cero, cifra, álgebra, algoritmo.</li><li><b>En el juego</b>: ajedrez.</li><li><b>Expresiones</b>: «ojalá» viene de una frase árabe que significa «si Dios quiere».</li></ul><p>También hay muchos <b>nombres de lugares</b> de origen árabe: los que empiezan por <b>Guada-</b> (que significa «río»), como el Guadalquivir («el río grande»), el Guadiana o Guadalajara; y los que empiezan por <b>Al-</b>, como Alcalá («el castillo»), Almería o Albacete. Así, la historia de al-Ándalus sigue viva en nuestro idioma.</p>`,
+        svg("Palabras de origen árabe: aceite, almohada, ajedrez, cero, ojalá, Guadalquivir", `${tit("Palabras del árabe")}${filas([["Cocina", "aceite, azúcar, naranja", COL.naranja], ["Casa", "almohada, alfombra", COL.azul], ["Ciencia", "cero, álgebra", COL.verde], ["Lugares", "Guadalquivir, Alcalá", COL.marron], ["Expresión", "ojalá", COL.morado]], 46, 25)}`)],
+  ],
+  ejemplos: [
+    ["Al-Ándalus existió del 711 al 1492. El reino nazarí de Granada, del 1238 al 1492. ¿Qué parte de la historia de al-Ándalus ocupó el reino nazarí?", ["Al-Ándalus duró 1492 − 711 = 781 años.", "El reino nazarí duró 1492 − 1238 = 254 años.", "254 es casi la tercera parte de 781."], "Casi un tercio de su historia"],
+    ["¿Qué tienen en común Guadalquivir, Guadalajara y Guadiana?", ["Las tres empiezan por Guada-.", "Guada- viene de la palabra árabe que significa «río».", "Son nombres de origen árabe."], "Contienen la palabra árabe «río»"],
+  ],
+  errores: ["Pensar que el Cid solo luchó contra los musulmanes: también sirvió a señores musulmanes y luchó contra cristianos."],
+  nivelesBase: "bbbmbmmmmm",
+  ejercicios: [
+    ["b", "¿Qué significa «Alhambra»?", "«La roja»."],
+    ["b", "¿Cuántos leones sostienen la fuente del Patio de los Leones?", "Doce."],
+    ["b", "¿Cómo se llamaba realmente el Cid y dónde nació?", "Rodrigo Díaz de Vivar; nació en Vivar, cerca de Burgos."],
+    ["b", "¿Qué ciudad conquistó el Cid en 1094?", "Valencia."],
+    ["b", "Escribe cinco palabras de origen árabe.", "Por ejemplo: aceite, almohada, azúcar, ajedrez y ojalá."],
+    ["m", "¿Qué son los mocárabes?", "Decoraciones de cúpulas y arcos que parecen panales o estalactitas."],
+    ["m", "¿Qué significa que el Cid fue desterrado?", "Que el rey lo expulsó del reino de Castilla."],
+    ["m", "¿Qué es el Cantar de mio Cid?", "Un poema escrito hacia 1200 que cuenta las aventuras del Cid; es la obra más antigua de la literatura española conservada casi completa."],
+    ["m", "¿Por qué muchas palabras de origen árabe empiezan por «al-»?", "Porque «al» era el artículo «el» en árabe y quedó unido a la palabra."],
+    ["m", "¿Qué significa «Guada-» en nombres como Guadalquivir?", "«Río»."],
+    ["m", "¿Qué papel tenía el agua en la Alhambra?", "Decorar con reflejos, refrescar el ambiente y regar los jardines."],
+    ["a", "¿Cuántos años resistió el reino nazarí de Granada (1238-1492)?", "254 años."],
+    ["a", "¿Por qué se dice que el Cantar de mio Cid mezcla historia y leyenda?", "Porque cuenta hechos reales de Rodrigo Díaz de Vivar, pero añade episodios inventados y lo presenta como un héroe perfecto."],
+    ["a", "Busca en el diccionario el origen de «tarea», «jarabe» y «hasta» y explica qué tienen en común.", "Las tres vienen del árabe."],
+    ["a", "Describe la Alhambra como si fueras un viajero de la Edad Media que la visita por primera vez.", "Respuesta abierta. Debe mencionar yeserías, azulejos, mocárabes, agua y jardines."],
+    ["a", "Escribe un pequeño texto de cinco líneas usando al menos seis palabras de origen árabe.", "Respuesta abierta. Por ejemplo, con aceite, azúcar, naranja, almohada, alcalde y ojalá."],
+  ],
+  quiz: [
+    ["La Alhambra la construyeron los reyes…", ["Nazaríes", "Visigodos", "Romanos"], "Del reino de Granada."],
+    ["El Patio de los Leones tiene una fuente con…", ["Doce leones", "Dos leones", "Cien leones"], "De mármol."],
+    ["El Cid conquistó…", ["Valencia", "Granada", "Córdoba"], "En 1094."],
+    ["La palabra «Cid» viene del árabe y significa…", ["Señor", "Guerrero", "Caballo"], "De sidi."],
+    ["El árabe ha dado al castellano unas…", ["4000 palabras", "40 palabras", "400 000 palabras"], "Como aceite o almohada."],
+  ],
+  examen: [
+    ["El último rey nazarí de Granada fue…", ["Boabdil", "Abderramán III", "Alfonso VI"], "Entregó la ciudad en 1492."],
+    ["«Ojalá» viene de una expresión árabe que significa…", ["Si Dios quiere", "Buenos días", "Adiós"], "Una expresión de deseo."],
+  ],
+  tarjetas: [
+    ["Alhambra", "Ciudad palacio nazarí de Granada: «la roja»."],
+    ["El Cid", "Rodrigo Díaz de Vivar; conquistó Valencia en 1094."],
+    ["Cantar de mio Cid", "Poema de hacia 1200, el más antiguo conservado casi completo."],
+    ["Arabismos", "Aceite, azúcar, almohada, ajedrez, ojalá, Guadalquivir."],
+  ],
+  glosario: [
+    ["Al-Ándalus", "Territorio de la península gobernado por musulmanes (711-1492)."],
+    ["Islam", "Religión fundada por Mahoma."],
+    ["Emir", "Gobernante político de un territorio musulmán."],
+    ["Califa", "Jefe político y religioso de los musulmanes."],
+    ["Mezquita", "Edificio donde rezan los musulmanes."],
+    ["Zoco", "Mercado de una ciudad musulmana."],
+    ["Mozárabe", "Cristiano que vivía en al-Ándalus."],
+    ["Mudéjar", "Musulmán que vivía en un reino cristiano."],
+    ["Reconquista", "Avance de los reinos cristianos hacia el sur."],
+    ["Estamento", "Grupo social al que se pertenecía por nacimiento."],
+    ["Nazarí", "Dinastía que gobernó el reino de Granada."],
+    ["Arabismo", "Palabra que procede del árabe."],
+  ],
+  situacion: {
+    titulo: "Las tres culturas en un mural",
+    reto: "La clase crea un gran mural sobre la herencia de cristianos, musulmanes y judíos en la península, con un diccionario de arabismos.",
+    pasos: ["Por grupos, investigad un monumento: la Mezquita de Córdoba, la Alhambra, una sinagoga de Toledo o una catedral del Camino de Santiago.", "Haced un dibujo del monumento y una ficha con su época, su función y lo más llamativo.", "Recopilad al menos treinta arabismos y organizadlos en un pequeño diccionario por temas.", "Montad el mural con una línea del tiempo de 711 a 1492 y presentadlo a otros cursos."],
+    producto: "Un mural de las tres culturas con una línea del tiempo y un diccionario de arabismos.",
+    evaluacion: ["Sitúa en el tiempo las etapas de al-Ándalus y los reinos cristianos.", "Describe obras de arte de las tres culturas.", "Reconoce la herencia árabe en el idioma.", "Valora la convivencia y el respeto entre culturas."],
+  },
+});

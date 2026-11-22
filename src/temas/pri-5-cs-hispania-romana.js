@@ -137,3 +137,86 @@ module.exports = {
   fuentes: [RD, wiki("Hispania", "Hispania"), wiki("Conquista romana de Hispania", "Conquista_romana_de_Hispania"), wiki("Acueducto de Segovia", "Acueducto_de_Segovia"), wiki("Reino visigodo", "Reino_visigodo")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (5º de Primaria) ----------
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  objetivos: ["Conocer la resistencia de Numancia y de Viriato a la conquista romana", "Describir el acueducto de Segovia como ejemplo de la ingeniería romana", "Reconocer a personajes nacidos en Hispania que fueron importantes en Roma"],
+  lectura: { titulo: "Un día en Emerita Augusta", html: `<p>Año 120 después de Cristo. Lucio, un niño de diez años, se despierta en su casa de <b>Emerita Augusta</b>, la actual Mérida. Desayuna pan con queso y unas aceitunas, y sale corriendo hacia la escuela, donde el maestro le enseña a leer y escribir en <b>latín</b> con una tablilla de cera.</p><p>Por la tarde acompaña a su padre al <b>foro</b>, la gran plaza de la ciudad, llena de templos, tiendas y gente que discute de negocios. Después van a las <b>termas</b>: primero una sala de agua caliente, luego una templada y, por último, un baño frío. ¡El agua llega a la ciudad por un largo acueducto!</p><p>Pero lo que más le gusta a Lucio es el <b>circo</b>, donde se celebran carreras de carros tirados por caballos. Su equipo favorito es el de los verdes. Su hermana mayor prefiere el <b>teatro</b>, donde se representan comedias.</p><p>Al volver a casa por una calle empedrada, Lucio piensa que vive en una ciudad maravillosa. Hoy, casi dos mil años después, podemos visitar su teatro, su anfiteatro y su puente. En este tema descubrirás cómo era la <b>Hispania romana</b>.</p>` },
+  tras: {
+    "La conquista romana": [
+      ["Numancia y Viriato: la resistencia", `<p>La conquista de la península por Roma duró unos <b>doscientos años</b>, porque muchos pueblos se resistieron con fuerza. Dos ejemplos se hicieron famosos:</p><ul><li><b>Viriato</b> era un pastor lusitano (de la zona de la actual Extremadura y Portugal) que se convirtió en jefe de su pueblo. Durante unos ocho años derrotó una y otra vez a los ejércitos romanos con ataques por sorpresa en las montañas. Los romanos no lograron vencerle en batalla: según las fuentes antiguas, pagaron a tres de sus compañeros para que lo asesinaran mientras dormía, hacia el año 139 a. C.</li><li><b>Numancia</b> era una ciudad celtíbera situada cerca de la actual Soria. Resistió durante veinte años los ataques romanos. Finalmente, el general <b>Escipión</b> la rodeó con un muro y campamentos para que nadie pudiera entrar ni salir. Tras muchos meses sin comida, en el año <b>133 a. C.</b>, la mayoría de los numantinos prefirieron morir antes que rendirse, y la ciudad fue destruida.</li></ul><p>Por su valor, Numancia y Viriato se convirtieron en símbolos de resistencia. La conquista no terminó hasta el año <b>19 a. C.</b>, cuando el emperador Augusto venció a los cántabros y astures del norte.</p>`,
+        svg("Viriato, jefe lusitano de ataques por sorpresa, y Numancia, ciudad celtíbera que resistió veinte años", `${tit("Resistir a Roma")}${cj2(10, 40, 116, 96, "Viriato", "lusitano · ataques por sorpresa", COL.verde)}${cj2(134, 40, 116, 96, "Numancia", "celtíbera · 20 años de resistencia", COL.marron)}${tx(130, 160, "símbolos de valor y resistencia", 220, { weight: 700 })}`)],
+    ],
+    "Las grandes obras públicas": [
+      ["El acueducto de Segovia", `<p>El <b>acueducto de Segovia</b> es una de las obras romanas mejor conservadas del mundo y el símbolo de la ciudad. Se construyó hacia finales del siglo I o principios del siglo II después de Cristo para llevar agua desde el río Frío, en la sierra, hasta la ciudad.</p><p>El agua recorría unos 15 kilómetros, casi siempre por un canal bajo tierra, con una pendiente muy suave para que bajara sola por la gravedad. Al llegar a la ciudad tenía que cruzar un valle, y para eso se construyó la parte famosa: una gran hilera de <b>más de 160 arcos</b>, en algunos tramos de dos pisos, que alcanza casi <b>29 metros de altura</b> en su punto más alto.</p><p>Lo más asombroso es que está hecho con enormes bloques de <b>granito</b> colocados unos sobre otros <b>sin argamasa</b>, es decir, sin ningún tipo de cemento. Se sostienen solo por su peso y por el equilibrio de los <b>arcos de medio punto</b>, que reparten las fuerzas hacia los pilares.</p><p>Funcionó llevando agua a Segovia hasta el siglo XX. Desde 1985 es Patrimonio de la Humanidad. Su secreto demuestra lo bien que los ingenieros romanos conocían las matemáticas y la física.</p>`,
+        svg("Datos del acueducto de Segovia: 15 kilómetros, más de 160 arcos, casi 29 metros, granito sin argamasa", `${tit("El acueducto en cifras")}${filas([["Recorrido", "unos 15 km de canal", COL.agua], ["Arcos", "más de 160", COL.marron], ["Altura", "casi 29 metros", COL.rojo], ["Material", "granito sin argamasa", COL.gris], ["Uso", "hasta el siglo XX", COL.verde]], 46, 25)}`)],
+    ],
+  },
+  final: [
+    ["Hispanos que brillaron en Roma", `<p>Hispania llegó a estar tan romanizada que muchos de sus habitantes ocuparon los puestos más importantes del Imperio:</p><ul><li><b>Trajano</b>, nacido en <b>Itálica</b> (junto a la actual Sevilla), fue el primer emperador nacido fuera de Italia. Durante su gobierno, a comienzos del siglo II, el Imperio romano alcanzó su mayor extensión.</li><li><b>Adriano</b>, también relacionado con Itálica, fue emperador después de Trajano. Mandó construir el famoso muro de Adriano en Britania y viajó por todo el Imperio.</li><li><b>Teodosio</b>, de origen hispano, fue el último emperador que gobernó todo el Imperio unido, a finales del siglo IV.</li><li><b>Séneca</b>, nacido en <b>Corduba</b> (Córdoba), fue un gran filósofo y escritor, y maestro del emperador Nerón.</li><li><b>Quintiliano</b>, de Calagurris (Calahorra), fue un famoso maestro de oratoria, el arte de hablar en público.</li><li><b>Marcial</b>, de Bilbilis (cerca de Calatayud), escribió poemas cortos y graciosos llamados epigramas.</li></ul><p>Esto demuestra que Hispania no era una tierra lejana y atrasada, sino una de las provincias más importantes y cultas del Imperio.</p>`,
+        svg("Hispanos famosos en Roma: los emperadores Trajano y Adriano, el filósofo Séneca y el poeta Marcial", `${tit("Hispanos en Roma")}${fichas([["Trajano", "emperador, de Itálica", COL.morado], ["Adriano", "emperador", COL.azul], ["Séneca", "filósofo, de Corduba", COL.verde], ["Marcial", "poeta, de Bilbilis", COL.naranja]])}`)],
+  ],
+  ejemplos: [
+    ["Numancia cayó en el 133 a. C. y la conquista terminó en el 19 a. C. ¿Cuántos años pasaron?", ["Las dos fechas son antes de Cristo.", "Cuanto mayor el número, más antiguo: restamos 133 − 19.", "133 − 19 = 114."], "114 años"],
+    ["El acueducto de Segovia se terminó hacia el año 100 d. C. ¿Cuántos años tiene en 2026, aproximadamente?", ["Las dos fechas son después de Cristo.", "Restamos: 2026 − 100.", "2026 − 100 = 1926."], "Unos 1900 años"],
+  ],
+  errores: ["Pensar que el acueducto de Segovia está pegado con cemento: sus bloques de granito se sostienen sin argamasa."],
+  nivelesBase: "bbbmbmmmmm",
+  ejercicios: [
+    ["b", "¿Quién fue Viriato?", "Un pastor lusitano que se convirtió en jefe y luchó durante años contra los romanos."],
+    ["b", "¿Dónde estaba Numancia y en qué año cayó?", "Cerca de la actual Soria; en el 133 a. C."],
+    ["b", "¿Para qué servía el acueducto de Segovia?", "Para llevar agua a la ciudad desde el río Frío."],
+    ["b", "¿Qué emperador romano nació en Itálica?", "Trajano."],
+    ["b", "¿De qué ciudad era Séneca?", "De Corduba (Córdoba)."],
+    ["m", "¿Por qué la conquista romana de la península duró tanto?", "Porque muchos pueblos resistieron con fuerza, como los lusitanos, los celtíberos, los cántabros y los astures."],
+    ["m", "¿Cómo consiguió Escipión rendir Numancia?", "La rodeó con un muro y campamentos para que no entrara comida y la ciudad quedó sitiada durante meses."],
+    ["m", "¿Cómo llegaba el agua a Segovia sin bombas?", "Por gravedad, por un canal con una pendiente muy suave."],
+    ["m", "¿Qué es la argamasa? ¿Tiene el acueducto?", "Una mezcla que une las piedras, como el cemento; el acueducto no tiene."],
+    ["m", "¿Qué demuestra que hubiera emperadores nacidos en Hispania?", "Que Hispania estaba muy romanizada y era una de las provincias más importantes del Imperio."],
+    ["m", "¿Por qué Numancia y Viriato se convirtieron en símbolos?", "Por su valor y su resistencia ante un ejército mucho más poderoso."],
+    ["a", "¿Cuántos años duró la conquista romana de la península (del 218 a. C. al 19 a. C.)?", "218 − 19 = 199 años, unos 200 años."],
+    ["a", "Si el acueducto tiene unos 160 arcos y cada uno mide unos 5 metros de ancho, ¿cuánto mide aproximadamente la parte de arcos?", "160 × 5 = 800 metros (en realidad, unos 800 metros)."],
+    ["a", "¿Por qué crees que los romanos usaban el arco de medio punto en sus grandes obras?", "Porque reparte el peso hacia los pilares y permite construir estructuras altas y resistentes."],
+    ["a", "Imagina que eres un numantino durante el cerco. Escribe un diario de tres días.", "Respuesta abierta. Debe reflejar el cerco, la falta de comida y la resistencia."],
+    ["a", "Busca en un mapa las ciudades actuales de Itálica, Corduba, Calagurris y Bilbilis.", "Itálica: Santiponce (Sevilla); Corduba: Córdoba; Calagurris: Calahorra; Bilbilis: cerca de Calatayud."],
+  ],
+  quiz: [
+    ["Viriato fue un jefe…", ["Lusitano", "Romano", "Visigodo"], "Luchó contra Roma."],
+    ["Numancia estaba cerca de la actual…", ["Soria", "Sevilla", "Valencia"], "Cayó en el 133 a. C."],
+    ["El acueducto de Segovia está hecho de…", ["Granito sin argamasa", "Ladrillo y cemento", "Madera"], "Se sostiene por su peso."],
+    ["Trajano nació en…", ["Itálica", "Roma", "Atenas"], "Junto a la actual Sevilla."],
+    ["La conquista romana terminó en el…", ["19 a. C.", "218 a. C.", "476 d. C."], "Con la victoria sobre cántabros y astures."],
+  ],
+  examen: [
+    ["Séneca fue un…", ["Filósofo", "Emperador", "General"], "Nacido en Córdoba."],
+    ["El acueducto de Segovia es Patrimonio de la Humanidad desde…", ["1985", "1492", "2010"], "Funcionó hasta el siglo XX."],
+  ],
+  tarjetas: [
+    ["Viriato", "Pastor y jefe lusitano que resistió a Roma."],
+    ["Numancia", "Ciudad celtíbera que cayó en el 133 a. C."],
+    ["Acueducto de Segovia", "Más de 160 arcos de granito sin argamasa."],
+    ["Trajano", "Emperador nacido en Itálica."],
+  ],
+  glosario: [
+    ["Pueblos prerromanos", "Pueblos de la península antes de los romanos."],
+    ["Íberos", "Pueblo del sur y la costa mediterránea."],
+    ["Celtas", "Pueblo del centro, norte y oeste de la península."],
+    ["Romanización", "Adopción de la forma de vida romana."],
+    ["Provincia", "División del territorio romano con un gobernador."],
+    ["Foro", "Plaza principal de una ciudad romana."],
+    ["Termas", "Baños públicos romanos."],
+    ["Acueducto", "Construcción para llevar agua a las ciudades."],
+    ["Calzada", "Camino romano empedrado."],
+    ["Latín", "Lengua de los romanos, origen del castellano."],
+    ["Argamasa", "Mezcla que une las piedras de una construcción."],
+    ["Visigodos", "Pueblo germánico que gobernó Hispania tras los romanos."],
+  ],
+  situacion: {
+    titulo: "Guía de la Hispania romana",
+    reto: "La clase elabora una guía turística de los monumentos romanos de España y la presenta como si fuera una agencia de viajes.",
+    pasos: ["Por grupos, elegid un monumento romano: acueducto de Segovia, teatro de Mérida, muralla de Lugo, torre de Hércules, Itálica…", "Investigad cuándo se construyó, para qué servía y cómo se conserva hoy.", "Situad todos los monumentos en un mapa de Hispania con sus provincias y calzadas.", "Preparad la guía con dibujos, datos y una ruta de viaje, y presentadla a la clase."],
+    producto: "Una guía turística ilustrada y un mapa de la Hispania romana.",
+    evaluacion: ["Localiza en el mapa los principales restos romanos.", "Explica la función de las obras públicas romanas.", "Relaciona el pasado romano con elementos actuales.", "Presenta la información con orden y creatividad."],
+  },
+});
