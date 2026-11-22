@@ -97,3 +97,93 @@ module.exports = P.tema({
   saberes: "Sentido espacial: rectas, semirrectas y segmentos; posiciones relativas de rectas; el ángulo, sus elementos, medida en grados con transportador y clasificación",
   ideas: ["Medidor de ángulos hecho con dos tiras de cartulina y un encuadernador.", "Caza de ángulos por el centro con fotografías.", "Trazado de paralelas y perpendiculares con escuadra y cartabón."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+// Reloj con las agujas en la hora h (en punto).
+const reloj = (h) => { const a = (h % 12) * 30 * Math.PI / 180; return `<circle cx="130" cy="84" r="60" fill="var(--card)" stroke="var(--ink)" stroke-width="2.4"/>${[...Array(12)].map((_, i) => { const b = i * 30 * Math.PI / 180; return `<path d="M${(130 + 52 * Math.sin(b)).toFixed(1)} ${(84 - 52 * Math.cos(b)).toFixed(1)} L ${(130 + 58 * Math.sin(b)).toFixed(1)} ${(84 - 58 * Math.cos(b)).toFixed(1)}" stroke="var(--ink)" stroke-width="2"/>`; }).join("")}<path d="M130 84 V 34" stroke="${cAZ}" stroke-width="3.4" stroke-linecap="round"/><path d="M130 84 L ${(130 + 36 * Math.sin(a)).toFixed(1)} ${(84 - 36 * Math.cos(a)).toFixed(1)}" stroke="${cRO}" stroke-width="4.4" stroke-linecap="round"/><circle cx="130" cy="84" r="4" fill="var(--ink)"/>${t(130, 168, `las ${h} en punto: ${h * 30}°`, { s: 13, d: true })}`; };
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Trazar paralelas y perpendiculares con escuadra y cartabón", "Reconocer ángulos complementarios y suplementarios", "Relacionar los ángulos con los giros, el reloj y la brújula", "Identificar ejes de simetría en figuras y objetos"],
+  lectura: { titulo: "El robot que giraba", html: `<p>En el taller de robótica, la clase de 4.º tenía que programar un pequeño robot para que recorriera un laberinto dibujado en el suelo.</p><p>—Avanza 3 pasos y gira a la derecha —dictó Samuel.</p><p>El robot avanzó… y giró solo un poquito, apuntando hacia una esquina.</p><p>—¡No! ¡Tiene que girar del todo!</p><p>La profesora se acercó.</p><p>—El robot no entiende «del todo». Hay que decirle cuántos <b>grados</b> tiene que girar.</p><p>Paula pensó un momento.</p><p>—Para girar como en las esquinas del laberinto, tiene que ser un ángulo recto. ¡90 grados!</p><p>Lo programaron así y el robot giró perfecto. Después probaron otras cosas: con 180 grados el robot daba media vuelta y volvía por donde había venido; con 360 grados daba una vuelta entera y se quedaba mirando hacia el mismo sitio, como si no hubiera hecho nada.</p><p>—¡Ha bailado! —se rio Samuel.</p><p>Al final consiguieron que el robot saliera del laberinto: 3 pasos, giro de 90°, 2 pasos, giro de 90° hacia el otro lado, 4 pasos…</p><p>—Así es como se mueven también los aviones, los barcos y los coches que conducen solos —explicó la profesora—. Todo funciona con ángulos.</p>` },
+  tras: {
+    "Rectas perpendiculares": [
+      ["Trazar con escuadra y cartabón", `<p>Para dibujar rectas paralelas y perpendiculares con precisión se usan dos reglas especiales con forma de triángulo:</p><ul><li>La <b>escuadra</b>: tiene un ángulo recto y dos ángulos de 45°. Sus dos lados cortos son iguales.</li><li>El <b>cartabón</b>: tiene un ángulo recto, uno de 30° y otro de 60°.</li></ul><p><b>Para trazar una paralela:</b></p><ol><li>Coloca la escuadra con uno de sus lados sobre la recta que ya tienes.</li><li>Apoya el cartabón contra otro lado de la escuadra, bien sujeto.</li><li>Desliza la escuadra a lo largo del cartabón, sin mover este.</li><li>Traza la nueva recta: será <mark>paralela</mark> a la primera.</li></ol><p><b>Para trazar una perpendicular:</b></p><ol><li>Coloca el lado largo de la escuadra sobre la recta.</li><li>Apoya el cartabón contra la escuadra.</li><li>Gira la escuadra para que su otro lado corto quede apoyado en el cartabón, y desliza hasta el punto que quieras.</li><li>Traza la recta: formará un ángulo recto con la primera.</li></ol><p>Con práctica, las dos reglas se manejan como si fueran una sola. Los arquitectos y delineantes las usaban a diario antes de que existieran los ordenadores.</p>`,
+        H6.dos("Reglas", ["ESCUADRA", ["90°", "45°", "45°"], cAZ], ["CARTABÓN", ["90°", "60°", "30°"], cVE]), ["okjnJuAzG84", "Uso de escuadra y cartabón, paralelas y perpendiculares", "EPV1PAC", 481990]],
+    ],
+    "Tipos de ángulos": [
+      ["Parejas de ángulos", `<p>Cuando dos ángulos están juntos o se relacionan, reciben nombres especiales:</p><ul><li><b>Ángulos consecutivos</b>: tienen el <b>vértice</b> y un <b>lado</b> en común, uno al lado del otro, como las porciones de una tarta.</li><li><b>Ángulos adyacentes</b>: son consecutivos y, además, sus lados no comunes forman una <b>línea recta</b>. Por eso siempre suman <b>180°</b>.</li></ul><p>Según lo que suman, dos ángulos pueden ser:</p><ul><li><mark>Complementarios</mark>: suman <b>90°</b>, un ángulo recto. 30° y 60° son complementarios. El complementario de 25° es 90 − 25 = <b>65°</b>.</li><li><mark>Suplementarios</mark>: suman <b>180°</b>, un ángulo llano. 120° y 60° son suplementarios. El suplementario de 45° es 180 − 45 = <b>135°</b>.</li></ul><p>Un truco para no confundirlos: «<b>c</b>omplementario» va antes que «<b>s</b>uplementario» en el abecedario, igual que 90 va antes que 180.</p><p>Fíjate en las tijeras: al abrirlas, los ángulos de un lado y del otro del eje son adyacentes y siempre suman 180°. Si uno se hace más grande, el otro se hace más pequeño.</p>`,
+        L6.filas("Parejas", [["complementarios", "suman 90°", cAZ], ["30° y 60°", "90°", cVE], ["suplementarios", "suman 180°", cNA], ["120° y 60°", "180°", cRO]])],
+    ],
+    "Medir ángulos con el transportador": [
+      ["Giros, relojes y ángulos", `<p>Un ángulo también puede verse como un <b>giro</b>: cuánto gira algo alrededor de un punto.</p><ul><li><b>Un cuarto de vuelta</b>: 90°, un ángulo recto. Es lo que giras al doblar una esquina.</li><li><b>Media vuelta</b>: 180°, un ángulo llano. Te quedas mirando hacia atrás.</li><li><b>Tres cuartos de vuelta</b>: 270°.</li><li><b>Una vuelta entera</b>: <mark>360°</mark>. Vuelves a mirar hacia donde estabas.</li></ul><p>Los patinadores y los saltadores de trampolín hablan de «giros de 360» o de «720» (dos vueltas).</p><p><b>El reloj</b> es una máquina de hacer ángulos. La esfera es una vuelta completa de 360° dividida en 12 horas, así que entre cada número hay <b>30°</b> (360 : 12).</p><ul><li>A las 3 en punto, las agujas forman 3 × 30 = <b>90°</b>: un ángulo recto.</li><li>A las 6 en punto, forman <b>180°</b>: un ángulo llano.</li><li>A las 2 en punto, <b>60°</b>: un ángulo agudo.</li><li>A las 5 en punto, <b>150°</b>: un ángulo obtuso.</li></ul><p>La aguja de los minutos da una vuelta entera, 360°, cada hora: gira <b>6°</b> cada minuto.</p>`,
+        svg("Reloj marcando las 3 en punto: las agujas forman 90 grados", reloj(3))],
+    ],
+  },
+  final: [
+    ["La simetría", `<p>Si doblas un papel por la mitad, pintas una mancha en un lado y lo vuelves a cerrar, al abrirlo verás una figura con dos mitades iguales, como una mariposa. La línea del doblez es un <mark>eje de simetría</mark>.</p><p>Una figura es <b>simétrica</b> cuando una recta la divide en dos partes que son como el reflejo de un espejo: si las doblamos por esa recta, coinciden exactamente.</p><p>Algunas figuras tienen varios ejes de simetría:</p><ul><li>El <b>rectángulo</b> tiene 2 ejes.</li><li>El <b>cuadrado</b> tiene 4 ejes: dos que pasan por la mitad de los lados y dos por las diagonales.</li><li>El <b>triángulo equilátero</b> tiene 3.</li><li>El <b>círculo</b> tiene infinitos: cualquier recta que pase por el centro.</li><li>Un triángulo escaleno no tiene ninguno.</li></ul><p>También hay letras simétricas: la <b>A</b>, la <b>M</b> o la <b>T</b> tienen un eje vertical; la <b>B</b>, la <b>C</b> o la <b>E</b>, uno horizontal; y la <b>H</b> o la <b>X</b>, los dos.</p><p>La simetría está en la naturaleza (hojas, mariposas, nuestra cara), en la arquitectura (fachadas de catedrales y palacios) y en muchos logotipos. ¡Busca ejes de simetría a tu alrededor!</p>`,
+      L6.filas("Ejes de simetría", [["rectángulo", "2", cAZ], ["triángulo equil.", "3", cVE], ["cuadrado", "4", cNA], ["círculo", "infinitos", cRO]]), ["EcDFbUkyDHI", "Eje de simetría súper fácil - Para principiantes", "Daniel Carreón", 1649624]],
+    ["Orientarse con ángulos: la brújula", `<p>La <b>brújula</b> es un instrumento con una aguja imantada que siempre señala hacia el <b>norte</b>. Sirve para orientarse en el campo, en el mar o en la montaña.</p><p>Alrededor de la brújula hay una rueda marcada en <b>grados</b>, de 0° a 360°, como un transportador completo. Los <b>puntos cardinales</b> están en:</p><ul><li><b>Norte (N)</b>: 0°.</li><li><b>Este (E)</b>: 90°.</li><li><b>Sur (S)</b>: 180°.</li><li><b>Oeste (O)</b>: 270°.</li></ul><p>Entre ellos están los puntos intermedios: <b>noreste</b> (45°), <b>sureste</b> (135°), <b>suroeste</b> (225°) y <b>noroeste</b> (315°).</p><p>Los pilotos y los marineros indican la dirección con un ángulo llamado <b>rumbo</b>. Si un barco navega con rumbo 90°, va hacia el este. Si gira un cuarto de vuelta a la derecha, su nuevo rumbo es 180°: va hacia el sur.</p><p>Fíjate: entre dos puntos cardinales seguidos siempre hay un ángulo recto, y entre dos opuestos (norte y sur, por ejemplo), un ángulo llano.</p><p>Hoy los móviles tienen una brújula electrónica, pero aprender a usar una de verdad puede sacarte de un apuro en una excursión.</p>`,
+      H6.rueda("Brújula", "ROSA", [["N 0°", cAZ], ["E 90°", cVE], ["S 180°", cNA], ["O 270°", cRO]])],
+  ],
+  ejemplos: [
+    ["¿Cuál es el complementario de 40°? ¿Y el suplementario?", ["Complementario: 90 − 40.", "Suplementario: 180 − 40."], "50° y 140°."],
+    ["¿Qué ángulo forman las agujas del reloj a las 4 en punto?", ["Entre cada número hay 30°.", "4 × 30."], "120°: obtuso."],
+  ],
+  errores: ["Confundir ángulos complementarios (90°) con suplementarios (180°).", "Pensar que el círculo no tiene ejes de simetría o que solo tiene uno."],
+  ejercicios: [
+    ["b", "¿Cuántos grados tiene una vuelta entera?", "360°."],
+    ["b", "¿Qué ángulos tiene el cartabón?", "90°, 60° y 30°."],
+    ["b", "¿Cuántos ejes de simetría tiene un cuadrado?", "4."],
+    ["b", "¿En qué grados está el este en la brújula?", "90°."],
+    ["b", "Escribe el complementario de 70°.", "20°."],
+    ["m", "Escribe el suplementario de 110°.", "70°."],
+    ["m", "¿Qué ángulo forman las agujas a las 2 en punto? ¿Qué tipo es?", "60°, agudo."],
+    ["m", "Un barco va con rumbo 0° y gira media vuelta. ¿Hacia dónde va?", "Hacia el sur (180°)."],
+    ["m", "Escribe tres letras mayúsculas con eje de simetría vertical.", "A, M, T…"],
+    ["m", "¿Cuántos grados gira la aguja de los minutos en 15 minutos?", "90°."],
+    ["a", "Traza con escuadra y cartabón tres rectas paralelas y una perpendicular a ellas.", "Respuesta abierta."],
+    ["a", "Programa con flechas el recorrido de un robot en un laberinto usando giros de 90° y 180°.", "Respuesta abierta."],
+    ["a", "Busca en tu casa cinco objetos simétricos y dibuja su eje.", "Respuesta abierta."],
+    ["a", "¿A qué horas en punto forman las agujas un ángulo recto?", "A las 3 y a las 9."],
+  ],
+  quiz: [
+    ["Dos ángulos complementarios suman…", ["90°", "180°", "360°"], "Parejas."],
+    ["Media vuelta son…", ["180°", "90°", "360°"], "Giros."],
+    ["A las 6 en punto las agujas forman…", ["un ángulo llano", "un ángulo recto", "un ángulo agudo"], "Reloj."],
+    ["El sur está en…", ["180°", "90°", "270°"], "Brújula."],
+    ["El triángulo equilátero tiene…", ["3 ejes de simetría", "1 eje", "ningún eje"], "Simetría."],
+  ],
+  examen: [
+    ["En la lectura, ¿cuántos grados tenía que girar el robot en las esquinas?", ["90", "180", "360"], "Lectura."],
+    ["La escuadra tiene ángulos de…", ["90°, 45° y 45°", "90°, 60° y 30°", "60°, 60° y 60°"], "Instrumentos."],
+  ],
+  tarjetas: [
+    ["Escuadra y cartabón", "Escuadra 90-45-45; cartabón 90-60-30; deslizar para paralelas."],
+    ["Parejas de ángulos", "Complementarios suman 90°; suplementarios, 180°."],
+    ["Giros y reloj", "Cuarto 90°, media 180°, entera 360°; 30° entre cada hora."],
+    ["Simetría y brújula", "Eje como espejo; N 0°, E 90°, S 180°, O 270°."],
+  ],
+  glosario: [
+    ["Paralelas", "Rectas que nunca se cortan."],
+    ["Perpendiculares", "Rectas que se cortan formando ángulos rectos."],
+    ["Escuadra", "Regla triangular con ángulos de 90°, 45° y 45°."],
+    ["Cartabón", "Regla triangular con ángulos de 90°, 60° y 30°."],
+    ["Ángulos complementarios", "Dos ángulos que suman 90°."],
+    ["Ángulos suplementarios", "Dos ángulos que suman 180°."],
+    ["Ángulos adyacentes", "Ángulos juntos cuyos lados no comunes forman una recta."],
+    ["Giro", "Movimiento alrededor de un punto."],
+    ["Eje de simetría", "Recta que divide una figura en dos mitades iguales."],
+    ["Brújula", "Instrumento cuya aguja señala el norte."],
+    ["Puntos cardinales", "Norte, sur, este y oeste."],
+    ["Rumbo", "Dirección expresada en grados."],
+  ],
+  situacion: {
+    titulo: "Robots de papel",
+    reto: "Por parejas, la clase programa con instrucciones de pasos y giros el recorrido de un compañero «robot» por un circuito.",
+    pasos: ["Dibujad un circuito en el suelo del patio con tiza.", "Escribid el programa con avances y giros en grados.", "Un compañero hace de robot y sigue el programa con los ojos tapados.", "Corregid los errores y comparad los programas."],
+    producto: "Un programa de instrucciones con giros correctos.",
+    evaluacion: ["Identifica giros de 90°, 180° y 360°.", "Usa los puntos cardinales y los grados.", "Comprueba y corrige los errores.", "Coopera con su pareja."],
+  },
+});

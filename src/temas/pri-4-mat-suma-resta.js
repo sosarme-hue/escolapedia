@@ -101,3 +101,93 @@ module.exports = P.tema({
   saberes: "Sentido numérico y de las operaciones: suma y resta de números naturales con llevadas, propiedades conmutativa y asociativa, prueba de la resta, estimación y resolución de problemas de una y dos operaciones",
   ideas: ["Cálculo mental diario buscando parejas que formen decenas o centenas redondas.", "Problemas escritos por los alumnos e intercambiados con otra pareja.", "Detectives del error: operaciones mal resueltas para encontrar el fallo."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+// Cuadrado mágico de 3 × 3 (suma 15).
+const magico = () => [[2, 7, 6], [9, 5, 1], [4, 3, 8]].map((f, i) => f.map((n, j) => `<rect x="${80 + j * 34}" y="${22 + i * 34}" width="32" height="32" rx="5" fill="${n === 5 ? cNA : "var(--card)"}" fill-opacity="${n === 5 ? 0.3 : 1}" stroke="${cAZ}" stroke-width="2"/>${t(96 + j * 34, 44 + i * 34, String(n), { s: 16, d: true })}`).join("")).join("") + t(130, 148, "filas, columnas y diagonales: 15", { s: 12, c: cRO });
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Restar cuando el minuendo tiene ceros", "Sumar y restar de cabeza con estrategias de cálculo mental", "Inventar problemas a partir de datos", "Resolver cuadrados mágicos y hacer un presupuesto de ingresos y gastos"],
+  lectura: { titulo: "La hucha del viaje", html: `<p>La clase de 4.º quería ir de excursión al parque de las ciencias de su ciudad, pero el autobús y las entradas costaban <b>1 200 euros</b> en total.</p><p>—¡Es muchísimo dinero! —dijo Martina.</p><p>—Vamos a organizarnos —propuso el tutor, Gabriel—. Haremos una tabla con lo que ganamos y lo que gastamos.</p><p>En noviembre organizaron un mercadillo de libros usados: ganaron <b>285 €</b>. En diciembre vendieron tarjetas navideñas dibujadas por ellos: <b>340 €</b>. En marzo, una carrera solidaria con patrocinadores: <b>415 €</b>.</p><p>Cada mes, Leo, el encargado de las cuentas, sumaba en la pizarra: 285 + 340 = 625; 625 + 415 = 1 040.</p><p>—¿Cuánto nos falta? —preguntó Martina.</p><p>Leo escribió la resta: 1 200 − 1 040. Se quedó un momento mirando los ceros.</p><p>—Cero menos cero, cero. Cero menos cuatro… no se puede. Tengo que pedir prestado a las centenas…</p><p>—¡160 euros! —dijo al fin—. Nos faltan 160.</p><p>En abril, las familias organizaron una merienda y recaudaron 210 €. Habían conseguido el dinero y, además, sobraron 50 € para un helado al final de la excursión.</p><p>—Las cuentas claras —dijo el tutor— y el viaje, asegurado.</p>` },
+  tras: {
+    "Restar con llevadas": [
+      ["Restar cuando hay ceros", `<p>Las restas en las que el minuendo tiene <b>ceros</b>, como <b>5 000 − 1 237</b>, asustan un poco, pero se hacen igual que las demás: columna a columna, llevándonos cuando hace falta.</p><ul><li><b>Unidades</b>: 0 − 7 no se puede. Hago 10 − 7 = <b>3</b> y me llevo 1.</li><li><b>Decenas</b>: 0 − (3 + 1) = 0 − 4 no se puede. Hago 10 − 4 = <b>6</b> y me llevo 1.</li><li><b>Centenas</b>: 0 − (2 + 1) = 0 − 3 no se puede. Hago 10 − 3 = <b>7</b> y me llevo 1.</li><li><b>Millares</b>: 5 − (1 + 1) = <b>3</b>.</li></ul><p>Resultado: <mark>3 763</mark>.</p><p>Hay otro truco muy útil cuando el minuendo es un número redondo: <b>restar 1 a los dos números</b>. La diferencia no cambia, y así desaparecen las llevadas:</p><p style="text-align:center">5 000 − 1 237 = 4 999 − 1 236 = <b>3 763</b></p><p>Ahora cada columna se resta sin llevar: 9 − 6 = 3, 9 − 3 = 6, 9 − 2 = 7, 4 − 1 = 3.</p><p>Y no olvides hacer la <b>prueba</b>: 1 237 + 3 763 = 5 000. ¡Correcto!</p>`,
+        L6.filas("5 000 − 1 237", [["truco", "− 1 a los dos", cAZ], ["queda", "4 999 − 1 236", cVE], ["resultado", "3 763", cNA], ["prueba", "1 237 + 3 763", cRO]]), ["WwrPxhfZBYg", "Cómo restar a ceros", "matemáticas express monina", 685488]],
+    ],
+    "Estimar sumas y restas": [
+      ["Cálculo mental: sumar y restar de cabeza", `<p>Con unas cuantas estrategias puedes sumar y restar de cabeza números bastante grandes:</p><ul><li><b>Descomponer</b>: separa el número en partes. 456 + 230 → 456 + 200 = 656 → 656 + 30 = <b>686</b>.</li><li><b>Redondear y compensar</b>: si sumas 99, suma 100 y quita 1. 347 + 99 = 447 − 1 = <b>446</b>. Si restas 98, resta 100 y suma 2. 520 − 98 = 420 + 2 = <b>422</b>.</li><li><b>Buscar parejas que hacen 10 o 100</b>: 25 + 38 + 75 → 25 + 75 = 100 → 100 + 38 = <b>138</b>. La propiedad conmutativa te deja cambiar el orden.</li><li><b>Contar hacia delante para restar</b>: para 1 000 − 680, piensa cuánto le falta a 680 para llegar a 1 000: 20 hasta 700 y 300 hasta 1 000. Total: <b>320</b>. Así dan las vueltas en las tiendas.</li><li><b>Dobles</b>: 250 + 250 = 500, así que 250 + 260 = <b>510</b>.</li></ul><p>El cálculo mental se entrena: practica unos minutos cada día, por ejemplo calculando de cabeza lo que cuesta la compra o los puntos de un partido.</p>`,
+        H6.rueda("Cálculo mental", "DE CABEZA", [["descomponer", cAZ], ["compensar", cVE], ["parejas", cNA], ["contar", cRO]])],
+    ],
+    "Problemas de dos operaciones": [
+      ["Inventar problemas", `<p>Una forma estupenda de entender los problemas es <b>inventarlos</b>. Cuando escribes un problema, tienes que pensar qué datos hacen falta y qué pregunta tiene sentido.</p><p>Para inventar un buen problema:</p><ol><li><b>Elige una situación real</b>: una compra, un viaje, un partido, una colección.</li><li><b>Escribe los datos</b> con números razonables. Un bocadillo no cuesta 500 € ni un viaje 3 km si es a otro país.</li><li><b>Haz la pregunta</b> al final, de forma clara: «¿cuánto…?», «¿cuántos…?».</li><li><b>Resuélvelo tú</b> antes de dárselo a otro, para comprobar que tiene solución.</li></ol><p>Ejemplo inventado: <i>En la biblioteca del colegio hay 2 350 libros. Este año han llegado 480 nuevos y se han retirado 125 muy estropeados. ¿Cuántos libros hay ahora?</i></p><p>Solución: 2 350 + 480 − 125 = <b>2 705</b> libros.</p><p>Otra actividad: a partir de una operación, imagina la historia. Para <mark>800 − 350 = 450</mark> podría ser: «Tenía 800 cromos y regalé 350. ¿Cuántos me quedan?».</p><p>Intercambia tus problemas con un compañero y corregid juntos las soluciones.</p>`,
+        H6.flujo("Inventar", ["situación|real", "datos|razonables", "pregunta|clara", "resolver|comprobar"], cMO)],
+    ],
+  },
+  final: [
+    ["Cuadrados mágicos", `<p>Un <b>cuadrado mágico</b> es una cuadrícula de números en la que <mark>todas las filas, todas las columnas y las dos diagonales suman lo mismo</mark>. Ese número se llama <b>suma mágica</b>.</p><p>El más famoso es el de 3 × 3 con los números del 1 al 9, cuya suma mágica es <b>15</b>:</p><ul><li>Filas: 2 + 7 + 6 = 15; 9 + 5 + 1 = 15; 4 + 3 + 8 = 15.</li><li>Columnas: 2 + 9 + 4 = 15; 7 + 5 + 3 = 15; 6 + 1 + 8 = 15.</li><li>Diagonales: 2 + 5 + 8 = 15; 6 + 5 + 4 = 15.</li></ul><p>Fíjate en que el <b>5</b>, el número del medio, siempre va en el <b>centro</b>.</p><p>Los cuadrados mágicos son muy antiguos. Según una leyenda china, el primero apareció dibujado en el caparazón de una tortuga que salió de un río, hace miles de años.</p><p>En España hay uno muy famoso en la fachada de la <b>Sagrada Familia</b> de Barcelona, obra de Gaudí: es de 4 × 4 y todas sus líneas suman <b>33</b>.</p><p>Resolver cuadrados mágicos es una forma divertida de practicar sumas y restas: si conoces dos números de una línea y la suma mágica, puedes averiguar el tercero restando.</p>`,
+      svg("Cuadrado mágico de tres por tres con suma 15", magico()), ["iEdqHucT88Q", "Cómo resolver cualquier cuadrado mágico de 3x3", "Matemáticas profe Alex", 544727]],
+    ["Ingresos y gastos: el presupuesto", `<p>Un <b>presupuesto</b> es un plan para organizar el dinero: cuánto vamos a <b>ingresar</b> (el dinero que entra) y cuánto vamos a <b>gastar</b> (el dinero que sale).</p><ul><li>Si los ingresos son mayores que los gastos, hay <b>ahorro</b>: ingresos − gastos.</li><li>Si los gastos son mayores que los ingresos, falta dinero: hay <b>déficit</b>, y habrá que gastar menos o conseguir más.</li></ul><p>Ejemplo: una familia ingresa en un mes 2 400 €. Gasta 750 € en la vivienda, 520 € en comida, 180 € en luz, agua e internet, 260 € en transporte y 290 € en otras cosas.</p><ol><li>Gastos totales: 750 + 520 + 180 + 260 + 290 = <b>2 000 €</b>.</li><li>Ahorro: 2 400 − 2 000 = <b>400 €</b>.</li></ol><p>Tú también puedes hacer tu presupuesto: anota la paga o el dinero que te regalan, y lo que te gastas en cromos, chucherías o regalos. Al final de mes, haz la resta.</p><p>Una buena costumbre es <mark>ahorrar una parte antes de gastar</mark>: así, poco a poco, puedes conseguir algo que cueste más, como un libro especial o una bicicleta.</p>`,
+      L6.filas("Presupuesto", [["ingresos", "2 400 €", cVE], ["gastos", "2 000 €", cRO], ["ahorro", "400 €", cAZ], ["consejo", "ahorrar primero", cNA]])],
+  ],
+  ejemplos: [
+    ["Calcula 4 003 − 1 865.", ["U: 13 − 5 = 8, me llevo 1. D: 10 − 7 = 3, me llevo 1.", "C: 10 − 9 = 1, me llevo 1. UM: 4 − 2 = 2."], "2 138."],
+    ["Calcula de cabeza 638 + 199.", ["Sumo 200: 838.", "Quito 1."], "837."],
+  ],
+  errores: ["Al restar con ceros, olvidar sumar la llevada a la cifra de abajo de la columna siguiente.", "Inventar problemas con datos imposibles o sin pregunta."],
+  ejercicios: [
+    ["b", "Calcula 3 000 − 1 456.", "1 544."],
+    ["b", "Calcula de cabeza 245 + 99.", "344."],
+    ["b", "Calcula de cabeza 700 − 98.", "602."],
+    ["b", "¿Cuál es la suma mágica del cuadrado de 3 × 3 con números del 1 al 9?", "15."],
+    ["b", "Si ingreso 50 € y gasto 32 €, ¿cuánto ahorro?", "18 €."],
+    ["m", "Calcula 10 000 − 4 387 y haz la prueba.", "5 613; 4 387 + 5 613 = 10 000."],
+    ["m", "Calcula de cabeza 35 + 47 + 65.", "147."],
+    ["m", "Completa la fila de un cuadrado mágico de suma 15: 8, __, 4.", "3."],
+    ["m", "Inventa un problema para 1 500 − 640 = 860.", "Respuesta abierta."],
+    ["m", "¿Cuánto falta de 375 € para llegar a 1 000 €? Cuenta hacia delante.", "625 €."],
+    ["a", "Haz el presupuesto de una fiesta de cumpleaños con 100 € y comprueba que no te pasas.", "Respuesta abierta."],
+    ["a", "Construye un cuadrado mágico de 3 × 3 con los números del 2 al 10. ¿Cuál es la suma mágica?", "18."],
+    ["a", "Una familia ingresa 1 950 € y gasta 650, 480, 210 y 395 €. ¿Ahorra o le falta dinero? ¿Cuánto?", "Gasta 1 735 €; ahorra 215 €."],
+    ["a", "Inventa un problema de dos operaciones con datos de tu clase e intercámbialo.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["6 000 − 2 345 =", ["3 655", "4 345", "3 765"], "Restar con ceros."],
+    ["Para sumar 99 de cabeza…", ["sumo 100 y quito 1", "sumo 9 y 9", "resto 1"], "Cálculo mental."],
+    ["En un cuadrado mágico suman lo mismo…", ["filas, columnas y diagonales", "solo las filas", "solo las esquinas"], "Cuadrados mágicos."],
+    ["Si los gastos superan los ingresos hay…", ["déficit", "ahorro", "suma mágica"], "Presupuesto."],
+    ["El cuadrado mágico de la Sagrada Familia suma…", ["33", "15", "100"], "Cuadrados mágicos."],
+  ],
+  examen: [
+    ["En la lectura, ¿cuánto les faltaba después de la carrera solidaria?", ["160 €", "1 040 €", "50 €"], "Lectura."],
+    ["7 000 − 1 = 6 999. Por eso 7 000 − 2 518 = 6 999 − …", ["2 517", "2 519", "2 518"], "Restar con ceros."],
+  ],
+  tarjetas: [
+    ["Restar con ceros", "Columna a columna con llevadas, o restar 1 a los dos: 4 999 − 1 236."],
+    ["Cálculo mental", "Descomponer, compensar (+99 = +100 − 1), parejas que hacen 100, contar hacia delante."],
+    ["Inventar problemas", "Situación real, datos razonables, pregunta clara y resolverlo."],
+    ["Mágicos y presupuesto", "Suma mágica 15 con el 5 en el centro; ingresos − gastos = ahorro."],
+  ],
+  glosario: [
+    ["Minuendo", "Número del que se resta."],
+    ["Sustraendo", "Número que se resta."],
+    ["Diferencia", "Resultado de una resta."],
+    ["Llevada", "Unidad que pasa a la columna siguiente."],
+    ["Compensar", "Ajustar un cálculo después de redondear."],
+    ["Cálculo mental", "Hacer operaciones de cabeza."],
+    ["Cuadrado mágico", "Cuadrícula en la que todas las líneas suman lo mismo."],
+    ["Suma mágica", "Número que suman todas las líneas de un cuadrado mágico."],
+    ["Presupuesto", "Plan de ingresos y gastos."],
+    ["Ingreso", "Dinero que entra."],
+    ["Gasto", "Dinero que sale."],
+    ["Déficit", "Lo que falta cuando se gasta más de lo que se ingresa."],
+  ],
+  situacion: {
+    titulo: "La tienda de la clase",
+    reto: "La clase monta una tienda simulada y lleva las cuentas de ingresos y gastos.",
+    pasos: ["Fabricad billetes y productos con precios.", "Por turnos, unos compran y otros venden calculando de cabeza las vueltas.", "Anotad en una tabla todo lo que entra y sale de la caja.", "Al final, sumad, restad y comprobad que la caja cuadra."],
+    producto: "Un libro de cuentas de la tienda con el balance final.",
+    evaluacion: ["Suma y resta con llevadas y con ceros.", "Calcula de cabeza las vueltas.", "Organiza datos en una tabla.", "Comprueba resultados con la prueba."],
+  },
+});

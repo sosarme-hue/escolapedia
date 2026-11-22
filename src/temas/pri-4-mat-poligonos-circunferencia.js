@@ -94,3 +94,93 @@ module.exports = P.tema({
   saberes: "Sentido espacial: polígonos, elementos y clasificación; polígonos regulares e irregulares; clasificación de triángulos y cuadriláteros; perímetro; circunferencia y círculo y sus elementos",
   ideas: ["Construir polígonos con palillos y plastilina y contar sus elementos.", "Clasificar figuras recortadas en un mural con criterios de lados y ángulos.", "Dibujar rosetones con compás y polígonos regulares."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+// Cuña coloreada del ángulo en el vértice v entre las direcciones hacia a y b.
+const cuna = (v, a, b, c, r = 24) => { const u = (p) => { const dx = p[0] - v[0], dy = p[1] - v[1], l = Math.hypot(dx, dy); return [v[0] + r * dx / l, v[1] + r * dy / l]; }; const [p1, p2] = [u(a), u(b)]; const cr = (p1[0] - v[0]) * (p2[1] - v[1]) - (p1[1] - v[1]) * (p2[0] - v[0]); return `<path d="M${v[0]} ${v[1]} L ${p1[0].toFixed(1)} ${p1[1].toFixed(1)} A ${r} ${r} 0 0 ${cr > 0 ? 1 : 0} ${p2[0].toFixed(1)} ${p2[1].toFixed(1)} Z" fill="${c}" fill-opacity=".55"/>`; };
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Descubrir que los ángulos de un triángulo suman 180°", "Reconocer polígonos en mosaicos, la naturaleza y el arte", "Usar el compás y conocer otras figuras circulares", "Relacionar polígonos con cuerpos geométricos y conocer el número pi"],
+  lectura: { titulo: "Las baldosas de la Alhambra", html: `<p>En la excursión de fin de curso a Granada, la clase de Irene visitó la <b>Alhambra</b>. Mientras la guía hablaba de reyes y sultanes, Irene no podía dejar de mirar las paredes.</p><p>—¡Mira, Teo! Estas estrellas están hechas con trocitos de colores.</p><p>Teo se acercó. Las paredes estaban cubiertas de pequeñas piezas de cerámica que encajaban unas con otras sin dejar ningún hueco: estrellas de ocho puntas, cuadrados girados, triángulos, hexágonos alargados…</p><p>—Son <b>polígonos</b> —dijo Teo—. Como los de clase, pero mucho más bonitos.</p><p>La guía los oyó y sonrió.</p><p>—Tenéis buen ojo. Los artesanos que hicieron esto hace más de seiscientos años eran auténticos matemáticos. Sin ordenadores ni calculadoras, con regla y compás, consiguieron que las piezas cubrieran toda la pared sin un solo hueco.</p><p>Esa noche, en el hotel, Irene sacó su cuaderno cuadriculado y empezó a dibujar. Primero cuadrados, luego triángulos, luego intentó con pentágonos… pero no encajaban.</p><p>—¿Por qué con pentágonos no sale? —le preguntó a la profesora al día siguiente.</p><p>—Es una pregunta estupenda —respondió ella—. Lo descubriremos en clase.</p>` },
+  tras: {
+    "Los triángulos": [
+      ["Los ángulos de un triángulo", `<p>Dibuja un triángulo cualquiera en un papel, grande o pequeño, alargado o puntiagudo. Colorea cada uno de sus tres ángulos de un color distinto. Ahora <b>recorta</b> el triángulo y <b>rompe</b> las tres esquinas.</p><p>Junta las tres esquinas una al lado de otra, con los vértices en el mismo punto. ¿Qué pasa? Siempre forman una <mark>línea recta</mark>: un ángulo de <b>180°</b>.</p><p>Esto ocurre con <b>todos</b> los triángulos: la suma de sus tres ángulos es siempre <b>180 grados</b>.</p><p>Gracias a esta regla podemos calcular un ángulo que no conocemos:</p><ul><li>Si un triángulo tiene ángulos de 60° y 80°, el tercero mide 180 − 60 − 80 = <b>40°</b>.</li><li>Un triángulo <b>equilátero</b> tiene los tres ángulos iguales: 180 : 3 = <b>60°</b> cada uno.</li><li>Un triángulo <b>rectángulo</b> tiene un ángulo de 90°, así que los otros dos suman otros 90°.</li></ul><p>Y una consecuencia curiosa: un triángulo no puede tener <b>dos ángulos rectos</b>, porque ya sumarían 180° y no quedaría nada para el tercero.</p><p>En los <b>cuadriláteros</b>, los cuatro ángulos suman <b>360°</b>, porque se pueden partir en dos triángulos con una diagonal.</p>`,
+        svg("Triángulo con tres ángulos de colores que juntos forman 180 grados", `${poli([[40, 140], [220, 140], [110, 40]], "var(--muted)", 0.08)}${cuna([40, 140], [220, 140], [110, 40], cAZ)}${cuna([220, 140], [110, 40], [40, 140], cVE)}${cuna([110, 40], [40, 140], [220, 140], cRO)}${t(130, 170, "azul + verde + rojo = 180°", { s: 13, d: true })}`), ["iw-OxQW49wo", "Geometría con papel doblado", "fq-experimentos", 75273]],
+    ],
+    "Polígonos regulares e irregulares": [
+      ["Mosaicos y polígonos en la naturaleza", `<p>Un <b>mosaico</b> o <b>teselación</b> es una forma de cubrir una superficie con figuras que encajan <mark>sin dejar huecos ni montarse</mark>, como las baldosas de un suelo.</p><p>Solo tres polígonos regulares pueden formar un mosaico ellos solos:</p><ul><li>El <b>triángulo equilátero</b>: alrededor de un punto caben 6 (6 × 60° = 360°).</li><li>El <b>cuadrado</b>: caben 4 (4 × 90° = 360°).</li><li>El <b>hexágono regular</b>: caben 3 (3 × 120° = 360°).</li></ul><p>El pentágono regular <b>no</b> sirve: sus ángulos miden 108°, y alrededor de un punto caben tres (324°) y queda un hueco.</p><p>Los polígonos aparecen también en la <b>naturaleza</b>:</p><ul><li>Las <b>abejas</b> construyen sus panales con celdas hexagonales: es la forma que aprovecha mejor el espacio con la menor cantidad de cera.</li><li>Los <b>copos de nieve</b> tienen seis brazos.</li><li>Algunas rocas, como las de la <b>Calzada del Gigante</b> en Irlanda, forman columnas hexagonales.</li></ul><p>Y en el <b>arte</b>: los artesanos de la <b>Alhambra</b> de Granada decoraron sus paredes con mosaicos de cerámica, llamados <b>alicatados</b>, que combinan estrellas y polígonos de forma asombrosa.</p>`,
+        L6.filas("Teselan solos", [["triángulo", "6 × 60°", cAZ], ["cuadrado", "4 × 90°", cVE], ["hexágono", "3 × 120°", cNA], ["pentágono", "no: hueco", cRO]])],
+    ],
+    "Elementos de la circunferencia": [
+      ["El compás y las figuras circulares", `<p>Para dibujar una circunferencia perfecta usamos el <b>compás</b>. Tiene dos patas: una con <b>punta</b> y otra con <b>mina</b>.</p><ol><li>Abre el compás hasta la medida del <b>radio</b> que quieras, comprobándolo con la regla.</li><li>Pincha la punta en el papel: será el <b>centro</b>.</li><li>Gira el compás cogiéndolo por arriba, sin apretar, hasta dar la vuelta completa.</li></ol><p>Si no tienes compás, puedes usar un hilo atado a un lápiz y sujetar el otro extremo con el dedo. ¡Así dibujan los jardineros círculos enormes en el suelo!</p><p>Con el círculo podemos formar otras figuras:</p><ul><li><b>Semicírculo</b>: la mitad de un círculo, cortado por un diámetro.</li><li><b>Sector circular</b>: la parte entre dos radios, como un trozo de pizza o de quesito.</li><li><b>Corona circular</b>: la parte entre dos circunferencias con el mismo centro, como un donut, un CD o una rueda.</li></ul><p>Con el compás también se pueden dibujar flores, rosetones y polígonos regulares: si abres el compás con la medida del radio y lo vas apoyando sobre la circunferencia, la divides en <b>6 partes iguales</b> y obtienes un hexágono.</p>`,
+        H6.rueda("Figuras circulares", "CÍRCULO", [["semicírculo", cAZ], ["sector", cVE], ["corona", cNA], ["compás", cRO]])],
+    ],
+  },
+  final: [
+    ["De los polígonos a los cuerpos", `<p>Los polígonos son figuras <b>planas</b>: tienen largo y ancho, pero no grosor. Si los juntamos en el espacio, forman <b>cuerpos geométricos</b>, que tienen tres dimensiones.</p><ul><li><b>Prismas</b>: tienen dos bases iguales (dos polígonos) y caras laterales que son rectángulos. Una caja de zapatos es un prisma de base rectangular; el <b>cubo</b> es un prisma con seis caras cuadradas.</li><li><b>Pirámides</b>: tienen una base poligonal y caras triangulares que se juntan en un vértice. Como las pirámides de Egipto, que tienen base cuadrada.</li></ul><p>Los cuerpos que tienen todas sus caras planas y poligonales se llaman <mark>poliedros</mark>. En ellos distinguimos <b>caras</b>, <b>aristas</b> (los bordes) y <b>vértices</b> (las esquinas). Un cubo tiene 6 caras, 12 aristas y 8 vértices.</p><p>Otros cuerpos tienen superficies <b>curvas</b> y se llaman <b>cuerpos redondos</b>:</p><ul><li><b>Cilindro</b>: dos bases que son círculos, como una lata.</li><li><b>Cono</b>: una base circular y un vértice, como un cucurucho.</li><li><b>Esfera</b>: toda su superficie está a la misma distancia del centro, como una pelota.</li></ul><p>Si desmontas una caja con cuidado, verás que está hecha de polígonos: es su <b>desarrollo plano</b>.</p>`,
+      H6.dos("Cuerpos", ["POLIEDROS", ["prisma", "pirámide", "cubo"], cAZ], ["REDONDOS", ["cilindro", "cono", "esfera"], cNA])],
+    ["El número pi", `<p>Coge varios objetos redondos: un vaso, una lata, un plato, una moneda. Con un hilo, mide la <b>longitud de su circunferencia</b> (lo que mide el borde) y después mide su <b>diámetro</b>.</p><p>Ahora divide: longitud de la circunferencia entre diámetro. ¿Qué sale? Siempre un número parecido a <mark>3</mark>… un poquito más: unos <b>3,14</b>.</p><ul><li>Una lata de 7 cm de diámetro tiene un borde de unos 22 cm (22 : 7 ≈ 3,14).</li><li>Una rueda de 50 cm de diámetro mide por fuera unos 157 cm.</li></ul><p>Ese número especial se llama <b>pi</b> y se escribe con una letra griega: <b>π</b>. Es igual para todas las circunferencias del mundo, grandes o pequeñas.</p><p>Pi tiene una curiosidad: sus cifras decimales <b>no se acaban nunca</b> ni se repiten de forma ordenada: 3,14159265358979… Con ayuda de ordenadores se han calculado billones de cifras.</p><p>Por eso, el <b>14 de marzo</b> (en inglés se escribe 3/14) se celebra el <b>Día de Pi</b>, también llamado Día Internacional de las Matemáticas.</p><p>Para calcular de forma aproximada lo que mide una circunferencia, basta con multiplicar su diámetro por algo más de 3.</p>`,
+      L6.filas("Pi", [["borde : diámetro", "unos 3,14", cAZ], ["lata 7 cm", "borde 22 cm", cVE], ["símbolo", "π", cNA], ["14 de marzo", "Día de Pi", cRO]])],
+  ],
+  ejemplos: [
+    ["Un triángulo tiene ángulos de 35° y 95°. ¿Cuánto mide el tercero?", ["Los tres suman 180°.", "180 − 35 − 95."], "50°."],
+    ["Una rueda tiene 20 cm de diámetro. ¿Cuánto mide más o menos su borde?", ["Borde ≈ diámetro × 3,14.", "20 × 3 = 60 y un poco más."], "Unos 63 cm."],
+  ],
+  errores: ["Pensar que un triángulo grande tiene ángulos que suman más que uno pequeño.", "Creer que cualquier polígono regular sirve para hacer un mosaico."],
+  ejercicios: [
+    ["b", "¿Cuánto suman los ángulos de un triángulo?", "180°."],
+    ["b", "¿Qué forma tienen las celdas de un panal?", "Hexagonal."],
+    ["b", "¿Qué figura forman dos circunferencias con el mismo centro?", "Una corona circular."],
+    ["b", "¿Cuántas caras tiene un cubo?", "6."],
+    ["b", "¿Qué día se celebra el Día de Pi?", "El 14 de marzo."],
+    ["m", "Un triángulo rectángulo tiene un ángulo de 30°. ¿Cuánto mide el otro agudo?", "60°."],
+    ["m", "¿Por qué los pentágonos regulares no forman mosaico?", "Tres suman 324° y queda un hueco."],
+    ["m", "¿Cuántos ángulos de 90° caben alrededor de un punto?", "4."],
+    ["m", "Di dos diferencias entre un prisma y una pirámide.", "El prisma tiene dos bases y caras rectangulares; la pirámide, una base y caras triangulares."],
+    ["m", "Un plato mide 24 cm de diámetro. Estima su borde.", "Unos 75 cm."],
+    ["a", "Recorta un triángulo, junta sus tres esquinas y explica qué observas.", "Forman 180°, una línea recta."],
+    ["a", "Diseña un mosaico combinando cuadrados y triángulos.", "Respuesta abierta."],
+    ["a", "Mide con un hilo tres objetos redondos y calcula borde : diámetro.", "Respuesta abierta; siempre unos 3,1."],
+    ["a", "Dibuja con el compás un hexágono regular.", "Abrir el compás con el radio y marcar 6 puntos."],
+  ],
+  quiz: [
+    ["Los ángulos de un cuadrilátero suman…", ["360°", "180°", "90°"], "Ángulos."],
+    ["¿Qué polígono regular forma mosaicos solo?", ["el hexágono", "el pentágono", "el octógono"], "Mosaicos."],
+    ["Un trozo de pizza es un…", ["sector circular", "semicírculo", "segmento"], "Figuras circulares."],
+    ["Una lata tiene forma de…", ["cilindro", "cono", "pirámide"], "Cuerpos."],
+    ["Pi vale aproximadamente…", ["3,14", "2,5", "10"], "Pi."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué polígonos no conseguía encajar Irene?", ["pentágonos", "cuadrados", "triángulos"], "Lectura."],
+    ["Cada ángulo de un triángulo equilátero mide…", ["60°", "90°", "45°"], "Triángulos."],
+  ],
+  tarjetas: [
+    ["Ángulos del triángulo", "Siempre suman 180°; los del cuadrilátero, 360°."],
+    ["Mosaicos", "Triángulo, cuadrado y hexágono teselan; panales y Alhambra."],
+    ["Compás", "Radio, centro, girar; semicírculo, sector y corona."],
+    ["Cuerpos y pi", "Prismas, pirámides, cilindro, cono, esfera; π ≈ 3,14."],
+  ],
+  glosario: [
+    ["Polígono", "Figura plana cerrada por segmentos rectos."],
+    ["Grado", "Unidad para medir ángulos."],
+    ["Mosaico", "Superficie cubierta por figuras que encajan sin huecos."],
+    ["Teselación", "Otra forma de llamar al mosaico."],
+    ["Alicatado", "Decoración con piezas de cerámica."],
+    ["Compás", "Instrumento para dibujar circunferencias."],
+    ["Sector circular", "Parte del círculo entre dos radios."],
+    ["Corona circular", "Parte entre dos circunferencias con el mismo centro."],
+    ["Poliedro", "Cuerpo con todas sus caras planas y poligonales."],
+    ["Arista", "Borde donde se juntan dos caras de un cuerpo."],
+    ["Desarrollo plano", "Figura que se obtiene al desplegar un cuerpo."],
+    ["Pi (π)", "Número que resulta de dividir el borde de una circunferencia entre su diámetro."],
+  ],
+  situacion: {
+    titulo: "Nuestro mosaico",
+    reto: "La clase diseña y construye un gran mosaico geométrico inspirado en la Alhambra.",
+    pasos: ["Investigad qué polígonos encajan sin dejar huecos.", "Dibujad las piezas con regla, escuadra y compás en cartulina.", "Recortad y combinad las piezas formando un diseño con simetrías.", "Exponed el mosaico explicando qué polígonos y ángulos habéis usado."],
+    producto: "Un mosaico de cartulina para decorar el aula.",
+    evaluacion: ["Reconoce y nombra polígonos.", "Usa los instrumentos de dibujo con precisión.", "Explica por qué encajan las piezas.", "Colabora en el diseño común."],
+  },
+});
