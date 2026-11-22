@@ -140,3 +140,87 @@ module.exports = {
   fuentes: [RD, wiki("Máquina simple", "Máquina simple"), wiki("Palanca", "Palanca"), wiki("Invento", "Invento")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Explorar cómo funcionan los imanes", "Conocer a mujeres inventoras", "Entender qué es un robot", "Descubrir los molinos de viento y de agua"],
+  lectura: { titulo: "El robot de cartón", html: `<p>Para la feria de ciencias, el grupo de Elsa decidió construir un robot. No tenían piezas caras, así que usaron lo que encontraron en casa: cajas de cartón, tapones, una pila, un pequeño motor de un juguete roto y cuatro ruedas de un coche viejo.</p><p>—Un robot tiene que moverse solo —dijo Elsa—. Si no, es solo un muñeco.</p><p>Pegaron el motor a un eje con dos ruedas y lo conectaron a la pila con unos cables. Cuando cerraron el interruptor, ¡el robot avanzó por la mesa!</p><p>—Pero se va a caer por el borde —avisó Jaime.</p><p>Tenía razón. El robot llegó al final de la mesa y cayó al suelo con un ruido de cartón.</p><p>La profesora les explicó que los robots de verdad tienen <b>sensores</b>, como ojos o bigotes, que les avisan de los obstáculos. Y un pequeño ordenador que decide qué hacer.</p><p>El grupo no tenía sensores, pero inventó una solución: pusieron un palito delante del robot que, al tocar la pared, apagaba el interruptor.</p><p>El día de la feria, el robot avanzó, tocó la pared con su bigote de palito y se paró. Todo el mundo aplaudió.</p>` },
+  tras: {
+    "Piezas y energía de las máquinas": [
+      ["Los imanes", `<p>Los <mark>imanes</mark> son objetos que <b>atraen</b> a algunos metales, como el hierro y el acero, sin tocarlos.</p><ul><li>Todo imán tiene dos <b>polos</b>: el polo norte y el polo sur.</li><li>Dos polos <b>distintos</b> se atraen; dos polos <b>iguales</b> se repelen, es decir, se empujan.</li><li>Los imanes atraen el hierro, pero no la madera, el plástico, el papel ni el aluminio de las latas.</li><li>La fuerza del imán atraviesa el papel, el cartón y hasta el agua.</li></ul><p>Usamos imanes en muchas máquinas y objetos: las puertas de las neveras, los altavoces, los motores eléctricos, las pizarras magnéticas y los trenes muy rápidos que flotan sobre las vías.</p><p>La <b>brújula</b> tiene una aguja imantada que siempre señala hacia el norte, porque la Tierra funciona como un enorme imán. Los marineros la usan desde hace cientos de años para orientarse.</p><p><b>Experimento</b>: acerca un imán a una caja con clips, monedas, gomas y papel. ¿Cuáles atrae?</p>`,
+        H6.dos("Imanes", ["ATRAE", ["hierro", "acero", "clips"], cRO], ["NO ATRAE", ["madera", "plástico", "papel"], cAZ]), ["bxE357HuQ8k", "Aprende sobre imanes y magnetismo para niños  Video educativo con el mundo de Ryan", "Ryan's World Español", 1073396]],
+    ],
+    "Grandes inventos de la historia": [
+      ["Mujeres inventoras", `<p>Muchos inventos que usamos cada día los crearon <mark>mujeres</mark>, aunque durante mucho tiempo se habló poco de ellas.</p><ul><li><b>Mary Anderson</b> inventó el <b>limpiaparabrisas</b> en 1903, después de ver a un conductor bajar del tranvía una y otra vez para limpiar la nieve del cristal.</li><li><b>Josephine Cochrane</b> inventó el <b>lavavajillas</b>, porque sus criados rompían los platos al fregarlos.</li><li><b>Margaret Knight</b> creó una máquina para fabricar las <b>bolsas de papel</b> con el fondo plano, como las de las panaderías.</li><li><b>Hedy Lamarr</b>, actriz de cine, inventó un sistema de comunicación que hoy ayuda a que funcionen el wifi y el bluetooth.</li><li><b>Ángela Ruiz Robles</b>, maestra española, diseñó un libro mecánico que muchos consideran un antepasado del libro electrónico.</li></ul><p>Todas ellas se fijaron en un problema y buscaron una solución. ¡Cualquier persona puede ser inventora!</p>`,
+        L6.filas("Inventoras", [["Anderson", "limpiaparabrisas", cAZ], ["Cochrane", "lavavajillas", cVE], ["Lamarr", "wifi", cMO], ["Ruiz Robles", "libro mecánico", cNA]])],
+    ],
+  },
+  final: [
+    ["Los robots", `<p>Un <mark>robot</mark> es una máquina que puede hacer tareas por sí sola, siguiendo las órdenes de un programa de ordenador.</p><p>Un robot tiene tres partes principales:</p><ul><li><b>Sensores</b>: son como sus sentidos. Detectan luz, sonidos, obstáculos o temperatura.</li><li><b>Un cerebro electrónico</b>: un pequeño ordenador que decide qué hacer con la información.</li><li><b>Motores</b>: mueven sus ruedas, brazos o pinzas.</li></ul><p>Hay robots de muchos tipos:</p><ul><li>Los <b>robots aspiradores</b> limpian la casa y esquivan los muebles.</li><li>En las <b>fábricas</b>, los brazos robóticos montan coches.</li><li>Los <b>robots exploradores</b>, como los que van a Marte, estudian lugares donde las personas no pueden ir.</li><li>Algunos robots ayudan a los médicos en operaciones muy delicadas.</li></ul><p>Las personas programan los robots: les dicen paso a paso lo que deben hacer. ¡En el colegio puedes aprender a programar robots sencillos!</p>`,
+      H6.flujo("Robot", ["sensor|detecta", "cerebro|decide", "motor|se mueve", "tarea|hecha"], cAZ), ["aqLVM7mSy-8", "Blippi y los Robots Sobre Ruedas | Aprende a Construir Robots para niños |  Videos Educativos", "Blippi en Español", 10803718]],
+    ["Molinos de viento y de agua", `<p>Hace cientos de años, antes de la electricidad, las personas ya usaban la fuerza del <b>viento</b> y del <b>agua</b> para mover máquinas: los <mark>molinos</mark>.</p><ul><li>En los <b>molinos de viento</b>, el viento empuja unas aspas grandes que giran. El giro mueve unas piedras pesadas que muelen el trigo para hacer harina.</li><li>En los <b>molinos de agua</b>, la corriente de un río hace girar una rueda, que también mueve las piedras de moler.</li></ul><p>En <b>La Mancha</b> se conservan molinos de viento blancos muy famosos, como los de Campo de Criptana y Consuegra. Aparecen en el <i>Quijote</i>, donde Don Quijote los confunde con gigantes.</p><p>Hoy usamos la misma idea en los <b>aerogeneradores</b>: molinos modernos que producen electricidad con el viento sin contaminar. Y en las centrales hidroeléctricas, el agua de los embalses mueve turbinas para producir electricidad.</p>`,
+      H6.dos("Molinos", ["ANTES", ["viento o agua", "muelen trigo", "harina"], cNA], ["AHORA", ["aerogeneradores", "turbinas", "electricidad"], cVE])],
+  ],
+  ejemplos: [
+    ["¿Atraerá un imán una lata de aluminio?", ["Los imanes atraen hierro y acero.", "El aluminio no es hierro."], "No."],
+    ["¿Qué sensor necesita un robot aspirador para no chocar?", ["Tiene que detectar los obstáculos.", "Usa sensores de choque o de distancia."], "Un sensor de obstáculos."],
+  ],
+  errores: ["Pensar que los imanes atraen todos los metales.", "Creer que un robot piensa solo: sigue un programa que hacen las personas."],
+  ejercicios: [
+    ["b", "¿Qué metal atraen los imanes?", "El hierro y el acero."],
+    ["b", "¿Qué inventó Mary Anderson?", "El limpiaparabrisas."],
+    ["b", "Di las tres partes de un robot.", "Sensores, cerebro electrónico y motores."],
+    ["b", "¿Qué muelen los molinos?", "El trigo."],
+    ["b", "¿Hacia dónde señala la brújula?", "Hacia el norte."],
+    ["m", "¿Qué pasa si acercas dos polos iguales?", "Se repelen."],
+    ["m", "¿Por qué inventó Josephine Cochrane el lavavajillas?", "Porque se rompían los platos al fregarlos."],
+    ["m", "Di dos tipos de robots.", "Aspirador, de fábrica, explorador o médico."],
+    ["m", "¿Con qué confundió Don Quijote los molinos?", "Con gigantes."],
+    ["m", "¿Qué son los aerogeneradores?", "Molinos que producen electricidad con el viento."],
+    ["a", "Clasifica diez objetos según si los atrae un imán.", "Respuesta abierta."],
+    ["a", "Inventa una máquina que resuelva un problema de tu casa.", "Respuesta abierta."],
+    ["a", "Escribe las órdenes para que un robot salga de clase.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿cómo consiguieron que el robot se parara?", "Con un palito que apagaba el interruptor."],
+  ],
+  quiz: [
+    ["Dos polos distintos…", ["se atraen", "se repelen", "se rompen"], "Imanes."],
+    ["Hedy Lamarr ayudó a inventar lo que hoy permite…", ["el wifi", "la rueda", "el fuego"], "Inventoras."],
+    ["Los sensores de un robot son como sus…", ["sentidos", "ruedas", "pilas"], "Robots."],
+    ["Los molinos de Consuegra están en…", ["La Mancha", "Galicia", "Canarias"], "Molinos."],
+    ["Un aerogenerador produce…", ["electricidad", "harina", "agua"], "Molinos."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué le faltaba al robot?", ["sensores", "ruedas", "motor"], "Lectura."],
+    ["La maestra española que diseñó un libro mecánico fue…", ["Ángela Ruiz Robles", "Mary Anderson", "Hedy Lamarr"], "Inventoras."],
+  ],
+  tarjetas: [
+    ["Imanes", "Atraen hierro y acero; polos iguales se repelen."],
+    ["Inventoras", "Limpiaparabrisas, lavavajillas, bolsa de papel, wifi."],
+    ["Robots", "Sensores, cerebro electrónico y motores."],
+    ["Molinos", "Viento y agua para moler; hoy, electricidad."],
+  ],
+  glosario: [
+    ["Imán", "Objeto que atrae el hierro."],
+    ["Polo", "Extremo de un imán."],
+    ["Repeler", "Empujar para separar."],
+    ["Brújula", "Instrumento con aguja imantada que señala el norte."],
+    ["Inventor", "Persona que crea algo nuevo."],
+    ["Limpiaparabrisas", "Brazo que limpia el cristal del coche."],
+    ["Robot", "Máquina que hace tareas sola siguiendo un programa."],
+    ["Sensor", "Pieza que detecta lo que pasa alrededor."],
+    ["Programar", "Dar órdenes paso a paso a una máquina."],
+    ["Molino", "Máquina que muele con fuerza del viento o del agua."],
+    ["Aspa", "Brazo del molino que mueve el viento."],
+    ["Aerogenerador", "Molino moderno que produce electricidad."],
+  ],
+  situacion: {
+    titulo: "Taller de inventores",
+    reto: "La clase monta un taller para construir máquinas sencillas e inventos propios.",
+    pasos: ["Experimentar con imanes y clasificar objetos.", "Investigar a una inventora y presentarla.", "Construir un robot o vehículo con material reciclado.", "Fabricar un molinillo de papel y probarlo con el viento."],
+    producto: "Una exposición de inventos de la clase.",
+    evaluacion: ["Explica cómo funcionan los imanes.", "Conoce a inventoras.", "Describe las partes de un robot.", "Explica los molinos."],
+  },
+});

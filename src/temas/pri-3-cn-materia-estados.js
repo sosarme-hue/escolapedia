@@ -148,3 +148,87 @@ module.exports = {
   fuentes: [RD, wiki("Materia", "Materia"), wiki("Estado de agregación de la materia", "Estado de agregación de la materia"), wiki("Reciclaje", "Reciclaje")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Predecir si un objeto flota o se hunde", "Distinguir mezclas y disoluciones", "Separar mezclas con métodos sencillos", "Medir la temperatura con un termómetro"],
+  lectura: { titulo: "El huevo que flotaba", html: `<p>Una tarde, la abuela de Iker preparaba un bizcocho y tenía dudas.</p><p>—No sé si estos huevos son frescos —dijo—. Vamos a comprobarlo.</p><p>Llenó un vaso con agua y metió un huevo con cuidado. El huevo se fue al fondo y se quedó tumbado.</p><p>—Este es fresco —explicó—. Si fuera viejo, flotaría, porque dentro tendría más aire.</p><p>Iker se quedó pensando. ¿Y si conseguía que un huevo fresco flotara?</p><p>—Abuela, ¿puedo hacer un experimento?</p><p>Echó sal en el agua y removió. La sal desapareció, pero el agua seguía igual de transparente. Echó más sal, y más, y más. De pronto, el huevo empezó a subir… ¡y se quedó flotando en medio del vaso!</p><p>—¡Magia! —gritó Iker.</p><p>—No es magia, es ciencia —rio la abuela—. El agua salada empuja más fuerte que el agua dulce. Por eso en el mar se flota mejor que en la piscina.</p><p>Esa noche, mientras comían el bizcocho, Iker no paró de hablar de su descubrimiento. Al día siguiente lo repitió en clase, y todos sus compañeros quisieron probarlo.</p>` },
+  tras: {
+    "Sólidos, líquidos y gases": [
+      ["¿Flota o se hunde?", `<p>Si echas distintos objetos al agua, unos <mark>flotan</mark> y otros se <mark>hunden</mark>. No depende solo de lo que pesan, sino también del material y de su forma.</p><ul><li>Una <b>piedra pequeña</b> se hunde, pero un <b>tronco enorme</b> flota, porque la madera es más ligera que el agua para su tamaño.</li><li>Un trozo de <b>plastilina</b> en bola se hunde; si le das forma de barca, ¡flota!</li><li>Los grandes <b>barcos de acero</b> flotan porque están huecos y llenos de aire.</li><li>En el <b>agua salada</b> se flota mejor que en el agua dulce. En el mar Muerto, que es muy salado, la gente flota sin esfuerzo.</li></ul><p>El agua empuja hacia arriba a todo lo que metemos en ella. Si ese empuje es mayor que el peso del objeto, el objeto flota.</p><p><b>Experimento</b>: antes de meter cada objeto en un barreño, apunta tu predicción. Después compruébala. ¿Cuántas acertaste?</p>`,
+        H6.dos("En el agua", ["FLOTAN", ["madera, corcho", "barco hueco", "pelota"], cAZ], ["SE HUNDEN", ["piedra", "llave", "bola de plastilina"], cMO]), ["G_PlY-so-F8", "Blippi Español Hundír o Flotar | Experimentos Científicos Divertidos para Niños", "Blippi en Español", 293546406]],
+    ],
+    "Los materiales y sus propiedades": [
+      ["Mezclas y disoluciones", `<p>Cuando juntamos dos o más sustancias, formamos una <mark>mezcla</mark>.</p><ul><li>En algunas mezclas se distinguen bien los componentes: arena con piedras, una ensalada, legumbres variadas o agua con aceite. El aceite siempre se queda flotando encima del agua.</li><li>En otras mezclas no se distinguen los componentes. Se llaman <mark>disoluciones</mark>. Por ejemplo, al echar azúcar en la leche o sal en el agua, el azúcar y la sal parecen desaparecer, pero siguen ahí: ¡pruébalo y verás que sabe dulce o salado!</li></ul><p>Algunas sustancias se disuelven en el agua, como la sal, el azúcar o el cacao. Otras no se disuelven, como la arena, el aceite o el arroz.</p><p>El agua <b>caliente</b> disuelve más rápido que la fría: por eso el azúcar se disuelve antes en un té caliente. Y si <b>remueves</b>, también va más deprisa.</p>`,
+        L6.filas("Mezclas", [["arena y piedras", "se distinguen", cNA], ["agua y aceite", "no se juntan", cAZ], ["agua y sal", "disolución", cVE], ["calor", "más rápido", cRO]])],
+    ],
+  },
+  final: [
+    ["Separamos mezclas", `<p>Muchas mezclas se pueden <mark>separar</mark> con métodos sencillos:</p><ul><li><b>Con las manos o un colador</b>: para separar piedras grandes de arena fina, o la pasta del agua de cocerla.</li><li><b>Con un filtro</b>: un papel de cocina o un filtro de café deja pasar el agua y retiene la arena o la tierra.</li><li><b>Con un imán</b>: separa los clavos o las limaduras de hierro de la arena.</li><li><b>Dejando reposar</b>: en el agua con aceite, el aceite sube y se puede recoger con una cuchara.</li><li><b>Evaporando</b>: si dejas al sol un plato con agua salada, el agua se evapora y la sal se queda en el plato.</li></ul><p>Así se obtiene la sal en las <b>salinas</b>: el agua del mar entra en unas balsas poco profundas, el sol la evapora y los salineros recogen la sal. En España hay salinas famosas en Cádiz, Alicante, Ibiza y Lanzarote.</p>`,
+      H6.flujo("Salinas", ["mar|entra", "sol|evapora", "sal|queda", "recoger|montones"], cAZ)],
+    ["Calor y temperatura: el termómetro", `<p>La <mark>temperatura</mark> nos dice lo caliente o lo frío que está algo. Se mide con un <mark>termómetro</mark>, en <b>grados centígrados</b> (°C).</p><ul><li>El agua se congela a <b>0 °C</b> y hierve a <b>100 °C</b>.</li><li>La temperatura normal del cuerpo humano es de unos <b>36 o 37 °C</b>. Si pasa de 37,5 °C, tenemos fiebre.</li><li>En una habitación agradable hay unos 20 °C.</li></ul><p>Hay varios tipos de termómetros: los clínicos, para medir la fiebre; los de pared, para saber la temperatura de una habitación o de la calle; y los de cocina, para el horno.</p><p>Los cambios de estado dependen de la temperatura: el calor funde el hielo y evapora el agua; el frío congela el agua y condensa el vapor.</p><p><b>Actividad</b>: mide la temperatura en la clase, en el patio al sol y en la sombra, y anota las diferencias.</p>`,
+      L6.filas("Grados", [["0 °C", "el agua se congela", cAZ], ["20 °C", "habitación", cVE], ["37 °C", "cuerpo", cNA], ["100 °C", "el agua hierve", cRO]])],
+  ],
+  ejemplos: [
+    ["¿Cómo separas arena y sal mezcladas?", ["Echa agua: la sal se disuelve y la arena no.", "Filtra para quitar la arena y evapora el agua para recuperar la sal."], "Disolver, filtrar y evaporar."],
+    ["¿Flotará una barca de papel de aluminio?", ["Tiene forma hueca y llena de aire.", "El agua la empuja hacia arriba."], "Sí, flota."],
+  ],
+  errores: ["Pensar que la sal desaparece al disolverse: sigue en el agua.", "Creer que lo que pesa mucho siempre se hunde: los barcos flotan."],
+  ejercicios: [
+    ["b", "Di un objeto que flote.", "Corcho, madera, pelota…"],
+    ["b", "¿Qué es una disolución?", "Una mezcla en la que no se distinguen los componentes."],
+    ["b", "¿Con qué separas clavos de la arena?", "Con un imán."],
+    ["b", "¿A qué temperatura hierve el agua?", "A 100 °C."],
+    ["b", "¿Con qué se mide la temperatura?", "Con un termómetro."],
+    ["m", "¿Por qué flotan los barcos de acero?", "Porque están huecos y llenos de aire."],
+    ["m", "¿Se disuelve el aceite en agua?", "No, se queda encima."],
+    ["m", "¿Cómo se obtiene la sal en las salinas?", "El sol evapora el agua del mar."],
+    ["m", "¿Cuándo tenemos fiebre?", "Por encima de 37,5 °C."],
+    ["m", "¿Por qué el azúcar se disuelve mejor en el té caliente?", "El agua caliente disuelve más rápido."],
+    ["a", "Haz el experimento del huevo con sal y explica lo que pasa.", "Respuesta abierta."],
+    ["a", "Construye una barca de plastilina que flote.", "Respuesta abierta."],
+    ["a", "Mide la temperatura en tres lugares y haz una tabla.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿qué echó Iker en el agua?", "Sal."],
+  ],
+  quiz: [
+    ["En agua salada se flota…", ["mejor", "peor", "igual"], "Flotar."],
+    ["El azúcar en la leche forma…", ["una disolución", "una mezcla con trozos", "un gas"], "Mezclas."],
+    ["Un filtro retiene…", ["la arena", "la sal disuelta", "el agua"], "Separar."],
+    ["El agua se congela a…", ["0 °C", "37 °C", "100 °C"], "Temperatura."],
+    ["La plastilina en forma de barca…", ["flota", "se disuelve", "se evapora"], "Flotar."],
+  ],
+  examen: [
+    ["En la lectura, ¿por qué flota un huevo viejo?", ["tiene más aire dentro", "es más grande", "está cocido"], "Lectura."],
+    ["La temperatura normal del cuerpo es de unos…", ["36 o 37 °C", "20 °C", "50 °C"], "Termómetro."],
+  ],
+  tarjetas: [
+    ["Flotar", "Depende del material y la forma; el agua empuja hacia arriba."],
+    ["Mezclas", "Se distinguen o no (disoluciones); calor y remover ayudan."],
+    ["Separar", "Colador, filtro, imán, reposo y evaporación."],
+    ["Termómetro", "0 °C hielo, 37 °C cuerpo, 100 °C hierve."],
+  ],
+  glosario: [
+    ["Flotar", "Quedarse en la superficie de un líquido."],
+    ["Hundirse", "Ir al fondo de un líquido."],
+    ["Empuje", "Fuerza del agua hacia arriba."],
+    ["Mezcla", "Unión de dos o más sustancias."],
+    ["Disolución", "Mezcla en la que no se ven los componentes."],
+    ["Disolver", "Deshacer una sustancia en un líquido."],
+    ["Filtro", "Material que deja pasar el líquido y retiene lo sólido."],
+    ["Evaporar", "Convertir un líquido en gas."],
+    ["Salina", "Lugar donde se saca sal del agua del mar."],
+    ["Temperatura", "Lo caliente o frío que está algo."],
+    ["Termómetro", "Instrumento para medir la temperatura."],
+    ["Grado centígrado", "Unidad de temperatura (°C)."],
+  ],
+  situacion: {
+    titulo: "Laboratorio de la materia",
+    reto: "La clase se convierte en un laboratorio para investigar mezclas, flotación y temperatura.",
+    pasos: ["Predecir y comprobar qué objetos flotan.", "Preparar mezclas y disoluciones con agua.", "Separar una mezcla de arena, sal y clips.", "Medir temperaturas y hacer una tabla."],
+    producto: "Un cuaderno de laboratorio con predicciones y resultados.",
+    evaluacion: ["Explica por qué algo flota.", "Distingue mezclas y disoluciones.", "Separa mezclas.", "Usa el termómetro."],
+  },
+});

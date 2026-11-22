@@ -140,3 +140,91 @@ module.exports = {
   fuentes: [RD, wiki("Planta", "Plantae"), wiki("Fotosíntesis", "Fotosíntesis"), wiki("Germinación", "Germinación")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (3º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Explicar por qué cambian de color las hojas en otoño", "Conocer las plantas carnívoras", "Describir cómo viajan las semillas", "Descubrir plantas récord y cuidar un huerto"],
+  lectura: { titulo: "El viaje de la semilla de diente de león", html: `<p>En un prado, junto a un camino, vivía una planta de diente de león. En primavera tuvo una flor amarilla, y después la flor se convirtió en una bola blanca y esponjosa, hecha de cientos de semillas con paracaídas.</p><p>Una de esas semillas se llamaba Vilana. Estaba deseando conocer el mundo.</p><p>Una mañana llegó una niña, arrancó la bola y sopló con fuerza. ¡Fuuuu! Vilana salió volando con sus hermanas. El viento la llevó por encima del camino, de un río y de un tejado.</p><p>—¡Esto es maravilloso! —pensó Vilana mientras flotaba.</p><p>Pero el viento se calmó y Vilana empezó a bajar. Aterrizó en un rincón de un huerto, entre la tierra húmeda.</p><p>Durante varios días no pasó nada. Luego llegó la lluvia, y Vilana notó que algo cambiaba dentro de ella. Una pequeña raíz empezó a crecer hacia abajo y un tallo verde asomó hacia la luz.</p><p>Semanas después, en aquel rincón del huerto había una nueva planta de diente de león con una flor amarilla. Y un día, esa flor se convirtió en una bola blanca llena de semillas, listas para su propio viaje.</p>` },
+  tras: {
+    "Las hojas": [
+      ["Los colores del otoño", `<p>En otoño, las hojas de muchos árboles cambian de color y se caen. Estos árboles se llaman de <mark>hoja caduca</mark>, como el roble, el castaño o el chopo. Los que conservan las hojas todo el año, como el pino o la encina, son de <mark>hoja perenne</mark>.</p><p><b>¿Por qué cambian de color?</b></p><ul><li>Las hojas son verdes por la <b>clorofila</b>, que las ayuda a fabricar alimento con la luz del sol.</li><li>En otoño los días son más cortos y hace más frío. El árbol deja de fabricar clorofila para ahorrar energía.</li><li>Al desaparecer el verde, se ven otros colores que estaban escondidos: el <b>amarillo</b> y el <b>naranja</b>. Algunas hojas fabrican además pigmentos <b>rojos</b>.</li><li>Después, las hojas se secan, se vuelven marrones y caen.</li></ul><p>Así el árbol descansa durante el invierno y en primavera saca hojas nuevas. Las hojas caídas se descomponen y abonan el suelo.</p>`,
+        H6.dos("Árboles", ["CADUCA", ["roble", "castaño", "chopo"], cNA], ["PERENNE", ["pino", "encina", "olivo"], cVE]), ["DckvUtmYT4I", "HOJAS CADUCAS Y HOJAS PERENNES  | Vídeos Educativos para Niños", "Happy Learning Español", 109113]],
+    ],
+    "¿Cómo se alimentan las plantas?": [
+      ["Las plantas carnívoras", `<p>Todas las plantas fabrican su alimento con la luz del sol. Pero algunas viven en suelos muy pobres, con pocos nutrientes, y consiguen lo que les falta de una manera sorprendente: <mark>cazando insectos</mark>. Son las <mark>plantas carnívoras</mark>.</p><ul><li>La <b>venus atrapamoscas</b> tiene hojas como dos mandíbulas con pelitos. Cuando un insecto toca los pelitos, la hoja se cierra en menos de un segundo.</li><li>La <b>drosera</b>, o atrapamoscas de rocío, tiene pelitos con gotas pegajosas que brillan como el rocío. Los insectos se quedan pegados.</li><li>Las <b>plantas jarra</b> tienen hojas con forma de vaso, con un líquido en el fondo. Los insectos resbalan y caen dentro.</li></ul><p>Después, la planta digiere poco a poco al insecto con unos jugos especiales.</p><p>En España hay plantas carnívoras pequeñas, como algunas droseras y grasillas, que viven en turberas y zonas húmedas de montaña.</p>`,
+        L6.filas("Carnívoras", [["venus", "se cierra", cRO], ["drosera", "gotas pegajosas", cNA], ["planta jarra", "trampa vaso", cVE], ["grasilla", "hoja pegajosa", cMO]]), ["wkTRNxUfDEY", "PLANTAS CARNÍVORAS: Tipos y cómo se alimentan🌱🕷️", "EcologíaVerde", 2196957]],
+    ],
+    "Flores, frutos y semillas": [
+      ["El viaje de las semillas", `<p>Las plantas no pueden moverse, pero sus semillas sí viajan. Si cayeran todas junto a la planta madre, no tendrían espacio ni luz. Por eso se <mark>dispersan</mark> de muchas formas:</p><ul><li><b>Con el viento</b>: las semillas del diente de león llevan un paracaídas; las del arce tienen alas y bajan girando como un helicóptero.</li><li><b>Con los animales</b>: los pájaros comen frutos carnosos, como las cerezas, y dejan las semillas lejos con sus excrementos. Otras semillas, como las del cadillo, tienen ganchitos que se enganchan al pelo de los animales o a la ropa.</li><li><b>Con el agua</b>: el coco flota y puede viajar por el mar hasta otra isla.</li><li><b>Por sí mismas</b>: algunas plantas, como el guisante, tienen vainas que se secan y explotan lanzando las semillas.</li></ul><p>Las ardillas y los arrendajos entierran bellotas para comerlas en invierno. ¡Las que olvidan se convierten en nuevas encinas y robles!</p>`,
+        H6.rueda("Semillas", "VIAJAN", [["viento", cAZ], ["animales", cNA], ["agua", cVE], ["explotan", cRO]]), ["RkXnoxzc9eI", "Dispersión de las semillas", "EnFoco", 333182]],
+    ],
+  },
+  final: [
+    ["Plantas récord", `<p>En el reino de las plantas hay auténticos <mark>gigantes</mark> y campeones:</p><ul><li>Las <b>secuoyas</b> de California son los árboles más altos del mundo: algunas miden más de 100 metros, como un edificio de 30 pisos.</li><li>El <b>baobab</b> de África tiene un tronco enorme que guarda agua para la época seca.</li><li>El <b>drago</b> es un árbol típico de Canarias. El Drago Milenario de Icod de los Vinos, en Tenerife, es muy antiguo y muy famoso.</li><li>La <b>rafflesia</b> tiene la flor más grande del mundo, de casi un metro, ¡y huele a carne podrida para atraer a las moscas!</li><li>El <b>bambú</b> es una de las plantas que crecen más deprisa: puede crecer casi un metro en un solo día.</li><li>Algunos <b>pinos</b> de Estados Unidos tienen más de 4.000 años.</li></ul><p>Recuerda que la edad de un árbol se puede saber contando los anillos de su tronco.</p>`,
+      H6.rueda("Récords", "PLANTAS", [["secuoya", cVE], ["baobab", cNA], ["drago", cAZ], ["bambú", cRO]])],
+    ["El huerto escolar", `<p>Un <mark>huerto</mark> en el colegio es una forma estupenda de ver crecer las plantas y aprender a cuidarlas.</p><p><b>Qué necesitamos</b>: un rincón con sol, tierra con abono, semillas o plantones, agua y herramientas pequeñas (pala, rastrillo y regadera). Si no hay suelo, se pueden usar jardineras o cajas.</p><p><b>Pasos</b>:</p><ul><li><b>1.</b> Preparar la tierra: quitar piedras y mezclarla con abono.</li><li><b>2.</b> Sembrar las semillas a la profundidad que indica el sobre.</li><li><b>3.</b> Regar sin encharcar y quitar las malas hierbas.</li><li><b>4.</b> Observar y anotar en un diario cómo crecen.</li><li><b>5.</b> ¡Cosechar y probar lo que hemos cultivado!</li></ul><p>Plantas fáciles para empezar: rábanos, lechugas, judías, fresas y plantas aromáticas como la albahaca o la menta. Las tomateras dan fruto en verano.</p><p>Con los restos de fruta y verdura se puede hacer <b>compost</b>, un abono natural para el huerto.</p>`,
+      H6.flujo("Huerto", ["preparar|tierra", "sembrar|semillas", "regar|y cuidar", "cosechar|y probar"], cVE)],
+  ],
+  ejemplos: [
+    ["¿Por qué el pino no pierde las hojas en otoño?", ["Hay árboles de hoja caduca y de hoja perenne.", "El pino es de hoja perenne."], "Porque es de hoja perenne."],
+    ["¿Cómo viaja la semilla de una cereza?", ["Un pájaro se come la cereza.", "Deja la semilla lejos con sus excrementos."], "Con los animales."],
+  ],
+  errores: ["Pensar que las hojas se vuelven amarillas porque se pintan: el amarillo ya estaba debajo del verde.", "Creer que las plantas carnívoras no hacen fotosíntesis: también la hacen."],
+  ejercicios: [
+    ["b", "Di un árbol de hoja caduca.", "Roble, castaño o chopo."],
+    ["b", "¿Qué color da la clorofila?", "Verde."],
+    ["b", "Di una planta carnívora.", "Venus atrapamoscas, drosera, planta jarra o grasilla."],
+    ["b", "¿Cómo viaja la semilla del diente de león?", "Con el viento."],
+    ["b", "¿Cuál es el árbol más alto del mundo?", "La secuoya."],
+    ["m", "¿Por qué las hojas cambian de color en otoño?", "El árbol deja de fabricar clorofila y se ven otros colores."],
+    ["m", "¿Por qué cazan insectos las plantas carnívoras?", "Porque viven en suelos pobres en nutrientes."],
+    ["m", "¿Cómo ayudan las ardillas a plantar árboles?", "Entierran bellotas y olvidan algunas."],
+    ["m", "¿Qué árbol es típico de Canarias?", "El drago."],
+    ["m", "¿Qué es el compost?", "Un abono natural hecho con restos."],
+    ["a", "Recoge hojas de otoño y ordénalas por colores.", "Respuesta abierta."],
+    ["a", "Busca semillas de distintos tipos y clasifícalas por su forma de viajar.", "Respuesta abierta."],
+    ["a", "Planta rábanos y lleva un diario de crecimiento.", "Respuesta abierta."],
+    ["a", "En la lectura, ¿dónde aterrizó Vilana?", "En un rincón de un huerto."],
+  ],
+  quiz: [
+    ["La encina es de hoja…", ["perenne", "caduca", "carnívora"], "Hojas."],
+    ["La venus atrapamoscas se cierra cuando…", ["un insecto toca sus pelitos", "llueve", "sale el sol"], "Carnívoras."],
+    ["El coco viaja con…", ["el agua", "el viento", "las hormigas"], "Semillas."],
+    ["La rafflesia tiene…", ["la flor más grande", "el tronco más alto", "la semilla más pequeña"], "Récords."],
+    ["Una planta fácil para el huerto es…", ["el rábano", "la secuoya", "el baobab"], "Huerto."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué llevaba Vilana para volar?", ["un paracaídas", "alas de mariposa", "un globo"], "Lectura."],
+    ["Las semillas del arce bajan…", ["girando como un helicóptero", "rodando", "nadando"], "Semillas."],
+  ],
+  tarjetas: [
+    ["Otoño", "Hoja caduca o perenne; sin clorofila se ven amarillos y rojos."],
+    ["Carnívoras", "Venus, drosera, jarra: cazan insectos en suelos pobres."],
+    ["Semillas viajeras", "Viento, animales, agua o explosión."],
+    ["Récords y huerto", "Secuoya, baobab, drago; preparar, sembrar, regar, cosechar."],
+  ],
+  glosario: [
+    ["Hoja caduca", "Hoja que se cae en otoño."],
+    ["Hoja perenne", "Hoja que se mantiene todo el año."],
+    ["Clorofila", "Sustancia verde de las hojas."],
+    ["Planta carnívora", "Planta que caza insectos."],
+    ["Digerir", "Deshacer el alimento para aprovecharlo."],
+    ["Dispersión", "Viaje de las semillas lejos de la planta."],
+    ["Vaina", "Funda donde están las semillas de algunas plantas."],
+    ["Secuoya", "Árbol más alto del mundo."],
+    ["Drago", "Árbol típico de Canarias."],
+    ["Huerto", "Terreno donde se cultivan hortalizas."],
+    ["Abono", "Sustancia que alimenta la tierra."],
+    ["Compost", "Abono natural hecho con restos."],
+  ],
+  situacion: {
+    titulo: "Nuestro huerto escolar",
+    reto: "La clase pone en marcha un pequeño huerto y estudia las plantas a lo largo del curso.",
+    pasos: ["Recoger hojas de otoño y clasificar árboles caducos y perennes.", "Buscar semillas viajeras y clasificarlas.", "Preparar la tierra y sembrar rábanos y lechugas.", "Llevar un diario de crecimiento y preparar compost."],
+    producto: "Un huerto con su diario y un herbario de hojas.",
+    evaluacion: ["Explica los colores del otoño.", "Conoce plantas carnívoras.", "Describe la dispersión de semillas.", "Cuida un huerto."],
+  },
+});
