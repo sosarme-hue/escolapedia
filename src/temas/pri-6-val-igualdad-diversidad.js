@@ -92,3 +92,91 @@ module.exports = P.tema({
   saberes: "Sociedad, justicia y democracia: igualdad y diversidad, estereotipos, prejuicios y discriminación, igualdad de género, equidad e inclusión",
   ideas: ["Mosaico de clase: cada alumno aporta una pieza con algo propio (idioma, comida, afición) y se monta un mural.", "Juego de rol: detectar estereotipos en anuncios o canciones y reescribirlos.", "Analizar el colegio: ¿es accesible para todas las personas? Proponer mejoras."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Detectar estereotipos de género en juguetes, anuncios y medios", "Conocer a mujeres que lucharon por la igualdad en España", "Valorar la accesibilidad y el diseño para todas las personas", "Rechazar el racismo y respetar la diversidad de familias"],
+  lectura: { titulo: "El equipo de Yusuf", html: `<p>Cuando Yusuf llegó al colegio en enero, apenas sabía decir «hola» y «gracias». Venía de Marruecos y se sentaba solo en el recreo, mirando cómo los demás jugaban al baloncesto.</p><p>Un día, Irene se acercó con el balón. No sabía árabe, así que le hizo un gesto: ¿juegas? Yusuf sonrió y asintió.</p><p>Resultó que Yusuf encestaba desde cualquier sitio. En pocas semanas, todos querían tenerlo en su equipo.</p><p>Pero no todo fue fácil. Un día, un chico de otra clase le gritó: «¡Vete a tu país!». Yusuf se quedó paralizado. Irene y Daniel se pusieron a su lado y le dijeron al chico que eso no se decía, y después lo contaron a la tutora.</p><p>La tutora propuso que Yusuf enseñara a la clase algunas palabras en árabe y que les contara cómo era su ciudad. Descubrieron que allí también se comían churros, aunque con otro nombre, y que el abuelo de Yusuf había trabajado muchos años en Almería.</p><p>En junio, el equipo de 6.º ganó el torneo del colegio. En la foto final, Yusuf sujetaba la copa. Ya no necesitaba gestos: «¡Lo hemos hecho juntos!», gritó en perfecto castellano.</p>` },
+  tras: {
+    "Estereotipos y prejuicios": [
+      ["Estereotipos en juguetes y anuncios", `<p>Los estereotipos no nacen solos: los aprendemos poco a poco, muchas veces sin darnos cuenta, a través de lo que vemos y oímos. Uno de los lugares donde más aparecen es en los <b>juguetes y la publicidad</b>.</p><p>Durante años, los catálogos de juguetes separaban las páginas en dos colores: <b>rosa</b> para las niñas, con muñecas, cocinitas y maquillaje, y <b>azul</b> para los niños, con coches, construcciones, herramientas y superhéroes. El mensaje oculto era claro: las niñas cuidan y se arreglan; los niños construyen, mandan y luchan.</p><p>¿Qué problema tiene eso? Que los juguetes <b>entrenan habilidades</b>. Construir con piezas desarrolla la visión espacial, útil para la ingeniería o la arquitectura; cuidar de un muñeco entrena la empatía y el cuidado. Si cada uno solo juega a «lo suyo», ambos se pierden la mitad.</p><p>Hoy muchas jugueterías ordenan por edades o temas y no por sexo. En España, el <b>Código de autorregulación de la publicidad infantil de juguetes</b>, renovado en 2022, pide que los anuncios no asocien juguetes, colores ni papeles a un solo sexo.</p><p>Para detectar estereotipos en un anuncio, hazte estas preguntas:</p><ul><li>¿Quién aparece jugando: solo chicas, solo chicos o ambos?</li><li>¿Qué colores y qué palabras se usan («princesa», «campeón», «valiente», «bonita»)?</li><li>¿Quién está activo y quién mira?</li><li>¿Se ve diversidad de orígenes, cuerpos y capacidades?</li></ul><p>Jugar a lo que te guste, sea cual sea tu sexo, es un derecho.</p>`,
+        H6.dos("Juguetes", ["ROSA", ["cuidar", "arreglarse", "cocinar"], cMO], ["AZUL", ["construir", "competir", "luchar"], cAZ]), ["Bj0fTHMXyok", "Muñecas para niñas y robots para niños. Un experimento de la BBC sobre los estereotipos de género", "aurora izquierdo", 231877]],
+    ],
+    "Igualdad entre mujeres y hombres": [
+      ["Mujeres que abrieron camino", `<p>Los derechos de las mujeres en España no llegaron solos: los conquistaron personas valientes que se enfrentaron a las ideas de su época.</p><ul><li><b>Concepción Arenal</b> (siglo XIX) quiso estudiar Derecho cuando las mujeres no podían ir a la universidad. Según se cuenta, asistía a clase <b>vestida de hombre</b>. Defendió a los presos, a los pobres y la educación de las mujeres.</li><li><b>Emilia Pardo Bazán</b>, gran novelista gallega, reclamó que las mujeres pudieran estudiar y escribir con libertad. Fue la primera mujer catedrática de universidad en España, en 1916.</li><li><b>Clara Campoamor</b>, abogada, fue una de las tres primeras diputadas elegidas en España, en 1931. En el Congreso defendió con un famoso discurso el <mark>voto de las mujeres</mark>, que se aprobó ese mismo año. En las elecciones de 1933 las españolas votaron por primera vez en unas generales.</li></ul><p>Aun así, durante buena parte del siglo XX las mujeres casadas necesitaron el permiso de su marido para trabajar, abrir una cuenta en el banco o sacarse el pasaporte. Esto cambió con la democracia: la <b>Constitución de 1978</b> reconoce la igualdad entre mujeres y hombres.</p><p>Hoy quedan retos: la <b>brecha salarial</b> (de media, las mujeres cobran menos), el reparto desigual de las tareas de casa y del cuidado de los hijos, o la poca presencia de mujeres en algunas profesiones científicas y técnicas. Por eso el <b>8 de marzo</b> se celebra el Día Internacional de la Mujer y el <b>11 de febrero</b>, el Día de la Mujer y la Niña en la Ciencia.</p>`,
+        H6.flujo("Conquistas", ["1916|catedrática", "1931|diputadas", "1933|votan", "1978|Constitución"], cMO), ["FRUAwU5M210", "Clara Campoamor, primera diputada de España - Ellas Más", "Ellas Más", 51416]],
+    ],
+    "Inclusión: que nadie se quede fuera": [
+      ["Accesibilidad: un mundo para todos", `<p>Una persona con discapacidad no está «limitada» por sí misma: muchas veces lo que la limita es un entorno que no está pensado para ella. Unas escaleras sin rampa, un vídeo sin subtítulos o un texto muy difícil son <b>barreras</b>. La <mark>accesibilidad</mark> consiste en quitarlas.</p><p>Algunos inventos y recursos que hacen el mundo más accesible:</p><ul><li><b>El braille</b>: sistema de lectura con puntos en relieve que se tocan con los dedos. Lo inventó el francés <b>Louis Braille</b>, que se había quedado ciego de niño, cuando tenía unos 15 años. En España, la <b>ONCE</b> trabaja desde 1938 por la autonomía de las personas ciegas.</li><li><b>La lengua de signos española</b>: una lengua completa, con su propia gramática, que usan muchas personas sordas. Una ley de 2007 la reconoce oficialmente.</li><li><b>Subtítulos y audiodescripción</b> en películas y series.</li><li><b>Pictogramas</b>: dibujos sencillos que ayudan a comprender, por ejemplo, a personas con autismo.</li><li><b>Lectura fácil</b>: textos escritos con frases cortas y palabras sencillas.</li><li><b>Rampas, ascensores, pasos de peatones con sonido y baldosas con relieve</b> en las calles.</li></ul><p>A esto se le llama <b>diseño universal</b>: pensar las cosas desde el principio para que las pueda usar todo el mundo. Y lo bueno es que ayuda a muchas más personas: una rampa la usa quien va en silla de ruedas, pero también quien lleva un carrito o una maleta.</p><p>El <b>3 de diciembre</b> es el Día Internacional de las Personas con Discapacidad.</p>`,
+        H6.rueda("Accesibilidad", "PARA TODOS", [["braille", cAZ], ["signos", cVE], ["rampas", cNA], ["pictos", cRO]]), ["_DpkGBJHG4A", "Louis Braille y la escritura para invidentes - La historia del braille", "Aprendiendo Braille", 129279]],
+    ],
+  },
+  final: [
+    ["El racismo y las migraciones", `<p>El <b>racismo</b> es despreciar o tratar peor a alguien por su color de piel o su origen. La <b>xenofobia</b> es el rechazo a las personas que vienen de otros países. Ambos se basan en prejuicios y causan mucho dolor.</p><p>Una de las personas que se enfrentaron al racismo fue <b>Rosa Parks</b>. En 1955, en Estados Unidos, las leyes obligaban a las personas negras a ceder su asiento del autobús a las blancas. Rosa Parks se negó. La detuvieron, pero su gesto inició una protesta enorme que acabó cambiando aquellas leyes injustas.</p><p>A veces el racismo se esconde en chistes, en insultos en el deporte o en frases como «vete a tu país». Recuerda que las personas siempre se han desplazado de un lugar a otro: son las <b>migraciones</b>.</p><ul><li>En los años sesenta, más de un millón de españoles emigraron a Alemania, Francia o Suiza para trabajar, y muchos otros a América en épocas anteriores.</li><li>Hoy, España recibe a personas de muchos países que trabajan, estudian y forman parte de nuestra sociedad.</li></ul><p>Quien emigra no lo hace por capricho: busca trabajo, estudios, seguridad o reunirse con su familia. Tiene los mismos derechos y la misma dignidad.</p><p>El <b>21 de marzo</b> es el Día Internacional de la Eliminación de la Discriminación Racial.</p>`,
+      L6.filas("Contra el racismo", [["racismo", "por la piel", cRO], ["xenofobia", "por el origen", cNA], ["Rosa Parks", "1955", cAZ], ["21 de marzo", "día mundial", cVE]])],
+    ["Muchas formas de familia", `<p>Cuando pensamos en una familia, a veces imaginamos un padre, una madre y sus hijos. Pero las familias son muy diversas, y todas merecen el mismo respeto:</p><ul><li><b>Monoparentales</b>: un solo padre o una sola madre con sus hijos.</li><li><b>Reconstituidas</b>: madre o padre con una nueva pareja, a veces con hermanos de distintos padres.</li><li><b>Adoptivas</b>: los hijos llegaron por adopción.</li><li><b>De acogida</b>: cuidan durante un tiempo a niños que no pueden vivir con su familia.</li><li>Con <b>dos madres o dos padres</b>. En España, el matrimonio entre personas del mismo sexo es legal desde 2005.</li><li>Niños que viven con sus <b>abuelos</b>, tíos u otros familiares.</li><li>Familias <b>multiculturales</b>, con miembros de distintos países, lenguas o religiones.</li></ul><p>Lo que hace que una familia sea una familia no es su forma, sino el <mark>cariño, el cuidado y el apoyo mutuo</mark>.</p><p>En clase podemos tener compañeros con familias muy distintas. Burlarse de la familia de alguien hace mucho daño. Por eso, en lugar de preguntar «¿dónde está tu padre?» o «¿por qué tienes dos madres?» en tono de burla, podemos interesarnos con respeto o, simplemente, aceptar que cada familia es como es.</p><p>El <b>15 de mayo</b> se celebra el Día Internacional de las Familias.</p>`,
+      H6.rueda("Familias", "CARIÑO", [["mono", cAZ], ["adoptiva", cVE], ["acogida", cNA], ["abuelos", cRO]])],
+  ],
+  ejemplos: [
+    ["Un anuncio de un juego de construcción muestra solo a niños y dice «para pequeños ingenieros». ¿Qué estereotipo transmite?", ["Solo aparecen chicos.", "Asocia la ingeniería a un sexo."], "Que construir y la ingeniería son cosas de chicos."],
+    ["Un ayuntamiento instala semáforos con sonido. Alguien dice que solo sirven a las personas ciegas. ¿Es cierto?", ["Pensados para personas ciegas.", "Ayudan también a quien va distraído o ve poco."], "No: es diseño universal, beneficia a muchas personas."],
+  ],
+  errores: ["Creer que la accesibilidad es un favor y no un derecho.", "Pensar que las migraciones son algo nuevo que nunca vivieron los españoles."],
+  ejercicios: [
+    ["b", "¿Quién defendió en el Congreso el voto de las mujeres en 1931?", "Clara Campoamor."],
+    ["b", "¿Qué inventó Louis Braille?", "Un sistema de lectura con puntos en relieve."],
+    ["b", "¿Qué es la xenofobia?", "El rechazo a las personas de otros países."],
+    ["b", "¿Qué hizo Rosa Parks en 1955?", "Se negó a ceder su asiento del autobús a una persona blanca."],
+    ["b", "Nombra tres tipos de familia.", "Monoparental, adoptiva, de acogida…"],
+    ["m", "¿Por qué es un problema separar juguetes por sexo?", "Porque los juguetes entrenan habilidades y cada uno se pierde la mitad."],
+    ["m", "¿Qué es el diseño universal?", "Diseñar desde el principio para que todos puedan usar algo."],
+    ["m", "¿Qué es la brecha salarial?", "La diferencia de sueldo medio entre hombres y mujeres."],
+    ["m", "¿Por qué emigraron muchos españoles en los años sesenta?", "Para buscar trabajo en otros países europeos."],
+    ["m", "¿Qué hace que una familia sea una familia?", "El cariño, el cuidado y el apoyo mutuo."],
+    ["a", "Analiza un catálogo de juguetes y cuenta cuántas páginas tienen estereotipos.", "Respuesta abierta."],
+    ["a", "Haz un recorrido por el colegio y detecta barreras de accesibilidad.", "Respuesta abierta."],
+    ["a", "Entrevista a un familiar que emigrara o llegara de otro lugar.", "Respuesta abierta."],
+    ["a", "Escribe la biografía breve de una mujer que luchó por la igualdad.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Las españolas votaron por primera vez en unas generales en…", ["1933", "1978", "1900"], "Igualdad."],
+    ["La lengua de signos española se reconoció por ley en…", ["2007", "1931", "1850"], "Accesibilidad."],
+    ["La ONCE trabaja por…", ["las personas ciegas", "los deportistas", "los agricultores"], "Accesibilidad."],
+    ["El Día contra la Discriminación Racial es el…", ["21 de marzo", "8 de marzo", "3 de diciembre"], "Racismo."],
+    ["El matrimonio entre personas del mismo sexo es legal en España desde…", ["2005", "1978", "1995"], "Familias."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué hicieron Irene y Daniel cuando insultaron a Yusuf?", ["se pusieron a su lado y avisaron a la tutora", "se rieron", "se fueron"], "Lectura."],
+    ["Emilia Pardo Bazán fue…", ["la primera catedrática de universidad en España", "la primera astronauta", "una reina"], "Igualdad."],
+  ],
+  tarjetas: [
+    ["Estereotipos", "Rosa y azul; los juguetes entrenan habilidades; analizar anuncios."],
+    ["Pioneras", "Concepción Arenal, Pardo Bazán, Clara Campoamor; 1931 y 1933."],
+    ["Accesibilidad", "Braille, ONCE, lengua de signos, pictogramas, diseño universal."],
+    ["Racismo y familias", "Rosa Parks, migraciones, 21 de marzo; diversidad de familias."],
+  ],
+  glosario: [
+    ["Publicidad", "Mensajes que buscan que compremos algo."],
+    ["Brecha salarial", "Diferencia de sueldo medio entre hombres y mujeres."],
+    ["Sufragio", "Derecho a votar."],
+    ["Diputada", "Persona elegida para el Congreso."],
+    ["Accesibilidad", "Que un lugar o servicio lo pueda usar todo el mundo."],
+    ["Braille", "Escritura en relieve para personas ciegas."],
+    ["Lengua de signos", "Lengua que se expresa con las manos y el cuerpo."],
+    ["Diseño universal", "Diseñar pensando en todas las personas."],
+    ["Racismo", "Discriminar por el color de piel o el origen."],
+    ["Xenofobia", "Rechazo a las personas extranjeras."],
+    ["Migración", "Desplazamiento de personas para vivir en otro lugar."],
+    ["Familia de acogida", "Familia que cuida temporalmente a un niño."],
+  ],
+  situacion: {
+    titulo: "Colegio sin barreras",
+    reto: "La clase investiga barreras y estereotipos en el colegio y propone mejoras.",
+    pasos: ["Recorred el centro anotando barreras físicas y de comunicación.", "Analizad carteles, libros y juegos buscando estereotipos.", "Diseñad propuestas: pictogramas, carteles en lectura fácil, juegos mixtos.", "Presentad un informe al equipo directivo."],
+    producto: "Un informe con fotos y propuestas de mejora.",
+    evaluacion: ["Detecta estereotipos.", "Identifica barreras de accesibilidad.", "Propone soluciones realistas.", "Trabaja en equipo con respeto."],
+  },
+});

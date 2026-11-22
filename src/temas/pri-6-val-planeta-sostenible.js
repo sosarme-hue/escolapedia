@@ -91,3 +91,91 @@ module.exports = P.tema({
   saberes: "Desarrollo sostenible y ética ambiental: recursos naturales, problemas ambientales, cambio climático, consumo responsable, regla de las erres y Objetivos de Desarrollo Sostenible",
   ideas: ["Auditoría de residuos del aula durante una semana y gráfica de resultados.", "Cada grupo investiga un ODS y lo presenta con un cartel.", "Patrulla verde del colegio con turnos semanales."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Comprender el problema del plástico en los océanos", "Calcular y reducir nuestra huella de carbono", "Conocer la economía circular y las energías renovables", "Valorar la protección de la biodiversidad con el ejemplo del lince ibérico"],
+  lectura: { titulo: "La playa de los martes", html: `<p>Todos los martes, Marina y su abuelo Andrés paseaban por la playa de su pueblo. El abuelo había sido pescador y conocía cada roca.</p><p>—Cuando yo era pequeño —le contó un día—, aquí solo encontrabas conchas, algas y algún trozo de madera.</p><p>Marina miró a su alrededor: tapones, una chancla, cuerdas de colores, trocitos de plástico entre la arena.</p><p>—¿Y de dónde sale todo esto?</p><p>—De nosotros. Del río, de los barcos, de las papeleras que se vuelan con el viento. El mar nos lo devuelve.</p><p>Esa semana, Marina habló con su clase. Decidieron organizar una limpieza un sábado de mayo. Acudieron más de cuarenta personas, entre alumnos, familias y vecinos. En dos horas llenaron veintidós bolsas.</p><p>Después, en clase, clasificaron lo recogido. Lo que más había eran colillas, tapones y envoltorios. Hicieron un gráfico y lo colgaron en la entrada del ayuntamiento con un mensaje: «El mejor residuo es el que no se produce».</p><p>Al martes siguiente, el abuelo y Marina volvieron a pasear. La playa no estaba perfecta, pero el abuelo sonrió.</p><p>—Ahora ya sé quién la va a cuidar cuando yo no pueda.</p>` },
+  tras: {
+    "Problemas ambientales": [
+      ["El plástico en el mar", `<p>El <b>plástico</b> es un material muy útil: ligero, barato y resistente. Pero esa resistencia es también su problema: puede tardar <b>cientos de años</b> en descomponerse. Se calcula que cada año llegan al mar <b>millones de toneladas</b> de plástico, arrastradas por ríos, el viento o tiradas directamente.</p><p>¿Qué ocurre con ellas?</p><ul><li><b>Islas de basura</b>: las corrientes marinas acumulan los residuos en grandes zonas de los océanos. La más conocida, en el Pacífico norte, ocupa una superficie varias veces mayor que España, aunque no es una isla sólida, sino una «sopa» de trozos flotando.</li><li><b>Animales en peligro</b>: las tortugas confunden las bolsas con medusas y se las comen; aves, focas y delfines quedan atrapados en redes y anillas.</li><li><b>Microplásticos</b>: con el sol y las olas, el plástico se rompe en trocitos de menos de 5 milímetros. Los comen los peces y el plancton, y así entran en la cadena alimentaria… hasta llegar a nuestro plato. Se han encontrado microplásticos en el agua, en la sal y hasta en la nieve de las montañas.</li></ul><p>Algunas soluciones ya están en marcha: en la Unión Europea están prohibidos los platos, cubiertos y pajitas de plástico de un solo uso, y en España las bolsas de plástico en las tiendas ya no son gratis. Pero lo más eficaz sigue siendo <mark>usar menos plástico</mark>: botellas reutilizables, bolsas de tela, comprar a granel y no tirar nada al suelo.</p>`,
+        L6.filas("Plástico en el mar", [["tarda", "cientos de años", cRO], ["islas", "sopa de restos", cAZ], ["micro", "menos de 5 mm", cNA], ["solución", "usar menos", cVE]]), ["hoD3ghHhqq8", "Las cinco islas de plástico que manchan el océano y ningún país quiere limpiar", "ElConfidencial", 2406441]],
+    ],
+    "El cambio climático": [
+      ["La huella de carbono", `<p>Casi todo lo que hacemos libera, directa o indirectamente, gases de efecto invernadero, sobre todo <b>dióxido de carbono</b> (CO₂). La cantidad total que emite una persona, una familia, una empresa o un producto se llama <mark>huella de carbono</mark>.</p><p>¿De dónde viene nuestra huella?</p><ul><li><b>Transporte</b>: coches, aviones y barcos que queman gasolina o gasóleo. Un viaje en avión puede emitir más que muchos meses de ir en autobús.</li><li><b>Energía en casa</b>: la calefacción, el aire acondicionado y la electricidad, si se produce quemando carbón o gas.</li><li><b>Alimentación</b>: producir carne de vaca emite mucho más que producir legumbres o verduras. También cuenta si los alimentos vienen de muy lejos.</li><li><b>Consumo</b>: fabricar ropa, móviles o juguetes gasta energía y materiales. Una camiseta de algodón necesita miles de litros de agua para fabricarse.</li></ul><p>Para reducir tu huella:</p><ul><li>Ir andando, en bici o en transporte público.</li><li>Comer más legumbres, frutas y verduras de temporada y de cerca (<b>kilómetro cero</b>).</li><li>Apagar luces y aparatos; no abusar de la calefacción.</li><li>Cuidar las cosas para que duren y comprar solo lo necesario.</li></ul><p>Hay calculadoras de huella de carbono en internet: con tu familia podéis calcular la vuestra y proponeros reducirla.</p>`,
+        H6.rueda("Huella", "CO₂", [["transporte", cAZ], ["casa", cNA], ["comida", cVE], ["consumo", cMO]]), ["nQ1pPLb1Fo4", "¿Qué es la Huella de Carbono?", "Proyecto Mido Mi Huella", 420697]],
+    ],
+    "La regla de las erres": [
+      ["La economía circular", `<p>Durante mucho tiempo, la economía ha funcionado en línea recta: <b>extraer</b> materias primas, <b>fabricar</b> productos, <b>usarlos</b> y <b>tirarlos</b>. Es la <b>economía lineal</b>. El problema es que los recursos se agotan y la basura se acumula.</p><p>La <mark>economía circular</mark> propone cerrar el círculo, imitando a la naturaleza, donde nada se desperdicia: las hojas caídas alimentan el suelo, que alimenta a los árboles.</p><p>Por eso, a las tres erres se añaden otras:</p><ul><li><b>Rediseñar</b>: fabricar productos pensados para durar, repararse y reciclarse con facilidad.</li><li><b>Reparar</b>: arreglar en lugar de tirar. En muchas ciudades hay <b>cafés de reparación</b> donde voluntarios ayudan a arreglar aparatos, ropa o bicis.</li><li><b>Recuperar</b>: convertir residuos en algo útil, como el compost con los restos orgánicos o la energía a partir de la basura.</li><li><b>Rechazar</b>: decir que no a lo que no necesitas, como un folleto o un envoltorio de más.</li></ul><p>Un ejemplo que se ve en muchos productos: la <b>obsolescencia programada</b>, cuando un aparato se fabrica para que deje de funcionar pronto y tengamos que comprar otro. La Unión Europea está aprobando normas sobre el <b>derecho a reparar</b> para que los fabricantes faciliten piezas y reparaciones.</p><p>Comprar de segunda mano, intercambiar libros o heredar ropa también es economía circular.</p>`,
+        H6.dos("Economía", ["LINEAL", ["extraer", "usar", "tirar"], cRO], ["CIRCULAR", ["diseñar", "reparar", "recuperar"], cVE])],
+    ],
+  },
+  final: [
+    ["Biodiversidad: el regreso del lince", `<p>La <b>biodiversidad</b> es la variedad de seres vivos de un lugar. Cada especie cumple una función, y cuando una desaparece, todo el ecosistema se resiente. Hoy muchas especies están amenazadas por la destrucción de su hábitat, la contaminación, la caza y el cambio climático.</p><p>Pero también hay buenas noticias. El <b>lince ibérico</b>, un felino que solo vive en la península ibérica, estuvo a punto de extinguirse. A principios de este siglo quedaban <b>menos de cien ejemplares</b>, repartidos entre Doñana y Sierra Morena. Sus problemas eran:</p><ul><li>La desaparición de los <b>conejos</b>, su alimento principal, por enfermedades.</li><li>Los <b>atropellos</b> en las carreteras.</li><li>La caza ilegal y la pérdida de bosque mediterráneo.</li></ul><p>Entonces se puso en marcha un gran esfuerzo: centros de <b>cría en cautividad</b>, recuperación de conejos, pasos de fauna bajo las carreteras y acuerdos con agricultores, cazadores y propietarios de fincas. Los linces criados se liberaron en nuevas zonas de Andalucía, Castilla-La Mancha, Extremadura y Portugal.</p><p>El resultado: en 2024 se contaron <b>más de 2 000 linces</b>, y la Unión Internacional para la Conservación de la Naturaleza dejó de considerarlo «en peligro» para pasarlo a «vulnerable».</p><p>El lince demuestra que, cuando trabajamos juntos, <mark>se puede revertir el daño</mark>.</p>`,
+      H6.flujo("Lince", ["2002|menos de 100", "cría|cautividad", "suelta|nuevas zonas", "2024|más de 2000"], cNA), ["DMYAxLV0Ot4", "LINCE IBÉRICO 🐆 La especie que VOLVIÓ del PELIGRO de EXTINCIÓN y ya SUPERA los 2.400 ejemplares", "EcologíaVerde", 52860]],
+    ["Energías limpias", `<p>Para frenar el cambio climático, uno de los grandes retos es producir la energía sin quemar carbón, petróleo ni gas. Aquí entran las <b>energías renovables</b>, que no se agotan y apenas emiten CO₂:</p><ul><li><b>Solar</b>: los paneles fotovoltaicos convierten la luz del sol en electricidad. España, con tantas horas de sol, es uno de los países con más potencial de Europa.</li><li><b>Eólica</b>: los aerogeneradores aprovechan la fuerza del viento. Los ves en sierras y llanuras; también los hay en el mar.</li><li><b>Hidráulica</b>: el agua de los embalses mueve turbinas al caer.</li><li><b>Biomasa</b>: se obtiene quemando restos vegetales, como podas o huesos de aceituna.</li><li><b>Geotérmica</b>: aprovecha el calor del interior de la Tierra.</li></ul><p>En los últimos años, en España, <b>más de la mitad de la electricidad</b> ya se produce con energías renovables. Pero aún dependemos mucho del petróleo para el transporte y del gas para la calefacción.</p><p>Las renovables también tienen inconvenientes: el sol y el viento no siempre están disponibles, por eso hace falta <b>almacenar</b> la energía en baterías; y los parques solares y eólicos ocupan terreno y pueden afectar al paisaje y a las aves, así que hay que elegir bien dónde instalarlos.</p><p>La energía más limpia es la que no se gasta: el <b>ahorro</b> y la <b>eficiencia</b> son tan importantes como producirla bien.</p>`,
+      H6.rueda("Renovables", "LIMPIA", [["solar", cNA], ["eólica", cAZ], ["agua", cVE], ["biomasa", cMO]])],
+  ],
+  ejemplos: [
+    ["Una familia va en coche al colegio, a 1 km de casa, todos los días. ¿Cómo puede reducir su huella?", ["1 km se recorre andando en unos 12 minutos.", "No se quema combustible."], "Ir andando o en bici."],
+    ["Se rompe la cremallera de una mochila en buen estado. ¿Qué haría la economía circular?", ["Tirarla sería economía lineal.", "Se puede arreglar."], "Repararla en lugar de comprar otra."],
+  ],
+  errores: ["Pensar que el plástico desaparece cuando ya no lo vemos.", "Creer que las energías renovables no tienen ningún inconveniente."],
+  ejercicios: [
+    ["b", "¿Qué son los microplásticos?", "Trocitos de plástico de menos de 5 mm."],
+    ["b", "¿Qué es la huella de carbono?", "La cantidad de gases de efecto invernadero que emitimos."],
+    ["b", "¿Cuál es el alimento principal del lince ibérico?", "El conejo."],
+    ["b", "Nombra tres energías renovables.", "Solar, eólica, hidráulica…"],
+    ["b", "¿Qué es un café de reparación?", "Un lugar donde voluntarios ayudan a arreglar cosas."],
+    ["m", "Explica la diferencia entre economía lineal y circular.", "La lineal extrae, usa y tira; la circular reutiliza, repara y recupera."],
+    ["m", "¿Cómo llegan los microplásticos a nuestro plato?", "Los comen el plancton y los peces, que luego comemos."],
+    ["m", "¿Qué es la obsolescencia programada?", "Fabricar aparatos para que duren poco."],
+    ["m", "¿Por qué estuvo a punto de extinguirse el lince?", "Falta de conejos, atropellos, caza ilegal y pérdida de hábitat."],
+    ["m", "Di un inconveniente de las energías renovables.", "El sol y el viento no siempre están; ocupan terreno."],
+    ["a", "Calcula con tu familia vuestra huella de carbono y propón tres cambios.", "Respuesta abierta."],
+    ["a", "Registra durante una semana los plásticos de un solo uso de tu casa.", "Respuesta abierta."],
+    ["a", "Investiga una especie amenazada de tu comunidad y cómo se protege.", "Respuesta abierta."],
+    ["a", "Diseña un objeto pensado para la economía circular.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Un microplástico mide menos de…", ["5 mm", "5 cm", "5 m"], "Plástico."],
+    ["Comer legumbres en lugar de carne de vaca…", ["reduce la huella de carbono", "la aumenta", "no influye"], "Huella."],
+    ["Arreglar en lugar de tirar es…", ["economía circular", "economía lineal", "obsolescencia"], "Economía circular."],
+    ["En 2024 la UICN pasó al lince a…", ["vulnerable", "extinguido", "en peligro crítico"], "Biodiversidad."],
+    ["Los aerogeneradores producen energía…", ["eólica", "solar", "geotérmica"], "Renovables."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué residuos encontraron más?", ["colillas, tapones y envoltorios", "botellas de cristal", "latas"], "Lectura."],
+    ["Kilómetro cero significa alimentos…", ["producidos cerca", "sin calorías", "importados"], "Huella."],
+  ],
+  tarjetas: [
+    ["Plástico", "Cientos de años; islas de basura; microplásticos; usar menos."],
+    ["Huella de carbono", "Transporte, casa, comida, consumo; andar, km 0, ahorrar."],
+    ["Economía circular", "Rediseñar, reparar, recuperar, rechazar; derecho a reparar."],
+    ["Lince y renovables", "Menos de 100 → más de 2 000; solar, eólica, hidráulica, biomasa."],
+  ],
+  glosario: [
+    ["Microplástico", "Fragmento de plástico menor de 5 mm."],
+    ["Corriente marina", "Movimiento de grandes masas de agua del mar."],
+    ["Huella de carbono", "Gases de efecto invernadero que emitimos."],
+    ["Kilómetro cero", "Producto de cercanía."],
+    ["Economía lineal", "Extraer, fabricar, usar y tirar."],
+    ["Economía circular", "Sistema que reutiliza y recupera los recursos."],
+    ["Obsolescencia programada", "Fabricar algo para que dure poco."],
+    ["Compost", "Abono natural hecho con restos orgánicos."],
+    ["Biodiversidad", "Variedad de seres vivos."],
+    ["Especie amenazada", "Especie en riesgo de desaparecer."],
+    ["Energía renovable", "Energía de fuentes que no se agotan."],
+    ["Aerogenerador", "Molino que produce electricidad con el viento."],
+  ],
+  situacion: {
+    titulo: "Limpieza y datos",
+    reto: "La clase organiza una limpieza de un espacio natural y analiza los residuos recogidos.",
+    pasos: ["Elegid el lugar y pedid permiso al ayuntamiento.", "Organizad la limpieza con guantes, bolsas y normas de seguridad.", "Clasificad y contad los residuos y haced un gráfico.", "Presentad los resultados con propuestas para reducirlos."],
+    producto: "Un informe con gráficos y un cartel de sensibilización.",
+    evaluacion: ["Conoce los problemas ambientales.", "Recoge y organiza datos.", "Propone soluciones de economía circular.", "Colabora y comunica a la comunidad."],
+  },
+});

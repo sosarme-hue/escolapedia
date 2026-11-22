@@ -93,3 +93,91 @@ module.exports = P.tema({
   saberes: "Ciudadanía digital: uso seguro y responsable de internet, protección de datos personales, huella digital, netiqueta, ciberacoso, desinformación y uso equilibrado de las pantallas",
   ideas: ["Crear contraseñas seguras con el método de la frase (sin usarlas de verdad).", "Analizar en grupos titulares reales y falsos inventados por el profesor para detectar bulos.", "Elaborar un decálogo de netiqueta para el grupo de clase."],
 });
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer tus derechos sobre tus datos y configurar la privacidad", "Reconocer las estrategias del grooming y saber pedir ayuda", "Entender cómo los algoritmos deciden lo que vemos", "Usar la inteligencia artificial y detectar la publicidad con espíritu crítico"],
+  lectura: { titulo: "El vídeo de las mil visitas", html: `<p>Hugo llevaba semanas obsesionado con conseguir seguidores. Subía vídeos haciendo retos y miraba el móvil cada cinco minutos para ver cuántos «me gusta» tenía.</p><p>Una noche vio un reto que se había hecho viral: grabarse saltando desde lo alto de un banco con los ojos tapados. «Si lo hago, seguro que me hago famoso», pensó.</p><p>Su hermana mayor, Alba, lo pilló preparándolo en el parque.</p><p>—¿Tú sabes por qué te sale ese vídeo todo el rato? —le preguntó.</p><p>—Porque es lo que más se lleva.</p><p>—No. Te sale porque la aplicación ha visto que te quedas mirando ese tipo de vídeos. Cuanto más miras, más te enseña. A la aplicación le da igual que te rompas un brazo: solo quiere que no sueltes el móvil.</p><p>Hugo se quedó pensando. Esa noche borró algunas cuentas que seguía y activó el aviso de tiempo de uso.</p><p>Una semana después subió otro vídeo: una receta de tortitas que había aprendido con su abuela. Solo tuvo cuarenta visitas, pero entre ellas había un comentario de la abuela: «¡Te han quedado mejor que a mí!».</p><p>Hugo sonrió. Ese comentario valía más que mil visitas.</p>` },
+  tras: {
+    "Los datos personales": [
+      ["Tus derechos sobre tus datos", `<p>Tus datos personales son tuyos, y la ley te protege. En España, la <b>Ley de Protección de Datos</b> y el reglamento europeo reconocen a todas las personas estos derechos:</p><ul><li><b>Derecho de acceso</b>: puedes preguntar a una empresa qué datos tiene sobre ti.</li><li><b>Derecho de rectificación</b>: si un dato es incorrecto, pueden obligarles a corregirlo.</li><li><b>Derecho de supresión</b>, también llamado <mark>derecho al olvido</mark>: puedes pedir que borren tus datos cuando ya no sean necesarios o los publicaron sin tu permiso.</li><li><b>Derecho de oposición</b>: puedes negarte a que usen tus datos para, por ejemplo, enviarte publicidad.</li></ul><p>Hasta los <b>14 años</b>, para que una aplicación trate tus datos hace falta el permiso de tus padres o tutores. La institución que vigila que se cumplan estas normas es la <b>Agencia Española de Protección de Datos</b> (AEPD).</p><p>Además de conocer tus derechos, puedes protegerte tú:</p><ul><li>Pon tus perfiles en modo <b>privado</b>, para que solo te vean las personas que aceptas.</li><li>Revisa los <b>permisos</b> de las aplicaciones: ¿por qué un juego de cartas quiere acceder a tu micrófono, tus contactos o tu ubicación?</li><li>Desactiva la <b>geolocalización</b> en las fotos y en las aplicaciones que no la necesitan.</li><li>Cierra la sesión en ordenadores compartidos.</li><li>Lee antes de aceptar: muchas aplicaciones «gratis» se pagan con tus datos.</li></ul>`,
+        L6.filas("Tus derechos", [["acceso", "qué tienen", cAZ], ["rectificar", "corregir", cVE], ["supresión", "borrar", cRO], ["oposición", "decir no", cNA]])],
+    ],
+    "Cuidado con los desconocidos": [
+      ["El grooming: aprender a reconocerlo", `<p>Se llama <b>grooming</b> a la situación en la que un adulto se gana poco a poco la confianza de un niño o una niña por internet con malas intenciones. Saber cómo actúan ayuda a <b>reconocer las señales</b> a tiempo.</p><p>Suelen seguir unos pasos:</p><ol><li><b>Contacto</b>: aparece en un videojuego, una red social o un chat, a menudo fingiendo ser alguien de tu edad.</li><li><b>Amistad</b>: es muy simpático, comparte tus gustos, te hace regalos (por ejemplo, monedas o mejoras en un juego) y te dice que te entiende mejor que nadie.</li><li><b>Secreto</b>: te pide que la conversación quede entre vosotros, que os paséis a otra aplicación más privada y que no se lo cuentes a tus padres.</li><li><b>Petición</b>: pide fotos, datos o quedar en persona. Si dudas, puede presionar o amenazar.</li></ol><p>Las <b>señales de alarma</b> son: alguien que no conoces en persona te pide secretos, fotos o datos; te halaga mucho; te ofrece regalos; quiere hablar por otra aplicación o quedar.</p><p>Si te pasa algo así:</p><ul><li><b>No es culpa tuya</b>, aunque hayas respondido o enviado algo.</li><li>No borres la conversación: haz <b>capturas</b> como prueba.</li><li><b>Bloquea</b> y denuncia al usuario en la plataforma.</li><li><mark>Cuéntaselo a un adulto de confianza</mark>. También puedes llamar al <b>017</b>, la línea gratuita y confidencial de ayuda en ciberseguridad de INCIBE.</li></ul>`,
+        H6.flujo("Grooming", ["1|contacto", "2|amistad", "3|secreto", "4|petición"], cRO), ["Pa2ttVRA-xU", "Internet Grooming: ciberacoso sexual a niños/as y adolescentes y su prevención", "PantallasAmigas", 1348747]],
+    ],
+    "Bulos y noticias falsas": [
+      ["Algoritmos y burbujas de filtro", `<p>¿Te has fijado en que, si ves varios vídeos de gatos, la aplicación te recomienda cada vez más vídeos de gatos? No es casualidad. Detrás hay un <b>algoritmo</b>: un conjunto de instrucciones que usa el programa para decidir qué te enseña.</p><p>El algoritmo de una red social anota todo lo que haces: qué miras, cuánto tiempo, qué te gusta, qué compartes. Con eso calcula qué contenido hará que <b>sigas mirando</b> más tiempo, porque así la empresa puede enseñarte más anuncios y ganar más dinero.</p><p>Esto tiene ventajas: te recomienda cosas que te interesan. Pero también riesgos:</p><ul><li><b>Burbuja de filtro</b>: solo ves contenido que coincide con lo que ya piensas o te gusta, y dejas de conocer otras ideas. Acabas creyendo que todo el mundo opina como tú.</li><li><b>Contenido extremo</b>: lo exagerado, lo que enfada o lo que asusta suele captar más atención, así que el algoritmo puede mostrarlo más.</li><li><b>Bulos que se extienden</b>: una noticia falsa muy llamativa puede llegar a millones de personas antes de que alguien la desmienta.</li><li><b>Enganche</b>: el desplazamiento infinito y la reproducción automática hacen difícil parar.</li></ul><p>Para salir de la burbuja: sigue cuentas variadas, busca información en distintas fuentes, usa buscadores en lugar de depender de lo que te sale, y pregúntate a menudo: <mark>¿por qué me está enseñando esto?</mark></p>`,
+        H6.flujo("Algoritmo", ["miras|un vídeo", "anota|tus datos", "elige|parecidos", "sigues|mirando"], cAZ), ["uuCunODhySY", "Programado: algoritmos en las redes sociales | Enlaces", "DW Español", 63832]],
+    ],
+  },
+  final: [
+    ["Publicidad, influencers y compras", `<p>En internet no siempre es fácil saber cuándo alguien te está intentando <b>vender algo</b>.</p><ul><li><b>Influencers</b>: personas con muchos seguidores a las que las marcas pagan para que enseñen sus productos. Aunque parezca una recomendación de un amigo, es publicidad. Por ley deben avisarlo con etiquetas como <b>#publi</b> o «colaboración pagada».</li><li><b>Anuncios disfrazados</b>: vídeos que parecen normales pero en los que aparece un producto una y otra vez.</li><li><b>Compras dentro de los juegos</b>: muchos juegos son gratis, pero venden monedas, trajes o mejoras. Como se pagan con monedas virtuales, es fácil perder la cuenta del dinero real que se gasta.</li><li><b>Cajas de recompensa</b> o «cajas botín»: pagas sin saber qué te va a tocar. Funcionan de forma parecida a un juego de azar y pueden enganchar.</li></ul><p>Consejos:</p><ul><li>Antes de comprar algo, espera un día: si de verdad lo quieres, seguirá ahí.</li><li>Nunca compres ni des datos de una tarjeta sin permiso de tus padres.</li><li>Activa con tu familia el <b>control de compras</b> en el móvil o la consola.</li><li>Ante un vídeo, pregúntate: ¿me está informando o me está vendiendo algo?</li></ul>`,
+      L6.filas("¿Me venden algo?", [["#publi", "pagado", cRO], ["influencer", "anuncia", cNA], ["monedas", "dinero real", cMO], ["cajas", "azar", cAZ]])],
+    ["Inteligencia artificial con criterio", `<p>La <b>inteligencia artificial</b> (IA) son programas capaces de hacer tareas que parecían solo humanas: conversar, traducir, reconocer caras o crear textos, imágenes y voces. Los <b>asistentes de chat</b> y los generadores de imágenes se han hecho muy populares.</p><p>La IA puede ser una gran ayuda para aprender: te explica algo de otra manera, te propone ejercicios o te ayuda a organizar ideas. Pero hay que usarla con <b>criterio</b>:</p><ul><li><b>Se equivoca</b>: a veces se inventa datos con total seguridad. Comprueba siempre la información importante en otras fuentes.</li><li><b>No es tu cerebro</b>: si le pides que haga tus deberes, no aprendes nada. Úsala para entender, no para copiar, y di cuándo la has usado.</li><li><b>Privacidad</b>: no le escribas datos personales tuyos ni de otras personas, ni subas fotos de nadie.</li><li><b>Ultrafalsos</b> (en inglés, <i>deepfakes</i>): con IA se pueden crear fotos, vídeos y audios falsos que parecen reales, como un famoso diciendo algo que nunca dijo. Desconfía de lo muy sorprendente y busca la fuente original.</li><li><b>Respeto</b>: crear imágenes falsas de un compañero para burlarse de él es una forma de ciberacoso, y puede ser un delito.</li></ul><p>La IA es una herramienta, como un martillo: puede servir para construir o para hacer daño. Depende de quién la use y cómo.</p>`,
+      H6.dos("La IA", ["SÍ", ["explicar", "practicar", "organizar"], cVE], ["NO", ["copiar", "dar datos", "falsificar"], cRO])],
+  ],
+  ejemplos: [
+    ["Un juego de linterna pide acceso a tus contactos y a tu ubicación. ¿Qué haces?", ["Una linterna no necesita esos datos.", "Revisar permisos."], "Denegar esos permisos o no instalarlo."],
+    ["Un influencer muestra unas zapatillas y escribe «#publi». ¿Qué significa?", ["Etiqueta obligatoria.", "Le han pagado."], "Que es publicidad pagada por la marca."],
+  ],
+  errores: ["Pensar que lo que dice una IA siempre es cierto.", "Creer que si algo te sale mucho en redes es porque es lo más importante o verdadero."],
+  ejercicios: [
+    ["b", "¿Qué es el derecho al olvido?", "El derecho a pedir que borren tus datos."],
+    ["b", "¿Hasta qué edad hace falta permiso de los padres para que una app use tus datos?", "Hasta los 14 años."],
+    ["b", "¿Qué es un algoritmo?", "Un conjunto de instrucciones que usa un programa para decidir."],
+    ["b", "¿Qué significa #publi?", "Que el contenido es publicidad pagada."],
+    ["b", "¿Qué número de ayuda en ciberseguridad es gratuito?", "El 017."],
+    ["m", "¿Qué es una burbuja de filtro?", "Ver solo contenido que coincide con lo que ya piensas."],
+    ["m", "Ordena los pasos del grooming.", "Contacto, amistad, secreto, petición."],
+    ["m", "¿Por qué las cajas botín se parecen a un juego de azar?", "Porque pagas sin saber qué te tocará."],
+    ["m", "¿Qué es un ultrafalso?", "Un vídeo, foto o audio falso creado con IA que parece real."],
+    ["m", "¿Por qué quieren las redes que sigas mirando?", "Para enseñarte más anuncios y ganar dinero."],
+    ["a", "Revisa con tu familia los permisos de tres aplicaciones y anota cuáles sobran.", "Respuesta abierta."],
+    ["a", "Analiza un vídeo de un influencer: ¿es información o publicidad?", "Respuesta abierta."],
+    ["a", "Pide a una IA un dato y comprueba si es correcto en dos fuentes.", "Respuesta abierta."],
+    ["a", "Diseña un cartel con las señales de alarma del grooming.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["La AEPD vigila…", ["la protección de datos", "los precios de los juegos", "la velocidad de internet"], "Datos."],
+    ["En el grooming, el adulto suele pedir…", ["secreto", "que se lo cuentes a tus padres", "que estudies"], "Grooming."],
+    ["La burbuja de filtro hace que…", ["veas solo lo que ya te gusta", "veas de todo", "no veas nada"], "Algoritmos."],
+    ["Las monedas virtuales de un juego…", ["cuestan dinero real", "son siempre gratis", "no sirven"], "Compras."],
+    ["Si una IA te da un dato importante, debes…", ["comprobarlo en otras fuentes", "creerlo sin más", "copiarlo"], "IA."],
+  ],
+  examen: [
+    ["En la lectura, ¿por qué le salía a Hugo el vídeo del reto?", ["porque miraba vídeos parecidos", "porque era obligatorio", "porque se lo envió su abuela"], "Lectura."],
+    ["Crear una imagen falsa de un compañero para burlarse es…", ["ciberacoso", "una broma inocente", "publicidad"], "IA."],
+  ],
+  tarjetas: [
+    ["Derechos digitales", "Acceso, rectificación, supresión, oposición; 14 años; AEPD."],
+    ["Grooming", "Contacto, amistad, secreto, petición; pruebas, bloquear, contarlo; 017."],
+    ["Algoritmos", "Deciden qué ves; burbuja de filtro; ¿por qué me enseña esto?"],
+    ["Publicidad e IA", "#publi, compras, cajas botín; IA con criterio, ultrafalsos."],
+  ],
+  glosario: [
+    ["Privacidad", "Control sobre quién ve tu información."],
+    ["Derecho al olvido", "Derecho a que borren tus datos."],
+    ["AEPD", "Agencia Española de Protección de Datos."],
+    ["Geolocalización", "Saber el lugar exacto donde está un dispositivo."],
+    ["Grooming", "Engaño de un adulto a un menor por internet."],
+    ["Algoritmo", "Instrucciones que sigue un programa."],
+    ["Burbuja de filtro", "Ver solo lo que coincide con tus gustos."],
+    ["Influencer", "Persona con muchos seguidores que influye en ellos."],
+    ["Caja botín", "Compra en un juego con premio al azar."],
+    ["Inteligencia artificial", "Programas que hacen tareas que parecían humanas."],
+    ["Ultrafalso", "Contenido falso creado con IA que parece real."],
+    ["Pensamiento crítico", "Analizar la información antes de creerla."],
+  ],
+  situacion: {
+    titulo: "Detectives digitales",
+    reto: "La clase crea una guía para que los alumnos de 4.º usen internet con seguridad.",
+    pasos: ["Investigad en grupos: datos, desconocidos, algoritmos, publicidad e IA.", "Buscad ejemplos reales (sin datos personales) de cada riesgo.", "Redactad consejos breves y claros para cada tema.", "Presentad la guía a 4.º con una pequeña representación."],
+    producto: "Una guía ilustrada de seguridad digital.",
+    evaluacion: ["Conoce los derechos digitales.", "Reconoce riesgos y señales de alarma.", "Analiza con espíritu crítico.", "Comunica con claridad a otros alumnos."],
+  },
+});
