@@ -88,3 +88,91 @@ module.exports = P.tema({
   saberes: "Conocimiento de la lengua: el sustantivo; comunes y propios; individuales y colectivos; concretos y abstractos; género y formación del femenino; número y formación del plural; concordancia",
   ideas: ["Caja de objetos para clasificar sustantivos concretos; papelitos para los abstractos.", "Bingo de plurales en -z, -s y consonante.", "Mapa de la clase con nombres propios de calles y lugares del barrio."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Escribir con mayúscula los nombres propios", "Conocer sustantivos colectivos de animales y objetos", "Formar diminutivos y aumentativos", "Reconocer sustantivos compuestos y los que cambian de significado con el género"],
+  lectura: { titulo: "El país sin nombres", html: `<p>Había una vez un país donde, por culpa de un hechizo, las cosas habían perdido sus nombres.</p><p>—Pásame eso —decía la gente—. No, eso no: lo otro. Lo que está al lado de la cosa redonda.</p><p>En el mercado, nadie sabía qué comprar. En la escuela, la maestra señalaba un dibujo y decía: «Esto vive en el agua y tiene aletas», porque la palabra <i>pez</i> había desaparecido. Los niños se llamaban unos a otros «oye, tú», y los perros no acudían cuando los llamaban.</p><p>Una niña llamada <b>Sara</b> decidió romper el hechizo. Cogió una libreta y un lápiz y salió a la calle. Cada vez que veía algo, le inventaba un nombre y lo escribía: <i>árbol</i>, <i>fuente</i>, <i>panadería</i>, <i>nube</i>. Después pegaba el papel en la cosa.</p><p>Al principio la gente se reía. Pero pronto empezaron a usar los nombres: «¿Me das una <i>manzana</i>?», «Vamos a la <i>plaza</i>». ¡Era mucho más fácil!</p><p>Luego inventaron nombres para lo que no se puede tocar: <i>alegría</i>, <i>miedo</i>, <i>amistad</i>. Y nombres para los grupos: un <i>rebaño</i> de ovejas, una <i>bandada</i> de pájaros.</p><p>El hechizo se rompió. Y desde entonces, en aquel país, a las palabras que sirven para nombrar las llaman, con mucho cariño, <b>sustantivos</b>.</p>` },
+  tras: {
+    "Comunes y propios": [
+      ["Mayúsculas en los nombres propios", `<p>Los <mark>sustantivos propios</mark> se escriben siempre con <b>letra inicial mayúscula</b>. Llevan mayúscula:</p><ul><li>Los nombres y apellidos de <b>personas</b>: <i>Lucía Fernández</i>, <i>Pedro</i>.</li><li>Los nombres de <b>animales</b> concretos: <i>Toby</i>, <i>Rocinante</i>.</li><li>Los nombres de <b>lugares</b>: países, ciudades, ríos, montañas, mares: <i>España</i>, <i>Cuenca</i>, <i>Ebro</i>, <i>Pirineos</i>, <i>Mediterráneo</i>.</li><li>Los nombres de <b>astros</b> cuando nos referimos a ellos como tales: <i>la Tierra gira alrededor del Sol</i>.</li><li>Los títulos de <b>libros</b> y películas, solo en la primera palabra: <i>El principito</i>, <i>Las aventuras de Pinocho</i>.</li><li>Los nombres de <b>instituciones</b>: <i>el Ayuntamiento de Burgos</i>, <i>el Museo del Prado</i>.</li></ul><p>En cambio, se escriben con <b>minúscula</b>:</p><ul><li>Los días de la semana y los meses: <i>lunes</i>, <i>marzo</i>.</li><li>Las estaciones: <i>verano</i>.</li><li>Los gentilicios: <i>los franceses</i>, <i>una niña andaluza</i>.</li><li>Las palabras genéricas que acompañan al nombre: <i>el río Tajo</i>, <i>la calle Mayor</i>.</li></ul>`,
+        H6.dos("¿Mayúscula?", ["SÍ", ["Lucía, Toby", "España, Ebro", "El principito"], cAZ], ["NO", ["lunes, marzo", "verano", "franceses"], cRO]), ["D_mgJ41Xfs8", "Uso de mayúsculas y minúsculas", "Escuela de Aprendices", 342945]],
+    ],
+    "Individuales y colectivos": [
+      ["Colectivos de animales y cosas", `<p>El castellano tiene muchísimos <mark>sustantivos colectivos</mark>: palabras que, en <b>singular</b>, nombran un <b>grupo</b> de seres o cosas iguales. Muchos se usan para grupos de animales:</p><ul><li><b>Rebaño</b>: de ovejas o cabras.</li><li><b>Manada</b>: de lobos, elefantes o caballos.</li><li><b>Jauría</b>: de perros que cazan juntos.</li><li><b>Bandada</b>: de pájaros.</li><li><b>Enjambre</b>: de abejas.</li><li><b>Banco</b> o <b>cardumen</b>: de peces.</li><li><b>Piara</b>: de cerdos.</li><li><b>Recua</b>: de mulas o burros.</li></ul><p>Y otros para cosas y personas:</p><ul><li><b>Arboleda</b> o <b>bosque</b>: de árboles. <b>Pinar</b>: de pinos. <b>Olivar</b>: de olivos.</li><li><b>Archipiélago</b>: de islas.</li><li><b>Cordillera</b>: de montañas.</li><li><b>Biblioteca</b>: de libros.</li><li><b>Vajilla</b>: de platos, vasos y tazas.</li><li><b>Orquesta</b>: de músicos. <b>Equipo</b>: de jugadores. <b>Público</b>: de espectadores.</li></ul><p>¡Ojo con la concordancia! Aunque nombre a muchos, el colectivo es singular y el verbo va en singular: <i>El rebaño <b>pasta</b></i> (no «pastan»).</p>`,
+        L6.filas("Colectivos", [["ovejas", "rebaño", cVE], ["abejas", "enjambre", cNA], ["peces", "banco", cAZ], ["islas", "archipiélago", cMO]]), ["nfqsIw95nJo", "Clases de sustantivos: individual y colectivo", "Miguel Ruiz Pina", 271688]],
+    ],
+    "Plurales especiales": [
+      ["Diminutivos y aumentativos", `<p>A muchos sustantivos les podemos añadir un final, llamado <b>sufijo</b>, para cambiar su significado:</p><ul><li>Los <mark>diminutivos</mark> indican que algo es <b>pequeño</b> o expresan <b>cariño</b>. Se forman con <b>-ito, -ita</b>, <b>-illo, -illa</b>, <b>-ico, -ica</b>, <b>-ín, -ina</b> o <b>-ete</b>: <i>casita</i>, <i>perrillo</i>, <i>gatico</i>, <i>pequeñín</i>, <i>avioneta</i>. A veces hay que añadir una <b>c</b> o <b>ec</b>: <i>cochecito</i>, <i>panecillo</i>, <i>florecita</i>.</li><li>Los <mark>aumentativos</mark> indican que algo es <b>grande</b>. Se forman con <b>-ón, -ona</b>, <b>-azo, -aza</b> u <b>-ote, -ota</b>: <i>cucharón</i>, <i>perrazo</i>, <i>grandote</i>, <i>cabezota</i>.</li><li>Los <b>despectivos</b> expresan desprecio o que algo es feo o de mala calidad, con <b>-ucho</b>, <b>-uco</b> o <b>-ajo</b>: <i>casucha</i>, <i>pajarraco</i>, <i>pequeñajo</i>.</li></ul><p>En cada zona de España se prefieren unos sufijos: en Andalucía se oye mucho <b>-illo</b>, en Aragón y Murcia <b>-ico</b>, en Asturias <b>-ín</b>, en Galicia <b>-iño</b>.</p><p>¡Atención! Algunas palabras parecen diminutivos o aumentativos, pero tienen un significado propio: <i>bolsillo</i> no es una bolsa pequeña, <i>camilla</i> no es una cama pequeña y <i>ratón</i> no es una rata grande.</p>`,
+        L6.filas("Sufijos", [["diminutivo", "casita, panecillo", cVE], ["aumentativo", "cucharón, perrazo", cNA], ["despectivo", "casucha", cRO], ["falso", "bolsillo, ratón", cMO]])],
+    ],
+  },
+  final: [
+    ["Sustantivos compuestos", `<p>Los <mark>sustantivos compuestos</mark> se forman uniendo <b>dos palabras</b> en una sola. Al juntarse, crean un significado nuevo:</p><ul><li><b>Verbo + sustantivo</b>: <i>saca + puntas = sacapuntas</i>, <i>para + aguas = paraguas</i>, <i>abre + latas = abrelatas</i>, <i>lava + platos = lavaplatos</i>, <i>rasca + cielos = rascacielos</i>.</li><li><b>Sustantivo + sustantivo</b>: <i>bocacalle</i>, <i>telaraña</i>, <i>coliflor</i>.</li><li><b>Sustantivo + adjetivo</b>: <i>pelirrojo</i>, <i>aguardiente</i>.</li><li><b>Adjetivo + sustantivo</b>: <i>mediodía</i>, <i>altavoz</i>.</li><li>Con otras palabras: <i>bienvenida</i>, <i>sinvergüenza</i>, <i>girasol</i>, <i>cumpleaños</i>.</li></ul><p>Muchos compuestos de verbo y sustantivo terminan en <b>-s</b> y tienen la <b>misma forma</b> en singular y en plural: <i>el paraguas / los paraguas</i>, <i>un sacapuntas / dos sacapuntas</i>. El número lo indica el determinante.</p><p>Ten cuidado con la ortografía: a veces cambia alguna letra al unirse. Por ejemplo, <i>pelo + rojo</i> da <i>pelirrojo</i>, con <b>i</b> y con <b>rr</b>, para mantener el sonido fuerte.</p><p>Juego: ¿cuántos compuestos con <i>porta-</i> se te ocurren? <i>Portaminas, portalápices, portaaviones…</i></p>`,
+      H6.flujo("Formar compuestos", ["saca|+ puntas", "para|+ aguas", "gira|+ sol", "= palabra|nueva"], cAZ), ["yGs2t_-JWEI", "Las palabras compuestas", "La Profe Noemí", 583213]],
+    ["El género que cambia el significado", `<p>Algunos sustantivos tienen la misma forma pero cambian de significado según sean <b>masculinos</b> o <b>femeninos</b>. El <b>determinante</b> nos ayuda a saber cuál es:</p><ul><li><i>el cometa</i> (astro con cola) / <i>la cometa</i> (juguete que vuela con el viento).</li><li><i>el capital</i> (dinero) / <i>la capital</i> (ciudad principal de un país).</li><li><i>el orden</i> (colocación de las cosas) / <i>la orden</i> (mandato).</li><li><i>el frente</i> (parte delantera; lugar de una batalla) / <i>la frente</i> (parte de la cara).</li><li><i>el corte</i> (herida, tajo) / <i>la corte</i> (lugar donde vive el rey).</li><li><i>el cura</i> (sacerdote) / <i>la cura</i> (curación).</li></ul><p>Hay también sustantivos que pueden usarse en <b>los dos géneros</b> sin cambiar de significado, como <i>el mar</i> y <i>la mar</i> (los marineros y los poetas dicen «la mar»), o <i>el azúcar</i> y <i>la azúcar</i>.</p><p>Y otros que nombran a seres de los dos sexos con una sola forma: son los <b>epicenos</b>, como <i>la jirafa</i>, <i>el búho</i> o <i>la persona</i>. Para distinguir, se añade «macho» o «hembra»: <i>la jirafa macho</i>.</p><p>Por último, hay sustantivos que se usan sobre todo en <b>plural</b>, aunque nombren una sola cosa: <i>las gafas</i>, <i>las tijeras</i>, <i>los pantalones</i>, <i>las vacaciones</i> o <i>los alrededores</i>. Y otros que casi solo se usan en <b>singular</b>, como <i>la sed</i>, <i>la salud</i> o <i>el oeste</i>. Fíjate en ellos cuando escribas: el determinante y el verbo deben concordar con la forma que usamos, por ejemplo <i>Mis gafas <b>están</b> rotas</i>.</p>`,
+      L6.filas("Masculino y femenino", [["el cometa", "la cometa", cAZ], ["el capital", "la capital", cNA], ["el orden", "la orden", cVE], ["el frente", "la frente", cRO]])],
+  ],
+  ejemplos: [
+    ["Corrige: «El enjambre de abejas volaron hacia la Colmena del jardín el Lunes».", ["Enjambre es colectivo singular: voló.", "Colmena es común: minúscula.", "Lunes es día de la semana: minúscula."], "El enjambre de abejas voló hacia la colmena del jardín el lunes."],
+    ["Forma el diminutivo de pan, flor y coche.", ["Algunos necesitan -ec- o -c-.", "pan → pan-ec-illo, flor → flor-ec-ita, coche → coche-c-ito."], "panecillo, florecita, cochecito"],
+  ],
+  errores: ["Escribir los meses o los días de la semana con mayúscula: «el 3 de Mayo».", "Poner el verbo en plural con un colectivo: «la gente dicen»."],
+  ejercicios: [
+    ["b", "Escribe con mayúscula donde haga falta: «ana vive en sevilla, junto al río guadalquivir».", "Ana vive en Sevilla, junto al río Guadalquivir."],
+    ["b", "¿Cómo se llama un grupo de abejas?", "Enjambre."],
+    ["b", "Forma el aumentativo de cuchara y de perro.", "Cucharón, perrazo."],
+    ["b", "¿Qué dos palabras forman «paraguas»?", "Para + aguas."],
+    ["b", "Escribe el colectivo de islas.", "Archipiélago."],
+    ["m", "Explica la diferencia entre «el cometa» y «la cometa».", "Astro / juguete."],
+    ["m", "¿Por qué «bolsillo» no es un diminutivo?", "Tiene un significado propio, no es una bolsa pequeña."],
+    ["m", "Escribe el plural de «sacapuntas».", "Los sacapuntas."],
+    ["m", "Corrige: «la gente gritaban».", "La gente gritaba."],
+    ["m", "Escribe tres diminutivos con sufijos distintos.", "Casita, perrillo, pequeñín."],
+    ["a", "Inventa cinco sustantivos compuestos nuevos y explica qué serían.", "Respuesta abierta."],
+    ["a", "Escribe un texto corto con cinco colectivos.", "Respuesta abierta."],
+    ["a", "Escribe dos oraciones con «el capital» y «la capital».", "Respuesta abierta."],
+    ["a", "Pregunta qué diminutivos se usan en tu familia o tu pueblo.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Se escribe con minúscula…", ["marzo", "Madrid", "Tajo"], "Mayúsculas."],
+    ["Un grupo de lobos es una…", ["manada", "piara", "bandada"], "Colectivos."],
+    ["Es un diminutivo…", ["casita", "casona", "casucha"], "Diminutivos."],
+    ["«Rascacielos» es un sustantivo…", ["compuesto", "colectivo", "abstracto"], "Compuestos."],
+    ["«La orden» significa…", ["mandato", "colocación", "dinero"], "Género."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué hizo Sara para romper el hechizo?", ["inventar nombres y pegarlos", "dibujar mapas", "cantar una canción"], "Lectura."],
+    ["El plural de «el paraguas» es…", ["los paraguas", "los paraguases", "los paraguos"], "Compuestos."],
+  ],
+  tarjetas: [
+    ["Mayúsculas", "Nombres de personas, lugares, títulos; no meses ni días."],
+    ["Colectivos", "Rebaño, enjambre, banco, archipiélago; verbo en singular."],
+    ["Sufijos", "Diminutivo -ito, aumentativo -ón, despectivo -ucho."],
+    ["Compuestos y género", "Sacapuntas, girasol; el cometa / la cometa."],
+  ],
+  glosario: [
+    ["Sustantivo propio", "El que nombra a un ser concreto y lleva mayúscula."],
+    ["Mayúscula", "Letra de mayor tamaño al inicio de nombres propios."],
+    ["Colectivo", "Sustantivo que en singular nombra un grupo."],
+    ["Enjambre", "Grupo de abejas."],
+    ["Archipiélago", "Grupo de islas."],
+    ["Sufijo", "Final que se añade a una palabra."],
+    ["Diminutivo", "Palabra con sufijo que indica pequeñez o cariño."],
+    ["Aumentativo", "Palabra con sufijo que indica gran tamaño."],
+    ["Despectivo", "Palabra con sufijo que indica desprecio."],
+    ["Compuesto", "Palabra formada por dos palabras."],
+    ["Epiceno", "Sustantivo con una forma para los dos sexos."],
+    ["Gentilicio", "Palabra que indica el lugar de origen."],
+  ],
+  situacion: {
+    titulo: "El diccionario del aula",
+    reto: "La clase crea un diccionario ilustrado de sustantivos curiosos.",
+    pasos: ["Recoged colectivos, compuestos, diminutivos y palabras de doble género.", "Escribid cada entrada con su definición y un ejemplo.", "Ilustrad las entradas con dibujos.", "Ordenadlas alfabéticamente y encuadernad el diccionario."],
+    producto: "Un diccionario ilustrado de la clase.",
+    evaluacion: ["Clasifica correctamente los sustantivos.", "Escribe definiciones claras.", "Usa bien mayúsculas y concordancia.", "Ordena alfabéticamente."],
+  },
+});

@@ -88,3 +88,91 @@ module.exports = P.tema({
   saberes: "Conocimiento de la lengua: el adjetivo calificativo; concordancia de género y número; adjetivos de una y dos terminaciones; grados positivo, comparativo y superlativo; comparativos y superlativos especiales; gentilicios; el adjetivo en la descripción",
   ideas: ["Bolsa misteriosa: tocar un objeto sin verlo y describirlo con adjetivos.", "Ranking de la clase con comparativos y superlativos (sobre objetos, no personas).", "Retrato escrito de un personaje de cuento con adjetivos físicos y de carácter."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer gentilicios de lugares de España", "Hacer concordar un adjetivo con varios sustantivos", "Usar adjetivos de los cinco sentidos", "Describir animales y analizar los adjetivos de la publicidad"],
+  lectura: { titulo: "El concurso de las sopas", html: `<p>En el pueblo de Villasabor se celebraba cada otoño un concurso de sopas. Ese año, el jurado era muy especial: tres niños de 4.º.</p><p>La primera sopa era de la señora Paca. Lucas la probó y dijo:</p><p>—Está buena.</p><p>La segunda era del cocinero del restaurante. Lucas la probó y dijo:</p><p>—Está buena.</p><p>La tercera, del panadero:</p><p>—Está buena.</p><p>Los cocineros se miraron preocupados. ¿Cómo iban a saber quién había ganado?</p><p>Entonces Irene, la segunda del jurado, cogió la cuchara.</p><p>—La sopa de la señora Paca es <b>espesa</b>, <b>calentita</b> y tiene un sabor <b>suave</b> a puerro. Huele a casa de abuela. La del restaurante es <b>clarita</b>, <b>ligera</b> y un poco <b>picante</b>; tiene unos fideos <b>finísimos</b>. La del panadero es <b>cremosa</b>, de un color <b>naranja intenso</b>, y sabe <b>dulce</b> por la calabaza, con un toque <b>salado</b> del queso.</p><p>Todo el mundo se quedó con la boca abierta. ¡Ahora sí se podían imaginar las sopas!</p><p>—Gracias a Irene —dijo el alcalde—, ya sabemos cómo es cada sopa. Pero ¿cuál gana?</p><p>Los tres niños se miraron y respondieron a la vez:</p><p>—¡Todas están <b>riquísimas</b>!</p><p>Y así fue como aquel año hubo tres premios.</p>` },
+  tras: {
+    "Qué nos cuentan los adjetivos": [
+      ["Los gentilicios", `<p>Los <mark>gentilicios</mark> son adjetivos que indican el <b>lugar de origen</b> o de procedencia de una persona, un animal o una cosa: un país, una comunidad, una provincia, una ciudad o un pueblo. Se escriben siempre con <b>minúscula</b>: <i>una niña gallega</i>, <i>el jamón extremeño</i>, <i>los turistas japoneses</i>.</p><p>Se forman con muchos sufijos diferentes:</p><ul><li><b>-ano, -ana</b>: <i>valenciano</i>, <i>toledano</i>, <i>murciano</i>.</li><li><b>-ense</b>: <i>almeriense</i>, <i>conquense</i>, <i>abulense</i>.</li><li><b>-és, -esa</b>: <i>aragonés</i>, <i>leonés</i>, <i>cordobés</i>.</li><li><b>-ino, -ina</b>: <i>alicantino</i>, <i>granadino</i>.</li><li><b>-eño, -eña</b>: <i>madrileño</i>, <i>extremeño</i>, <i>malagueño</i>.</li><li><b>-ero, -era</b>: <i>habanero</i>.</li></ul><p>Algunos gentilicios son muy curiosos, porque vienen del nombre que tenía la ciudad en la época romana o en otras épocas:</p><ul><li>De <b>Huelva</b>: <i>onubense</i> (de Onuba).</li><li>De <b>Badajoz</b>: <i>pacense</i> (de Pax Augusta).</li><li>De <b>Ávila</b>: <i>abulense</i>.</li><li>De <b>Alcalá de Henares</b>: <i>complutense</i> (de Complutum).</li><li>De <b>Lugo</b>: <i>lucense</i>.</li><li>De <b>Teruel</b>: <i>turolense</i>.</li></ul><p>¿Sabes cuál es el gentilicio de tu localidad? Pregunta en casa.</p>`,
+        L6.filas("Gentilicios curiosos", [["Huelva", "onubense", cAZ], ["Badajoz", "pacense", cNA], ["Ávila", "abulense", cVE], ["Teruel", "turolense", cMO]]), ["mKIFNmaPW-E", "Adjetivos gentilicios para niños de Primaria", "Clases Particulares en Ávila", 126902]],
+    ],
+    "La concordancia del adjetivo": [
+      ["Un adjetivo para varios sustantivos", `<p>A veces un mismo adjetivo se refiere a <b>dos o más sustantivos</b> a la vez. ¿En qué género y número lo ponemos? Hay unas reglas sencillas:</p><ul><li>Si el adjetivo acompaña a varios sustantivos, va en <mark>plural</mark>: <i>Tengo un lápiz y un rotulador <b>nuevos</b></i>.</li><li>Si todos los sustantivos son <b>femeninos</b>, el adjetivo va en <b>femenino plural</b>: <i>Compré una falda y una camiseta <b>rojas</b></i>.</li><li>Si todos son <b>masculinos</b>, va en <b>masculino plural</b>: <i>Un perro y un gato <b>negros</b></i>.</li><li>Si hay sustantivos <b>masculinos y femeninos mezclados</b>, el adjetivo va en <mark>masculino plural</mark>: <i>Una falda y un jersey <b>nuevos</b></i>; <i>los niños y las niñas <b>cansados</b></i>.</li></ul><p>Cuando el adjetivo va <b>delante</b> de varios sustantivos, normalmente concuerda solo con el primero: <i>Tiene una <b>preciosa</b> casa y jardín</i>.</p><p>Un truco para comprobar la concordancia: sustituye los sustantivos por «ellos» o «ellas». <i>La mesa y la silla son…</i> → «ellas son» → <i>viejas</i>. <i>La mesa y el sofá son…</i> → «ellos son» → <i>viejos</i>.</p><p>Revisar la concordancia es uno de los pasos más importantes al corregir lo que escribimos.</p>`,
+        L6.filas("Concordancia", [["fem. + fem.", "falda y blusa rojas", cRO], ["masc. + masc.", "perro y gato negros", cAZ], ["masc. + fem.", "falda y jersey nuevos", cMO], ["truco", "ellos / ellas", cVE]])],
+    ],
+    "El adjetivo en las descripciones": [
+      ["Adjetivos para los cinco sentidos", `<p>Para que una descripción sea viva, no basta con decir cómo es algo por fuera. Los buenos escritores usan <mark>adjetivos de los cinco sentidos</mark>, para que el lector pueda ver, oír, oler, saborear y tocar lo que describen.</p><ul><li><b>Vista</b>: colores, formas, tamaños, luz. <i>Brillante, oscuro, dorado, transparente, alargado, puntiagudo, diminuto, gigantesco</i>.</li><li><b>Oído</b>: sonidos. <i>Ruidoso, silencioso, estridente, melodioso, agudo, grave, ensordecedor</i>.</li><li><b>Olfato</b>: olores. <i>Perfumado, aromático, fresco, apestoso, rancio</i>.</li><li><b>Gusto</b>: sabores. <i>Dulce, salado, amargo, ácido, picante, sabroso, insípido, empalagoso</i>.</li><li><b>Tacto</b>: lo que sentimos al tocar. <i>Suave, áspero, rugoso, liso, pegajoso, blando, duro, helado, tibio</i>.</li></ul><p>Compara estas dos descripciones de una panadería:</p><ul><li><i>La panadería era bonita.</i></li><li><i>La panadería era <b>pequeña</b> y <b>luminosa</b>. Olía a pan <b>caliente</b> y a canela. Las barras tenían la corteza <b>crujiente</b> y la miga <b>blanda</b> y <b>esponjosa</b>.</i></li></ul><p>¿Cuál te hace sentir que estás allí? Cuando describas, cierra los ojos y pregúntate: ¿qué veo, qué oigo, qué huelo, qué saboreo y qué toco?</p>`,
+        H6.rueda("Los sentidos", "SENTIDOS", [["vista: brillante", cAZ], ["oído: ruidoso", cNA], ["gusto: dulce", cRO], ["tacto: suave", cVE]])],
+    ],
+  },
+  final: [
+    ["Describir un animal", `<p>Para describir un animal de forma ordenada, sigue estos pasos:</p><ol><li><b>Presentación</b>: qué animal es y dónde vive. <i>El lince ibérico es un felino que vive en los bosques y matorrales del sur de la península.</i></li><li><b>Aspecto general</b>: tamaño, forma del cuerpo. <i>Es de tamaño mediano, ágil y musculoso.</i></li><li><b>Detalles</b>: cabeza, ojos, orejas, pelaje, patas, cola. <i>Tiene unas orejas <b>puntiagudas</b> terminadas en pinceles de pelo <b>negro</b>, unas patillas <b>largas</b> en la cara, un pelaje <b>pardo</b> con manchas <b>oscuras</b> y una cola <b>corta</b>.</i></li><li><b>Comportamiento</b>: qué come, cómo se mueve, cómo es su carácter. <i>Es un cazador <b>solitario</b> y <b>sigiloso</b> que se alimenta sobre todo de conejos.</i></li><li><b>Opinión o curiosidad</b> final. <i>Es uno de los felinos más amenazados del mundo, pero gracias a su protección hoy hay más de dos mil ejemplares.</i></li></ol><p>Consejos:</p><ul><li>Usa adjetivos <b>precisos</b>: mejor <i>puntiagudas</i> que <i>raras</i>.</li><li>Haz <b>comparaciones</b>: <i>sus ojos brillan como canicas</i>.</li><li>No repitas el mismo adjetivo.</li><li>Revisa la <b>concordancia</b>: <i>orejas puntiagudas</i>, <i>pelaje pardo</i>.</li></ul><p>Elige tu animal favorito y descríbelo siguiendo este orden.</p>`,
+      H6.flujo("Describir", ["presentar|qué y dónde", "aspecto|general", "detalles|y carácter", "opinión|final"], cVE), ["bOD92mi7OiY", "¿Cómo describir un animal?", "Cuentos y más cuentos", 228519]],
+    ["Adjetivos en la publicidad", `<p>La <b>publicidad</b> quiere convencernos de que compremos un producto. Para conseguirlo, usa muchos adjetivos que lo presentan como si fuera el mejor del mundo. Fíjate en estos ejemplos de anuncios inventados:</p><ul><li><i>«¡Nuevas zapatillas <b>Supersalto</b>: <b>ligerísimas</b>, <b>cómodas</b> y <b>increíbles</b>!»</i></li><li><i>«Cereales <b>Crujifit</b>, <b>deliciosos</b>, <b>nutritivos</b> y <b>naturales</b>.»</i></li><li><i>«El juguete <b>más divertido</b> del año.»</i></li></ul><p>Los anuncios usan sobre todo:</p><ul><li><mark>Superlativos</mark>: <i>el mejor</i>, <i>buenísimo</i>, <i>el más rápido</i>.</li><li>Adjetivos <b>positivos</b> y llamativos: <i>fantástico</i>, <i>espectacular</i>, <i>único</i>.</li><li>Adjetivos que dan <b>confianza</b>: <i>natural</i>, <i>sano</i>, <i>original</i>, <i>nuevo</i>.</li></ul><p>Pero un buen consumidor se hace preguntas: ¿quién dice que es el mejor? ¿Comparado con qué? ¿«Natural» quiere decir que es sano? Por ejemplo, unos cereales pueden llamarse «naturales» y llevar mucho azúcar.</p><p>Aprender a fijarse en los adjetivos de los anuncios nos ayuda a <b>pensar con espíritu crítico</b> y a no dejarnos llevar solo por las palabras bonitas.</p><p>Haz la prueba: inventa un anuncio para un objeto muy normal, como una goma de borrar o un calcetín, usando solo adjetivos exagerados. Después escribe otra versión con adjetivos <b>objetivos</b>, que digan cómo es de verdad: <i>blanda</i>, <i>rectangular</i>, <i>de color azul</i>. Compara las dos y piensa cuál te da más información y cuál intenta solo convencerte.</p>`,
+      H6.dos("Anuncios", ["DICEN", ["¡el mejor!", "buenísimo", "natural"], cNA], ["PREGUNTO", ["¿quién lo dice?", "¿comparado con qué?", "¿qué lleva?"], cAZ])],
+  ],
+  ejemplos: [
+    ["Completa con el adjetivo «blanco»: «Una camisa y un pantalón…».", ["Hay un femenino y un masculino.", "Mezclados: masculino plural."], "blancos"],
+    ["Escribe tres adjetivos de sentidos distintos para describir un limón.", ["Vista, gusto, tacto.", "Elige adjetivos precisos."], "amarillo, ácido, rugoso"],
+  ],
+  errores: ["Escribir los gentilicios con mayúscula: «una niña Andaluza».", "Decir «una camisa y un pantalón blancas»: con géneros mezclados va en masculino plural."],
+  ejercicios: [
+    ["b", "Escribe el gentilicio de Madrid, Sevilla y Valencia.", "Madrileño, sevillano, valenciano."],
+    ["b", "¿Con qué letra empiezan los gentilicios?", "Con minúscula."],
+    ["b", "Escribe un adjetivo del olfato y otro del oído.", "Perfumado; ruidoso."],
+    ["b", "Concuerda: «una flor y una hoja (seco)».", "Secas."],
+    ["b", "Escribe tres adjetivos que usaría un anuncio.", "Fantástico, nuevo, el mejor."],
+    ["m", "¿De qué ciudad es una persona onubense? ¿Y pacense?", "Huelva; Badajoz."],
+    ["m", "Concuerda: «un libro y una revista (antiguo)».", "Antiguos."],
+    ["m", "Mejora: «El mar era bonito» con adjetivos de tres sentidos.", "Respuesta abierta: azul, ruidoso, salado…"],
+    ["m", "¿Por qué hay que tener cuidado con la palabra «natural» en los anuncios?", "Puede no significar que sea sano."],
+    ["m", "Ordena los pasos para describir un animal.", "Presentación, aspecto, detalles, comportamiento, opinión."],
+    ["a", "Describe tu comida favorita usando los cinco sentidos.", "Respuesta abierta."],
+    ["a", "Escribe la descripción de un animal de tu comunidad.", "Respuesta abierta."],
+    ["a", "Analiza un anuncio real y subraya sus adjetivos.", "Respuesta abierta."],
+    ["a", "Haz una lista de gentilicios de tu provincia.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El gentilicio de Huelva es…", ["onubense", "huelvano", "huelveño"], "Gentilicios."],
+    ["«Una falda y un jersey…»", ["nuevos", "nuevas", "nueva"], "Concordancia."],
+    ["«Áspero» es un adjetivo del…", ["tacto", "oído", "olfato"], "Sentidos."],
+    ["Al describir un animal se empieza por…", ["presentar qué es y dónde vive", "la opinión", "la cola"], "Describir."],
+    ["Los anuncios usan muchos…", ["superlativos", "pronombres", "verbos en pasado"], "Publicidad."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué problema tenía Lucas?", ["decía siempre «está buena»", "no le gustaba la sopa", "no sabía leer"], "Lectura."],
+    ["Un gentilicio indica…", ["el lugar de origen", "el color", "el tamaño"], "Gentilicios."],
+  ],
+  tarjetas: [
+    ["Gentilicios", "Minúscula; -ano, -ense, -és, -eño; onubense, pacense."],
+    ["Concordancia múltiple", "Varios sustantivos: plural; mezclados: masculino."],
+    ["Cinco sentidos", "Brillante, ruidoso, perfumado, dulce, suave."],
+    ["Describir y anuncios", "Orden de la descripción; espíritu crítico ante superlativos."],
+  ],
+  glosario: [
+    ["Gentilicio", "Adjetivo que indica el lugar de origen."],
+    ["Sufijo", "Terminación que se añade a una palabra."],
+    ["Concordancia", "Coincidencia de género y número entre palabras."],
+    ["Sentido", "Capacidad para percibir: vista, oído, olfato, gusto y tacto."],
+    ["Insípido", "Sin sabor."],
+    ["Áspero", "Que no es suave al tacto."],
+    ["Estridente", "Sonido agudo y desagradable."],
+    ["Sigiloso", "Que actúa en silencio para no ser notado."],
+    ["Descripción", "Texto que explica cómo es algo o alguien."],
+    ["Publicidad", "Mensajes para convencer de comprar algo."],
+    ["Superlativo", "Adjetivo en su grado más alto."],
+    ["Espíritu crítico", "Capacidad de pensar y no creerlo todo."],
+  ],
+  situacion: {
+    titulo: "Catálogo de animales",
+    reto: "La clase elabora un catálogo ilustrado de animales de España con descripciones precisas.",
+    pasos: ["Elegid cada uno un animal de España.", "Investigad su aspecto, hábitat y comportamiento.", "Escribid la descripción con adjetivos de los sentidos y revisad la concordancia.", "Ilustrad y unid todas las fichas en un catálogo."],
+    producto: "Un catálogo ilustrado de animales.",
+    evaluacion: ["Sigue el orden de la descripción.", "Usa adjetivos precisos y variados.", "Respeta la concordancia.", "Presenta con limpieza y creatividad."],
+  },
+});

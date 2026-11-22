@@ -88,3 +88,91 @@ module.exports = P.tema({
   saberes: "Conocimiento de la lengua: el determinante; artículos determinados e indeterminados; contracciones al y del; demostrativos; posesivos; numerales cardinales y ordinales; indefinidos; concordancia con el sustantivo",
   ideas: ["Cartulinas de colores para cada clase de determinante y frases para completar.", "Juego de distancias en el patio con este, ese y aquel.", "Carrera de ordinales: cada alumno dice su puesto al llegar."],
 });
+
+// ---------- Nivel libro (4º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Comparar los artículos en otras lenguas", "Escribir correctamente números cardinales y ordinales", "Reconocer y acentuar los interrogativos y exclamativos", "Distinguir mi/mí, tu/tú y el/él y conocer partitivos y multiplicativos"],
+  lectura: { titulo: "El ladrón de determinantes", html: `<p>Una mañana, los alumnos de 4.º abrieron sus cuadernos y se llevaron un susto. Durante la noche, alguien había robado todos los determinantes de sus redacciones.</p><p>Martina leyó en voz alta lo que quedaba de la suya:</p><p>—«Ayer fui a casa de abuela. Comimos tarta de chocolate. Después jugamos en jardín con perro».</p><p>—¡Suena rarísimo! —dijo Leo—. Parece que habla un robot.</p><p>—Y no se sabe bien de qué abuela hablas —añadió la maestra—. ¿De la tuya? ¿Y qué perro? ¿Uno cualquiera o el tuyo?</p><p>Leo intentó leer la suya:</p><p>—«Tengo hermanos. Hermano mayor tiene años y está en curso de ESO».</p><p>—¿Cuántos hermanos tienes? ¿Cuántos años tiene? ¿En qué curso está? —preguntaron todos a la vez.</p><p>Entre toda la clase se pusieron a devolver las palabras perdidas. Martina escribió: «Ayer fui a casa de <b>mi</b> abuela. Comimos <b>una</b> tarta de chocolate. Después jugamos en <b>el</b> jardín con <b>su</b> perro». Leo escribió: «Tengo <b>dos</b> hermanos. <b>Mi</b> hermano mayor tiene <b>quince</b> años y está en <b>tercer</b> curso de ESO».</p><p>—¡Ahora sí se entiende! —exclamó Leo.</p><p>—Los determinantes son pequeñitos —dijo la maestra—, pero sin ellos no sabríamos de quién, cuál ni cuántos.</p>` },
+  tras: {
+    "Los artículos": [
+      ["Los artículos en otras lenguas", `<p>Casi todas las lenguas que estudias en el colegio tienen <mark>artículos</mark>, pero cada una a su manera. Compararlas te ayuda a entender mejor la tuya:</p><ul><li>En <b>castellano</b> hay cuatro artículos determinados según el género y el número: <i>el, la, los, las</i>.</li><li>En <b>inglés</b> hay solo uno para todo: <b>the</b>. <i>The cat</i> (el gato), <i>the girls</i> (las niñas). Y el indeterminado es <b>a</b> o <b>an</b>: <i>a dog</i>, <i>an apple</i>. En inglés no hay género en los artículos.</li><li>En <b>francés</b>: <b>le</b> (masculino), <b>la</b> (femenino) y <b>les</b> (plural para los dos). Delante de vocal se convierten en <b>l'</b>: <i>l'école</i> (la escuela).</li><li>En <b>catalán</b>: <b>el, la, els, les</b>, y también <b>l'</b> delante de vocal: <i>l'arbre</i> (el árbol).</li><li>En <b>gallego</b> y en <b>portugués</b>: <b>o, a, os, as</b>: <i>o can</i> (el perro), <i>a casa</i>.</li></ul><p>Fíjate en que algunas palabras cambian de género de una lengua a otra: en castellano decimos <i>la leche</i>, pero en catalán es <i>la llet</i> y en francés <i>le lait</i>, masculino. En castellano es <i>el mar</i>, y en francés, <i>la mer</i>.</p><p>Por eso, cuando aprendas una palabra nueva en otra lengua, apréndela siempre con su artículo.</p>`,
+        L6.filas("Artículos", [["castellano", "el, la, los, las", cRO], ["inglés", "the", cAZ], ["francés", "le, la, les", cMO], ["gallego", "o, a, os, as", cVE]]), ["CarUDWAbDPc", "La Eduteca: el artículo", "La Eduteca", 1271626]],
+    ],
+    "Los numerales": [
+      ["Escribir los números con letras", `<p>Escribir bien los <mark>numerales</mark> con letras tiene sus reglas. Estas son las más importantes:</p><ul><li>Del <b>16 al 29</b> se escriben en <b>una sola palabra</b>: <i>dieciséis</i>, <i>diecisiete</i>, <i>veintiuno</i>, <i>veintidós</i>, <i>veintitrés</i>, <i>veintiséis</i>. ¡Atención a las tildes de <i>dieciséis</i>, <i>veintidós</i>, <i>veintitrés</i> y <i>veintiséis</i>!</li><li>A partir del <b>31</b> se escriben separados con <b>y</b>: <i>treinta y uno</i>, <i>cuarenta y cinco</i>, <i>noventa y nueve</i>.</li><li><b>Cien</b> se usa solo para 100 justo: <i>cien euros</i>. Para 101 a 199 se dice <b>ciento</b>: <i>ciento veinte</i>.</li><li>Las centenas concuerdan en género: <i>doscientos libros</i>, <i>doscientas páginas</i>.</li><li><b>Quinientos</b>, <b>setecientos</b> y <b>novecientos</b> son especiales (no «cincocientos»).</li></ul><p>Los <b>ordinales</b> también tienen sus trucos:</p><ul><li>Del 1.º al 10.º: <i>primero, segundo, tercero, cuarto, quinto, sexto, séptimo, octavo, noveno, décimo</i>.</li><li>Del 11.º al 19.º: <i>undécimo, duodécimo, decimotercero, decimocuarto…</i></li><li>20.º: <i>vigésimo</i>; 30.º: <i>trigésimo</i>; 100.º: <i>centésimo</i>.</li></ul><p>Un error muy común es usar números partitivos como ordinales: no se dice «el doceavo puesto», sino <b>el duodécimo puesto</b>. En la práctica, para números altos se dice simplemente <i>el puesto veinticinco</i>.</p>`,
+        L6.filas("Así se escriben", [["16", "dieciséis", cAZ], ["22", "veintidós", cNA], ["31", "treinta y uno", cVE], ["12.º", "duodécimo", cMO]]), ["aWhbeMxB5zg", "Números ordinales del 1 al 100", "Daniel Carreón", 885662]],
+    ],
+    "Los indefinidos": [
+      ["Interrogativos y exclamativos", `<p>Hay determinantes que sirven para <b>preguntar</b> o para <b>exclamar</b> sobre un sustantivo. Son los <mark>interrogativos</mark> y <mark>exclamativos</mark>:</p><ul><li><b>Qué</b>: <i>¿Qué libro lees?</i> <i>¡Qué día tan bonito!</i></li><li><b>Cuánto, cuánta, cuántos, cuántas</b>: <i>¿Cuántos hermanos tienes?</i> <i>¡Cuánta gente hay aquí!</i></li><li><b>Cuál, cuáles</b> (en algunos usos): <i>¿Cuál camiseta prefieres?</i> Aunque es más frecuente decir <i>¿Qué camiseta prefieres?</i></li></ul><p>Estas palabras llevan siempre <b>tilde</b> cuando preguntan o exclaman, tanto en preguntas directas (<i>¿Cuántos años tienes?</i>) como indirectas (<i>Dime cuántos años tienes</i>).</p><p>En cambio, <b>que</b> y <b>cuanto</b> sin tilde no preguntan ni exclaman: <i>El libro <b>que</b> me prestaste</i>; <i>Come <b>cuanto</b> quieras</i>.</p><p>Recuerda también que en castellano los signos de interrogación y exclamación son <b>dobles</b>: se abren y se cierran. Es algo especial de nuestra lengua: en inglés o en francés solo se pone el de cierre. Muchas personas olvidan el de apertura al escribir mensajes en el móvil. ¡Tú no lo olvides!</p><p>Compara: <i>¿Qué quieres?</i> / <i>Quiero que vengas</i>. ¿Ves la diferencia?</p>`,
+        H6.dos("¿Con tilde?", ["SÍ: PREGUNTA", ["¿Qué libro?", "¡Cuánta gente!", "dime cuántos"], cAZ], ["NO: ENLAZA", ["el libro que leo", "come cuanto quieras", "quiero que vengas"], cNA]), ["o9NdYQ7AGak", "Signos de interrogación, Superlexia", "Smile and Learn - Español", 178294]],
+    ],
+  },
+  final: [
+    ["Mi o mí, tu o tú, el o él", `<p>Algunos determinantes se escriben igual que otras palabras, pero estas llevan <b>tilde</b>. Es la <mark>tilde diacrítica</mark>, que sirve para distinguir palabras que suenan igual:</p><ul><li><b>mi</b> (determinante posesivo, sin tilde): <i>Esta es <b>mi</b> mochila</i>.<br><b>mí</b> (pronombre, con tilde): <i>Este regalo es para <b>mí</b></i>.</li><li><b>tu</b> (determinante posesivo, sin tilde): <i>¿Dónde está <b>tu</b> estuche?</i><br><b>tú</b> (pronombre personal, con tilde): <i><b>Tú</b> eres mi mejor amiga</i>.</li><li><b>el</b> (artículo, sin tilde): <i><b>El</b> perro ladra</i>.<br><b>él</b> (pronombre personal, con tilde): <i><b>Él</b> ladra más que su perro</i>.</li></ul><p>El truco es fijarse en si la palabra va <b>delante de un sustantivo</b>:</p><ul><li>Si va delante de un sustantivo, es <b>determinante</b> y <b>no lleva tilde</b>: <i>mi casa, tu perro, el coche</i>.</li><li>Si va sola, sin sustantivo detrás, es <b>pronombre</b> y <b>lleva tilde</b>: <i>para mí, tú sabes, él viene</i>.</li></ul><p>Otro truco para <i>tu/tú</i>: si puedes cambiarlo por <i>usted</i>, lleva tilde. <i>Tú</i> eres alto → <i>usted</i> es alto. ¡Con tilde!</p><p>Practica: <i>Mi hermano dice que el pastel es para mí, pero él ya se comió el suyo</i>.</p>`,
+      L6.filas("Tilde diacrítica", [["mi casa", "para mí", cAZ], ["tu perro", "tú sabes", cNA], ["el coche", "él viene", cVE], ["truco", "¿hay sustantivo?", cMO]])],
+    ["Partitivos y multiplicativos", `<p>Además de los cardinales y los ordinales, hay otros dos tipos de numerales que usamos mucho, sobre todo en matemáticas y en la cocina:</p><ul><li>Los <mark>partitivos</mark> indican en cuántas <b>partes</b> se divide algo: <i>medio</i>, <i>tercio</i>, <i>cuarto</i>, <i>quinto</i>… y a partir de 11, se forman con <b>-avo</b>: <i>onceavo</i>, <i>doceavo</i>, <i>veinteavo</i>. Por ejemplo: <i>Me comí <b>media</b> pizza</i>; <i>Añade <b>un cuarto</b> de litro de leche</i>.</li><li>Los <mark>multiplicativos</mark> indican cuántas veces se <b>multiplica</b> algo: <i>doble</i>, <i>triple</i>, <i>cuádruple</i>, <i>quíntuple</i>. Por ejemplo: <i>Quiero <b>doble</b> ración de patatas</i>; <i>Este coche corre el <b>triple</b>.</i></li></ul><p>Fíjate en las fracciones de matemáticas: 1/2 se lee <i>un medio</i>, 1/3 <i>un tercio</i>, 3/4 <i>tres cuartos</i>, 5/12 <i>cinco doceavos</i>. ¡Los partitivos están en tus clases de matemáticas!</p><p>Recuerda el error del apartado anterior: los partitivos con -avo dicen partes, no puestos. Un corredor que llega en el puesto 12 es el <b>duodécimo</b>, no el «doceavo». En cambio, si dividimos una tarta en 12 trozos, cada trozo es <b>un doceavo</b>.</p>`,
+      H6.dos("Más numerales", ["PARTEN", ["medio, tercio", "cuarto, doceavo", "partes"], cVE], ["MULTIPLICAN", ["doble, triple", "cuádruple", "veces"], cRO])],
+  ],
+  ejemplos: [
+    ["Escribe con letras: 26, 41 y 100.", ["Del 16 al 29 en una palabra.", "Desde el 31 con «y»; 100 justo es cien."], "veintiséis, cuarenta y uno, cien"],
+    ["Pon tilde donde haga falta: «Tu dices que el regalo es para mi».", ["Tu va solo: pronombre.", "El va delante de regalo: artículo. Mi va solo: pronombre."], "Tú dices que el regalo es para mí."],
+  ],
+  errores: ["Escribir «veintitres» sin tilde o «veinte y tres» separado.", "Decir «el doceavo puesto» en vez de «el duodécimo puesto»."],
+  ejercicios: [
+    ["b", "¿Cómo es el artículo en inglés?", "The."],
+    ["b", "Escribe con letras el 23.", "Veintitrés."],
+    ["b", "Escribe el ordinal de 10.", "Décimo."],
+    ["b", "Escribe una pregunta con «cuántos».", "¿Cuántos años tienes?"],
+    ["b", "¿Cuál es el doble de 4?", "8."],
+    ["m", "Completa con cien o ciento: ___ euros; ___ veinte personas.", "Cien; ciento."],
+    ["m", "¿Por qué hay que aprender las palabras de otra lengua con su artículo?", "Porque el género puede cambiar."],
+    ["m", "Pon tilde si hace falta: «¿Que quieres?» / «Quiero que vengas».", "¿Qué quieres? / Quiero que vengas."],
+    ["m", "Elige: «Este es (mi/mí) libro y es para (mi/mí)».", "mi; mí."],
+    ["m", "¿Cómo se lee la fracción 3/4?", "Tres cuartos."],
+    ["a", "Escribe una receta usando partitivos y multiplicativos.", "Respuesta abierta."],
+    ["a", "Escribe con letras los números de tu dirección y tu fecha de nacimiento.", "Respuesta abierta."],
+    ["a", "Compara diez palabras con su artículo en castellano e inglés o francés.", "Respuesta abierta."],
+    ["a", "Escribe un diálogo con cinco preguntas y exclamaciones.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["En francés, «la escuela» es…", ["l'école", "le école", "les école"], "Lenguas."],
+    ["El 16 se escribe…", ["dieciséis", "diez y seis", "dieciseis"], "Numerales."],
+    ["«¡___ gente hay!»", ["Cuánta", "Cuanta", "Cuántas"], "Exclamativos."],
+    ["«Esto es para ___»", ["mí", "mi", "me"], "Tilde."],
+    ["Tres veces más es el…", ["triple", "tercio", "tercero"], "Multiplicativos."],
+  ],
+  examen: [
+    ["En la lectura, ¿qué había robado el ladrón?", ["los determinantes", "los verbos", "los cuadernos"], "Lectura."],
+    ["El puesto 12 es el…", ["duodécimo", "doceavo", "doce"], "Ordinales."],
+  ],
+  tarjetas: [
+    ["Artículos", "el/la (castellano), the (inglés), le/la/les (francés), o/a (gallego)."],
+    ["Numerales escritos", "dieciséis, veintidós, treinta y uno; cien/ciento; duodécimo."],
+    ["Interrogativos", "Qué, cuánto, cuál con tilde al preguntar o exclamar."],
+    ["Tilde diacrítica", "mi/mí, tu/tú, el/él: ¿hay sustantivo detrás?"],
+  ],
+  glosario: [
+    ["Artículo", "Determinante que presenta el sustantivo."],
+    ["Numeral cardinal", "Indica cantidad exacta."],
+    ["Numeral ordinal", "Indica orden o posición."],
+    ["Partitivo", "Indica en cuántas partes se divide algo."],
+    ["Multiplicativo", "Indica cuántas veces se multiplica algo."],
+    ["Interrogativo", "Palabra que sirve para preguntar."],
+    ["Exclamativo", "Palabra que sirve para exclamar."],
+    ["Tilde diacrítica", "Tilde que distingue palabras iguales."],
+    ["Pronombre", "Palabra que sustituye al sustantivo."],
+    ["Posesivo", "Indica a quién pertenece algo."],
+    ["Fracción", "Número que indica partes de un todo."],
+    ["Apóstrofo", "Signo (') que sustituye una vocal en francés o catalán."],
+  ],
+  situacion: {
+    titulo: "Detectives de determinantes",
+    reto: "La clase prepara un juego de pistas en el que hay que encontrar y corregir determinantes.",
+    pasos: ["Escribid textos con determinantes que falten o estén mal.", "Esconded las tarjetas por el aula con pistas numeradas con ordinales.", "Los equipos encuentran y corrigen los errores.", "Puesta en común: explicad cada corrección."],
+    producto: "Un juego de pistas sobre determinantes.",
+    evaluacion: ["Reconoce los tipos de determinantes.", "Escribe bien numerales y tildes.", "Corrige errores de concordancia.", "Explica sus correcciones."],
+  },
+});
