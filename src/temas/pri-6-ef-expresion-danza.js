@@ -143,3 +143,91 @@ module.exports = {
   fuentes: [RD, wiki("Expresión corporal", "Expresión_corporal"), wiki("Coreografía", "Coreografía"), { t: "UNESCO: el flamenco, patrimonio inmaterial", url: "https://ich.unesco.org/es/RL/el-flamenco-00363" }],
   revisado: REV,
 };
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Crear y leer una partitura sencilla de percusión corporal", "Expresar ideas con esculturas humanas y estatuas", "Conocer danzas del mundo con un significado cultural", "Conocer los bailes urbanos y la danza como arte y profesión"],
+  lectura: { titulo: "La batalla de baile", html: `<p>En el colegio de Yasmín, la fiesta de fin de curso tenía una tradición: la «batalla de baile» entre las clases de sexto. Cada grupo preparaba una coreografía y la presentaba en el patio, delante de todas las familias.</p><p>El problema era que en la clase de Yasmín nadie se ponía de acuerdo. Pablo quería hacer breaking, porque llevaba un año aprendiendo en un centro cívico. Lucía y Marco preferían algo de flamenco. Y otros, como Daniel, no querían bailar porque les daba vergüenza.</p><p>Fue Yasmín quien tuvo la idea:</p><p>—¿Y si lo mezclamos todo? Empezamos con percusión corporal, que la pueden hacer todos. Luego un trozo de flamenco con palmas. Y acabamos con Pablo haciendo un freeze en el centro y todos alrededor como estatuas.</p><p>Ensayaron cada recreo durante tres semanas. Daniel, que al principio solo quería tocar las palmas, acabó inventando el paso más divertido de la coreografía.</p><p>El día de la fiesta, cuando Pablo se quedó congelado haciendo el pino sobre una mano y todos se quedaron inmóviles a su alrededor, el patio entero estalló en aplausos.</p><p>No ganaron la batalla: la ganó la otra clase. Pero esa noche, en el grupo de la clase, todos repetían lo mismo: «¡Ha sido el mejor día del curso!».</p>` },
+  tras: {
+    "Ritmo y música": [
+      ["Percusión corporal: el cuerpo como instrumento", `<p>Nuestro cuerpo puede producir muchos sonidos diferentes, y con ellos podemos crear ritmos como si fuera un instrumento musical. Los sonidos básicos de la <b>percusión corporal</b>, de más grave a más agudo, son:</p><ul><li><b>Pisada</b> (pie contra el suelo): sonido grave.</li><li><b>Muslos</b> (palmadas en las piernas).</li><li><b>Pecho</b> (golpes suaves con la palma).</li><li><b>Palmas</b>: sonido brillante.</li><li><b>Chasquidos</b> de dedos: sonido agudo y suave.</li></ul><p>Podemos escribir los ritmos en una <b>partitura</b> sencilla, con una letra para cada sonido y un guion para el silencio. Por ejemplo, en un compás de 4 tiempos: <b>P – M – Pa – Pa</b> (pisada, muslo, palma, palma).</p><p>Algunas formas de practicar en grupo:</p><ul><li><b>Eco</b>: uno hace un ritmo y los demás lo repiten.</li><li><b>Ostinato</b>: un ritmo corto que se repite una y otra vez, mientras otros hacen ritmos diferentes por encima.</li><li><b>Canon</b>: varios grupos hacen el mismo ritmo, pero empezando en momentos diferentes.</li></ul><p>Hay grupos profesionales, como Stomp, que crean espectáculos enteros con el cuerpo y objetos cotidianos: escobas, cubos o tapas de basura.</p>`,
+        L6.filas("Sonidos del cuerpo", [["P · pisada", "grave", cNA], ["M · muslos", "medio", cAZ], ["Pa · palmas", "brillante", cVE], ["Ch · chasquido", "agudo", cMO]]), ["uzXpvILRMog", "Bruno Mars - Uptown funk - Con percusión corporal", "Cristina Esteban", 5951226]],
+    ],
+    "El mimo y la mímica": [
+      ["Esculturas humanas y estatuas", `<p>El cuerpo puede convertirse en una <b>escultura</b> que cuenta algo sin moverse. En las actividades de expresión se usan mucho estos juegos:</p><ul><li><b>Las estatuas</b>: todos se mueven con la música y, cuando se para, se quedan congelados en una postura. Se puede pedir que la estatua exprese una emoción, un animal o un oficio.</li><li><b>El escultor y la arcilla</b>: por parejas, uno hace de «arcilla» y el otro lo va moldeando con cuidado, moviendo sus brazos, su cabeza o su postura, hasta crear una escultura. Después se cambian los papeles.</li><li><b>Las fotos fijas</b>: un grupo representa una escena congelada, como si fuera una fotografía: un partido, una boda, un museo, una tormenta. El resto adivina qué es.</li><li><b>El museo de cera</b>: varias estatuas que cobran vida solo cuando alguien les «da cuerda».</li></ul><p>Para que una estatua sea expresiva, juega con los <b>niveles</b> (alto, medio, bajo), con la <b>mirada</b> y con la <b>tensión</b> del cuerpo. Y recuerda: cuando se trabaja tocando a un compañero, siempre con <b>respeto</b> y pidiendo permiso.</p>`,
+        H6.rueda("Esculturas", "QUIETOS", [["estatuas", cAZ], ["escultor", cNA], ["foto fija", cVE], ["museo", cMO]])],
+    ],
+    "Danzas tradicionales": [
+      ["Danzas del mundo con significado", `<p>En muchas culturas, la danza no es solo un baile: tiene un <b>significado</b> especial y forma parte de la identidad de un pueblo.</p><ul><li><b>El haka</b> es una danza tradicional del pueblo <b>maorí</b> de Nueva Zelanda. Se hace con golpes en el cuerpo, pisadas fuertes, gritos y gestos con la cara (sacar la lengua, abrir mucho los ojos). Antiguamente se hacía antes de las batallas, pero también para dar la bienvenida, celebrar o rendir homenaje. Hoy es famoso porque lo baila la selección de rugby, los All Blacks, antes de cada partido.</li><li><b>La capoeira</b>, de Brasil, mezcla danza, lucha y música. Fue creada por las personas africanas esclavizadas y hoy es Patrimonio Cultural Inmaterial de la Humanidad.</li><li><b>Las danzas del león y del dragón</b>, en China, se bailan en Año Nuevo para traer buena suerte.</li><li><b>Los derviches giróvagos</b>, en Turquía, giran sin parar como forma de meditación.</li></ul><p>Cuando aprendemos danzas de otras culturas, es importante hacerlo con <b>respeto</b>: conocer su origen y su significado, y no tomarlas como un disfraz o una broma.</p>`,
+        L6.filas("Danzas del mundo", [["haka", "Nueva Zelanda", cRO], ["capoeira", "Brasil", cVE], ["danza del león", "China", cNA], ["derviches", "Turquía", cAZ]])],
+    ],
+  },
+  final: [
+    ["Los bailes urbanos", `<p>Los <b>bailes urbanos</b> nacieron en la calle, en los barrios de las grandes ciudades, y hoy se bailan en todo el mundo:</p><ul><li><b>El hip hop</b> nació en los años 70 en el barrio del Bronx, en Nueva York, como una cultura que incluía música (rap), arte (grafiti) y baile.</li><li><b>El breaking</b> (o breakdance) es el baile acrobático del hip hop: giros sobre la espalda o la cabeza, posturas congeladas llamadas <i>freezes</i> y pasos de pies muy rápidos en el suelo. Fue <b>deporte olímpico</b> por primera vez en los Juegos de París 2024.</li><li><b>El popping</b> y <b>el locking</b>: estilos basados en contraer los músculos de golpe o en bloquear el movimiento, como un robot.</li><li><b>El dancehall</b>, el <b>reguetón</b> o el <b>K-pop</b> también tienen sus propias coreografías muy populares.</li></ul><p>En los bailes urbanos son típicas las <b>batallas</b> (<i>battles</i>): dos bailarines o grupos se turnan para bailar frente a frente y un jurado decide. Pero tienen un código de <b>respeto</b>: no se toca al rival, se reconocen los buenos movimientos del otro y se aprende de todos.</p><p>Como Pablo en la lectura, muchos niños aprenden en centros cívicos y escuelas de baile.</p>`,
+      H6.flujo("Hip hop", ["años 70|Bronx", "rap, grafiti|y baile", "breaking|freezes", "París 2024|olímpico"], cAZ)],
+    ["La danza como arte y profesión", `<p>La danza es también un arte que se estudia y una <b>profesión</b>. Hay muchos estilos escénicos:</p><ul><li><b>El ballet</b> o danza clásica: nació en las cortes de Italia y Francia hace varios siglos. Por eso sus pasos tienen nombres en francés, como <i>plié</i> (doblar), <i>pirouette</i> (giro) o <i>jeté</i> (salto). Las bailarinas bailan sobre las puntas de los pies con zapatillas especiales.</li><li><b>La danza contemporánea</b>: más libre, juega con el suelo, el peso y la improvisación.</li><li><b>La danza española</b>: incluye la escuela bolera, la danza estilizada, el folclore y el <b>flamenco</b>. Artistas como Antonio Gades o Sara Baras la han llevado a teatros de todo el mundo.</li></ul><p>Alrededor de un espectáculo de danza trabajan muchas personas: <b>bailarines</b>, <b>coreógrafos</b> (que crean la danza), músicos, diseñadores de vestuario y de iluminación, técnicos de sonido…</p><p>Para ser bailarín profesional hay que estudiar muchos años en conservatorios de danza y entrenar casi como un deportista de élite: la danza exige fuerza, flexibilidad, resistencia, coordinación y mucha expresividad.</p>`,
+      H6.dos("Danza escénica", ["ESTILOS", ["ballet", "contemporánea", "española"], cMO], ["PROFESIONES", ["bailarín", "coreógrafo", "técnicos"], cVE])],
+  ],
+  ejemplos: [
+    ["Lee la partitura: P – M – Pa – Ch.", ["P = pisada, M = muslos.", "Pa = palmas, Ch = chasquido."], "Pisada, muslos, palmas, chasquido."],
+    ["¿Qué es un freeze en breaking?", ["Freeze significa «congelar».", "Es una postura que se mantiene quieta."], "Una postura acrobática congelada, normalmente al final de una secuencia."],
+  ],
+  errores: ["Imitar danzas de otras culturas como si fueran un disfraz, sin conocer su significado.", "Tocar o mover a un compañero en los juegos de esculturas sin pedirle permiso."],
+  ejercicios: [
+    ["b", "Escribe los cinco sonidos básicos de la percusión corporal.", "Pisada, muslos, pecho, palmas y chasquidos."],
+    ["b", "¿De dónde es el haka?", "Del pueblo maorí de Nueva Zelanda."],
+    ["b", "¿En qué Juegos fue olímpico el breaking por primera vez?", "En París 2024."],
+    ["b", "¿En qué idioma están los nombres de los pasos de ballet?", "En francés."],
+    ["b", "¿Qué hace un coreógrafo?", "Crea las danzas."],
+    ["m", "Explica qué es un ostinato y un canon.", "Ostinato: ritmo que se repite. Canon: el mismo ritmo empezando en momentos distintos."],
+    ["m", "Describe el juego del escultor y la arcilla.", "Uno moldea con cuidado el cuerpo del otro hasta crear una escultura."],
+    ["m", "¿Qué es la capoeira y de dónde viene?", "Mezcla de danza, lucha y música de Brasil."],
+    ["m", "¿Cuál fue la idea de Yasmín?", "Mezclar percusión corporal, flamenco y breaking para que todos participaran."],
+    ["m", "Escribe una partitura de percusión corporal de dos compases.", "Respuesta abierta."],
+    ["a", "Crea en grupo una foto fija sobre un tema y que la clase la adivine.", "Respuesta abierta."],
+    ["a", "Investiga una danza del mundo y presenta su origen y significado.", "Respuesta abierta."],
+    ["a", "Prepara una coreografía de un minuto que mezcle dos estilos.", "Respuesta abierta."],
+    ["a", "Organiza una batalla de baile con normas de respeto.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["El sonido más grave de la percusión corporal es…", ["la pisada", "el chasquido", "la palma"], "Percusión."],
+    ["El haka se hizo famoso por…", ["la selección de rugby de Nueva Zelanda", "los Juegos de Invierno", "una película"], "Danzas."],
+    ["El hip hop nació en…", ["Nueva York", "Londres", "Madrid"], "Bailes urbanos."],
+    ["Plié, pirouette y jeté son pasos de…", ["ballet", "flamenco", "breaking"], "Danza escénica."],
+    ["En una foto fija…", ["el grupo se queda congelado", "se habla mucho", "se corre"], "Esculturas."],
+  ],
+  examen: [
+    ["¿Qué estilo practicaba Pablo?", ["breaking", "ballet", "sardana"], "Lectura."],
+    ["La capoeira es Patrimonio…", ["Cultural Inmaterial de la Humanidad", "natural", "de Europa"], "Danzas."],
+  ],
+  tarjetas: [
+    ["Percusión corporal", "Pisada, muslos, pecho, palmas y chasquidos; eco, ostinato y canon."],
+    ["Esculturas humanas", "Estatuas, escultor y arcilla, fotos fijas, museo de cera."],
+    ["Danzas con significado", "Haka (maorí), capoeira (Brasil), danza del león (China)."],
+    ["Bailes urbanos", "Hip hop (Bronx, años 70), breaking (olímpico en París 2024), batallas con respeto."],
+  ],
+  glosario: [
+    ["Percusión corporal", "Producir ritmos con el propio cuerpo."],
+    ["Partitura", "Escritura de una música o un ritmo."],
+    ["Ostinato", "Ritmo corto que se repite muchas veces."],
+    ["Canon", "Misma secuencia que empieza en momentos diferentes."],
+    ["Foto fija", "Escena representada sin movimiento."],
+    ["Haka", "Danza tradicional maorí."],
+    ["Capoeira", "Arte brasileño que mezcla danza, lucha y música."],
+    ["Hip hop", "Cultura urbana nacida en Nueva York con rap, grafiti y baile."],
+    ["Breaking", "Baile acrobático del hip hop."],
+    ["Freeze", "Postura congelada en breaking."],
+    ["Ballet", "Danza clásica con pasos codificados."],
+    ["Coreógrafo", "Persona que crea una danza."],
+  ],
+  situacion: {
+    titulo: "La batalla de baile",
+    reto: "Cada grupo de la clase prepara una coreografía que mezcle estilos para una batalla de baile respetuosa.",
+    pasos: ["Elegid dos estilos para mezclar: percusión corporal, danza tradicional, del mundo o urbana.", "Escribid la partitura de percusión y contad la música en frases de 8 tiempos.", "Incluid una foto fija o un momento de estatuas en la coreografía.", "Presentad la coreografía en una batalla con normas de respeto y valorad todas las actuaciones."],
+    producto: "Una coreografía de grupo que mezcla estilos, presentada en una batalla de baile.",
+    evaluacion: ["Crea y sigue ritmos de percusión corporal.", "Se expresa con el cuerpo y supera la vergüenza.", "Conoce el origen de los estilos que baila.", "Respeta y valora a los compañeros."],
+  },
+});

@@ -146,3 +146,91 @@ module.exports = {
   fuentes: [RD, { t: "Federación Española de Bádminton", url: "https://www.badminton.es/" }, wiki("Deportes alternativos", "Deporte_alternativo"), wiki("Ultimate (deporte)", "Ultimate_(deporte)")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Aplicar principios tácticos sencillos en los deportes de red", "Conocer la pelota vasca y el pickleball", "Entender cómo se puntúa en tenis, bádminton y tenis de mesa", "Inventar un deporte alternativo con sus propias reglas"],
+  lectura: { titulo: "El volante de Carolina", html: `<p>Lucía tenía nueve años cuando vio por la tele la final de bádminton de los Juegos Olímpicos de Río 2016. Una chica de Huelva, Carolina Marín, ganó la medalla de oro y se tiró al suelo llorando de alegría. Lucía nunca había oído hablar del bádminton.</p><p>Al día siguiente, buscó raquetas en el trastero. Encontró dos viejas y un volante medio desplumado. Colgó una cuerda entre dos árboles del patio y obligó a su hermano a jugar con ella toda la tarde.</p><p>En el colegio, cuando el profesor sacó las raquetas de bádminton, Lucía ya sabía hacer el saque por debajo de la cintura y el clear, el golpe alto y profundo que manda el volante al fondo del campo.</p><p>—¿Dónde has aprendido? —le preguntó el profesor.</p><p>—Viendo a Carolina —contestó—. Ella dice que hay que mover al rival de un lado a otro y atacar el hueco.</p><p>Hoy Lucía tiene doce años y entrena dos tardes a la semana en un club. Aún no ha ganado ningún campeonato, pero en su habitación tiene un póster con una frase de su ídola: «Puedo porque pienso que puedo».</p>` },
+  tras: {
+    "Los golpes básicos": [
+      ["La táctica en los deportes de red", `<p>En los deportes de raqueta y de red no gana quien golpea más fuerte, sino quien <b>piensa mejor</b>. Estos son los principios tácticos básicos:</p><ul><li><b>Enviar el móvil donde no está el rival</b>: busca los espacios vacíos de su campo.</li><li><b>Mover al rival</b>: alterna golpes largos (al fondo) y cortos (junto a la red), y a la derecha y a la izquierda, para cansarlo y desequilibrarlo.</li><li><b>Volver al centro</b> después de cada golpe: desde el centro de tu campo llegas antes a cualquier sitio. Es la <b>posición base</b>.</li><li><b>Atacar cuando puedas</b>: si el rival te devuelve un volante o una pelota alta y fácil, es el momento de rematar.</li><li><b>Defender con paciencia</b>: si estás en apuros, envía el móvil alto y profundo para tener tiempo de recolocarte.</li></ul><p>En <b>dobles</b>, además, hay que coordinarse con el compañero: en bádminton, en ataque se suele jugar uno delante y otro detrás; en defensa, uno al lado del otro. Y comunicarse siempre: «¡mía!», «¡tuya!».</p>`,
+        H6.flujo("Cada golpe", ["mirar|el hueco", "golpear|lejos del rival", "volver|al centro", "esperar|preparado"], cAZ)],
+    ],
+    "Otros deportes de raqueta y de pala": [
+      ["La pelota vasca", `<p>La <b>pelota vasca</b> es un conjunto de deportes en los que se golpea una pelota contra una pared, llamada <b>frontis</b>, en una cancha llamada <b>frontón</b>. Es muy popular en el País Vasco y Navarra, y también en otras zonas de España, Francia y América Latina (como México, Argentina o Cuba). Tiene varias modalidades:</p><ul><li><b>A mano</b>: se golpea la pelota con la mano desnuda, protegida solo con unos tacos. ¡La pelota es muy dura!</li><li><b>Pala</b> y <b>paleta</b>: con una pala de madera más o menos grande.</li><li><b>Cesta punta</b> o <b>jai alai</b>: con una cesta de mimbre curvada atada a la mano, con la que se recoge y se lanza la pelota a gran velocidad. Es una de las pelotas más rápidas de cualquier deporte.</li><li><b>Frontenis</b>: con raqueta de tenis y una pelota de goma; muy practicado en México y en España.</li></ul><p>Las reglas básicas son parecidas en todas: se juega contra la pared, la pelota debe dar en el frontis por encima de una línea y botar dentro de la cancha, y se puede jugar individual o por parejas. En muchos pueblos, el frontón es el centro de la vida social.</p>`,
+        L6.filas("Pelota vasca", [["a mano", "con tacos", cRO], ["pala", "de madera", cNA], ["cesta punta", "cesta de mimbre", cVE], ["frontenis", "con raqueta", cAZ]]), ["MVdX1AoyjlQ", "⚾⚾¿Qué es la PELOTA VASCA? ⚾⚾", "Oberena Pelota", 21833]],
+    ],
+    "Algunos deportes alternativos": [
+      ["El pickleball", `<p>El <b>pickleball</b> es uno de los deportes que más está creciendo en el mundo. Nació en 1965 en una isla cerca de Seattle (Estados Unidos), cuando tres padres quisieron inventar un juego para que sus familias se divirtieran en verano. Mezcla elementos del <b>tenis</b>, el <b>bádminton</b> y el <b>tenis de mesa</b>:</p><ul><li>Se juega en una pista pequeña, del tamaño de una de bádminton, con una red algo más baja que la de tenis.</li><li>Se usa una <b>pala</b> lisa y una <b>pelota de plástico con agujeros</b>, que va bastante lenta.</li><li>El saque se hace <b>por debajo</b> de la cintura y en diagonal.</li><li>Cerca de la red hay una zona llamada <b>«la cocina»</b> (<i>kitchen</i>), donde no se puede golpear la pelota sin dejarla botar antes. Así se evita que el juego sea solo rematar junto a la red.</li><li>Se juega sobre todo por <b>parejas</b>.</li></ul><p>Su éxito se debe a que es <b>fácil de aprender</b>, poco exigente físicamente y muy social: pueden jugar juntos niños, adultos y abuelos. Por eso es un deporte ideal para el colegio y para jugar en familia.</p>`,
+        H6.rueda("Pickleball", "MEZCLA", [["tenis", cAZ], ["bádminton", cVE], ["ping-pong", cRO], ["en familia", cMO]]), ["fTvPYdKZqO0", "Reglas del Pickleball | El recurso definitivo para principiantes sobre cómo jugar al Pickleball", "PlayPickleball.com", 7002096]],
+    ],
+  },
+  final: [
+    ["¿Cómo se cuentan los puntos?", `<p>Cada deporte de raqueta tiene su propia forma de puntuar:</p><ul><li><b>Tenis</b>: tiene un sistema muy curioso. Los puntos de cada <b>juego</b> se cuentan 0 (se dice «nada»), <b>15</b>, <b>30</b>, <b>40</b> y juego. Si los dos jugadores llegan a 40, hay <b>iguales</b> y hay que ganar dos puntos seguidos (ventaja y juego). Seis juegos (con al menos dos de diferencia) forman un <b>set</b>, y los partidos se juegan al mejor de tres o de cinco sets.</li><li><b>Bádminton</b>: cada set (o juego) se gana al llegar a <b>21 puntos</b> con dos de diferencia (con un máximo de 30). Los partidos se juegan al mejor de tres juegos. Se gana punto en cada jugada, saque quien saque.</li><li><b>Tenis de mesa</b>: cada juego se gana al llegar a <b>11 puntos</b> con dos de diferencia. Los saques se alternan cada dos puntos.</li><li><b>Pádel</b>: cuenta igual que el tenis.</li></ul><p>Saber llevar el marcador es parte del juego. En clase, podéis turnaros para hacer de <b>anotador</b>: es una buena forma de aprender las reglas y de practicar el cálculo mental.</p>`,
+      L6.filas("Puntuación", [["tenis", "15, 30, 40, juego", cAZ], ["bádminton", "21 puntos", cVE], ["tenis de mesa", "11 puntos", cNA], ["pádel", "como el tenis", cMO]])],
+    ["Inventa tu propio deporte", `<p>Muchos deportes alternativos nacieron porque alguien tuvo una idea, como el colpbol, inventado por un profesor. ¡Ahora te toca a ti! Para inventar un deporte, piensa en:</p><ol><li><b>El objetivo</b>: ¿qué hay que conseguir? ¿Meter un gol, derribar un objeto, que el móvil caiga en el campo contrario, pasar un número de veces seguidas?</li><li><b>El material</b>: puedes usar material deportivo o reciclado: botellas, aros, pelotas de papel, discos de cartón.</li><li><b>El espacio</b>: ¿una pista con red, un campo con porterías, un círculo?</li><li><b>Los jugadores</b>: ¿cuántos por equipo? ¿Equipos mixtos?</li><li><b>Las reglas</b>: cómo se mueve el móvil (con las manos, con los pies, con una pala), qué está prohibido y cómo se puntúa.</li><li><b>Los valores</b>: ¿cómo conseguir que participen todos? Por ejemplo, que no se pueda marcar hasta que todos hayan tocado el móvil.</li></ol><p>Después, <b>probadlo</b> en clase. Seguramente habrá que cambiar algunas reglas: eso es normal. Al final, escribid el <b>reglamento</b> y ponedle un nombre original.</p>`,
+      H6.flujo("Inventar un deporte", ["objetivo|y material", "espacio|y jugadores", "reglas|y puntos", "probar|y mejorar"], cMO)],
+  ],
+  ejemplos: [
+    ["En tenis, vas 40-30 y ganas el punto. ¿Qué pasa?", ["Desde 40, el siguiente punto gana el juego.", "Salvo que el rival esté también en 40."], "Ganas el juego."],
+    ["El rival está en la red. ¿Dónde envías el volante?", ["Busca el espacio vacío.", "El fondo está libre."], "Alto y profundo, al fondo de su campo."],
+  ],
+  errores: ["Quedarse donde has golpeado en lugar de volver al centro.", "Golpear siempre fuerte en lugar de buscar el espacio libre."],
+  ejercicios: [
+    ["b", "¿Qué es la posición base?", "La posición en el centro del campo a la que se vuelve tras cada golpe."],
+    ["b", "Nombra tres modalidades de pelota vasca.", "A mano, pala, cesta punta (frontenis)."],
+    ["b", "¿Cómo se llama la zona junto a la red en pickleball?", "La cocina (kitchen)."],
+    ["b", "¿A cuántos puntos se gana un juego de bádminton?", "A 21."],
+    ["b", "¿Quién es Carolina Marín?", "Una jugadora de bádminton de Huelva, campeona olímpica en Río 2016."],
+    ["m", "Explica cómo se cuentan los puntos en un juego de tenis.", "15, 30, 40 y juego; con iguales hay que ganar dos seguidos."],
+    ["m", "Escribe dos principios tácticos de los deportes de red.", "Enviar el móvil al espacio vacío; mover al rival; volver al centro."],
+    ["m", "¿Por qué el pickleball es bueno para jugar en familia?", "Porque es fácil de aprender, poco exigente y lo pueden jugar todas las edades."],
+    ["m", "¿Qué es el frontis?", "La pared contra la que se golpea en la pelota vasca."],
+    ["m", "¿Cómo aprendió Lucía el bádminton?", "Viendo a Carolina Marín y practicando con su hermano."],
+    ["a", "Inventa un deporte alternativo y escribe su reglamento.", "Respuesta abierta."],
+    ["a", "Haz de anotador en un partido de tenis de mesa y explica el marcador final.", "Respuesta abierta."],
+    ["a", "Investiga sobre un deportista español de raqueta y presenta su trayectoria.", "Respuesta abierta."],
+    ["a", "Diseña una sesión de pickleball adaptado para el patio.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Tras cada golpe conviene…", ["volver al centro", "quedarse en la red", "sentarse"], "Táctica."],
+    ["La cesta punta usa…", ["una cesta de mimbre", "una raqueta", "la mano desnuda"], "Pelota vasca."],
+    ["El pickleball nació en…", ["Estados Unidos", "España", "Japón"], "Pickleball."],
+    ["En tenis, 40-40 se llama…", ["iguales", "empate total", "juego"], "Puntuación."],
+    ["Un juego de tenis de mesa se gana a…", ["11 puntos", "21 puntos", "15 puntos"], "Puntuación."],
+  ],
+  examen: [
+    ["¿En qué Juegos ganó Carolina Marín el oro?", ["Río 2016", "Londres 2012", "Tokio 2020"], "Lectura."],
+    ["Si el rival te devuelve una bola alta y fácil…", ["es momento de rematar", "hay que dejarla pasar", "hay que tirarla fuera"], "Táctica."],
+  ],
+  tarjetas: [
+    ["Táctica de red", "Espacio vacío, mover al rival, volver al centro, atacar bolas fáciles."],
+    ["Pelota vasca", "Frontón y frontis; a mano, pala, cesta punta, frontenis."],
+    ["Pickleball", "Pala, pelota con agujeros, saque por abajo y zona de la cocina."],
+    ["Puntuación", "Tenis 15-30-40; bádminton 21; tenis de mesa 11."],
+  ],
+  glosario: [
+    ["Posición base", "Lugar del campo al que se vuelve tras cada golpe."],
+    ["Remate", "Golpe fuerte y descendente para ganar el punto."],
+    ["Dobles", "Modalidad de dos contra dos."],
+    ["Frontón", "Cancha con pared para jugar a pelota vasca."],
+    ["Frontis", "Pared principal del frontón."],
+    ["Cesta punta", "Modalidad de pelota vasca con cesta de mimbre."],
+    ["Pickleball", "Deporte de pala que mezcla tenis, bádminton y ping-pong."],
+    ["Juego", "En tenis, conjunto de puntos (15, 30, 40)."],
+    ["Set", "Parte de un partido formada por varios juegos."],
+    ["Iguales", "Empate a 40 en un juego de tenis."],
+    ["Anotador", "Persona que lleva el marcador."],
+    ["Reglamento", "Normas escritas de un deporte."],
+  ],
+  situacion: {
+    titulo: "Las olimpiadas de raqueta",
+    reto: "La clase organiza unas olimpiadas con deportes de raqueta, pelota y un deporte inventado por vosotros.",
+    pasos: ["Preparad estaciones de bádminton, tenis de mesa, pickleball y frontón contra la pared.", "Practicad los principios tácticos y aprended a llevar el marcador de cada deporte.", "Por grupos, inventad un deporte alternativo y escribid su reglamento.", "Celebrad las olimpiadas con rotaciones, anotadores y una final del deporte inventado."],
+    producto: "Unas olimpiadas de raqueta con un reglamento de un deporte inventado.",
+    evaluacion: ["Aplica principios tácticos de red.", "Conoce la puntuación de varios deportes.", "Crea reglas justas e inclusivas.", "Respeta al adversario y las normas de seguridad."],
+  },
+});

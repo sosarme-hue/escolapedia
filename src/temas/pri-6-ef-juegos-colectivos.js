@@ -142,3 +142,91 @@ module.exports = {
   fuentes: [RD, wiki("Deporte de equipo", "Deporte_de_equipo"), wiki("Baloncesto", "Baloncesto"), wiki("Voleibol", "Voleibol")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer los deportes adaptados y el valor de la inclusión", "Tomar decisiones tácticas sencillas en el juego", "Entender el papel del reglamento y del árbitro", "Organizar un torneo y recuperar juegos tradicionales"],
+  lectura: { titulo: "El partido de Nico", html: `<p>Nico llegó nuevo al colegio en octubre. Desde pequeño veía muy poco: solo distinguía luces y sombras. Los primeros días, en Educación Física, se quedaba en un lado, escuchando cómo los demás jugaban al balonmano.</p><p>Un día, el profesor apareció con un balón extraño: pesado, de color azul y con cascabeles dentro.</p><p>—Hoy vamos a jugar a goalball —anunció—. Es un deporte paralímpico creado para personas ciegas. Pero hoy jugaremos todos con antifaz.</p><p>Al principio fue un caos. Nadie sabía dónde estaba el balón, todos se chocaban y se reían. Pero Nico se movía con una seguridad increíble: escuchaba el cascabel, se tiraba al suelo y paraba todos los lanzamientos.</p><p>—¡Nico, dinos cómo lo haces! —le pidió Marta.</p><p>—Hay que estar en silencio y escuchar —explicó él—. Y tocar las líneas del campo con las manos para orientarte.</p><p>Aquel día, el equipo de Nico ganó 7 a 2. Pero lo mejor no fue el resultado. A partir de entonces, en el recreo, sus compañeros inventaron un juego con un balón que sonaba para que todos pudieran jugar juntos.</p>` },
+  tras: {
+    "Elementos comunes de los deportes colectivos": [
+      ["Deportes adaptados e inclusivos", `<p>El deporte es para todas las personas. Los <b>deportes adaptados</b> modifican las reglas, el material o el espacio para que puedan practicarlos personas con discapacidad. Muchos forman parte de los <b>Juegos Paralímpicos</b>, que se celebran justo después de los Juegos Olímpicos:</p><ul><li><b>Goalball</b>: para personas con discapacidad visual. Tres jugadores por equipo, con antifaz, lanzan rodando un balón con cascabeles para marcar en la portería contraria, que ocupa todo el ancho del campo. El público debe estar en <b>silencio</b>.</li><li><b>Baloncesto en silla de ruedas</b>: con reglas muy parecidas al baloncesto, pero en sillas especiales.</li><li><b>Boccia</b>: parecido a la petanca, para personas con grandes dificultades de movimiento.</li><li><b>Fútbol para ciegos</b>: con un balón sonoro, y el portero puede ver.</li></ul><p>En el colegio podemos practicar <b>deportes inclusivos</b>: adaptar los juegos para que participe todo el mundo, con independencia de su capacidad. Jugar con los ojos tapados o sentados también nos ayuda a <b>ponernos en el lugar</b> de los demás.</p><p>España ha logrado numerosas medallas en los Juegos Paralímpicos, en deportes como la natación, el atletismo o el ciclismo.</p>`,
+        L6.filas("Deportes adaptados", [["goalball", "balón sonoro", cAZ], ["baloncesto", "en silla", cVE], ["boccia", "precisión", cNA], ["fútbol para ciegos", "balón sonoro", cMO]]), ["cbmV7ZhZeSA", "¿Cómo se juega? Goalball (versión completa)", "Paradeportes", 196613]],
+    ],
+    "Defender: cuando el rival tiene el balón": [
+      ["Tomar decisiones: la táctica", `<p>En los deportes colectivos no gana solo el que corre más o tira más fuerte: gana el equipo que <b>toma mejores decisiones</b>. Eso es la <b>táctica</b>.</p><p>Cuando tienes el balón, en cada momento debes elegir entre tres opciones:</p><ul><li><b>Tirar</b>: si estás cerca de la meta y libre de marca.</li><li><b>Pasar</b>: si un compañero está mejor situado que tú (más cerca de la meta o sin defensor).</li><li><b>Avanzar</b> (botar, conducir): si tienes espacio libre delante.</li></ul><p>Cuando <b>no</b> tienes el balón y tu equipo ataca, tu trabajo es <b>desmarcarte</b>: moverte a un espacio libre donde puedan pasarte, lejos de tu defensor.</p><p>Una situación muy importante es el <b>2 contra 1</b>: dos atacantes contra un solo defensor. Si el defensor va hacia el que tiene el balón, este debe pasar al compañero libre; si no va, debe avanzar o tirar. ¡Fijar al defensor y pasar es la clave!</p><p>Antes de cada partido, el equipo puede hacer un pequeño <b>plan</b>: quién defiende a quién, cómo sacamos el balón, qué hacemos si vamos perdiendo. Y en los descansos, ¡se ajusta el plan!</p>`,
+        H6.flujo("Con el balón", ["¿estoy|cerca?", "sí, libre:|tiro", "otro mejor:|paso", "espacio libre:|avanzo"], cRO)],
+    ],
+    "Baloncesto y balonmano": [
+      ["El reglamento y el árbitro", `<p>Todo deporte tiene un <b>reglamento</b>: el conjunto de normas que dicen cómo se juega, qué está permitido y qué no, y qué pasa cuando alguien no las cumple. Sin reglas, no habría juego posible.</p><p>El <b>árbitro</b> es la persona encargada de hacer cumplir el reglamento. Su trabajo es muy difícil: tiene que decidir en un segundo, sin repetición, y a veces con mucha gente gritando. Por eso merece <b>respeto</b> siempre, incluso cuando se equivoca.</p><p>Los árbitros se comunican con <b>gestos</b> que todos entienden:</p><ul><li>Brazo en alto con la mano abierta: <b>falta</b> (en baloncesto) o <b>tiro libre</b> (en fútbol).</li><li>Girar los antebrazos uno sobre otro: <b>pasos</b> en baloncesto.</li><li>Señalar el punto de penalti: <b>penalti</b>.</li><li>Tarjeta amarilla: <b>amonestación</b>; tarjeta roja: <b>expulsión</b>.</li></ul><p>En clase de Educación Física, hacer de árbitro es una gran experiencia: te obliga a conocer bien las reglas, a ser justo y a entender lo difícil que es. Prueba a arbitrar un partido de tus compañeros y verás que cambia tu forma de ver el deporte.</p>`,
+        L6.filas("El árbitro", [["silbato", "para el juego", cAZ], ["gestos", "explica la falta", cVE], ["amarilla", "aviso", cNA], ["roja", "expulsión", cRO]])],
+    ],
+  },
+  final: [
+    ["Juegos tradicionales", `<p>Antes de que existieran los videojuegos, los niños jugaban en la calle y en las plazas a <b>juegos tradicionales</b> que pasaban de generación en generación. Muchos se siguen jugando hoy y son estupendos para el recreo:</p><ul><li><b>El pañuelo</b>: dos equipos numerados; cuando dicen tu número, corres a coger el pañuelo y volver sin que te pillen.</li><li><b>El rescate</b>: un equipo persigue al otro y los atrapados pueden ser rescatados por sus compañeros.</li><li><b>Bote-bote</b>: uno busca a los demás, que pueden salvarse dando una patada a un bote.</li><li><b>La soga</b> (tira y afloja): dos equipos tiran de una cuerda.</li><li><b>La rayuela</b> (o tejo, charranca): saltar a la pata coja por unas casillas dibujadas en el suelo.</li><li><b>Las canicas</b>, <b>la peonza</b>, <b>la comba</b> con sus canciones.</li></ul><p>Cada región tiene sus propios juegos y deportes tradicionales: la <b>pelota vasca</b>, la <b>lucha canaria</b>, los <b>bolos</b> en Cantabria o Asturias, la <b>calva</b> en Castilla… Pregunta a tus abuelos a qué jugaban de pequeños: ¡seguro que te enseñan alguno!</p>`,
+      H6.rueda("Juegos de siempre", "TRADICIÓN", [["pañuelo", cAZ], ["rescate", cRO], ["comba", cVE], ["rayuela", cMO]])],
+    ["Organizar un torneo", `<p>Organizar un torneo en clase o en el recreo es una forma de aprender mucho más que jugar. Hay que pensar en:</p><ul><li><b>El sistema de competición</b>:<ul><li><b>Liga</b>: todos los equipos juegan contra todos. Se dan puntos (por ejemplo, 3 por ganar, 1 por empatar). Es más justo, pero necesita más partidos.</li><li><b>Eliminatoria</b>: el que pierde queda eliminado. Es rápido, pero algunos equipos juegan muy poco.</li><li><b>Mixto</b>: una fase de grupos en liga y después eliminatorias, como en los mundiales.</li></ul></li><li><b>Los equipos</b>: equilibrados y mixtos, para que todos tengan opciones.</li><li><b>El calendario</b>: qué partidos se juegan cada día y en qué campo.</li><li><b>Los roles</b>: además de jugadores, hacen falta árbitros, anotadores, periodistas que cuenten los partidos y un comité de deportividad.</li></ul><p>Una idea muy buena es dar puntos extra por <b>juego limpio</b>: por saludar al rival, respetar al árbitro y animar a los compañeros. Así el torneo premia también los valores.</p>`,
+      H6.dos("Sistemas", ["LIGA", ["todos contra todos", "más partidos", "más justo"], cVE], ["ELIMINATORIA", ["quien pierde sale", "más rápido", "menos partidos"], cRO])],
+  ],
+  ejemplos: [
+    ["Tienes el balón, estás lejos de la portería y un compañero está solo cerca. ¿Qué haces?", ["Lejos: el tiro es difícil.", "El compañero está mejor situado."], "Pasar al compañero."],
+    ["Con 4 equipos en liga, ¿cuántos partidos hay?", ["Cada equipo juega 3 partidos.", "4 × 3 = 12, pero cada partido cuenta dos veces."], "6 partidos."],
+  ],
+  errores: ["Protestar al árbitro en cada decisión.", "Quedarse quieto cuando el equipo ataca en lugar de desmarcarse."],
+  ejercicios: [
+    ["b", "¿Qué es el goalball?", "Un deporte paralímpico para personas ciegas con un balón con cascabeles."],
+    ["b", "¿Qué tres opciones tienes con el balón?", "Tirar, pasar o avanzar."],
+    ["b", "¿Qué significa la tarjeta roja?", "Expulsión."],
+    ["b", "Escribe tres juegos tradicionales.", "Pañuelo, rescate, rayuela (bote-bote, soga…)."],
+    ["b", "¿Qué es una liga?", "Un sistema en el que todos juegan contra todos."],
+    ["m", "Explica qué es desmarcarse.", "Moverse a un espacio libre para poder recibir un pase."],
+    ["m", "¿Cómo se resuelve un 2 contra 1?", "Fijar al defensor y pasar al compañero libre."],
+    ["m", "¿Por qué el público debe estar en silencio en el goalball?", "Porque los jugadores se orientan por el sonido del balón."],
+    ["m", "Ventajas e inconvenientes de la eliminatoria.", "Es rápida, pero algunos equipos juegan poco."],
+    ["m", "¿Qué enseñó Nico a sus compañeros?", "A escuchar en silencio y orientarse tocando las líneas."],
+    ["a", "Adapta un juego del recreo para que pueda jugar un compañero en silla de ruedas.", "Respuesta abierta."],
+    ["a", "Organiza el calendario de una liga de 6 equipos.", "Respuesta abierta (15 partidos)."],
+    ["a", "Arbitra un partido y escribe qué te resultó difícil.", "Respuesta abierta."],
+    ["a", "Entrevista a un familiar mayor sobre los juegos de su infancia.", "Respuesta abierta."],
+  ],
+  quiz: [
+    ["Los Juegos Paralímpicos se celebran…", ["después de los Olímpicos", "cada diez años", "solo en invierno"], "Deporte adaptado."],
+    ["Desmarcarse es…", ["buscar un espacio libre", "quitar el balón", "salir del campo"], "Táctica."],
+    ["El árbitro merece respeto…", ["siempre", "solo si acierta", "nunca"], "Reglamento."],
+    ["La pelota vasca es un juego tradicional de…", ["el País Vasco y Navarra", "Canarias", "Galicia"], "Tradición."],
+    ["En una liga…", ["todos juegan contra todos", "quien pierde se va", "solo juegan dos equipos"], "Torneo."],
+  ],
+  examen: [
+    ["¿Qué balón llevó el profesor?", ["uno con cascabeles", "uno de rugby", "uno de playa"], "Lectura."],
+    ["En un 2 contra 1, si el defensor va al que tiene el balón…", ["se pasa al compañero libre", "se tira siempre", "se para el juego"], "Táctica."],
+  ],
+  tarjetas: [
+    ["Deporte adaptado", "Goalball, baloncesto en silla, boccia, fútbol para ciegos."],
+    ["Táctica", "Tirar, pasar o avanzar; desmarcarse; 2 contra 1."],
+    ["Árbitro", "Hace cumplir el reglamento con gestos; merece respeto."],
+    ["Torneos", "Liga, eliminatoria o mixto; puntos por juego limpio."],
+  ],
+  glosario: [
+    ["Deporte adaptado", "Deporte modificado para personas con discapacidad."],
+    ["Juegos Paralímpicos", "Gran competición de deporte adaptado."],
+    ["Goalball", "Deporte para personas ciegas con balón sonoro."],
+    ["Inclusión", "Que todas las personas puedan participar."],
+    ["Táctica", "Decisiones para conseguir ventaja en el juego."],
+    ["Desmarque", "Movimiento para librarse del defensor."],
+    ["Reglamento", "Conjunto de normas de un deporte."],
+    ["Amonestación", "Aviso del árbitro por una falta."],
+    ["Juego tradicional", "Juego transmitido de generación en generación."],
+    ["Liga", "Competición en la que todos juegan contra todos."],
+    ["Eliminatoria", "Competición en la que el perdedor queda fuera."],
+    ["Calendario", "Orden y fechas de los partidos."],
+  ],
+  situacion: {
+    titulo: "El torneo inclusivo",
+    reto: "La clase organiza un torneo de deportes colectivos en el que pueda participar todo el mundo.",
+    pasos: ["Elegid los deportes, incluyendo uno adaptado como el goalball.", "Formad equipos mixtos y equilibrados y decidid el sistema de competición.", "Repartid roles: jugadores, árbitros, anotadores, periodistas y comité de deportividad.", "Celebrad el torneo y entregad un premio especial al juego limpio."],
+    producto: "Un torneo inclusivo con calendario, clasificación y crónicas de los partidos.",
+    evaluacion: ["Toma decisiones tácticas sencillas.", "Respeta el reglamento y al árbitro.", "Colabora en la organización.", "Valora la inclusión y la deportividad."],
+  },
+});
