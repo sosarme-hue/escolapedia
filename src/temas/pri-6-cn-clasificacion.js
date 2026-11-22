@@ -140,3 +140,91 @@ module.exports = {
   fuentes: [RD, wiki("Reino (biología)", "Reino_(biología)"), wiki("Clave dicotómica", "Clave_dicotómica"), { t: "Museo Nacional de Ciencias Naturales (CSIC)", url: "https://www.mncn.csic.es/" }],
   revisado: REV,
 };
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Ordenar las categorías de clasificación de reino a especie", "Valorar los hongos útiles y reconocer el peligro de los venenosos", "Distinguir los cuatro grupos de artrópodos", "Explicar por qué los virus no se consideran seres vivos"],
+  lectura: { titulo: "El hombre que puso nombre a todo", html: `<p>En el siglo XVIII, los naturalistas tenían un problema. Cada uno llamaba a las plantas y a los animales a su manera, y los nombres científicos eran larguísimos: una frase entera en latín para describir una sola planta. ¡Era un caos!</p><p>Un joven sueco llamado <b>Carl Linnaeus</b>, al que en español llamamos <b>Linneo</b>, decidió poner orden. Desde niño le apasionaban las flores. Ya de mayor, viajó por Laponia, en el norte helado de Suecia, recogiendo plantas, y en la universidad de Uppsala cuidaba un gran jardín botánico.</p><p>Linneo propuso algo muy sencillo: dar a cada ser vivo <b>dos palabras en latín</b>. La primera, con mayúscula, indica el grupo al que pertenece (el género). La segunda indica la especie concreta. Así, el lobo es <i>Canis lupus</i>, y nosotros somos <i>Homo sapiens</i>, que significa «hombre sabio».</p><p>Además, organizó a los seres vivos en grupos dentro de otros grupos, como cajas dentro de cajas. Linneo nombró miles de especies. Su sistema tuvo tanto éxito que, casi 300 años después, los científicos de todo el mundo lo siguen usando.</p>` },
+  tras: {
+    "El nombre científico": [
+      ["Las categorías de clasificación", `<p>Linneo ordenó a los seres vivos en grupos que van de mayor a menor, como si fueran cajas que se meten unas dentro de otras. Estas categorías son:</p><p style="text-align:center"><b>reino → filo → clase → orden → familia → género → especie</b></p><p>Cuanto más bajamos, menos seres vivos hay en cada grupo y más se parecen entre sí. Veamos cómo se clasifica el <b>lobo</b>:</p><ul><li><b>Reino</b>: animales.</li><li><b>Filo</b>: cordados (tienen un cordón nervioso protegido en la espalda).</li><li><b>Clase</b>: mamíferos.</li><li><b>Orden</b>: carnívoros.</li><li><b>Familia</b>: cánidos, junto con el zorro y el chacal.</li><li><b>Género</b>: <i>Canis</i>, junto con el chacal dorado y el coyote.</li><li><b>Especie</b>: <i>Canis lupus</i>.</li></ul><p>El perro es una subespecie del lobo: <i>Canis lupus familiaris</i>. Por eso un perro y un lobo pueden tener crías juntos.</p><p>Para recordar el orden de las categorías, puedes inventar una frase cuyas palabras empiecen por R, F, C, O, F, G, E.</p>`,
+        H6.flujo("Del grupo grande al pequeño", ["Reino", "Clase", "Familia", "Especie"], cAZ)],
+    ],
+    "El reino de los hongos": [
+      ["Hongos útiles y hongos peligrosos", `<p>Los hongos tienen muy mala fama, pero muchos son imprescindibles para nosotros:</p><ul><li>La <b>levadura</b> es un hongo microscópico. Gracias a ella sube la masa del pan y se elaboran la cerveza y el vino, mediante la fermentación.</li><li>Algunos quesos, como el de Cabrales o el roquefort, deben sus vetas azules a mohos del género <i>Penicillium</i>.</li><li>En 1928, el científico escocés <b>Alexander Fleming</b> descubrió que un moho, también un <i>Penicillium</i>, impedía crecer a las bacterias de una placa de laboratorio que había olvidado. De ese moho se obtuvo la <b>penicilina</b>, el primer antibiótico, que ha salvado millones de vidas.</li><li>En los bosques, los hongos son <b>descomponedores</b>: reciclan las hojas y la madera muertas y devuelven sus nutrientes al suelo.</li></ul><p>Pero también hay hongos peligrosos. Algunas <b>setas</b> son mortales, como la <i>Amanita phalloides</i>, y se parecen mucho a otras comestibles. Por eso nunca se deben recoger ni comer setas sin que las revise una persona experta. Otros hongos causan enfermedades, como el pie de atleta, o estropean los alimentos.</p>`,
+        H6.dos("Los hongos", ["Útiles", ["pan y queso", "penicilina", "reciclan el bosque"], cVE], ["Peligrosos", ["setas venenosas", "pie de atleta", "moho en alimentos"], cRO]), ["MK-FiDt_g4Y", "¿Cómo descubrió Alexander Fleming la penicilina? :: Útil e interesante", "eduboom es", 143871]],
+    ],
+    "Los animales invertebrados": [
+      ["Los artrópodos, el grupo más numeroso", `<p>Los <b>artrópodos</b> son los invertebrados con el cuerpo cubierto por un <b>esqueleto externo</b> duro y las patas formadas por piezas articuladas. Son el grupo de animales con más especies del planeta. Se dividen en cuatro grupos:</p><ul><li><b>Insectos</b>: tienen <b>6 patas</b>, el cuerpo dividido en cabeza, tórax y abdomen, dos antenas y, muchos de ellos, alas. Por ejemplo, la mariquita, la hormiga o la mariposa. Se han descrito alrededor de un millón de especies de insectos.</li><li><b>Arácnidos</b>: tienen <b>8 patas</b> y no tienen antenas. Son las arañas, los escorpiones y los ácaros.</li><li><b>Crustáceos</b>: la mayoría viven en el agua, respiran por branquias y tienen <b>dos pares de antenas</b>. Son las gambas, los cangrejos o las cochinillas de la humedad.</li><li><b>Miriápodos</b>: tienen el cuerpo largo, formado por muchos anillos, y <b>muchísimas patas</b>, como el ciempiés y el milpiés.</li></ul><p>Como su esqueleto externo no crece, los artrópodos tienen que cambiarlo de vez en cuando: se desprenden del viejo y fabrican uno nuevo más grande. Esto se llama <b>muda</b>.</p>`,
+        L6.filas("Artrópodos", [["insectos", "6 patas, 2 antenas", cNA], ["arácnidos", "8 patas, sin antenas", cRO], ["crustáceos", "4 antenas, branquias", cAZ], ["miriápodos", "muchísimas patas", cVE]]), ["I-EwLi5nKAg", "Los Artrópodos | Videos Educativos para Niños", "Happy Learning Español", 413286]],
+    ],
+  },
+  final: [
+    ["¿Y los virus?", `<p>Si los virus causan enfermedades como la gripe, el resfriado o la varicela, ¿en qué reino están? En <b>ninguno</b>. La mayoría de los científicos no consideran que los virus sean seres vivos, por varias razones:</p><ul><li><b>No están formados por células</b>. Un virus es solo un poco de material genético envuelto en una cubierta de proteínas.</li><li><b>No se alimentan</b> ni obtienen energía por sí mismos.</li><li><b>No pueden reproducirse solos</b>. Para hacer copias de sí mismos tienen que entrar en una célula y obligarla a fabricar nuevos virus, lo que suele dañarla.</li></ul><p>Fuera de una célula, un virus es como una partícula inerte, sin actividad. Por eso se dice que están en la frontera entre lo vivo y lo no vivo.</p><p>Los virus son muchísimo más pequeños que las bacterias: solo se pueden ver con un <b>microscopio electrónico</b>. Los antibióticos, que sirven contra las bacterias, <b>no funcionan contra los virus</b>. Contra muchos virus nos protegen las <b>vacunas</b>, que enseñan a nuestras defensas a reconocerlos antes de que nos ataquen.</p>`,
+      H6.dos("¿Ser vivo?", ["Bacteria", ["es una célula", "se reproduce sola", "antibióticos"], cVE], ["Virus", ["no es una célula", "necesita una célula", "vacunas"], cRO])],
+    ["Especies por descubrir", `<p>Hasta hoy, los científicos han descrito y puesto nombre a unos <b>dos millones</b> de especies de seres vivos. Parece muchísimo, pero se calcula que existen bastantes más, quizá varios millones más, que todavía nadie ha estudiado.</p><p>Cada año se describen <b>miles de especies nuevas</b>. La mayoría son insectos, hongos, plantas y pequeños animales marinos, pero de vez en cuando aparece algún mamífero, un ave o una rana desconocidos.</p><p>¿Dónde quedan más especies por descubrir?</p><ul><li>En las <b>selvas tropicales</b>, como la del Amazonas, donde un solo árbol puede albergar cientos de especies de insectos.</li><li>En las <b>profundidades del océano</b>, que es el lugar menos explorado del planeta.</li><li>En las <b>cuevas</b>, donde viven animales ciegos y sin color.</li><li>En el mundo <b>microscópico</b>: bacterias, protozoos y hongos diminutos.</li></ul><p>Cuando se descubre una especie, se le da un nombre científico con el sistema de Linneo. A veces se le pone el nombre de una persona o de un lugar. Por desgracia, algunas especies desaparecen antes de que podamos conocerlas, por la destrucción de su hábitat.</p>`,
+      L6.filas("Seres vivos del planeta", [["descritas", "unos 2 millones", cAZ], ["cada año", "miles nuevas", cVE], ["dónde", "selvas, océano, cuevas", cNA], ["peligro", "pérdida de hábitat", cRO]])],
+  ],
+  ejemplos: [
+    ["Ordena de mayor a menor: clase, especie, reino, familia, orden, género, filo.", ["La categoría más amplia es el reino y la más pequeña la especie."], "Reino, filo, clase, orden, familia, género, especie."],
+    ["Un animal tiene 8 patas y no tiene antenas. ¿A qué grupo pertenece?", ["Es un artrópodo por sus patas articuladas.", "8 patas y sin antenas: arácnido."], "Arácnidos."],
+  ],
+  errores: ["Creer que los virus son bacterias o que los antibióticos los eliminan.", "Pensar que las arañas son insectos: tienen 8 patas y son arácnidos."],
+  ejercicios: [
+    ["b", "Escribe las siete categorías de clasificación en orden.", "Reino, filo, clase, orden, familia, género, especie."],
+    ["b", "¿Qué descubrió Alexander Fleming en 1928?", "La penicilina, el primer antibiótico."],
+    ["b", "¿Cuántas patas tiene un insecto? ¿Y un arácnido?", "6 y 8."],
+    ["b", "¿Para qué se usa la levadura?", "Para hacer pan, cerveza o vino (fermentación)."],
+    ["b", "¿Funcionan los antibióticos contra los virus?", "No."],
+    ["m", "¿A qué familia pertenecen el lobo y el zorro?", "A los cánidos."],
+    ["m", "¿Por qué no se deben comer setas recogidas en el campo sin consultar a un experto?", "Porque algunas son mortales y se parecen a las comestibles."],
+    ["m", "¿A qué grupo de artrópodos pertenecen el cangrejo, la hormiga, el escorpión y el ciempiés?", "Crustáceo, insecto, arácnido y miriápodo."],
+    ["m", "¿Qué es la muda en los artrópodos?", "Cambiar el esqueleto externo por otro más grande."],
+    ["m", "¿Dónde quedan más especies por descubrir? Di dos lugares.", "Selvas tropicales y fondos oceánicos (también cuevas)."],
+    ["a", "Da tres razones por las que los virus no se consideran seres vivos.", "No son células, no se alimentan y no se reproducen solos."],
+    ["a", "¿Por qué el perro y el lobo pueden tener crías juntos?", "Porque son la misma especie (el perro es una subespecie del lobo)."],
+    ["a", "Explica cómo los hongos ayudan a reciclar la materia en un bosque.", "Descomponen hojas y madera muertas y devuelven los nutrientes al suelo."],
+    ["a", "¿Qué tienen en común un perro y un gato? Busca la categoría más baja que comparten.", "El orden: los dos son carnívoros."],
+  ],
+  quiz: [
+    ["La categoría más pequeña de la clasificación es la…", ["especie", "familia", "clase"], "Cajas dentro de cajas."],
+    ["La penicilina se obtuvo de un…", ["moho", "virus", "insecto"], "Fleming."],
+    ["Los crustáceos tienen…", ["dos pares de antenas", "ocho patas y ninguna antena", "seis patas y alas"], "Artrópodos."],
+    ["Los virus se combaten sobre todo con…", ["vacunas", "antibióticos", "levaduras"], "Defensas."],
+    ["Se han descrito unas…", ["dos millones de especies", "dos mil especies", "doscientas especies"], "Especies."],
+  ],
+  examen: [
+    ["El lobo pertenece a la clase de los…", ["mamíferos", "cánidos", "cordados"], "Clase."],
+    ["El ciempiés es un…", ["miriápodo", "insecto", "crustáceo"], "Muchas patas."],
+  ],
+  tarjetas: [
+    ["Categorías", "Reino, filo, clase, orden, familia, género, especie."],
+    ["Hongos útiles", "Levadura, quesos azules, penicilina y descomponedores."],
+    ["Artrópodos", "Insectos (6 patas), arácnidos (8), crustáceos (4 antenas), miriápodos (muchas)."],
+    ["Virus", "No son células ni se reproducen solos: frontera entre lo vivo y lo no vivo."],
+  ],
+  glosario: [
+    ["Categoría", "Cada uno de los niveles de la clasificación."],
+    ["Filo", "Categoría entre el reino y la clase."],
+    ["Familia", "Categoría que reúne géneros parecidos."],
+    ["Subespecie", "Grupo dentro de una especie con rasgos propios."],
+    ["Levadura", "Hongo microscópico que produce fermentación."],
+    ["Antibiótico", "Medicamento que mata bacterias."],
+    ["Penicilina", "Primer antibiótico, obtenido de un moho."],
+    ["Artrópodo", "Invertebrado con esqueleto externo y patas articuladas."],
+    ["Muda", "Cambio del esqueleto externo de un artrópodo."],
+    ["Virus", "Partícula que solo se reproduce dentro de una célula."],
+    ["Microscopio electrónico", "Microscopio muy potente que permite ver los virus."],
+    ["Hábitat", "Lugar donde vive una especie."],
+  ],
+  situacion: {
+    titulo: "Inventario de la biodiversidad del patio",
+    reto: "La clase hace un inventario de todos los seres vivos del patio o de un parque cercano y los clasifica con claves.",
+    pasos: ["Recorred el patio con lupas, cuadernos y cámaras y fotografiad plantas, hongos y animales sin dañarlos.", "Usad claves dicotómicas y guías para identificar cada ser vivo.", "Clasificad lo encontrado en reinos y, en los artrópodos, en sus cuatro grupos.", "Elaborad un catálogo con fichas y un gráfico de cuántas especies hay de cada grupo."],
+    producto: "Un catálogo ilustrado de los seres vivos del patio.",
+    evaluacion: ["Observa con cuidado y respeto.", "Usa claves para identificar.", "Clasifica correctamente en reinos y grupos.", "Presenta los datos en fichas y gráficos."],
+  },
+});

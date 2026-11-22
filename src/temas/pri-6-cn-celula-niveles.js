@@ -146,3 +146,91 @@ module.exports = {
   fuentes: [RD, wiki("Célula", "Célula"), wiki("Tejido (biología)", "Tejido_(biología)"), { t: "Instituto Cajal (CSIC)", url: "https://www.cajal.csic.es/" }],
   revisado: REV,
 };
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Conocer los principales orgánulos y su función", "Hacerse una idea del tamaño y del número de células del cuerpo", "Explicar para qué sirve la división celular", "Conocer la historia del descubrimiento de la célula"],
+  lectura: { titulo: "El niño que quería ser pintor", html: `<p>Santiago nació en 1852 en un pequeño pueblo de Navarra, Petilla de Aragón, y creció en distintos pueblos de Aragón. De niño era muy travieso: hacía rabiar a sus maestros, se escapaba al campo y, según contó él mismo, con once años fabricó un pequeño cañón que destrozó la puerta de un vecino. ¡Acabó pasando unas horas en el calabozo del pueblo!</p><p>Lo que más le gustaba era <b>dibujar</b>. Quería ser pintor, pero su padre, que era médico, no estaba de acuerdo. Para que sentara la cabeza, lo puso a trabajar de aprendiz con un barbero y después con un zapatero.</p><p>Al final, Santiago estudió Medicina. Y entonces descubrió el microscopio. Pasaba horas mirando trocitos de cerebro teñidos y dibujando con muchísimo detalle lo que veía: unas células con largas ramificaciones, las <b>neuronas</b>.</p><p>Sus dibujos demostraron que el sistema nervioso está formado por células independientes. En 1906, <b>Santiago Ramón y Cajal</b> recibió el Premio Nobel de Medicina. Aquel niño que quería pintar se convirtió en uno de los científicos más importantes de la historia de España.</p>` },
+  tras: {
+    "Las partes de la célula": [
+      ["Los orgánulos: una fábrica en miniatura", `<p>El citoplasma no es un simple líquido: está lleno de pequeñas estructuras llamadas <b>orgánulos</b>, cada una con su trabajo. Podemos imaginar la célula como una <b>fábrica</b>:</p><ul><li>El <b>núcleo</b> es la oficina del director: guarda las instrucciones (el ADN) y da las órdenes.</li><li>Las <b>mitocondrias</b> son las centrales de energía. Allí se «queman» los nutrientes con ayuda del oxígeno para obtener la energía que necesita la célula. Por eso respiramos.</li><li>Los <b>ribosomas</b> son las máquinas que fabrican proteínas siguiendo las instrucciones del núcleo.</li><li>Las <b>vacuolas</b> son los almacenes: guardan agua, nutrientes o desechos. En las células vegetales hay una muy grande.</li><li>Los <b>cloroplastos</b>, que solo tienen las células vegetales y las algas, son los paneles solares: usan la luz para fabricar alimento en la fotosíntesis.</li></ul><p>La <b>membrana</b> sería la valla de la fábrica con sus puertas: decide qué entra y qué sale. Todos los orgánulos trabajan coordinados, y si uno falla, toda la célula sufre.</p>`,
+        L6.filas("La célula fábrica", [["núcleo", "oficina del director", cMO], ["mitocondrias", "centrales de energía", cRO], ["ribosomas", "fabrican proteínas", cAZ], ["cloroplastos", "paneles solares", cVE]])],
+    ],
+    "Seres unicelulares y pluricelulares": [
+      ["Tamaños y cantidades de células", `<p>La mayoría de las células son tan pequeñas que no se ven a simple vista. Se miden en <b>micrómetros</b> (µm): un micrómetro es la milésima parte de un milímetro. Una célula típica del cuerpo humano mide entre 10 y 100 µm. En el punto que cierra esta frase cabrían decenas de ellas.</p><p>Pero hay excepciones sorprendentes:</p><ul><li>El <b>óvulo</b> humano es la célula más grande del cuerpo: mide alrededor de 0,1 mm y se puede llegar a ver como un puntito.</li><li>Algunas <b>neuronas</b> tienen prolongaciones de hasta un metro, desde la médula espinal hasta los dedos de los pies.</li><li>La <b>yema</b> de un huevo de gallina es, en realidad, una gran célula llena de reservas.</li><li>Las <b>bacterias</b> son mucho más pequeñas que nuestras células: unos pocos micrómetros.</li></ul><p>¿Y cuántas células tiene una persona adulta? Los científicos calculan que unos <b>30 billones</b>, es decir, 30 millones de millones. La mayoría son glóbulos rojos de la sangre. Además, en nuestro cuerpo, sobre todo en el intestino, viven aproximadamente otros tantos millones de millones de bacterias.</p>`,
+        H6.barras("Tamaños aproximados", [["bacteria", 2, cVE, "2 µm"], ["glóbulo rojo", 8, cRO, "8 µm"], ["célula piel", 30, cNA, "30 µm"], ["óvulo", 100, cMO, "100 µm"]], 100), ["57SZHltgSJc", "Al Ver Lo Invisible: Leeuwenhoek y el descubrimiento de un mundo microscópico", "biointeractive", 767627]],
+    ],
+    "Células especializadas": [
+      ["La división celular", `<p>Todos empezamos siendo <b>una sola célula</b>: el óvulo fecundado. ¿Cómo llegamos a tener billones? Gracias a la <b>división celular</b>: una célula se divide en dos células hijas iguales, cada una de ellas se divide otra vez en dos, y así sucesivamente.</p><p>Antes de dividirse, la célula hace una <b>copia</b> de su ADN, para que cada hija reciba las instrucciones completas. Después el núcleo se reparte y el citoplasma se parte por la mitad.</p><p>Fíjate en lo rápido que crece el número: 1, 2, 4, 8, 16, 32… Tras solo 10 divisiones ya hay 1 024 células, y tras 20, más de un millón.</p><p>La división celular no solo sirve para crecer. También sirve para:</p><ul><li><b>Reparar</b> heridas: cuando te cortas, las células de alrededor se dividen para cerrar la herida.</li><li><b>Renovar</b> las células gastadas: la capa externa de la piel se renueva continuamente y los glóbulos rojos viven unos cuatro meses.</li></ul><p>Normalmente la división está muy controlada. Cuando algunas células empiezan a dividirse sin control, pueden formar un tumor; por eso los científicos estudian tanto cómo se dividen las células.</p>`,
+        H6.flujo("Una célula se divide", ["Copia|el ADN", "Reparte|el núcleo", "Dos células|hijas"], cAZ)],
+    ],
+  },
+  final: [
+    ["La historia del descubrimiento de la célula", `<p>La célula se descubrió gracias a un invento: el <b>microscopio</b>.</p><ul><li>En <b>1665</b>, el inglés <b>Robert Hooke</b> observó una lámina finísima de corcho con un microscopio que él mismo había mejorado. Vio muchas cavidades pequeñas, como las celdas de un panal, y las llamó <i>cells</i>, «celdillas». De ahí viene la palabra <b>célula</b>. En realidad, lo que vio eran las paredes de células muertas.</li><li>Pocos años después, el comerciante holandés <b>Anton van Leeuwenhoek</b> fabricó microscopios con lentes muy potentes y fue el primero en observar seres vivos diminutos en una gota de agua de charca. Los llamó «animálculos». Hoy sabemos que eran protozoos y bacterias.</li><li>En <b>1838 y 1839</b>, los alemanes Schleiden y Schwann propusieron la <b>teoría celular</b>: todos los seres vivos están formados por células.</li><li>Más tarde se añadió una idea clave: toda célula procede de otra célula.</li></ul><p>Y el español <b>Santiago Ramón y Cajal</b> demostró que también el cerebro está formado por células, las neuronas. Por ese trabajo recibió el Premio Nobel en 1906.</p>`,
+      L6.filas("Línea del tiempo", [["1665", "Hooke: el corcho", cNA], ["1670-1680", "Leeuwenhoek", cAZ], ["1838-1839", "teoría celular", cVE], ["1906", "Nobel a Cajal", cRO]]), ["W6nwsAHc7J8", "Ramón y Cajal | Biografía en cuento para niños | Shackleton Kids", "Shackleton Kids", 144488]],
+    ["Las células madre", `<p>Casi todas las células de nuestro cuerpo están especializadas: una neurona no puede convertirse en un glóbulo rojo, ni una célula muscular en una célula de la piel. Pero existen unas células especiales que todavía no han elegido qué ser: las <b>células madre</b>.</p><p>Las células madre tienen dos capacidades asombrosas:</p><ul><li>Pueden <b>dividirse</b> muchas veces para producir más células madre.</li><li>Pueden <b>transformarse</b> en distintos tipos de células especializadas.</li></ul><p>En el embrión, durante los primeros días, las células pueden convertirse en cualquier tipo de célula del cuerpo. En los adultos también hay células madre, aunque con menos posibilidades. Por ejemplo, en la <b>médula ósea</b>, el tejido que hay dentro de algunos huesos, unas células madre fabrican sin parar glóbulos rojos, glóbulos blancos y plaquetas.</p><p>Por eso, el <b>trasplante de médula ósea</b> salva la vida de muchas personas con enfermedades de la sangre, como algunas leucemias. España es uno de los países con más donantes de médula del mundo. Los científicos investigan cómo usar las células madre para reparar órganos dañados, como el corazón o la médula espinal.</p>`,
+      H6.dos("Tipos de células", ["Especializada", ["un solo trabajo", "neurona, músculo…", "no cambia de tipo"], cAZ], ["Célula madre", ["sin especializar", "se divide mucho", "puede transformarse"], cVE])],
+  ],
+  ejemplos: [
+    ["¿Cuántas células habrá después de 5 divisiones si partimos de una?", ["Cada división duplica el número: 1, 2, 4, 8, 16, 32."], "32 células."],
+    ["Una célula vegetal está a oscuras y no puede fabricar alimento. ¿Qué orgánulo no puede trabajar?", ["La fotosíntesis necesita luz.", "La hacen los cloroplastos."], "Los cloroplastos."],
+  ],
+  errores: ["Creer que la célula es solo un líquido sin estructuras dentro.", "Pensar que Hooke vio células vivas: vio las paredes de células muertas del corcho."],
+  ejercicios: [
+    ["b", "¿Qué orgánulo es la «central de energía» de la célula?", "La mitocondria."],
+    ["b", "¿Qué orgánulos tienen las células vegetales y no las animales?", "Los cloroplastos (y una gran vacuola y pared celular)."],
+    ["b", "¿Quién dio nombre a la célula y en qué año?", "Robert Hooke, en 1665."],
+    ["b", "¿Cuál es la célula más grande del cuerpo humano?", "El óvulo."],
+    ["b", "¿Por qué recibió Ramón y Cajal el Premio Nobel?", "Por demostrar que el sistema nervioso está formado por células, las neuronas."],
+    ["m", "¿Cuántas células hay tras 10 divisiones partiendo de una?", "1 024."],
+    ["m", "Explica dos funciones de la división celular aparte de crecer.", "Reparar heridas y renovar células gastadas."],
+    ["m", "¿Qué dice la teoría celular?", "Todos los seres vivos están formados por células y toda célula procede de otra."],
+    ["m", "Compara la célula con una fábrica: ¿qué papel tienen el núcleo y la membrana?", "Núcleo: dirección; membrana: valla con puertas."],
+    ["m", "¿Qué es un micrómetro?", "La milésima parte de un milímetro."],
+    ["a", "¿Por qué el trasplante de médula ósea puede curar enfermedades de la sangre?", "Porque aporta células madre que fabrican células sanguíneas sanas."],
+    ["a", "¿Qué hace la célula con su ADN antes de dividirse? ¿Por qué?", "Lo copia, para que cada célula hija tenga las instrucciones completas."],
+    ["a", "¿Qué diferencia hay entre una célula madre y una especializada?", "La madre aún no está especializada y puede transformarse en otros tipos."],
+    ["a", "Leeuwenhoek llamó «animálculos» a lo que vio en el agua. ¿Qué eran en realidad?", "Microorganismos: protozoos y bacterias."],
+  ],
+  quiz: [
+    ["Los orgánulos que fabrican proteínas son los…", ["ribosomas", "cloroplastos", "vacuolas"], "Fábrica."],
+    ["La palabra célula viene de las celdillas que vio Hooke en el…", ["corcho", "agua de charca", "cerebro"], "1665."],
+    ["Una persona adulta tiene unos…", ["30 billones de células", "30 000 células", "30 millones de células"], "Millones de millones."],
+    ["En la división celular, una célula da lugar a…", ["dos células hijas", "una célula más grande", "diez células"], "División."],
+    ["Las células madre de la médula ósea fabrican…", ["células de la sangre", "neuronas", "células del pelo"], "Médula."],
+  ],
+  examen: [
+    ["Los cloroplastos están en las células…", ["vegetales", "animales", "de las bacterias"], "Fotosíntesis."],
+    ["La teoría celular la propusieron…", ["Schleiden y Schwann", "Hooke y Cajal", "Linneo y Darwin"], "1838-1839."],
+  ],
+  tarjetas: [
+    ["Orgánulos", "Mitocondrias (energía), ribosomas (proteínas), vacuolas (almacén), cloroplastos (fotosíntesis)."],
+    ["Tamaño de las células", "Se miden en micrómetros; tenemos unos 30 billones."],
+    ["División celular", "Una célula copia su ADN y se divide en dos: crecer, reparar y renovar."],
+    ["Historia de la célula", "Hooke 1665, Leeuwenhoek, teoría celular 1838-39, Cajal Nobel 1906."],
+  ],
+  glosario: [
+    ["Orgánulo", "Estructura del citoplasma con una función concreta."],
+    ["Mitocondria", "Orgánulo que obtiene energía de los nutrientes."],
+    ["Ribosoma", "Orgánulo que fabrica proteínas."],
+    ["Vacuola", "Orgánulo que almacena agua y otras sustancias."],
+    ["Cloroplasto", "Orgánulo vegetal donde se hace la fotosíntesis."],
+    ["Micrómetro", "Milésima parte de un milímetro (µm)."],
+    ["División celular", "Proceso por el que una célula forma dos células hijas."],
+    ["Teoría celular", "Idea de que todos los seres vivos están formados por células."],
+    ["Célula madre", "Célula sin especializar que puede convertirse en otros tipos."],
+    ["Médula ósea", "Tejido del interior de algunos huesos que fabrica la sangre."],
+    ["Tumor", "Masa de células que se dividen sin control."],
+    ["Animálculo", "Nombre que dio Leeuwenhoek a los microorganismos."],
+  ],
+  situacion: {
+    titulo: "Construimos una célula gigante",
+    reto: "La clase construye maquetas de células animales y vegetales con materiales reciclados y explica la función de cada orgánulo como si fuera una fábrica.",
+    pasos: ["Repartid los orgánulos entre los equipos e investigad su forma y su función.", "Construid la maqueta con cajas, plastilina, botones y otros materiales reciclados.", "Preparad tarjetas que comparen cada orgánulo con una parte de una fábrica.", "Presentad las maquetas a otra clase y observad células reales al microscopio."],
+    producto: "Dos maquetas de célula (animal y vegetal) con tarjetas explicativas.",
+    evaluacion: ["Identifica los orgánulos y sus funciones.", "Distingue célula animal y vegetal.", "Usa comparaciones para explicar.", "Trabaja en equipo y presenta con claridad."],
+  },
+});

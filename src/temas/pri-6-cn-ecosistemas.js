@@ -136,3 +136,91 @@ module.exports = {
   fuentes: [RD, { t: "Red de Parques Nacionales (MITECO)", url: "https://www.miteco.gob.es/es/parques-nacionales-oapn.html" }, wiki("Ecosistema", "Ecosistema"), wiki("Lince ibérico", "Lynx_pardinus")],
   revisado: REV,
 };
+
+// ---------- Nivel libro (6º de Primaria) ----------
+const { L: L6, H: H6, AZ: cAZ, RO: cRO, VE: cVE, NA: cNA, MO: cMO } = require("./_pri5c");
+require("./_priL").libro(module.exports, {
+  minutos: 80,
+  nivelesBase: "bbbmmmmmaa",
+  objetivos: ["Explicar por qué la energía disminuye en cada nivel de la pirámide trófica", "Describir ejemplos de simbiosis y mutualismo", "Valorar la dehesa y la posidonia como ecosistemas españoles", "Comprender el problema de las especies invasoras y el ejemplo de recuperación del lince"],
+  lectura: { titulo: "Los lobos que cambiaron un parque", html: `<p>En el parque nacional de Yellowstone, en Estados Unidos, los lobos desaparecieron a principios del siglo XX porque fueron cazados sin descanso. Sin su principal depredador, los ciervos llamados uapitíes se multiplicaron y pasaban el día comiendo tranquilamente junto a los ríos.</p><p>Comían tantos brotes de sauces y álamos que los árboles jóvenes no conseguían crecer. Sin esos árboles, los castores tenían menos madera para construir sus presas, y muchos pájaros perdieron sus nidos.</p><p>En 1995 y 1996, los científicos llevaron al parque varias decenas de lobos capturados en Canadá. Los lobos cazaron algunos ciervos, pero, sobre todo, los ciervos empezaron a moverse más y a evitar ciertas zonas donde era fácil quedar atrapados.</p><p>Según muchos científicos, en algunos lugares los sauces y los álamos volvieron a crecer, los castores regresaron y con ellos otros animales. Los investigadores todavía discuten hasta dónde llegaron estos cambios, porque también influyeron otras causas. Pero la historia de Yellowstone muestra una gran lección: en un ecosistema todo está conectado, y quitar o devolver una sola especie puede cambiar muchas cosas.</p>` },
+  tras: {
+    "Cadenas alimentarias": [
+      ["La pirámide de la energía", `<p>En una cadena alimentaria, la energía pasa de un ser vivo a otro. Pero en cada paso <b>se pierde la mayor parte</b>. ¿Por qué? Porque cada ser vivo gasta casi toda la energía que obtiene en vivir: moverse, respirar, mantener el calor del cuerpo… y solo una pequeña parte queda guardada en su cuerpo para el siguiente eslabón.</p><p>Como regla aproximada, a cada nivel solo pasa alrededor del <b>10 %</b> de la energía del nivel anterior:</p><ul><li>Las plantas de un prado fabrican, por ejemplo, 10 000 unidades de energía.</li><li>Los conejos que se las comen solo aprovechan unas 1 000.</li><li>Los zorros que cazan conejos, unas 100.</li><li>Un águila que cazara zorros recibiría solo unas 10.</li></ul><p>Si lo dibujamos, sale una <b>pirámide</b>: muy ancha abajo (productores) y muy estrecha arriba (superdepredadores).</p><p>Esto explica dos cosas. La primera, por qué hay muchísimas más plantas que herbívoros, y muchos más herbívoros que grandes carnívoros. La segunda, por qué las cadenas alimentarias suelen tener solo 4 o 5 eslabones: más arriba no llegaría energía suficiente.</p>`,
+        H6.barras("Energía en cada nivel", [["plantas", 10000, cVE, "10 000"], ["conejos", 1000, cNA, "1 000"], ["zorros", 100, cRO, "100"], ["águila", 10, cMO, "10"]], 10000), ["ol_HnUVCd98", "Pirámide trófica, cómo está formada y cuáles son sus niveles de organización en un ecosistema", "APRENDER ES INCREIBLE", 232999]],
+    ],
+    "Otras relaciones entre seres vivos": [
+      ["Simbiosis asombrosas", `<p>Algunas especies viven tan unidas que una no podría vivir sin la otra, o las dos se benefician muchísimo. Esta relación se llama <b>simbiosis</b> o <b>mutualismo</b>. Veamos algunos ejemplos sorprendentes:</p><ul><li><b>Los líquenes</b>, esas manchas de colores que ves en rocas y troncos, no son una sola especie: son un <b>hongo y un alga</b> viviendo juntos. El alga fabrica alimento con la fotosíntesis y el hongo le da protección y humedad. Juntos pueden vivir en sitios donde ninguno sobreviviría solo.</li><li><b>El pez payaso y la anémona</b>: el pez vive entre los tentáculos urticantes de la anémona, que lo protegen de los depredadores. A cambio, el pez la limpia y ahuyenta a algunos peces que se la comerían.</li><li><b>Las raíces y los hongos</b>: muchos árboles tienen hongos unidos a sus raíces, las <b>micorrizas</b>. El hongo ayuda a la raíz a absorber agua y sales minerales, y el árbol le da azúcares.</li><li><b>Las abejas y las flores</b>: la abeja obtiene néctar y polen como alimento, y a cambio transporta el polen de una flor a otra, lo que permite la polinización.</li></ul><p>Sin estas alianzas, muchos ecosistemas no podrían existir.</p>`,
+        L6.filas("Parejas que se ayudan", [["liquen", "hongo + alga", cVE], ["pez payaso", "+ anémona", cNA], ["micorrizas", "hongo + raíz", cMO], ["abeja", "+ flor", cAZ]])],
+    ],
+    "¿Qué es la biodiversidad?": [
+      ["Dos joyas españolas: la dehesa y la posidonia", `<p>Entre los ecosistemas de España hay dos especialmente valiosos que merece la pena conocer a fondo.</p><p>La <b>dehesa</b> es un bosque abierto de <b>encinas y alcornoques</b>, con los árboles muy separados y pastos entre ellos. No es un bosque totalmente natural: lo han ido creando durante siglos las personas, aclarando el monte para criar ganado. Es un gran ejemplo de cómo aprovechar la naturaleza sin destruirla: las bellotas alimentan al cerdo ibérico, de los alcornoques se saca el corcho sin talar el árbol, y las vacas y ovejas pastan la hierba. Además, es el hogar del águila imperial ibérica, del buitre negro y de miles de grullas que llegan cada invierno.</p><p>La <b>posidonia</b> es una planta marina del Mediterráneo, no un alga: tiene raíces, hojas y hasta flores y frutos. Forma grandes <b>praderas submarinas</b> que:</p><ul><li>Producen mucho <b>oxígeno</b> y dejan el agua transparente.</li><li>Sirven de refugio y guardería a cientos de especies de peces, moluscos y crustáceos.</li><li>Frenan las olas y protegen las <b>playas</b> de la erosión. Las hojas secas que llegan a la orilla no son suciedad: ayudan a sujetar la arena.</li></ul><p>Crece muy despacio, por eso las anclas de los barcos y la contaminación la dañan tanto.</p>`,
+        H6.dos("Dos joyas", ["Dehesa", ["encinas y alcornoques", "cerdo ibérico, corcho", "águila imperial"], cNA], ["Posidonia", ["planta con flores", "oxígeno y refugio", "protege playas"], cAZ])],
+    ],
+  },
+  final: [
+    ["Las especies invasoras", `<p>Una <b>especie invasora</b> es un ser vivo que las personas han llevado, a propósito o sin querer, a un lugar donde no vivía, y que se extiende tanto que causa daños al ecosistema.</p><p>¿Por qué causan tantos problemas? Porque en su nuevo hogar <b>no tienen depredadores ni enfermedades</b> que los controlen, y compiten con las especies de allí por el alimento y el espacio, o se las comen.</p><p>En España hay varios ejemplos preocupantes:</p><ul><li>El <b>cangrejo rojo americano</b> se trajo para criarlo y comerlo. Se extendió por los ríos y transmitió una enfermedad que casi acabó con el cangrejo de río autóctono.</li><li>El <b>mejillón cebra</b> llegó pegado a barcos. Tapiza el fondo de embalses y tuberías y desplaza a otras especies.</li><li>La <b>avispa asiática</b> caza abejas y causa grandes daños en las colmenas.</li><li>El <b>camalote</b>, una planta acuática de flores bonitas, llegó a cubrir largos tramos del río Guadiana.</li></ul><p>Tú también puedes ayudar: nunca sueltes en la naturaleza mascotas como tortugas de Florida o peces de acuario, ni plantes especies exóticas en el campo.</p>`,
+      L6.filas("Invasoras en España", [["cangrejo rojo", "ríos", cRO], ["mejillón cebra", "embalses", cAZ], ["avispa asiática", "colmenas", cNA], ["camalote", "río Guadiana", cVE]])],
+    ["El plan que salvó al lince ibérico", `<p>El <b>lince ibérico</b> es un felino que solo vive en la península ibérica. Hace un siglo había lince en buena parte de España y Portugal, pero la caza, los atropellos, la destrucción de su hábitat y, sobre todo, la desaparición de los <b>conejos</b>, su alimento principal, por varias enfermedades, lo llevaron al borde de la extinción.</p><p>Hacia el año <b>2002</b> quedaban menos de 100 linces, repartidos en dos pequeñas zonas de Andalucía: Doñana y Sierra Morena. Era el felino más amenazado del mundo.</p><p>Entonces se puso en marcha un gran plan de conservación:</p><ul><li>Se crearon <b>centros de cría</b> donde nacieron cachorros que luego se soltaron en libertad.</li><li>Se recuperaron las poblaciones de <b>conejos</b>.</li><li>Se construyeron pasos bajo las carreteras para evitar atropellos.</li><li>Se llegó a acuerdos con propietarios de fincas y cazadores para proteger su hábitat.</li></ul><p>El resultado ha sido un éxito: en 2024 ya se contaron más de <b>2 400 linces</b> en España y Portugal. Ese mismo año dejó de estar «en peligro» y pasó a considerarse una especie «vulnerable». Su historia demuestra que, cuando trabajamos juntos, se puede salvar una especie.</p>`,
+      H6.flujo("Salvar al lince", ["Criar|cachorros", "Más|conejos", "Pasos|en carreteras", "Soltar|en libertad"], cVE), ["SBqsdd0xcdI", "LINCE IBÉRICO: Deja de estar en PELIGRO de EXTINCIÓN y pasa a ser una «ESPECIE VULNERABLE» | RTVE", "RTVE Noticias", 27781]],
+  ],
+  ejemplos: [
+    ["Si las plantas de un prado tienen 5 000 unidades de energía, ¿cuánta llega aproximadamente a los zorros que comen conejos?", ["A los conejos llega el 10 %: 500.", "A los zorros, el 10 % de 500."], "Unas 50 unidades."],
+    ["¿Por qué un liquen puede vivir sobre una roca desnuda?", ["El alga fabrica alimento con la luz.", "El hongo retiene la humedad y la protege."], "Porque el hongo y el alga se ayudan mutuamente."],
+  ],
+  errores: ["Pensar que toda la energía que come un animal pasa al siguiente eslabón.", "Creer que soltar una mascota exótica en la naturaleza no hace daño."],
+  ejercicios: [
+    ["b", "¿Qué dos seres vivos forman un liquen?", "Un hongo y un alga."],
+    ["b", "¿Qué porcentaje aproximado de energía pasa de un nivel trófico al siguiente?", "Alrededor del 10 %."],
+    ["b", "Nombra dos ecosistemas característicos de España.", "Por ejemplo, la dehesa y los humedales."],
+    ["b", "¿Qué es una especie invasora?", "Una especie llevada a un lugar nuevo que se extiende y causa daños."],
+    ["b", "¿Cuál es el alimento principal del lince ibérico?", "El conejo."],
+    ["m", "¿Por qué hay muchos menos zorros que conejos en un ecosistema?", "Porque en cada nivel se pierde energía y arriba llega poca."],
+    ["m", "¿Qué se dan el pez payaso y la anémona?", "La anémona protege al pez; el pez la limpia y la defiende."],
+    ["m", "¿Por qué la posidonia es importante?", "Oxigena el agua, da refugio a muchos animales y protege las playas."],
+    ["m", "¿Por qué las especies invasoras se extienden tanto?", "Porque en su nuevo hogar no tienen depredadores ni enfermedades que las controlen."],
+    ["m", "Cita dos medidas que ayudaron a salvar al lince.", "Cría en cautividad y recuperación de los conejos (también pasos bajo carreteras)."],
+    ["a", "Si las plantas tienen 20 000 unidades de energía, ¿cuántas llegan aproximadamente al tercer eslabón?", "200."],
+    ["a", "¿Por qué las cadenas alimentarias no suelen tener más de 4 o 5 eslabones?", "Porque no llegaría energía suficiente a los niveles más altos."],
+    ["a", "Explica la historia de los lobos de Yellowstone con tus palabras.", "Sin lobos, los ciervos comieron los árboles jóvenes; al volver los lobos, en algunas zonas los árboles se recuperaron."],
+    ["a", "¿Qué harías si ya no puedes cuidar a tu tortuga de Florida?", "Llevarla a un centro de recuperación o buscarle otra familia, nunca soltarla."],
+  ],
+  quiz: [
+    ["En una pirámide de energía, el nivel más ancho es el de los…", ["productores", "superdepredadores", "carnívoros"], "Base."],
+    ["Las micorrizas son la unión de…", ["un hongo y una raíz", "un alga y un pez", "una abeja y una flor"], "Simbiosis."],
+    ["La dehesa es un bosque abierto de…", ["encinas y alcornoques", "hayas y robles", "pinos y abetos"], "España."],
+    ["El cangrejo rojo americano es una especie…", ["invasora", "autóctona", "extinguida"], "Invasoras."],
+    ["En 2002 quedaban menos de…", ["100 linces", "10 000 linces", "1 000 000 de linces"], "Lince."],
+  ],
+  examen: [
+    ["De 1 000 unidades de energía, al siguiente nivel pasan unas…", ["100", "900", "1 000"], "10 %."],
+    ["La posidonia es…", ["una planta marina con flores", "un alga de río", "un pez"], "Mediterráneo."],
+  ],
+  tarjetas: [
+    ["Pirámide de la energía", "En cada nivel pasa solo un 10 % aproximadamente."],
+    ["Simbiosis", "Liquen, pez payaso y anémona, micorrizas, abejas y flores."],
+    ["Especies invasoras", "Sin depredadores en su nuevo hogar: cangrejo rojo, mejillón cebra, avispa asiática."],
+    ["El lince ibérico", "Menos de 100 en 2002; más de 2 400 en 2024."],
+  ],
+  glosario: [
+    ["Nivel trófico", "Cada eslabón de una cadena alimentaria."],
+    ["Pirámide trófica", "Dibujo de la energía o los individuos de cada nivel."],
+    ["Superdepredador", "Animal en lo alto de la cadena que no tiene depredadores."],
+    ["Simbiosis", "Relación estrecha entre dos especies que se benefician."],
+    ["Liquen", "Asociación de un hongo y un alga."],
+    ["Micorriza", "Unión de un hongo con las raíces de una planta."],
+    ["Dehesa", "Bosque abierto de encinas o alcornoques con pastos."],
+    ["Humedal", "Zona de tierra cubierta de agua poco profunda."],
+    ["Posidonia", "Planta marina del Mediterráneo que forma praderas."],
+    ["Especie invasora", "Especie introducida que se extiende y causa daños."],
+    ["Especie autóctona", "Especie propia de un lugar."],
+    ["Especie vulnerable", "Especie amenazada, aunque menos que una en peligro."],
+  ],
+  situacion: {
+    titulo: "Campaña contra las especies invasoras",
+    reto: "La clase investiga las especies invasoras de su comunidad y prepara una campaña para que las familias no suelten mascotas ni plantas exóticas.",
+    pasos: ["Buscad qué especies invasoras hay en vuestra comunidad autónoma y qué daños causan.", "Elegid una y explicad cómo llegó, por qué se extiende y qué especies autóctonas perjudica.", "Diseñad carteles, un vídeo corto o un folleto con consejos claros.", "Presentad la campaña en el colegio y compartidla con las familias."],
+    producto: "Una campaña de concienciación sobre especies invasoras.",
+    evaluacion: ["Explica las relaciones dentro de un ecosistema.", "Investiga con fuentes fiables.", "Propone acciones concretas.", "Comunica de forma clara y atractiva."],
+  },
+});
