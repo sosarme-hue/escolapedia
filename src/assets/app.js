@@ -40,13 +40,13 @@
     if (q.length >= 2 && w.startsWith(q)) return q.length >= 3 ? 8 : 4;
     if (/^\d+$/.test(q)) return 0;
     if (q.length >= 4 && w.includes(q)) return 5;
-    const min = relax ? 3 : 4;
+    const min = relax ? 4 : 5; // con 3 o 4 letras, solo palabras que empiezan así
     if (q.length < min) return 0;
     if (q[0] !== w[0] && !(q[0] === w[1] && q[1] === w[0])) return 0; // casi nadie se equivoca en la primera letra
     if (COMUNES.has(w) || (w.length < q.length && q.length < 6)) return 0; // «cosmo» no es «como»
     const max = q.length < 4 ? 1 : (q.length >= 8 ? 2 : 1) + (relax ? 1 : 0);
     let d = dist(q, w, max);
-    for (const k of [q.length - 1, q.length, q.length + 1]) if (k >= 3 && k < w.length) d = Math.min(d, dist(q, w.slice(0, k), max));
+    for (const k of [q.length - 1, q.length, q.length + 1]) if (k >= 5 && k < w.length) d = Math.min(d, dist(q, w.slice(0, k), max));
     return d > max ? 0 : d === 0 ? 8 : d === 1 ? 6 : 2;
   }
 
@@ -144,9 +144,12 @@
     if (!toks.length) return out;
     // Puntuación de cada palabra del vocabulario para cada palabra escrita.
     const tabla = toks.map((t) => {
-      const k = (relax ? "~" : "") + t + "|" + VW.length;
+      const k = (relax ? "~" : "") + t + "|" + VW.length + "|" + !!TX[t.slice(0, 2)];
       if (CACHE.has(k)) return CACHE.get(k);
       const a = new Float32Array(VW.length); for (let i = 0; i < VW.length; i++) a[i] = sc(t, VW[i], relax);
+      // Si la palabra existe tal cual (o empieza así) en títulos, materias o texto, no se buscan parecidos.
+      const sh = TX[t.slice(0, 2)];
+      if (!relax && (a.some((v) => v >= 8) || (sh && Object.keys(sh).some((w) => w.startsWith(t))))) for (let i = 0; i < a.length; i++) if (a[i] < 8 && a[i] !== 5) a[i] = 0;
       if (CACHE.size > 60) CACHE.clear();
       CACHE.set(k, a); return a;
     });
