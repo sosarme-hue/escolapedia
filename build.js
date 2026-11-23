@@ -80,7 +80,7 @@ ${extraHead}
   </nav>
 </div></header>
 ${body}
-<footer class="foot"><div class="wrap">${SITE} · Todas las materias de Infantil a Bachillerato según la LOMLOE, curso ${CURSO_ESCOLAR}. Contenido gratuito, revisado con fuentes oficiales. Dibujos propios.<br><small>Escolapedia es un refuerzo: no sustituye al profesorado ni a los centros. <a href="${r}quien-esta-detras/">Quién está detrás</a> · <a href="${r}aviso-legal/">Aviso legal</a> · <a href="${r}privacidad/">Privacidad</a> · <a href="#" data-cookies>Cookies</a></small><br><small>© 2026 Alejandro Rosàs · Contenido bajo licencia <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.es" rel="license noopener" style="display:inline">CC BY-NC 4.0</a>, salvo indicación en contrario</small></div></footer>
+<footer class="foot"><div class="wrap">${SITE} · Todas las materias de Infantil a Bachillerato según la LOMLOE, curso ${CURSO_ESCOLAR}. Contenido gratuito, revisado con fuentes oficiales. Dibujos propios.<br><small>Escolapedia es un refuerzo: no sustituye al profesorado ni a los centros. <a href="${r}quien-esta-detras/">Quién está detrás</a> · <a href="${r}aviso-legal/">Aviso legal</a> · <a href="${r}privacidad/">Privacidad</a> · <a href="#" data-cookies>Cookies</a> · Contacto: <a href="mailto:info@escolapedia.com" style="display:inline">info@escolapedia.com</a></small><br><small>© 2026 Alejandro Rosàs · Contenido bajo licencia <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.es" rel="license noopener" style="display:inline">CC BY-NC 4.0</a>, salvo indicación en contrario</small></div></footer>
 <div class="cookies" id="cookies" hidden><p>Usamos Google Analytics para saber cuántas personas visitan Escolapedia. Solo se activa si lo aceptas. <a href="${r}privacidad/">Más información</a></p><div><button type="button" data-ck="no">Rechazar</button><button type="button" data-ck="si">Aceptar</button></div></div>
 <script>(function(){var ID="${GA_ID}",K="ep-cookies",b=document.getElementById("cookies");function get(){try{return localStorage.getItem(K)}catch(e){return null}}function set(v){try{localStorage.setItem(K,v)}catch(e){}}function load(){if(window.gtag)return;window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag("js",new Date());gtag("config",ID,{anonymize_ip:true});var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id="+ID;document.head.appendChild(s)}var v=get();if(v==="si")load();else if(v!=="no")b.hidden=false;b.addEventListener("click",function(e){var c=e.target.getAttribute("data-ck");if(!c)return;set(c);b.hidden=true;if(c==="si")load();else{document.cookie.split(";").forEach(function(x){var n=x.split("=")[0].trim();if(/^_ga/.test(n))document.cookie=n+"=;Max-Age=0;path=/;domain=."+location.hostname.replace(/^www\./,"")})}});document.querySelectorAll("[data-cookies]").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();b.hidden=false})})})();</script>
 <script>window.BASE=${JSON.stringify(r)};window.IDX=${JSON.stringify(process.env.PREVIEW ? "index.html" : "")};</script>
@@ -123,7 +123,7 @@ function seo(rel, html) {
   }
   if (!rel) ld += `<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@graph": [
     { "@type": "WebSite", "@id": `${SITIO}/#web`, url: `${SITIO}/`, name: SITE, inLanguage: "es", publisher: { "@id": `${SITIO}/#org` } },
-    { "@type": "EducationalOrganization", "@id": `${SITIO}/#org`, name: SITE, url: `${SITIO}/`, logo: `${SITIO}/apple-touch-icon.png` }] })}</script>\n`;
+    { "@type": "EducationalOrganization", "@id": `${SITIO}/#org`, name: SITE, url: `${SITIO}/`, logo: `${SITIO}/apple-touch-icon.png`, email: "info@escolapedia.com" }] })}</script>\n`;
   const head = [
     ficha ? `<meta name="robots" content="noindex, follow">` : `<link rel="canonical" href="${url}">`,
     `<link rel="icon" href="/favicon.svg" type="image/svg+xml">`,
@@ -416,7 +416,7 @@ require("./src/recursos")({ ETAPAS, page, write, SITE, CURSO_ESCOLAR, cursoNombr
 require("./src/pau")({ ETAPAS, page, write, SITE, famColor, slug, esc });
 
 // ---------- quién está detrás, aviso legal y privacidad ----------
-const TITULAR = "Alejandro Rosàs Navarro · NIF 35056148P · Calle Blaumar 19, bajos 1.ª, Sant Pere de Ribes (Barcelona) · partenopides@gmail.com";
+const TITULAR = "Alejandro Rosàs Navarro · NIF 35056148P · Calle Blaumar 19, bajos 1.ª, Sant Pere de Ribes (Barcelona) · info@escolapedia.com";
 const legalPage = (slugP, titulo, intro, html, desc) => write(slugP, page({ title: `${titulo} · ${SITE}`, desc, depth: 1, body: `<main><div class="wrap legal" style="padding-bottom:48px;max-width:820px">
   <div class="crumbs"><a href="../">Inicio</a> › ${titulo}</div>
   <div class="page-h"><h1>${titulo}</h1><p>${intro}</p></div>
@@ -434,7 +434,7 @@ legalPage("quien-esta-detras", "Quién está detrás", "Escolapedia nace en casa
   <p>Su objetivo es <b>reforzar y facilitar el acceso a los contenidos</b>, sobre todo cuando hay circunstancias que impiden o dificultan temporalmente la asistencia a clase: una enfermedad, una lesión, un ingreso hospitalario, un traslado, una situación familiar o cualquier otra ausencia. También sirve para repasar o para que las familias puedan acompañar el estudio en casa.</p>
   <p>Los temas siguen las enseñanzas mínimas de la LOMLOE (curso ${CURSO_ESCOLAR}). Cada centro y cada comunidad autónoma concreta su propio currículo, así que lo que diga el profesor o la profesora de tu clase es siempre la referencia.</p></div>
 
-  <div class="box"><h3>Contacto</h3><p>Si ves un error o quieres proponer una mejora, escribe a <a href="mailto:partenopides@gmail.com">partenopides@gmail.com</a>.</p></div>`,
+  <div class="box"><h3>Contacto</h3><p>Si ves un error o quieres proponer una mejora, escribe a <a href="mailto:info@escolapedia.com">info@escolapedia.com</a>.</p></div>`,
   "Quién hace Escolapedia y para qué sirve: un refuerzo gratuito que no sustituye al profesorado.");
 
 legalPage("aviso-legal", "Aviso legal", "Información del titular y condiciones de uso.", `

@@ -89,7 +89,7 @@ module.exports = function recursos({ ETAPAS, page, write, SITE, CURSO_ESCOLAR, c
     ["¿Dónde está el PDF?", "Dentro de cada tema, pulsa «Ficha para imprimir» y después «Descargar PDF»."],
     ["¿Se guarda el progreso?", "Sí, en el navegador del dispositivo que use. No se envía a ningún servidor."],
     ["¿Hay versión en catalán?", "La portada y la navegación están en catalán y castellano, y la materia de Lengua Catalana está en catalán."],
-    ["He visto un error. ¿Cómo aviso?", "Escribe a partenopides@gmail.com indicando el curso, la materia y el tema."],
+    ["He visto un error. ¿Cómo aviso?", "Escribe a info@escolapedia.com indicando el curso, la materia y el tema."],
   ];
   write("familias", page({ title: `Familias · ${SITE}`, desc: "Guías por etapa, calendario escolar, cómo estudiar y preguntas frecuentes.", depth: 1, nav: "familias", body: wrap(`<a href="../">Inicio</a> › Familias`, "Para familias",
     "No hace falta saberse el temario para ayudar. Aquí tenéis una guía por etapa, el calendario del curso, técnicas de estudio que funcionan y respuestas a las dudas más comunes.",
@@ -169,6 +169,6 @@ module.exports = function recursos({ ETAPAS, page, write, SITE, CURSO_ESCOLAR, c
       ${box("En cada tema", ul(["<b>Modo proyector:</b> letra grande y sin columna lateral, para la pizarra digital.", "<b>Ficha para imprimir</b> y PDF: explicación, ejercicios, preguntas y soluciones.", "<b>Para profesores:</b> saberes básicos del currículo e ideas de actividades."]))}
       ${box("Currículo", ul(["Estructura según RD 95/2022, RD 157/2022, RD 217/2022 y RD 243/2022.", "Incluye lenguas cooficiales, segunda lengua extranjera, optativas y Religión."]))}
       ${box("Método", ul(["Seis pasos por tema: activación, explicación con doble codificación, recuperación, elaboración, síntesis y repaso espaciado."]))}
-      ${box("¿Ves un error?", `<p>Escribe a <a href="mailto:partenopides@gmail.com">partenopides@gmail.com</a> con el curso, la materia y el tema.</p>`)}
+      ${box("¿Ves un error?", `<p>Escribe a <a href="mailto:info@escolapedia.com">info@escolapedia.com</a> con el curso, la materia y el tema.</p>`)}
     </div>`) }));
 };
