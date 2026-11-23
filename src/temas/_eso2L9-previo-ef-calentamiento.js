@@ -17,7 +17,7 @@ module.exports = {
   bloques: [
     {
       html: `<h3>¿Qué es el calentamiento?</h3><p>El <b>calentamiento</b> es el conjunto de ejercicios suaves y progresivos que se hacen <mark>antes de una actividad física</mark> para preparar el cuerpo y la mente.</p><p>Tiene tres objetivos principales:</p><ul><li><b>Prevenir lesiones</b>: músculos, tendones y articulaciones están más preparados.</li><li><b>Mejorar el rendimiento</b>: el cuerpo responde mejor y más rápido.</li><li><b>Preparar la mente</b>: aumenta la concentración y la motivación.</li></ul><p>Es la primera parte de cualquier sesión, partido o entrenamiento. Al final de la actividad se hace la <b>vuelta a la calma</b>, que devuelve el cuerpo poco a poco al estado de reposo.</p>`,
-      video: { id: "8zzpk_GmfJI", titulo: "Calentamiento general básico en Educación Física", canal: "JorgEF", vistas: 540575 },
+      video: { id: "MDMwd6W7K0g", titulo: "CALENTAMIENTO Dinámico para Educación Física en 10 minutos", canal: "Educación Física Online", vistas: 106139 },
     },
     {
       html: `<h3>Efectos en el organismo</h3>${tabla(["Sistema", "Qué ocurre al calentar"], [["Cardiovascular", "sube la frecuencia cardiaca y llega más sangre a los músculos"], ["Respiratorio", "aumenta la frecuencia respiratoria y el oxígeno disponible"], ["Muscular", "sube la temperatura del músculo (1-2 °C), que se vuelve más elástico"], ["Articular", "se produce más líquido sinovial, que lubrica las articulaciones"], ["Nervioso", "los impulsos viajan más rápido: mejoran reflejos y coordinación"]])}<p>Por eso al terminar un buen calentamiento notas el cuerpo caliente, el pulso algo acelerado (unas <b>110-130 pulsaciones</b> por minuto) y una ligera sudoración.</p>`,

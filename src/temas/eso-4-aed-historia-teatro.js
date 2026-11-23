@@ -71,7 +71,7 @@ module.exports = {
     titulo: "2.500 años de teatro en una línea",
     svg: figLinea("Línea del tiempo del teatro occidental", [[50, "s. V a.C.", "Grecia", true], [150, "s. II a.C.", "Roma", false], [240, "s. X-XV", "Edad Media", true], [330, "s. XVI", "commedia", false], [410, "1600", "Shakespeare y Lope", true], [490, "s. XVIII-XIX", "neoclásico y romántico", false], [570, "1880", "realismo", true], [640, "s. XX", "Brecht y absurdo", false]], [[30, 200, "Antigüedad", "var(--sun)"], [200, 300, "Medievo", "var(--leaf)"], [300, 520, "Edad Moderna", "var(--pen)"], [520, 660, "Contemporánea", "var(--red)"]]),
   },
-  video: { id: "yq2AxjNNuCQ", titulo: "Breve historia del teatro", canal: "3BIpem174", vistas: 203395, megusta: 0, busqueda: "historia del teatro resumen" },
+  video: { id: "DBNUhj1rrQ0", titulo: "🎭 La HISTORIA DEL TEATRO en 10 minutos (FÁCIL!!) | Especial 20K + Día del Teatro", canal: "Tengo algo que EnsayARTE", vistas: 51158, megusta: 0, busqueda: "historia del teatro resumen" },
   ejemplos: [
     EX("Sitúa estas obras en su etapa: <i>Antígona</i>, <i>La vida es sueño</i>, <i>Casa de muñecas</i>, <i>Esperando a Godot</i>.", ["<i>Antígona</i>: Sófocles, tragedia griega (s. V a. C.).", "<i>La vida es sueño</i>: Calderón, Siglo de Oro (s. XVII).", "<i>Casa de muñecas</i>: Ibsen, realismo (1879).", "<i>Esperando a Godot</i>: Beckett, teatro del absurdo (1953)."], "Grecia → Siglo de Oro → realismo → absurdo."),
     EX("Explica de dónde viene la expresión <i>deus ex machina</i>.", ["En el teatro griego, la <i>mechané</i> era una grúa.", "Con ella bajaba un dios que resolvía el conflicto.", "Hoy se usa para un final forzado por algo inesperado."], "Viene de la maquinaria griega y significa «dios desde la máquina»."),

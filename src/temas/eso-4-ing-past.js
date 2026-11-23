@@ -118,7 +118,7 @@ L.amplia(module.exports, {
   ],
   videos: [
     ["Una acción interrumpe a otra", L.vid("VLj-Dbz-CWk", "Past simple vs past continuous", "Clases de inglés en español", 2063351)],
-    ["Past perfect", L.vid("ZUpC0vuh1-E", "Cómo usar conjunciones con pasado perfecto y pasado simple", "Francisco Ochoa Inglés Fácil", 475935)],
+    ["Past perfect", L.vid("SG-_Pi6zJB8", "Past Perfect vs Past Simple, Pasado perfecto vs Pasado simple", "Clases de inglés en español. Gramática fácil.", 570321)],
   ],
   ejemplos: [
     ["Completa: «While I (walk) ___ home, I (find) ___ a wallet. Someone (drop) ___ it.»", ["«While» + acción larga de fondo: past continuous → was walking.", "La acción corta que ocurre en medio: past simple → found (irregular).", "Lo que había pasado antes de encontrarla: past perfect → had dropped."], "While I was walking home, I found a wallet. Someone had dropped it."],

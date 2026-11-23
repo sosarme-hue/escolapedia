@@ -71,7 +71,7 @@ module.exports = B.tema({
     titulo: "Una voz, varios registros",
     items: [["Extensión", "↕", "todas las notas", "posibles"], ["Tesitura", "✓", "zona cómoda", "para cantar"], ["Registros", "M1 · M2", "pecho, cabeza", "falsete, mixta"], ["Passaggio", "↗", "zona de paso", "sin cortes"]],
   },
-  video: { id: "UWmOTY3Wi-Q", titulo: "Cómo cantar con voz de pecho y voz de cabeza", canal: "Natalia Bliss", vistas: 123424 },
+  video: { id: "GSsXLGOIN94", titulo: "¿Cuál es tu registro? - Ésto no determina tu voz", canal: "Areh", vistas: 407039 },
   quiz: [
     ["La zona en la que una voz canta con comodidad es…", ["la extensión", "la tesitura", "el registro", "el timbre"], 1, "La extensión incluye también notas forzadas."],
     ["Un registro es…", ["el volumen de la voz", "una serie de notas con el mismo timbre y mecanismo", "un tipo de coro", "una vocal"], 1, "Por ejemplo, la voz de pecho."],

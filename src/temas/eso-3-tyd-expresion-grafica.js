@@ -93,7 +93,7 @@ module.exports = {
       <rect x="330" y="160" width="120" height="80" fill="var(--red)" fill-opacity=".12" stroke="var(--red)" stroke-width="3"/><line x1="370" y1="160" x2="370" y2="240" stroke="var(--red)" stroke-width="2.5"/>${t(530, 205, "planta", { size: 13, color: "var(--red)" })}
     </svg>`,
   },
-  video: { id: "3mz9ubFWopI", titulo: "Vistas de alzado, planta y perfil izquierdo de una figura sencilla en papel pautado", canal: "Tecno Profe", vistas: 135232, megusta: 0, busqueda: "boceto croquis y vistas dibujo técnico" },
+  video: { id: "GKG7cv_mkxQ", titulo: "MOOC Visión espacial: Vistas principales de una mesa", canal: "UPM", vistas: 43838, megusta: 0, busqueda: "boceto croquis y vistas dibujo técnico" },
   ejemplos: [
     { enunciado: "Una habitación mide 4 m de largo. ¿Cuánto mide en un plano a escala 1:50?",
       pasos: ["Pasamos a cm: 4 m = 400 cm.", "Medida del dibujo = 400 / 50.", "= 8 cm."],

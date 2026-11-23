@@ -26,7 +26,7 @@ const VID = {
   "poo-herencia": { id: "0xt806gLghg", canal: "UskoKruM2010", vistas: 33333 },
   "poo-polimorfismo": { id: "1J9bCm2J8wU", canal: "UskoKruM2010", vistas: 11239 },
   "gui-general": { id: "XgjKa9kkYjc", canal: "Fazt", vistas: 204017 },
-  "gui-tkinter": { id: "h8usxRykVmI", canal: "Enrique Barros", vistas: 10983 },
+  "gui-tkinter": { id: "7zCl__C91MA", canal: "Mira Cómo Se Hace", vistas: 7160 },
   "gui-ux": { id: "rKQ1qdD1hrE", canal: "Coderhouse", vistas: 64632 },
   "gui-pruebas": { id: "wA_y-72rLs0", canal: "codigofacilito", vistas: 37266 },
   "bd-general": { id: "SKOiEXlFNeM", canal: "TodoCode", vistas: 184366 },

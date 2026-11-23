@@ -43,7 +43,7 @@ module.exports = {
     titulo: "Del enfado a la solución",
     svg: mural("Mural: paro y respiro, pienso, hablo y buscamos una solución", [["semaforo", "paro", "respiro tres veces", "var(--red)"], ["bocadillo", "pienso", "¿qué ha pasado?", "var(--inf)"], ["oido", "hablo y escucho", "sin gritar", "var(--pen)"], ["manos", "solución", "turnos o juntos", "var(--leaf)"]]),
   },
-  video: vid("n3903CjwJ5k", "El Enfadosaurio. Cuentos infantiles", "con c de cuentacuentos", 1119040, "cuento enfado niños"),
+  video: vid("uITKj_Nl48o", "Tengo un volcán 🌋 | Cuentos infantiles", "con c de cuentacuentos", 1700130, "cuento enfado niños"),
   ejemplosTitulo: "Lo hacemos juntos",
   ejemplos: [
     { enunciado: "Lucas y Ana quieren la misma pelota.", pasos: ["Rojo: los dos paran y respiran.", "Amarillo: piensan; los dos quieren jugar.", "Verde: hablan y deciden jugar juntos a pasarse la pelota."], resultado: "juegan juntos y nadie se enfada." },

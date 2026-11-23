@@ -56,7 +56,7 @@ module.exports = {
   "mut-b": { id: "cVl-86Sic-0", canal: "Think the Planet", vistas: 1003959, q: "leyes de Mendel" },
   "mut-c": { id: "Cz6VTtlQksE", canal: "Katedra", vistas: 1261852, q: "selección natural" },
   "mut-d": { id: "6QfDA44028s", canal: "Scienza Educación", vistas: 679010, q: "teorías de la evolución" },
-  "mut-e": { id: "RpBKTxrQHZM", canal: "Haciendo Ciencia", vistas: 175850, q: "herencia ligada al X" },
+  "mut-e": { id: "CBAwcRaVzA4", canal: "Mangel Ciencia", vistas: 980837, q: "herencia ligada al X" },
   "mut-f": { id: "_DViohu7BN4", canal: "A Cierta Ciencia", vistas: 1641586, q: "ejercicios de Mendel" },
   "mic-a": { id: "xL03XP112ZQ", canal: "unProfesor", vistas: 223794, q: "ciclo lítico de un virus" },
   "mic-b": { id: "gjGnUqCAmwU", canal: "unProfesor", vistas: 244014, q: "estructura bacteriana" },
@@ -68,6 +68,6 @@ module.exports = {
   "inm-b": { id: "mndQ_4BR14k", canal: "Astraway", vistas: 429814, q: "sistema inmunitario explicado" },
   "inm-c": { id: "2Hp1f0mRdP4", canal: "KhanAcademyEspañol", vistas: 130682, q: "inmunidad innata y adaptativa" },
   "inm-d": { id: "JkuoT7I3xaw", canal: "unProfesor", vistas: 262894, q: "tipos de anticuerpos" },
-  "inm-e": { id: "0NebEWKZ0ro", canal: "Nucleus Health Videos - Español", vistas: 600125, q: "cómo funcionan las vacunas" },
+  "inm-e": { id: "lplOTd6F95E", canal: "Lecciones de biología", vistas: 146326, q: "cómo funcionan las vacunas" },
   "inm-f": { id: "yLPL7KnLG0A", canal: "unProfesor", vistas: 323169, q: "linfocitos T" },
 };

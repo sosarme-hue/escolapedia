@@ -40,7 +40,7 @@ module.exports = B.tema({
       html: `<p>El <b>belting</b> es la técnica del musical y del pop para cantar agudos potentes con un sonido parecido a una llamada o a un grito controlado. No es empujar la voz de pecho: se consigue con una voz mixta muy brillante, mucho apoyo, la boca abierta en vocales como «e» o «a» y una laringe algo más alta.</p>
       <p>El <b>twang</b> es un estrechamiento de la zona justo encima de las cuerdas vocales (el esfínter ariepiglótico) que da un sonido metálico y brillante, como el de un pato o una sirena de juguete. Aumenta la potencia sin más esfuerzo. Ambas técnicas deben aprenderse con un profesor y con mucho cuidado de la salud vocal.</p>`,
       svg: B.flujo("Hacia el belting sin forzar", ["Voz hablada con energía: «¡ey!»", "Añadir twang: sonido brillante", "Subir en voz mixta", "Abrir la vocal y apoyar"]),
-      video: { id: "NHu1qIb2gic", titulo: "Cómo cantar notas altas con voz de pecho: belting sin forzar la voz", canal: "Natalia Bliss", vistas: 124048 },
+      video: { id: "vqg8Tdy07JE", titulo: "TUTORIAL 5: CECILIA SALINAS/TÉCNICAS VOCALES PARA JAZZ Y BLUES", canal: "CIFRAS FEMENINAS", vistas: 12221 },
     },
     {
       h: "El góspel",
@@ -72,7 +72,7 @@ module.exports = B.tema({
     titulo: "Cuatro maneras de cantar",
     items: [["Lírico", "🎭", "resonancia", "sin micrófono"], ["Moderno", "🎤", "voz hablada", "y efectos"], ["Góspel", "👏", "solista y coro", "energía"], ["Jazz", "🎷", "swing", "y scat"]],
   },
-  video: { id: "5SpT72wo6CY", titulo: "Canto moderno frente a canto lírico", canal: "Natalia Bliss", vistas: 48573 },
+  video: { id: "Iqo-f4seUH8", titulo: "Diferencias entre el Canto Lírico y el Canto Popular", canal: "Pilar Moraguez Soprano Profesora de Canto", vistas: 13399 },
   quiz: [
     ["El canto lírico se desarrolló para…", ["cantar con micrófono", "oírse sin amplificación sobre una orquesta", "cantar en la radio", "improvisar"], 1, "Por eso busca tanta proyección."],
     ["En el canto moderno el punto de partida es…", ["la voz hablada", "el falsete", "la laringe muy baja", "el vibrato constante"], 0, "Se entiende como una conversación."],

@@ -104,7 +104,7 @@ module.exports = B.tema({
       <li><b>Puntos de paso y contorno</b>: se marcan los puntos donde el contorno cruza las líneas de referencia y se unen con el perfil final.</li></ol>
       <p>Se trabaja siempre de <b>lo general a lo particular</b>: primero lo grande, luego lo mediano, al final lo pequeño. El error más común es hacer el contrario, empezar por un detalle (el ojo, el asa) y construir el objeto a partir de él, con lo que el tamaño y la colocación se pierden. Y la regla de oro: <mark>no pasar al paso siguiente sin comprobar el anterior</mark>.</p>`,
       svg: B.flujo("Pasos del encaje", ["Observar la forma general", "Caja general con márgenes", "Ejes y mitades", "Formas básicas y cajas parciales", "Puntos de paso y contorno"], { t: "Encajar en cinco pasos" }),
-      video: { id: "yNSna7YcMyU", titulo: "Encaje, encajado o proporción en el dibujo", canal: "Rincón del Artista", vistas: 30808 },
+      video: { id: "Vrh0lJYA8zs", titulo: "Proporción y Encaje", canal: "Visuplas", vistas: 124326 },
     },
     {
       h: "Medir con el lápiz",
@@ -151,7 +151,7 @@ module.exports = B.tema({
     titulo: "El encaje de un vistazo",
     items: [["Caja general", "▭", "tamaño y colocación", "con márgenes"], ["Ejes", "＋", "simetría", "e inclinación"], ["Formas básicas", "◯ ▭ △", "cubo, esfera", "cilindro, cono"], ["Revisar", "↔", "medir y comparar", "espejo y giro"]],
   },
-  video: { id: "yNSna7YcMyU", titulo: "Encaje, encajado o proporción en el dibujo", canal: "Rincón del Artista", vistas: 30808 },
+  video: { id: "Vrh0lJYA8zs", titulo: "Proporción y Encaje", canal: "Visuplas", vistas: 124326 },
   quiz: [
     ["¿Qué papel cumple la línea de contorno?", ["Describe el movimiento", "Separa la figura del fondo recorriendo su borde", "Sombrea el interior", "Marca los ejes"], 1, "El contorno delimita; el gesto sigue el movimiento; la estructura organiza."],
     ["La línea de gesto sirve para…", ["perfilar el detalle", "captar el movimiento y la actitud en pocos segundos", "dar color", "medir proporciones"], 1, "Es un trazo rápido, grande y sintético."],

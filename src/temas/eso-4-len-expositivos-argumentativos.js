@@ -137,7 +137,7 @@ module.exports = libro({
   videos: [
     ["1.3", L.vid("j5oiWmTa9YA", "Texto expositivo explicado fácil: estructura, características y ejemplos", "Te Lo Explico", 144609)],
     ["2.3", L.vid("8kJfrcsp0hs", "Tipos de argumentos: explicación y ejemplos fáciles", "Javier Lengua", 55577)],
-    ["2.6", L.vid("CY9AgK1yJYw", "Cómo usar correctamente los conectores lógicos", "Renato Zarate Amador", 497755)],
+    ["2.6", L.vid("v-ma_OPJVJU", "Los conectores lógicos (¿cómo hacer un texto de contraste?)", "Profa. Kempis", 214678)],
   ],
   ejemplos: [
     ["Clasifica el texto: «El volcán es una abertura de la corteza terrestre por la que sale magma. Se forma cuando…»", ["La intención es explicar, no convencer.", "Usa presente atemporal («es», «se forma») y tercera persona.", "Hay una definición y tecnicismos (corteza, magma).", "No hay opiniones ni modalizadores valorativos."], "Texto expositivo de divulgación científica."],

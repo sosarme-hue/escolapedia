@@ -33,7 +33,7 @@ module.exports = B.tema({
       html: `<p><b>Afinar</b> es cantar cada nota a la altura exacta. En el coro no basta con la nota «del piano»: hay que ajustarla al <b>acorde</b> que forman todas las voces. Los errores más frecuentes son ir <b>calando</b> (bajando poco a poco la afinación) en obras a cappella largas, o <b>subir</b> por exceso de tensión.</p>
       <p>Para afinar bien ayudan una buena respiración y apoyo, escuchar a los bajos (que sostienen la armonía), pensar la nota antes de cantarla, cuidar especialmente los intervalos descendentes y las notas repetidas, y hacer ejercicios de acordes mantenidos.</p>`,
       svg: B.acordes("Acordes para practicar la afinación en grupo", [["Do", 0, "mayor"], ["La m", -2, "menor"], ["Fa", 1, "mayor"], ["Sol", 2, "mayor"]], "Acordes mantenidos a cuatro voces"),
-      video: { id: "QAlwo2BgKaU", titulo: "Cómo cantar afinado: ejercicios para afinar la voz", canal: "Natalia Bliss", vistas: 996193 },
+      video: { id: "H-vHaFwinYA", titulo: "Cómo cantar afinado 🔥Mejora la afinación de la voz, Ejercicios de entonación Natalia Bliss", canal: "Natalia Bliss ", vistas: 539217 },
     },
     {
       h: "El empaste",

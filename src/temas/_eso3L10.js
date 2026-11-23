@@ -60,7 +60,7 @@ const V = {
   quienBiblia: vid("vgd-8wj_JtM", "¿Quién escribió la Biblia?", "CuriosaMente", 704269),
   abraham: vid("TOhtUVPYumA", "La vida completa de Abraham en un mapa", "Ear to Hear", 2732586),
   viasTomas: vid("Rnq0r4YhGQ0", "Las 5 vías de Tomás de Aquino, explicación fácil", "Explainerstv", 276064),
-  religiones: vid("EMeUQUFZQDo", "Todas las religiones explicadas en 10 minutos", "Masomenos", 895672),
+  religiones: vid("KOap4WMnfT8", "Dios en busca del hombre", "Profes de reli", 22916),
   sacramentos: vid("BWaZ3yhljNQ", "¿Qué son los sacramentos y cuántos hay?", "En ti confío", 134824),
   primeros: vid("JR002-vu2xc", "Los primeros cristianos: de secta del judaísmo a religión del Imperio", "Academia Play", 665337),
   parabolas: vid("jZinwS_2jsQ", "Parábolas de Jesús", "Proyecto Biblia", 342377),

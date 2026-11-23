@@ -59,7 +59,7 @@ module.exports = B.tema({
       <p>Las fotos son útiles como <b>complemento</b> (para recordar un color o un detalle), pero conviene no depender de ellas: quien copia fotografías copia también sus errores de perspectiva, de contraste y de saturación. Por eso, la regla del taller es: <mark>mejor mal del natural que bien de foto</mark>.</p>
       <p>Y además, es agradable. Dibujar en un parque, una plaza o una terraza es una forma de estar presente en el sitio y de descubrir detalles que habías pasado por alto mil veces.</p>`,
       svg: B.comparar("Natural frente a fotografía", ["Del natural", ["3D real", "luz que cambia", "decides tú", "memoria viva"]], ["De foto", ["plano", "contraste fijo", "todo decidido", "copia errores"]]),
-      video: { id: "_z-u8amlYxs", titulo: "Cómo hacer un croquis arquitectónico: tips básicos", canal: "Sketcharq", vistas: 47519 },
+      video: { id: "Q-5vYyAd9nE", titulo: "DIBUJO ARQUITECTÓNICO A MANO  - Plano a mano", canal: "ARQUIROCK", vistas: 549804 },
     },
     {
       h: "El cuaderno y los materiales mínimos",
@@ -106,7 +106,7 @@ module.exports = B.tema({
       <p>En un paisaje, organiza el espacio en <b>tres planos</b> (primero, medio y fondo) y aplica la perspectiva atmosférica. Añade elementos con escala conocida (una persona, un árbol, una farola) para sugerir tamaño. Dibuja lo <b>esencial</b>: la silueta de las casas, el ritmo de las ventanas (sin dibujar cada una), la masa de los árboles.</p>
       <p>En arquitectura, empieza por la <b>caja general</b> del edificio y su inclinación, y añade los elementos estructurales: cornisas, huecos, tejados. La luz lateral crea sombras proyectadas que dan <mark>profundidad inmediata</mark> a las fachadas (balcones, aleros, columnas).</p>`,
       svg: calle,
-      video: { id: "nzAMpMgeTSI", titulo: "¿Cómo mejorar el trazo para dibujar a mano alzada?", canal: "Sketcharq", vistas: 57756 },
+      video: { id: "S_ku0AVnorY", titulo: "MEJORA TU TRAZO CON 5 EJERCICIOS | DRAWINGNINJA", canal: "DrawingNinja", vistas: 165898 },
     },
     {
       h: "Personas, animales y movimiento",

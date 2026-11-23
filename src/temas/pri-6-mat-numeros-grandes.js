@@ -118,7 +118,7 @@ require("./_priL").libro(module.exports, {
     ],
     "Multiplicar": [
       ["La propiedad distributiva", `<p>La <b>propiedad distributiva</b> dice que multiplicar un número por una suma es lo mismo que multiplicarlo por cada sumando y después sumar los resultados:</p><p><b>a × (b + c) = a × b + a × c</b></p><p>Ejemplo: 7 × (20 + 3) = 7 × 20 + 7 × 3 = 140 + 21 = 161.</p><p>También funciona con la resta: 9 × (100 − 1) = 900 − 9 = 891.</p><p>Esta propiedad es muy útil para el <b>cálculo mental</b>: descomponemos uno de los factores en números fáciles.</p><ul><li>12 × 35 = 12 × 30 + 12 × 5 = 360 + 60 = 420.</li><li>25 × 104 = 25 × 100 + 25 × 4 = 2 500 + 100 = 2 600.</li><li>15 × 99 = 15 × 100 − 15 = 1 485.</li></ul><p>Y al revés, sirve para <b>sacar factor común</b>: 8 × 47 + 8 × 53 = 8 × (47 + 53) = 8 × 100 = 800.</p><p>Imagina que compras 6 camisetas de 12 € y 6 pantalones de 18 €: puedes calcular 6 × 12 + 6 × 18, o más rápido, 6 × 30 = 180 €.</p>`,
-        L6.filas("Distributiva", [["7 × (20 + 3)", "140 + 21 = 161", cAZ], ["9 × (100 − 1)", "900 − 9 = 891", cRO], ["8 × 47 + 8 × 53", "8 × 100 = 800", cVE]]), ["BeK6F3eEe0w", "Propiedad distributiva respecto a la suma", "podemos aprobar matemáticas", 1222132]],
+        L6.filas("Distributiva", [["7 × (20 + 3)", "140 + 21 = 161", cAZ], ["9 × (100 − 1)", "900 − 9 = 891", cRO], ["8 × 47 + 8 × 53", "8 × 100 = 800", cVE]]), ["jQ4HNaC9VoA", "Propiedad Distributiva de la Multiplicación | Súper Fácil", "Matemóvil", 448844]],
     ],
   },
   final: [

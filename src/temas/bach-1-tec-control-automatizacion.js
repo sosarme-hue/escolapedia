@@ -186,7 +186,7 @@ module.exports = B.tema({
     titulo: "Ideas clave del control y la automatización",
     items: [["Lazo cerrado", "M = G/(1+GH)", "mide, compara", "y corrige"], ["PID", "Kp · Ki · Kd", "rápido, preciso", "y estable"], ["Neumática", "F = p · S", "1 bar =", "0,1 N/mm²"], ["PLC", "leer · ejecutar", "· escribir", "ciclo de scan"]],
   },
-  video: { id: "3rFGZQz6Vuo", titulo: "Curso básico de PLC desde cero: introducción", canal: "AUTOMATIZACION INDUSTRIAL", vistas: 623297 },
+  video: { id: "2upZSEaqj7k", titulo: "¿Qué es la AUTOMATIZACIÓN INDUSTRIAL? | Curso de Automatizacion Industrial #1", canal: "AUTOMATIZACION INDUSTRIAL", vistas: 251635 },
   quiz: [
     ["¿Qué elemento mide la variable controlada?", ["El actuador", "El sensor", "El comparador", "El proceso"], 1, "Convierte la magnitud en una señal."],
     ["El comparador obtiene…", ["la consigna", "la señal de error", "la perturbación", "la potencia"], 1, "e = referencia − medida."],

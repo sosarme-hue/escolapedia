@@ -25,7 +25,7 @@ const VID = {
   getUsed: vid("BGVl_nTJY7A", "Used to, be used to, get used to: gramática inglesa", "Arnel's Everyday English", 1305050, "be used to get used to"),
   perfGen: vid("Ey0JqLSfCdA", "Cómo usar el pretérito perfecto: simple o continuo", "mmmEnglish", 787074, "past perfect simple vs continuous"),
   ppVsPast: vid("q1LKzp2ozVM", "Present perfect vs. past simple: Tom's story", "oomongzu", 2314110, "present perfect vs past simple"),
-  ppCont: vid("utkyo3RtDjE", "Presente perfecto progresivo en inglés: have / has been + -ing", "Francisco Ochoa Inglés Fácil", 1692714, "present perfect continuous explicación español"),
+  ppCont: vid("7NGLHYVmr00", "The Present Perfect vs The Present Perfect Continuous | ALL differences (+ Free PDF & Quiz)", "English with Lucy", 2480947, "present perfect continuous explicación español"),
   pastPerf: vid("PQ6s89XUvz4", "Cómo formar oraciones con el pasado perfecto en inglés (had)", "Francisco Ochoa Inglés Fácil", 2641122, "past perfect inglés explicación"),
   futGen: vid("2LSBme2M4Qo", "Tiempos futuros en inglés (will, going to, be + -ing y más)", "Learn English with Papa Teach Me", 490203, "futuro en inglés will going to presente continuo"),
   futCont: vid("Jty1dsqam8c", "Futuro progresivo en inglés: afirmativa, negativa e interrogativa", "Francisco Ochoa Inglés Fácil", 655931, "future continuous future perfect explicación"),

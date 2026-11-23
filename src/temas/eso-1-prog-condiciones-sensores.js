@@ -191,7 +191,7 @@ module.exports = {
       ["Operadores", "> < = · y · o · no", CAT.operadores],
     ]),
   },
-  video: { id: "Friweqkc35Q", titulo: "Tutorial Scratch: «Si entonces si no»", canal: "Harold Rodríguez", vistas: 12159, megusta: 0, busqueda: "scratch condicionales sensores si entonces" },
+  video: { id: "a9kZWidhGcw", titulo: "Estructuras de Control Scratch (Si - Entonces (Si - No))", canal: "Juan David V.S", vistas: 4225, megusta: 0, busqueda: "scratch condicionales sensores si entonces" },
   mapa: mapa("DECIDIR", CAT.control, [
     ["Condición", "verdadero o falso", "var(--leaf)"],
     ["Si… si no", "uno de dos caminos", CAT.control],

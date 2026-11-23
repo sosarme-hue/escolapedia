@@ -41,7 +41,7 @@ module.exports = {
       svg: `<svg viewBox="0 0 260 180" role="img" aria-label="Una niña habla por videollamada con su tía y su primo">${BG}
         ${persona(60, 160, 116, "var(--sun)", "#6b3f1f")}
         <g transform="translate(176 92)"><rect x="-58" y="-50" width="116" height="84" rx="8" fill="var(--ink)"/><rect x="-52" y="-44" width="104" height="72" fill="var(--water)" fill-opacity=".35"/></g>
-        <svg x="124" y="48" width="104" height="72" viewBox="0 0 104 72">${persona(36, 90, 80, "var(--red)", "#6b3f1f")}${persona(76, 90, 60, "var(--leaf)")}</svg>
+        <svg x="124" y="48" width="104" height="72" viewBox="0 0 104 72" aria-hidden="true">${persona(36, 90, 80, "var(--red)", "#6b3f1f")}${persona(76, 90, 60, "var(--leaf)")}</svg>
         ${txt(176, 152, "tía y primo", { size: 12, color: "var(--muted)" })}${txt(60, 30, "¡Hola!", { size: 15, color: "var(--pen)", font: D, weight: 800 })}</svg>`,
     },
     {

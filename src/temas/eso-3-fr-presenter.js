@@ -62,7 +62,7 @@ module.exports = {
       ["lugar", "J'HABITE", ["J'habite", "à Valence."], "var(--inf)"],
     ]),
   },
-  video: { id: "fpC0KhjGkMM", titulo: "Je me présente. Savoir se présenter en français (niveau A1)", canal: "La prof Elisabeth", vistas: 476786, megusta: 0, busqueda: "se présenter en français" },
+  video: { id: "OQ2OvaZ0PnI", titulo: "Bonjour - se présenter en français", canal: "Ylva Sørlie", vistas: 1299973, megusta: 0, busqueda: "se présenter en français" },
   quiz: [
     { q: "Para saludar a una profesora dices…", o: ["Bonjour, madame.", "Salut, ça roule ?", "Au revoir."], a: 0, e: "Formal." },
     { q: "«Tengo catorce años»:", o: ["J'ai quatorze ans.", "Je suis quatorze ans.", "J'ai quatorze."], a: 0, e: "Avoir + ans." },

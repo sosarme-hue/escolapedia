@@ -19,7 +19,7 @@ module.exports = {
   "tP-7nTExaqo": ["¿Cuáles son las PARTES de la PLANTA? | Ciencias Naturales para NIÑOS | Curiosidades | Biología", "Nacho Aprende", 277354], // cn-plantas
   "wtpP_5dmrRo": ["La FOTOSINTESIS DE LAS PLANTAS para niños | La FOTOSINTESIS para niños 🌻🍀", "El Club de Motas", 457604], // cn-plantas
   "bgQQdeL22mI": ["Ecosistemas |Videos Educativos Para Niños", "GuerrerosPlanet", 2235253], // cn-ecosistemas
-  "c_WZ0c0f-dU": ["¿Qué son los Bosques?🌳🌲 Video Educativo para niños", "MiniDon", 262394], // cn-ecosistemas
+  "oeS3xu8-WJ0": ["🌳 Los ECOSISTEMAS 🌳 RESUMEN para NIÑOS de PRIMARIA | Videos Educativos Para Niños", "Clases Particulares en Ávila", 151169], // cn-ecosistemas
   "v_HWhCi6_N8": ["Ecosistema Acuático | Aula chachi - Vídeos educativos para niños", "Aula chachi", 137775], // cn-ecosistemas
   "DE3LCPfP8N8": ["Estados de la materia | Vídeos educativos para niños", "Happy Learning English", 1061603], // cn-materia-estados
   "JQ4WduVp9k4": ["Estados de la materia para niños: ¿Cuáles son los estados de la materia? Sólido, líquido y gaseoso.", "Smile and Learn - English", 2920584], // cn-materia-estados
@@ -63,7 +63,7 @@ module.exports = {
   "pyBahhoU4EA": ["Aprender a botar el balón para principiantes | Baloncesto", "SIKANA Español", 1896514], // ef-manejo-balones
   "UKCiXA8Pa7g": ["7 EJERCICIOS DE EQUILIBRIO Y COORDINACIÓN PARA NIÑOS", "Little Sports Español", 14572], // ef-equilibrio-coordinacion
   "jeuMuq-ni4o": ["18 EJERCICIOS de COORDINACIÓN para NIÑOS y JÓVENES en CASA con el cuerpo, EDUCACIÓN FÍSICA EN CASA😍", "Educación Física Internacional", 578381], // ef-equilibrio-coordinacion
-  "Q6ZDUuMiMcA": ["5 EJERCICIOS DE COORDINACIÓN /GIMNASIA CEREBRAL PARA NIÑOS/EDUCACIÓN FÍSICA", "EDUCACIÓN FÍSICA INTELIGENTE", 305759], // ef-equilibrio-coordinacion
+  "-CIbtmVcA_w": ["Ejercicio de Coordinación y  gimnasia cerebral", "CREA música", 588328], // ef-equilibrio-coordinacion
   "gmFrWDcYfsQ": ["Tafad Juegos Cooperativos", "TAFAD UFV", 969391], // ef-juegos-cooperativos
   "6Qgq1bPD9RA": ["Nuestras 5 mejores actividades con paracaídas para Educación Física", "The Activity Channel", 208388], // ef-juegos-cooperativos
   "KWKG8wU1rZs": ["Los 6 juegos de TRABAJO EN EQUIPO que todo profesor debe aplicar éste 2020 | EDUCACIÓN FÍSICA", "Educación Física Internacional", 254300], // ef-juegos-cooperativos

@@ -58,7 +58,7 @@ module.exports = {
       ["exceso / suficiente", "TOO / ENOUGH", ["too slow", "fast enough"], "var(--inf)"],
     ]),
   },
-  video: { id: "9KIiaLupHuA", titulo: "4 reglas clave para usar el comparativo en inglés correctamente", canal: "Francisco Ochoa Inglés Fácil", vistas: 2865768, megusta: 0, busqueda: "comparativos y superlativos en inglés" },
+  video: { id: "IE2PnyNAgFI", titulo: "ADJETIVOS COMPARATIVOS EN INGLES - REGLAS Y EJEMPLOS ( TODO LO QUE DEBES SABER)", canal: "Mr. Rivera", vistas: 235749, megusta: 0, busqueda: "comparativos y superlativos en inglés" },
   quiz: [
     { q: "El comparativo de «big» es…", o: ["biger", "bigger", "more big"], a: 1, e: "Consonante-vocal-consonante: se dobla la g." },
     { q: "«This is ___ film I've ever seen.»", o: ["the most boring", "the boringest", "more boring"], a: 0, e: "Adjetivo largo: the most." },

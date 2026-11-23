@@ -162,7 +162,7 @@ require("./_priL").libro(module.exports, {
     "¿Para qué sirve?": [
       ["Pedro y el lobo", `<p><mark>Pedro y el lobo</mark> es un cuento musical del compositor ruso Serguéi Prokófiev. Cada personaje tiene su instrumento y su melodía:</p><ul><li><b>Pedro</b>: los violines y la cuerda (alegre).</li><li><b>El pájaro</b>: la flauta (muy aguda y rápida).</li><li><b>El pato</b>: el oboe (un poco gangoso).</li><li><b>El gato</b>: el clarinete (suave y sigiloso).</li><li><b>El abuelo</b>: el fagot (grave y gruñón).</li><li><b>El lobo</b>: las trompas (graves y amenazantes).</li><li><b>Los cazadores</b>: los timbales y el bombo (disparos).</li></ul><p>Escuchando la música, sabemos qué personaje aparece sin necesidad de verlo. Los animales pequeños tienen instrumentos agudos, y los grandes o peligrosos, graves.</p><p><b>Actividad</b>: escucha el cuento y levanta la tarjeta del personaje cuando suene su instrumento.</p>`,
         H6.rueda("Pedro", "CUENTO", [["pájaro", cNA], ["pato", cAZ], ["abuelo", cMO], ["lobo", cRO]]),
-        ["P_Mx86DTdSM", "Pedro y el lobo - Música maestro", "Disney", 128836]],
+        ["PgBceUJGpjQ", "Luis Pescetti - Sinfónica Nacional en el CCK - Pedro y el lobo", "Paka Paka", 42491]],
     ],
   },
   final: [

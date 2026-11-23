@@ -134,7 +134,7 @@ module.exports = libro({
 }, {
   videos: [
     ["1.3", L.vid("qKqUkrdKJpE", "El Novecentismo y las vanguardias: resumen", "Clases Particulares en Ávila", 124925)],
-    ["2.4", L.vid("of9aOwwNTac", "Breve biografía de Federico García Lorca", "JessieOrtiz87", 254701)],
+    ["2.4", L.vid("fnJlUeqdYJE", "FEDERICO GARCÍA LORCA | Draw My Life", "Sara Medved", 198810)],
   ],
   ejemplos: [
     ["Explica la greguería «El arco iris es la bufanda del cielo».", ["Identifica las dos realidades: el arco iris y una bufanda.", "Busca la semejanza: los dos son franjas alargadas de colores que «envuelven».", "Fíjate en el humor: el cielo se convierte en alguien que se abriga."], "Metáfora humorística: humorismo + metáfora = greguería."],

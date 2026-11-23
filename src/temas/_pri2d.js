@@ -48,7 +48,7 @@ const VID = {
   mu1b: ["noQTk4mOmIQ", "Los sonidos de la naturaleza: discriminación de sonidos", "Eugenia Romero", 2293229],
   mu2v: ["kViRuUWy09s", "Aprendiendo a diferenciar sonidos agudos y graves", "Sara Ramz", 227205, "sonidos agudos y graves para niños"],
   mu2b: ["wEkitLcnylM", "Adivina sonidos agudos y graves", "Seño Merce", 119255],
-  mu3v: ["ji-XbGcT4bg", "El pulso musical", "EnMus Enseñanza musical", 286854, "pulso y ritmo para niños música"],
+  mu3v: ["ylnhq3Z0d-o", "DIFERENCIAS ENTRE PULSO Y RITMO", "Profe Claudia Becerra", 18116, "pulso y ritmo para niños música"],
   mu3b: ["lEqVduisxyU", "Pulso, acento y ritmo con la canción «Calypso»", "Profesor Pedro Morales Tuto Flauta", 267703],
   mu4v: ["yGL7vBz78FI", "Juego de manos para niños «Al salir de la cueva»", "Dos Cocos", 5461781, "canciones con juegos de manos"],
   mu4b: ["Ae3OVi8Q7NA", "Pepito fue a China: canción y juego con las palmas", "cotidiano399", 5186260],

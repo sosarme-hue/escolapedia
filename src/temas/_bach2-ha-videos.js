@@ -41,7 +41,7 @@ module.exports = {
   "bae-e": { id: "xJ-e_fOYygg", canal: "ArteHistoria", vistas: 82533, q: "Palacio de Versalles" },
   "bes-a": { id: "d5osuXFLdY0", canal: "ArteHistoria", vistas: 0, q: "genios de la pintura barroca española" },
   "bes-b": { id: "OGsEK6yLVzU", canal: "Historia del Arte 2.0", vistas: 0, q: "Cristo yacente de Gregorio Fernández" },
-  "bes-c": { id: "LwBJwgz1ruI", canal: "Los Secretos del Arte", vistas: 0, q: "Velázquez, maestro del Barroco español" },
+  "bes-c": { id: "SFfunWWrfLU", canal: "Víctor Reyes", vistas: 6190, q: "Velázquez, maestro del Barroco español" },
   "bes-d": { id: "1C504F-1Pb0", canal: "MemorANDA", vistas: 0, q: "Murillo, el pintor sevillano" },
   "neo-a": { id: "BColdUreH-w", canal: "La.Inercia", vistas: 0, q: "biografía y obra de Goya" },
   "neo-b": { id: "cGVKTkne95A", canal: "ArteHistoria", vistas: 0, q: "la escultura de Canova" },

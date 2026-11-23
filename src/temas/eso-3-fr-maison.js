@@ -120,7 +120,7 @@ L.amplia(module.exports, {
   ],
   videos: [
     ["Las preposiciones de lugar", L.vid("O9b3AWsifes", "Preposiciones de lugar en francés", "Aprenda Francés con Pascal", 130137)],
-    ["Pedir y dar direcciones", L.vid("qqOIS9ccKeI", "Dar direcciones en francés (clase 45)", "Pédago FLE con Gladys Mambié", 65655)],
+    ["Pedir y dar direcciones", L.vid("6GNGpCeB1yA", "Pedir Indicaciones en Francés | A1 Clase 12", "Clases de Francés Fácil con Nelson", 49801)],
   ],
   ejemplos: [
     ["Describe la imagen: un gato encima del sofá y un perro debajo de la mesa.", ["Gato encima del sofá: sur le canapé.", "Perro debajo de la mesa: sous la table.", "Se usa il y a o être para situar."], "Le chat est sur le canapé et le chien est sous la table."],

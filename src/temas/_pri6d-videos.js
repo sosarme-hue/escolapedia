@@ -7,7 +7,7 @@ module.exports = {
   in1b: ["Dl8g2pZ82ME", "Present Continuous Verb Chant: What are you doing?", "ELF Kids Videos", 2802485],
   in2v: ["DQlzxDz5T0w", "Past simple: aprende inglés con Mr Pea", "Inglés para niños con Mr Pea", 2749231, "pasado simple en inglés verbos regulares e irregulares para niños"],
   in2b: ["jMPgMH-7-jU", "Irregular Verbs Song", "Rockin' English Lessons", 789430],
-  in3v: ["FM8xxpFS0wk", "Comparativos vs superlativos en inglés", "Clases de inglés en español", 597843, "comparativos y superlativos en inglés para niños"],
+  in3v: ["UcQeFtrAVis", "Os comparativos e superlativos em inglês │ “Messi is better than Cristiano Ronaldo”?", "Teacher Elza", 260053, "comparativos y superlativos en inglés para niños"],
   in3b: ["OzDp4J5uRDo", "Adjetivos en grado superlativo en inglés", "Inglés para niños con Mr Pea", 530438],
   in4v: ["MzTzXemnCqo", "Going to: inglés para niños", "Inglés para niños con Mr Pea", 784229, "future going to for kids"],
   in4b: ["L7y43hYxSkc", "Simple future (will): inglés para niños", "Inglés para niños con Mr Pea", 762745],

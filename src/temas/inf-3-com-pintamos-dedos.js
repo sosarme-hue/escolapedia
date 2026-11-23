@@ -44,7 +44,7 @@ module.exports = {
     titulo: "Pintamos con los dedos",
     svg: mural("Pintar con los dedos: babi, colores, huellas y mezclar", [["camiseta", "babi", "nos preparamos", A], ["flor", "colores", "rojo, azul…", R], ["mano", "huellas", "dedo y papel", V], ["arcoiris", "mezclar", "azul + amarillo", N]], "Pintamos con los dedos"),
   },
-  video: { ...vid("SgNru6kxmFE", "Los colores · Aprende los colores pintando los dedos", "FunKeep Kids", 39714225), busqueda: "pintar con los dedos para niños" },
+  video: { ...vid("OJX11kDl_D0", "Dactilopintura facil para niños", "Lineas y Colores", 65329), busqueda: "pintar con los dedos para niños" },
   ejemplosTitulo: "Lo hacemos juntos",
   ejemplos: [
     { enunciado: "Pintamos un sol.",

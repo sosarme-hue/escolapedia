@@ -40,7 +40,7 @@ module.exports = tema({
     titulo: "Palabras cortas para leer",
     svg: mural("Cuatro palabras con dibujo y sílabas: OSO, PATO, MESA y LUNA", [["oso", "OSO", "O-SO", R], ["pato", "PATO", "PA-TO", A], ["mesa", "MESA", "ME-SA", V], ["luna", "LUNA", "LU-NA", N]], "Leo cada trocito y junto la palabra"),
   },
-  video: { ...vid("uF5gQ4fc3cM", "Aprende a leer con MiniDon: las sílabas para niños", "MiniDon", 3768886), busqueda: "aprender a leer palabras cortas sílabas para niños" },
+  video: { ...vid("olMUj4D6wp0", "A practicar la lectura! Aprende a leer con MiniDon! Sílabas para niños. Video Educativo", "MiniDon", 1149561), busqueda: "aprender a leer palabras cortas sílabas para niños" },
   ejemplos: [
     { enunciado: "Leemos la palabra PALO.", pasos: ["Tapamos LO y leemos PA.", "Destapamos y leemos LO.", "Lo decimos seguido: PA-LO, PALO."], resultado: "pone PALO." },
     { enunciado: "¿Cuántas sílabas tiene MAMÁ?", pasos: ["Decimos MA y damos una palmada.", "Decimos MÁ y damos otra.", "Contamos las palmadas: 2."], resultado: "MAMÁ tiene 2 sílabas." },

@@ -22,7 +22,7 @@ module.exports = {
   "rela-b": { id: "SBia0Zv82VQ", canal: "Educar Portal", vistas: 511762, q: "impulso nervioso sinapsis" },
   "rela-c": { id: "TTdvcTW1q8k", canal: "Dr. Alberto Sanagustín", vistas: 3224794, q: "sistema endocrino hormonas" },
   "repa-a": { id: "tiW21uGg6c4", canal: "ARRIBA LA CIENCIA", vistas: 101655, q: "reproducción sexual y asexual en animales" },
-  "repa-b": { id: "kQu6Yfrr6j0", canal: "Nucleus Biology", vistas: 7894511, q: "meiosis fases" },
+  "repa-b": { id: "nf_RoCDnu8w", canal: "Nutrimente", vistas: 502171, q: "meiosis fases" },
   "repa-c": { id: "t-86dB3JkBw", canal: "Professor Dave Explains", vistas: 207476, q: "segmentación gastrulación organogénesis" },
   "est-a": { id: "qjBLvc5adtU", canal: "GENIAL", vistas: 10447144, q: "estructura interna de la Tierra" },
   "est-b": { id: "C5WL8Lclg_c", canal: "La 2", vistas: 27040, q: "ondas sísmicas discontinuidades interior de la Tierra" },

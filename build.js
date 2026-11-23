@@ -7,6 +7,8 @@ const OUT = path.join(__dirname, process.env.PREVIEW ? "preview" : "dist");
 const SITE = "Escolapedia";
 const GA_ID = "G-DXYJCCJC31";
 const CURSO_ESCOLAR = "2026-27";
+const SITIO = "https://escolapedia.com";
+const crypto = require("crypto");
 
 const ORD = ["1er", "2º", "3er"];
 const PAU_MATERIAS = require("./src/pau").MATERIAS;
@@ -88,8 +90,63 @@ ${scripts}
 }
 
 const PAGINAS = [];
+const HASH = {};
+// Cabecera SEO común: canónica, Open Graph, favicon, migas en JSON-LD y títulos que no se corten en Google.
+function seo(rel, html) {
+  rel = rel.replace(/\\/g, "/").replace(/^\/+|\/+$/g, "");
+  const url = `${SITIO}/${rel ? rel + "/" : ""}`;
+  const ficha = /(^|\/)ficha$/.test(rel);
+  let title = (html.match(/<title>([\s\S]*?)<\/title>/) || [])[1] || SITE;
+  if (title.length > 65) title = title.replace(/ · Escolapedia$/, "");
+  if (title.length > 65) title = title.replace(/ de (Primaria|ESO|Bachillerato)\b/g, " $1").replace(/Bachillerato/g, "Bach.");
+  html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${title}</title>`);
+  let desc = (html.match(/<meta name="description" content="([^"]*)"/) || [])[1] || "";
+  if (desc.length > 160) {
+    desc = desc.slice(0, 157).replace(/[\s,;:(]+[^\s]*$/, "") + "…";
+    html = html.replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${desc}">`);
+  }
+  const lang = (html.match(/<html lang="(\w+)"/) || [])[1] || "es";
+  // Migas de pan → BreadcrumbList
+  let ld = "";
+  const cr = html.match(/<div class="crumbs[^"]*">([\s\S]*?)<\/div>/);
+  if (cr && !ficha) {
+    const items = [];
+    const re = /<a href="([^"]*)">([^<]*)<\/a>/g; let m;
+    while ((m = re.exec(cr[1]))) {
+      const abs = new URL(m[1], url).href;
+      items.push({ "@type": "ListItem", position: items.length + 1, name: m[2].replace(/^← /, "").trim(), item: abs });
+    }
+    const last = cr[1].replace(/<a [^>]*>[^<]*<\/a>/g, "").replace(/›/g, "").trim();
+    const h1 = (html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [])[1];
+    if (last) items.push({ "@type": "ListItem", position: items.length + 1, name: (/^Tema \d+$/.test(last) && h1 ? h1.replace(/<[^>]+>/g, "") : last).replace(/&amp;/g, "&"), item: url });
+    if (items.length > 1) ld += `<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: items })}</script>\n`;
+  }
+  if (!rel) ld += `<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@graph": [
+    { "@type": "WebSite", "@id": `${SITIO}/#web`, url: `${SITIO}/`, name: SITE, inLanguage: "es", publisher: { "@id": `${SITIO}/#org` } },
+    { "@type": "EducationalOrganization", "@id": `${SITIO}/#org`, name: SITE, url: `${SITIO}/`, logo: `${SITIO}/apple-touch-icon.png` }] })}</script>\n`;
+  const head = [
+    ficha ? `<meta name="robots" content="noindex, follow">` : `<link rel="canonical" href="${url}">`,
+    `<link rel="icon" href="/favicon.svg" type="image/svg+xml">`,
+    `<link rel="icon" href="/favicon.ico" sizes="32x32">`,
+    `<link rel="apple-touch-icon" href="/apple-touch-icon.png">`,
+    `<meta property="og:type" content="${/^(primaria|eso|bachillerato|infantil)\/[^/]+\/[^/]+\/[^/]+$/.test(rel) ? "article" : "website"}">`,
+    `<meta property="og:site_name" content="${SITE}">`,
+    `<meta property="og:locale" content="${lang === "ca" ? "ca_ES" : "es_ES"}">`,
+    `<meta property="og:title" content="${title}">`,
+    `<meta property="og:description" content="${desc}">`,
+    `<meta property="og:url" content="${url}">`,
+    `<meta property="og:image" content="${SITIO}/assets/og.png">`,
+    `<meta property="og:image:width" content="1200">`,
+    `<meta property="og:image:height" content="630">`,
+    `<meta name="twitter:card" content="summary_large_image">`,
+  ].join("\n");
+  html = html.replace(/(<meta name="description" content="[^"]*">)/, `$1\n${head}\n${ld}`.replace(/\n$/, ""));
+  return html;
+}
 function write(rel, html) {
   PAGINAS.push(rel);
+  html = seo(rel, html);
+  HASH[rel.replace(/\\/g, "/").replace(/^\/+|\/+$/g, "")] = crypto.createHash("md5").update(html).digest("hex").slice(0, 10);
   // Vista previa (PREVIEW=1): enlaces a carpeta → index.html, para verla sin servidor web.
   if (process.env.PREVIEW) html = html.replace(/href="((?!https?:|#)[^"]*\/)"/g, 'href="$1index.html"');
   const f = path.join(OUT, rel, "index.html");
@@ -174,7 +231,7 @@ for (const e of ETAPAS) {
       return `<a class="card" style="--c:${e.color}" href="${c.slug}/"><span class="mono">${c.nombre.replace(" años", "")}</span><span><b>${cursoNombre(e, c)}</b><small>${c.materias.length} materias</small>${listos ? `<span class="pill">${listos} temas listos</span>` : `<span class="pill soon">En preparación</span>`}</span></a>`;
     }).join("")}</div>
   </div></main>`;
-  write(e.slug, page({ title: `${e.nombre} · ${SITE}`, desc: `Todos los cursos y materias de ${e.nombre}.`, depth: 1, body }));
+  write(e.slug, page({ title: `${e.nombre}: cursos, materias y temas · ${SITE}`, desc: `Todos los cursos y materias de ${e.nombre} (${e.edad}) explicados fácil: temas con dibujos, vídeos, ejercicios resueltos, fichas y exámenes de prueba.`, depth: 1, body }));
 
   // ---------- curso ----------
   for (const c of e.cursos) {
@@ -192,7 +249,7 @@ for (const e of ETAPAS) {
       ${c.slug === "2-bachillerato" ? `<a class="pau-banner" href="../../pau/"><b>PAU 2027: todo para la selectividad</b><span>Fechas, cálculo de nota, notas de corte y un modelo de examen resuelto de cada materia →</span></a>` : ""}
       ${groups}<div style="height:32px"></div>
     </div></main>`;
-    write(`${e.slug}/${c.slug}`, page({ title: `${cursoNombre(e, c)} · ${SITE}`, desc: `Todas las materias de ${cursoNombre(e, c)}.`, depth: 2, body }));
+    write(`${e.slug}/${c.slug}`, page({ title: `${cursoNombre(e, c)} · ${SITE}`, desc: `Todas las materias de ${cursoNombre(e, c)} según la LOMLOE: temas explicados fácil con dibujos, vídeos, ejercicios resueltos y exámenes por trimestre.`, depth: 2, body }));
 
     // ---------- materia ----------
     for (const m of c.materias) {
@@ -206,7 +263,7 @@ for (const e of ETAPAS) {
         <div class="page-h"><span class="badge" style="background:${famColor(m)}">${cursoNombre(e, c)}</span><h1>${m.nombre}</h1>${m.nota ? `<p>${m.nota}</p>` : ""}</div>
         ${pauLink(c, m)}${examLinks(m)}${list}<div style="height:48px"></div>
       </div></main>`;
-      write(m.url, page({ title: `${m.nombre} · ${cursoNombre(e, c)} · ${SITE}`, desc: `Temas de ${m.nombre} de ${cursoNombre(e, c)}.`, depth: 3, body }));
+      write(m.url, page({ title: `${m.nombre} · ${cursoNombre(e, c)} · ${SITE}`, desc: `Temas de ${m.nombre} de ${cursoNombre(e, c)} explicados fácil, con dibujos, vídeos, ejercicios resueltos, fichas para imprimir y exámenes por trimestre.`, depth: 3, body }));
 
       // ---------- tema ----------
       trimestres(m).forEach((tr, i) => { if (tr.some((t) => t.obj)) write(`${m.url}examen-${i + 1}-trimestre`, examPage(e, c, m, tr, i + 1)); });
@@ -285,7 +342,7 @@ function fichaPage(e, c, m, T, n) {
   <section class="sol"><h2>Soluciones</h2><ol>${T.quiz.map((q) => `<li><b>${L[q.a]})</b> ${q.e}</li>`).join("")}</ol></section>
   ${(T.ejercicios || []).length ? `<section class="sol"><h2>Soluciones de los ejercicios</h2><ol>${T.ejercicios.map((x) => `<li>${x.sol}</li>`).join("")}</ol></section>` : ""}
   </div></main>`;
-  return page({ title: `Ficha: ${T.titulo} · ${SITE}`, desc: `Ficha imprimible de ${T.titulo}, ${cursoNombre(e, c)}.`, depth: 5, body, scripts: `<script>document.getElementById("t-print").addEventListener("click",()=>window.print());</script>` });
+  return page({ title: `Ficha: ${T.titulo} · ${m.nombre} ${cursoNombre(e, c)} · ${SITE}`, desc: `Ficha para imprimir de ${T.titulo} (${m.nombre}, ${cursoNombre(e, c)}): esquema, ejercicios, test y soluciones.`, depth: 5, body, scripts: `<script>document.getElementById("t-print").addEventListener("click",()=>window.print());</script>` });
 }
 
 function topicPage(e, c, m, T, n) {
@@ -345,7 +402,11 @@ function topicPage(e, c, m, T, n) {
   </aside></div>
 </div></main>`;
   const data = { id, quiz: T.quiz, tarjetas: T.tarjetas };
-  return page({ bodyClass: /^([12]-primaria|[345]-anos)$/.test(c.slug) ? "peque" : "", title: `${T.titulo} · ${m.nombre} ${cursoNombre(e, c)} · ${SITE}`, desc: `${T.titulo}: explicación fácil con dibujos, vídeo, preguntas y tarjetas de repaso. ${cursoNombre(e, c)}.`, depth: 4, body, scripts: `<script>window.TEMA=${JSON.stringify(data)};</script>` });
+  const ldTema = { "@context": "https://schema.org", "@type": "LearningResource", name: T.titulo, description: (T.objetivos || []).join(". "), inLanguage: /catal|valenci/i.test(m.nombre) ? "ca" : "es",
+    url: `${SITIO}/${m.url}${slug(T.titulo)}/`, learningResourceType: "Tema", educationalLevel: cursoNombre(e, c), about: m.nombre, keywords: (T.claves || []).join(", "), isAccessibleForFree: true,
+    timeRequired: `PT${T.minutos || 30}M`, dateModified: T.revisado || undefined, author: { "@type": "Person", name: "Alejandro Rosàs" }, publisher: { "@type": "EducationalOrganization", name: SITE, url: `${SITIO}/` },
+    license: "https://creativecommons.org/licenses/by-nc/4.0/" };
+  return page({ extraHead: `<script type="application/ld+json">${JSON.stringify(ldTema).replace(/</g, "\\u003c")}</script>`, bodyClass: /^([12]-primaria|[345]-anos)$/.test(c.slug) ? "peque" : "", title: `${T.titulo} · ${m.nombre} ${cursoNombre(e, c)} · ${SITE}`, desc: `${T.titulo} (${m.nombre}, ${cursoNombre(e, c)}): explicación fácil con dibujos, vídeo, preguntas y tarjetas de repaso.`, depth: 4, body, scripts: `<script>window.TEMA=${JSON.stringify(data)};</script>` });
 }
 
 // ---------- familias y profesores ----------
@@ -382,7 +443,7 @@ legalPage("aviso-legal", "Aviso legal", "Información del titular y condiciones 
   <div class="box"><h3>Fuentes y contenidos</h3><p>Los temas se basan en los reales decretos de enseñanzas mínimas (RD 95/2022, RD 157/2022, RD 217/2022 y RD 243/2022) y en fuentes divulgativas indicadas en cada tema, con su fecha de revisión. Los textos, ejercicios y dibujos son de elaboración propia. Los vídeos se muestran incrustados desde YouTube y pertenecen a sus autores.</p></div>
   <div class="box"><h3>Responsabilidad</h3><p>Escolapedia revisa su contenido con regularidad, pero no garantiza que esté libre de errores ni que coincida con la programación concreta de cada centro. Ante cualquier duda, la referencia es siempre el profesorado de cada alumno.</p></div>
   <div class="box"><h3>Propiedad intelectual</h3><p>Puedes usar los materiales en casa y en el aula, imprimirlos y compartir los enlaces, siempre sin fines comerciales y citando la fuente.</p></div>`,
-  "Aviso legal de Escolapedia: titular, finalidad y condiciones de uso.");
+  "Aviso legal de Escolapedia: titular del sitio, finalidad educativa, condiciones de uso y propiedad intelectual de los contenidos.");
 
 legalPage("privacidad", "Privacidad", "Escolapedia no te pide datos personales. Solo usa estadísticas de visitas si lo aceptas.", `
   <div class="box"><h3>Responsable</h3><p>${TITULAR}</p></div>
@@ -391,20 +452,32 @@ legalPage("privacidad", "Privacidad", "Escolapedia no te pide datos personales. 
   <div class="box"><h3>Vídeos</h3><p>Los vídeos se cargan desde youtube-nocookie.com, el modo de privacidad mejorada de YouTube. Al reproducir un vídeo, YouTube puede tratar datos técnicos según su propia política.</p></div>
   <div class="box"><h3>Registros del servidor</h3><p>Como cualquier web, el servidor de alojamiento (Hostinger) registra datos técnicos de acceso, como la dirección IP, por seguridad. Hostinger actúa como encargado del tratamiento.</p></div>
   <div class="box"><h3>Tus derechos</h3><p>Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo al email del responsable, y reclamar ante la Agencia Española de Protección de Datos.</p></div>`,
-  "Política de privacidad de Escolapedia.");
+  "Política de privacidad de Escolapedia: qué datos se tratan, cookies, vídeos de YouTube y cómo ejercer tus derechos.");
 
 // ---------- recursos ----------
 fs.mkdirSync(path.join(OUT, "assets"), { recursive: true });
-for (const f of ["base.css", "extra.css", "app.js"]) fs.copyFileSync(path.join(__dirname, "src/assets", f), path.join(OUT, "assets", f));
+for (const f of ["base.css", "extra.css", "app.js", "og.png"]) fs.copyFileSync(path.join(__dirname, "src/assets", f), path.join(OUT, "assets", f));
+for (const f of ["favicon.svg", "favicon.ico", "apple-touch-icon.png"]) fs.copyFileSync(path.join(__dirname, "src/assets", f), path.join(OUT, f));
+// Página 404 propia (la usa el .htaccess). Rutas absolutas porque se sirve en cualquier URL.
+fs.writeFileSync(path.join(OUT, "404.html"), seo("404", page({ title: `Página no encontrada · ${SITE}`, desc: "Esta página no existe o ha cambiado de dirección. Busca el tema o elige tu curso.", depth: 0,
+  body: `<main><div class="wrap" style="padding:40px 0 64px"><div class="page-h"><h1>Esta página no existe</h1><p>Puede que el tema haya cambiado de dirección. Búscalo aquí o elige tu curso.</p></div>
+  <form class="search" id="search" role="search"><input id="q" type="search" placeholder="${I18N.es.buscarPh}" aria-label="Buscar" autocomplete="off"><button type="submit">Buscar</button></form><div class="results" id="results" aria-live="polite"></div>
+  <section class="stages" aria-label="Etapas y cursos"><h2>Elige tu curso</h2>${stagesHTML(0, "es")}</section></div></main>`, scripts: `<script src="./assets/indice.js"></script>` }))
+  .replace('<link rel="canonical" href="https://escolapedia.com/404/">', '<meta name="robots" content="noindex">').replace(/(href|src)="\.\//g, '$1="/').replace('window.BASE="./"', 'window.BASE="/"'));
 fs.writeFileSync(path.join(OUT, "assets/indice.js"), `window.INDICE=${JSON.stringify(indice)};`);
 
 // ---------- sitemap.xml y robots.txt (se rehacen en cada publicación) ----------
-const SITIO = "https://escolapedia.com";
 const urls = [...new Set(PAGINAS.map((r) => r.replace(/\\/g, "/").replace(/^\/+|\/+$/g, "")))]
   .filter((r) => !/(^|\/)ficha$/.test(r))
-  .sort()
-  .map((r) => `<url><loc>${SITIO}/${r ? r + "/" : ""}</loc></url>`);
-fs.writeFileSync(path.join(OUT, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join("\n")}\n</urlset>\n`);
+  .sort();
+// lastmod: la fecha cambia solo cuando cambia el contenido de la página (se guarda una huella por URL).
+const LM_F = path.join(__dirname, "tools/lastmod.json");
+const LM = fs.existsSync(LM_F) ? JSON.parse(fs.readFileSync(LM_F, "utf8")) : {};
+const HOY = new Date().toISOString().slice(0, 10);
+for (const r of Object.keys(HASH)) if (!LM[r] || LM[r].h !== HASH[r]) LM[r] = { h: HASH[r], d: HOY };
+if (!process.env.PREVIEW) fs.writeFileSync(LM_F, JSON.stringify(LM, null, 0).replace(/\},"/g, '},\n"'));
+const urlsXml = urls.map((r) => `<url><loc>${SITIO}/${r ? r + "/" : ""}</loc>${LM[r] ? `<lastmod>${LM[r].d}</lastmod>` : ""}</url>`);
+fs.writeFileSync(path.join(OUT, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urlsXml.join("\n")}\n</urlset>\n`);
 fs.writeFileSync(path.join(OUT, "robots.txt"), `User-agent: *\nAllow: /\n\nSitemap: ${SITIO}/sitemap.xml\nSitemap: ${SITIO}/sitemap-blog.xml\n`);
 
 console.log(`Hecho: ${ETAPAS.length} etapas, ${nMaterias} materias, ${nTemas} temas en lista, ${nListos} temas completos.`);
