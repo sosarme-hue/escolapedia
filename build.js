@@ -12,6 +12,7 @@ const crypto = require("crypto");
 
 const ORD = ["1er", "2º", "3er"];
 // Huella de app.js: cambia el ?v= solo cuando cambia el fichero (evita que el navegador use una copia vieja).
+const V_CSS = crypto.createHash("md5").update(fs.readFileSync(path.join(__dirname, "src/assets/base.css")) + fs.readFileSync(path.join(__dirname, "src/assets/extra.css"))).digest("hex").slice(0, 8);
 const V_APP = crypto.createHash("md5").update(fs.readFileSync(path.join(__dirname, "src/assets/app.js"))).digest("hex").slice(0, 8);
 const PAU_MATERIAS = require("./src/pau").MATERIAS;
 const slug = (t) => t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -65,8 +66,8 @@ function page({ title, desc, depth, body, lang = "es", nav = "", extraHead = "",
 <meta name="description" content="${esc(desc)}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
-<link rel="stylesheet" href="${r}assets/base.css">
-<link rel="stylesheet" href="${r}assets/extra.css">
+<link rel="stylesheet" href="${r}assets/base.css?v=${V_CSS}">
+<link rel="stylesheet" href="${r}assets/extra.css?v=${V_CSS}">
 ${extraHead}
 </head>
 <body${bodyClass ? ` class="${bodyClass}"` : ""}>
