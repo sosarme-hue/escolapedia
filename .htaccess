@@ -25,6 +25,10 @@ RewriteRule ^(.*)$ dist/$1 [L]
   Header always set X-Frame-Options "SAMEORIGIN"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+  # Las páginas se comprueban siempre con el servidor, para que los cambios se vean sin borrar la caché.
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
 </IfModule>
 
 <IfModule mod_expires.c>
