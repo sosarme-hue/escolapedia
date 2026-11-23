@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("lg",{"lgtbi":[964,1355,1403,2051],"lgtbifobia":[964]});

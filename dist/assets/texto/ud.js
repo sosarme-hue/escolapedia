@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("ud",{"uderzo":[672],"udolava":[1144],"udolfo":[1568]});

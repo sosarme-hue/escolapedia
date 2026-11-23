@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("nd",{"ndae":[1870],"ndas":[1870],"ndis":[1870],"ndorum":[1870],"ndos":[1870],"ndsi":[2116],"ndum":[1870],"ndvi":[2116],"ndwi":[2116]});

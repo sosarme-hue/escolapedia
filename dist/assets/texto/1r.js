@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("1r",{"1rem":[1696,2135]});

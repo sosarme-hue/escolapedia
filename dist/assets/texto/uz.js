@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("uz",{"uzbekistan":[724,1562]});

@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("pd",{"pdca":[1652,1839]});

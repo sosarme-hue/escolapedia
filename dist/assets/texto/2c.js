@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("2c",{"2cos":[1457,1762]});

@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("x5",{"x5crni18":[1842]});

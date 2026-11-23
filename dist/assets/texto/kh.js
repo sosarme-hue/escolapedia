@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("kh",{"khan":[1568],"khoomei":[570,1997],"khorana":[1803],"khorus":[1323]});

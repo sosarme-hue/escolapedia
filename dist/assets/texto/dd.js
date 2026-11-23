@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("dd",{"dddaa":[1235],"ddos":[1301,2138],"ddr4":[1692],"ddr5":[1692]});

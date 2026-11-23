@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("pm",{"pm10":[1051],"pmgc":[1544],"pmgs":[1544],"pmma":[1792],"pmus":[2126]});

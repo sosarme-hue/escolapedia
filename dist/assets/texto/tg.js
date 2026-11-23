@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("tg",{"tgfu":[1437],"tgss":[2105]});

@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("gj",{"gjeilo":[1634,1998],"gjon":[670]});

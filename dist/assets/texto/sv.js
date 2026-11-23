@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("sv",{"svalbard":[1483,2123],"svante":[1785,1788],"svelte":[2136],"svetlana":[1572]});

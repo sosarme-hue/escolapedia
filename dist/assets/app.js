@@ -31,6 +31,7 @@
     }
     return p[m];
   }
+  const COMUNES = new Set("como para pero sobre entre desde hasta cada todo toda todos todas este esta estos estas muy mas tambien donde cuando porque".split(" "));
   const sing = (x) => x.replace(/(es|s)$/, "");
   // Puntuación de una palabra escrita (q) frente a una palabra del índice (w).
   function sc(q, w, relax) {
@@ -41,16 +42,37 @@
     if (q.length >= 4 && w.includes(q)) return 5;
     const min = relax ? 3 : 4;
     if (q.length < min) return 0;
-    if (q[0] !== w[0] && q[1] !== w[1]) return 0; // casi nadie se equivoca en las dos primeras letras
+    if (q[0] !== w[0] && !(q[0] === w[1] && q[1] === w[0])) return 0; // casi nadie se equivoca en la primera letra
+    if (COMUNES.has(w) || (w.length < q.length && q.length < 6)) return 0; // «cosmo» no es «como»
     const max = q.length < 4 ? 1 : (q.length >= 8 ? 2 : 1) + (relax ? 1 : 0);
     let d = dist(q, w, max);
     for (const k of [q.length - 1, q.length, q.length + 1]) if (k >= 3 && k < w.length) d = Math.min(d, dist(q, w.slice(0, k), max));
-    return d > max ? 0 : d === 0 ? 8 : d === 1 ? 6 : 3;
+    return d > max ? 0 : d === 0 ? 8 : d === 1 ? 6 : 2;
   }
 
   // ---------- índice ----------
   let IX = null, VOC = null, VW = null, KW = false;
   const CACHE = new Map();
+  // Texto completo de los temas: índice inverso repartido en ficheros por las dos primeras letras (se cargan al buscar).
+  const TX = {}, TXC = new Map(), pideTx = new Set();
+  W.EPTX = (k, v) => { TX[k] = v; activos.forEach((f) => f()); };
+  function enTexto(t) {
+    const k = t.slice(0, 2), sh = TX[k];
+    if (!sh) return null;
+    if (TXC.has(t)) return TXC.get(t);
+    const r = new Map();
+    for (const w in sh) { const v = sc(t, w); if (v < 8) continue; /* en el texto, solo palabras exactas, que empiezan igual o en plural */ for (const i of sh[w]) { const o = r.get(i); if (!o || o.s < v) r.set(i, { s: v, w }); } }
+    if (TXC.size > 40) TXC.clear();
+    TXC.set(t, r); return r;
+  }
+  function pedirTexto(toks) {
+    for (const t of toks) {
+      if (t.length < 3 || /^\d/.test(t)) continue;
+      const k = t.slice(0, 2);
+      if (TX[k] || pideTx.has(k)) continue;
+      pideTx.add(k); js(`texto/${k}.js`, () => {});
+    }
+  }
   const ids = (t) => norm(t).split(" ").filter(Boolean).map((w) => { let i = VOC.get(w); if (i === undefined) { i = VW.length; VOC.set(w, i); VW.push(w); } return i; });
   function preparar() {
     const X = W.EPIX; VOC = new Map(); VW = [];
@@ -150,15 +172,22 @@
     });
     out.materias = [...grupos.values()].sort((a, b) => b.s - a.s);
     if (out.materias.length) { const top = out.materias[0].s; out.materias = out.materias.filter((g) => g.s >= top * 0.55); }
-    // Temas: cuenta más el título, después la materia y las palabras clave del tema.
+    // Temas: cuenta más el título, después la materia, las palabras clave y, por último, el texto del tema.
+    const tx = relax ? [] : toks.map(enTexto);
     IX.T.forEach((t, i) => {
       const m = IX.M[t.m];
       if (!okCurso(m.c)) return;
-      const parts = toks.map((_, k) => Math.max(3 * mejor(k, t.w), 2 * mejor(k, m.w), 1.4 * mejor(k, t.k)));
+      let en = null;
+      const parts = toks.map((_, k) => {
+        const v = Math.max(3 * mejor(k, t.w), 2 * mejor(k, m.w), 1.4 * mejor(k, t.k));
+        if (v || !tx[k]) return v;
+        const h = tx[k].get(i); if (!h) return 0;
+        en = en || h.w; return 0.9 * h.s;
+      });
       let s = total(parts);
       if (!s) return;
       s = (s + bonus(t.t)) * suave(m.c);
-      out.temas.push({ t, m, s, i });
+      out.temas.push({ t, m, s, i, en });
     });
     out.temas.sort((a, b) => b.s - a.s || a.i - b.i);
     // Otras páginas (PAU, familias, profesores).
@@ -195,7 +224,7 @@
     if (R.materias.length) S.materias = `<div class="rs-sec"><h4>Materias</h4>${R.materias.slice(0, 4).map((g) => `<div class="rs-mat"><span class="rs-name">${resaltar(g.n, toks)}</span><span class="rs-chips">${g.ms.sort((a, b) => a.c - b.c).map(chip).join("")}</span></div>`).join("")}</div>`;
     if (R.temas.length) {
       const n = mas ? 60 : 8, ts = R.temas.slice(0, n);
-      S.temas = `<div class="rs-sec"><h4>Temas <small>${R.temas.length}</small></h4>${ts.map((x) => `<a class="rs-t" href="${url(x.m.u + slug(x.t.t) + "/")}">${resaltar(x.t.t, toks)}<small>${esc(x.m.n)} · ${esc(IX.C[x.m.c][0])}</small></a>`).join("")}${R.temas.length > n ? `<button type="button" class="rs-more">Ver ${Math.min(R.temas.length, 60) - n} temas más</button>` : ""}</div>`;
+      S.temas = `<div class="rs-sec"><h4>Temas <small>${R.temas.length}</small></h4>${ts.map((x) => `<a class="rs-t" href="${url(x.m.u + slug(x.t.t) + "/")}">${resaltar(x.t.t, toks)}<small>${esc(x.m.n)} · ${esc(IX.C[x.m.c][0])}${x.en ? ` · en el texto: «${esc(x.en)}»` : ""}</small></a>`).join("")}${R.temas.length > n ? `<button type="button" class="rs-more">Ver ${Math.min(R.temas.length, 60) - n} temas más</button>` : ""}</div>`;
     }
     for (const k of R.orden || ["paginas"]) h += S[k] || "";
     out.innerHTML = h;
@@ -206,6 +235,7 @@
   function ejecutar(input, out) {
     const q = input.value;
     if (norm(q).replace(/ /g, "").length < 3) { out.innerHTML = q.trim() ? `<small class="rs-hint">Escribe al menos 3 letras.</small>` : ""; return; }
+    pedirTexto(leer(q).toks);
     let R = buscar(q);
     if (pintar(out, R, q)) return;
     R = buscar(q, true);
@@ -392,4 +422,28 @@
     $("ex-check").hidden = true; document.querySelector(".examen").classList.add("corregido");
     r.scrollIntoView({ behavior: "smooth" });
   });
+})();
+
+/*fbbox 2026-11-23: recuadro Síguenos en Facebook*/
+window.__FBBOX={url:'https://www.facebook.com/profile.php?id=61596961436318',def:'es',bg:'#1f4fd1',fg:'#fff',btn:'#ffe76a',btnfg:'#1b2235',
+t:{es:['Síguenos en Facebook','Cada día, trucos para estudiar, retos para toda la familia y los temas nuevos de Escolapedia.','Seguir en Facebook']}};
+/* Recuadro «Síguenos en Facebook» (se añade al final del JS común de cada web) */
+(function () {
+  var C = window.__FBBOX; if (!C || document.getElementById('fbbox')) return;
+  var lang = (document.documentElement.lang || 'es').slice(0, 2);
+  var T = C.t[lang] || C.t[C.def];
+  var css = '#fbbox{max-width:' + (C.max || 1100) + 'px;margin:32px auto 24px;padding:0 16px;box-sizing:border-box;font-family:inherit}' +
+    '#fbbox .fbb{display:flex;align-items:center;gap:18px;flex-wrap:wrap;background:' + C.bg + ';color:' + C.fg + ';border-radius:16px;padding:20px 22px;box-shadow:0 4px 18px rgba(0,0,0,.08)}' +
+    '#fbbox .fbi{flex:none;width:52px;height:52px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center}' +
+    '#fbbox .fbt{flex:1 1 260px;min-width:0}#fbbox .fbt b{display:block;font-size:1.15em;margin-bottom:4px;color:' + C.fg + '}' +
+    '#fbbox .fbt span{opacity:.9;font-size:.97em;line-height:1.45}' +
+    '#fbbox a.fbbtn{box-sizing:border-box;flex:none;display:inline-flex;align-items:center;gap:8px;background:' + C.btn + ';color:' + C.btnfg + ';text-decoration:none;font-weight:700;padding:12px 20px;border-radius:999px;font-size:1em;white-space:nowrap}' +
+    '#fbbox a.fbbtn:hover{filter:brightness(1.08)}@media(max-width:560px){#fbbox a.fbbtn{width:100%;justify-content:center}}';
+  var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
+  var ico = '<svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path fill="#1877F2" d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v2.9h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg>';
+  var d = document.createElement('section'); d.id = 'fbbox'; d.setAttribute('aria-label', 'Facebook');
+  d.innerHTML = '<div class="fbb"><div class="fbi">' + ico + '</div><div class="fbt"><b>' + T[0] + '</b><span>' + T[1] + '</span></div>' +
+    '<a class="fbbtn" href="' + C.url + '" target="_blank" rel="noopener">' + T[2] + ' →</a></div>';
+  function put() { var f = document.querySelector('footer'); if (f && f.parentNode) f.parentNode.insertBefore(d, f); else document.body.appendChild(d); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', put); else put();
 })();

@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("ua",{"uagadugu":[1375,1675],"uapities":[618],"uart":[1513,1849],"uaso":[394,494],"uats":[66]});

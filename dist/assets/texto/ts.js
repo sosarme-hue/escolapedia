@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("ts",{"tsar":[1528],"tschermak":[1274],"tsunami":[311,736,1775,1812,2036],"tsunamis":[311,736,1058,1279,1812,1897,2036,2125],"tsvetaieva":[1571]});

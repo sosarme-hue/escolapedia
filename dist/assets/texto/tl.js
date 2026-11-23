@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("tl",{"tlaloc":[1960],"tlatelolco":[1208,1713],"tlaxcala":[460],"tlaxcaltecas":[1067]});

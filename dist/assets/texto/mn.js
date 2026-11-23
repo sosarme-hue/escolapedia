@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("mn",{"mnac":[566,895,1910,2050],"mncl":[1789],"mnemotecnia":[2094],"mnemotecnias":[2094],"mnemotecnica":[998,1858,2070],"mnemotecnicas":[913],"mnesicles":[1907],"mnouchkine":[1405,1983,2025]});

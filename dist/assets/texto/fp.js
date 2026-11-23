@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("fp",{"fpeir":[2127],"fpga":[1511,1848,1849]});

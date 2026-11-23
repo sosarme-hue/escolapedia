@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("nk",{"nkisi":[1960],"nkrumah":[1561],"nkvd":[1242]});

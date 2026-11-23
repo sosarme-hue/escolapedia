@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("oq",{"oquedad":[329,913,1074],"oques":[292,700]});

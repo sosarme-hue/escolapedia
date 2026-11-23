@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("hv",{"hvdc":[1847]});

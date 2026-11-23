@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("mg",{"mgcl":[1285,1789]});

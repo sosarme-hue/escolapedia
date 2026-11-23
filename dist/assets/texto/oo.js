@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("oo",{"oodness":[1368],"oolitas":[1818],"oooiaaa":[1632],"ooooh":[252,310],"ooooo":[183],"oops":[454],"oort":[1769],"oosfera":[1486]});

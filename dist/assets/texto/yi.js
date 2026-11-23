@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("yi",{"yihadismo":[1562,2086],"yihadista":[1249,1562,1682,1725],"yihadistas":[1248,1249,1725],"ying":[1259],"yinka":[2040,2045]});

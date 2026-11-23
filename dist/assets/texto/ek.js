@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("ek",{"ekain":[418],"ekaterimburgo":[1556],"ekecheiria":[1012],"ekklesia":[742,851,965,1009,1175,1379,1393,1727,2082],"ekkyklema":[1399,2017],"ekman":[1257,1400,1930,2097],"ekri":[1369],"ekrit":[1671],"ekriv":[1369]});

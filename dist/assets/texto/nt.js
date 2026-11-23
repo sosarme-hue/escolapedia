@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("nt",{"ntadura":[422],"ntastico":[364],"ntensidad":[464,1690],"ntfs":[1298,1692],"ntis":[1869],"ntista":[422],"ntual":[987],"ntur":[1325,1532,1866]});

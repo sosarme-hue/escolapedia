@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("hs",{"hsub":[1782]});

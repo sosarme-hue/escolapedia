@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("wl",{"wlan":[1693]});

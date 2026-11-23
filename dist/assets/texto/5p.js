@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("5p",{"5pointz":[2049]});

@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("lv",{"lvaro":[429],"lvov":[1556]});

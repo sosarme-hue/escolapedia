@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("kb",{"kbps":[949,1337]});

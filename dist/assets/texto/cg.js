@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("cg",{"cgac":[2050]});

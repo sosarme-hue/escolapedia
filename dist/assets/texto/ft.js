@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("ft",{"ftalatos":[1792],"ftalocianinas":[1945],"ftth":[1693]});

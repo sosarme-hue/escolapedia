@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("wy",{"wyatt":[1565],"wyclif":[896],"wyeth":[1951]});

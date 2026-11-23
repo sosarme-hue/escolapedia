@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("vm",{"vmax":[1797,1847],"vmware":[1298]});

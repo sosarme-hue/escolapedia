@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("dn",{"dnie":[1304,1691],"dnieper":[623]});

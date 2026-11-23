@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("ry",{"ryan":[2097],"rydberg":[1778,1780],"ryle":[1423,1740],"ryszard":[2025],"rytz":[1827,1835]});

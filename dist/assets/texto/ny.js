@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("ny",{"nyam":[287,489,596,837,1147,1662],"nyap":[596],"nygaard":[2131],"nyigui":[1146],"nyogui":[1146],"nyos":[1812],"nyquist":[949,1511,1695]});

@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("rf",{"rfid":[2106]});

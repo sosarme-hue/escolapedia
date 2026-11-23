@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("kw",{"kwame":[1561],"kwargs":[2128],"kwattuor":[1323]});

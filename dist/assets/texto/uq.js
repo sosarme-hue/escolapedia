@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("uq",{"uqlidisi":[650]});

@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("lt",{"ltos":[1633],"ltura":[464]});

@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("mq",{"mqtt":[1513,1852]});

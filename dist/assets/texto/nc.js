@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("nc",{"nclosing":[2128],"ncse":[1812,2036]});

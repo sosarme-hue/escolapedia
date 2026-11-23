@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("fn",{"fnmt":[1691,2105]});

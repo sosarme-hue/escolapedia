@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("ui",{"uicn":[1483,2123],"uidi":[1528],"uido":[915],"uieres":[328],"uigures":[1682,2086],"uiki":[1528],"uilt":[2128],"uines":[386],"uinum":[1528]});

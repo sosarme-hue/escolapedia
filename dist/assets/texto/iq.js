@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("iq",{"iqbal":[694],"ique":[151,235]});

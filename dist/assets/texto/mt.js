@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("mt",{"mtbo":[581],"mtn25":[1892],"mtn50":[1892],"mtsensk":[2011]});

@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("fc",{"fcmax":[933,1251,1252,1685,1690],"fcreposo":[1685]});

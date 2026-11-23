@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("ug",{"ugaba":[310],"uganda":[898],"ugar":[1299],"ugarit":[2001,2002],"ugia":[915],"ugly":[820,978],"ugolino":[1564]});

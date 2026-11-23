@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("uo",{"uocht":[822],"uokt":[550],"uontid":[660,822],"uoshis":[816],"uosht":[822],"uosnt":[549,821],"uoter":[70,256]});

@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("wc",{"wcag":[1696,1940,2135]});

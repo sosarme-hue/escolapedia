@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("bd",{"bdim":[1338],"bdnf":[1435]});

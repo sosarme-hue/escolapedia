@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("rn",{"rner":[987]});

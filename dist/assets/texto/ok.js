@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("ok",{"okamurae":[1483,2123],"okazaki":[1803],"okinawa":[1245,1559,1690],"oklahoma":[1557],"okuda":[362,674,2049],"okun":[1647]});

@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("rt",{"rtal":[422],"rtaleza":[422],"rtero":[422,906],"rtisimo":[422],"rtve":[632,2000]});

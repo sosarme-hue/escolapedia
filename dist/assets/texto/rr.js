@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("rr",{"rraton":[151],"rreal":[233,428,486],"rrer":[987],"rretera":[235],"rrggbb":[1316],"rrojo":[525,751,906,1702],"rros":[987],"rrrr":[151,235],"rrrrana":[151],"rrrrosa":[151],"rrrrr":[235],"rrrrrr":[151]});

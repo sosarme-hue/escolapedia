@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("lx",{"lxxvi":[1203,1420]});

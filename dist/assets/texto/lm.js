@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("lm",{"lm35":[1189]});

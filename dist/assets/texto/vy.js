@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("vy",{"vygotsky":[2095]});

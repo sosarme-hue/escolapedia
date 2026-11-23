@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("qg",{"qgis":[1892,2116]});

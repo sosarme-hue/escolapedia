@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("cz",{"czernowin":[2012]});

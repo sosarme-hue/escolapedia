@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("qq",{"qqch":[2070]});

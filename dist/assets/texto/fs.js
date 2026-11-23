@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("fs",{"fsss":[180,270]});

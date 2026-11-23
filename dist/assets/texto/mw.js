@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("mw",{"mwen":[1375]});

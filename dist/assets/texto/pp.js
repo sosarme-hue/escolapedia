@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("pp",{"pplln":[287],"pptx":[1129,1694]});

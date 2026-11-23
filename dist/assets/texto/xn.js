@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("xn",{"xnor":[1511,1848]});

@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("xl",{"xlsx":[1129,1694],"xlvii":[433,762]});

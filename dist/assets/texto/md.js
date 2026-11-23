@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("md",{"mdeterm":[1854],"mdma":[2092]});

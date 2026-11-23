@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("dw",{"dwan":[2043],"dweck":[693,1348,1648,2096]});

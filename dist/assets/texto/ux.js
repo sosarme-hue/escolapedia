@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("ux",{"uxia":[359]});

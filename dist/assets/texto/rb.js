@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("rb",{"rbol":[142,226],"rbre":[286]});

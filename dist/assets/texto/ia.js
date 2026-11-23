@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("ia",{"iaaa":[494],"iaas":[1298,1691,1852],"iacere":[1535],"iacio":[1532],"iacta":[1175,1328,1533,1875,1876],"iactus":[1533],"iaia":[985,1150,1361],"iais":[532],"iami":[70],"iamos":[756],"iannis":[2012],"ianuarius":[1330],"ianus":[1330],"iars":[69,258]});

@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("gb",{"gbps":[957,1128]});

@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("gy",{"gyal":[1334],"gymnase":[711,994,1158],"gymnastics":[352,450,668,826,979],"gymnastique":[712,999],"gymnopedies":[1612,2011],"gynt":[944,2010,2022],"gyorgy":[1998,2012]});

@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("sz",{"szeemann":[2050],"szilard":[1845],"szpunberg":[2066]});

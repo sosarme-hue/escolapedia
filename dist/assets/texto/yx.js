@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("yx",{"yxart":[1363,1668]});

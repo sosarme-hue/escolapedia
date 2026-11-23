@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("gw",{"gwangju":[2040]});

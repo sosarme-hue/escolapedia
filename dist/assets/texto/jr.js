@@ -1,0 +1,1 @@
+window.EPTX&&EPTX("jr",{"jruschov":[1246,1560]});
