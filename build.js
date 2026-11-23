@@ -11,6 +11,8 @@ const SITIO = "https://escolapedia.com";
 const crypto = require("crypto");
 
 const ORD = ["1er", "2º", "3er"];
+// Huella de app.js: cambia el ?v= solo cuando cambia el fichero (evita que el navegador use una copia vieja).
+const V_APP = crypto.createHash("md5").update(fs.readFileSync(path.join(__dirname, "src/assets/app.js"))).digest("hex").slice(0, 8);
 const PAU_MATERIAS = require("./src/pau").MATERIAS;
 const slug = (t) => t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 const esc = (t) => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -26,8 +28,8 @@ for (const f of fs.readdirSync(path.join(__dirname, "src/temas"))) {
 
 // ---------- plantilla ----------
 const I18N = {
-  es: { inicio: "Inicio", familias: "Familias", profesores: "Profesores", buscar: "Buscar", buscarPh: "Busca un tema: fotosíntesis, fracciones…" },
-  ca: { inicio: "Inici", familias: "Famílies", profesores: "Professorat", buscar: "Cercar", buscarPh: "Cerca un tema: fotosíntesi, fraccions…" },
+  es: { inicio: "Inicio", familias: "Familias", profesores: "Profesores", buscar: "Buscar", buscarPh: "Busca materia o tema: fracciones, 2 ESO historia…" },
+  ca: { inicio: "Inici", familias: "Famílies", profesores: "Professorat", buscar: "Cercar", buscarPh: "Cerca matèria o tema: fraccions, 2 ESO història…" },
 };
 
 // Partes opcionales de un tema ampliado: ejemplos resueltos, errores típicos y ejercicios con solución.
@@ -78,14 +80,19 @@ ${extraHead}
     <a href="${r}pau/"${nav === "pau" ? ' class="on"' : ""}>PAU</a>
     <a href="${r}blog/">Blog</a>
   </nav>
-</div></header>
+  <button type="button" class="bs-open" id="bs-open" aria-label="${t.buscar}" aria-expanded="false" aria-controls="bs-panel"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+</div>
+<div class="bs-panel" id="bs-panel" hidden><div class="wrap">
+  <form class="search" role="search" data-search><input type="search" placeholder="${t.buscarPh}" aria-label="${t.buscar}" autocomplete="off" spellcheck="false"><button type="submit">${t.buscar}</button></form>
+  <div class="results" aria-live="polite"></div>
+</div></div></header>
 ${body}
 <footer class="foot"><div class="wrap">${SITE} · Todas las materias de Infantil a Bachillerato según la LOMLOE, curso ${CURSO_ESCOLAR}. Contenido gratuito, revisado con fuentes oficiales. Dibujos propios.<br><small>Escolapedia es un refuerzo: no sustituye al profesorado ni a los centros. <a href="${r}quien-esta-detras/">Quién está detrás</a> · <a href="${r}aviso-legal/">Aviso legal</a> · <a href="${r}privacidad/">Privacidad</a> · <a href="#" data-cookies>Cookies</a> · Contacto: <a href="mailto:info@escolapedia.com" style="display:inline">info@escolapedia.com</a></small><br><small>© 2026 Alejandro Rosàs · Contenido bajo licencia <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.es" rel="license noopener" style="display:inline">CC BY-NC 4.0</a>, salvo indicación en contrario</small></div></footer>
 <div class="cookies" id="cookies" hidden><p>Usamos Google Analytics para saber cuántas personas visitan Escolapedia. Solo se activa si lo aceptas. <a href="${r}privacidad/">Más información</a></p><div><button type="button" data-ck="no">Rechazar</button><button type="button" data-ck="si">Aceptar</button></div></div>
 <script>(function(){var ID="${GA_ID}",K="ep-cookies",b=document.getElementById("cookies");function get(){try{return localStorage.getItem(K)}catch(e){return null}}function set(v){try{localStorage.setItem(K,v)}catch(e){}}function load(){if(window.gtag)return;window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag("js",new Date());gtag("config",ID,{anonymize_ip:true});var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id="+ID;document.head.appendChild(s)}var v=get();if(v==="si")load();else if(v!=="no")b.hidden=false;b.addEventListener("click",function(e){var c=e.target.getAttribute("data-ck");if(!c)return;set(c);b.hidden=true;if(c==="si")load();else{document.cookie.split(";").forEach(function(x){var n=x.split("=")[0].trim();if(/^_ga/.test(n))document.cookie=n+"=;Max-Age=0;path=/;domain=."+location.hostname.replace(/^www\./,"")})}});document.querySelectorAll("[data-cookies]").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();b.hidden=false})})})();</script>
-<script>window.BASE=${JSON.stringify(r)};window.IDX=${JSON.stringify(process.env.PREVIEW ? "index.html" : "")};</script>
+<script>window.BASE=${JSON.stringify(r)};window.IDX=${JSON.stringify(process.env.PREVIEW ? "index.html" : "")};window.EPV="${IX.version}";</script>
 ${scripts}
-<script src="${r}assets/app.js"></script>
+<script src="${r}assets/app.js?v=${V_APP}"></script>
 </body></html>`;
 }
 
@@ -143,8 +150,10 @@ function seo(rel, html) {
   html = html.replace(/(<meta name="description" content="[^"]*">)/, `$1\n${head}\n${ld}`.replace(/\n$/, ""));
   return html;
 }
+const TITULOS = {};
 function write(rel, html) {
   PAGINAS.push(rel);
+  TITULOS[rel.replace(/\\/g, "/").replace(/^\/+|\/+$/g, "")] = ((html.match(/<title>([\s\S]*?)<\/title>/) || [])[1] || "").replace(/ · Escolapedia$/, "");
   html = seo(rel, html);
   HASH[rel.replace(/\\/g, "/").replace(/^\/+|\/+$/g, "")] = crypto.createHash("md5").update(html).digest("hex").slice(0, 10);
   // Vista previa (PREVIEW=1): enlaces a carpeta → index.html, para verla sin servidor web.
@@ -155,7 +164,6 @@ function write(rel, html) {
 }
 
 // ---------- recorrido y URLs ----------
-const indice = [];
 let nTemas = 0, nListos = 0, nMaterias = 0;
 for (const e of ETAPAS) for (const c of e.cursos) for (const m of c.materias) {
   nMaterias++;
@@ -165,10 +173,12 @@ for (const e of ETAPAS) for (const c of e.cursos) for (const m of c.materias) {
     const obj = TEMAS[`${c.slug}|${m.nombre}|${t}`];
     nTemas++; if (obj) nListos++;
     const u = `${m.url}${slug(t)}/`;
-    indice.push({ t, m: m.nombre, c: c.largo || `Infantil ${c.nombre}`, u, ok: !!obj });
     return { titulo: t, url: u, obj };
   });
 }
+
+// Índice del buscador (su huella va en cada página para que el navegador no use uno viejo).
+const IX = require("./src/buscador").preparar({ ETAPAS, TEMAS });
 
 const GRUPOS = [["comun", "Materias comunes"], ["lengua", "Lenguas"], ["modalidad", "Materias de modalidad"], ["opcion", "Optativas, opciones y Religión"]];
 const famColor = (m) => (FAM[m.fam] || FAM.len).c;
@@ -198,7 +208,7 @@ function home(lang) {
     <div>
       <h1>${ca ? `Tota l'escola, <span class="u">curs a curs</span>, explicada fàcil.` : `Todo el cole, <span class="u">curso a curso</span>, explicado fácil.`}</h1>
       <p>${ca ? `D'Infantil a 2n de Batxillerat, amb totes les matèries del currículum ${CURSO_ESCOLAR}, vídeos, dibuixos i un mètode d'estudi que funciona de veritat.` : `De Infantil a 2º de Bachillerato, con todas las materias del currículo ${CURSO_ESCOLAR}, vídeos, dibujos y un método de estudio que de verdad funciona.`}</p>
-      <form class="search" id="search" role="search"><input id="q" type="search" placeholder="${t.buscarPh}" aria-label="${t.buscar}" autocomplete="off"><button type="submit">${t.buscar}</button></form>
+      <form class="search" id="search" role="search" data-search><input id="q" type="search" placeholder="${t.buscarPh}" aria-label="${t.buscar}" autocomplete="off" spellcheck="false"><button type="submit">${t.buscar}</button></form>
       <div class="results" id="results" aria-live="polite"></div>
     </div>
     <aside class="method" aria-label="Método">
@@ -217,7 +227,7 @@ function home(lang) {
     <p class="caption">${nMaterias} ${ca ? "matèries" : "materias"} · ${nListos} ${ca ? "temes complets" : "temas completos"} ${ca ? "i creixent" : "y creciendo"}. ${ca ? "Els cursos en color ja tenen els temes complets." : "Los cursos en color ya tienen sus temas completos; el resto, en preparación."}</p>
   </section>
 </div></main>`;
-  return page({ title: ca ? "Escolapedia: totes les matèries d'Infantil a Batxillerat" : "Escolapedia: todas las materias de Infantil a Bachillerato", desc: "Todas las materias de Infantil, Primaria, ESO y Bachillerato explicadas fácil, con vídeos, dibujos y un método de estudio eficaz.", depth, body, lang, scripts: `<script src="${r}assets/indice.js"></script>` });
+  return page({ title: ca ? "Escolapedia: totes les matèries d'Infantil a Batxillerat" : "Escolapedia: todas las materias de Infantil a Bachillerato", desc: "Todas las materias de Infantil, Primaria, ESO y Bachillerato explicadas fácil, con vídeos, dibujos y un método de estudio eficaz.", depth, body, lang, scripts: `` });
 }
 write("", home("es"));
 
@@ -461,10 +471,10 @@ for (const f of ["favicon.svg", "favicon.ico", "apple-touch-icon.png"]) fs.copyF
 // Página 404 propia (la usa el .htaccess). Rutas absolutas porque se sirve en cualquier URL.
 fs.writeFileSync(path.join(OUT, "404.html"), seo("404", page({ title: `Página no encontrada · ${SITE}`, desc: "Esta página no existe o ha cambiado de dirección. Busca el tema o elige tu curso.", depth: 0,
   body: `<main><div class="wrap" style="padding:40px 0 64px"><div class="page-h"><h1>Esta página no existe</h1><p>Puede que el tema haya cambiado de dirección. Búscalo aquí o elige tu curso.</p></div>
-  <form class="search" id="search" role="search"><input id="q" type="search" placeholder="${I18N.es.buscarPh}" aria-label="Buscar" autocomplete="off"><button type="submit">Buscar</button></form><div class="results" id="results" aria-live="polite"></div>
-  <section class="stages" aria-label="Etapas y cursos"><h2>Elige tu curso</h2>${stagesHTML(0, "es")}</section></div></main>`, scripts: `<script src="./assets/indice.js"></script>` }))
+  <form class="search" id="search" role="search" data-search><input id="q" type="search" placeholder="${I18N.es.buscarPh}" aria-label="Buscar" autocomplete="off" spellcheck="false"><button type="submit">Buscar</button></form><div class="results" id="results" aria-live="polite"></div>
+  <section class="stages" aria-label="Etapas y cursos"><h2>Elige tu curso</h2>${stagesHTML(0, "es")}</section></div></main>`, scripts: `` }))
   .replace('<link rel="canonical" href="https://escolapedia.com/404/">', '<meta name="robots" content="noindex">').replace(/(href|src)="\.\//g, '$1="/').replace('window.BASE="./"', 'window.BASE="/"'));
-fs.writeFileSync(path.join(OUT, "assets/indice.js"), `window.INDICE=${JSON.stringify(indice)};`);
+require("./src/buscador").escribir(IX, { TITULOS, OUT });
 
 // ---------- sitemap.xml y robots.txt (se rehacen en cada publicación) ----------
 const urls = [...new Set(PAGINAS.map((r) => r.replace(/\\/g, "/").replace(/^\/+|\/+$/g, "")))]

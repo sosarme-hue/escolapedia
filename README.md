@@ -95,3 +95,7 @@ Se amplía el tema que ya existe sin reescribirlo: al final del fichero se llama
 ### Nivel libro de 2º de Primaria
 
 Mismo mecanismo (`_priL`), a la medida de niños de 7 y 8 años: frases cortas y vocabulario sencillo. Se pasa `limites: L2` con `const L2 = { palabras: [1100, 1800], apartados: [13, 16], lectura: [90, 180] }`: lectura de 90 a 180 palabras y unos 6 apartados nuevos de 100 a 140 palabras. El resto igual (5 ejemplos, 6 errores, 24 ejercicios, 15 quiz, 6 examen, 10 tarjetas, glosario de 10 a 12, situación de 4 pasos, 2 vídeos). Después: `node build.js && node tools/desbordes.js 2-primaria`.
+
+## Buscador
+
+`src/buscador.js` genera `dist/assets/buscador.js` (cursos, materias, títulos de temas y páginas de PAU, familias y profesores) y `dist/assets/buscador-claves.js` (palabras clave y del glosario de cada tema). El motor está al principio de `src/assets/app.js`: busca desde 3 letras, ignora acentos, tolera errores de tecleo y singular/plural, entiende cursos («2 eso», «segundo de bachillerato», «4 años», «selectividad») y abreviaturas («mates», «fyq», «byg», «ef»). Está en la portada, en la 404 y en la lupa de la cabecera de todas las páginas; el índice solo se descarga cuando alguien va a buscar.

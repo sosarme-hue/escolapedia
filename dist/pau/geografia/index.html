@@ -37,7 +37,12 @@
     <a href="../../pau/" class="on">PAU</a>
     <a href="../../blog/">Blog</a>
   </nav>
-</div></header>
+  <button type="button" class="bs-open" id="bs-open" aria-label="Buscar" aria-expanded="false" aria-controls="bs-panel"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+</div>
+<div class="bs-panel" id="bs-panel" hidden><div class="wrap">
+  <form class="search" role="search" data-search><input type="search" placeholder="Busca materia o tema: fracciones, 2 ESO historia…" aria-label="Buscar" autocomplete="off" spellcheck="false"><button type="submit">Buscar</button></form>
+  <div class="results" aria-live="polite"></div>
+</div></div></header>
 <main><div class="wrap rec pau" style="padding-bottom:48px">
   <div class="crumbs"><a href="../../">Inicio</a> › <a href="../">PAU 2027</a> › Geografía</div>
   <div class="page-h"><span class="badge" style="background:var(--bac)">PAU 2027 · Selectividad</span><h1>Geografía en la PAU</h1><p>La geografía de España en su contexto europeo y mundial. Pondera en Geografía, Historia, Turismo, Ciencias Ambientales, Relaciones Internacionales y otros grados.</p></div>
@@ -59,7 +64,7 @@
 <footer class="foot"><div class="wrap">Escolapedia · Todas las materias de Infantil a Bachillerato según la LOMLOE, curso 2026-27. Contenido gratuito, revisado con fuentes oficiales. Dibujos propios.<br><small>Escolapedia es un refuerzo: no sustituye al profesorado ni a los centros. <a href="../../quien-esta-detras/">Quién está detrás</a> · <a href="../../aviso-legal/">Aviso legal</a> · <a href="../../privacidad/">Privacidad</a> · <a href="#" data-cookies>Cookies</a> · Contacto: <a href="mailto:info@escolapedia.com" style="display:inline">info@escolapedia.com</a></small><br><small>© 2026 Alejandro Rosàs · Contenido bajo licencia <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.es" rel="license noopener" style="display:inline">CC BY-NC 4.0</a>, salvo indicación en contrario</small></div></footer>
 <div class="cookies" id="cookies" hidden><p>Usamos Google Analytics para saber cuántas personas visitan Escolapedia. Solo se activa si lo aceptas. <a href="../../privacidad/">Más información</a></p><div><button type="button" data-ck="no">Rechazar</button><button type="button" data-ck="si">Aceptar</button></div></div>
 <script>(function(){var ID="G-DXYJCCJC31",K="ep-cookies",b=document.getElementById("cookies");function get(){try{return localStorage.getItem(K)}catch(e){return null}}function set(v){try{localStorage.setItem(K,v)}catch(e){}}function load(){if(window.gtag)return;window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag("js",new Date());gtag("config",ID,{anonymize_ip:true});var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id="+ID;document.head.appendChild(s)}var v=get();if(v==="si")load();else if(v!=="no")b.hidden=false;b.addEventListener("click",function(e){var c=e.target.getAttribute("data-ck");if(!c)return;set(c);b.hidden=true;if(c==="si")load();else{document.cookie.split(";").forEach(function(x){var n=x.split("=")[0].trim();if(/^_ga/.test(n))document.cookie=n+"=;Max-Age=0;path=/;domain=."+location.hostname.replace(/^www./,"")})}});document.querySelectorAll("[data-cookies]").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();b.hidden=false})})})();</script>
-<script>window.BASE="../../";window.IDX="";</script>
+<script>window.BASE="../../";window.IDX="";window.EPV="877aba23";</script>
 
-<script src="../../assets/app.js"></script>
+<script src="../../assets/app.js?v=8c4d52fb"></script>
 </body></html>
